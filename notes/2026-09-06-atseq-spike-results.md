@@ -1,12 +1,19 @@
 ---
 date: 2026-09-06
-status: S6 acceptance passes; awaiting independent review
+status: S6 independently approved and landed; retained acceptance snapshot
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
 ---
 
 # Atseq spike results
+
+Review annotation: the acceptance candidate `e60e603ce2f57fd0a3a85ef39c024f18533513a9`
+was independently approved and landed at `a68466608bc1f269d7296a5ed7d6d613d6cbd303`.
+The [completion record](2026-09-06-atseq-spike-completion.md) retains the exact
+review event and residual findings. Measurements below are unchanged from the
+generated acceptance snapshot. Regenerating this note restores that pre-review
+snapshot; review and landing remain recorded separately.
 
 The spike supports the proposed source and log architecture: unique applications
 load from Lexicon schemas, JSONata behavior and retained Inlay views; independent
@@ -118,6 +125,5 @@ production authentication, token renewal, subscriptions and deployment remain
 outside this spike. Archives require the named installed runtime, and missing
 upstream standalone license notices are reported as such. Notice text and replay
 instructions are retained packaging metadata, not runtime identity checks.
-Independent review of
-the exact S6 candidate and workroom landing are still required before marking
-the series complete.
+Independent review and workroom landing, which remained outstanding when this
+acceptance snapshot was generated, are now recorded in the completion note.

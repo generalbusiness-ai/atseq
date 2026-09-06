@@ -1,12 +1,17 @@
 ---
 date: 2026-09-06
-status: S5 evolution gate passes; awaiting independent review
+status: S5 independently approved and landed
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
 ---
 
 # Atseq evolution spike
+
+S5 was independently approved at `fe418e89900cb87500ca2306f3ec8d5aca3f4043`
+and landed at `6493a2bbfd25594a1d43ee89d45a2658408a7a14`. The
+[completion record](2026-09-06-atseq-spike-completion.md) also records the
+subsequent S6 acceptance and its remaining limits.
 
 S5 changes a running app through its own log. A retained definition adds a new
 action, query and view while preserving the complete state schema and existing
@@ -77,11 +82,11 @@ preserves the same pinned runtime.
 
 This slice does not migrate state schemas, change grants, delegate keys or
 provide unbounded evolution. Candidate/source-pool bounds and complete-prefix
-verification remain explicit. S6 must measure histories through 10,000 entries,
-refresh retained evidence, export complete verified archives, rebuild offline,
-produce a chart export, and exercise the adapter with an additional independently
-authored purpose-specific app. The final proceed/revise/stop decision belongs to
-that measured acceptance run and independent review.
+verification remain explicit. The subsequent S6 run measured histories through
+10,000 entries, refreshed evidence, exported verified archives, rebuilt offline,
+produced a chart export and exercised the adapter with an independently authored
+purpose-specific app. Its reviewed [results](2026-09-06-atseq-spike-results.md)
+recommend revising complete-prefix serving before use with growing histories.
 
 ## Independent review corrections
 
