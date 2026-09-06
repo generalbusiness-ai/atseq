@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5815a0f092d1228f4b86299a9ee62ec027140e64","text":"Retire my abandoned S5 candidate artifact at b070ffb for src/definition/activation.ts; independent approval of fe418e8 landed as 6493a2b, which now supplies this path."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f1491dbe2c705d9f5f48de7069d481af5f4e23c2","text":"Retire my abandoned S5 candidate artifact at b070ffb for src/client/store.ts; independent approval of fe418e8 landed as 6493a2b, which now supplies this path."}
