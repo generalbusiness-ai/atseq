@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:bd2822185be7a7dcf52d236c1bc42238440ecbec","text":"Merge retired a covered predecessor; the successor is at lexicons/test/atseq/receipt.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c05edadb813bb3480341a827f9d8bdea3b97c365","text":"Merge retired a covered predecessor; the successor is at experiments/protocol.json."}
