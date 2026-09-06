@@ -1,8 +1,10 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:09:40.393Z",
+  "measuredAt": "2026-09-06T18:12:55.372Z",
   "nodeVersion": "v26.8.1",
   "expectedCases": 13,
+  "status": "complete",
+  "startedAt": "2026-09-06T18:07:27.904Z",
   "commands": [
     {
       "command": [
@@ -12,8 +14,8 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 212.683625,
-      "log": "experiments/generated/acceptance/01.log",
+      "elapsedMs": 214.661041,
+      "log": "experiments/acceptance-logs/01.log",
       "logSha256": "f468483cbc5213047e542347dab6608ea794ee2d82177a518443f386825a747a"
     },
     {
@@ -23,9 +25,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 12617.599124999999,
-      "log": "experiments/generated/acceptance/02.log",
-      "logSha256": "a2add5cb01cfd2d1ee05bac47ed9951093b940d428bcfbdc45b117c7f33c5982"
+      "elapsedMs": 13590.479167,
+      "log": "experiments/acceptance-logs/02.log",
+      "logSha256": "b7c933e2bbddb8ed5697f87da30ff63ee906fe529c343141f0ab78c8ad3c0c11"
     },
     {
       "command": [
@@ -35,8 +37,8 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 5025.527958000001,
-      "log": "experiments/generated/acceptance/03.log",
+      "elapsedMs": 3723.3767500000013,
+      "log": "experiments/acceptance-logs/03.log",
       "logSha256": "4c1b6be0b74882bf6720bd2b4d335a481ae70641f513c0e43b1749d033dd7a39"
     },
     {
@@ -47,9 +49,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 1258.3201249999984,
-      "log": "experiments/generated/acceptance/04.log",
-      "logSha256": "8db1c90077b33481b8ff4c914ec223758a01d3d6dbd55b4d9392ed4747fef594"
+      "elapsedMs": 847.1852920000019,
+      "log": "experiments/acceptance-logs/04.log",
+      "logSha256": "e1043b2bf985975dee6bfe6a01ff1bc04f2633cd216cc6745f45ac5d116fc4b2"
     },
     {
       "command": [
@@ -59,9 +61,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 7153.496332999999,
-      "log": "experiments/generated/acceptance/05.log",
-      "logSha256": "6284beb45c3df03bbc528b8bd69c02605cd0105040d677c710b3e2594630bf36"
+      "elapsedMs": 4260.068125000002,
+      "log": "experiments/acceptance-logs/05.log",
+      "logSha256": "6880997c102fba56b47d74ac87efd1bc178da54c3211f6af80e5653767bbedc9"
     },
     {
       "command": [
@@ -71,9 +73,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 1756.2404999999999,
-      "log": "experiments/generated/acceptance/06.log",
-      "logSha256": "81175f8b39442a6376d03f48b08f6aa8134e65bbb66eb950b92977bb50347741"
+      "elapsedMs": 1169.041291999998,
+      "log": "experiments/acceptance-logs/06.log",
+      "logSha256": "77f67bb2656069c87d2e5384619f7aecd792a7b4e10c587714f9cc273821e699"
     },
     {
       "command": [
@@ -83,9 +85,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 893.9695829999982,
-      "log": "experiments/generated/acceptance/07.log",
-      "logSha256": "027fb8f9e53f0d3a3970cfa4ab70693656e3c119f710512ff2c739177db12705"
+      "elapsedMs": 549.0375839999979,
+      "log": "experiments/acceptance-logs/07.log",
+      "logSha256": "254a5ebdbdd1d39596c72709541d7e3f0c6ad43fac56f888b02b7c315593abb2"
     },
     {
       "command": [
@@ -98,9 +100,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 13568.389083000002,
-      "log": "experiments/generated/acceptance/08.log",
-      "logSha256": "e4162873d6c0bd93290d7302408a9109923c227c3ee01216512855f8f375db39"
+      "elapsedMs": 12485.801,
+      "log": "experiments/acceptance-logs/08.log",
+      "logSha256": "e8ca7fa8fc61a48d97a350527da5a9852ca26b7944f07b913c22603c675bcc53"
     },
     {
       "command": [
@@ -113,9 +115,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 14676.333082999998,
-      "log": "experiments/generated/acceptance/09.log",
-      "logSha256": "a413b8fe4c436712ee9dcb7b2c666eb6f4e4c637d5911b6cf61d77e601b5712e"
+      "elapsedMs": 13883.620667000003,
+      "log": "experiments/acceptance-logs/09.log",
+      "logSha256": "2b2150f1e629a7649287390bbf31eb6596892ca2989b654bdd8fba59cbb1d0e2"
     },
     {
       "command": [
@@ -127,9 +129,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 8210.089791999999,
-      "log": "experiments/generated/acceptance/10.log",
-      "logSha256": "cd70428e7e94f9ef3118ec78716a0cba82e577c3f6b3b13bc4657601adbfa809"
+      "elapsedMs": 6983.573707999996,
+      "log": "experiments/acceptance-logs/10.log",
+      "logSha256": "45ce20c7e0f49e312b33f8f24bc741389fb7e3a7056d3ff2b29599c639b6d6b5"
     },
     {
       "command": [
@@ -140,9 +142,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 228316.18254200002,
-      "log": "experiments/generated/acceptance/11.log",
-      "logSha256": "8ec4dfd2f19e409409f4cf37093aa659f215e9c16049d2df304ccb31ea6c61d9"
+      "elapsedMs": 250432.15825,
+      "log": "experiments/acceptance-logs/11.log",
+      "logSha256": "2a929ba55942a4157193e5045a87b94cef69622f59cab4a95079ff5fe44a81db"
     },
     {
       "command": [
@@ -153,9 +155,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 18764.326708000037,
-      "log": "experiments/generated/acceptance/12.log",
-      "logSha256": "5172ceb4a9a31663f3fff14c165cf8f804fabc418a43b9fe55183429706b33f0"
+      "elapsedMs": 19099.693916999968,
+      "log": "experiments/acceptance-logs/12.log",
+      "logSha256": "95fe72587f736a65bcef851ce8239facd5321102d01135029ccfcba945d4b971"
     },
     {
       "command": [
@@ -166,8 +168,8 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 197.8801669999957,
-      "log": "experiments/generated/acceptance/13.log",
+      "elapsedMs": 217.0222080000094,
+      "log": "experiments/acceptance-logs/13.log",
       "logSha256": "f0121152e48f96271bae7bf99ce7deea3f11f38ebc4e9a8a21ac5678fcb5d865"
     }
   ],
@@ -177,67 +179,67 @@
     {
       "name": "npm run check",
       "passed": true,
-      "elapsedMs": 212.683625
+      "elapsedMs": 214.661041
     },
     {
       "name": "npm test",
       "passed": true,
-      "elapsedMs": 12617.599124999999
+      "elapsedMs": 13590.479167
     },
     {
       "name": "npm run spike:feasibility",
       "passed": true,
-      "elapsedMs": 5025.527958000001
+      "elapsedMs": 3723.3767500000013
     },
     {
       "name": "npm run test:protocol",
       "passed": true,
-      "elapsedMs": 1258.3201249999984
+      "elapsedMs": 847.1852920000019
     },
     {
       "name": "npm run test:pds",
       "passed": true,
-      "elapsedMs": 7153.496332999999
+      "elapsedMs": 4260.068125000002
     },
     {
       "name": "npm run test:runtime",
       "passed": true,
-      "elapsedMs": 1756.2404999999999
+      "elapsedMs": 1169.041291999998
     },
     {
       "name": "npm run test:dynamic-apps",
       "passed": true,
-      "elapsedMs": 893.9695829999982
+      "elapsedMs": 549.0375839999979
     },
     {
       "name": "npm run test:flows -- --group participation",
       "passed": true,
-      "elapsedMs": 13568.389083000002
+      "elapsedMs": 12485.801
     },
     {
       "name": "npm run test:flows -- --group evolution",
       "passed": true,
-      "elapsedMs": 14676.333082999998
+      "elapsedMs": 13883.620667000003
     },
     {
       "name": "node --import tsx --test tests/archive.test.ts",
       "passed": true,
-      "elapsedMs": 8210.089791999999
+      "elapsedMs": 6983.573707999996
     },
     {
       "name": "node --import tsx scripts/performance.ts",
       "passed": true,
-      "elapsedMs": 228316.18254200002
+      "elapsedMs": 250432.15825
     },
     {
       "name": "node --import tsx scripts/browser-performance.ts",
       "passed": true,
-      "elapsedMs": 18764.326708000037
+      "elapsedMs": 19099.693916999968
     },
     {
       "name": "node --import tsx scripts/check-author.ts",
       "passed": true,
-      "elapsedMs": 197.8801669999957
+      "elapsedMs": 217.0222080000094
     }
   ],
   "sourceHashes": {
@@ -262,44 +264,44 @@
     "lexicons/test/atseq/source.json": "ba5aa441065c5bffab8326e8cebc98a15708496159fc3bb9f78ad835031e8f23",
     "lexicons/test/atseq/stageDefinition.json": "05843019ad187f22fd44e52fb2ec6d5406b2362a5f2129b3cdd1fa8282323112",
     "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-    "lexicons/test/atseq/sync.json": "db327b2a950036da2bbb12ed9fda9dcf14d324c25a5084a427dfc0ac451edcdf",
+    "lexicons/test/atseq/sync.json": "79a95060ee126dc0d8807854071115ac93ed874014bbfd6b4d0b223bf46bc5cf",
     "lexicons/test/atseq/validateDraft.json": "9e990a143da727ff4352c72a2ad6f75c788b7ee9c6d00bcec4dce1c77ab79014",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111",
     "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
-    "scripts/acceptance.ts": "7a77d873ecbf6602b945d139528efc495cdef24749fe33107c1c2839fd0a32cc",
+    "scripts/acceptance.ts": "a0b37abd97f5e51c78bca7cc45415520b1caf79767214cece27a98b21ceb975d",
     "scripts/browser-performance.ts": "54beff0a03d55338200dc7a577481a7b089d8f7195a9b73f6b11ecfe7e608412",
-    "scripts/check-author.ts": "4fa7496ad03f5f21dc49f24fcf197ae3c19286739a31239297bddaa9012683ef",
+    "scripts/check-author.ts": "3d726bfc946e03b32eb7fac3d2a45bd8e24b0197224fd14ebaba6766d249184d",
     "scripts/feasibility.ts": "cc267f4838b01764ac04002bef80567f3b52618eef045ed52ff37da5d8d22049",
     "scripts/flows.ts": "1e4b5a40bcacd1e23ee133ba89b594c738dd8d48cfa37a902dbc77cf1ee39c15",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
     "scripts/notices.ts": "32275cf92c762a1db860bd135578095649987a1246a69052ada70f913355618c",
     "scripts/performance.ts": "7c5ddfb5a139b8ecc41487fbdc6e44514927122970a43b5285e653f5606e5106",
     "scripts/probe-go.ts": "7b57827865a3949acc6b4e9adda1b9995f3040911eb5aa570a67be9c4217f519",
-    "scripts/report.ts": "e650477b3df03e091cc1bec85820c71fbc2b901455ead54096337e095f62b985",
+    "scripts/report.ts": "0aba334c0cbecaf9df8571d5d8f4ca7e93abf98837593cb8419d42ff26388e8b",
     "scripts/serve.ts": "320396edd8a32bcb26ebd71980683208406efae7fbf7ba01d6402bf0a02c159d",
     "scripts/vectors/generate.mjs": "85a58d3f110898334edc2c12413116cace78ee84a43ffbc86af5e69c0cb751ea",
-    "src/archive/archive.ts": "c33cb656f48c9d8f27f06b34cbac6317ef62650601919d82cf8976b8ba10a9fe",
+    "src/archive/archive.ts": "62dffe1be1671b274de978ae6dc3ef03b14cf7d96420f85bef968799959dab86",
     "src/archive/chart.ts": "2ea0f71580a9fc33abadb1d361fcc13fed92aed0e12f7709f874351750b37149",
     "src/archive/limits.ts": "f60704a8b407582a063cef123141ebe95a313a10f0581072f9fc509b6433379d",
     "src/archive/notices.json": "477e43abbab2c5b4b477d45d372a2bdf01b96bfcc06929a58a3102c1ac08569a",
-    "src/browser/evaluator.ts": "38268a5d22f78d368ede4b0883e97f69aa4062d2862b29abe12028f1ebe04a37",
+    "src/browser/evaluator.ts": "afa17cc322fb6db72eeda01f3cead835d89dd11ad09d8c4c8e1827603ee287cc",
     "src/browser/forms.ts": "5d8c760e2f623c3dc9f2c1a5a9f066118f1aed3de93017a44812fe02f77d806e",
     "src/browser/index.html": "edce5713696b4e01ed4ab6a9e79606da434255697fe9894209ac4ffa706746c4",
-    "src/browser/main.ts": "8a98846a1e9c7e3be9b769db00e3e4bc16186a6aa2037b18d1c02c8da848eed1",
+    "src/browser/main.ts": "5c1ea920ae9f3f8ae3dac6418606da5182d320a494111292b2296add4f19c3b4",
     "src/browser/style.css": "2796d0c85780e7ef2460c6c32438d73be2fc11fb671b6b7faa6678f57945e56f",
-    "src/browser/worker.ts": "1c348e130f4cff4a3b72211c51c6c92bcc5482bde1b693c5b899f3d706238db7",
-    "src/cli/main.ts": "83295e88d669d7f94551f39d8a1dd44660a217d520b3b048735178c790a5f75f",
+    "src/browser/worker.ts": "8ba8751b5f324009402fd920b9c7e9fb1a26a78e71392c7e106e38e507a951e5",
+    "src/cli/main.ts": "5c670fdb5578a30ec3dc5ce4cfdaa8f46d54805c272ffd89b5c51b2ec8ac9662",
     "src/client/api.ts": "31669bb31e5d7e6c55b35f3165a2e6a403231e7ccca3f510f7ee8658db5f8ac4",
     "src/client/definition.ts": "2e036731484cb8cfac61c9b3946b566a8e5de713baa5b365bcc99df7910cccc3",
     "src/client/identity.ts": "e2e12ab667e0a99ef35b60f2ec8abbd148dd5830495dd454fc08e3c74af87823",
     "src/client/store.ts": "19178b4e156874184043f2c8e578fdcbd840fc87690974cc2ef133fe4ce63e67",
-    "src/definition/activation.ts": "3438b16d43121aab7618018aab459cceebb99da4e70608f3a913ed14aac68fde",
+    "src/definition/activation.ts": "fb09f15d41453aed218e4da4b4f88155593cef46b854cfa2e13e5cb98182177e",
     "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
     "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
     "src/definition/schemas.ts": "52ef749be1198f48d5220f1579a54c1a6727b293882ca656628bfe94c13903c2",
-    "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",
+    "src/definition/source.ts": "2ef5b1eaaf7caa64be7e929977d2ddc5d51a4fcf7198ffa35312238617363aee",
     "src/host/accounts.ts": "13df56ad649ed85db6de22b4846b4be2a30e42c3883272a6d32fc62016cf8313",
-    "src/host/application.ts": "aa0ff4a99700e39d6e31c27fcfcad38e26767b241f8c81d98b539b6b7715a42e",
+    "src/host/application.ts": "03c399c1bab79c4968f1138d030c381fe53ab28cf71fd2a7a0697add3bfe6919",
     "src/host/build.ts": "b651f8f4e79e8fb87fc4783bac27f8ca5146e873ec02d63905253eb4629f63a2",
     "src/host/files.ts": "9c39c4f0f0717dff170695cb44519d418380f5215028f95537ea115b9d938862",
     "src/host/http.ts": "8f391808eabb2e02f5779d16a165056e5b9d9f5ad18fa4b2a462e42fe3a944c5",
@@ -312,8 +314,8 @@
     "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
     "src/protocol/runtime-descriptor.json": "33808c464378b3274b70f1c93580ab6d4482a342abd08856c940578c3c8cb3cb",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
-    "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
-    "src/runtime/application-profile.json": "dacad769877f0a5ac8b6956bf0e2ac3485433d83b73cacca8464965850310c32",
+    "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
+    "src/runtime/application-profile.json": "e37792bc74d7e41f47af2fd432e24c5cbad1dcaa7eab685aedf6e31c6c9394fc",
     "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
     "src/runtime/evaluator.ts": "4f4008fbca9c9b60b9bdae09d55a5fe1c1ba062418662cbc363f02606da42be2",
     "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
@@ -321,12 +323,14 @@
     "src/runtime/profile.ts": "909df5e771e58d79186373497a595b763e8db82800e7405ec355f6b7f5c4062d",
     "src/runtime/values.ts": "9194e65046b48be3e6a3f1bf38a4c42a1690d84cd91b78ba27ff7b1bac7bddaf",
     "src/ui/inlay.ts": "ebfda164531b88169508f44b208554a0a2398c80f09bc38e53945d0b8e9c4472",
-    "testdata/apps/evolution.ts": "bed9c83cc4c33511e4715d81bd290c43537dffece5332df8944c81308f284636",
+    "testdata/apps/evolution.ts": "9fb7141a57a88d8add9b6d30db499e6abba2066646a4450050101f5b27bb162f",
     "testdata/apps/fixtures.ts": "ed91af6c8615a56b6791de75014a64f38fe0f122c100b93f8b51ef336b524730",
-    "tests/archive.test.ts": "6013479a7a24a30c40967f918f1e4a3574db16af5dbe9c4a1732bc9d4644d010",
+    "tests/acceptance.test.ts": "0e82904571713b77c66801754ac25797c33821f8cf0f22b761f2d6ccc9f27951",
+    "tests/archive.test.ts": "e91d52a6a8adcca2880d8d4fef96e3c6efcba4b925cc0520c837fbde70d98cc5",
     "tests/dynamic-apps.test.ts": "b3db7f1d1af3c674c22f13277597b53159663ff5f2d5ab33a5fc69ad2544bbc1",
-    "tests/evolution-runtime.test.ts": "08df7a02b605385151b144695d13ac5f8da15d4a19b66eb32908696a3cbf050c",
-    "tests/evolution.test.ts": "b041448a30ae79660bb1d238ca2e8c08eb6133631e94110d5312fcf3b0163a03",
+    "tests/evaluator.test.ts": "6b23e7c238f48f63c8daac330f568ce06297ac0f7adca832d5be08c9c420505f",
+    "tests/evolution-runtime.test.ts": "704152bc14746dae57ca577390f6cbc98c0ec5c10b0ed87309666fb6a6299956",
+    "tests/evolution.test.ts": "3e1e434cde141b0b77627d09b4b918668d8ba3f65173ab74934176819fc68438",
     "tests/feasibility.test.ts": "3b3cf3b14ca785cb5e231ef6c1ef42cf2b9fb43c0234c63eb887fb63f882212c",
     "tests/flows.test.ts": "5484dbd1f7657c8d006c1c80a2480892b5d9d701689a297591cd9bc903d94647",
     "tests/helpers/cli.ts": "36e04018b62be00c15ed7d28f116b3f2c62efbcd29f523c8b2978ac568495d54",
@@ -341,5 +345,20 @@
     "tests/protocol.test.ts": "c77e5515b73f3e57af92ba85994903bde08c2ace8d9dfa9a1f10d0735eba6a5d",
     "tests/runtime.test.ts": "49c49836eaa3bfd50862d038f09337ab81d69746754c464c333b17c2f5297d8a",
     "tests/vectors/protocol-v0.json": "dc398067268956cc5ac1ae3b100a822ebafaac90995bdd17860126a200431a0f"
+  },
+  "retainedHashes": {
+    "experiments/protocol.json": "6f23d111d6ec8da874211ebf6258785ad50d4b39a64916c92d8f53755d9ce8a5",
+    "experiments/pds.json": "07647b66a19089b90803399610ff3b210daa2622032eebd3c1c0e7ab02fa0b22",
+    "experiments/runtime.json": "dbed3fee19065b0d826856e70cb199a8c1e8c9e363ffaef0180a23a399e427df",
+    "experiments/dynamic.json": "532c3b22d5bbd794dd8872f6c0985a41292b30dd1055b85b6331aab4e09f7bc8",
+    "experiments/host-flows.json": "f32a69ad5a151d0f399630bce03aebf3a7652638e96257f961f2d451c60549f0",
+    "experiments/participation.json": "56dfac09ecef6e5e5cf2ec78bf0e18d1d9d1b938e9a1ae8e68a99ab4139e644c",
+    "experiments/evolution-runtime.json": "a57dfd0209f068112ff07be2c2bfaceeae1c461dfa1c07d8c1a20041f9da2b06",
+    "experiments/evolution.json": "a45efe1c739bd226451fe02d3d41ab0a31b55abddfa34e8c70e8c83c84450e11",
+    "experiments/archive.json": "684334e827df3a237a873b82ab41ba4fca464fc182aa06d0bbc820813b8141c6",
+    "experiments/performance.json": "99bc0d03e07446ce06f2d3b45a204931bf2da4bcbf07cf14ed0c1097a5fdb564",
+    "experiments/browser-performance.json": "3850197da3bd69b10cf19b0f725ec6d1d01243d3503f43a4df91f2a86ce62ea6",
+    "experiments/feasibility.json": "95ba7bacc2b980b250b21f450ac3adb60b4ec9f8928c5a2aafe9f802151b64f1",
+    "experiments/agent-authored/verification.json": "735ab687a6a3dc74c4cce1e03f32c7222c2c40dc7dd4a96520c7bfb12c43516f"
   }
 }

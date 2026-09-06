@@ -4,6 +4,7 @@ const read=async(path:string)=>JSON.parse(await readFile(path,'utf8'));
 const acceptance=await read('experiments/acceptance.json');
 if(!acceptance.passed)throw new Error('Acceptance is incomplete; report cannot claim success');
 for(const[path,hash]of Object.entries(acceptance.sourceHashes))if(createHash('sha256').update(await readFile(path)).digest('hex')!==hash)throw new Error(`Acceptance evidence is stale: ${path}`);
+for(const[path,hash]of Object.entries(acceptance.retainedHashes ?? {}))if(createHash('sha256').update(await readFile(path)).digest('hex')!==hash)throw new Error(`Retained result changed after acceptance: ${path}`);
 const perf=await read('experiments/performance.json'),browser=await read('experiments/browser-performance.json'),author=await read('experiments/agent-authored/verification.json');
 if(!perf.passed||!browser.passed||!author.passed)throw new Error('Required measured evidence is not complete');
 const ms=(n:number)=>n<1000?`${n.toFixed(1)} ms`:`${(n/1000).toFixed(2)} s`;
@@ -59,28 +60,51 @@ projection copies and retained outcomes explain substantial avoidable work.
 ## Acceptance evidence
 
 All ${acceptance.commands.length} recorded commands completed successfully.
+Dependency installation is a setup prerequisite, outside these 13 commands.
+The plan's checks are composed with four explicit S6 commands: archive flows,
+Node measurements, browser measurements and retained authoring verification.
 [Machine-readable acceptance](../experiments/acceptance.json) lists command
 arguments, exit codes, elapsed times and log hashes. The retained command logs
 are in [acceptance-logs](../experiments/acceptance-logs/). Individual stage
 reports were rerun and refreshed against the tested source; independent S1
 expected vectors were not regenerated.
+Each run replaces the retained acceptance status before executing a command.
+Failures retain their command logs and failed report, and prevent this result
+generator from reporting success. The report also checks retained output hashes
+so a later evidence rerun cannot silently substitute its output for this run.
 
 The archive gate verifies evolved and earlier prefixes, rejects missing source,
 tampered history, inventory/runtime mismatches and conflicting invitations,
 removes only a marked disposable projection file, and compares a separate CLI
-rebuild's state, active definition, outcomes, retries and frontier. Chromium
+rebuild's state, active definition, outcomes and frontier. Rebuilt retry receipts
+are also compared with the live sequencer's lookup results; the host does not
+persist a separate retry-index file. Chromium
 bootstraps its installed shell offline, imports the archive without a signing
 identity, and exports the same verified projection again. Retained
 [archives, chart and screenshots](../experiments/evidence/s6/) demonstrate this
 flow and a small CSV import with static SVG/table source-head metadata.
+The importer reads the CSV and submits its four rows as signed actions; the fold
+derives chart state from those actions. The retained CSV documents that input.
+An existing device genesis pin survives a conflicting archive import. The worker
+honors the longer replay budget while keeping the shorter preview default.
+The held-message cancellation fixture pins cancellation UI and retained outbox
+behavior; it does not measure interruption of CPU work inside an evaluator.
+
+The first S6 review at dd34b5e reproduced the gates and measurements, then
+required three corrections: preserve the existing genesis pin on archive import,
+honor the longer worker timeout, and retain failed acceptance runs. Those paths
+now have regressions. This run also includes S5's corrected oversized-closure
+transport, so an invalid available activation replays consistently offline.
 
 The existing authoring agent built **${author.title}** after the host started,
 using only documented JSON adapter calls and source files. Its original run
 is retained separately from the repeat publication under the corrected S5
 runtime, with the repeated run named by the final evidence. It exercised two
 participants, competing requests, identity-dependent returns and exact retry.
-The host source and built shell hashes were identical before and after that
-exercise. Source, the sanitized tool transcript, archive and independent replay
+The parent captured host source and built shell hashes before and after that
+exercise. The retained build bytes and current source are checked against them;
+this is inspectable capture evidence, not an independent observer of the process.
+Source, the sanitized tool transcript, archive and independent replay
 verification are in [agent-authored](../experiments/agent-authored/).
 This is separate from the automated fixture-generation gate.
 
@@ -102,7 +126,9 @@ Checkpoint/cache boundaries must not silently change canonical outcomes.
 General state migrations, runtime upgrades, account delegation, private data,
 production authentication, token renewal, subscriptions and deployment remain
 outside this spike. Archives require the named installed runtime, and missing
-upstream standalone license notices are reported as such. Independent review of
+upstream standalone license notices are reported as such. Notice text and replay
+instructions are retained packaging metadata, not runtime identity checks.
+Independent review of
 the exact S6 candidate and workroom landing are still required before marking
 the series complete.
 `;

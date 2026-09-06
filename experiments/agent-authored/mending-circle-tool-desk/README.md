@@ -1,55 +1,60 @@
-# Mending-circle tool desk: corrected-runtime repeat
+# Mending-circle tool desk: final closure-transport profile repeat
 
-This run repeats my own earlier purpose-specific application after the corrected
-S5 host was already running. It is **not a newly invented empty-folder app**.
-The earlier complete run remains unchanged under
-`experiments/agent-authored-before-s5-review/mending-circle-tool-desk/` and pins
-its older runtime. Only the copied source manifest's runtime profile CID changed;
-the schemas, initial state, JSONata programs, Inlay view and anonymous-preview
-guard are byte-for-byte identical to my retained prior source.
+This repeats my own purpose-specific Mending circle application after the final
+S5 closure-transport host had already started. **The original creative run
+preceded the independent review corrections.** It remains under
+`experiments/agent-authored-before-s5-review/`; the preceding repeat is preserved
+under `experiments/agent-authored-before-closure-transport-review/`. This is not
+a newly invented empty-folder app or a claim that the creative exercise used
+the later corrected runtime.
 
-The app coordinates shared fabric shears, snap pliers and a seam ripper during
-a one-evening mending circle. A tool has one borrower at a time, and only the
-borrowing signing key can return it. All participants and data are synthetic.
+Only the copied source manifest's runtime profile CID changed. The prior
+Lexicon, initial state, JSONata folds/query, retained Inlay view and anonymous
+preview guard are byte-for-byte unchanged. The preceding source/transcript
+hashes were checked and remain unchanged.
 
-## Provenance and retained evidence
+The app coordinates fabric shears, snap pliers and a seam ripper during a
+one-evening mending circle. A tool has one current borrower; only that signing
+key can return it. All participants and data are synthetic.
 
-The author read updated `docs/interaction.md` and their own prior evidence,
-using the four permitted authoring documents already read in the initial run.
-No implementation modules or fixtures were inspected/imported. Application
-interaction used only documented `npm run --silent atseq` JSON operations.
-Fresh identities and intent files stayed in an ignored private directory.
+## Retained evidence
 
-- `source/`: copied authored source with the corrected runtime CID.
+- `source/`: copied authored source with the final runtime profile.
 - `definition.car`: the validated and published source closure.
-- `transcript.json`: all 22 timestamped adapter requests/results, exits and stderr, with private locations redacted.
-- `invitation.json`: returned app/genesis anchors and the documented live URL.
-- `result.json`: exact outcomes, final query, retry result and limitations.
-- `source-sha256.json`: final source hashes; only the manifest differs from the earlier run.
+- `transcript.json`: all 22 adapter requests/results with timestamps, exits and stderr; private locations are redacted.
+- `invitation.json`: returned identity anchors and the documented live URL.
+- `result.json`: exact outcomes, query, retry evidence and scope limits.
+- `source-sha256.json`: hashes of the seven source files.
 
-Runtime: `bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li`.
+Runtime: `bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a`.
 
-Definition: `bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4`.
+Definition: `bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m`.
 
-## Observed behavior
+## Observed result
 
-Five unique signed entries reproduce the earlier scenario: Alex borrows the
-shears; Sam's competing borrow is retained as `tool_in_use`; Sam's attempted
-return is retained as `not_borrower`; Alex returns them; Sam then borrows them.
-Entries 1, 4 and 5 are effective. All 22 adapter calls returned successfully.
+Five distinct signed entries reproduce the scenario: Alex borrows the shears;
+Sam's competing borrow is retained as `tool_in_use`; Sam's attempted return is
+retained as `not_borrower`; Alex returns the shears; Sam then borrows them.
+Entries 1, 4 and 5 are effective. The two signing identities are new to this run.
 
-Exact retry at step 20 returned the original intent/receipt at position 5,
-without adding an entry. The final query at step 21 and final outcome at step 22
-name frontier 5: 3 total tools, 2 available, 1 borrowed, 2 checkouts and 1 return.
-The shears are held by Sam's new signing key.
+The sixth submit (transcript step 20) is an exact retry of entry 5. It returns
+the original intent/receipt at position 5 without adding an entry. The final
+query and outcome (steps 21/22) name frontier 5: 3 tools total, 2 available,
+1 on loan, 2 successful checkouts and 1 return. Sam holds the shears.
 
-The Inlay preview resolved the title, availability and both controls. Anonymous
-action preview returned `signing_identity_required`, matching the now-documented
-empty preview actor. The updated docs also define the live invitation URL;
-that URL is included in the invitation file. No new adapter gap was found.
+All 22 adapter calls succeeded. Inlay preview rendered the session title,
+availability and two action controls. Anonymous action preview correctly
+returned `signing_identity_required`; this limitation and the invitation URL
+are now documented. No new adapter gap was observed.
 
-The author did not run a browser interaction, edit implementation/package/docs
-or repository scripts, commit, or make workroom acts. Earlier evidence hashes
-were checked and remained unchanged. The parent owns build-hash comparison,
-export and independent archive replay. This directory itself is source and
-adapter evidence, not a complete signed-log archive or public deployment.
+## Scope
+
+The author used the documented JSON adapter and their own prior source and
+transcripts, without inspecting host implementation or fixtures. No browser
+interaction was performed by this author. Keys and prepared intents remain
+owner-only in an ignored private directory and are excluded from the evidence.
+No host, source scripts, tests, package files, docs, `host-before.json` or
+`host-build/` files were changed. Nothing was committed and no workroom artifact
+was published. The parent captured the before-hashes and owns the matching
+after-hashes and independent archive/replay. This evidence directory itself is
+not a full log archive or public deployment.

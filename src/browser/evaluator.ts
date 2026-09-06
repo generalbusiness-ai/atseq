@@ -14,7 +14,7 @@ export class Evaluator {
   }
   call(kind: string, args: Record<string, unknown> = {}, timeoutMs = 15_000) {
     return new Promise<any>((resolve, reject) => {
-      const id = ++this.id, timer = setTimeout(() => this.cancel('Evaluation timed out; retained inputs are unchanged. Refresh to rebuild.'), 15_000);
+      const id = ++this.id, timer = setTimeout(() => this.cancel('Evaluation timed out; retained inputs are unchanged. Refresh to rebuild.'), timeoutMs);
       this.pending.set(id, { resolve, reject, timer }); this.worker.postMessage({ id, kind, ...args });
     });
   }

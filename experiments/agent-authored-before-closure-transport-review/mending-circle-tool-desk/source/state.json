@@ -1,0 +1,25 @@
+{
+  "session": "Sunday mending circle",
+  "tools": [
+    {
+      "id": "shears",
+      "label": "Fabric shears",
+      "holder": "",
+      "holderKey": ""
+    },
+    {
+      "id": "snap-pliers",
+      "label": "Snap pliers",
+      "holder": "",
+      "holderKey": ""
+    },
+    {
+      "id": "seam-ripper",
+      "label": "Seam ripper",
+      "holder": "",
+      "holderKey": ""
+    }
+  ],
+  "checkouts": 0,
+  "returns": 0
+}

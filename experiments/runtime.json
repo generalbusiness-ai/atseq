@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:50:02.276Z",
+  "measuredAt": "2026-09-06T18:07:51.677Z",
   "nodeVersion": "v26.8.1",
   "browserVersion": "153.0.8010.12",
   "browserWorker": true,
@@ -357,7 +357,7 @@
     "experiments/runtime-browser/main.ts": "3d9843cbd8f9859172c94e8869f30f71fade8a188164593a285c4113e654724b",
     "experiments/runtime-browser/worker.ts": "6714f9b59f0b3d213def14fd1230202191ad0e08437f17b0eaabde061641f1f5",
     "experiments/runtime-browser/index.html": "10edc32e502253079e30b4283b1b5ae4afd2b82ea97f7039e1973d7f921df08c",
-    "package.json": "952c4846a3c0cf8bda3b37b0bb37da1c8bc6597996f7cc40d4b10a928183c0dc",
+    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111"
   }
 }

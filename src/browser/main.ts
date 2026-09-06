@@ -45,9 +45,26 @@ document.querySelector<HTMLFormElement>('#identity-form')!.onsubmit = async even
 };
 async function applications() {
   let apps = await store.get<any[]>('apps') ?? [];
-  try { apps = (await api.call('list')).apps; await store.set('apps', apps); } catch { /* Last seen invitations remain usable offline. */ }
+  try {
+    const incoming = (await api.call('list')).apps;
+    apps = await store.update<any[]>('apps', previous => {
+      const known = new Map((previous ?? []).map(app => [app.app, app]));
+      for (const app of incoming) if (!known.has(app.app) || known.get(app.app).genesis === app.genesis) known.set(app.app, app);
+      return [...known.values()];
+    });
+  } catch { /* Last seen invitations remain usable offline. */ }
   const nav = document.querySelector('#applications')!;
   nav.replaceChildren(...apps.map(app => button(app.title, () => openApp({ app: app.app, genesis: app.genesis }).catch(failure))));
+}
+async function knownInvitations(): Promise<Invitation[]> {
+  return [...await store.list<Invitation>('pin:'), ...await store.get<Invitation[]>('apps') ?? [], ...(current ? [current] : [])];
+}
+async function pinInvitation(invitation: Invitation) {
+  if ((await knownInvitations()).some(pin => pin.app === invitation.app && pin.genesis !== invitation.genesis)) throw new Error('Application differs from the pinned invitation');
+  await store.update<Invitation>(`pin:${invitation.app}`, previous => {
+    if (previous && previous.genesis !== invitation.genesis) throw new Error('Application differs from the pinned invitation');
+    return previous ?? invitation;
+  });
 }
 async function importDraft(raw: Uint8Array) {
   const checked = await evaluator.call('preview', { source: [...raw] });
@@ -115,6 +132,7 @@ function drawDraft() {
   publication.append(start); content.replaceChildren(heading, card, publication, inspect('Inspect definition', definition), button('Cancel local preview work', () => { evaluator.cancel(); tell('Preview cancelled. Source remains saved on this device.'); }));
 }
 async function openApp(invitation: Invitation) {
+  await pinInvitation(invitation);
   current = invitation; draft = undefined; editorArea = undefined; snapshot = undefined; definition = undefined; history.replaceState(null, '', `/#${new URLSearchParams({ ...invitation })}`);
   changeDraft = await store.get<ChangeDraft>(`change:${invitation.app}`);
   const retained = await store.get<any>(`verified:${invitation.app}:${invitation.genesis}`);
@@ -312,8 +330,9 @@ document.querySelector<HTMLInputElement>('#import-archive')!.onchange = async ev
   try {
     if (file.size > ARCHIVE_LIMIT) throw new Error('Archive exceeds 48 MiB');
     tell('Verifying the archive and replaying its retained history…');
-    const checked = await evaluator.call('importArchive', { source: new Uint8Array(await file.arrayBuffer()) }, 120_000);
+    const checked = await evaluator.call('importArchive', { source: new Uint8Array(await file.arrayBuffer()), expected: await knownInvitations() }, 120_000);
     const invitation = { app: checked.input.genesis.app, genesis: checked.input.genesisCid };
+    await pinInvitation(invitation);
     await store.set(`verified:${invitation.app}:${invitation.genesis}`, checked.input);
     await store.update<any[]>('apps', previous => [...(previous ?? []).filter(app => app.app !== invitation.app), { ...invitation, title: 'Imported application' }]);
     await openApp(invitation); await applications();

@@ -1,0 +1,107 @@
+{
+  "root": "test.mendingcircle.Main",
+  "imports": [
+    "did:plc:mendingview"
+  ],
+  "records": {
+    "at://did:plc:mendingview/at.inlay.component/test.atseq.ui.Panel": {
+      "$type": "at.inlay.component"
+    },
+    "at://did:plc:mendingview/at.inlay.component/test.atseq.ui.Text": {
+      "$type": "at.inlay.component"
+    },
+    "at://did:plc:mendingview/at.inlay.component/test.atseq.ui.Action": {
+      "$type": "at.inlay.component"
+    },
+    "at://did:plc:mendingview/at.inlay.component/test.mendingcircle.Main": {
+      "$type": "at.inlay.component",
+      "imports": [
+        "did:plc:mendingview"
+      ],
+      "body": {
+        "$type": "at.inlay.component#bodyTemplate",
+        "node": {
+          "$": "$",
+          "type": "test.atseq.ui.Panel",
+          "props": {
+            "children": [
+              {
+                "$": "$",
+                "type": "test.atseq.ui.Text",
+                "props": {
+                  "children": [
+                    {
+                      "$": "$",
+                      "type": "at.inlay.Binding",
+                      "props": {
+                        "path": [
+                          "props",
+                          "session"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$": "$",
+                "type": "test.atseq.ui.Text",
+                "props": {
+                  "children": [
+                    "Available tools: ",
+                    {
+                      "$": "$",
+                      "type": "at.inlay.Binding",
+                      "props": {
+                        "path": [
+                          "props",
+                          "available"
+                        ]
+                      }
+                    },
+                    " of ",
+                    {
+                      "$": "$",
+                      "type": "at.inlay.Binding",
+                      "props": {
+                        "path": [
+                          "props",
+                          "total"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "$": "$",
+                "type": "test.atseq.ui.Text",
+                "props": {
+                  "children": [
+                    "Borrow a shared tool for this session, then return it with the same signing identity."
+                  ]
+                }
+              },
+              {
+                "$": "$",
+                "type": "test.atseq.ui.Action",
+                "props": {
+                  "action": "test.agent.mendingcircle#borrow",
+                  "label": "Borrow a tool"
+                }
+              },
+              {
+                "$": "$",
+                "type": "test.atseq.ui.Action",
+                "props": {
+                  "action": "test.agent.mendingcircle#returnTool",
+                  "label": "Return my tool"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

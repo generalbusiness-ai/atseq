@@ -29,7 +29,7 @@ async function poolFor(input: RetainedInput) {
   await LoadedDefinition.load(source.root, source);
   const pool = new SourcePool(), inventory = new Map<string, number>();
   for (const candidate of [{ definition: source.root, source: input.source }, ...(input.candidates ?? [])]) {
-    const bundle = await SourceBundle.read(fromBytes(candidate.source));
+    const bundle = await SourceBundle.readClosure(fromBytes(candidate.source));
     if (bundle.root !== candidate.definition) throw new Error('Archive candidate identity differs from its CAR');
     await pool.add(bundle);
     for (const cid of bundle.identities()) inventory.set(cid, (await bundle.get(cid)).length);
@@ -65,7 +65,8 @@ export function encodeArchive(archive: Archive): Uint8Array {
   const data = new TextEncoder().encode(JSON.stringify(archive));
   if (data.length > ARCHIVE_LIMIT) throw new Error('Archive exceeds 48 MiB'); return data;
 }
-export async function importArchive(raw: Uint8Array, expected?: { app: string; genesis: string }) {
+export interface ArchiveInvitation { app: string; genesis: string }
+export async function importArchive(raw: Uint8Array, expected?: ArchiveInvitation | ArchiveInvitation[]) {
   if (raw.length > ARCHIVE_LIMIT) throw new Error('Archive exceeds 48 MiB');
   const archive = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(raw)) as Archive;
   if (Object.keys(archive).some(key => !['format','version','input','runtime','inventory','licenses','replay'].includes(key))) throw new Error('Unknown archive field');
@@ -74,8 +75,9 @@ export async function importArchive(raw: Uint8Array, expected?: { app: string; g
   for (const item of archive.inventory) fields(item, ['cid','bytes']);
   if (archive.format !== 'atseq-archive' || archive.version !== 0 || !archive.runtime) throw new Error('Unsupported archive format');
   if (await contentCid(archive.runtime.application) !== await applicationRuntimeCid() || await contentCid(archive.runtime.engine) !== await runtimeCid()) throw new Error('Archive requires a different installed runtime');
-  if (expected && (archive.input?.genesis?.app !== expected.app || archive.input?.genesisCid !== expected.genesis)) throw new Error('Archive differs from the pinned invitation');
-  if (!equal(archive.licenses, notices) || archive.replay !== REPLAY) throw new Error('Archive runtime notices or replay instructions differ from the installed package');
+  const pins = Array.isArray(expected) ? expected.filter(pin => pin.app === archive.input?.genesis?.app) : expected ? [expected] : [];
+  if (pins.some(pin => archive.input?.genesis?.app !== pin.app || archive.input?.genesisCid !== pin.genesis)) throw new Error('Archive differs from the pinned invitation');
+  if (!Array.isArray(archive.licenses) || typeof archive.replay !== 'string') throw new Error('Invalid archive notices or replay instructions');
   const replay = await replayInput(archive.input);
   if (replay.snapshot.stalled || replay.snapshot.projection.frontier.position !== replay.history.head.position) throw new Error(`Archive is incomplete: ${replay.snapshot.stalled?.code ?? 'frontier'}`);
   if (!equal(archive.inventory, replay.inventory)) throw new Error('Archive inventory differs from verified content');

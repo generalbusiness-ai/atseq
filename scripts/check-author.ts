@@ -9,6 +9,10 @@ const root='experiments/agent-authored',directory=root+'/mending-circle-tool-des
 const read=async(path:string)=>JSON.parse(await readFile(path,'utf8'));
 const result=await read(directory+'/result.json'),transcript=await read(directory+'/transcript.json'),before=await read(root+'/host-before.json'),after=await read(root+'/host-after.json');
 assert.deepEqual(before.hashes,after.hashes);assert.ok(Date.parse(before.capturedAt)<Date.parse(transcript.startedAt));assert.ok(Date.parse(after.capturedAt)>Date.parse(result.completedAt));
+for(const [path,hash] of Object.entries(before.hashes)){
+  const retained=path.startsWith('experiments/generated/app/')?root+'/host-build/'+path.slice('experiments/generated/app/'.length):path;
+  assert.equal(createHash('sha256').update(await readFile(retained)).digest('hex'),hash,`Authoring host/build differs: ${path}`);
+}
 assert.ok(transcript.steps.length >= 15);assert.ok(transcript.steps.every((step:any)=>step.command==='npm run --silent atseq'&&step.exitCode===0&&step.response.ok));
 const forbidden=new Set(['privateKey','password','accessJwt','refreshJwt','token','jwtSecret','writer']);
 function scan(value:any){if(!value||typeof value!=='object')return;for(const[key,child]of Object.entries(value)){assert.equal(forbidden.has(key),false,`Retained secret field: ${key}`);scan(child);}}

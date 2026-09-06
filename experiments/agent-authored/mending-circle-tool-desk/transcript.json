@@ -1,15 +1,16 @@
 {
-  "exercise": "Mending-circle shared tool desk, corrected S5 runtime repeat",
-  "startedAt": "2026-09-06T16:56:00.794291+00:00",
-  "host": "http://127.0.0.1:49837",
-  "hostStateAtStart": "Already running, supplied by parent; this author did not start or rebuild it.",
-  "sourceOrigin": "Repeat of my own earlier purpose-specific mending-circle design, preserved at experiments/agent-authored-before-s5-review/mending-circle-tool-desk. This is not a new empty-folder design. Only the manifest runtime profile is changed; the anonymous-preview guard is retained.",
-  "priorEvidence": "experiments/agent-authored-before-s5-review/mending-circle-tool-desk",
-  "permittedInputs": "Updated docs/interaction.md and my own prior evidence, plus the four permitted documents read in the original exercise. No implementation or fixtures inspected.",
+  "exercise": "Mending-circle shared tool desk, final S5 closure-transport profile repeat",
+  "startedAt": "2026-09-06T18:03:25.334888+00:00",
+  "host": "http://127.0.0.1:57359",
+  "hostStateAtStart": "Already running, supplied by parent; parent captured host/build hashes and retained built bytes before this exercise. This author did not start or rebuild the host.",
+  "sourceOrigin": "Repeat of my own earlier purpose-specific mending-circle design. The original creative run preceded the independent S5 review corrections and is preserved at experiments/agent-authored-before-s5-review/. This run copies my prior source from experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk and changes only the manifest runtime profile. It is not a new empty-folder design.",
+  "priorEvidence": "experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk",
+  "originalCreativeEvidence": "experiments/agent-authored-before-s5-review/mending-circle-tool-desk",
+  "permittedInputs": "Documented authoring/interaction/runtime material and my own prior source/transcripts. No host implementation or fixtures inspected.",
   "steps": [
     {
-      "startedAt": "2026-09-06T16:56:00.862137+00:00",
-      "completedAt": "2026-09-06T16:56:01.136119+00:00",
+      "startedAt": "2026-09-06T18:03:25.410361+00:00",
+      "completedAt": "2026-09-06T18:03:25.702220+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "runtime"
@@ -18,7 +19,7 @@
       "response": {
         "ok": true,
         "result": {
-          "profile": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li",
+          "profile": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a",
           "descriptor": {
             "$type": "test.atseq.applicationRuntime",
             "version": 0,
@@ -44,13 +45,13 @@
               "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
               "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
               "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-              "src/definition/activation.ts": "3438b16d43121aab7618018aab459cceebb99da4e70608f3a913ed14aac68fde",
+              "src/definition/activation.ts": "fb09f15d41453aed218e4da4b4f88155593cef46b854cfa2e13e5cb98182177e",
               "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
               "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
-              "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",
+              "src/definition/source.ts": "2ef5b1eaaf7caa64be7e929977d2ddc5d51a4fcf7198ffa35312238617363aee",
               "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
               "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
-              "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+              "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
               "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
               "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
               "src/runtime/identity.ts": "74ceee995dd7e73ca51ce1c9790e7dbbf936cee54c722ee9be67f21e35e3e5d9"
@@ -62,8 +63,8 @@
       "step": 1
     },
     {
-      "startedAt": "2026-09-06T16:56:31.759542+00:00",
-      "completedAt": "2026-09-06T16:56:32.234169+00:00",
+      "startedAt": "2026-09-06T18:04:03.226366+00:00",
+      "completedAt": "2026-09-06T18:04:03.532351+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "pack",
@@ -74,7 +75,7 @@
       "response": {
         "ok": true,
         "result": {
-          "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+          "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
           "output": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
         }
       },
@@ -82,12 +83,12 @@
       "step": 2
     },
     {
-      "startedAt": "2026-09-06T16:56:32.317016+00:00",
-      "completedAt": "2026-09-06T16:56:32.811177+00:00",
+      "startedAt": "2026-09-06T18:04:03.587346+00:00",
+      "completedAt": "2026-09-06T18:04:03.880120+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "validate",
-        "host": "http://127.0.0.1:49837",
+        "host": "http://127.0.0.1:57359",
         "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
       },
       "exitCode": 0,
@@ -95,7 +96,7 @@
         "ok": true,
         "result": {
           "definition": {
-            "cid": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+            "cid": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
             "manifest": {
               "$type": "test.atseq.definition",
               "files": [
@@ -147,7 +148,7 @@
                 }
               ],
               "profile": {
-                "$link": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li"
+                "$link": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a"
               },
               "queries": [
                 {
@@ -331,12 +332,12 @@
       "step": 3
     },
     {
-      "startedAt": "2026-09-06T16:56:32.898957+00:00",
-      "completedAt": "2026-09-06T16:56:33.408102+00:00",
+      "startedAt": "2026-09-06T18:04:03.931396+00:00",
+      "completedAt": "2026-09-06T18:04:04.235318+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "preview",
-        "host": "http://127.0.0.1:49837",
+        "host": "http://127.0.0.1:57359",
         "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
       },
       "exitCode": 0,
@@ -344,7 +345,7 @@
         "ok": true,
         "result": {
           "definition": {
-            "cid": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+            "cid": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
             "manifest": {
               "$type": "test.atseq.definition",
               "files": [
@@ -396,7 +397,7 @@
                 }
               ],
               "profile": {
-                "$link": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li"
+                "$link": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a"
               },
               "queries": [
                 {
@@ -654,19 +655,19 @@
               ]
             }
           ],
-          "previewUrl": "http://127.0.0.1:49837/?preview=bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4"
+          "previewUrl": "http://127.0.0.1:57359/?preview=bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m"
         }
       },
       "stderr": "",
       "step": 4
     },
     {
-      "startedAt": "2026-09-06T16:56:33.496200+00:00",
-      "completedAt": "2026-09-06T16:56:34.002618+00:00",
+      "startedAt": "2026-09-06T18:04:04.289089+00:00",
+      "completedAt": "2026-09-06T18:04:04.601544+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "preview",
-        "host": "http://127.0.0.1:49837",
+        "host": "http://127.0.0.1:57359",
         "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car",
         "action": "test.agent.mendingcircle#borrow",
         "payload": {
@@ -679,7 +680,7 @@
         "ok": true,
         "result": {
           "definition": {
-            "cid": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+            "cid": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
             "manifest": {
               "$type": "test.atseq.definition",
               "files": [
@@ -731,7 +732,7 @@
                 }
               ],
               "profile": {
-                "$link": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li"
+                "$link": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a"
               },
               "queries": [
                 {
@@ -993,15 +994,15 @@
               ]
             }
           ],
-          "previewUrl": "http://127.0.0.1:49837/?preview=bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4"
+          "previewUrl": "http://127.0.0.1:57359/?preview=bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m"
         }
       },
       "stderr": "",
       "step": 5
     },
     {
-      "startedAt": "2026-09-06T16:56:57.013724+00:00",
-      "completedAt": "2026-09-06T16:56:57.470349+00:00",
+      "startedAt": "2026-09-06T18:04:04.655104+00:00",
+      "completedAt": "2026-09-06T18:04:04.939644+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "identity",
@@ -1013,15 +1014,15 @@
         "ok": true,
         "result": {
           "name": "Alex (synthetic mending participant)",
-          "publicKey": "did:key:zDnaeRCnQvL7gETu1dT1G2Rthvno228RGvXdpWBe99WijosGT"
+          "publicKey": "did:key:zDnaetUG12AGZV17EiChGfRQzuLjmqUUpwvtqVCxSx4hqb3B4"
         }
       },
       "stderr": "",
       "step": 6
     },
     {
-      "startedAt": "2026-09-06T16:56:57.550136+00:00",
-      "completedAt": "2026-09-06T16:56:58.011691+00:00",
+      "startedAt": "2026-09-06T18:04:04.991906+00:00",
+      "completedAt": "2026-09-06T18:04:05.279400+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "identity",
@@ -1033,53 +1034,53 @@
         "ok": true,
         "result": {
           "name": "Sam (synthetic mending participant)",
-          "publicKey": "did:key:zDnaeZZRdmXgKKFhvagRHMoJnguXCHXqiUA3RvkNAXwSdYPDu"
+          "publicKey": "did:key:zDnaejUf2rpDY97FeCTQ7rWs9QDean8X1LFzUGsXzb2aRPgKq"
         }
       },
       "stderr": "",
       "step": 7
     },
     {
-      "startedAt": "2026-09-06T16:56:58.177994+00:00",
-      "completedAt": "2026-09-06T16:56:59.445822+00:00",
+      "startedAt": "2026-09-06T18:04:05.407182+00:00",
+      "completedAt": "2026-09-06T18:04:06.519266+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "create",
-        "host": "http://127.0.0.1:49837",
+        "host": "http://127.0.0.1:57359",
         "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car",
         "keyFile": "<private-author-files>/alex-key.json",
-        "creationId": "f2cf3ffd-00a0-4beb-9231-daadf887cd04"
+        "creationId": "335011eb-a4f9-45b9-9760-be92e734fe49"
       },
       "exitCode": 0,
       "response": {
         "ok": true,
         "result": {
           "genesis": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.genesis",
             "profile": {
-              "$link": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li"
+              "$link": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a"
             },
             "version": 0,
             "definition": {
-              "$link": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4"
+              "$link": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m"
             },
-            "sequencerKey": "did:key:zDnaeoY6PRP1xdTm2Kz4GtcP6TznKJAJpSZj94i58gQ2GR7xC",
+            "sequencerKey": "did:key:zDnaev4iYrTtrhykdhtEg1uAFRQVJiVq5BugyKHDHhWWcsyJF",
             "activationKeys": [
-              "did:key:zDnaeRCnQvL7gETu1dT1G2Rthvno228RGvXdpWBe99WijosGT"
+              "did:key:zDnaetUG12AGZV17EiChGfRQzuLjmqUUpwvtqVCxSx4hqb3B4"
             ]
           },
           "genesisCid": {
-            "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+            "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 0
@@ -1088,7 +1089,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 0,
             "entry": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             }
           }
         }
@@ -1097,14 +1098,14 @@
       "step": 8
     },
     {
-      "startedAt": "2026-09-06T16:56:59.522546+00:00",
-      "completedAt": "2026-09-06T16:57:00.001800+00:00",
+      "startedAt": "2026-09-06T18:04:06.576005+00:00",
+      "completedAt": "2026-09-06T18:04:06.885484+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "query",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
         "name": "summary",
         "params": {}
       },
@@ -1113,13 +1114,13 @@
         "ok": true,
         "result": {
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 0
@@ -1128,7 +1129,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 0,
             "entry": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             }
           },
           "result": {
@@ -1168,15 +1169,15 @@
       "step": 9
     },
     {
-      "startedAt": "2026-09-06T16:57:28.846440+00:00",
-      "completedAt": "2026-09-06T16:57:29.554766+00:00",
+      "startedAt": "2026-09-06T18:04:30.777969+00:00",
+      "completedAt": "2026-09-06T18:04:31.227989+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "submit",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
         "action": "test.agent.mendingcircle#borrow",
         "payload": {
           "item": "shears",
@@ -1189,29 +1190,29 @@
       "response": {
         "ok": true,
         "result": {
-          "intent": "bafyreicd3n4kuhk4ytnh7xshvmsjhsylitoc4ahfhtd4joylnsde5tuwwi",
+          "intent": "bafyreicfaodmwyk7ijgkvlf4dkjco2zmkx3nwqm7b5pwl5pfxwpwvio7oa",
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreihardcesc7yzrpxlh2w2vbo3ur2piyvxfh7cffrdl3fpxoul42jmi"
+              "$link": "bafyreigrjuihb33qq62wbuvighgehcc4gthdslax524g7euxmjctlz3rqy"
             },
             "intent": {
-              "$link": "bafyreicd3n4kuhk4ytnh7xshvmsjhsylitoc4ahfhtd4joylnsde5tuwwi"
+              "$link": "bafyreicfaodmwyk7ijgkvlf4dkjco2zmkx3nwqm7b5pwl5pfxwpwvio7oa"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 1
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreihardcesc7yzrpxlh2w2vbo3ur2piyvxfh7cffrdl3fpxoul42jmi"
+              "$link": "bafyreigrjuihb33qq62wbuvighgehcc4gthdslax524g7euxmjctlz3rqy"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 1
@@ -1220,7 +1221,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 0,
             "entry": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             }
           }
         }
@@ -1229,42 +1230,42 @@
       "step": 10
     },
     {
-      "startedAt": "2026-09-06T16:57:29.643070+00:00",
-      "completedAt": "2026-09-06T16:57:30.201372+00:00",
+      "startedAt": "2026-09-06T18:04:31.288300+00:00",
+      "completedAt": "2026-09-06T18:04:31.676227+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "outcome",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "intent": "bafyreicd3n4kuhk4ytnh7xshvmsjhsylitoc4ahfhtd4joylnsde5tuwwi"
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "intent": "bafyreicfaodmwyk7ijgkvlf4dkjco2zmkx3nwqm7b5pwl5pfxwpwvio7oa"
       },
       "exitCode": 0,
       "response": {
         "ok": true,
         "result": {
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreihardcesc7yzrpxlh2w2vbo3ur2piyvxfh7cffrdl3fpxoul42jmi"
+              "$link": "bafyreigrjuihb33qq62wbuvighgehcc4gthdslax524g7euxmjctlz3rqy"
             },
             "intent": {
-              "$link": "bafyreicd3n4kuhk4ytnh7xshvmsjhsylitoc4ahfhtd4joylnsde5tuwwi"
+              "$link": "bafyreicfaodmwyk7ijgkvlf4dkjco2zmkx3nwqm7b5pwl5pfxwpwvio7oa"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 1
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreihardcesc7yzrpxlh2w2vbo3ur2piyvxfh7cffrdl3fpxoul42jmi"
+              "$link": "bafyreigrjuihb33qq62wbuvighgehcc4gthdslax524g7euxmjctlz3rqy"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 1
@@ -1273,7 +1274,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 1,
             "entry": {
-              "$link": "bafyreihardcesc7yzrpxlh2w2vbo3ur2piyvxfh7cffrdl3fpxoul42jmi"
+              "$link": "bafyreigrjuihb33qq62wbuvighgehcc4gthdslax524g7euxmjctlz3rqy"
             }
           },
           "outcome": {
@@ -1285,15 +1286,15 @@
       "step": 11
     },
     {
-      "startedAt": "2026-09-06T16:57:30.294659+00:00",
-      "completedAt": "2026-09-06T16:57:31.061055+00:00",
+      "startedAt": "2026-09-06T18:04:31.731867+00:00",
+      "completedAt": "2026-09-06T18:04:32.189720+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "submit",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
         "action": "test.agent.mendingcircle#borrow",
         "payload": {
           "item": "shears",
@@ -1306,29 +1307,29 @@
       "response": {
         "ok": true,
         "result": {
-          "intent": "bafyreigqktvnfc7pii4uvui3p2263li5rm7xuo6tebgowhx5uk2jcmdbae",
+          "intent": "bafyreif5jjnogyq4y24it6nfebt7cqogaha6zjvnlhhnyhelkscuini7gi",
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreihajf2ohibrnf6u5ed3gvuzzmvcqjbn55wzedtof4o7jqgje2wgei"
+              "$link": "bafyreier6lprk2jt2iz653xlqnizr3e5cjioh575xzpy64ord6lx5tpv5e"
             },
             "intent": {
-              "$link": "bafyreigqktvnfc7pii4uvui3p2263li5rm7xuo6tebgowhx5uk2jcmdbae"
+              "$link": "bafyreif5jjnogyq4y24it6nfebt7cqogaha6zjvnlhhnyhelkscuini7gi"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 2
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreihajf2ohibrnf6u5ed3gvuzzmvcqjbn55wzedtof4o7jqgje2wgei"
+              "$link": "bafyreier6lprk2jt2iz653xlqnizr3e5cjioh575xzpy64ord6lx5tpv5e"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 2
@@ -1337,7 +1338,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 1,
             "entry": {
-              "$link": "bafyreihardcesc7yzrpxlh2w2vbo3ur2piyvxfh7cffrdl3fpxoul42jmi"
+              "$link": "bafyreigrjuihb33qq62wbuvighgehcc4gthdslax524g7euxmjctlz3rqy"
             }
           }
         }
@@ -1346,42 +1347,42 @@
       "step": 12
     },
     {
-      "startedAt": "2026-09-06T16:57:31.145879+00:00",
-      "completedAt": "2026-09-06T16:57:31.750298+00:00",
+      "startedAt": "2026-09-06T18:04:32.246243+00:00",
+      "completedAt": "2026-09-06T18:04:32.632673+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "outcome",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "intent": "bafyreigqktvnfc7pii4uvui3p2263li5rm7xuo6tebgowhx5uk2jcmdbae"
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "intent": "bafyreif5jjnogyq4y24it6nfebt7cqogaha6zjvnlhhnyhelkscuini7gi"
       },
       "exitCode": 0,
       "response": {
         "ok": true,
         "result": {
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreihajf2ohibrnf6u5ed3gvuzzmvcqjbn55wzedtof4o7jqgje2wgei"
+              "$link": "bafyreier6lprk2jt2iz653xlqnizr3e5cjioh575xzpy64ord6lx5tpv5e"
             },
             "intent": {
-              "$link": "bafyreigqktvnfc7pii4uvui3p2263li5rm7xuo6tebgowhx5uk2jcmdbae"
+              "$link": "bafyreif5jjnogyq4y24it6nfebt7cqogaha6zjvnlhhnyhelkscuini7gi"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 2
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreihajf2ohibrnf6u5ed3gvuzzmvcqjbn55wzedtof4o7jqgje2wgei"
+              "$link": "bafyreier6lprk2jt2iz653xlqnizr3e5cjioh575xzpy64ord6lx5tpv5e"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 2
@@ -1390,7 +1391,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 2,
             "entry": {
-              "$link": "bafyreihajf2ohibrnf6u5ed3gvuzzmvcqjbn55wzedtof4o7jqgje2wgei"
+              "$link": "bafyreier6lprk2jt2iz653xlqnizr3e5cjioh575xzpy64ord6lx5tpv5e"
             }
           },
           "outcome": {
@@ -1404,15 +1405,15 @@
       "step": 13
     },
     {
-      "startedAt": "2026-09-06T16:57:31.845804+00:00",
-      "completedAt": "2026-09-06T16:57:32.621123+00:00",
+      "startedAt": "2026-09-06T18:04:32.690324+00:00",
+      "completedAt": "2026-09-06T18:04:33.168357+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "submit",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
         "action": "test.agent.mendingcircle#returnTool",
         "payload": {
           "item": "shears"
@@ -1424,29 +1425,29 @@
       "response": {
         "ok": true,
         "result": {
-          "intent": "bafyreifc6s346pacnnvrcbvmdfphyeoqnspbgtnpdypjq2ysuoelvbkp2u",
+          "intent": "bafyreiftk7x3q7ndunjywy77ahdqgrn5ywmsen6idci6gmyfcbfjpqljyi",
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigzfgoytihntoyte2taxddz4vckbsfap4lorvkp22nzszytjjz2la"
+              "$link": "bafyreibon5meh64sss4xs7c3i4f2z2jl5pxinq5fcdb6o3a6oyxf4vuk3i"
             },
             "intent": {
-              "$link": "bafyreifc6s346pacnnvrcbvmdfphyeoqnspbgtnpdypjq2ysuoelvbkp2u"
+              "$link": "bafyreiftk7x3q7ndunjywy77ahdqgrn5ywmsen6idci6gmyfcbfjpqljyi"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 3
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigzfgoytihntoyte2taxddz4vckbsfap4lorvkp22nzszytjjz2la"
+              "$link": "bafyreibon5meh64sss4xs7c3i4f2z2jl5pxinq5fcdb6o3a6oyxf4vuk3i"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 3
@@ -1455,7 +1456,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 2,
             "entry": {
-              "$link": "bafyreihajf2ohibrnf6u5ed3gvuzzmvcqjbn55wzedtof4o7jqgje2wgei"
+              "$link": "bafyreier6lprk2jt2iz653xlqnizr3e5cjioh575xzpy64ord6lx5tpv5e"
             }
           }
         }
@@ -1464,42 +1465,42 @@
       "step": 14
     },
     {
-      "startedAt": "2026-09-06T16:57:32.708689+00:00",
-      "completedAt": "2026-09-06T16:57:33.276990+00:00",
+      "startedAt": "2026-09-06T18:04:33.221916+00:00",
+      "completedAt": "2026-09-06T18:04:33.608384+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "outcome",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "intent": "bafyreifc6s346pacnnvrcbvmdfphyeoqnspbgtnpdypjq2ysuoelvbkp2u"
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "intent": "bafyreiftk7x3q7ndunjywy77ahdqgrn5ywmsen6idci6gmyfcbfjpqljyi"
       },
       "exitCode": 0,
       "response": {
         "ok": true,
         "result": {
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigzfgoytihntoyte2taxddz4vckbsfap4lorvkp22nzszytjjz2la"
+              "$link": "bafyreibon5meh64sss4xs7c3i4f2z2jl5pxinq5fcdb6o3a6oyxf4vuk3i"
             },
             "intent": {
-              "$link": "bafyreifc6s346pacnnvrcbvmdfphyeoqnspbgtnpdypjq2ysuoelvbkp2u"
+              "$link": "bafyreiftk7x3q7ndunjywy77ahdqgrn5ywmsen6idci6gmyfcbfjpqljyi"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 3
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigzfgoytihntoyte2taxddz4vckbsfap4lorvkp22nzszytjjz2la"
+              "$link": "bafyreibon5meh64sss4xs7c3i4f2z2jl5pxinq5fcdb6o3a6oyxf4vuk3i"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 3
@@ -1508,7 +1509,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 3,
             "entry": {
-              "$link": "bafyreigzfgoytihntoyte2taxddz4vckbsfap4lorvkp22nzszytjjz2la"
+              "$link": "bafyreibon5meh64sss4xs7c3i4f2z2jl5pxinq5fcdb6o3a6oyxf4vuk3i"
             }
           },
           "outcome": {
@@ -1522,15 +1523,15 @@
       "step": 15
     },
     {
-      "startedAt": "2026-09-06T16:57:33.366520+00:00",
-      "completedAt": "2026-09-06T16:57:34.173324+00:00",
+      "startedAt": "2026-09-06T18:04:33.664577+00:00",
+      "completedAt": "2026-09-06T18:04:34.134820+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "submit",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
         "action": "test.agent.mendingcircle#returnTool",
         "payload": {
           "item": "shears"
@@ -1542,29 +1543,29 @@
       "response": {
         "ok": true,
         "result": {
-          "intent": "bafyreic6sf7yysao6azmt7jrt4gbundoiee5etw6zdlzihhe6bn75lb4li",
+          "intent": "bafyreidzcw2unetdyy6lxw7wxxsrshm632auesfoxjaz2pkh55flzetmli",
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigdgbusmydhhnpqbi2i6rlufojdg6sorniqdwjbu7pbqni353s55y"
+              "$link": "bafyreica3x7hcpyz72qzwvzouwoqpfmkxjwswkwlrj4lneiul7khjaxcwu"
             },
             "intent": {
-              "$link": "bafyreic6sf7yysao6azmt7jrt4gbundoiee5etw6zdlzihhe6bn75lb4li"
+              "$link": "bafyreidzcw2unetdyy6lxw7wxxsrshm632auesfoxjaz2pkh55flzetmli"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 4
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigdgbusmydhhnpqbi2i6rlufojdg6sorniqdwjbu7pbqni353s55y"
+              "$link": "bafyreica3x7hcpyz72qzwvzouwoqpfmkxjwswkwlrj4lneiul7khjaxcwu"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 4
@@ -1573,7 +1574,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 3,
             "entry": {
-              "$link": "bafyreigzfgoytihntoyte2taxddz4vckbsfap4lorvkp22nzszytjjz2la"
+              "$link": "bafyreibon5meh64sss4xs7c3i4f2z2jl5pxinq5fcdb6o3a6oyxf4vuk3i"
             }
           }
         }
@@ -1582,42 +1583,42 @@
       "step": 16
     },
     {
-      "startedAt": "2026-09-06T16:57:34.263725+00:00",
-      "completedAt": "2026-09-06T16:57:34.854970+00:00",
+      "startedAt": "2026-09-06T18:04:34.189678+00:00",
+      "completedAt": "2026-09-06T18:04:34.559249+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "outcome",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "intent": "bafyreic6sf7yysao6azmt7jrt4gbundoiee5etw6zdlzihhe6bn75lb4li"
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "intent": "bafyreidzcw2unetdyy6lxw7wxxsrshm632auesfoxjaz2pkh55flzetmli"
       },
       "exitCode": 0,
       "response": {
         "ok": true,
         "result": {
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigdgbusmydhhnpqbi2i6rlufojdg6sorniqdwjbu7pbqni353s55y"
+              "$link": "bafyreica3x7hcpyz72qzwvzouwoqpfmkxjwswkwlrj4lneiul7khjaxcwu"
             },
             "intent": {
-              "$link": "bafyreic6sf7yysao6azmt7jrt4gbundoiee5etw6zdlzihhe6bn75lb4li"
+              "$link": "bafyreidzcw2unetdyy6lxw7wxxsrshm632auesfoxjaz2pkh55flzetmli"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 4
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigdgbusmydhhnpqbi2i6rlufojdg6sorniqdwjbu7pbqni353s55y"
+              "$link": "bafyreica3x7hcpyz72qzwvzouwoqpfmkxjwswkwlrj4lneiul7khjaxcwu"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 4
@@ -1626,7 +1627,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 4,
             "entry": {
-              "$link": "bafyreigdgbusmydhhnpqbi2i6rlufojdg6sorniqdwjbu7pbqni353s55y"
+              "$link": "bafyreica3x7hcpyz72qzwvzouwoqpfmkxjwswkwlrj4lneiul7khjaxcwu"
             }
           },
           "outcome": {
@@ -1638,15 +1639,15 @@
       "step": 17
     },
     {
-      "startedAt": "2026-09-06T16:57:34.944067+00:00",
-      "completedAt": "2026-09-06T16:57:35.720871+00:00",
+      "startedAt": "2026-09-06T18:04:34.613831+00:00",
+      "completedAt": "2026-09-06T18:04:35.078107+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "submit",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
         "action": "test.agent.mendingcircle#borrow",
         "payload": {
           "item": "shears",
@@ -1659,29 +1660,29 @@
       "response": {
         "ok": true,
         "result": {
-          "intent": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy",
+          "intent": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli",
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "intent": {
-              "$link": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy"
+              "$link": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 5
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 5
@@ -1690,7 +1691,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 4,
             "entry": {
-              "$link": "bafyreigdgbusmydhhnpqbi2i6rlufojdg6sorniqdwjbu7pbqni353s55y"
+              "$link": "bafyreica3x7hcpyz72qzwvzouwoqpfmkxjwswkwlrj4lneiul7khjaxcwu"
             }
           }
         }
@@ -1699,42 +1700,42 @@
       "step": 18
     },
     {
-      "startedAt": "2026-09-06T16:57:35.802907+00:00",
-      "completedAt": "2026-09-06T16:57:36.376119+00:00",
+      "startedAt": "2026-09-06T18:04:35.135173+00:00",
+      "completedAt": "2026-09-06T18:04:35.488811+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "outcome",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "intent": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy"
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "intent": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
       },
       "exitCode": 0,
       "response": {
         "ok": true,
         "result": {
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "intent": {
-              "$link": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy"
+              "$link": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 5
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 5
@@ -1743,7 +1744,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 5,
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             }
           },
           "outcome": {
@@ -1755,15 +1756,15 @@
       "step": 19
     },
     {
-      "startedAt": "2026-09-06T16:57:36.459469+00:00",
-      "completedAt": "2026-09-06T16:57:37.059527+00:00",
+      "startedAt": "2026-09-06T18:04:35.551023+00:00",
+      "completedAt": "2026-09-06T18:04:35.927232+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "submit",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
         "action": "test.agent.mendingcircle#borrow",
         "payload": {
           "item": "shears",
@@ -1776,29 +1777,29 @@
       "response": {
         "ok": true,
         "result": {
-          "intent": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy",
+          "intent": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli",
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "intent": {
-              "$link": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy"
+              "$link": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 5
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 5
@@ -1807,7 +1808,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 5,
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             }
           }
         }
@@ -1816,14 +1817,14 @@
       "step": 20
     },
     {
-      "startedAt": "2026-09-06T16:57:37.148704+00:00",
-      "completedAt": "2026-09-06T16:57:37.684166+00:00",
+      "startedAt": "2026-09-06T18:04:35.978246+00:00",
+      "completedAt": "2026-09-06T18:04:36.288974+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "query",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
         "name": "summary",
         "params": {}
       },
@@ -1832,13 +1833,13 @@
         "ok": true,
         "result": {
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 5
@@ -1847,7 +1848,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 5,
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             }
           },
           "result": {
@@ -1861,7 +1862,7 @@
               "tools": [
                 {
                   "holder": "Sam (synthetic)",
-                  "holderKey": "did:key:zDnaeZZRdmXgKKFhvagRHMoJnguXCHXqiUA3RvkNAXwSdYPDu",
+                  "holderKey": "did:key:zDnaejUf2rpDY97FeCTQ7rWs9QDean8X1LFzUGsXzb2aRPgKq",
                   "id": "shears",
                   "label": "Fabric shears"
                 },
@@ -1887,42 +1888,42 @@
       "step": 21
     },
     {
-      "startedAt": "2026-09-06T16:57:37.769151+00:00",
-      "completedAt": "2026-09-06T16:57:38.307460+00:00",
+      "startedAt": "2026-09-06T18:04:36.345332+00:00",
+      "completedAt": "2026-09-06T18:04:36.689838+00:00",
       "command": "npm run --silent atseq",
       "request": {
         "operation": "outcome",
-        "host": "http://127.0.0.1:49837",
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-        "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-        "intent": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy"
+        "host": "http://127.0.0.1:57359",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+        "intent": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
       },
       "exitCode": 0,
       "response": {
         "ok": true,
         "result": {
           "receipt": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.defs#receipt",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "intent": {
-              "$link": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy"
+              "$link": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "position": 5
           },
           "head": {
-            "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+            "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
             "$type": "test.atseq.head",
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             },
             "genesis": {
-              "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+              "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
             },
             "version": 0,
             "position": 5
@@ -1931,7 +1932,7 @@
             "$type": "test.atseq.defs#cursor",
             "position": 5,
             "entry": {
-              "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+              "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
             }
           },
           "outcome": {
@@ -1943,10 +1944,10 @@
       "step": 22
     }
   ],
-  "completedAt": "2026-09-06T16:59:12.200327+00:00",
+  "completedAt": "2026-09-06T18:06:10.452942+00:00",
   "resultSummary": {
-    "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
-    "runtimeProfile": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li",
+    "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
+    "runtimeProfile": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a",
     "canonicalEntries": 5,
     "effectiveEntries": 3,
     "ineffectiveEntries": 2,
@@ -1954,19 +1955,20 @@
     "exactRetryStep": 20,
     "finalQueryStep": 21,
     "finalOutcomeStep": 22,
-    "previousEvidenceUntouched": true,
+    "previousSourceAndTranscriptUntouched": true,
+    "originalCreativeRunPrecededReviewCorrections": true,
     "findings": [
       {
         "id": "documented-anonymous-preview",
         "adapterStep": 5,
-        "observed": "The retained anonymous-preview guard returned signing_identity_required; docs/interaction.md now explicitly documents empty meta.actorKey and no actor override.",
-        "status": "Known limitation accurately documented; live signed actions enforce the actual actor key."
+        "observed": "The retained anonymous-preview guard returned signing_identity_required, matching the documented empty meta.actorKey.",
+        "status": "Known limitation accurately documented; live signed actions use the real actor key."
       },
       {
         "id": "documented-invitation-url",
         "adapterStep": 8,
-        "observed": "The updated interaction docs specify the live app URL fragment. The retained invitation now includes that documented URL built from the returned app/genesis anchors.",
-        "status": "Earlier documentation gap addressed."
+        "observed": "The retained invitation includes the documented app/genesis URL fragment.",
+        "status": "No new documentation or adapter gap found during this repeat."
       }
     ]
   }

@@ -25,11 +25,24 @@ the archive records their published declarations and this omission rather than
 inventing upstream notices. Full notices present in installed packages are
 retained verbatim.
 
+A genesis CID identifies its bytes; it does not by itself prove ownership of the
+app DID. A first archive import establishes the invitation supplied by that file.
+When the device already knows an invitation for that DID, import must match it.
+A conflicting genesis fails verification without changing the pin, sidebar,
+verified inputs or open app. The device retains the pin across reloads and checks
+it again when opening an invitation. The CLI can require the same check with
+its optional app/genesis arguments. License notices and replay text are retained
+metadata; different packaging text does not change the installed runtime CID
+or prevent an otherwise valid replay, and is never executed.
+
 The current source contract declares all interpretation dependencies in the
 manifest's named files. Arbitrary external URLs or undeclared blob references
 are not resolved. The archive uses the existing 20,000-entry, 32-candidate and
 16 MiB source-pool bounds and has a 48 MiB outer import/export limit. These are
 operational limits, not a promise that work at their maximum is fast.
+Candidate CARs can carry oversized invalid activation closures as evidence;
+definition admission still enforces 512 KiB. Offline replay uses that evidence
+to reproduce the invalid outcome and continue with the following entries.
 
 ## CLI copy and offline replay
 
@@ -66,6 +79,10 @@ Evaluation stays in a worker. Long local replay/export has a visible working
 message and can be cancelled; cancellation terminates the worker and retains
 stored inputs and queued intent bytes. Refresh rebuilds from those inputs.
 A new action cannot be saved while interpretation is stalled by required source.
+Replay, import, export and comparison use a 120-second operational watchdog;
+ordinary preview uses 15 seconds. The cancellation fixture holds a worker
+message before dispatch to test the UI and outbox boundary; it does not measure
+the interruption of CPU-bound interpretation.
 
 An available query result containing up to 100 object rows can be shown as a
 chart or table. Choose a text label and integer value, then **Draw chart**. Bars

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:50:01.560Z",
+  "measuredAt": "2026-09-06T18:07:52.245Z",
   "nodeVersion": "v26.8.1",
   "fixtureGeneration": true,
   "autonomousAgentGeneration": false,
@@ -15,12 +15,12 @@
     {
       "event": "application-interpreted",
       "title": "Garden rainfall",
-      "schema": "test.generated85bd6c4e86.rainfall.data#record"
+      "schema": "test.generatedaa6300b141.rainfall.data#record"
     },
     {
       "event": "application-interpreted",
       "title": "Weekend guitar search",
-      "schema": "test.generated85bd6c4e86.guitar.data#candidate"
+      "schema": "test.generatedaa6300b141.guitar.data#candidate"
     }
   ],
   "before": {
@@ -100,7 +100,7 @@
     "tests/dynamic-apps.test.ts": "b3db7f1d1af3c674c22f13277597b53159663ff5f2d5ab33a5fc69ad2544bbc1",
     "testdata/apps/fixtures.ts": "ed91af6c8615a56b6791de75014a64f38fe0f122c100b93f8b51ef336b524730",
     "experiments/runtime-corpus.ts": "b40138cff9ff265ace73bf3694fa0df6eceb15c377e1fd11700e9a9421fe91fa",
-    "package.json": "952c4846a3c0cf8bda3b37b0bb37da1c8bc6597996f7cc40d4b10a928183c0dc",
+    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111"
   }
 }

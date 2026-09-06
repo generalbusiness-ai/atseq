@@ -1,29 +1,31 @@
 {
-  "completedAt": "2026-09-06T16:59:12.200327+00:00",
+  "completedAt": "2026-09-06T18:06:10.452942+00:00",
   "status": "completed",
-  "sourceOrigin": "Repeat of my own earlier purpose-specific mending-circle design, preserved at experiments/agent-authored-before-s5-review/mending-circle-tool-desk. This is not a new empty-folder design. Only the manifest runtime profile is changed; the anonymous-preview guard is retained.",
+  "sourceOrigin": "Repeat of my own earlier purpose-specific mending-circle design. The original creative run preceded the independent S5 review corrections and is preserved at experiments/agent-authored-before-s5-review/. This run copies my prior source from experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk and changes only the manifest runtime profile. It is not a new empty-folder design.",
   "sourceReuse": {
-    "priorEvidence": "experiments/agent-authored-before-s5-review/mending-circle-tool-desk",
+    "priorEvidence": "experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk",
+    "originalCreativeEvidence": "experiments/agent-authored-before-s5-review/mending-circle-tool-desk",
+    "originalCreativeRunPrecededReviewCorrections": true,
     "onlyChangedSource": "manifest.json",
     "change": "Runtime profile CID only",
-    "oldProfile": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm",
-    "newProfile": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li",
-    "previousEvidenceUntouched": true,
+    "oldProfile": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li",
+    "newProfile": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a",
+    "previousSourceAndTranscriptUntouched": true,
     "anonymousPreviewGuardRetained": true
   },
   "adapterCommands": 22,
   "adapterFailures": [],
   "invitation": {
     "title": "Mending circle: shared tool desk",
-    "host": "http://127.0.0.1:49837",
-    "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-    "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
-    "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
-    "url": "http://127.0.0.1:49837/#app=did%3Aplc%3A7thdiytka76x6l6dlohfnbui&genesis=bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
+    "host": "http://127.0.0.1:57359",
+    "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+    "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+    "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
+    "url": "http://127.0.0.1:57359/#app=did%3Aplc%3Aqsxi6vqhnwdnwrm6w6xssouq&genesis=bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
     "scope": "Disposable loopback test PDS; synthetic data only."
   },
-  "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
-  "runtimeProfile": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li",
+  "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
+  "runtimeProfile": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a",
   "canonicalEntries": 5,
   "effectiveEntries": 3,
   "ineffectiveEntries": 2,
@@ -35,14 +37,14 @@
   "outcomes": [
     {
       "position": 1,
-      "intent": "bafyreicd3n4kuhk4ytnh7xshvmsjhsylitoc4ahfhtd4joylnsde5tuwwi",
+      "intent": "bafyreicfaodmwyk7ijgkvlf4dkjco2zmkx3nwqm7b5pwl5pfxwpwvio7oa",
       "outcome": {
         "$type": "test.atseq.defs#effective"
       }
     },
     {
       "position": 2,
-      "intent": "bafyreigqktvnfc7pii4uvui3p2263li5rm7xuo6tebgowhx5uk2jcmdbae",
+      "intent": "bafyreif5jjnogyq4y24it6nfebt7cqogaha6zjvnlhhnyhelkscuini7gi",
       "outcome": {
         "$type": "test.atseq.defs#ineffective",
         "reason": "tool_in_use",
@@ -51,7 +53,7 @@
     },
     {
       "position": 3,
-      "intent": "bafyreifc6s346pacnnvrcbvmdfphyeoqnspbgtnpdypjq2ysuoelvbkp2u",
+      "intent": "bafyreiftk7x3q7ndunjywy77ahdqgrn5ywmsen6idci6gmyfcbfjpqljyi",
       "outcome": {
         "$type": "test.atseq.defs#ineffective",
         "reason": "not_borrower",
@@ -60,14 +62,14 @@
     },
     {
       "position": 4,
-      "intent": "bafyreic6sf7yysao6azmt7jrt4gbundoiee5etw6zdlzihhe6bn75lb4li",
+      "intent": "bafyreidzcw2unetdyy6lxw7wxxsrshm632auesfoxjaz2pkh55flzetmli",
       "outcome": {
         "$type": "test.atseq.defs#effective"
       }
     },
     {
       "position": 5,
-      "intent": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy",
+      "intent": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli",
       "outcome": {
         "$type": "test.atseq.defs#effective"
       }
@@ -76,21 +78,21 @@
   "finalQuery": {
     "request": {
       "operation": "query",
-      "host": "http://127.0.0.1:49837",
-      "app": "did:plc:7thdiytka76x6l6dlohfnbui",
-      "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
+      "host": "http://127.0.0.1:57359",
+      "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+      "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
       "name": "summary",
       "params": {}
     },
     "response": {
       "head": {
-        "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
         "$type": "test.atseq.head",
         "entry": {
-          "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+          "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
         },
         "genesis": {
-          "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+          "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
         },
         "version": 0,
         "position": 5
@@ -99,7 +101,7 @@
         "$type": "test.atseq.defs#cursor",
         "position": 5,
         "entry": {
-          "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+          "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
         }
       },
       "result": {
@@ -113,7 +115,7 @@
           "tools": [
             {
               "holder": "Sam (synthetic)",
-              "holderKey": "did:key:zDnaeZZRdmXgKKFhvagRHMoJnguXCHXqiUA3RvkNAXwSdYPDu",
+              "holderKey": "did:key:zDnaejUf2rpDY97FeCTQ7rWs9QDean8X1LFzUGsXzb2aRPgKq",
               "id": "shears",
               "label": "Fabric shears"
             },
@@ -137,27 +139,27 @@
   },
   "finalOutcome": {
     "receipt": {
-      "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+      "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
       "$type": "test.atseq.defs#receipt",
       "entry": {
-        "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+        "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
       },
       "intent": {
-        "$link": "bafyreiaajhojbwuglhhtzdpfvyz2tmdciffiehikx4gauddqwvjpdgv4jy"
+        "$link": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
       },
       "genesis": {
-        "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+        "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
       },
       "position": 5
     },
     "head": {
-      "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+      "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
       "$type": "test.atseq.head",
       "entry": {
-        "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+        "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
       },
       "genesis": {
-        "$link": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu"
+        "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
       },
       "version": 0,
       "position": 5
@@ -166,7 +168,7 @@
       "$type": "test.atseq.defs#cursor",
       "position": 5,
       "entry": {
-        "$link": "bafyreigq3cxm5lzh3cgh6zajemn7xahoipsiyzb5lc52g65grvemj5hmue"
+        "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
       }
     },
     "outcome": {
@@ -177,22 +179,22 @@
     {
       "id": "documented-anonymous-preview",
       "adapterStep": 5,
-      "observed": "The retained anonymous-preview guard returned signing_identity_required; docs/interaction.md now explicitly documents empty meta.actorKey and no actor override.",
-      "status": "Known limitation accurately documented; live signed actions enforce the actual actor key."
+      "observed": "The retained anonymous-preview guard returned signing_identity_required, matching the documented empty meta.actorKey.",
+      "status": "Known limitation accurately documented; live signed actions use the real actor key."
     },
     {
       "id": "documented-invitation-url",
       "adapterStep": 8,
-      "observed": "The updated interaction docs specify the live app URL fragment. The retained invitation now includes that documented URL built from the returned app/genesis anchors.",
-      "status": "Earlier documentation gap addressed."
+      "observed": "The retained invitation includes the documented app/genesis URL fragment.",
+      "status": "No new documentation or adapter gap found during this repeat."
     }
   ],
   "limits": [
-    "This repeats the same independently authored purpose-specific design under a corrected runtime; it is not a second newly invented app.",
-    "Only the documented adapter was used for application interaction.",
-    "Retained Inlay rendering was observed through preview response trees; no browser UI flow was performed by this author.",
-    "No implementation, package, repository scripts or docs were edited; no commits or workroom acts were made.",
-    "This evidence retains source and adapter evidence, not a complete signed-log archive.",
-    "Parent owns before/after build-hash comparison and independent archive replay."
+    "This is a repeat of the original purpose-specific design, whose creative run preceded the review corrections; it is not a newly invented app.",
+    "Only the documented JSON adapter was used for application interaction.",
+    "Inlay view rendering was observed in preview response trees, not through a browser UI exercise by this author.",
+    "No host implementation, source scripts, tests, package files, docs, host-before.json or host-build bytes were modified; no commits or workroom acts were made.",
+    "This directory contains source and adapter evidence, not a complete signed-log archive.",
+    "Parent owns the after-hash capture and independent archive/replay."
   ]
 }
