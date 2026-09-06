@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0"}
+{"kind":"artifact","text":"Notes index candidate at exact e86d9bd30ccf19f982a06c912e8d10656fd33ee5: adds the plan review row. Documentation only.","body":{"commit":"e86d9bd30ccf19f982a06c912e8d10656fd33ee5","path":"notes/README.md"}}
