@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"S3 implementation and measured evidence at 9b00143: src/definition/source.ts.","body":{"branch":"request/spike-runtime","commit":"9b00143e7e62b781394ce26f81129017e56ea314","path":"src/definition/source.ts"}}
+{"kind":"artifact","text":"S3 implementation and measured evidence at 9b00143: src/host/projection.ts.","body":{"branch":"request/spike-runtime","commit":"9b00143e7e62b781394ce26f81129017e56ea314","path":"src/host/projection.ts"}}
