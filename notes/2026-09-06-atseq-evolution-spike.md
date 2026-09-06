@@ -50,9 +50,9 @@ are one transaction; at most 100 waiting actions per app are admitted.
 
 ## Evidence
 
-`npm run test:flows -- --group evolution` reports 25 passes: eleven core scenarios,
-twelve real-PDS browser/CLI scenarios, and their two parent tests. The combined
-S0–S5 suite reports 267 passes with no failures or skips. Evidence is retained in
+`npm run test:flows -- --group evolution` reports 27 passes: twelve core scenarios,
+thirteen real-PDS browser/CLI scenarios, and their two parent tests. The combined
+S0–S5 suite reports 269 passes with no failures or skips. Evidence is retained in
 [evolution-runtime.json](../experiments/evolution-runtime.json) and
 [evolution.json](../experiments/evolution.json), with case timings, versions and
 tested source hashes. Screenshots in [evidence/s5](../experiments/evidence/s5/)
@@ -99,4 +99,19 @@ regressions cover these review findings. The application runtime descriptor
 pins the corrected source; the engine identity remains unchanged. CLI compare
 and stage now accept the documented `expected` field, with `definition` as an
 alias. S4 host and participation evidence is refreshed at this corrected source.
-Older S0–S3 retained reports are historical until S6's full acceptance refresh.
+The subsequent review at `b070ffbffd814ab9cea091b222ddeee77f46be99` confirmed
+those fixes and found that sync omitted an available signed closure larger than
+512 KiB. Sync now transports that evidence under its separate 16 MiB budget;
+the unchanged definition bound rejects it during replay on both host and client.
+Two additional regressions mix two valid 300 KiB staged definitions, assert full
+projection equality, and continue through a subsequent ordinary action using
+the CLI and a fresh browser. That real transport exposed an argument-stack
+limit in the hand-written base64 encoder; the existing `@atcute/cbor` encoder
+now supplies the same unpadded bytes representation without spreading a large
+buffer into function arguments. Independent S1 vectors remain unchanged.
+The dead post-load closure comparison is removed,
+the CLI gate uses `expected`, and the broad exception-classification trade-off
+and current restore behavior are explicit in the contract. Retained S1–S5 reports
+and S3–S5 source examples and screenshots are refreshed for this candidate.
+The original S0 feasibility report remains stage-local evidence; S6 refreshes
+the complete series.

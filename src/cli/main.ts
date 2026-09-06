@@ -101,7 +101,7 @@ export async function execute(input: any): Promise<unknown> {
         await LoadedDefinition.load(source.root, source);
         const pool = new SourcePool(); await pool.add(source);
         for (const candidate of retained.candidates ?? []) {
-          const bundle = await SourceBundle.read(fromBytes(candidate.source)); if (bundle.root !== candidate.definition) throw new Error('Candidate source identity differs'); await pool.add(bundle);
+          const bundle = await SourceBundle.readClosure(fromBytes(candidate.source)); if (bundle.root !== candidate.definition) throw new Error('Candidate source identity differs'); await pool.add(bundle);
         }
         const folder = await Folder.open(anchor, pool); const snapshot = await folder.catchUp(retained.head, retained.entries);
         if (snapshot.stalled) throw new Error('History is paused; restore its source before signing a new action');

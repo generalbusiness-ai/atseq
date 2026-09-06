@@ -4,6 +4,7 @@ import { decodeBlock, encodeBlock } from '../protocol/wire.ts';
 import { InterpretationError, PROFILE } from '../runtime/profile.ts';
 
 export interface SourceReader { get(cid: string): Promise<Uint8Array> }
+export const SOURCE_POOL_BYTES = 16 * 1024 * 1024;
 export async function readSource(reader: SourceReader, cid: string): Promise<Uint8Array> {
   let raw: Uint8Array;
   try { raw = new Uint8Array(await reader.get(cid)); }
@@ -23,7 +24,14 @@ export async function readSource(reader: SourceReader, cid: string): Promise<Uin
 export class SourceBundle implements SourceReader {
   private constructor(readonly root: string, private readonly blocks: Map<string, Uint8Array>) {}
   static async read(carBytes: Uint8Array): Promise<SourceBundle> {
-    if (carBytes.length > PROFILE.definitionBytes) throw new InterpretationError('definition_size', 'Import exceeds 512 KiB including CAR framing');
+    return SourceBundle.readWithin(carBytes, PROFILE.definitionBytes);
+  }
+  /** Transport evidence for an activation attempt, including oversized definitions. */
+  static async readClosure(carBytes: Uint8Array): Promise<SourceBundle> {
+    return SourceBundle.readWithin(carBytes, SOURCE_POOL_BYTES);
+  }
+  private static async readWithin(carBytes: Uint8Array, limit: number): Promise<SourceBundle> {
+    if (carBytes.length > limit) throw new InterpretationError('definition_size', `Source CAR exceeds its ${limit}-byte bound including framing`);
     try {
       const car = fromUint8Array(new Uint8Array(carBytes));
       if (car.roots.length !== 1) throw new Error('Expected one definition root');
@@ -47,6 +55,16 @@ export class SourceBundle implements SourceReader {
     for (const cid of ids) blocks.set(cid, await readSource(reader, cid));
     return SourceBundle.read(await new SourceBundle(root, blocks).write());
   }
+  static async collectClosure(root: string, ids: string[], reader: SourceReader): Promise<SourceBundle> {
+    if (ids.length > PROFILE.definitionFiles) throw new InterpretationError('source_car', 'Excessive closure blocks');
+    const blocks = new Map<string, Uint8Array>(); let size = 0;
+    for (const cid of ids) {
+      const block = await readSource(reader, cid); size += block.length;
+      if (size > SOURCE_POOL_BYTES) throw new InterpretationError('source_pool_limit', 'Closure exceeds the 16 MiB source transport bound');
+      blocks.set(cid, block);
+    }
+    return SourceBundle.readClosure(await new SourceBundle(root, blocks).writeClosure());
+  }
   async get(cid: string): Promise<Uint8Array> {
     const block = this.blocks.get(cid);
     if (!block) throw new InterpretationError('content_missing', `Source is not in the retained bundle: ${cid}`);
@@ -54,10 +72,19 @@ export class SourceBundle implements SourceReader {
   }
   identities(): string[] { return [...this.blocks.keys()]; }
   async write(): Promise<Uint8Array> {
+    return this.writeWithin(PROFILE.definitionBytes);
+  }
+  async writeClosure(): Promise<Uint8Array> {
+    return this.writeWithin(SOURCE_POOL_BYTES);
+  }
+  private async writeWithin(limit: number): Promise<Uint8Array> {
     const blocks = [...this.blocks].map(([cid, data]) => ({ cid: fromString(cid).bytes, data }));
     const chunks = []; let size = 0;
-    for await (const chunk of writeCarStream([{ $link: this.root }], blocks)) { chunks.push(chunk); size += chunk.length; }
-    if (size > PROFILE.definitionBytes) throw new InterpretationError('definition_size', 'Import exceeds 512 KiB including CAR framing');
+    for await (const chunk of writeCarStream([{ $link: this.root }], blocks)) {
+      size += chunk.length;
+      if (size > limit) throw new InterpretationError('definition_size', `Source CAR exceeds its ${limit}-byte bound including framing`);
+      chunks.push(chunk);
+    }
     const car = new Uint8Array(size); let offset = 0;
     for (const chunk of chunks) { car.set(chunk, offset); offset += chunk.length; }
     return car;
@@ -82,7 +109,7 @@ export class SourcePool implements SourceReader {
   async add(bundle: SourceBundle): Promise<void> {
     const next = new Map(this.blocks);
     for (const cid of bundle.identities()) next.set(cid, await bundle.get(cid));
-    if (next.size > 2048 || [...next.values()].reduce((size, block) => size + block.length, 0) > 16 * 1024 * 1024) throw new InterpretationError('source_pool_limit', 'Retained application source exceeds the local 16 MiB / 2048-block limit');
+    if (next.size > 2048 || [...next.values()].reduce((size, block) => size + block.length, 0) > SOURCE_POOL_BYTES) throw new InterpretationError('source_pool_limit', 'Retained application source exceeds the local 16 MiB / 2048-block limit');
     this.blocks.clear(); for (const [cid, bytes] of next) this.blocks.set(cid, bytes);
   }
   async get(cid: string): Promise<Uint8Array> {

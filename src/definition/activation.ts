@@ -41,8 +41,6 @@ export async function activationCandidate(current: LoadedDefinition, payload: Ac
   try {
     const source = await SourceBundle.collect(payload.definition, payload.closure, { get: async cid => new Uint8Array(blocks.get(cid)!) });
     const next = await LoadedDefinition.load(payload.definition, source);
-    const expected = [...new Set([next.cid, ...next.manifest.files.map(file => file.cid)])].sort();
-    if (expected.join(',') !== payload.closure.join(',')) throw new Error('Signed closure differs from candidate manifest');
     compatibleDefinition(current, next, state); return next;
   } catch (error) {
     if (error instanceof InterpretationError && error.code === 'incompatible_definition') throw error;

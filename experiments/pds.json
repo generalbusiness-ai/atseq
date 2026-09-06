@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:04:53.972Z",
+  "measuredAt": "2026-09-06T17:50:05.899Z",
   "nodeVersion": "v26.8.1",
   "pdsVersion": "0.5.31",
   "storage": "Official PDS HTTP and SQLite; loopback PLC with in-memory test database",
@@ -9,32 +9,32 @@
     {
       "name": "genesis and initial head are a verified empty prefix",
       "passed": true,
-      "elapsedMs": 17
+      "elapsedMs": 11
     },
     {
       "name": "provisioning refuses to replace an existing application log",
       "passed": true,
-      "elapsedMs": 43
+      "elapsedMs": 32
     },
     {
       "name": "source blobs are retained and recovered by exact CID",
       "passed": true,
-      "elapsedMs": 35
+      "elapsedMs": 25
     },
     {
       "name": "reset refuses a live or unmarked directory",
       "passed": true,
-      "elapsedMs": 3
+      "elapsedMs": 1
     },
     {
       "name": "two concurrent submissions receive one contiguous order",
       "passed": true,
-      "elapsedMs": 138
+      "elapsedMs": 86
     },
     {
       "name": "same intent and a new valid signature return original receipt",
       "passed": true,
-      "elapsedMs": 98
+      "elapsedMs": 85
     },
     {
       "name": "second local writer is refused while the lease is held",
@@ -44,92 +44,91 @@
     {
       "name": "official PDS process crash preserves acknowledged history and blobs",
       "passed": true,
-      "elapsedMs": 1044
+      "elapsedMs": 787
     },
     {
       "name": "a rejected conditional batch leaves entry and head unchanged",
       "passed": true,
-      "elapsedMs": 92
+      "elapsedMs": 46
     },
     {
       "name": "malformed commit replies cannot remove an append or provision condition",
       "passed": true,
-      "elapsedMs": 104
+      "elapsedMs": 60
     },
     {
       "name": "an unrelated repo write races the append and is reconciled",
       "passed": true,
-      "elapsedMs": 153
+      "elapsedMs": 110
     },
     {
       "name": "lost HTTP response after commit resolves to one original receipt",
       "passed": true,
-      "elapsedMs": 174
+      "elapsedMs": 120
     },
     {
       "name": "a different writer process cannot acquire the same local lease",
       "passed": true,
-      "elapsedMs": 155
+      "elapsedMs": 109
     },
     {
       "name": "writer crash after commit but before acknowledgment recovers one receipt",
       "passed": true,
-      "elapsedMs": 339
+      "elapsedMs": 241
     },
     {
       "name": "writer crash after acknowledgment keeps receipt and no domain effect claim",
       "passed": true,
-      "elapsedMs": 381
+      "elapsedMs": 267
     },
     {
       "name": "XRPC rejects a foreign receipt anchor and malformed submission",
       "passed": true,
-      "elapsedMs": 37
+      "elapsedMs": 23
     },
     {
       "name": "bootstrap at a chosen head catches up without notifications",
       "passed": true,
-      "elapsedMs": 271
+      "elapsedMs": 177
     },
     {
       "name": "repository CAR contains retention references but blobs require explicit export",
       "passed": true,
-      "elapsedMs": 22
+      "elapsedMs": 15
     },
     {
       "name": "missing and tampered source references fail, then recover by exact content",
       "passed": true,
-      "elapsedMs": 64
+      "elapsedMs": 48
     },
     {
       "name": "missing or corrupted physical blob bytes never satisfy a source CID",
       "passed": true,
-      "elapsedMs": 29
+      "elapsedMs": 18
     },
     {
       "name": "a retained verified head refuses repository rollback and signed-entry corruption",
       "passed": true,
-      "elapsedMs": 212
+      "elapsedMs": 130
     },
     {
       "name": "chosen-head catch-up verifies a prefix spanning real PDS pages",
       "passed": true,
-      "elapsedMs": 489
+      "elapsedMs": 272
     },
     {
       "name": "PDS compare-and-swap excludes competing writers even with the local lease bypassed",
       "passed": true,
-      "elapsedMs": 1075
+      "elapsedMs": 610
     }
   ],
   "sourceHashes": {
-    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
+    "package.json": "952c4846a3c0cf8bda3b37b0bb37da1c8bc6597996f7cc40d4b10a928183c0dc",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111",
     "tests/pds.test.ts": "37709162ac79ac55ebddafc5cacc140a7b16302d41c231c6b9c04e40bab1e89d",
     "lexicons/test/atseq/source.json": "ba5aa441065c5bffab8326e8cebc98a15708496159fc3bb9f78ad835031e8f23",
     "src/host/accounts.ts": "13df56ad649ed85db6de22b4846b4be2a30e42c3883272a6d32fc62016cf8313",
-    "src/host/application.ts": "aa0ff4a99700e39d6e31c27fcfcad38e26767b241f8c81d98b539b6b7715a42e",
-    "src/host/build.ts": "b651f8f4e79e8fb87fc4783bac27f8ca5146e873ec02d63905253eb4629f63a2",
+    "src/host/application.ts": "03c399c1bab79c4968f1138d030c381fe53ab28cf71fd2a7a0697add3bfe6919",
     "src/host/files.ts": "9c39c4f0f0717dff170695cb44519d418380f5215028f95537ea115b9d938862",
     "src/host/http.ts": "8f391808eabb2e02f5779d16a165056e5b9d9f5ad18fa4b2a462e42fe3a944c5",
     "src/host/lease.ts": "95c65692e820a53b9fb5aaafd392a0120c5e926a0be2905ee47c318a041c8aed",

@@ -15,3 +15,11 @@ export async function guitarEvolution() {
   const files = { ...old.files, 'schemas/data.json': json(schema), 'schemas/selection.json': json(query), 'select.jsonata': text('($id := act.id; $exists(state.candidates[id = $id]) ? {"decision":"effective","state":{"candidates":state.candidates,"selected":$id}} : {"decision":"ineffective","reason":"unknown_candidate"})'), 'selection.jsonata': text('{"selected":state.selected}'), 'selection-view.json': json(view) };
   return { old, manifest, files, bundle: await SourceBundle.pack(manifest, files), action: 'test.guitar.data#select' };
 }
+
+/** Two individually valid staged definitions whose mixed closure exceeds one definition's bound. */
+export async function oversizedClosure(fixture: Awaited<ReturnType<typeof guitarEvolution>>) {
+  const first = await SourceBundle.pack(fixture.manifest, { ...fixture.files, 'retained.txt': new Uint8Array(300 * 1024).fill(97) });
+  const second = await SourceBundle.pack(fixture.manifest, { ...fixture.files, 'retained.txt': new Uint8Array(300 * 1024).fill(98) });
+  const extra = second.identities().find(cid => cid !== second.root && !first.identities().includes(cid))!;
+  return { first, second, closure: [...first.identities(), extra].sort() };
+}

@@ -28,7 +28,7 @@ async function handle(data: any) {
         await LoadedDefinition.load(source.root, source);
         const key = `${anchor.genesis.app}:${anchor.cid}`, pool = sources.get(key) ?? new SourcePool();
         await pool.add(source);
-        for (const candidate of input.candidates ?? []) { const retained = await SourceBundle.read(fromBytes(candidate.source)); if (retained.root !== candidate.definition) throw new Error('Candidate CAR differs from declared identity'); await pool.add(retained); }
+        for (const candidate of input.candidates ?? []) { const retained = await SourceBundle.readClosure(fromBytes(candidate.source)); if (retained.root !== candidate.definition) throw new Error('Candidate CAR differs from declared identity'); await pool.add(retained); }
         sources.set(key, pool); folder = await apps.open(anchor.genesis, anchor.cid, pool);
         const snapshot = await folder.catchUp(input.head, input.entries); definition = folder.activeDefinition(); lastInput = input;
         result = { ...snapshot, genesis: anchor.genesis, definition: await describeDefinition(definition) }; break;

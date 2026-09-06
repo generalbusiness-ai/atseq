@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:04:56.627Z",
+  "measuredAt": "2026-09-06T17:50:01.560Z",
   "nodeVersion": "v26.8.1",
   "fixtureGeneration": true,
   "autonomousAgentGeneration": false,
@@ -15,12 +15,12 @@
     {
       "event": "application-interpreted",
       "title": "Garden rainfall",
-      "schema": "test.generated744c47f957.rainfall.data#record"
+      "schema": "test.generated85bd6c4e86.rainfall.data#record"
     },
     {
       "event": "application-interpreted",
       "title": "Weekend guitar search",
-      "schema": "test.generated744c47f957.guitar.data#candidate"
+      "schema": "test.generated85bd6c4e86.guitar.data#candidate"
     }
   ],
   "before": {
@@ -35,17 +35,17 @@
     "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
     "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
     "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-    "src/definition/activation.ts": "3438b16d43121aab7618018aab459cceebb99da4e70608f3a913ed14aac68fde",
+    "src/definition/activation.ts": "fb09f15d41453aed218e4da4b4f88155593cef46b854cfa2e13e5cb98182177e",
     "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
     "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
-    "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",
+    "src/definition/source.ts": "2ef5b1eaaf7caa64be7e929977d2ddc5d51a4fcf7198ffa35312238617363aee",
     "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
-    "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+    "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
     "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
     "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
     "src/runtime/identity.ts": "74ceee995dd7e73ca51ce1c9790e7dbbf936cee54c722ee9be67f21e35e3e5d9",
-    "src/runtime/application-profile.json": "dacad769877f0a5ac8b6956bf0e2ac3485433d83b73cacca8464965850310c32",
+    "src/runtime/application-profile.json": "e37792bc74d7e41f47af2fd432e24c5cbad1dcaa7eab685aedf6e31c6c9394fc",
     "tests/helpers/runtime-child.ts": "efeb14d37e4324ed98172e4c15042e3b2b194ce4e6681d24b506888385e39581"
   },
   "after": {
@@ -60,17 +60,17 @@
     "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
     "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
     "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-    "src/definition/activation.ts": "3438b16d43121aab7618018aab459cceebb99da4e70608f3a913ed14aac68fde",
+    "src/definition/activation.ts": "fb09f15d41453aed218e4da4b4f88155593cef46b854cfa2e13e5cb98182177e",
     "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
     "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
-    "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",
+    "src/definition/source.ts": "2ef5b1eaaf7caa64be7e929977d2ddc5d51a4fcf7198ffa35312238617363aee",
     "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
-    "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+    "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
     "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
     "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
     "src/runtime/identity.ts": "74ceee995dd7e73ca51ce1c9790e7dbbf936cee54c722ee9be67f21e35e3e5d9",
-    "src/runtime/application-profile.json": "dacad769877f0a5ac8b6956bf0e2ac3485433d83b73cacca8464965850310c32",
+    "src/runtime/application-profile.json": "e37792bc74d7e41f47af2fd432e24c5cbad1dcaa7eab685aedf6e31c6c9394fc",
     "tests/helpers/runtime-child.ts": "efeb14d37e4324ed98172e4c15042e3b2b194ce4e6681d24b506888385e39581"
   },
   "sourceHashes": {
@@ -85,22 +85,22 @@
     "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
     "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
     "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-    "src/definition/activation.ts": "3438b16d43121aab7618018aab459cceebb99da4e70608f3a913ed14aac68fde",
+    "src/definition/activation.ts": "fb09f15d41453aed218e4da4b4f88155593cef46b854cfa2e13e5cb98182177e",
     "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
     "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
-    "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",
+    "src/definition/source.ts": "2ef5b1eaaf7caa64be7e929977d2ddc5d51a4fcf7198ffa35312238617363aee",
     "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
-    "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+    "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
     "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
     "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
     "src/runtime/identity.ts": "74ceee995dd7e73ca51ce1c9790e7dbbf936cee54c722ee9be67f21e35e3e5d9",
-    "src/runtime/application-profile.json": "dacad769877f0a5ac8b6956bf0e2ac3485433d83b73cacca8464965850310c32",
+    "src/runtime/application-profile.json": "e37792bc74d7e41f47af2fd432e24c5cbad1dcaa7eab685aedf6e31c6c9394fc",
     "tests/helpers/runtime-child.ts": "efeb14d37e4324ed98172e4c15042e3b2b194ce4e6681d24b506888385e39581",
     "tests/dynamic-apps.test.ts": "b3db7f1d1af3c674c22f13277597b53159663ff5f2d5ab33a5fc69ad2544bbc1",
     "testdata/apps/fixtures.ts": "ed91af6c8615a56b6791de75014a64f38fe0f122c100b93f8b51ef336b524730",
     "experiments/runtime-corpus.ts": "b40138cff9ff265ace73bf3694fa0df6eceb15c377e1fd11700e9a9421fe91fa",
-    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
+    "package.json": "952c4846a3c0cf8bda3b37b0bb37da1c8bc6597996f7cc40d4b10a928183c0dc",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111"
   }
 }

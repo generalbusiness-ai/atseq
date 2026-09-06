@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:04:46.791Z",
+  "measuredAt": "2026-09-06T17:50:01.917Z",
   "nodeVersion": "v26.8.1",
   "browserVersion": "153.0.8010.12",
   "node": [
@@ -648,7 +648,7 @@
     }
   ],
   "sourceHashes": {
-    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
+    "package.json": "952c4846a3c0cf8bda3b37b0bb37da1c8bc6597996f7cc40d4b10a928183c0dc",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111",
     "tests/protocol.test.ts": "c77e5515b73f3e57af92ba85994903bde08c2ace8d9dfa9a1f10d0735eba6a5d",
     "tests/vectors/protocol-v0.json": "dc398067268956cc5ac1ae3b100a822ebafaac90995bdd17860126a200431a0f",
@@ -657,7 +657,7 @@
     "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
     "src/protocol/runtime-descriptor.json": "33808c464378b3274b70f1c93580ab6d4482a342abd08856c940578c3c8cb3cb",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
-    "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+    "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
     "lexicons/test/atseq/activate.json": "1b58f204e70fed5317d699e6fbcebc967d5b0a3c47b64ac8adbbc3aa37124bca",
     "lexicons/test/atseq/compareDefinition.json": "dda1078b7fe5686dc4132a39a22dd54cc7625eb146c765da3acc64a85abb6298",
     "lexicons/test/atseq/create.json": "7330be0dbdb764a133061be715c4cf88fd21994d92197e2659b7f93eca43690a",
@@ -675,7 +675,7 @@
     "lexicons/test/atseq/source.json": "ba5aa441065c5bffab8326e8cebc98a15708496159fc3bb9f78ad835031e8f23",
     "lexicons/test/atseq/stageDefinition.json": "05843019ad187f22fd44e52fb2ec6d5406b2362a5f2129b3cdd1fa8282323112",
     "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-    "lexicons/test/atseq/sync.json": "db327b2a950036da2bbb12ed9fda9dcf14d324c25a5084a427dfc0ac451edcdf",
+    "lexicons/test/atseq/sync.json": "79a95060ee126dc0d8807854071115ac93ed874014bbfd6b4d0b223bf46bc5cf",
     "lexicons/test/atseq/validateDraft.json": "9e990a143da727ff4352c72a2ad6f75c788b7ee9c6d00bcec4dce1c77ab79014",
     "experiments/protocol-browser/index.html": "68a1a64a6f9589956962d59527606fde619ca18568914ae9926d525e2f393130",
     "experiments/protocol-browser/main.ts": "b3f8528f7c81a1e0a970c1c0686e8b17e024394ebcc6b7d3d8a6f706be7c443a"
