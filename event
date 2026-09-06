@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0faf21ab98faa951b8d3c8d289f8fca6ad03be7a","text":"Merge retired a covered predecessor; the successor is at experiments/acceptance-logs/13.log."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:106a061ca88ca4eb3f12acd04107ed2f444c3231","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk/source/views/main.json."}
