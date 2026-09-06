@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T16:25:04.779Z",
+  "measuredAt": "2026-09-06T16:50:54.599Z",
   "nodeVersion": "v26.8.1",
   "expectedCases": 12,
   "browserVersion": "153.0.8010.12",
@@ -9,62 +9,62 @@
     {
       "name": "ordinary state is retained while another browser queues an old-definition act",
       "passed": true,
-      "elapsedMs": 669
+      "elapsedMs": 676
     },
     {
       "name": "comparison works locally and an ungranted browser cannot apply",
       "passed": true,
-      "elapsedMs": 87
+      "elapsedMs": 89
     },
     {
       "name": "CLI staging and preparing an activation do not activate it",
       "passed": true,
-      "elapsedMs": 807
+      "elapsedMs": 953
     },
     {
       "name": "explicit Apply records the boundary and preserves existing data",
       "passed": true,
-      "elapsedMs": 858
+      "elapsedMs": 877
     },
     {
       "name": "a prepared activation racing from the same old definition is ineffective",
       "passed": true,
-      "elapsedMs": 333
+      "elapsedMs": 369
     },
     {
       "name": "reconnecting delivers the old signed intent unchanged exactly once",
       "passed": true,
-      "elapsedMs": 419
+      "elapsedMs": 563
     },
     {
       "name": "review preserves entered values and signs a replacement only on Save",
       "passed": true,
-      "elapsedMs": 548
+      "elapsedMs": 566
     },
     {
       "name": "the new action, query and view use the preserved state",
       "passed": true,
-      "elapsedMs": 552
+      "elapsedMs": 571
     },
     {
       "name": "offline queue order preserves add-then-select dependencies",
       "passed": true,
-      "elapsedMs": 879
+      "elapsedMs": 929
     },
     {
       "name": "a recorded unauthorized activation is refused under the fixed grant",
       "passed": true,
-      "elapsedMs": 147
+      "elapsedMs": 136
     },
     {
       "name": "an incompatible proposal preserves the app and current data",
       "passed": true,
-      "elapsedMs": 274
+      "elapsedMs": 287
     },
     {
       "name": "restarting the host rebuilds the active definition and every outcome",
       "passed": true,
-      "elapsedMs": 756
+      "elapsedMs": 768
     }
   ],
   "sourceHashes": {
@@ -105,12 +105,12 @@
     "src/browser/main.ts": "65d4078b4df05fda8a410f3cbbc6aa8eb5d8bb9fc342f5ede2052030daf3d232",
     "src/browser/style.css": "48e6c144bb60b3071c91e38d87fb9e14179e4a726adc62c647a2861a5960c59b",
     "src/browser/worker.ts": "1acda82f118dae9fb60d15a2b8777ddc56e75e38b3a2ee65657f465d4bae0679",
-    "src/cli/main.ts": "8e78e369f7ab00681368939753ea825a6a3b60ba55640e16b476363ea6f76a2e",
+    "src/cli/main.ts": "928d3c59df6dd028993ecac3fa89afa9cc11416bf3b38d1b1c94c82fd3347f31",
     "src/client/api.ts": "31669bb31e5d7e6c55b35f3165a2e6a403231e7ccca3f510f7ee8658db5f8ac4",
     "src/client/definition.ts": "2e036731484cb8cfac61c9b3946b566a8e5de713baa5b365bcc99df7910cccc3",
     "src/client/identity.ts": "e2e12ab667e0a99ef35b60f2ec8abbd148dd5830495dd454fc08e3c74af87823",
     "src/client/store.ts": "19178b4e156874184043f2c8e578fdcbd840fc87690974cc2ef133fe4ce63e67",
-    "src/definition/activation.ts": "0ed550991b61b6d6e10f654bdca9899061bc2dd5e807797dfeab6fb1b9acf7fe",
+    "src/definition/activation.ts": "3438b16d43121aab7618018aab459cceebb99da4e70608f3a913ed14aac68fde",
     "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
     "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
     "src/definition/schemas.ts": "52ef749be1198f48d5220f1579a54c1a6727b293882ca656628bfe94c13903c2",
@@ -129,7 +129,7 @@
     "src/protocol/runtime-descriptor.json": "33808c464378b3274b70f1c93580ab6d4482a342abd08856c940578c3c8cb3cb",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
     "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
-    "src/runtime/application-profile.json": "7a285774bfa5f6b1d0e5b4ac5172853fbde66ac09099e0e907c2cfd220c95656",
+    "src/runtime/application-profile.json": "dacad769877f0a5ac8b6956bf0e2ac3485433d83b73cacca8464965850310c32",
     "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
     "src/runtime/evaluator.ts": "4f4008fbca9c9b60b9bdae09d55a5fe1c1ba062418662cbc363f02606da42be2",
     "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
@@ -140,7 +140,7 @@
     "testdata/apps/evolution.ts": "bed9c83cc4c33511e4715d81bd290c43537dffece5332df8944c81308f284636",
     "testdata/apps/fixtures.ts": "ed91af6c8615a56b6791de75014a64f38fe0f122c100b93f8b51ef336b524730",
     "tests/dynamic-apps.test.ts": "b3db7f1d1af3c674c22f13277597b53159663ff5f2d5ab33a5fc69ad2544bbc1",
-    "tests/evolution-runtime.test.ts": "cb352cd468290ed1ccdc0ccef3662112a7533da6d9ce1413332949f907b2afd4",
+    "tests/evolution-runtime.test.ts": "08df7a02b605385151b144695d13ac5f8da15d4a19b66eb32908696a3cbf050c",
     "tests/evolution.test.ts": "b041448a30ae79660bb1d238ca2e8c08eb6133631e94110d5312fcf3b0163a03",
     "tests/feasibility.test.ts": "3b3cf3b14ca785cb5e231ef6c1ef42cf2b9fb43c0234c63eb887fb63f882212c",
     "tests/flows.test.ts": "5484dbd1f7657c8d006c1c80a2480892b5d9d701689a297591cd9bc903d94647",

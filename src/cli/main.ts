@@ -65,8 +65,8 @@ export async function execute(input: any): Promise<unknown> {
     case 'list': return api.call('list');
     case 'describe': return api.call('describe', target);
     case 'validate': return api.call('validateDraft', { source: bytes(await readFile(input.source)) });
-    case 'compare': return api.call('compareDefinition', { ...target, expected: input.definition, source: bytes(await readFile(input.source)) });
-    case 'stage': return api.call('stageDefinition', { ...target, expected: input.definition, source: bytes(await readFile(input.source)) });
+    case 'compare': return api.call('compareDefinition', { ...target, expected: input.expected ?? input.definition, source: bytes(await readFile(input.source)) });
+    case 'stage': return api.call('stageDefinition', { ...target, expected: input.expected ?? input.definition, source: bytes(await readFile(input.source)) });
     case 'preview': return api.call('preview', { source: bytes(await readFile(input.source)), ...(input.action ? { action: input.action, payload: input.payload } : {}), ...(input.state !== undefined ? { state: input.state } : {}) });
     case 'create': {
       const identity = await privateJson(input.keyFile) as Identity;

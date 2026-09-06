@@ -82,6 +82,34 @@ test('compatible activation preserves its exact interpretation boundary', async 
       assert.equal(result.stalled, undefined); assert.equal(result.projection.definition, old.bundle.root);
       assert.deepEqual(result.projection.outcomes[0]!.outcome, { $type: 'test.atseq.defs#ineffective', reason: 'invalid_activation' });
     });
+    await check('an incomplete or extra signed closure has the same outcome with full and closure-only readers', async () => {
+      const missing = next.bundle.identities().find(cid => !old.bundle.identities().includes(cid) && cid !== next.bundle.root)!;
+      for (const closure of [payload.closure.filter(cid => cid !== missing), [...payload.closure, old.bundle.root].sort()]) {
+        const restricted = new SourcePool(); await restricted.add(old.bundle);
+        await restricted.add(await SourceBundle.collect(next.bundle.root, closure, pool));
+        const history = await fixtureHistory(app, [
+          { action: ACTIVATE, payload: { ...payload, closure } },
+          { action: old.action, payload: candidate },
+          { action: next.action, payload: { id: 'one' }, definition: next.bundle.root },
+        ]);
+        const full = await (await Folder.open(app.anchor, pool)).catchUp(history.head, history.entries);
+        const narrow = await (await Folder.open(app.anchor, restricted)).catchUp(history.head, history.entries);
+        assert.equal(full.stalled, undefined); assert.deepEqual(narrow, full);
+        assert.equal(full.projection.definition, old.bundle.root);
+        assert.deepEqual(full.projection.outcomes.map(o => o.outcome), [
+          { $type: 'test.atseq.defs#ineffective', reason: 'invalid_activation' },
+          { $type: 'test.atseq.defs#effective' },
+          { $type: 'test.atseq.defs#ineffective', reason: 'definition_changed' },
+        ]);
+      }
+    });
+    await check('an available query-less view with missing bindings is invalid rather than a permanent stall', async () => {
+      const invalid = await SourceBundle.pack({ ...next.manifest, views: next.manifest.views.map(({query, ...view}) => view) }, next.files);
+      const available = new SourcePool(); await available.add(old.bundle); await available.add(invalid);
+      const history = await fixtureHistory(app, [{ action: ACTIVATE, payload: { expected: old.bundle.root, definition: invalid.root, closure: invalid.identities().sort() } }]);
+      const result = await (await Folder.open(app.anchor, available)).catchUp(history.head, history.entries);
+      assert.equal(result.stalled, undefined); assert.deepEqual(result.projection.outcomes[0]!.outcome, { $type: 'test.atseq.defs#ineffective', reason: 'invalid_activation' });
+    });
     await check('state compatibility includes transitive schemas and ignores unrelated additions', async () => {
       const current = await LoadedDefinition.load(old.bundle.root, old.bundle), candidate = await LoadedDefinition.load(next.bundle.root, next.bundle);
       compatibleDefinition(current, candidate, current.initialState);
@@ -107,5 +135,5 @@ test('compatible activation preserves its exact interpretation boundary', async 
       const rebound = await SourceBundle.pack({ ...next.manifest, actions: [{ ref: ACTIVATE, fold: 'select.jsonata' }] }, next.files);
       await assert.rejects(() => LoadedDefinition.load(rebound.root, rebound), { code: 'definition_binding' });
     });
-  } finally { await recordFlowEvidence('evolution-runtime', results, { expectedCases: 9 }); }
+  } finally { await recordFlowEvidence('evolution-runtime', results, { expectedCases: 11 }); }
 });
