@@ -1,6 +1,6 @@
 /** A candidate profile. S0 evidence must pass before this becomes a wire identity. */
 export const PROFILE = Object.freeze({
-  id: 'atseq-jsonata-js-2.2.2-candidate-1',
+  id: 'atseq-jsonata-js-2.2.2-candidate-2',
   stateBytes: 128 * 1024,
   inputBytes: 256 * 1024,
   outputBytes: 256 * 1024,
@@ -15,7 +15,9 @@ export const PROFILE = Object.freeze({
   evaluationSteps: 100_000,
   sequenceLength: 16_384,
   intermediateBytes: 1024 * 1024,
-  inspectedNodes: 2_000_000,
+  inspectionBytes: 16 * 1024 * 1024,
+  viewNodes: 2048,
+  viewDepth: 24,
 });
 
 export class InterpretationError extends Error {

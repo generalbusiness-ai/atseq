@@ -12,6 +12,10 @@ import { PROFILE } from '../src/runtime/profile.ts';
 
 const generated = 'experiments/generated';
 await mkdir(generated, { recursive: true });
+const evidence = 'experiments/evidence';
+await mkdir(evidence, { recursive: true });
+const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));
+const version = (name: string): string => lock.packages[`node_modules/${name}`].version;
 const report: Record<string, any> = { stage: 'S0', passed: false, measuredAt: new Date().toISOString(), environment: { node: process.version, os: platform(), arch: arch(), cpu: cpus()[0]?.model }, profile: PROFILE, limitations: [
   'A feasibility experiment only; no PDS log, signing, activation or exports implemented.',
   'Local forms and fixture routes are experiment code. Generic application interaction belongs to S4.',
@@ -42,9 +46,9 @@ try {
   assert.deepEqual(JSON.parse(goBrowser.logs[0]), native);
   report.candidates = {
     jsonataddl: { selected: false, module: JSON.parse(command('go', ['list', '-m', '-json', 'github.com/generalbusiness-ai/tailapps/jsonataddl'], { cwd: goCwd })), native, browser: goBrowser, reason: 'The generated state facade works in both environments. The published closed profile rejects the append and multiplication fixtures and exposes depth/range bounds plus a 2000 ms watchdog, but no deterministic operation counter. Using a private core fork is excluded; the planned single-engine fallback supplies those capabilities.' },
-    jsonata: { selected: true, version: '2.2.2', profile: PROFILE.id, engineForked: false },
-    schemas: { selected: '@atproto/lexicon', version: '0.7.12', runtimeLoaded: true, perAppCodeGeneration: false },
-    ui: { selected: '@inlay/core + @inlay/render', versions: ['0.0.13', '0.3.1'], localTemplates: true, externalXrpc: false },
+    jsonata: { selected: true, version: version('jsonata'), profile: PROFILE.id, engineForked: false },
+    schemas: { selected: '@atproto/lexicon', version: version('@atproto/lexicon'), runtimeLoaded: true, perAppCodeGeneration: false },
+    ui: { selected: '@inlay/core + @inlay/render', versions: [version('@inlay/core'), version('@inlay/render')], localTemplates: true, externalXrpc: false },
   };
   delete report.candidates.jsonataddl.module.Dir;
   delete report.candidates.jsonataddl.module.GoMod;
@@ -82,7 +86,7 @@ try {
   await page.getByRole('button', { name: 'Record amount' }).press('Enter');
   await page.getByText('Total recorded: 9', { exact: true }).waitFor();
   assert.equal(await page.evaluate(() => (window as any).atseqExperiment.submissions), 1);
-  await page.screenshot({ path: `${generated}/desktop.png`, fullPage: true });
+  await page.screenshot({ path: `${evidence}/desktop.png`, fullPage: true });
   await page.evaluate(() => (window as any).atseqExperiment.render('<img src="https://example.test/x" onerror="window.pwned=1"><script>window.pwned=1</script>'));
   assert.equal(await page.locator('#app img, #app script').count(), 0);
   assert.equal(await page.evaluate(() => (window as any).pwned), undefined);
@@ -91,15 +95,15 @@ try {
   await page.evaluate(() => (window as any).atseqExperiment.render('Total recorded: 9'));
   await page.setViewportSize({ width: 390, height: 844 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
-  await page.screenshot({ path: `${generated}/mobile.png`, fullPage: true });
+  await page.screenshot({ path: `${evidence}/mobile.png`, fullPage: true });
   assert.deepEqual(errors, []);
   report.browserControls = { keyboardSubmit: true, renderSubmissions: 0, explicitSubmissions: 1, escapedHostileText: true, externalRequests: external, mobileOverflow: false, pageErrors: errors };
-  const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));
   report.dependencies = Object.entries(lock.packages).filter(([path]) => path).map(([path, pkg]) => { const p = pkg as any; return { path, version: p.version, license: p.license ?? 'not declared', integrity: p.integrity, resolved: p.resolved }; });
   report.sourceHashes = Object.fromEntries(await Promise.all(([
     ...await files('src'), ...await files('scripts'), ...await files('experiments/browser'),
-    ...await files('experiments/jsonataddl'), 'experiments/corpus.ts', 'experiments/fixtures.ts', 'package.json', 'package-lock.json', 'tsconfig.json',
+    ...await files('experiments/jsonataddl'), 'experiments/corpus.ts', 'experiments/fixtures.ts', 'experiments/boundaries.ts', 'package.json', 'package-lock.json', 'tsconfig.json',
   ]).map(async path => [path, createHash('sha256').update(await readFile(path)).digest('hex')])));
+  report.screenshots = Object.fromEntries(await Promise.all((await files(evidence)).map(async path => [path, createHash('sha256').update(await readFile(path)).digest('hex')])));
   // Full graph is retained separately; the lockfile records all exact versions.
   await writeFile(`${generated}/npm-tree.json`, command('npm', ['ls', '--all', '--json']));
   await writeFile(`${generated}/go-modules.json`, command('go', ['list', '-m', '-json', 'all'], { cwd: goCwd }));

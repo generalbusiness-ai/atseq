@@ -17,7 +17,7 @@ creation, activation and replay are still unimplemented.
 ## Measured result
 
 `npm run check`, `npm test` and `npm run spike:feasibility` pass. The latter runs
-51 identical fixtures in Node and Chromium, compares their outcomes, exercises
+75 identical fixtures in Node and Chromium, compares their outcomes, exercises
 keyboard submission, tests hostile-text escaping and checks the narrow layout.
 It observes zero submissions during rendering and one from an explicit
 control. Source, input, state, output, schema-count and schema-size boundary
@@ -27,12 +27,14 @@ per-app code generation.
 
 Raw evidence is [experiments/feasibility.json](../experiments/feasibility.json).
 The script regenerates it rather than presenting proposed tests as results.
-Screenshots and bundle hashes are reproducible through the same command.
+Representative [desktop](../experiments/evidence/desktop.png) and
+[mobile](../experiments/evidence/mobile.png) screenshots are retained in Git.
+The same command regenerates them and records their hashes with the bundles.
 
 Measured on an Apple M5 Max, macOS arm64, Node 26.8.1, Go 1.27.0 and Chromium
 153.0.8010.12. The instrumented browser loaded its worker and rendered its first
-query in about 28 ms from a local production-preview server. The shell JS is
-about 389 KB raw / 99 KB gzip and the worker about 581 KB raw / 154 KB gzip.
+query in about 29 ms from a local production-preview server. The shell JS is
+about 390 KB raw / 99 KB gzip and the worker about 586 KB raw / 155 KB gzip.
 These include test instrumentation and duplicate schema/UI dependencies; they
 are observations, not optimized-runtime size claims or network benchmarks.
 
@@ -47,7 +49,7 @@ are observations, not optimized-runtime size claims or network benchmarks.
 
 The Go result corrects an uncertainty in the plan: SQLite does **not** prevent
 this published module from compiling or running in a browser. The measured
-WASM is about 20.9 MB, and the complete local load/probe took about 177 ms.
+WASM is about 20.9 MB, and the complete local load/probe took about 180 ms.
 A generated facade successfully carries state-document and ineffective
 results through the core's opaque fact output.
 
@@ -63,6 +65,19 @@ The JavaScript wrapper admits a documented subset and limits evaluator visits,
 nesting, inspected intermediate data and output sizes. It does not claim a hard
 heap quota. Watchdog and budget errors pause interpretation. The exact contract
 is in [docs/runtime-profile.md](../docs/runtime-profile.md).
+
+## Independent review corrections
+
+The first review requested changes. Candidate 2 charges encoded intermediate
+bytes instead of visited nodes, excludes host-dependent Unicode casing and
+grapheme constraints, and maps the engine's stack/sequence failures to explicit
+interpretation errors. It removes a shadowed depth hook and validates the AST
+in one pass. Schema admission treats inherited type names as unsupported
+schemas. Added shared fixtures cover the exact byte-work cap, engine and AST
+boundaries, fold state/result contracts, Unicode keys, schema admission, and
+view size/count/depth. The reviewer’s large-string reproducer now stops at the
+byte budget. This candidate also preserves the separately landed plan-review
+note and retains the representative screenshots.
 
 ## Ecosystem reuse and licenses
 

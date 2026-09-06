@@ -1,7 +1,7 @@
 {
   "stage": "S0",
   "passed": true,
-  "measuredAt": "2026-09-06T12:14:12.508Z",
+  "measuredAt": "2026-09-06T12:59:13.568Z",
   "environment": {
     "node": "v26.8.1",
     "os": "darwin",
@@ -9,7 +9,7 @@
     "cpu": "Apple M5 Max"
   },
   "profile": {
-    "id": "atseq-jsonata-js-2.2.2-candidate-1",
+    "id": "atseq-jsonata-js-2.2.2-candidate-2",
     "stateBytes": 131072,
     "inputBytes": 262144,
     "outputBytes": 262144,
@@ -24,7 +24,9 @@
     "evaluationSteps": 100000,
     "sequenceLength": 16384,
     "intermediateBytes": 1048576,
-    "inspectedNodes": 2000000
+    "inspectionBytes": 16777216,
+    "viewNodes": 2048,
+    "viewDepth": 24
   },
   "limitations": [
     "A feasibility experiment only; no PDS log, signing, activation or exports implemented.",
@@ -78,7 +80,7 @@
         ],
         "errors": [],
         "exit": 0,
-        "ms": 176.69999998807907,
+        "ms": 179.80000001192093,
         "done": true,
         "bytes": 20926859,
         "browser": "153.0.8010.12"
@@ -88,7 +90,7 @@
     "jsonata": {
       "selected": true,
       "version": "2.2.2",
-      "profile": "atseq-jsonata-js-2.2.2-candidate-1",
+      "profile": "atseq-jsonata-js-2.2.2-candidate-2",
       "engineForked": false
     },
     "schemas": {
@@ -316,16 +318,118 @@
       "passed": true
     },
     {
-      "name": "Inlay cannot access signing scope",
+      "name": "Inlay missing caller property fails",
       "passed": true
     },
     {
       "name": "Inlay auto-submit property refused",
       "passed": true
+    },
+    {
+      "name": "engine evaluation nesting exact boundary",
+      "passed": true
+    },
+    {
+      "name": "engine sequence exact boundary",
+      "passed": true
+    },
+    {
+      "name": "AST container count exact boundary in unevaluated branch",
+      "passed": true
+    },
+    {
+      "name": "AST container depth exact boundary",
+      "passed": true
+    },
+    {
+      "name": "encoded-byte work budget exact boundary",
+      "passed": true
+    },
+    {
+      "name": "large repeated intermediate strings exhaust byte budget",
+      "passed": true
+    },
+    {
+      "name": "generated range rejected with stable code",
+      "passed": true
+    },
+    {
+      "name": "regex rejected with stable code",
+      "passed": true
+    },
+    {
+      "name": "Unicode casing is outside the portable profile",
+      "passed": true
+    },
+    {
+      "name": "absent expression result is explicit",
+      "passed": true
+    },
+    {
+      "name": "negative zero input is not a wire integer",
+      "passed": true
+    },
+    {
+      "name": "malformed Unicode object key is rejected",
+      "passed": true
+    },
+    {
+      "name": "fold input state exact byte cap",
+      "passed": true
+    },
+    {
+      "name": "fold successor state exact byte cap",
+      "passed": true
+    },
+    {
+      "name": "ineffective reason length and syntax",
+      "passed": true
+    },
+    {
+      "name": "ineffective message must be a string",
+      "passed": true
+    },
+    {
+      "name": "duplicate schema IDs rejected before validation",
+      "passed": true
+    },
+    {
+      "name": "open union rejected at admission",
+      "passed": true
+    },
+    {
+      "name": "inherited type names are ordinary unsupported schemas",
+      "passed": true
+    },
+    {
+      "name": "native grapheme constraints rejected at admission",
+      "passed": true
+    },
+    {
+      "name": "Inlay source bytes exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay source record count exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay expanded node count exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay expansion depth exact boundary",
+      "passed": true
     }
   ],
-  "nodeCorpusMs": 240.72341600000004,
+  "nodeCorpusMs": 475.1927089999999,
   "browserBundles": [
+    {
+      "path": "browser/assets/index-BbC4qcZU.js",
+      "bytes": 389588,
+      "gzipBytes": 99111,
+      "sha256": "11d7a86c978418ac993b96c3c3c7685c34604495d005fef08c77190cd3423657"
+    },
     {
       "path": "browser/assets/index-D9caIlN8.css",
       "bytes": 2412,
@@ -333,22 +437,16 @@
       "sha256": "dbba8adf3e55cd99a4c51eec894bbac15c49daf7d0e0e4376d70096cd60cbba4"
     },
     {
-      "path": "browser/assets/index-VwLrh2Mh.js",
-      "bytes": 389515,
-      "gzipBytes": 99080,
-      "sha256": "9b0ded374c67eecf1b8a64e4e5a9cb2bae145ecd9d7fab9507e1e62fc3287fe6"
-    },
-    {
-      "path": "browser/assets/worker-CQQdEUOD.js",
-      "bytes": 581539,
-      "gzipBytes": 153752,
-      "sha256": "dac20d94f6ce1adce02481c185f99273921a63fc13c6f9f32a029cbcaf224601"
+      "path": "browser/assets/worker-BHjQM-N4.js",
+      "bytes": 586388,
+      "gzipBytes": 155029,
+      "sha256": "da27aaaeef3e6a0d038d300d1a0c1facc44967e246b8744925b87914f0eb60e8"
     },
     {
       "path": "browser/index.html",
       "bytes": 1778,
-      "gzipBytes": 913,
-      "sha256": "8591949e801a20fe306d954dfa2dcea25516c999c273478e5560ce213d629c18"
+      "gzipBytes": 916,
+      "sha256": "da0e3548f180ae2821bd6fe1073e4e1de13c782359ea426c8e662bf107da1174"
     }
   ],
   "browserFixtures": [
@@ -549,17 +647,113 @@
       "passed": true
     },
     {
-      "name": "Inlay cannot access signing scope",
+      "name": "Inlay missing caller property fails",
       "passed": true
     },
     {
       "name": "Inlay auto-submit property refused",
       "passed": true
+    },
+    {
+      "name": "engine evaluation nesting exact boundary",
+      "passed": true
+    },
+    {
+      "name": "engine sequence exact boundary",
+      "passed": true
+    },
+    {
+      "name": "AST container count exact boundary in unevaluated branch",
+      "passed": true
+    },
+    {
+      "name": "AST container depth exact boundary",
+      "passed": true
+    },
+    {
+      "name": "encoded-byte work budget exact boundary",
+      "passed": true
+    },
+    {
+      "name": "large repeated intermediate strings exhaust byte budget",
+      "passed": true
+    },
+    {
+      "name": "generated range rejected with stable code",
+      "passed": true
+    },
+    {
+      "name": "regex rejected with stable code",
+      "passed": true
+    },
+    {
+      "name": "Unicode casing is outside the portable profile",
+      "passed": true
+    },
+    {
+      "name": "absent expression result is explicit",
+      "passed": true
+    },
+    {
+      "name": "negative zero input is not a wire integer",
+      "passed": true
+    },
+    {
+      "name": "malformed Unicode object key is rejected",
+      "passed": true
+    },
+    {
+      "name": "fold input state exact byte cap",
+      "passed": true
+    },
+    {
+      "name": "fold successor state exact byte cap",
+      "passed": true
+    },
+    {
+      "name": "ineffective reason length and syntax",
+      "passed": true
+    },
+    {
+      "name": "ineffective message must be a string",
+      "passed": true
+    },
+    {
+      "name": "duplicate schema IDs rejected before validation",
+      "passed": true
+    },
+    {
+      "name": "open union rejected at admission",
+      "passed": true
+    },
+    {
+      "name": "inherited type names are ordinary unsupported schemas",
+      "passed": true
+    },
+    {
+      "name": "native grapheme constraints rejected at admission",
+      "passed": true
+    },
+    {
+      "name": "Inlay source bytes exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay source record count exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay expanded node count exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay expansion depth exact boundary",
+      "passed": true
     }
   ],
   "browser": {
     "version": "153.0.8010.12",
-    "loadMs": 28
+    "loadMs": 29.19999998807907
   },
   "browserControls": {
     "keyboardSubmit": true,
@@ -2106,12 +2300,12 @@
     }
   ],
   "sourceHashes": {
-    "src/definition/schemas.ts": "769133722741a87b37ae81aeb8d15f6e5a85e8fd86f8e111f27751cce13ed779",
-    "src/runtime/evaluator.ts": "ae724e80901642b3c6c1b4ed9744919626d9390e3466b1536548456589c373eb",
-    "src/runtime/profile.ts": "eb503a0d0dab3d1c322459b995074bb0d279b68b552fe7575252ef2db7490334",
-    "src/runtime/values.ts": "547e1b359dc0fce10421bfa1f0527f2e45e58e245472f4747b78cd8b029f06b3",
-    "src/ui/inlay.ts": "c8e352271ed59436df4830e3a81154abcadfa1e96089e04b8d4810a552e0615c",
-    "scripts/feasibility.ts": "c895e01ca33e1e70b00eb2dc5fd426566a1b57f5d20c9e015e65b7dee6c2990b",
+    "src/definition/schemas.ts": "52ef749be1198f48d5220f1579a54c1a6727b293882ca656628bfe94c13903c2",
+    "src/runtime/evaluator.ts": "4f4008fbca9c9b60b9bdae09d55a5fe1c1ba062418662cbc363f02606da42be2",
+    "src/runtime/profile.ts": "909df5e771e58d79186373497a595b763e8db82800e7405ec355f6b7f5c4062d",
+    "src/runtime/values.ts": "9194e65046b48be3e6a3f1bf38a4c42a1690d84cd91b78ba27ff7b1bac7bddaf",
+    "src/ui/inlay.ts": "ebfda164531b88169508f44b208554a0a2398c80f09bc38e53945d0b8e9c4472",
+    "scripts/feasibility.ts": "f69bec460e9e53e5d33b399ecc2a1da152bf00438e778600c730223ef39e863d",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
     "scripts/probe-go.ts": "7b57827865a3949acc6b4e9adda1b9995f3040911eb5aa570a67be9c4217f519",
     "experiments/browser/index.html": "ae3cc44c47be4b98cf23cf9614b9f2f407d25fdf9719fa456d0bf2552ac9e104",
@@ -2121,10 +2315,15 @@
     "experiments/jsonataddl/go.mod": "efae566e608b5d30b9afe064d58012ca47a87df2a7719ed9b6f69694071f1358",
     "experiments/jsonataddl/go.sum": "0d3a4928b134e978c5bac72c5080781e30401787385da7dd9d5c66ff21ca0344",
     "experiments/jsonataddl/main.go": "57fe92f6b701043221a0b40f57e475a6ce32f155cabe43c713b838ebf26cd841",
-    "experiments/corpus.ts": "9de1ae12d7a591481aefe83ecf1d97b0c137a3e5dcd76874e14e836c26445cb3",
+    "experiments/corpus.ts": "150a202acc05a6c27970c72569187d0460ac8fb597fa2efb560ded40be4f8b38",
     "experiments/fixtures.ts": "a56d5876edab4d182479d897ffe837568b5da5d3c5676c8080842058724e317a",
+    "experiments/boundaries.ts": "74bf607daa97943fb68b0a50e3f7000fe7fc53b5e451cd5c79335bc346968213",
     "package.json": "4658bc6bd98c927ed689d962360d92aabd36783c28b0e820dda7fbeb8ea82d71",
     "package-lock.json": "97ddca1db5ddc702d18b4b6be8890e5c446d9c191bed90f3df6f3520df14dd3e",
     "tsconfig.json": "b5eb553577d8cf84af7d2975168b7bb722c384a99b2a5f6e07fcc6952ecae8ad"
+  },
+  "screenshots": {
+    "experiments/evidence/desktop.png": "72ba134c3beee455f375264aeff2a785a1dc673346a935634389f31360d77ac9",
+    "experiments/evidence/mobile.png": "aebed2c25362bd3a0241e3f658dbda7e52e92127ee1e8a9b148f1a7e998b1b2f"
   }
 }

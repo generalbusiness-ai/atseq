@@ -4,7 +4,7 @@ import { InterpretationError, PROFILE } from '../runtime/profile.ts';
 
 const supported: Record<string, readonly string[]> = {
   object: ['type', 'description', 'required', 'nullable', 'properties'],
-  string: ['type', 'description', 'minLength', 'maxLength', 'minGraphemes', 'maxGraphemes', 'enum', 'const', 'knownValues', 'format'],
+  string: ['type', 'description', 'minLength', 'maxLength', 'enum', 'const', 'knownValues', 'format'],
   integer: ['type', 'description', 'minimum', 'maximum', 'enum', 'const'],
   boolean: ['type', 'description', 'const'],
   array: ['type', 'description', 'minLength', 'maxLength', 'items'],
@@ -23,7 +23,7 @@ export class Schemas {
     const ids = new Set<string>();
     const refs: { value: string; id: string; path: string }[] = [];
     function schema(node: any, path: string, id: string) {
-      const allowed = supported[node?.type];
+      const allowed = node && Object.hasOwn(supported, node.type) ? supported[node.type] : undefined;
       if (!allowed) throw new InterpretationError('unsupported_schema', `${path}: unsupported Lexicon type ${node?.type}`);
       for (const key of Object.keys(node)) if (!allowed.includes(key)) throw new InterpretationError('unsupported_schema', `${path}/${key}: unsupported constraint`);
       if (node.type === 'union' && node.closed !== true) throw new InterpretationError('unsupported_schema', `${path}: this profile requires closed unions`);

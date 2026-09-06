@@ -54,7 +54,7 @@ export async function resolveView(view: LocalView, props: Record<string, Json>):
   };
   let count = 0;
   async function walk(node: unknown, context: RenderContext, depth = 0): Promise<ViewNode[]> {
-    if (++count > 2048 || depth > 32) throw new InterpretationError('view_limit', 'Expanded view exceeds bounds');
+    if (++count > PROFILE.viewNodes || depth > PROFILE.viewDepth) throw new InterpretationError('view_limit', 'Expanded view exceeds bounds');
     if (node === null || node === undefined || node === false) return [];
     if (typeof node === 'string' || typeof node === 'number') return [String(node)];
     if (Array.isArray(node)) {
@@ -63,7 +63,7 @@ export async function resolveView(view: LocalView, props: Record<string, Json>):
       return children;
     }
     if (!isValidElement(node) || !allowedTypes.has(node.type)) throw new InterpretationError('unknown_component', 'Only retained components may render');
-    const result = await render(node as Element, context, { resolver, maxDepth: 24 });
+    const result = await render(node as Element, context, { resolver, maxDepth: PROFILE.viewDepth + 1 });
     if (result.node !== null) return walk(result.node, result.context, depth + 1);
     const keys = allowedProps[node.type];
     if (!keys) throw new InterpretationError('unknown_primitive', `Unregistered primitive ${node.type}`);
@@ -73,5 +73,5 @@ export async function resolveView(view: LocalView, props: Record<string, Json>):
     return [{ type: node.type, props: properties as Record<string, Json>, children: await walk(children, result.context, depth + 1) }];
   }
   // Root props contain only caller-supplied query data. No signing capability.
-  return walk(deserializeTree($ (view.root, props)), { imports: view.imports as RenderContext['imports'] });
+  return walk(deserializeTree($(view.root, props)), { imports: view.imports as RenderContext['imports'] });
 }

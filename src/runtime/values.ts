@@ -6,16 +6,17 @@ const forbidden = new Set(['__proto__', 'prototype', 'constructor']);
 export function safeName(name: string): boolean { return !forbidden.has(name) && !name.startsWith('_jsonata_'); }
 
 /** Validate without coercion; canonical JSON is for evaluation caps, not wire signing. */
-export function canonicalJson(value: unknown, maxBytes = PROFILE.inputBytes, maxDepth = PROFILE.inputDepth, visit?: () => void, engineArrays = false): string {
+export function canonicalJson(value: unknown, maxBytes = PROFILE.inputBytes, maxDepth = PROFILE.inputDepth, charge?: (bytes: number) => void, engineArrays = false): string {
   let bytes = 0;
   const active = new Set<object>();
   function token(text: string): string {
-    bytes += encoder.encode(text).length;
+    const size = encoder.encode(text).length;
+    charge?.(size);
+    bytes += size;
     if (bytes > maxBytes) throw new InterpretationError('value_bytes', `Value exceeds ${maxBytes} UTF-8 bytes`);
     return text;
   }
   function walk(v: unknown, depth: number, path: string): string {
-    visit?.();
     if (v === null || typeof v === 'boolean') return token(String(v));
     if (typeof v === 'number') {
       if (!Number.isSafeInteger(v) || Object.is(v, -0)) throw new InterpretationError('wire_number', `${path}: expected safe integer, excluding negative zero`);

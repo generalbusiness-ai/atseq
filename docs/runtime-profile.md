@@ -1,6 +1,6 @@
 # S0 candidate runtime profile
 
-`atseq-jsonata-js-2.2.2-candidate-1` uses unmodified `jsonata` 2.2.2 in Node and
+`atseq-jsonata-js-2.2.2-candidate-2` uses unmodified `jsonata` 2.2.2 in Node and
 the browser. This name is provisional until S1 defines the wire descriptor and
 its content identity. A later profile change must have a different identity;
 historical interpretation cannot silently adopt it.
@@ -22,13 +22,13 @@ used as values. Calls must directly name one of:
 
 ```text
 abs ceil floor round count sum min max length exists not lookup
-append merge contains substring lowercase uppercase
+append merge contains substring
 ```
 
 No dynamic function application, function aliases, user-defined functions,
 partial application, transforms, pipelines, regexes, generated ranges,
 wildcards, descendant traversal, sort nodes, clock, randomness or `$eval`.
-No external callbacks or variable bindings. This is an admission profile around
+No Unicode casing functions, external callbacks or variable bindings. This is an admission profile around
 the existing interpreter, not a second implementation of JSONata semantics.
 
 Only plain JSON values are admitted. Every number, including an intermediate
@@ -61,14 +61,23 @@ The exact constants live in `src/runtime/profile.ts`:
 | Evaluator entry visits | 100,000 |
 | Intermediate sequence length option | 16,384 |
 | One intermediate result | 1 MiB |
-| Nodes visited while inspecting intermediate results | 2,000,000 |
+| Cumulative encoded bytes inspected in intermediate results | 16 MiB |
+| Expanded view nodes / depth | 2,048 / 24 |
 
-The engine's pinned symbol entry/exit hooks count evaluation visits and inspect
-returned data. These are deterministic units, **not** CPU instructions or a
+The engine's pinned symbol entry/exit hooks count evaluation visits and charge
+the UTF-8 bytes of each canonical JSON intermediate result, including strings,
+keys, punctuation and repeated values. These are deterministic units, **not** CPU instructions or a
 hard process-memory quota. Built-in work is bounded by the admitted functions
 and bounded input/result data. Temporary allocations happen inside the engine
-before a result is checked. The sequence option is a supplementary engine
-guard, not an assertion that every array allocation uses that path.
+before a result is checked. A repeated scan of a large string consumes its
+encoded bytes on each visit, even when the final result is small.
+
+The AST counts both object and array containers: 64 AST levels admit 32 nested
+array expressions. Evaluator nesting uses the engine's own stack option;
+`D1011` maps to `evaluation_depth`. Sequence errors `D2014`/`D2015` map to
+`sequence_limit`. This is a functional cap: an append to 16,385 items fails even
+if it fits the state-byte budget. It does not assert that every array allocation
+uses that path. A top-level absent result fails with `absent_result`.
 
 Evaluation errors propagate. A malformed result or exhausted budget never
 returns an ineffective decision. The browser experiment runs evaluations off
@@ -88,6 +97,9 @@ small profile check admits objects, strings, integers, booleans, arrays, refs,
 closed unions, query definitions and params. Nested objects use Lexicon refs.
 References must resolve within the supplied schema set. Standard bounds,
 enum/const and string formats are accepted where the library supports them.
+`minGraphemes` and `maxGraphemes` are excluded because this library delegates
+their counts to the host's Unicode/ICU implementation. Native casing functions
+are excluded for the same portability reason; no Unicode tables are bundled.
 No authored DDL or per-app generated client is required.
 
 Default values are rejected at source admission because the validator can
@@ -111,6 +123,10 @@ They have exact allowed props. Templates cannot add HTML, scripts, event
 handlers or auto-submit properties. The DOM adapter creates text nodes and
 ordinary controls. It gets no signing key; only the control's explicit submit
 handler invokes the sample action. A missing component or binding is an error.
-The renderer also limits source size, expansion depth and node count.
+The renderer admits at most 512 KiB and 64 records, then limits expansion to
+2,048 visited nodes and depth 24. The host owns these bounds; Inlay's internal
+depth guard is set one level above the host boundary. The missing-binding
+fixture tests absent data, not a capability system: the security boundary is
+that the caller supplies query data alone, without keys or callbacks.
 
 These local test names are not claims of a registered production namespace.

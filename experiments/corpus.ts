@@ -4,6 +4,7 @@ import { PROFILE } from '../src/runtime/profile.ts';
 import { Schemas } from '../src/definition/schemas.ts';
 import { resolveView } from '../src/ui/inlay.ts';
 import { totalsSchemas, offersSchemas, totalFold, summaryQuery, baseInput, localView } from './fixtures.ts';
+import { boundaryCases } from './boundaries.ts';
 
 export interface FixtureResult { name: string; passed: boolean; detail?: string }
 function equal(actual: unknown, expected: unknown) { if (canonicalJson(actual) !== canonicalJson(expected)) throw new Error(`Expected ${JSON.stringify(expected)}, received ${JSON.stringify(actual)}`); }
@@ -42,7 +43,7 @@ export async function runCorpus(): Promise<FixtureResult[]> {
     const outcomes: string[] = [];
     for (let i = 0; i < 2; i++) {
       try { await evaluate(source, { state: { rows: Array(400).fill(1) } }); throw new Error('Budget did not fire'); }
-      catch (e) { const code = (e as any).code; if (!['step_budget', 'inspection_budget'].includes(code)) throw e; outcomes.push(code); }
+      catch (e) { const code = (e as any).code; if (code !== 'step_budget') throw e; outcomes.push(code); }
     }
     equal(outcomes[0], outcomes[1]);
   });
@@ -103,7 +104,8 @@ export async function runCorpus(): Promise<FixtureResult[]> {
   });
   await check('Inlay absent component fails explicitly', () => { const view = localView(); delete view.records[`at://${view.imports[0]}/at.inlay.component/test.atseq.ui.Action`]; return rejects(() => resolveView(view, { summary: 'x' })); });
   await check('Inlay external body refused without I/O', () => { const view = localView(); (Object.values(view.records).at(-1) as any).body = { $type: 'at.inlay.component#bodyExternal', uri: 'https://example.test' }; return rejects(() => resolveView(view, {}), 'external_view'); });
-  await check('Inlay cannot access signing scope', () => { const view = localView(); const record = Object.values(view.records).at(-1) as any; record.body.node.props.children[0].props.children[0].props.path = ['props', 'signingKey']; return rejects(() => resolveView(view, { summary: 'x' })); });
+  await check('Inlay missing caller property fails', () => { const view = localView(); const record = Object.values(view.records).at(-1) as any; record.body.node.props.children[0].props.children[0].props.path = ['props', 'signingKey']; return rejects(() => resolveView(view, { summary: 'x' })); });
   await check('Inlay auto-submit property refused', () => { const view = localView(); const record = Object.values(view.records).at(-1) as any; record.body.node.props.children[1].props.autoSubmit = true; return rejects(() => resolveView(view, { summary: 'x' }), 'view_props'); });
+  for (const [name, test] of boundaryCases) await check(name, test);
   return results;
 }
