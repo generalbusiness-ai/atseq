@@ -1,0 +1,134 @@
+{
+  "genesis": {
+    "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+    "$type": "test.atseq.genesis",
+    "profile": {
+      "$link": "bafyreibkra5f7k2hdcok6teum6c6ii5roiurxiflv7onf4jdn5aylp5kxq"
+    },
+    "version": 0,
+    "definition": {
+      "$link": "bafyreidiva3fofv3tmj4wnvcsgb6agz3zzigq3vhbtxqgzhumcglkgojhy"
+    },
+    "sequencerKey": "did:key:zDnaeyAMhr3MjhdzWhDQs3ezUoCMn8UV7eJCjpjYAa1ovpVQr",
+    "activationKeys": [
+      "did:key:zDnaeo6QdhiHW9wkzGc2cKFtx8THCA9QmFcfoYxVHC3eLHzQM"
+    ]
+  },
+  "anchor": "bafyreiezyehalde7bivter7zmhai3i5djubpjnvbxr2qvnzme2tkwwq3ea",
+  "history": {
+    "head": {
+      "$type": "test.atseq.head",
+      "version": 0,
+      "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+      "genesis": {
+        "$link": "bafyreiezyehalde7bivter7zmhai3i5djubpjnvbxr2qvnzme2tkwwq3ea"
+      },
+      "position": 1,
+      "entry": {
+        "$link": "bafyreiatcxguprat4vwla5nkc4kvuut2jdvol67nwajgw4wxz5q3eyycr4"
+      }
+    },
+    "entries": [
+      {
+        "$type": "test.atseq.entry",
+        "version": 0,
+        "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+        "genesis": {
+          "$link": "bafyreiezyehalde7bivter7zmhai3i5djubpjnvbxr2qvnzme2tkwwq3ea"
+        },
+        "position": 1,
+        "prev": {
+          "$link": "bafyreiezyehalde7bivter7zmhai3i5djubpjnvbxr2qvnzme2tkwwq3ea"
+        },
+        "signedIntent": {
+          "sig": {
+            "$bytes": "KZ89oHCPalYLZKG0gWzgU+OXTiGqdkZjAgmOHJ9AYvJkrOB6hz/7JHyv25t9ZNII8Fh6yx0M07jXrOLaLHOVZQ"
+          },
+          "$type": "test.atseq.defs#signedIntent",
+          "intent": {
+            "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+            "$type": "test.atseq.defs#intent",
+            "nonce": {
+              "$bytes": "J2/1EaIDDuTuiE+1n8b3fg"
+            },
+            "action": "test.generatede842f788ee.rainfall.data#record",
+            "genesis": {
+              "$link": "bafyreiezyehalde7bivter7zmhai3i5djubpjnvbxr2qvnzme2tkwwq3ea"
+            },
+            "payload": {
+              "day": "Monday",
+              "millimetres": 7
+            },
+            "version": 0,
+            "actorKey": "did:key:zDnaeo6QdhiHW9wkzGc2cKFtx8THCA9QmFcfoYxVHC3eLHzQM",
+            "definition": {
+              "$link": "bafyreidiva3fofv3tmj4wnvcsgb6agz3zzigq3vhbtxqgzhumcglkgojhy"
+            }
+          }
+        },
+        "sequencerKey": "did:key:zDnaeyAMhr3MjhdzWhDQs3ezUoCMn8UV7eJCjpjYAa1ovpVQr",
+        "sig": {
+          "$bytes": "pKXj6xCbFGOh5ZZ+8Z3Brw1+4yEe1RjeN416873HEklZCqcDny3dbBL3ZrKkOZ74ciHgldvMWG+AjHefXqKYmw"
+        }
+      }
+    ]
+  },
+  "projection": {
+    "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+    "genesis": "bafyreiezyehalde7bivter7zmhai3i5djubpjnvbxr2qvnzme2tkwwq3ea",
+    "definition": "bafyreidiva3fofv3tmj4wnvcsgb6agz3zzigq3vhbtxqgzhumcglkgojhy",
+    "frontier": {
+      "$type": "test.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreiatcxguprat4vwla5nkc4kvuut2jdvol67nwajgw4wxz5q3eyycr4"
+      }
+    },
+    "state": {
+      "readings": [
+        {
+          "day": "Monday",
+          "millimetres": 7
+        }
+      ]
+    },
+    "outcomes": [
+      {
+        "position": 1,
+        "entry": "bafyreiatcxguprat4vwla5nkc4kvuut2jdvol67nwajgw4wxz5q3eyycr4",
+        "intent": "bafyreibsrqsardloxgqecdbech5g4pkj3llu7toivv6b3fhh3yb5zpqbtm",
+        "outcome": {
+          "$type": "test.atseq.defs#effective"
+        }
+      }
+    ]
+  },
+  "query": {
+    "head": {
+      "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+      "$type": "test.atseq.head",
+      "entry": {
+        "$link": "bafyreiatcxguprat4vwla5nkc4kvuut2jdvol67nwajgw4wxz5q3eyycr4"
+      },
+      "genesis": {
+        "$link": "bafyreiezyehalde7bivter7zmhai3i5djubpjnvbxr2qvnzme2tkwwq3ea"
+      },
+      "version": 0,
+      "position": 1
+    },
+    "frontier": {
+      "$type": "test.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreiatcxguprat4vwla5nkc4kvuut2jdvol67nwajgw4wxz5q3eyycr4"
+      }
+    },
+    "result": {
+      "$type": "test.atseq.defs#queryAvailable",
+      "value": {
+        "count": 1,
+        "total": 7
+      }
+    }
+  }
+}

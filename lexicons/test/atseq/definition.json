@@ -1,0 +1,42 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.definition",
+  "description": "Local v0 definition manifest. Bind authored Lexicons to retained source files.",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["version", "profile", "title", "files", "lexicons", "state", "actions", "queries", "views"],
+      "properties": {
+        "version": { "type": "integer", "const": 0 },
+        "profile": { "type": "cid-link" },
+        "title": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "files": { "type": "array", "maxLength": 63, "items": { "type": "ref", "ref": "#file" } },
+        "lexicons": { "type": "array", "minLength": 1, "maxLength": 63, "items": { "type": "string", "maxLength": 200 } },
+        "state": { "type": "ref", "ref": "#state" },
+        "actions": { "type": "array", "maxLength": 63, "items": { "type": "ref", "ref": "#action" } },
+        "queries": { "type": "array", "maxLength": 63, "items": { "type": "ref", "ref": "#query" } },
+        "views": { "type": "array", "maxLength": 63, "items": { "type": "ref", "ref": "#view" } }
+      }
+    },
+    "file": {
+      "type": "object", "required": ["path", "cid"],
+      "properties": { "path": { "type": "string", "minLength": 1, "maxLength": 200 }, "cid": { "type": "string", "format": "cid" } }
+    },
+    "state": {
+      "type": "object", "required": ["ref", "initial"],
+      "properties": { "ref": { "type": "string", "maxLength": 300 }, "initial": { "type": "string", "maxLength": 200 } }
+    },
+    "action": {
+      "type": "object", "required": ["ref", "fold"],
+      "properties": { "ref": { "type": "string", "maxLength": 300 }, "fold": { "type": "string", "maxLength": 200 } }
+    },
+    "query": {
+      "type": "object", "required": ["name", "ref", "program"],
+      "properties": { "name": { "type": "string", "minLength": 1, "maxLength": 80 }, "ref": { "type": "string", "maxLength": 300 }, "program": { "type": "string", "maxLength": 200 } }
+    },
+    "view": {
+      "type": "object", "required": ["name", "source"],
+      "properties": { "name": { "type": "string", "minLength": 1, "maxLength": 80 }, "source": { "type": "string", "maxLength": 200 }, "query": { "type": "string", "maxLength": 80 } }
+    }
+  }
+}
