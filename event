@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9176c768386849531ba4df1b347e0de828e5da0b","text":"Retire the superseded S1 candidate artifact for lexicons/test/atseq/describe.json; corrected exact candidate 4651478 is independently approved and landed at 1f7a7a1e."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9eeccc7569ce2ed05d56dd29b688e38fb12bb2f3","text":"Retire the superseded S1 candidate artifact for tests/protocol.test.ts; corrected exact candidate 4651478 is independently approved and landed at 1f7a7a1e."}
