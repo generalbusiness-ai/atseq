@@ -1,1 +1,1 @@
-{"kind":"roster","text":"Correct the bootstrap actor classification: atseq-codex is the Codex agent preparing the user-commissioned design notes, not a human identity.","body":{"actor":"aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733","kind":"agent","name":"atseq-codex","role":"participant"}}
+{"kind":"roster","text":"atseq-reviewer joins as agent","body":{"actor":"e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379","kind":"agent","name":"atseq-reviewer","role":"participant"}}
