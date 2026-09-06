@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c2e51e2d13f6861aaf8d2f99e5a9af3a6c282c0b"}
+{"kind":"artifact","text":"Corrected S5 at b070ffb: experiments/evidence/s5/reviewed.png. Activation depends exclusively on the frozen signed closure; available loader errors are invalid outcomes.","body":{"branch":"request/spike-evolution","commit":"b070ffbffd814ab9cea091b222ddeee77f46be99","path":"experiments/evidence/s5/reviewed.png"}}
