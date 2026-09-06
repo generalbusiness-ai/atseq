@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b6392d4c953e31de6553da7b58a4938371e777f0","text":"Retire the superseded S1 candidate artifact for src/protocol/runtime-descriptor.json; corrected exact candidate 4651478 is independently approved and landed at 1f7a7a1e."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:bb77e8883bd7433ecb03d82790860569ec9cb297","text":"Retire the superseded S1 candidate artifact for lexicons/test/atseq/submit.json; corrected exact candidate 4651478 is independently approved and landed at 1f7a7a1e."}
