@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: S3 gates pass; awaiting independent review
+status: S3 independently approved and landed
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
@@ -17,7 +17,10 @@ execution rules, identity and authoring limits.
 S0–S2 are independently approved and landed. S2's corrected candidate
 `70f4c89d517fad69724b12caa76d1425ef9564cf` landed at
 `71d912ec7dea238f8709d336c5c988d035ceb18f`. This S3 candidate rests on that code
-and the adopted initial plan; it is awaiting its own independent review.
+and the adopted initial plan. Independent report
+`9ab300b5c4ecb54e28edc1ae81fc4fd61050afc9` approved all 31 changed paths and
+reproduced every gate plus the retained CAR/history replays. It landed at
+`8becbb0e47a26dd47c45feb5048f7c5fa8fa02bb`.
 
 ## Measured result
 

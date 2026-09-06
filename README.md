@@ -5,13 +5,26 @@ a log, with atproto as the retained substrate. Apps declare Lexicon schemas,
 JSONata behavior and views. GitSeq and Tailapps are architectural precursors;
 neither is a product dependency.
 
-The independently reviewed **S0 engine, S1 protocol and S2 PDS persistence are
-landed**. **S3 source loading and interpretation** now pass Node/browser and
-late-loading gates and await review. Generic human/agent interaction, compatible
-activation and export remain later stages. See the
-[design](notes/2026-09-06-atseq-architecture.md),
+The independently reviewed **S0 engine, S1 protocol, S2 persistence and S3
+folder are landed**. **S4 browser and CLI interaction** is implemented and
+awaiting independent review. Compatible activation and complete export remain
+later stages. See the [design](notes/2026-09-06-atseq-architecture.md),
 [plan](notes/2026-09-06-atseq-initial-spike.md) and
-[S3 result](notes/2026-09-06-atseq-runtime-spike.md).
+[S4 result](notes/2026-09-06-atseq-interaction-spike.md).
+
+## Try an application
+
+```sh
+npm ci
+npm ci --prefix experiments/pds
+npm run dev:app
+```
+
+Open one of the printed preview links. Try sample actions locally, create a
+signing identity, then explicitly Start on the test PDS. The browser and
+[JSON CLI](docs/interaction.md) use the same public Lexicon contracts. Use
+synthetic data only. This command starts disposable loopback test services;
+Ctrl-C stops them. The original S0 experiment below remains a separate probe.
 
 ## Try the experiment
 
@@ -87,8 +100,17 @@ The source loader uses a Lexicon manifest and standard CAR transport. The
 folder applies verified entries and exposes queries at their exact frontier.
 Two unrelated definitions are generated after a generic host process starts,
 then loaded without rebuilding it. See the [source contract](docs/definitions.md)
-and [S3 result](notes/2026-09-06-atseq-runtime-spike.md). S4–S6 commands still exit
-nonzero with “not implemented”.
+and [S3 result](notes/2026-09-06-atseq-runtime-spike.md).
+## Reproduce S4
+
+```sh
+npm run test:flows -- --group participation
+```
+
+The gate exercises the real PDS host, two isolated browser identities and the
+JSON CLI. See [interaction](docs/interaction.md) for its source format, retry
+rules, progress labels and current boundaries. S5's evolution group and S6
+commands still exit nonzero with “not implemented”.
 
 ## Current boundaries
 
