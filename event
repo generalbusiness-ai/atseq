@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:bebc1be50a712097eafa90f57cde284cd91a6fe5","text":"Retire superseded S2 candidate artifact for src/host/service.ts; corrected 70f4c89 is independently approved and landed at 71d912ec."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c2b18c1ea20d51680d9d42dc0a0d75507a3b8cec","text":"Retire superseded S2 candidate artifact for notes/2026-09-06-atseq-initial-spike.md; corrected 70f4c89 is independently approved and landed at 71d912ec."}
