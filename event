@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"Merge published the current artifact at tests/participation.test.ts","body":{"commit":"6477b73f3be27880fd592f7015b4c7dcb1eda74a","path":"tests/participation.test.ts"}}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:04450a55bb00880a15e02d9c878d7228f4ede327","text":"Merge retired a covered predecessor; the successor is at README.md."}
