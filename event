@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:4f369c51fb8a143ec87f0387ec0fb1c6d2288c52","text":"Merge retired a covered predecessor; the successor is at src/protocol/wire.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:529222ae08ce11f600ccf7a8061a7f38c17213db","text":"Merge retired a covered predecessor; the successor is at experiments/protocol-browser/index.html."}
