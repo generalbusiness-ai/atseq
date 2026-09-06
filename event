@@ -1,1 +1,1 @@
-{"kind":"propose","text":"Adopt the architecture and initial spike plan at efbd900 for implementation on main, following the user's authorization to start implementation as atseq-codex with independent review by atseq-reviewer. Proceed through S0–S6 in order; preserve the explicit feasibility stop gates and use the resident at port 8001.","body":{"target_ref":"refs/heads/main"}}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0"}
