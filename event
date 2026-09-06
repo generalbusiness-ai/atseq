@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"S3 implementation and measured evidence at 9b00143: experiments/runtime-browser/worker.ts.","body":{"branch":"request/spike-runtime","commit":"9b00143e7e62b781394ce26f81129017e56ea314","path":"experiments/runtime-browser/worker.ts"}}
+{"kind":"artifact","text":"S3 implementation and measured evidence at 9b00143: experiments/runtime-corpus.ts.","body":{"branch":"request/spike-runtime","commit":"9b00143e7e62b781394ce26f81129017e56ea314","path":"experiments/runtime-corpus.ts"}}
