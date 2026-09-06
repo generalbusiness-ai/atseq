@@ -23,7 +23,7 @@
     "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
     "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
     "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-    "src/definition/activation.ts": "0ed550991b61b6d6e10f654bdca9899061bc2dd5e807797dfeab6fb1b9acf7fe",
+    "src/definition/activation.ts": "3438b16d43121aab7618018aab459cceebb99da4e70608f3a913ed14aac68fde",
     "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
     "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
     "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",

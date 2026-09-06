@@ -50,9 +50,9 @@ are one transaction; at most 100 waiting actions per app are admitted.
 
 ## Evidence
 
-`npm run test:flows -- --group evolution` reports 23 passes: nine core scenarios,
+`npm run test:flows -- --group evolution` reports 25 passes: eleven core scenarios,
 twelve real-PDS browser/CLI scenarios, and their two parent tests. The combined
-S0–S5 suite reports 265 passes with no failures or skips. Evidence is retained in
+S0–S5 suite reports 267 passes with no failures or skips. Evidence is retained in
 [evolution-runtime.json](../experiments/evolution-runtime.json) and
 [evolution.json](../experiments/evolution.json), with case timings, versions and
 tested source hashes. Screenshots in [evidence/s5](../experiments/evidence/s5/)
@@ -82,3 +82,21 @@ refresh retained evidence, export complete verified archives, rebuild offline,
 produce a chart export, and exercise the adapter with an additional independently
 authored purpose-specific app. The final proceed/revise/stop decision belongs to
 that measured acceptance run and independent review.
+
+## Independent review corrections
+
+The first S5 review at `757c76f54746d3ab1577a9d08819069525077fab` found that a
+manifest dependency omitted from the signed closure could produce different
+outcomes on the full PDS reader and a client's closure-only reader. Activation
+now freezes the signed blocks and loads exclusively from that isolated bundle.
+An available incomplete or extra closure is deterministically invalid on both
+readers, including when followed by another entry. Missing or corrupt bytes
+actually named by the signed closure still pause for repair.
+
+The same boundary converts available view-loader failures, including Inlay's
+missing binding error in a query-less view, to invalid activation. Two focused
+regressions cover these review findings. The application runtime descriptor
+pins the corrected source; the engine identity remains unchanged. CLI compare
+and stage now accept the documented `expected` field, with `definition` as an
+alias. S4 host and participation evidence is refreshed at this corrected source.
+Older S0–S3 retained reports are historical until S6's full acceptance refresh.

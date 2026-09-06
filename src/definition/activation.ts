@@ -1,5 +1,5 @@
 import { LoadedDefinition } from './load.ts';
-import { readSource, type SourceReader } from './source.ts';
+import { SourceBundle, readSource, type SourceReader } from './source.ts';
 import { canonicalJson, type Json } from '../runtime/values.ts';
 import { InterpretationError, PROFILE } from '../runtime/profile.ts';
 import type { Activation } from './control.ts';
@@ -32,11 +32,20 @@ export function compatibleDefinition(current: LoadedDefinition, next: LoadedDefi
   next.schemas.validate(next.manifest.state.ref, state);
 }
 export async function activationCandidate(current: LoadedDefinition, payload: Activation, reader: SourceReader, state: Json) {
-  // Fetch the whole signed closure before judging its semantics. Missing or
-  // corrupted content is not evidence of an invalid application definition.
-  for (const cid of payload.closure) await readSource(reader, cid);
-  const next = await LoadedDefinition.load(payload.definition, reader);
-  const expected = [...new Set([next.cid, ...next.manifest.files.map(file => file.cid)])].sort();
-  if (expected.join(',') !== payload.closure.join(',')) throw new InterpretationError('invalid_activation', 'Signed closure differs from the candidate manifest');
-  compatibleDefinition(current, next, state); return next;
+  // Freeze exactly the signed closure before judging semantics. A PDS reader
+  // may hold unrelated staged blocks that another verifier does not possess.
+  const blocks = new Map<string, Uint8Array>();
+  for (const cid of payload.closure) blocks.set(cid, await readSource(reader, cid));
+  // Above: unavailable/corrupt signed content pauses. Below: all signed bytes
+  // are available; any missing manifest dependency is an invalid closure.
+  try {
+    const source = await SourceBundle.collect(payload.definition, payload.closure, { get: async cid => new Uint8Array(blocks.get(cid)!) });
+    const next = await LoadedDefinition.load(payload.definition, source);
+    const expected = [...new Set([next.cid, ...next.manifest.files.map(file => file.cid)])].sort();
+    if (expected.join(',') !== payload.closure.join(',')) throw new Error('Signed closure differs from candidate manifest');
+    compatibleDefinition(current, next, state); return next;
+  } catch (error) {
+    if (error instanceof InterpretationError && error.code === 'incompatible_definition') throw error;
+    throw new InterpretationError('invalid_activation', 'The available signed closure is not a valid compatible definition');
+  }
 }

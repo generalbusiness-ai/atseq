@@ -11,7 +11,7 @@ key explicitly listed in the pinned genesis activation grant may activate.
 The sequencer records the action without deciding its application effect.
 
 At entry N, the folder checks the old definition and grant, fetches and verifies
-the signed closure, validates the candidate, and compares its complete reachable
+the signed closure, isolates those exact blocks from all other staged content, validates the candidate, and compares its complete reachable
 state schema and runtime identity. This first version requires exact equality
 of the state schema graph, including transitive references; unrelated action
 and query definitions in the same Lexicon document may change. It also validates
@@ -25,6 +25,10 @@ candidate. Malformed or available invalid candidates are ineffective; missing
 or corrupted content pauses interpretation at N. Retrying after content repair
 replays that same entry. No unavailable dependency becomes a fabricated verdict.
 A failed projection write leaves both active definition and state at N-1.
+A manifest dependency outside an otherwise available signed closure makes that
+closure invalid even when the host has extra staged files. Errors from loading
+available code or views, including missing view bindings, are invalid activation
+outcomes rather than permanent pauses.
 
 ## Review and apply
 
@@ -69,7 +73,8 @@ retrying an existing intent file verifies and reuses its bytes without rewriting
 it for the current definition. Use a new file only after reviewing new work.
 
 The public Lexicon methods `compareDefinition` and `stageDefinition` implement
-comparison/staging. `sync` carries the initial source CAR and candidate CARs
+comparison/staging. CLI compare/stage accept `expected`; `definition` remains
+a compatible alias. `sync` carries the initial source CAR and candidate CARs
 needed by recorded authorized activation attempts. The worker verifies content,
 genesis, history and interpretation independently. It does not trust the host's
 claim about which candidate took effect.
@@ -85,7 +90,8 @@ one pinned runtime identity.
 
 The source pool is bounded to 2,048 blocks / 16 MiB, and a sync returns at most
 32 distinct authorized candidate closures. This is a small-history operational
-limit, not unbounded evolution. Runtime/schema migrations, grant changes,
+limit, not unbounded evolution. Exceeding the distinct-candidate limit makes
+sync unavailable; it is not silent truncation. Runtime/schema migrations, grant changes,
 rotation and delegation remain later work. Pending activation has no speculative
 control fold; its pending preview reports unavailable until canonical replay.
 Complete archive/offline bootstrap and performance measurements are S6 work.
@@ -98,8 +104,8 @@ npm run test:flows -- --group evolution
 npm test
 ```
 
-The evolution gate combines nine focused control/recovery scenarios with twelve
-real-PDS browser/CLI scenarios (23 passes including their two parents). It
+The evolution gate combines eleven focused control/recovery scenarios with twelve
+real-PDS browser/CLI scenarios (25 passes including their two parents). It
 includes missing/corrupt source repair, atomic persistence failure, racing and
 unauthorized activations, exact stale delivery, explicit replacement, ordered
 offline dependencies, incompatible changes and host restart against the same PDS.
