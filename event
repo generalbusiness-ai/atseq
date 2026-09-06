@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:66ee80704040b45eefad68cf29b67931443792f3","text":"Retire superseded S2 candidate artifact for docs/pds-host.md; corrected 70f4c89 is independently approved and landed at 71d912ec."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6fa77fed06f9a9bf1fccaadca3993bfcb5aa2744","text":"Retire superseded S2 candidate artifact for tests/helpers/writer-child.ts; corrected 70f4c89 is independently approved and landed at 71d912ec."}
