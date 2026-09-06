@@ -1,0 +1,74 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.head",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "required": [
+          "version",
+          "app",
+          "genesis",
+          "position",
+          "entry"
+        ],
+        "properties": {
+          "version": {
+            "type": "integer",
+            "const": 0
+          },
+          "app": {
+            "type": "string",
+            "format": "did",
+            "maxLength": 256
+          },
+          "genesis": {
+            "type": "cid-link"
+          },
+          "position": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "entry": {
+            "type": "cid-link"
+          }
+        }
+      }
+    },
+    "value": {
+      "type": "object",
+      "required": [
+        "version",
+        "app",
+        "genesis",
+        "position",
+        "entry"
+      ],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 0
+        },
+        "app": {
+          "type": "string",
+          "format": "did",
+          "maxLength": 256
+        },
+        "genesis": {
+          "type": "cid-link"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "entry": {
+          "type": "cid-link"
+        }
+      }
+    }
+  }
+}

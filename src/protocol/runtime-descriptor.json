@@ -1,0 +1,28 @@
+{
+  "name": "atseq-jsonata-js-2.2.2-candidate-2",
+  "version": 0,
+  "engine": {
+    "name": "jsonata",
+    "version": "2.2.2"
+  },
+  "schemas": {
+    "name": "@atproto/lexicon",
+    "version": "0.7.12"
+  },
+  "view": {
+    "@inlay/core": "0.0.13",
+    "@inlay/render": "0.3.1"
+  },
+  "wire": {
+    "format": "atseq-v0-drisl",
+    "library": "@atcute/cbor",
+    "version": "2.3.6"
+  },
+  "sources": {
+    "src/runtime/profile.ts": "909df5e771e58d79186373497a595b763e8db82800e7405ec355f6b7f5c4062d",
+    "src/runtime/evaluator.ts": "4f4008fbca9c9b60b9bdae09d55a5fe1c1ba062418662cbc363f02606da42be2",
+    "src/runtime/values.ts": "9194e65046b48be3e6a3f1bf38a4c42a1690d84cd91b78ba27ff7b1bac7bddaf",
+    "src/definition/schemas.ts": "52ef749be1198f48d5220f1579a54c1a6727b293882ca656628bfe94c13903c2",
+    "src/ui/inlay.ts": "ebfda164531b88169508f44b208554a0a2398c80f09bc38e53945d0b8e9c4472"
+  }
+}

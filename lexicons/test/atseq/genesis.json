@@ -1,0 +1,96 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.genesis",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "literal:self",
+      "record": {
+        "type": "object",
+        "required": [
+          "version",
+          "app",
+          "profile",
+          "definition",
+          "sequencerKey",
+          "activationKeys"
+        ],
+        "properties": {
+          "version": {
+            "type": "integer",
+            "const": 0
+          },
+          "app": {
+            "type": "string",
+            "format": "did",
+            "maxLength": 256
+          },
+          "profile": {
+            "type": "cid-link"
+          },
+          "definition": {
+            "type": "cid-link"
+          },
+          "sequencerKey": {
+            "type": "string",
+            "format": "did",
+            "maxLength": 128
+          },
+          "activationKeys": {
+            "type": "array",
+            "minLength": 1,
+            "maxLength": 16,
+            "items": {
+              "type": "string",
+              "format": "did",
+              "maxLength": 128
+            }
+          }
+        }
+      }
+    },
+    "value": {
+      "type": "object",
+      "required": [
+        "version",
+        "app",
+        "profile",
+        "definition",
+        "sequencerKey",
+        "activationKeys"
+      ],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 0
+        },
+        "app": {
+          "type": "string",
+          "format": "did",
+          "maxLength": 256
+        },
+        "profile": {
+          "type": "cid-link"
+        },
+        "definition": {
+          "type": "cid-link"
+        },
+        "sequencerKey": {
+          "type": "string",
+          "format": "did",
+          "maxLength": 128
+        },
+        "activationKeys": {
+          "type": "array",
+          "minLength": 1,
+          "maxLength": 16,
+          "items": {
+            "type": "string",
+            "format": "did",
+            "maxLength": 128
+          }
+        }
+      }
+    }
+  }
+}
