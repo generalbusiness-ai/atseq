@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f4b252481a23233f207193f2dd0d4afc8c30928c","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored-before-s5-review/mending-circle-tool-desk/source/manifest.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f52322f993e7b0c712b8f1fc1002ce84d55196f2","text":"Merge retired a covered predecessor; the successor is at scripts/acceptance.ts."}
