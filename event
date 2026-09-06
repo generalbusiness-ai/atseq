@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:89b3bb362614fb21f10460669676bb317599d0a4","text":"Retire my abandoned S5 candidate artifact at 757c76f for src/runtime/application-profile.json; independent approval of fe418e8 landed as 6493a2b, which now supplies this path."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6c16421c1995fe07cba919560aac7d4423b3caeb","text":"Retire my abandoned S5 candidate artifact at b070ffb for docs/interaction.md; independent approval of fe418e8 landed as 6493a2b, which now supplies this path."}
