@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:4dee214bcfbd8ac4988d0e1d93d12b6692435ca2","text":"Retire superseded S2 candidate artifact for lexicons/test/atseq/source.json; corrected 70f4c89 is independently approved and landed at 71d912ec."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5c567160b7f98ed318e13cd8e58bf3b8ba641ace","text":"Retire superseded S2 candidate artifact for package.json; corrected 70f4c89 is independently approved and landed at 71d912ec."}
