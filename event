@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"S5 compatible activation implementation, interaction and measured evidence at 757c76f: scripts/flows.ts.","body":{"branch":"request/spike-evolution","commit":"757c76f54746d3ab1577a9d08819069525077fab","path":"scripts/flows.ts"}}
+{"kind":"artifact","text":"S5 compatible activation implementation, interaction and measured evidence at 757c76f: src/browser/main.ts.","body":{"branch":"request/spike-evolution","commit":"757c76f54746d3ab1577a9d08819069525077fab","path":"src/browser/main.ts"}}
