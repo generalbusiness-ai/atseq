@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7bcc3a1a53a0f0e073711201158820e5caa24bd9","text":"Merge retired a covered predecessor; the successor is at scripts/not-implemented.mjs."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7fff66a76d7fd8e89af9aba0e1f7787fca2ace5e","text":"Merge retired a covered predecessor; the successor is at experiments/browser/main.ts."}
