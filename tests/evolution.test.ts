@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { chromium, expect } from '@playwright/test';
+import { fromBytes } from '@atcute/cbor';
 import { build } from 'vite';
 import { startEnvironment, resetDisposable } from '../experiments/pds/environment.mjs';
 import { ApplicationHost } from '../src/host/application.ts';
@@ -13,8 +14,10 @@ import { AtseqClient } from '../src/client/api.ts';
 import { createIdentity, prepareIntent } from '../src/client/identity.ts';
 import { bytes, encodeBlock } from '../src/protocol/wire.ts';
 import { ACTIVATE } from '../src/definition/control.ts';
-import { SourceBundle } from '../src/definition/source.ts';
-import { guitarEvolution } from '../testdata/apps/evolution.ts';
+import { SourceBundle, SourcePool } from '../src/definition/source.ts';
+import { Anchor } from '../src/protocol/log.ts';
+import { Folder } from '../src/runtime/folder.ts';
+import { guitarEvolution, oversizedClosure } from '../testdata/apps/evolution.ts';
 import { cli } from './helpers/cli.ts';
 import { recordFlowEvidence, type MeasuredCase } from './helpers/evidence.ts';
 
@@ -45,7 +48,8 @@ test('evolve a real app and explicitly replace its stale pending work', async t 
     }));
     const cliIdentity = await cli({ operation: 'identity', keyFile, name: 'Update agent' }); assert.notEqual(cliIdentity.publicKey, browserKey);
     // Two explicit initial grants; neither actor obtains authority merely by creating an account.
-    const created = await api.call('create', { source: bytes(await fixture.old.bundle.write()), activationKeys: [browserKey, cliIdentity.publicKey] }, randomUUID());
+    const creationId = randomUUID();
+    const created = await api.call('create', { source: bytes(await fixture.old.bundle.write()), activationKeys: [browserKey, cliIdentity.publicKey] }, creationId);
     const invitation = { app: created.genesis.app, genesis: created.genesisCid.$link }, url = `${service.url}/#${new URLSearchParams(invitation)}`;
     await owner.goto(url); await expect(owner.getByRole('heading', { name: 'Participate', exact: true })).toBeVisible();
     await check('ordinary state is retained while another browser queues an old-definition act', async () => {
@@ -74,7 +78,7 @@ test('evolve a real app and explicitly replace its stale pending work', async t 
     const activation = { expected: fixture.old.bundle.root, definition: fixture.bundle.root, closure: fixture.bundle.identities().sort() };
     const submitOld = { operation: 'submit', host: service.url, ...invitation, definition: fixture.old.bundle.root, keyFile, intentFile, action: ACTIVATE, payload: activation };
     await check('CLI staging and preparing an activation do not activate it', async () => {
-      const staged = await cli({ operation: 'stage', host: service.url, ...invitation, definition: fixture.old.bundle.root, source: nextPath }); assert.equal(staged.candidate.cid, fixture.bundle.root);
+      const staged = await cli({ operation: 'stage', host: service.url, ...invitation, expected: fixture.old.bundle.root, source: nextPath }); assert.equal(staged.candidate.cid, fixture.bundle.root);
       prepared = await cli({ ...submitOld, operation: 'prepare' }); originalPrepared = await readFile(intentFile);
       assert.equal((await api.call('sync', invitation)).entries.length, 1); assert.equal((await api.call('describe', invitation)).definition.cid, fixture.old.bundle.root);
     });
@@ -140,11 +144,43 @@ test('evolve a real app and explicitly replace its stale pending work', async t 
       assert.deepEqual(errors, []);
       await mkdir('experiments/generated/evolution-evidence', { recursive: true }); await owner.screenshot({ path: 'experiments/generated/evolution-evidence/updated.png', fullPage: true }); await guest.screenshot({ path: 'experiments/generated/evolution-evidence/reviewed.png', fullPage: true });
     });
+    await check('sync delivers an oversized closure so host, CLI and fresh browser agree and continue', async () => {
+      const { first, second, closure } = await oversizedClosure(fixture);
+      for (const [index, bundle] of [first, second].entries()) {
+        const path = join(env.dir, `large-${index}.car`); await writeFile(path, await bundle.write());
+        await cli({ operation: 'stage', host: service.url, ...invitation, expected: fixture.bundle.root, source: path });
+      }
+      const bad = await cli({ operation: 'activate', host: service.url, ...invitation, definition: fixture.bundle.root, candidate: first.root, closure, keyFile, intentFile: join(env.dir, 'oversized-intent.json') });
+      assert.equal((await api.call('receipt', { ...invitation, intent: bad.intent })).outcome.reason, 'invalid_activation');
+      const good = await cli({ operation: 'submit', host: service.url, ...invitation, definition: fixture.bundle.root, action: fixture.action, payload: { id: 'one' }, keyFile, intentFile: join(env.dir, 'after-oversized.json') });
+      assert.equal(good.receipt.position, 11);
+      const retained = await api.call('sync', invitation);
+      assert.ok(retained.candidates.some((c: any) => fromBytes(c.source).length > 512 * 1024));
+      const pool = new SourcePool(); await pool.add(await SourceBundle.read(fromBytes(retained.source)));
+      for (const candidate of retained.candidates) await pool.add(await SourceBundle.readClosure(fromBytes(candidate.source)));
+      const replay = await Folder.open(await Anchor.from(retained.genesis, retained.genesisCid), pool);
+      const snapshot = await replay.catchUp(retained.head, retained.entries);
+      assert.equal(snapshot.stalled, undefined);
+      assert.deepEqual(snapshot.projection, JSON.parse(await readFile(join(directory, creationId, 'projection.json'), 'utf8')));
+      assert.deepEqual(snapshot.projection.outcomes.slice(-2).map(o => o.outcome), [
+        { $type: 'test.atseq.defs#ineffective', reason: 'invalid_activation' }, { $type: 'test.atseq.defs#effective' },
+      ]);
+      const fresh = await browser.newPage();
+      try {
+        await fresh.goto(url);
+        await expect(fresh.getByText('Selected: one', { exact: true })).toBeVisible();
+        await expect(fresh.getByText('Entry 11 · Applied', { exact: true })).toBeVisible();
+        const failed = fresh.getByText('Entry 10 · Not applied', { exact: true }).locator('..');
+        await failed.locator('summary').click();
+        await expect(failed.locator('pre')).toContainText('"reason": "invalid_activation"');
+        await expect(fresh.getByRole('button', { name: 'Create identity', exact: true })).toBeVisible();
+      } finally { await fresh.close(); }
+    });
     await check('restarting the host rebuilds the active definition and every outcome', async () => {
       await service.close(); const restored = new ApplicationHost(directory, accounts); await restored.restore(); service = await startApplicationService(restored, { staticRoot: root }); api = new AtseqClient(service.url);
-      const description = await api.call('describe', invitation); assert.equal(description.definition.cid, fixture.bundle.root); assert.equal(description.frontier.position, 9);
-      assert.equal((await api.call('query', { ...invitation, name: 'selection', params: '{}' })).result.value.selected, 'three');
+      const description = await api.call('describe', invitation); assert.equal(description.definition.cid, fixture.bundle.root); assert.equal(description.frontier.position, 11);
+      assert.equal((await api.call('query', { ...invitation, name: 'selection', params: '{}' })).result.value.selected, 'one');
       const receipt = await api.call('receipt', { ...invitation, intent: prepared.intent }); assert.equal(receipt.outcome.reason, 'definition_changed');
     });
-  } finally { await recordFlowEvidence('evolution', results, { expectedCases: 12, browserVersion: browser.version(), sourcePairs: 2 }); await browser.close(); await service.close(); await env.close(); await resetDisposable(env.dir); }
+  } finally { await recordFlowEvidence('evolution', results, { expectedCases: 13, browserVersion: browser.version(), sourcePairs: 2 }); await browser.close(); await service.close(); await env.close(); await resetDisposable(env.dir); }
 });

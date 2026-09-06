@@ -13,6 +13,11 @@ The manifest lists relative file paths and raw-byte CIDs. Each named file must
 be present and match its CID before the definition can load. The CAR may not
 contain undeclared blocks. Identical file contents can share one block.
 
+An activation attempt's evidence CAR uses a larger transport bound so verifiers
+can receive and reject an oversized signed closure. `SourceBundle.readClosure`
+and `collectClosure` admit only transport; loading an actual definition still
+uses the bounds below. See [evolution](evolution.md).
+
 `SourceBundle.pack(manifest, files)` derives file CIDs and the root from owned
 bytes. `SourceBundle.read(car)` checks an import. Both enforce 512 KiB including
 CAR framing and at most 64 blocks. Loading allows at most 63 named files plus

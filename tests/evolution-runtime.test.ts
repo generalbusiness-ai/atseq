@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { P256PrivateKeyExportable } from '@atcute/crypto';
-import { guitarEvolution } from '../testdata/apps/evolution.ts';
+import { guitarEvolution, oversizedClosure } from '../testdata/apps/evolution.ts';
 import { fixtureApp, fixtureHistory } from '../experiments/runtime-corpus.ts';
 import { SourceBundle, SourcePool, type SourceReader } from '../src/definition/source.ts';
 import { Folder } from '../src/runtime/folder.ts';
@@ -103,6 +103,29 @@ test('compatible activation preserves its exact interpretation boundary', async 
         ]);
       }
     });
+    await check('a closure over 512 KiB is transported and invalid on both full and closure-only readers', async () => {
+      const { first, second, closure } = await oversizedClosure(next);
+      const fullPool = new SourcePool(); for (const bundle of [old.bundle, first, second]) await fullPool.add(bundle);
+      await assert.rejects(() => SourceBundle.collect(first.root, closure, fullPool), { code: 'definition_size' });
+      const transported = await (await SourceBundle.collectClosure(first.root, closure, fullPool)).writeClosure();
+      assert.ok(transported.length > 512 * 1024);
+      await assert.rejects(() => SourceBundle.read(transported), { code: 'definition_size' });
+      const restricted = new SourcePool(); await restricted.add(old.bundle); await restricted.add(await SourceBundle.readClosure(transported));
+      const history = await fixtureHistory(app, [
+        { action: ACTIVATE, payload: { ...payload, definition: first.root, closure } },
+        { action: old.action, payload: candidate },
+        { action: next.action, payload: { id: 'one' }, definition: first.root },
+      ]);
+      const full = await (await Folder.open(app.anchor, fullPool)).catchUp(history.head, history.entries);
+      const narrow = await (await Folder.open(app.anchor, restricted)).catchUp(history.head, history.entries);
+      assert.equal(full.stalled, undefined); assert.deepEqual(narrow, full);
+      assert.equal(full.projection.definition, old.bundle.root);
+      assert.deepEqual(full.projection.outcomes.map(o => o.outcome), [
+        { $type: 'test.atseq.defs#ineffective', reason: 'invalid_activation' },
+        { $type: 'test.atseq.defs#effective' },
+        { $type: 'test.atseq.defs#ineffective', reason: 'definition_changed' },
+      ]);
+    });
     await check('an available query-less view with missing bindings is invalid rather than a permanent stall', async () => {
       const invalid = await SourceBundle.pack({ ...next.manifest, views: next.manifest.views.map(({query, ...view}) => view) }, next.files);
       const available = new SourcePool(); await available.add(old.bundle); await available.add(invalid);
@@ -135,5 +158,5 @@ test('compatible activation preserves its exact interpretation boundary', async 
       const rebound = await SourceBundle.pack({ ...next.manifest, actions: [{ ref: ACTIVATE, fold: 'select.jsonata' }] }, next.files);
       await assert.rejects(() => LoadedDefinition.load(rebound.root, rebound), { code: 'definition_binding' });
     });
-  } finally { await recordFlowEvidence('evolution-runtime', results, { expectedCases: 11 }); }
+  } finally { await recordFlowEvidence('evolution-runtime', results, { expectedCases: 12 }); }
 });

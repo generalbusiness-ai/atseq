@@ -30,6 +30,20 @@ closure invalid even when the host has extra staged files. Errors from loading
 available code or views, including missing view bindings, are invalid activation
 outcomes rather than permanent pauses.
 
+Transport admission is separate from definition admission. Sync carries a signed
+closure even when its combined CAR exceeds the 512 KiB definition bound, up to
+the source transport budget below. Both verifiers can then reject the same
+available bytes as `invalid_activation`. A larger transport never authorizes
+a larger definition. Missing or corrupt named blocks are still unavailable.
+
+This spike classifies every caught error after the signed bytes are available
+as invalid activation, except explicit incompatibility. This also classifies
+a catchable transient runtime fault, such as an allocation failure during
+evaluation, as invalid on that verifier even if another verifier would succeed.
+That is an accepted limitation of the broad exception boundary; complete fault
+isolation and distinguishing interpreter defects from invalid source remain
+later work. Process termination itself does not commit a projection or verdict.
+
 ## Review and apply
 
 Open an app and use **Import updated definition CAR**. The worker compares the
@@ -89,12 +103,20 @@ transparent runtime upgrades. Compatible activation within an app retains its
 one pinned runtime identity.
 
 The source pool is bounded to 2,048 blocks / 16 MiB, and a sync returns at most
-32 distinct authorized candidate closures. This is a small-history operational
+32 distinct authorized candidate closures. Initial and candidate CARs together
+must fit a 16 MiB sync transport budget, including framing and repeated blocks;
+an individual closure may use that transport budget, while every individual
+source block and an admitted definition retain their 512 KiB bounds. This is a small-history operational
 limit, not unbounded evolution. Exceeding the distinct-candidate limit makes
-sync unavailable; it is not silent truncation. Runtime/schema migrations, grant changes,
+sync unavailable; exceeding the transport budget also returns unavailable,
+without silently omitting an oversized available closure. Runtime/schema migrations, grant changes,
 rotation and delegation remain later work. Pending activation has no speculative
 control fold; its pending preview reports unavailable until canonical replay.
 Complete archive/offline bootstrap and performance measurements are S6 work.
+`ApplicationHost.restore` currently fails the restore call at an unsupported
+old-profile app; it does not isolate that failure from other apps. The disposable
+demo command starts fresh fixtures rather than calling restore. The restart gate
+explicitly calls restore against its existing test PDS.
 
 ## Reproduce
 
@@ -104,8 +126,8 @@ npm run test:flows -- --group evolution
 npm test
 ```
 
-The evolution gate combines eleven focused control/recovery scenarios with twelve
-real-PDS browser/CLI scenarios (25 passes including their two parents). It
+The evolution gate combines twelve focused control/recovery scenarios with thirteen
+real-PDS browser/CLI scenarios (27 passes including their two parents). It
 includes missing/corrupt source repair, atomic persistence failure, racing and
 unauthorized activations, exact stale delivery, explicit replacement, ordered
 offline dependencies, incompatible changes and host restart against the same PDS.
