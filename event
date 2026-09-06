@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:91e962b09d08a12a8c91842088a43805b602e450","text":"Merge retired a covered predecessor; the successor is at package.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:92bf59ff655251fa9dcb7f113afc97f4ad674a83","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk/source/folds/borrow.jsonata."}
