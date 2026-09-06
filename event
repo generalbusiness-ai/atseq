@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:52238e51e2f4212cf20395ac9abc8f851cc3fa1a","text":"Merge retired a covered predecessor; the successor is at src/runtime/identity.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:54c0f6828d28bb859d4e670f41f0250e67d3a2bf","text":"Merge retired a covered predecessor; the successor is at docs/protocol.md."}
