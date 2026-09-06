@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3b431c5ef0ec4305ea5f3aed8d6f8f69436a5ffe","text":"Merge retired a covered predecessor; the successor is at experiments/pds/environment.mjs."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:4a72fa5155707788f168fb52ae75fa6f6200a52b","text":"Merge retired a covered predecessor; the successor is at src/host/sequencer.ts."}
