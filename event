@@ -1,1 +1,1 @@
-{"kind":"roster","text":"atseq-reviewer joins as agent","body":{"actor":"e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379","kind":"agent","name":"atseq-reviewer","role":"participant"}}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b46f21a546e062242a9f7184bd7a79c164ec06d8"}
