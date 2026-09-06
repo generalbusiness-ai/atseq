@@ -1,0 +1,32 @@
+
+> atseq@0.0.0 test:flows
+> tsx scripts/flows.ts --group participation
+
+▶ human and agent participation on a real PDS
+  ✔ source validation and preview publish nothing (49.368334ms)
+  ✔ creation retry returns one app and binds its content (15.283917ms)
+  ✔ shared service exposes recorded and then interpreted progress (290.401167ms)
+  ✔ host restart restores the same app and interpreted history (566.819667ms)
+  ✔ concurrent reads and submissions report coherent heads and frontiers (804.996792ms)
+  ✔ documented CLI packs, validates and creates the same immutable source (2479.149417ms)
+✔ human and agent participation on a real PDS (6543.559875ms)
+▶ two browser identities and the JSON CLI use generic participation flows
+  ✔ CLI preview opens the same source in the browser without publication (619.772292ms)
+  ✔ explicit identity and publication create an app once (2398.19575ms)
+  ✔ another browser can read before creating a distinct signing identity (409.976375ms)
+  ✔ offline double click retains one signed intent across reload and reconnect (659.723041ms)
+  ✔ a competing browser action is recorded with an honest ineffective outcome (429.4845ms)
+  ✔ CLI uses a third private key and keeps exact retry bytes in a file (2312.405917ms)
+  ✔ narrow layout remains usable with keyboard focus and no script errors (320.778042ms)
+  ✔ lost submit reply reconciles the retained intent without a second append (468.522167ms)
+  ✔ transport refusal retains the original signed work and invents no entry (356.26125ms)
+  ✔ hostile template text stays text and rendering cannot sign or fetch external resources (2502.444458ms)
+✔ two browser identities and the JSON CLI use generic participation flows (12288.368417ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13271.959292

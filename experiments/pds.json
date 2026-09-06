@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T14:33:47.012Z",
+  "measuredAt": "2026-09-06T17:04:53.972Z",
   "nodeVersion": "v26.8.1",
   "pdsVersion": "0.5.31",
   "storage": "Official PDS HTTP and SQLite; loopback PLC with in-memory test database",
@@ -9,32 +9,32 @@
     {
       "name": "genesis and initial head are a verified empty prefix",
       "passed": true,
-      "elapsedMs": 10
+      "elapsedMs": 17
     },
     {
       "name": "provisioning refuses to replace an existing application log",
       "passed": true,
-      "elapsedMs": 25
+      "elapsedMs": 43
     },
     {
       "name": "source blobs are retained and recovered by exact CID",
       "passed": true,
-      "elapsedMs": 25
+      "elapsedMs": 35
     },
     {
       "name": "reset refuses a live or unmarked directory",
       "passed": true,
-      "elapsedMs": 1
+      "elapsedMs": 3
     },
     {
       "name": "two concurrent submissions receive one contiguous order",
       "passed": true,
-      "elapsedMs": 89
+      "elapsedMs": 138
     },
     {
       "name": "same intent and a new valid signature return original receipt",
       "passed": true,
-      "elapsedMs": 60
+      "elapsedMs": 98
     },
     {
       "name": "second local writer is refused while the lease is held",
@@ -44,95 +44,104 @@
     {
       "name": "official PDS process crash preserves acknowledged history and blobs",
       "passed": true,
-      "elapsedMs": 553
+      "elapsedMs": 1044
     },
     {
       "name": "a rejected conditional batch leaves entry and head unchanged",
       "passed": true,
-      "elapsedMs": 46
+      "elapsedMs": 92
     },
     {
       "name": "malformed commit replies cannot remove an append or provision condition",
       "passed": true,
-      "elapsedMs": 57
+      "elapsedMs": 104
     },
     {
       "name": "an unrelated repo write races the append and is reconciled",
       "passed": true,
-      "elapsedMs": 94
+      "elapsedMs": 153
     },
     {
       "name": "lost HTTP response after commit resolves to one original receipt",
       "passed": true,
-      "elapsedMs": 118
+      "elapsedMs": 174
     },
     {
       "name": "a different writer process cannot acquire the same local lease",
       "passed": true,
-      "elapsedMs": 93
+      "elapsedMs": 155
     },
     {
       "name": "writer crash after commit but before acknowledgment recovers one receipt",
       "passed": true,
-      "elapsedMs": 199
+      "elapsedMs": 339
     },
     {
       "name": "writer crash after acknowledgment keeps receipt and no domain effect claim",
       "passed": true,
-      "elapsedMs": 219
+      "elapsedMs": 381
     },
     {
       "name": "XRPC rejects a foreign receipt anchor and malformed submission",
       "passed": true,
-      "elapsedMs": 21
+      "elapsedMs": 37
     },
     {
       "name": "bootstrap at a chosen head catches up without notifications",
       "passed": true,
-      "elapsedMs": 162
+      "elapsedMs": 271
     },
     {
       "name": "repository CAR contains retention references but blobs require explicit export",
       "passed": true,
-      "elapsedMs": 13
+      "elapsedMs": 22
     },
     {
       "name": "missing and tampered source references fail, then recover by exact content",
       "passed": true,
-      "elapsedMs": 35
+      "elapsedMs": 64
     },
     {
       "name": "missing or corrupted physical blob bytes never satisfy a source CID",
       "passed": true,
-      "elapsedMs": 15
+      "elapsedMs": 29
     },
     {
       "name": "a retained verified head refuses repository rollback and signed-entry corruption",
       "passed": true,
-      "elapsedMs": 102
+      "elapsedMs": 212
     },
     {
       "name": "chosen-head catch-up verifies a prefix spanning real PDS pages",
       "passed": true,
-      "elapsedMs": 234
+      "elapsedMs": 489
     },
     {
       "name": "PDS compare-and-swap excludes competing writers even with the local lease bypassed",
       "passed": true,
-      "elapsedMs": 554
+      "elapsedMs": 1075
     }
   ],
   "sourceHashes": {
-    "package.json": "d627544c8708cb547955e16006fe36b15c49622148d6c411a3976e1ee9b18e37",
+    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111",
     "tests/pds.test.ts": "37709162ac79ac55ebddafc5cacc140a7b16302d41c231c6b9c04e40bab1e89d",
     "lexicons/test/atseq/source.json": "ba5aa441065c5bffab8326e8cebc98a15708496159fc3bb9f78ad835031e8f23",
+    "src/host/accounts.ts": "13df56ad649ed85db6de22b4846b4be2a30e42c3883272a6d32fc62016cf8313",
+    "src/host/application.ts": "aa0ff4a99700e39d6e31c27fcfcad38e26767b241f8c81d98b539b6b7715a42e",
+    "src/host/build.ts": "b651f8f4e79e8fb87fc4783bac27f8ca5146e873ec02d63905253eb4629f63a2",
+    "src/host/files.ts": "9c39c4f0f0717dff170695cb44519d418380f5215028f95537ea115b9d938862",
+    "src/host/http.ts": "8f391808eabb2e02f5779d16a165056e5b9d9f5ad18fa4b2a462e42fe3a944c5",
     "src/host/lease.ts": "95c65692e820a53b9fb5aaafd392a0120c5e926a0be2905ee47c318a041c8aed",
     "src/host/pds.ts": "516a2a731acd537a74496c40f03797d5df2a69db58168720e27f09f795ffa5f5",
+    "src/host/projection.ts": "ad6a440d9c3d88feaf13144868a3fd2ab4f79fafc335793b286e76ae6a61d569",
     "src/host/sequencer.ts": "281d8dd868f3f5a5483f8fa902ccd21fbe8fd166c024a7621d2cf1c39500ddef",
     "src/host/service.ts": "b9623d4bb0a2b66e74d0cbbadfe494c119c1d8729d4d9cedcef2d8bb97f82acd",
     "src/host/source.ts": "74ee520bda18270cdf01585e4b29de3588af46a4508801a74f9bf8be6c4f6f23",
+    "tests/helpers/cli.ts": "36e04018b62be00c15ed7d28f116b3f2c62efbcd29f523c8b2978ac568495d54",
+    "tests/helpers/evidence.ts": "3f1b93bc48732244ec4d1b9fbaab27c64f010e234284478ab36b8fb38d58014c",
     "tests/helpers/pds-faults.ts": "d64bf540aff0dbe54824da40230dc2bc39a9d3a0edd3c0436e4b557c17f35f24",
+    "tests/helpers/runtime-child.ts": "efeb14d37e4324ed98172e4c15042e3b2b194ce4e6681d24b506888385e39581",
     "tests/helpers/writer-child.ts": "cf6c2f9ae150dd7456004149659d51337a896af5e3a2df0910ca057eb6686c8c",
     "tests/helpers/writer-process.ts": "886f5e911ba995ac995c7b5c88102c4ea3e425584effcf5f9ac754b27d4cf41b",
     "experiments/pds/environment.d.mts": "8de6d5666f31fb04dbe291f0e03e9c26354065a1334e8397b0d0fbd98ad9f605",

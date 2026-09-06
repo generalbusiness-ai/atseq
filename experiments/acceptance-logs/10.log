@@ -1,0 +1,23 @@
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+▶ retain complete app history and rebuild without the PDS
+  ✔ complete evolved archive retains source history, profiles and exact outcomes (85.138583ms)
+  ✔ chosen older prefix uses its original definition and no future candidate (46.164292ms)
+  ✔ missing activation source permits only the last complete prefix (80.807709ms)
+  ✔ changed history, inventory, runtime and invitation cannot be accepted (38.052417ms)
+  ✔ CLI rebuild uses a new directory after removing only its marked projection cache (763.0665ms)
+  ✔ installed shell bootstraps offline and rebuilds solely from an imported archive (449.086667ms)
+  ✔ cancelling a held worker export keeps verified inputs and an offline signed action (407.743958ms)
+  ✔ small imported data produces a zero-based chart and static source-tagged exports (1652.54275ms)
+✔ retain complete app history and rebuild without the PDS (7195.317333ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8170.693958

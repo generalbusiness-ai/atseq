@@ -25,10 +25,11 @@ for(const [index,command] of commands.entries()){
 const passed=results.every(r=>r.passed);
 await recordFlowEvidence('acceptance',results.map(r=>({name:r.command.join(' '),passed:r.passed,elapsedMs:r.elapsedMs})),{expectedCases:commands.length,commands:results,recommendation:passed?'revise':'incomplete',decision:'Retain the declarative source/log/activation contracts. Revise complete-prefix serving and repeated verification before using this host for long histories; no unbounded-performance claim.'});
 if(passed){
-  const reports={protocol:'protocol',pds:'pds',runtime:'runtime',dynamic:'dynamic-apps','host-flows':'host-flows',participation:'participation','evolution-runtime':'evolution-runtime',evolution:'evolution',archive:'archive',performance:'performance','browser-performance':'browser-performance',acceptance:'acceptance'};
+  const reports={protocol:'protocol',pds:'pds',runtime:'runtime',dynamic:'dynamic','host-flows':'host-flows',participation:'participation','evolution-runtime':'evolution-runtime',evolution:'evolution',archive:'archive',performance:'performance','browser-performance':'browser-performance',acceptance:'acceptance'};
   for(const [generated,retained] of Object.entries(reports))await cp(`experiments/generated/${generated}-results.json`,`experiments/${retained}.json`);
   await mkdir('experiments/evidence/s6',{recursive:true});for(const name of ['offline.png','chart.png','chart.svg','chart.html','chart.atseq.json','evolved.atseq.json'])await cp(`experiments/generated/archive-evidence/${name}`,`experiments/evidence/s6/${name}`);
-  await cp('experiments/generated/dynamic-apps','experiments/dynamic-apps',{recursive:true});
+  await cp('experiments/generated/dynamic-apps','experiments/evidence/s3',{recursive:true});
+  for (const [source, stage] of [['participation-evidence','s4'],['evolution-evidence','s5']]) await cp(`experiments/generated/${source}`,`experiments/evidence/${stage}`,{recursive:true});
   await cp('experiments/generated/acceptance','experiments/acceptance-logs',{recursive:true});
 }
 process.exitCode=passed?0:1;

@@ -1,0 +1,39 @@
+
+> atseq@0.0.0 test:flows
+> tsx scripts/flows.ts --group evolution
+
+▶ compatible activation preserves its exact interpretation boundary
+  ✔ activation at N preserves state and N+1 uses the new interface (24.518125ms)
+  ✔ a full replay uses each definition at its original boundary (23.145375ms)
+  ✔ unavailable candidate pauses at N and resumes the same entry after repair (29.390125ms)
+  ✔ corrupt candidate content cannot fabricate an invalid-activation verdict (35.330083ms)
+  ✔ failed persistence leaves both definition and state before activation (33.584875ms)
+  ✔ another actor cannot activate or force a missing-content fetch (6.787125ms)
+  ✔ available invalid candidate code is retained ineffective (12.048875ms)
+  ✔ an incomplete or extra signed closure has the same outcome with full and closure-only readers (65.251542ms)
+  ✔ an available query-less view with missing bindings is invalid rather than a permanent stall (11.927791ms)
+  ✔ state compatibility includes transitive schemas and ignores unrelated additions (23.522958ms)
+  ✔ malformed closure and control-action rebinding are refused (9.271833ms)
+✔ compatible activation preserves its exact interpretation boundary (333.554833ms)
+▶ evolve a real app and explicitly replace its stale pending work
+  ✔ ordinary state is retained while another browser queues an old-definition act (790.203625ms)
+  ✔ comparison works locally and an ungranted browser cannot apply (97.785292ms)
+  ✔ CLI staging and preparing an activation do not activate it (1198.359458ms)
+  ✔ explicit Apply records the boundary and preserves existing data (889.122167ms)
+  ✔ a prepared activation racing from the same old definition is ineffective (571.52825ms)
+  ✔ reconnecting delivers the old signed intent unchanged exactly once (684.591042ms)
+  ✔ review preserves entered values and signs a replacement only on Save (1169.730333ms)
+  ✔ the new action, query and view use the preserved state (1094.96075ms)
+  ✔ offline queue order preserves add-then-select dependencies (1594.701833ms)
+  ✔ a recorded unauthorized activation is refused under the fixed grant (206.227208ms)
+  ✔ an incompatible proposal preserves the app and current data (384.712666ms)
+  ✔ restarting the host rebuilds the active definition and every outcome (892.666667ms)
+✔ evolve a real app and explicitly replace its stale pending work (13404.683917ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14420.1095

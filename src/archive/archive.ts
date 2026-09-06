@@ -13,6 +13,7 @@ export { ARCHIVE_LIMIT } from './limits.ts';
 export const REPLAY = 'Install the trusted Atseq runtime named by runtime.application (and its locked dependencies). Run the documented CLI replay operation with this archive and a new output directory. Archive content never installs or executes runtime code. A browser with this installed shell can import the archive offline. This is a retained copy; it does not grant write authority or recreate PDS credentials.';
 export interface RetainedInput { genesis: any; genesisCid: string; head: Head; entries: any[]; source: any; candidates?: { definition: string; source: any }[] }
 export interface Archive { format: 'atseq-archive'; version: 0; input: RetainedInput; runtime: { application: unknown; engine: unknown }; inventory: { cid: string; bytes: number }[]; licenses: typeof notices; replay: string }
+function fields(value: any, allowed: string[]) { if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !allowed.includes(key))) throw new Error('Unknown archive field or invalid object'); }
 const equal = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
 function shape(input: RetainedInput) {
   if (!input || !Array.isArray(input.entries) || input.entries.length > 20000 || !Array.isArray(input.candidates ?? []) || (input.candidates?.length ?? 0) > 32) throw new Error('Archive history or source count exceeds the installed bounds');
@@ -21,6 +22,8 @@ async function poolFor(input: RetainedInput) {
   shape(input);
   if (Object.keys(input).some(key => !['genesis','genesisCid','head','entries','source','candidates'].includes(key))) throw new Error('Unknown retained input field');
   for (const candidate of input.candidates ?? []) if (!candidate || Object.keys(candidate).some(key => !['definition','source'].includes(key))) throw new Error('Unknown candidate field');
+  fields(input.source, ['$bytes']);
+  for (const candidate of input.candidates ?? []) fields(candidate.source, ['$bytes']);
   const anchor = await Anchor.from(input.genesis, input.genesisCid), source = await SourceBundle.read(fromBytes(input.source));
   if (source.root !== anchor.genesis.definition.$link) throw new Error('Archive initial definition differs from genesis');
   await LoadedDefinition.load(source.root, source);
@@ -66,6 +69,9 @@ export async function importArchive(raw: Uint8Array, expected?: { app: string; g
   if (raw.length > ARCHIVE_LIMIT) throw new Error('Archive exceeds 48 MiB');
   const archive = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(raw)) as Archive;
   if (Object.keys(archive).some(key => !['format','version','input','runtime','inventory','licenses','replay'].includes(key))) throw new Error('Unknown archive field');
+  fields(archive.runtime, ['application','engine']);
+  if (!Array.isArray(archive.inventory) || archive.inventory.length > 2048) throw new Error('Invalid archive inventory');
+  for (const item of archive.inventory) fields(item, ['cid','bytes']);
   if (archive.format !== 'atseq-archive' || archive.version !== 0 || !archive.runtime) throw new Error('Unsupported archive format');
   if (await contentCid(archive.runtime.application) !== await applicationRuntimeCid() || await contentCid(archive.runtime.engine) !== await runtimeCid()) throw new Error('Archive requires a different installed runtime');
   if (expected && (archive.input?.genesis?.app !== expected.app || archive.input?.genesisCid !== expected.genesis)) throw new Error('Archive differs from the pinned invitation');

@@ -25,7 +25,7 @@ const content = document.querySelector<HTMLDivElement>('#content')!, status = do
 const identityDialog = document.querySelector<HTMLDialogElement>('#identity-dialog')!;
 let identity = await store.get<Identity>('identity'), current: Invitation | undefined, snapshot: any, definition: DefinitionInfo | undefined;
 let draft: Draft | undefined, preview: any, flushing = false, refreshing = false, refreshAgain = false;
-let editorArea: HTMLElement | undefined;
+let editorArea: HTMLElement | undefined, localWorkGeneration = 0;
 let afterIdentity: (() => void) | undefined;
 function tell(message: string) { status.textContent = message; }
 function failure(error: unknown) { tell((error as Error).message); }
@@ -129,10 +129,12 @@ async function refresh() {
   if (refreshing) { refreshAgain = true; return; }
   refreshing = true;
   document.querySelectorAll<HTMLButtonElement>('button[data-refresh]').forEach(button => { button.disabled = true; });
-  const invitation = { ...current };
+  const invitation = { ...current }, generation = localWorkGeneration;
   try {
     tell('Checking retained history and interpreting updates…');
-    const input = await api.call('sync', invitation), checked = await evaluator.call('sync', { invitation, input }, 120_000);
+    const input = await api.call('sync', invitation);
+    if (generation !== localWorkGeneration) return;
+    const checked = await evaluator.call('sync', { invitation, input }, 120_000);
     // Only worker-verified inputs become the device's canonical cache.
     await store.set(`verified:${invitation.app}:${invitation.genesis}`, input);
     if (current?.app !== invitation.app) return;
@@ -340,4 +342,4 @@ function queryExport(value: any, source: ChartSource) {
   return panel;
 }
 
-document.querySelector('#cancel-work')!.addEventListener('click', () => { evaluator.cancel(); tell('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.'); });
+document.querySelector('#cancel-work')!.addEventListener('click', () => { localWorkGeneration++; evaluator.cancel('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.'); tell('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.'); });

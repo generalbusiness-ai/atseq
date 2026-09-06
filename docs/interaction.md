@@ -156,3 +156,15 @@ retained retry across reload, competing no-op, lost submit reply, transport
 refusal, mobile width, keyboard focus and hostile templates. It checks worker
 results against PDS entries and observable outcomes. Screenshots are evidence
 of the exercised shell, not screenshots of the earlier S0 sandbox.
+
+## Preview identity and invitations
+
+Sample preview uses a synthetic app DID, position 1 and an empty `meta.actorKey`.
+It does not impersonate the device's signing identity. An identity-dependent
+fold should explicitly handle this anonymous sample or be checked through signed
+test participation. Preview currently has no actor override.
+
+A created app's invitation is the host origin, app DID and pinned genesis CID.
+The live browser URL is `HOST/#app=URL_ENCODED_APP_DID&genesis=GENESIS_CID`;
+construct the fragment with `URLSearchParams`. Loading it creates no signature.
+The `previewUrl` returned by preview identifies a draft, which remains unpublished.

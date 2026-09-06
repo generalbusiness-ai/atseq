@@ -75,7 +75,9 @@ identity, and exports the same verified projection again. Retained
 flow and a small CSV import with static SVG/table source-head metadata.
 
 The existing authoring agent built **${author.title}** after the host started,
-using only documented JSON adapter calls and source files. It exercised two
+using only documented JSON adapter calls and source files. Its original run
+is retained separately from the repeat publication under the corrected S5
+runtime, with the repeated run named by the final evidence. It exercised two
 participants, competing requests, identity-dependent returns and exact retry.
 The host source and built shell hashes were identical before and after that
 exercise. Source, the sanitized tool transcript, archive and independent replay

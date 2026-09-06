@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T13:51:27.918Z",
+  "measuredAt": "2026-09-06T17:04:46.791Z",
   "nodeVersion": "v26.8.1",
   "browserVersion": "153.0.8010.12",
   "node": [
@@ -648,8 +648,8 @@
     }
   ],
   "sourceHashes": {
-    "package.json": "8e839c1e68dc75ee728109eb3296c1efdcd74f739e2d4459f146b945c4f8e28e",
-    "package-lock.json": "2b0d96716e8c19632b2b76e67d1a629d9dda97050c41e45dc7324210c1d7e3cf",
+    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
+    "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111",
     "tests/protocol.test.ts": "c77e5515b73f3e57af92ba85994903bde08c2ace8d9dfa9a1f10d0735eba6a5d",
     "tests/vectors/protocol-v0.json": "dc398067268956cc5ac1ae3b100a822ebafaac90995bdd17860126a200431a0f",
     "scripts/vectors/generate.mjs": "85a58d3f110898334edc2c12413116cace78ee84a43ffbc86af5e69c0cb751ea",
@@ -658,15 +658,25 @@
     "src/protocol/runtime-descriptor.json": "33808c464378b3274b70f1c93580ab6d4482a342abd08856c940578c3c8cb3cb",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
     "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+    "lexicons/test/atseq/activate.json": "1b58f204e70fed5317d699e6fbcebc967d5b0a3c47b64ac8adbbc3aa37124bca",
+    "lexicons/test/atseq/compareDefinition.json": "dda1078b7fe5686dc4132a39a22dd54cc7625eb146c765da3acc64a85abb6298",
     "lexicons/test/atseq/create.json": "7330be0dbdb764a133061be715c4cf88fd21994d92197e2659b7f93eca43690a",
+    "lexicons/test/atseq/definition.json": "0a481070bb9f796342af07e81635f84873695e3680f7b77dc6527472ab015310",
     "lexicons/test/atseq/defs.json": "47eef9c63820daa5d5968af9de30d23b2256aef549fa98392a5facfe06310e36",
     "lexicons/test/atseq/describe.json": "027e63d410d80af27a709733aa7dabbc548145ff3b04cfbd949241b1d7a7dcbc",
     "lexicons/test/atseq/entry.json": "3f62adf0ef715eb456d890b9ddbb85173a98b73a4fe6b3c0451d05553de8b40e",
     "lexicons/test/atseq/genesis.json": "cf7971d53796155b6cd1db31ca3195c12f80b704146b7a02d979557e2a3d2357",
     "lexicons/test/atseq/head.json": "eac851adb419ac28f5bb89ab057743b2f6611d5aa041ea3bdbda6dad09f7d296",
+    "lexicons/test/atseq/list.json": "15c887989fdf6534d2a8942db554a7463386cb78966537aca317594f419c33bf",
+    "lexicons/test/atseq/preview.json": "c387fec0448df3959daf61cae7029df110fb0ad5f9eea424fdcf970fb4bc5e1b",
     "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
+    "lexicons/test/atseq/readDraft.json": "1f5e561e10e10c3fb38d6124aa9f0c6e48409db40117663c887e5335a828efc8",
     "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
+    "lexicons/test/atseq/source.json": "ba5aa441065c5bffab8326e8cebc98a15708496159fc3bb9f78ad835031e8f23",
+    "lexicons/test/atseq/stageDefinition.json": "05843019ad187f22fd44e52fb2ec6d5406b2362a5f2129b3cdd1fa8282323112",
     "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
+    "lexicons/test/atseq/sync.json": "db327b2a950036da2bbb12ed9fda9dcf14d324c25a5084a427dfc0ac451edcdf",
+    "lexicons/test/atseq/validateDraft.json": "9e990a143da727ff4352c72a2ad6f75c788b7ee9c6d00bcec4dce1c77ab79014",
     "experiments/protocol-browser/index.html": "68a1a64a6f9589956962d59527606fde619ca18568914ae9926d525e2f393130",
     "experiments/protocol-browser/main.ts": "b3f8528f7c81a1e0a970c1c0686e8b17e024394ebcc6b7d3d8a6f706be7c443a"
   }

@@ -1,0 +1,9 @@
+{
+  "title": "Mending circle: shared tool desk",
+  "host": "http://127.0.0.1:49837",
+  "app": "did:plc:7thdiytka76x6l6dlohfnbui",
+  "genesis": "bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
+  "definition": "bafyreia2shxwsrd2s23wue27ccwtkz3hvlzm6nqff2ox7d7yr464birhc4",
+  "url": "http://127.0.0.1:49837/#app=did%3Aplc%3A7thdiytka76x6l6dlohfnbui&genesis=bafyreidughow25qo5xfrreut4qlu2apwysusuaxctnyvcvnujh74yhz7zu",
+  "scope": "Disposable loopback test PDS; synthetic data only."
+}

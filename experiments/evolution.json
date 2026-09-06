@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T16:50:54.599Z",
+  "measuredAt": "2026-09-06T17:05:24.116Z",
   "nodeVersion": "v26.8.1",
   "expectedCases": 12,
   "browserVersion": "153.0.8010.12",
@@ -9,62 +9,62 @@
     {
       "name": "ordinary state is retained while another browser queues an old-definition act",
       "passed": true,
-      "elapsedMs": 676
+      "elapsedMs": 790
     },
     {
       "name": "comparison works locally and an ungranted browser cannot apply",
       "passed": true,
-      "elapsedMs": 89
+      "elapsedMs": 98
     },
     {
       "name": "CLI staging and preparing an activation do not activate it",
       "passed": true,
-      "elapsedMs": 953
+      "elapsedMs": 1198
     },
     {
       "name": "explicit Apply records the boundary and preserves existing data",
       "passed": true,
-      "elapsedMs": 877
+      "elapsedMs": 889
     },
     {
       "name": "a prepared activation racing from the same old definition is ineffective",
       "passed": true,
-      "elapsedMs": 369
+      "elapsedMs": 571
     },
     {
       "name": "reconnecting delivers the old signed intent unchanged exactly once",
       "passed": true,
-      "elapsedMs": 563
+      "elapsedMs": 685
     },
     {
       "name": "review preserves entered values and signs a replacement only on Save",
       "passed": true,
-      "elapsedMs": 566
+      "elapsedMs": 1170
     },
     {
       "name": "the new action, query and view use the preserved state",
       "passed": true,
-      "elapsedMs": 571
+      "elapsedMs": 1095
     },
     {
       "name": "offline queue order preserves add-then-select dependencies",
       "passed": true,
-      "elapsedMs": 929
+      "elapsedMs": 1595
     },
     {
       "name": "a recorded unauthorized activation is refused under the fixed grant",
       "passed": true,
-      "elapsedMs": 136
+      "elapsedMs": 206
     },
     {
       "name": "an incompatible proposal preserves the app and current data",
       "passed": true,
-      "elapsedMs": 287
+      "elapsedMs": 385
     },
     {
       "name": "restarting the host rebuilds the active definition and every outcome",
       "passed": true,
-      "elapsedMs": 768
+      "elapsedMs": 893
     }
   ],
   "sourceHashes": {
@@ -92,20 +92,30 @@
     "lexicons/test/atseq/sync.json": "db327b2a950036da2bbb12ed9fda9dcf14d324c25a5084a427dfc0ac451edcdf",
     "lexicons/test/atseq/validateDraft.json": "9e990a143da727ff4352c72a2ad6f75c788b7ee9c6d00bcec4dce1c77ab79014",
     "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111",
-    "package.json": "952c4846a3c0cf8bda3b37b0bb37da1c8bc6597996f7cc40d4b10a928183c0dc",
-    "scripts/feasibility.ts": "f69bec460e9e53e5d33b399ecc2a1da152bf00438e778600c730223ef39e863d",
+    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
+    "scripts/acceptance.ts": "7a77d873ecbf6602b945d139528efc495cdef24749fe33107c1c2839fd0a32cc",
+    "scripts/browser-performance.ts": "54beff0a03d55338200dc7a577481a7b089d8f7195a9b73f6b11ecfe7e608412",
+    "scripts/check-author.ts": "4fa7496ad03f5f21dc49f24fcf197ae3c19286739a31239297bddaa9012683ef",
+    "scripts/feasibility.ts": "cc267f4838b01764ac04002bef80567f3b52618eef045ed52ff37da5d8d22049",
     "scripts/flows.ts": "1e4b5a40bcacd1e23ee133ba89b594c738dd8d48cfa37a902dbc77cf1ee39c15",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
+    "scripts/notices.ts": "32275cf92c762a1db860bd135578095649987a1246a69052ada70f913355618c",
+    "scripts/performance.ts": "7c5ddfb5a139b8ecc41487fbdc6e44514927122970a43b5285e653f5606e5106",
     "scripts/probe-go.ts": "7b57827865a3949acc6b4e9adda1b9995f3040911eb5aa570a67be9c4217f519",
-    "scripts/serve.ts": "54bc30dad299c8fa582b292134657dd67edb11a44466589e7a2acf7cdff5c69a",
+    "scripts/report.ts": "e650477b3df03e091cc1bec85820c71fbc2b901455ead54096337e095f62b985",
+    "scripts/serve.ts": "320396edd8a32bcb26ebd71980683208406efae7fbf7ba01d6402bf0a02c159d",
     "scripts/vectors/generate.mjs": "85a58d3f110898334edc2c12413116cace78ee84a43ffbc86af5e69c0cb751ea",
-    "src/browser/evaluator.ts": "2f8e8bf962b5baa49da97284a274358becbbc44bdf9078e874a69488dffab389",
+    "src/archive/archive.ts": "c33cb656f48c9d8f27f06b34cbac6317ef62650601919d82cf8976b8ba10a9fe",
+    "src/archive/chart.ts": "2ea0f71580a9fc33abadb1d361fcc13fed92aed0e12f7709f874351750b37149",
+    "src/archive/limits.ts": "f60704a8b407582a063cef123141ebe95a313a10f0581072f9fc509b6433379d",
+    "src/archive/notices.json": "477e43abbab2c5b4b477d45d372a2bdf01b96bfcc06929a58a3102c1ac08569a",
+    "src/browser/evaluator.ts": "38268a5d22f78d368ede4b0883e97f69aa4062d2862b29abe12028f1ebe04a37",
     "src/browser/forms.ts": "5d8c760e2f623c3dc9f2c1a5a9f066118f1aed3de93017a44812fe02f77d806e",
-    "src/browser/index.html": "eccceb786258063d7a3efa0c257f068c5e8af3f3232eeb011481d2f442895509",
-    "src/browser/main.ts": "65d4078b4df05fda8a410f3cbbc6aa8eb5d8bb9fc342f5ede2052030daf3d232",
-    "src/browser/style.css": "48e6c144bb60b3071c91e38d87fb9e14179e4a726adc62c647a2861a5960c59b",
-    "src/browser/worker.ts": "1acda82f118dae9fb60d15a2b8777ddc56e75e38b3a2ee65657f465d4bae0679",
-    "src/cli/main.ts": "928d3c59df6dd028993ecac3fa89afa9cc11416bf3b38d1b1c94c82fd3347f31",
+    "src/browser/index.html": "edce5713696b4e01ed4ab6a9e79606da434255697fe9894209ac4ffa706746c4",
+    "src/browser/main.ts": "8a98846a1e9c7e3be9b769db00e3e4bc16186a6aa2037b18d1c02c8da848eed1",
+    "src/browser/style.css": "2796d0c85780e7ef2460c6c32438d73be2fc11fb671b6b7faa6678f57945e56f",
+    "src/browser/worker.ts": "1c348e130f4cff4a3b72211c51c6c92bcc5482bde1b693c5b899f3d706238db7",
+    "src/cli/main.ts": "83295e88d669d7f94551f39d8a1dd44660a217d520b3b048735178c790a5f75f",
     "src/client/api.ts": "31669bb31e5d7e6c55b35f3165a2e6a403231e7ccca3f510f7ee8658db5f8ac4",
     "src/client/definition.ts": "2e036731484cb8cfac61c9b3946b566a8e5de713baa5b365bcc99df7910cccc3",
     "src/client/identity.ts": "e2e12ab667e0a99ef35b60f2ec8abbd148dd5830495dd454fc08e3c74af87823",
@@ -117,6 +127,7 @@
     "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",
     "src/host/accounts.ts": "13df56ad649ed85db6de22b4846b4be2a30e42c3883272a6d32fc62016cf8313",
     "src/host/application.ts": "aa0ff4a99700e39d6e31c27fcfcad38e26767b241f8c81d98b539b6b7715a42e",
+    "src/host/build.ts": "b651f8f4e79e8fb87fc4783bac27f8ca5146e873ec02d63905253eb4629f63a2",
     "src/host/files.ts": "9c39c4f0f0717dff170695cb44519d418380f5215028f95537ea115b9d938862",
     "src/host/http.ts": "8f391808eabb2e02f5779d16a165056e5b9d9f5ad18fa4b2a462e42fe3a944c5",
     "src/host/lease.ts": "95c65692e820a53b9fb5aaafd392a0120c5e926a0be2905ee47c318a041c8aed",
@@ -139,6 +150,7 @@
     "src/ui/inlay.ts": "ebfda164531b88169508f44b208554a0a2398c80f09bc38e53945d0b8e9c4472",
     "testdata/apps/evolution.ts": "bed9c83cc4c33511e4715d81bd290c43537dffece5332df8944c81308f284636",
     "testdata/apps/fixtures.ts": "ed91af6c8615a56b6791de75014a64f38fe0f122c100b93f8b51ef336b524730",
+    "tests/archive.test.ts": "6013479a7a24a30c40967f918f1e4a3574db16af5dbe9c4a1732bc9d4644d010",
     "tests/dynamic-apps.test.ts": "b3db7f1d1af3c674c22f13277597b53159663ff5f2d5ab33a5fc69ad2544bbc1",
     "tests/evolution-runtime.test.ts": "08df7a02b605385151b144695d13ac5f8da15d4a19b66eb32908696a3cbf050c",
     "tests/evolution.test.ts": "b041448a30ae79660bb1d238ca2e8c08eb6133631e94110d5312fcf3b0163a03",

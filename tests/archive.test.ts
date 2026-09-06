@@ -62,7 +62,7 @@ test('retain complete app history and rebuild without the PDS', async t => {
       await assert.rejects(()=>importArchive(encodeArchive(archive),{...target,app:'did:plc:other'}),/invitation/);
     });
     await check('CLI rebuild uses a new directory after removing only its marked projection cache',async()=>{
-      await assertDisposable(env.dir);await rm(join(directory,creationId,'projection.json'),{force:true});
+      await assertDisposable(env.dir);const cache=join(directory,creationId,'projection.json');assert.deepEqual(JSON.parse(await readFile(cache,'utf8')),replayed.snapshot.projection);await rm(cache);await assert.rejects(()=>readFile(cache),{code:'ENOENT'});
       const output=join(env.dir,'rebuilt');const result=await cli({operation:'replay',source:archivePath,outputDirectory:output,...target});assert.equal(result.frontier.position,4);
       assert.deepEqual(JSON.parse(await readFile(join(output,'projection.json'),'utf8')),replayed.snapshot.projection);assert.deepEqual(JSON.parse(await readFile(join(output,'retry-index.json'),'utf8')),replayed.retries);
       await assert.rejects(()=>cli({operation:'replay',source:archivePath,outputDirectory:output}),/EEXIST/);

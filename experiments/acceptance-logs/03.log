@@ -1,0 +1,10 @@
+
+> atseq@0.0.0 spike:feasibility
+> tsx scripts/feasibility.ts
+
+{
+  "passed": true,
+  "nodeFixtures": 75,
+  "browserFixtures": 75,
+  "evidence": "experiments/feasibility.json"
+}
