@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:a3154c73daa353b6bbc13882bfb2bc63645d025f","text":"Merge retired a covered predecessor; the successor is at experiments/protocol.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:aa2cf4e02596cdd070720ce91d74b9cdefcf5241","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored-before-closure-transport-review/host-after.json."}
