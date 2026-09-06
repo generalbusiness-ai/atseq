@@ -1,0 +1,19 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.source",
+  "description": "Local spike source retention. The record key is the exact content CID; the blob reference keeps its raw bytes in the PDS.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "any",
+      "record": {
+        "type": "object",
+        "required": ["content", "blob"],
+        "properties": {
+          "content": { "type": "cid-link" },
+          "blob": { "type": "blob", "accept": ["application/octet-stream"], "maxSize": 524288 }
+        }
+      }
+    }
+  }
+}
