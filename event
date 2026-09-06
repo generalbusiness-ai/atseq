@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fdd201e4c0738e85bd7272c72e0e92c86cac30c8","text":"Merge retired a covered predecessor; the successor is at src/runtime/apps.ts."}
+{"kind":"artifact","text":"S4 generic interaction implementation and measured evidence at b765e6b: experiments/evidence/s4/desktop.png.","body":{"branch":"request/spike-flows","commit":"b765e6bd7902c0042baf1c6ec98c9a85e6d02215","path":"experiments/evidence/s4/desktop.png"}}
