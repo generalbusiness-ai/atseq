@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f2ed0cf34f45d482a8fbd8055bb535a761724a47","text":"Merge retired a covered predecessor; the successor is at README.md."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f360503b8eb4cc531ea103c354f599202add36d3","text":"Merge retired a covered predecessor; the successor is at tests/dynamic-apps.test.ts."}
