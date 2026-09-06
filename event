@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"S3 implementation and measured evidence at 9b00143: experiments/runtime.json.","body":{"branch":"request/spike-runtime","commit":"9b00143e7e62b781394ce26f81129017e56ea314","path":"experiments/runtime.json"}}
+{"kind":"artifact","text":"S3 implementation and measured evidence at 9b00143: lexicons/test/atseq/definition.json.","body":{"branch":"request/spike-runtime","commit":"9b00143e7e62b781394ce26f81129017e56ea314","path":"lexicons/test/atseq/definition.json"}}
