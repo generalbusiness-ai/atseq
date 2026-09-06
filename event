@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1369d2408b38119dcb5638f635d233ea377b022c","text":"Merge retired a covered predecessor; the successor is at src/protocol/wire.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:154235f13e9a6bcb92d7302517eed469f1601958","text":"Merge retired a covered predecessor; the successor is at experiments/dynamic.json."}
