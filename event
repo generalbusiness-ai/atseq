@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"Merge published the current artifact at notes/README.md","body":{"commit":"e5856bd9c538b35c2dce4e87d51800f1eaa090f9","path":"notes/README.md"}}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:09f56ab962cd3521641ac7f66b022dff7d78efed","text":"Merge retired a covered predecessor; the successor is at notes/2026-09-06-atseq-spike-results.md."}
