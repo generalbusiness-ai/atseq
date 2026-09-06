@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:09f1ddf153a122e9d051fd2234db53c230cf7b72","text":"Merge retired a covered predecessor; the successor is at scripts/check-author.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0a1bfd96f0a6e01080279da04175009ac43df18d","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored-before-s5-review/verification.json."}
