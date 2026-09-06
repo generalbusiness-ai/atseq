@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3e268c4f523ae950253121633da72314c8b59734","text":"Merge retired a covered predecessor; the successor is at src/browser/main.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3ec2ad7a5d43192d1c36a8f9f45a02725d3b63ff","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored-before-closure-transport-review/verification.json."}
