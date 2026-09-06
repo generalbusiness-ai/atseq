@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fe1bab8aeaed3a4acea78c4a228c7effe3e95691","text":"Merge retired a covered predecessor; the successor is at experiments/pds/package.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:01480ae861886a9aeeec8c78ffe7f1ae000790dd","text":"Retire superseded S2 candidate artifact for src/host/lease.ts; corrected 70f4c89 is independently approved and landed at 71d912ec."}
