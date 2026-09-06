@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d8df2a0ea505278d4c9273008e3debfffa1432a8"}
+{"kind":"artifact","text":"S5 closure transport correction at fe418e8: experiments/dynamic.json. Separate evidence transport from definition admission; 27 evolution and 269 full-suite passes.","body":{"branch":"request/spike-evolution","commit":"fe418e89900cb87500ca2306f3ec8d5aca3f4043","path":"experiments/dynamic.json"}}
