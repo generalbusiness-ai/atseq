@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: adopted for implementation; S0–S4 landed; S5 and S6 gates pass and await independent review
+status: S0–S6 independently approved and landed
 companion: notes/2026-09-06-atseq-architecture.md
 planned_at: 133071b
 rests_on:
@@ -9,6 +9,11 @@ rests_on:
 ---
 
 # Atseq initial spike: create, use, evolve, and replay a unique app
+
+The S0–S6 series is complete. The [completion record](2026-09-06-atseq-spike-completion.md)
+names the reviewed heads, landings and remaining limits. The plan below retains
+its original implementation sequence and planning baseline; the
+[results](2026-09-06-atseq-spike-results.md) record measured behavior.
 
 ## 1. Outcome and scope
 

@@ -5,10 +5,12 @@ a log, with atproto as the retained substrate. Apps declare Lexicon schemas,
 JSONata behavior and views. GitSeq and Tailapps are architectural precursors;
 neither is a product dependency.
 
-The independently reviewed **S0 engine, S1 protocol, S2 persistence, S3 folder
-and S4 interaction are landed**. **S5 compatible activation** is implemented
-and awaiting independent review. S6 archive, offline rebuild and chart export
-pass all 13 acceptance gates and await independent review. See the [design](notes/2026-09-06-atseq-architecture.md),
+The **S0–S6 spike is independently approved and landed**: engine, protocol,
+persistence, folder, interaction, compatible activation, archives and offline
+rebuild. All 13 acceptance commands pass, including 283 full-suite tests.
+The measured full-prefix path needs revision before use with long, growing
+histories. See the [completion record](notes/2026-09-06-atseq-spike-completion.md),
+[design](notes/2026-09-06-atseq-architecture.md),
 [plan](notes/2026-09-06-atseq-initial-spike.md) and
 [spike results](notes/2026-09-06-atseq-spike-results.md).
 
@@ -136,6 +138,10 @@ refuses stale or failed evidence. The complete local run takes several minutes;
 there is no invented latency threshold. The current full-prefix implementation
 becomes slow as history grows. The generated dated result records the next
 smallest implementation decision.
+
+The report command reproduces the acceptance snapshot from the reviewed S6
+candidate. It overwrites later review annotations in the generated result note;
+the separate completion record preserves approval, landing and follow-on status.
 
 ## Current boundaries
 
