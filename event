@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:96e2c695f9c2d1adc18c84967222920a0b0fc3d0","text":"Retire superseded S2 candidate artifact for notes/README.md; corrected 70f4c89 is independently approved and landed at 71d912ec."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b7afd88fe2b15a50028b70620d3e5cbdc47181dc","text":"Retire superseded S2 candidate artifact for experiments/pds/environment.mjs; corrected 70f4c89 is independently approved and landed at 71d912ec."}
