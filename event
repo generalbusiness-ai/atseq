@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e0562407054cda94d448a951d0f91f26a6d0e1ef","text":"Merge retired a covered predecessor; the successor is at lexicons/test/atseq/genesis.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e32eb83cf66840d78c5b22b2e6851591a9ca7251","text":"Merge retired a covered predecessor; the successor is at notes/2026-09-06-atseq-runtime-feasibility.md."}
