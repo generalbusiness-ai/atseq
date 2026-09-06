@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fdf8249bef4f876c054b9dc129185ed13835d5d0","text":"Merge retired a covered predecessor; the successor is at package.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:06472e393830732a89b844acc2c4fd6937c54bad","text":"Retire the superseded S1 candidate artifact for lexicons/test/atseq/entry.json; corrected exact candidate 4651478 is independently approved and landed at 1f7a7a1e."}
