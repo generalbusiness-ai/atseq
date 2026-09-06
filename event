@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:66ae381adbf1fdb1ccc1e41bb2c6ce3851586d56","text":"Merge retired a covered predecessor; the successor is at tests/vectors/protocol-v0.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:68fb4fe9690aa6bd7fae13eeb504c88add49af0a","text":"Merge retired a covered predecessor; the successor is at src/protocol/schemas.ts."}
