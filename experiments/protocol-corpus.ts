@@ -2,7 +2,7 @@ import { P256PrivateKeyExportable, Secp256k1PrivateKeyExportable } from '@atcute
 import { fromBytes } from '@atcute/cbor';
 import { Lexicons, jsonToLex } from '@atproto/lexicon';
 import vectors from '../tests/vectors/protocol-v0.json';
-import { Anchor, headAt, positionKey, randomNonce, runtimeCid, sequence, signIntent, verifyEntry, verifyHistory, verifyIntent, type Entry, type Genesis, type Intent, type SignedIntent } from '../src/protocol/log.ts';
+import { Anchor, headAt, positionKey, randomNonce, runtimeCid, sequence, signIntent, validateHead, verifyEntry, verifyHistory, verifyIntent, type Entry, type Genesis, type Intent, type SignedIntent } from '../src/protocol/log.ts';
 import { bytes, contentCid, decodeBlock, encodeBlock, link } from '../src/protocol/wire.ts';
 import { frameworkLexicons, validateFramework } from '../src/protocol/schemas.ts';
 import type { FixtureResult } from './corpus.ts';
@@ -104,6 +104,40 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
     const wrong = await Secp256k1PrivateKeyExportable.createKeypair();
     await rejects(async () => signIntent({ ...signed.intent, actorKey: await wrong.exportPublicKey('did') }, wrong), 'key');
   });
+  // Sign these adversarial records directly: the construction API deliberately
+  // refuses them, so using it would leave the verification guards untested.
+  await check('verify rejects a valid secp256k1 actor signature', async () => {
+    const wrong = await Secp256k1PrivateKeyExportable.createKeypair();
+    const intent = { ...signed.intent, actorKey: await wrong.exportPublicKey('did') };
+    const forged = { $type: signed.$type, intent, sig: bytes(await wrong.sign(encodeBlock(intent))) };
+    await rejects(() => verifyIntent(forged, anchor), 'key');
+  });
+  await check('verify rejects an uncompressed P-256 did:key with a valid signature', async () => {
+    // Base58btc of [0x80, 0x24, 0x04, X, Y] for the public scalar-1
+    // fixture. It names the same EC point using the forbidden uncompressed form.
+    const intent = { ...signed.intent, actorKey: 'did:key:z4oJ8bvMUow7fJp7Y6oHK1sHtBWTqaJdwQbcZscsJ3cE7GGscDHFbKSjYsc4EZimeRknigVKHNxisYKeM8dvEAKgSHKqW' };
+    const forged = { $type: signed.$type, intent, sig: bytes(await actor.sign(encodeBlock(intent))) };
+    await rejects(() => verifyIntent(forged, anchor), 'key');
+  });
+  for (const name of ['sequencer', 'app', 'genesis'] as const) {
+    await check(`verify rejects a valid entry proof for a foreign ${name}`, async () => {
+      const { sig: _sig, ...unsigned } = clone(first);
+      const signer = name === 'sequencer' ? actor : sequencer;
+      if (name === 'sequencer') unsigned.sequencerKey = await actor.exportPublicKey('did');
+      if (name === 'app') unsigned.app = 'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb';
+      if (name === 'genesis') unsigned.genesis = link(vectors.definition.cid);
+      const forged = { ...unsigned, sig: bytes(await signer.sign(encodeBlock(unsigned))) };
+      await rejects(() => verifyEntry(forged, anchor), 'target');
+    });
+  }
+  for (const name of ['app', 'genesis'] as const) {
+    await check(`head targeting a foreign ${name} is rejected`, () => {
+      const head = headAt(anchor, 1, vectors.entry.cid);
+      if (name === 'app') head.app = 'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb';
+      else head.genesis = link(vectors.definition.cid);
+      return rejects(() => validateHead(head, anchor), 'target');
+    });
+  }
   const secondSigned = await signIntent({ ...signed.intent, nonce: bytes(new Uint8Array(16).fill(1)) }, actor);
   const second = await sequence(secondSigned, anchor, vectors.head.value as any, sequencer);
   const head = headAt(anchor, 2, await contentCid(second));

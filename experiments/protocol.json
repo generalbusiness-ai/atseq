@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T13:22:57.983Z",
+  "measuredAt": "2026-09-06T13:51:27.918Z",
   "nodeVersion": "v26.8.1",
   "browserVersion": "153.0.8010.12",
   "node": [
@@ -226,6 +226,34 @@
     },
     {
       "name": "wrong curve rejected",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid secp256k1 actor signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects an uncompressed P-256 did:key with a valid signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign sequencer",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign app",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign genesis",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign app is rejected",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign genesis is rejected",
       "passed": true
     },
     {
@@ -523,6 +551,34 @@
       "passed": true
     },
     {
+      "name": "verify rejects a valid secp256k1 actor signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects an uncompressed P-256 did:key with a valid signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign sequencer",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign app",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign genesis",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign app is rejected",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign genesis is rejected",
+      "passed": true
+    },
+    {
       "name": "history follows signed positions, not arrival order",
       "passed": true
     },
@@ -597,7 +653,7 @@
     "tests/protocol.test.ts": "c77e5515b73f3e57af92ba85994903bde08c2ace8d9dfa9a1f10d0735eba6a5d",
     "tests/vectors/protocol-v0.json": "dc398067268956cc5ac1ae3b100a822ebafaac90995bdd17860126a200431a0f",
     "scripts/vectors/generate.mjs": "85a58d3f110898334edc2c12413116cace78ee84a43ffbc86af5e69c0cb751ea",
-    "experiments/protocol-corpus.ts": "39d13f652a10d529579570d94e3cacc6c7fb883625f8e4ad5e51d5abf91d71bc",
+    "experiments/protocol-corpus.ts": "79fb7b00a4f6727c7d9ac0a72fd5e4ad836b69f9cca37a928e80ef82b6722042",
     "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
     "src/protocol/runtime-descriptor.json": "33808c464378b3274b70f1c93580ab6d4482a342abd08856c940578c3c8cb3cb",
     "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
