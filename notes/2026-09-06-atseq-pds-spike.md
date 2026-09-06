@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: S2 implemented; gate passes; awaiting independent review
+status: S2 review corrections implemented; gate passes; awaiting fresh independent review
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
@@ -16,10 +16,10 @@ submit and receipt methods share the authored framework Lexicons. The
 
 ## Measured result
 
-The gate runs 21 integration scenarios against official PDS 0.5.31 with real
-HTTP and SQLite storage. Node's test runner reports 22 passing tests including
-the parent. Combined S0, S1 and S2 tests report 179 passes. The final verified
-fixture history has 111 entries and spans real PDS listing pages.
+The gate runs 23 integration scenarios against official PDS 0.5.31 with real
+HTTP and SQLite storage. Node's test runner reports 24 passing tests including
+the parent. Combined S0, S1 and S2 tests report 181 passes. The final verified
+fixture history has 113 entries and spans real PDS listing pages.
 [Retained evidence](../experiments/pds.json) records each result, elapsed time,
 versions and source hashes; reruns write `experiments/generated/pds-results.json`.
 
@@ -31,6 +31,16 @@ recovery after SIGKILL before and after acknowledgment. A PDS SIGKILL/restart
 preserves acknowledged history and retained blobs. Receipt responses name
 pending interpretation, never an invented domain effect.
 
+The first review identified a malformed-response gap: a missing PDS commit CID
+could silently remove the write condition. Commit replies now require a valid
+CID and nonempty revision, and provisioning/appends use a separately checked
+conditional-write method. A fault proxy supplies six malformed commit replies;
+all refuse without any upstream append. Another fixture deliberately bypasses
+the local lease using two directories: two racing writers produce one rejected
+swap and exactly two contiguous entries. The lost-response fixture now also
+asserts exactly one upstream write, and normal test cleanup removes its writer
+key/token file.
+
 Catch-up works without a subscription or delivered notification. A retained
 head detects rollback; changed signed content fails verification. Missing and
 tampered source references, missing blob files and corrupted blob bytes all
@@ -38,8 +48,10 @@ fail retrieval until exact content is restored. A repository CAR retains the
 reference records but does not contain those blob bytes.
 
 One useful PDS finding: removing the last source reference can delete the blob
-immediately. Restoring the reference alone returns `BlobNotFound`; recovery
-must upload retained bytes before restoring the record. No application object
+immediately. Restoring the reference alone returns `BlobNotFound`. Repair is
+manual in S2: the tests upload retained bytes and restore the record as an
+operator, while `SourceStore.put` refuses corrupt/unavailable existing content.
+The host does not implement that repair. No application object
 is treated as retained merely because its CID appears somewhere in the log.
 
 ## Interpretation of the result

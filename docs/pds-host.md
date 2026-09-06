@@ -17,8 +17,9 @@ npm ci --prefix experiments/pds
 npx playwright install chromium
 npm run check
 npm test
-npm run test:pds
 ```
+
+`npm test` includes the PDS gate. Use `npm run test:pds` to run just that gate.
 
 The PDS gate starts the unmodified official `@atproto/pds` 0.5.31 with its real
 HTTP APIs, repository storage and SQLite transactions. The local PLC uses the
@@ -31,8 +32,9 @@ Docker is not required. Missing packages or startup failure fail the gate;
 there is no availability skip. Each run owns a new `.atseq-local/pds-*`
 directory, marked with `ATSEQ_DISPOSABLE_PDS.json`, and a new `atseq-*.test`
 account. Both services bind to loopback. Secrets stay in ignored files with
-mode 0600 and are excluded from evidence. Tests leave their stopped directory
-for inspection. `resetDisposable` in `experiments/pds/environment.mjs` accepts
+mode 0600 and are excluded from evidence. Tests remove the writer key/token file
+on normal cleanup and leave the stopped PDS directory for inspection.
+`resetDisposable` in `experiments/pds/environment.mjs` accepts
 only a marked directory directly under this checkout's `.atseq-local`, refuses
 a running PDS, and accepts no remote URL or account. Close the test host first.
 
@@ -49,6 +51,9 @@ the sequencer private key to another host.
 For each signed submission the writer reads and verifies a complete PDS
 snapshot, checks retained retry identity, then conditionally writes one entry
 and its head in a single `applyWrites` batch with `swapCommit`. A repository
+commit reply must contain a valid CID and a nonempty revision. Provisioning and
+append call an API that requires a valid swap CID at runtime; missing data
+cannot silently turn either operation into an unconditional write. A repository
 conflict or uncertain write response triggers reconciliation. A receipt is
 returned only after observing the signed entry in verified persistent history.
 Retrying the same unsigned content returns its original receipt, including
@@ -83,9 +88,13 @@ objects also pass canonical wire verification. No remote URL discovery occurs.
 The actual repository CAR includes source retention records, not the blobs.
 Export must fetch and verify every source blob separately. Deleting the last
 retention record can remove its blob immediately; restoring only the old
-record then fails with `BlobNotFound`. Recovery requires retained bytes. S2
-tests both corrupt references and missing/corrupt physical blob files. Source
-closure and an archive format remain S3 and S6 respectively.
+record then fails with `BlobNotFound`. Source repair is manual in S2.
+`SourceStore.put` creates missing retention records but refuses an existing
+record whose reference or blob is corrupt or unavailable. The tests act as an
+operator: they upload retained bytes and restore references with standard PDS
+APIs, or restore deliberately corrupted physical fixture files. The host does
+not perform that repair automatically. Source closure and an archive format
+remain S3 and S6 respectively.
 
 ## Bounds and limits
 

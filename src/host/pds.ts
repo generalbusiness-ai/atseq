@@ -1,3 +1,5 @@
+import { link } from '../protocol/wire.ts';
+
 /** Standard PDS XRPC transport. Credentials stay in the host, never in views. */
 export class PdsError extends Error {
   constructor(readonly status: number, readonly code: string) { super(`PDS ${status}: ${code}`); this.name = 'PdsError'; }
@@ -40,7 +42,12 @@ export class PdsClient {
     const res = await fetch(url, { method: write ? 'POST' : 'GET', redirect: 'error', signal: AbortSignal.timeout(15_000), headers: { authorization: `Bearer ${this.token}`, ...(write ? { 'content-type': 'application/json' } : {}) }, ...(write ? { body: JSON.stringify(input) } : {}) });
     return jsonResponse(res);
   }
-  latestCommit(): Promise<{ cid: string; rev: string }> { return this.request('com.atproto.sync.getLatestCommit', { did: this.did }); }
+  async latestCommit(): Promise<{ cid: string; rev: string }> {
+    const value = await this.request('com.atproto.sync.getLatestCommit', { did: this.did });
+    if (typeof value?.cid !== 'string' || !value.cid || typeof value?.rev !== 'string' || !value.rev) throw new PdsError(502, 'InvalidCommit');
+    try { link(value.cid); } catch { throw new PdsError(502, 'InvalidCommit'); }
+    return { cid: value.cid, rev: value.rev };
+  }
   get(collection: string, rkey: string): Promise<{ uri: string; cid: string; value: unknown }> { return this.request('com.atproto.repo.getRecord', { repo: this.did, collection, rkey }); }
   async list(collection: string): Promise<{ uri: string; cid: string; value: any }[]> {
     const records = []; let cursor: string | undefined;
@@ -56,6 +63,13 @@ export class PdsClient {
     return records;
   }
   apply(writes: unknown[], swapCommit?: string): Promise<any> { return this.request('com.atproto.repo.applyWrites', { repo: this.did, validate: false, writes, ...(swapCommit ? { swapCommit } : {}) }, true); }
+  async applyConditional(writes: unknown[], swapCommit: string): Promise<any> {
+    // Runtime validation is deliberate: a malformed remote reply or untyped
+    // caller must never turn a conditional append into an unconditional write.
+    if (typeof swapCommit !== 'string' || !swapCommit) throw new PdsError(502, 'InvalidCommit');
+    try { link(swapCommit); } catch { throw new PdsError(502, 'InvalidCommit'); }
+    return this.apply(writes, swapCommit);
+  }
   async upload(content: Uint8Array, mimeType = 'application/octet-stream'): Promise<any> {
     const res = await fetch(`${this.service}/xrpc/com.atproto.repo.uploadBlob`, { method: 'POST', headers: { authorization: `Bearer ${this.token}`, 'content-type': mimeType }, body: new Uint8Array(content), redirect: 'error', signal: AbortSignal.timeout(15_000) });
     return (await jsonResponse(res)).blob;

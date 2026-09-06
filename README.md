@@ -63,9 +63,10 @@ the gate.
 
 ```sh
 npm ci --prefix experiments/pds
-npm run test:pds
 npm test
 ```
+
+Use `npm run test:pds` to run only the PDS integration gate.
 
 The isolated dependencies run the official PDS with real HTTP and SQLite on
 loopback. The gate does not require Docker and never skips unavailable PDS

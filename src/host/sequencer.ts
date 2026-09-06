@@ -45,7 +45,7 @@ export async function provisionLog(pds: PdsClient, anchor: Anchor): Promise<void
     catch (error) { if (error instanceof PdsError && error.code === 'RecordNotFound') continue; throw error; }
     throw new ProtocolError('already_provisioned', 'Application log already exists; provisioning cannot replace its anchor');
   }
-  await pds.apply([
+  await pds.applyConditional([
     { $type: 'com.atproto.repo.applyWrites#create', collection: 'test.atseq.genesis', rkey: 'self', value: anchor.genesis },
     { $type: 'com.atproto.repo.applyWrites#create', collection: 'test.atseq.head', rkey: 'self', value: headAt(anchor) },
   ], current.cid);
@@ -97,13 +97,13 @@ export class Sequencer {
       const entry = await sequence(signed, this.anchor, snapshot.history.head, this.signer);
       const head = headAt(this.anchor, entry.position, await contentCid(entry));
       try {
-        await this.pds.apply([
+        await this.pds.applyConditional([
           { $type: 'com.atproto.repo.applyWrites#create', collection: 'test.atseq.entry', rkey: positionKey(entry.position), value: entry },
           { $type: 'com.atproto.repo.applyWrites#update', collection: 'test.atseq.head', rkey: 'self', value: head },
         ], snapshot.commit);
       } catch (error) {
         // A conflict or a lost response requires reconciliation, never a new nonce.
-        if (error instanceof PdsError && error.status < 500 && !['InvalidSwap', 'RecordAlreadyExists'].includes(error.code)) throw error;
+        if (error instanceof PdsError && error.status < 500 && error.code !== 'InvalidSwap') throw error;
       }
       // Read confirmation even after a reported success. Only verified persistence
       // can produce a receipt; on uncertainty the next pass finds the exact retry.

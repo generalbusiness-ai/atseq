@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 /** Faults affect HTTP delivery only; every write still goes to the real PDS. */
 export async function startFaultProxy(upstream: string) {
   let next: { before?: () => Promise<void>; after?: () => Promise<void>; drop?: boolean } | undefined;
+  let commitReply: { value: unknown } | undefined;
   const observations: number[] = [];
   const server = createServer(async (req, res) => {
     try {
@@ -16,7 +17,10 @@ export async function startFaultProxy(upstream: string) {
         method: req.method, headers: { authorization: req.headers.authorization ?? '', 'content-type': req.headers['content-type'] ?? 'application/json' },
         ...(req.method === 'POST' ? { body } : {}), signal: AbortSignal.timeout(15_000),
       });
-      const response = Buffer.from(await result.arrayBuffer());
+      let response = Buffer.from(await result.arrayBuffer());
+      if (req.url?.startsWith('/xrpc/com.atproto.sync.getLatestCommit') && commitReply) {
+        response = Buffer.from(JSON.stringify(commitReply.value)); commitReply = undefined;
+      }
       if (isEntryWrite) observations.push(result.status);
       await fault?.after?.();
       if (fault?.drop) { res.destroy(); return; }
@@ -28,6 +32,7 @@ export async function startFaultProxy(upstream: string) {
   return {
     url: `http://127.0.0.1:${address.port}`, observations,
     fault(value: NonNullable<typeof next>) { next = value; },
+    latestCommit(value: unknown) { commitReply = { value }; },
     async close() { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); },
   };
 }

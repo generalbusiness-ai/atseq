@@ -116,6 +116,19 @@ test('real disposable PDS persistence and recovery', async t => {
     });
     const proxied = new PdsClient(proxy.url, account.did, account.accessJwt);
     sequencer = new Sequencer(proxied, anchor, writer, leaseDirectory);
+    await check('malformed commit replies cannot remove an append or provision condition', async () => {
+      const before = await readSnapshot(pds, anchor), writes = proxy.observations.length;
+      const signed = await intent(5);
+      for (const reply of [{ rev: 'missing-cid' }, { cid: '', rev: 'empty-cid' }, { cid: before.commit }, { cid: before.commit, rev: '' }, { cid: 12, rev: 'wrong-type' }, { cid: 'not-a-cid', rev: 'wrong-cid' }]) {
+        proxy.latestCommit(reply);
+        await assert.rejects(() => sequencer!.submit(encodeBlock(signed)), { code: 'InvalidCommit' });
+      }
+      proxy.latestCommit({ rev: 'missing-cid' });
+      await assert.rejects(() => provisionLog(proxied, anchor), { code: 'InvalidCommit' });
+      await assert.rejects(() => proxied.applyConditional([], undefined as unknown as string), { code: 'InvalidCommit' });
+      assert.equal(proxy.observations.length, writes);
+      assert.equal((await readSnapshot(pds, anchor)).commit, before.commit);
+    });
     await check('an unrelated repo write races the append and is reconciled', async () => {
       const before = proxy.observations.length;
       proxy.fault({ before: async () => { await unrelated(); } });
@@ -126,12 +139,14 @@ test('real disposable PDS persistence and recovery', async t => {
     });
     await check('lost HTTP response after commit resolves to one original receipt', async () => {
       const signed = await intent(7);
+      const writes = proxy.observations.length;
       proxy.fault({ drop: true });
       const result = await sequencer!.submit(encodeBlock(signed));
       assert.equal(result.receipt.position, 4);
       assert.deepEqual((await sequencer!.submit(encodeBlock(signed))).receipt, result.receipt);
       assert.deepEqual((await sequencer!.lookup(await contentCid(signed.intent)))?.receipt, result.receipt);
       assert.equal((await readSnapshot(pds, anchor)).history.entries.length, 4);
+      assert.deepEqual(proxy.observations.slice(writes), [200]);
     });
     await sequencer.close(); sequencer = undefined;
     const writerConfig = join(env.dir, 'writer-secrets.json');
@@ -267,14 +282,31 @@ test('real disposable PDS persistence and recovery', async t => {
       assert.equal(after.history.head.position, 111);
       assert.deepEqual(after.history.entries.map(e => e.position), Array.from({ length: 111 }, (_, i) => i + 1));
     });
+    await check('PDS compare-and-swap excludes competing writers even with the local lease bypassed', async () => {
+      const otherProxy = await startFaultProxy(env.url);
+      const a = new Sequencer(proxied, anchor, writer, join(env.dir, 'bypassed-lease-a'));
+      const b = new Sequencer(new PdsClient(otherProxy.url, account.did, account.accessJwt), anchor, writer, join(env.dir, 'bypassed-lease-b'));
+      let waiting = 0, release!: () => void;
+      const barrier = new Promise<void>(resolve => { release = resolve; });
+      const before = async () => { if (++waiting === 2) release(); await barrier; };
+      proxy.fault({ before }); otherProxy.fault({ before }); const writes = proxy.observations.length;
+      try {
+        const result = await Promise.all([a.submit(encodeBlock(await intent(12))), b.submit(encodeBlock(await intent(13)))]);
+        assert.deepEqual(result.map(r => r.receipt.position).sort(), [112, 113]);
+        assert.deepEqual([...proxy.observations.slice(writes), ...otherProxy.observations].sort(), [200, 200, 400]);
+        finalEntries = (await readSnapshot(pds, anchor)).history.entries.length;
+        assert.equal(finalEntries, 113);
+      } finally { release(); await a.close(); await b.close(); await otherProxy.close(); }
+    });
   } finally {
     await child?.stop('SIGKILL'); await sequencer?.close(); await proxy.close(); await env.close();
+    await rm(join(env.dir, 'writer-secrets.json'), { force: true });
     const paths = ['package.json', 'package-lock.json', 'tests/pds.test.ts', 'lexicons/test/atseq/source.json'];
     for (const directory of ['src/host', 'tests/helpers', 'experiments/pds']) {
       for (const file of await readdir(directory, { withFileTypes: true })) if (file.isFile()) paths.push(`${directory}/${file.name}`);
     }
     const sourceHashes = Object.fromEntries(await Promise.all(paths.map(async path => [path, createHash('sha256').update(await readFile(path)).digest('hex')])));
     await mkdir('experiments/generated', { recursive: true });
-    await writeFile('experiments/generated/pds-results.json', JSON.stringify({ passed: results.length === 21 && results.every(r => r.passed) && finalEntries === 111, measuredAt: new Date().toISOString(), nodeVersion: process.version, pdsVersion: '0.5.31', storage: 'Official PDS HTTP and SQLite; loopback PLC with in-memory test database', finalEntries, results, sourceHashes }, null, 2) + '\n');
+    await writeFile('experiments/generated/pds-results.json', JSON.stringify({ passed: results.length === 23 && results.every(r => r.passed) && finalEntries === 113, measuredAt: new Date().toISOString(), nodeVersion: process.version, pdsVersion: '0.5.31', storage: 'Official PDS HTTP and SQLite; loopback PLC with in-memory test database', finalEntries, results, sourceHashes }, null, 2) + '\n');
   }
 });
