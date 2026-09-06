@@ -5,8 +5,9 @@ and discussion summaries.  Frontmatter "status" should be maintained.
 
 | Note | Status | Purpose |
 |---|---|---|
-| [Atseq architecture](2026-09-06-atseq-architecture.md) | Proposed; implementation unstarted | Framework contracts, ecosystem reuse, and scope |
-| [Initial spike](2026-09-06-atseq-initial-spike.md) | Planned; not started | Work packages, critical UI flows, and acceptance gates |
+| [Atseq architecture](2026-09-06-atseq-architecture.md) | Adopted for the spike | Framework contracts, ecosystem reuse, and scope |
+| [Initial spike](2026-09-06-atseq-initial-spike.md) | S0 awaiting review; S1–S6 not started | Work packages, critical UI flows, and acceptance gates |
+| [Runtime feasibility](2026-09-06-atseq-runtime-feasibility.md) | S0 gate passes; awaiting review | Shared evaluator, runtime Lexicon validation, Inlay control and measured evidence |
 
 The architecture and spike plan are companions. Read the architecture for the
 design basis and the plan for execution. New experiment results get their own
