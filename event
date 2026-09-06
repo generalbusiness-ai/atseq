@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ecfe0471b7cd2c78660b959019baf0cad28712dc","text":"Merge retired a covered predecessor; the successor is at tests/pds.test.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f8eddc78948cd83cae7018a05f11921a1cece7ee","text":"Merge retired a covered predecessor; the successor is at notes/2026-09-06-atseq-protocol-spike.md."}
