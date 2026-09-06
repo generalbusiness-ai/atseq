@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"Merge published the current artifact at tests/evaluator.test.ts","body":{"commit":"a68466608bc1f269d7296a5ed7d6d613d6cbd303","path":"tests/evaluator.test.ts"}}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:007ea58a3d25bc34cb142cda4c5c0a2ca8d9409b","text":"Merge retired a covered predecessor; the successor is at src/archive/archive.ts."}
