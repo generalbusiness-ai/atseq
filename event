@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:4b27cbb315c8a23cb09fd925438cee580882f7ac","text":"Merge retired a covered predecessor; the successor is at src/browser/evaluator.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:4be1302957a705d1ce2053ef2f6db3fd7cb13d99","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored-before-s5-review/mending-circle-tool-desk/source/queries/summary.jsonata."}
