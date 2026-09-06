@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "measuredAt": "2026-09-06T18:12:55.364Z",
+  "title": "Mending circle: shared tool desk",
+  "authoring": "Existing agent, documented adapter only; separate from fixture generation and final independent review.",
+  "hostAndBuildUnchanged": true,
+  "hostFilesCompared": 51,
+  "adapterCalls": 22,
+  "entries": 5,
+  "source": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
+  "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+  "frontier": {
+    "$type": "test.atseq.defs#cursor",
+    "position": 5,
+    "entry": {
+      "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
+    }
+  },
+  "sourceHashes": {
+    "experiments/agent-authored/mending-circle-tool-desk/README.md": "cb1ddb1024c9babfdac41e0e7ba25935ac9bf2666f6aa34b6d51fc03769e382e",
+    "experiments/agent-authored/mending-circle-tool-desk/application.atseq.json": "dc5e9f833c40d367b0e3877a13f55d8ed86f6b09d074d954674b0e4fed91faee",
+    "experiments/agent-authored/mending-circle-tool-desk/browser.png": "1a4c1f83cd12a1bce016c1228d1badb98cbe716ce2d1c91fe7d0cd592a731ee3",
+    "experiments/agent-authored/mending-circle-tool-desk/definition.car": "d4f15c3bbc00a3bb459bfebc2456a91d5f25018fbaccfe5c646c245317c399b9",
+    "experiments/agent-authored/mending-circle-tool-desk/invitation.json": "982bb2e001d9144f11f9fa5c510cf730d5c286011a0a58465d33f66ed99989dc",
+    "experiments/agent-authored/mending-circle-tool-desk/result.json": "15e93e4716bea58be08f90682fcd579759ba0b4637d5ca6374344b3d3ad0de4c",
+    "experiments/agent-authored/mending-circle-tool-desk/source/folds/borrow.jsonata": "16851c8abd9a9dad50affc3d000920a683a0b248633976a31a0839208c35d3f0",
+    "experiments/agent-authored/mending-circle-tool-desk/source/folds/return.jsonata": "46733261f291e32339f0e4af16a0b6d82fa21ac476e6b748925cb9bc00ea53e9",
+    "experiments/agent-authored/mending-circle-tool-desk/source/manifest.json": "54deed32a6742f796c6f62bfa04812ada53f45e286ddd43ff19bf1db83416f9e",
+    "experiments/agent-authored/mending-circle-tool-desk/source/queries/summary.jsonata": "47e446a27018843df1a7ab025f07a9c4b12a11a56ed77ff3f7076008b7e56e48",
+    "experiments/agent-authored/mending-circle-tool-desk/source/schemas/mending-circle.json": "2348796c4239a87a978fa38d73ee386c8a0ba54b5c2d888c4263b01da4122fe4",
+    "experiments/agent-authored/mending-circle-tool-desk/source/state.json": "9aa2a8b475a0b7b6b7600d16869d12ded57a24c0021f74b28dd9317b8877c689",
+    "experiments/agent-authored/mending-circle-tool-desk/source/views/main.json": "8ace4a0621d403ff654c3c7c5628fcb2030387166fb9bd5f140e77e9d9db124d",
+    "experiments/agent-authored/mending-circle-tool-desk/source-sha256.json": "f391b29785ce9ea2f71cfc869d65c93f02cd1c4b432668923395c438fa4a9e3f",
+    "experiments/agent-authored/mending-circle-tool-desk/transcript.json": "f74db7e35a95809cfd9dec0c718e9a8ec822acd0f996f473b0d3c7b87e0c6c53"
+  }
+}

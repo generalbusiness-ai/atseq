@@ -1,0 +1,33 @@
+Seeding signed fixture history to 91; conditional real-PDS batches are setup, excluded from acknowledgment samples.
+Confirmed #92: 183.8 ms
+Confirmed #93: 186.0 ms
+Confirmed #94: 176.7 ms
+Confirmed #95: 175.5 ms
+Confirmed #96: 166.9 ms
+Confirmed #97: 168.2 ms
+Confirmed #98: 173.6 ms
+Confirmed #99: 169.3 ms
+Confirmed #100: 173.1 ms
+{"size":100,"acknowledgment":[{"position":92,"elapsedMs":183.78312500000015},{"position":93,"elapsedMs":185.97495800000002},{"position":94,"elapsedMs":176.68208299999992},{"position":95,"elapsedMs":175.46908299999996},{"position":96,"elapsedMs":166.92437500000005},{"position":97,"elapsedMs":168.16662499999984},{"position":98,"elapsedMs":173.5943339999999},{"position":99,"elapsedMs":169.2837499999996},{"position":100,"elapsedMs":173.128334}],"acknowledgmentP50Ms":173.5943339999999,"acknowledgmentP95Ms":185.97495800000002,"readVerifyMs":82.60920900000019,"runtimeLoadMs":3.2871249999998327,"fullReplayMs":87.32245799999964,"catchUpOneMs":75.44370800000024,"boundedStateBytes":26}
+Seeding signed fixture history to 991; conditional real-PDS batches are setup, excluded from acknowledgment samples.
+Confirmed #992: 1446.1 ms
+Confirmed #993: 1446.0 ms
+Confirmed #994: 1489.5 ms
+Confirmed #995: 1457.9 ms
+Confirmed #996: 1463.2 ms
+Confirmed #997: 1460.3 ms
+Confirmed #998: 1433.6 ms
+Confirmed #999: 1469.5 ms
+Confirmed #1000: 1469.1 ms
+{"size":1000,"acknowledgment":[{"position":992,"elapsedMs":1446.090959},{"position":993,"elapsedMs":1445.9644159999998},{"position":994,"elapsedMs":1489.533292},{"position":995,"elapsedMs":1457.8812080000007},{"position":996,"elapsedMs":1463.1575420000008},{"position":997,"elapsedMs":1460.2751670000016},{"position":998,"elapsedMs":1433.5759170000001},{"position":999,"elapsedMs":1469.4970830000002},{"position":1000,"elapsedMs":1469.0770420000008}],"acknowledgmentP50Ms":1460.2751670000016,"acknowledgmentP95Ms":1489.533292,"readVerifyMs":754.3554590000022,"runtimeLoadMs":1.9821670000019367,"fullReplayMs":810.609916999998,"catchUpOneMs":646.3587499999994,"boundedStateBytes":27}
+Seeding signed fixture history to 9991; conditional real-PDS batches are setup, excluded from acknowledgment samples.
+Confirmed #9992: 16179.0 ms
+Confirmed #9993: 17263.5 ms
+Confirmed #9994: 18655.6 ms
+Confirmed #9995: 19744.4 ms
+Confirmed #9996: 19614.8 ms
+Confirmed #9997: 23897.0 ms
+Confirmed #9998: 39524.1 ms
+Confirmed #9999: 18015.5 ms
+Confirmed #10000: 16604.1 ms
+{"size":10000,"acknowledgment":[{"position":9992,"elapsedMs":16179.034167000002},{"position":9993,"elapsedMs":17263.455666},{"position":9994,"elapsedMs":18655.566457999994},{"position":9995,"elapsedMs":19744.429875},{"position":9996,"elapsedMs":19614.76612500001},{"position":9997,"elapsedMs":23896.95199999999},{"position":9998,"elapsedMs":39524.07270800002},{"position":9999,"elapsedMs":18015.540290999983},{"position":10000,"elapsedMs":16604.142500000016}],"acknowledgmentP50Ms":18655.566457999994,"acknowledgmentP95Ms":39524.07270800002,"readVerifyMs":8325.938124999986,"runtimeLoadMs":1.9647079999849666,"fullReplayMs":7885.200332999986,"catchUpOneMs":6591.1217079999915,"boundedStateBytes":28}

@@ -1,0 +1,200 @@
+{
+  "completedAt": "2026-09-06T18:06:10.452942+00:00",
+  "status": "completed",
+  "sourceOrigin": "Repeat of my own earlier purpose-specific mending-circle design. The original creative run preceded the independent S5 review corrections and is preserved at experiments/agent-authored-before-s5-review/. This run copies my prior source from experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk and changes only the manifest runtime profile. It is not a new empty-folder design.",
+  "sourceReuse": {
+    "priorEvidence": "experiments/agent-authored-before-closure-transport-review/mending-circle-tool-desk",
+    "originalCreativeEvidence": "experiments/agent-authored-before-s5-review/mending-circle-tool-desk",
+    "originalCreativeRunPrecededReviewCorrections": true,
+    "onlyChangedSource": "manifest.json",
+    "change": "Runtime profile CID only",
+    "oldProfile": "bafyreieowntyz2kbfqj5jj22wsohth3ik4j7bo65na2o4omd4lsxruc5li",
+    "newProfile": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a",
+    "previousSourceAndTranscriptUntouched": true,
+    "anonymousPreviewGuardRetained": true
+  },
+  "adapterCommands": 22,
+  "adapterFailures": [],
+  "invitation": {
+    "title": "Mending circle: shared tool desk",
+    "host": "http://127.0.0.1:57359",
+    "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+    "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+    "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
+    "url": "http://127.0.0.1:57359/#app=did%3Aplc%3Aqsxi6vqhnwdnwrm6w6xssouq&genesis=bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+    "scope": "Disposable loopback test PDS; synthetic data only."
+  },
+  "definition": "bafyreib4hy5nv5r63h27b3ifhhhzsbabemuyf5lrgl5sfuwrentuipeg6m",
+  "runtimeProfile": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a",
+  "canonicalEntries": 5,
+  "effectiveEntries": 3,
+  "ineffectiveEntries": 2,
+  "exactRetry": {
+    "step": 20,
+    "reusedPosition": 5,
+    "sameReceipt": true
+  },
+  "outcomes": [
+    {
+      "position": 1,
+      "intent": "bafyreicfaodmwyk7ijgkvlf4dkjco2zmkx3nwqm7b5pwl5pfxwpwvio7oa",
+      "outcome": {
+        "$type": "test.atseq.defs#effective"
+      }
+    },
+    {
+      "position": 2,
+      "intent": "bafyreif5jjnogyq4y24it6nfebt7cqogaha6zjvnlhhnyhelkscuini7gi",
+      "outcome": {
+        "$type": "test.atseq.defs#ineffective",
+        "reason": "tool_in_use",
+        "message": "This tool is already out on loan."
+      }
+    },
+    {
+      "position": 3,
+      "intent": "bafyreiftk7x3q7ndunjywy77ahdqgrn5ywmsen6idci6gmyfcbfjpqljyi",
+      "outcome": {
+        "$type": "test.atseq.defs#ineffective",
+        "reason": "not_borrower",
+        "message": "Only the borrowing identity can return this tool."
+      }
+    },
+    {
+      "position": 4,
+      "intent": "bafyreidzcw2unetdyy6lxw7wxxsrshm632auesfoxjaz2pkh55flzetmli",
+      "outcome": {
+        "$type": "test.atseq.defs#effective"
+      }
+    },
+    {
+      "position": 5,
+      "intent": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli",
+      "outcome": {
+        "$type": "test.atseq.defs#effective"
+      }
+    }
+  ],
+  "finalQuery": {
+    "request": {
+      "operation": "query",
+      "host": "http://127.0.0.1:57359",
+      "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+      "genesis": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4",
+      "name": "summary",
+      "params": {}
+    },
+    "response": {
+      "head": {
+        "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+        "$type": "test.atseq.head",
+        "entry": {
+          "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
+        },
+        "genesis": {
+          "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
+        },
+        "version": 0,
+        "position": 5
+      },
+      "frontier": {
+        "$type": "test.atseq.defs#cursor",
+        "position": 5,
+        "entry": {
+          "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
+        }
+      },
+      "result": {
+        "$type": "test.atseq.defs#queryAvailable",
+        "value": {
+          "available": 2,
+          "checkouts": 2,
+          "outOnLoan": 1,
+          "returns": 1,
+          "session": "Sunday mending circle",
+          "tools": [
+            {
+              "holder": "Sam (synthetic)",
+              "holderKey": "did:key:zDnaejUf2rpDY97FeCTQ7rWs9QDean8X1LFzUGsXzb2aRPgKq",
+              "id": "shears",
+              "label": "Fabric shears"
+            },
+            {
+              "holder": "",
+              "holderKey": "",
+              "id": "snap-pliers",
+              "label": "Snap pliers"
+            },
+            {
+              "holder": "",
+              "holderKey": "",
+              "id": "seam-ripper",
+              "label": "Seam ripper"
+            }
+          ],
+          "total": 3
+        }
+      }
+    }
+  },
+  "finalOutcome": {
+    "receipt": {
+      "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+      "$type": "test.atseq.defs#receipt",
+      "entry": {
+        "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
+      },
+      "intent": {
+        "$link": "bafyreibw5b6ykc3gg5eilpta2xtbvxfynntv4qxwrzkhcte4gzgshzccli"
+      },
+      "genesis": {
+        "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
+      },
+      "position": 5
+    },
+    "head": {
+      "app": "did:plc:qsxi6vqhnwdnwrm6w6xssouq",
+      "$type": "test.atseq.head",
+      "entry": {
+        "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
+      },
+      "genesis": {
+        "$link": "bafyreibkrpacr7ohi6c6drxf27bxth7cabbvp6d6kf7oqvg46mnztqcxr4"
+      },
+      "version": 0,
+      "position": 5
+    },
+    "frontier": {
+      "$type": "test.atseq.defs#cursor",
+      "position": 5,
+      "entry": {
+        "$link": "bafyreie2aal3xaf6sbg6q67uzh6kavsnsnoaq6p2stbugpt67dh26zfdpq"
+      }
+    },
+    "outcome": {
+      "$type": "test.atseq.defs#effective"
+    }
+  },
+  "findings": [
+    {
+      "id": "documented-anonymous-preview",
+      "adapterStep": 5,
+      "observed": "The retained anonymous-preview guard returned signing_identity_required, matching the documented empty meta.actorKey.",
+      "status": "Known limitation accurately documented; live signed actions use the real actor key."
+    },
+    {
+      "id": "documented-invitation-url",
+      "adapterStep": 8,
+      "observed": "The retained invitation includes the documented app/genesis URL fragment.",
+      "status": "No new documentation or adapter gap found during this repeat."
+    }
+  ],
+  "limits": [
+    "This is a repeat of the original purpose-specific design, whose creative run preceded the review corrections; it is not a newly invented app.",
+    "Only the documented JSON adapter was used for application interaction.",
+    "Inlay view rendering was observed in preview response trees, not through a browser UI exercise by this author.",
+    "No host implementation, source scripts, tests, package files, docs, host-before.json or host-build bytes were modified; no commits or workroom acts were made.",
+    "This directory contains source and adapter evidence, not a complete signed-log archive.",
+    "Parent owns the after-hash capture and independent archive/replay."
+  ]
+}

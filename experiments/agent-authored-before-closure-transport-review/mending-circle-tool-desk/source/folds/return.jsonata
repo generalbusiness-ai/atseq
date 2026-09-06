@@ -1,0 +1,25 @@
+(
+  $s := state;
+  $item := act.item;
+  $key := meta.actorKey;
+  $target := $s.tools[id = $item];
+  ($not($exists($key)) or $key = "")
+    ? {"decision":"ineffective", "reason":"signing_identity_required", "message":"Borrowing and returning need a signing identity; anonymous preview cannot simulate this action."}
+    : $not($exists($target))
+    ? {"decision":"ineffective", "reason":"unknown_tool", "message":"This tool is not part of this session."}
+    : $target.holderKey = ""
+      ? {"decision":"ineffective", "reason":"already_available", "message":"This tool is already available."}
+      : $target.holderKey != $key
+        ? {"decision":"ineffective", "reason":"not_borrower", "message":"Only the borrowing identity can return this tool."}
+        : {"decision":"effective", "state": {
+            "session": $s.session,
+            "tools": [$s.tools.({
+              "id": id,
+              "label": label,
+              "holder": id = $item ? "" : holder,
+              "holderKey": id = $item ? "" : holderKey
+            })],
+            "checkouts": $s.checkouts,
+            "returns": $s.returns + 1
+          }}
+)

@@ -7,9 +7,10 @@ neither is a product dependency.
 
 The independently reviewed **S0 engine, S1 protocol, S2 persistence, S3 folder
 and S4 interaction are landed**. **S5 compatible activation** is implemented
-and awaiting independent review. Complete export and assessment remain S6 work. See the [design](notes/2026-09-06-atseq-architecture.md),
+and awaiting independent review. S6 archive, offline rebuild and chart export
+pass all 13 acceptance gates and await independent review. See the [design](notes/2026-09-06-atseq-architecture.md),
 [plan](notes/2026-09-06-atseq-initial-spike.md) and
-[S5 result](notes/2026-09-06-atseq-evolution-spike.md).
+[spike results](notes/2026-09-06-atseq-spike-results.md).
 
 ## Try an application
 
@@ -117,7 +118,24 @@ npm run test:flows -- --group evolution
 ```
 
 See [compatible changes](docs/evolution.md) for the activation boundary and
-stale-action review flow. S6 commands still exit nonzero with “not implemented”.
+stale-action review flow. See [archives and replay](docs/archives.md) for offline retention and static
+query exports.
+
+## Reproduce S6 and the complete acceptance run
+
+```sh
+npm run test:archive
+npm run spike:acceptance
+npm run spike:report
+```
+
+Acceptance runs all documented gates, real-PDS and browser measurements through
+10,000 entries, and verifies the retained agent-authoring transcript and archive.
+It writes command logs, source hashes and measured reports. The report command
+refuses stale or failed evidence. The complete local run takes several minutes;
+there is no invented latency threshold. The current full-prefix implementation
+becomes slow as history grows. The generated dated result records the next
+smallest implementation decision.
 
 ## Current boundaries
 

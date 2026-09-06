@@ -1,0 +1,39 @@
+{
+  "$type": "test.atseq.definition",
+  "version": 0,
+  "profile": {
+    "$link": "bafyreighraqhxiago5tbpeheiozkmu3ytjra7vy36oakfx6v6qy5e4wn4a"
+  },
+  "title": "Mending circle: shared tool desk",
+  "lexicons": [
+    "schemas/mending-circle.json"
+  ],
+  "state": {
+    "ref": "test.agent.mendingcircle#state",
+    "initial": "state.json"
+  },
+  "actions": [
+    {
+      "ref": "test.agent.mendingcircle#borrow",
+      "fold": "folds/borrow.jsonata"
+    },
+    {
+      "ref": "test.agent.mendingcircle#returnTool",
+      "fold": "folds/return.jsonata"
+    }
+  ],
+  "queries": [
+    {
+      "name": "summary",
+      "ref": "test.agent.mendingcircle#summary",
+      "program": "queries/summary.jsonata"
+    }
+  ],
+  "views": [
+    {
+      "name": "main",
+      "source": "views/main.json",
+      "query": "summary"
+    }
+  ]
+}

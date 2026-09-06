@@ -1,3 +1,4 @@
+import { exportArchive, importArchive, encodeArchive } from '../archive/archive.ts';
 import { fromBytes } from '@atcute/cbor';
 import { fold } from '../runtime/evaluator.ts';
 import { Folder } from '../runtime/folder.ts';
@@ -31,6 +32,15 @@ async function handle(data: any) {
         sources.set(key, pool); folder = await apps.open(anchor.genesis, anchor.cid, pool);
         const snapshot = await folder.catchUp(input.head, input.entries); definition = folder.activeDefinition(); lastInput = input;
         result = { ...snapshot, genesis: anchor.genesis, definition: await describeDefinition(definition) }; break;
+      }
+      case 'exportArchive': {
+        if (!lastInput) throw new Error('Open verified history first');
+        const archive = await exportArchive(lastInput, data.position);
+        result = { bytes: encodeArchive(archive), head: archive.input.head }; break;
+      }
+      case 'importArchive': {
+        const checked = await importArchive(new Uint8Array(data.source), data.expected);
+        result = { input: checked.archive.input, projection: checked.snapshot.projection, retries: checked.retries }; break;
       }
       case 'compareDefinition': {
         if (!folder || !definition || !lastInput) throw new Error('Open an app first');

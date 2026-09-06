@@ -143,3 +143,41 @@ generating two unrelated schema-shaped applications, then loads and interprets
 both through IPC without changing host code. This is fixture generation, not
 the additional agent-authoring exercise required by S6. See the
 [S3 result](../notes/2026-09-06-atseq-runtime-spike.md) for retained evidence.
+
+## Authoring without a compiled SDK
+
+Ask the JSON CLI for `{ "operation": "runtime" }` to obtain the installed
+application `profile` CID. Use that CID in `manifest.json`. A definition folder
+and the `pack`, `validate`, `preview`, `create`, `submit`, `query` and `outcome`
+operations are sufficient; an author need not import host modules or rebuild a
+client. The runtime profile is immutable and is not inferred from a package
+version string.
+
+A minimal retained view can be written directly as JSON:
+
+```json
+{
+  "root": "test.example.Summary",
+  "imports": ["did:plc:localview"],
+  "records": {
+    "at://did:plc:localview/at.inlay.component/test.atseq.ui.Text": {"$type":"at.inlay.component"},
+    "at://did:plc:localview/at.inlay.component/test.example.Summary": {
+      "$type":"at.inlay.component",
+      "imports":["did:plc:localview"],
+      "body": {
+        "$type":"at.inlay.component#bodyTemplate",
+        "node":{"$":"$","type":"test.atseq.ui.Text","props":{"children":["Total: ",{"$":"$","type":"at.inlay.Binding","props":{"path":["props","total"]}}]}}
+      }
+    }
+  }
+}
+```
+
+These AT URIs are retained local record keys, never a request to resolve that
+example DID. Use `test.atseq.ui.Panel` to contain children, `test.atseq.ui.Text`
+for text, or `test.atseq.ui.Action` with `action` and `label` properties to open a
+form. Declare a local record for each primitive used. Binding paths read the
+selected query's object result. There are no scripts, event handlers or remote
+resources. The generic query inspector can chart and export an object result's
+array of rows with a text label and integer value, up to 100 rows; it does not
+require a special application schema or template.

@@ -1,0 +1,161 @@
+{
+  "lexicon": 1,
+  "id": "test.agent.mendingcircle",
+  "defs": {
+    "tool": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "holder",
+        "holderKey"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 40
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "holder": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "holderKey": {
+          "type": "string",
+          "maxLength": 256
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "required": [
+        "session",
+        "tools",
+        "checkouts",
+        "returns"
+      ],
+      "properties": {
+        "session": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "tools": {
+          "type": "array",
+          "maxLength": 8,
+          "items": {
+            "type": "ref",
+            "ref": "#tool"
+          }
+        },
+        "checkouts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "returns": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "borrow": {
+      "type": "object",
+      "required": [
+        "item",
+        "borrower"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "The shared tool ID."
+        },
+        "borrower": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "A synthetic display label for this session."
+        }
+      },
+      "description": "Borrow an available tool for this mending session. A tool already out on loan cannot be borrowed again."
+    },
+    "returnTool": {
+      "type": "object",
+      "required": [
+        "item"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        }
+      },
+      "description": "Return a shared tool. Only the signing identity that borrowed it can return it."
+    },
+    "summaryResult": {
+      "type": "object",
+      "required": [
+        "session",
+        "total",
+        "available",
+        "outOnLoan",
+        "checkouts",
+        "returns",
+        "tools"
+      ],
+      "properties": {
+        "session": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "available": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "outOnLoan": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "checkouts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "returns": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tools": {
+          "type": "array",
+          "maxLength": 8,
+          "items": {
+            "type": "ref",
+            "ref": "#tool"
+          }
+        }
+      }
+    },
+    "summary": {
+      "type": "query",
+      "description": "Show the session tool desk, availability and completed loan counts.",
+      "parameters": {
+        "type": "params",
+        "properties": {}
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "#summaryResult"
+        }
+      }
+    }
+  }
+}

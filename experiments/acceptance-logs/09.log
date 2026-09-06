@@ -1,0 +1,41 @@
+
+> atseq@0.0.0 test:flows
+> tsx scripts/flows.ts --group evolution
+
+▶ compatible activation preserves its exact interpretation boundary
+  ✔ activation at N preserves state and N+1 uses the new interface (26.453208ms)
+  ✔ a full replay uses each definition at its original boundary (25.647ms)
+  ✔ unavailable candidate pauses at N and resumes the same entry after repair (32.105917ms)
+  ✔ corrupt candidate content cannot fabricate an invalid-activation verdict (30.011708ms)
+  ✔ failed persistence leaves both definition and state before activation (36.825167ms)
+  ✔ another actor cannot activate or force a missing-content fetch (8.3565ms)
+  ✔ available invalid candidate code is retained ineffective (9.661416ms)
+  ✔ an incomplete or extra signed closure has the same outcome with full and closure-only readers (60.840834ms)
+  ✔ a closure over 512 KiB is transported and invalid on both full and closure-only readers (38.934041ms)
+  ✔ an available query-less view with missing bindings is invalid rather than a permanent stall (11.835667ms)
+  ✔ state compatibility includes transitive schemas and ignores unrelated additions (22.879583ms)
+  ✔ malformed closure and control-action rebinding are refused (8.474708ms)
+✔ compatible activation preserves its exact interpretation boundary (364.3545ms)
+▶ evolve a real app and explicitly replace its stale pending work
+  ✔ ordinary state is retained while another browser queues an old-definition act (686.294292ms)
+  ✔ comparison works locally and an ungranted browser cannot apply (100.572041ms)
+  ✔ CLI staging and preparing an activation do not activate it (1010.348917ms)
+  ✔ explicit Apply records the boundary and preserves existing data (881.24325ms)
+  ✔ a prepared activation racing from the same old definition is ineffective (469.717917ms)
+  ✔ reconnecting delivers the old signed intent unchanged exactly once (536.833417ms)
+  ✔ review preserves entered values and signs a replacement only on Save (582.661125ms)
+  ✔ the new action, query and view use the preserved state (571.605708ms)
+  ✔ offline queue order preserves add-then-select dependencies (872.460791ms)
+  ✔ a recorded unauthorized activation is refused under the fixed grant (134.30725ms)
+  ✔ an incompatible proposal preserves the app and current data (276.000083ms)
+  ✔ sync delivers an oversized closure so host, CLI and fresh browser agree and continue (2517.376541ms)
+  ✔ restarting the host rebuilds the active definition and every outcome (831.424417ms)
+✔ evolve a real app and explicitly replace its stale pending work (12594.946417ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13617.120833

@@ -1,7 +1,7 @@
 {
   "stage": "S0",
   "passed": true,
-  "measuredAt": "2026-09-06T12:59:13.568Z",
+  "measuredAt": "2026-09-06T18:07:42.308Z",
   "environment": {
     "node": "v26.8.1",
     "os": "darwin",
@@ -29,8 +29,8 @@
     "viewDepth": 24
   },
   "limitations": [
-    "A feasibility experiment only; no PDS log, signing, activation or exports implemented.",
-    "Local forms and fixture routes are experiment code. Generic application interaction belongs to S4.",
+    "This gate covers engine feasibility only; PDS, signing, activation and archives have separate gates.",
+    "Local forms and fixture routes here are experiment code. The separate S4 participation gate checks generic application interaction.",
     "One JSONata engine and candidate profile; only the documented expression/Lexicon subset is admitted.",
     "Chromium is the browser exercised here. No cross-browser or production isolation claim.",
     "No wall-time threshold defines semantic effectiveness. Watchdog failures pause interpretation."
@@ -80,9 +80,9 @@
         ],
         "errors": [],
         "exit": 0,
-        "ms": 179.80000001192093,
+        "ms": 196.0999999642372,
         "done": true,
-        "bytes": 20926859,
+        "bytes": 20926858,
         "browser": "153.0.8010.12"
       },
       "reason": "The generated state facade works in both environments. The published closed profile rejects the append and multiplication fixtures and exposes depth/range bounds plus a 2000 ms watchdog, but no deterministic operation counter. Using a private core fork is excluded; the planned single-engine fallback supplies those capabilities."
@@ -422,14 +422,8 @@
       "passed": true
     }
   ],
-  "nodeCorpusMs": 475.1927089999999,
+  "nodeCorpusMs": 486.06679199999985,
   "browserBundles": [
-    {
-      "path": "browser/assets/index-BbC4qcZU.js",
-      "bytes": 389588,
-      "gzipBytes": 99111,
-      "sha256": "11d7a86c978418ac993b96c3c3c7685c34604495d005fef08c77190cd3423657"
-    },
     {
       "path": "browser/assets/index-D9caIlN8.css",
       "bytes": 2412,
@@ -437,16 +431,22 @@
       "sha256": "dbba8adf3e55cd99a4c51eec894bbac15c49daf7d0e0e4376d70096cd60cbba4"
     },
     {
-      "path": "browser/assets/worker-BHjQM-N4.js",
-      "bytes": 586388,
-      "gzipBytes": 155029,
-      "sha256": "da27aaaeef3e6a0d038d300d1a0c1facc44967e246b8744925b87914f0eb60e8"
+      "path": "browser/assets/index-zltNmHch.js",
+      "bytes": 347579,
+      "gzipBytes": 83190,
+      "sha256": "42968517f1d5eaf8867a002ed6a814352e213c47137faff18f0ea90e860062a0"
+    },
+    {
+      "path": "browser/assets/worker-D2GbCH6d.js",
+      "bytes": 555270,
+      "gzipBytes": 142593,
+      "sha256": "db25e6ef0b27d0cd42a6ad014ba846f481f7e1b2f4f9be3733ad1c83a82dda82"
     },
     {
       "path": "browser/index.html",
       "bytes": 1778,
-      "gzipBytes": 916,
-      "sha256": "da0e3548f180ae2821bd6fe1073e4e1de13c782359ea426c8e662bf107da1174"
+      "gzipBytes": 912,
+      "sha256": "ad57d04a6b5144ce67c1a6358ce973fc16e3d23ed6386cf0b5cbb2ec42fbab7f"
     }
   ],
   "browserFixtures": [
@@ -753,7 +753,7 @@
   ],
   "browser": {
     "version": "153.0.8010.12",
-    "loadMs": 29.19999998807907
+    "loadMs": 27.30000001192093
   },
   "browserControls": {
     "keyboardSubmit": true,
@@ -765,6 +765,55 @@
     "pageErrors": []
   },
   "dependencies": [
+    {
+      "path": "node_modules/@atcute/car",
+      "version": "6.0.2",
+      "license": "0BSD",
+      "integrity": "sha512-6AaLjO0zrFD8R/aK7jwrqHEmLzfVilu/5pv4LAcUjxIYfBrw+nThV2FVLPtA4Jt59tIhjp5tQDP+9sx1eqQp+A==",
+      "resolved": "https://registry.npmjs.org/@atcute/car/-/car-6.0.2.tgz"
+    },
+    {
+      "path": "node_modules/@atcute/cbor",
+      "version": "2.3.6",
+      "license": "0BSD",
+      "integrity": "sha512-Ml/G8i6KK5UWSx1kxgm41eTYm1EQ6O2fNWSXMJ5DxoQv/lmZ0Hmk7dmHda2seRE+Cj2X3HJKAuD9cQRh3m2P7A==",
+      "resolved": "https://registry.npmjs.org/@atcute/cbor/-/cbor-2.3.6.tgz"
+    },
+    {
+      "path": "node_modules/@atcute/cid",
+      "version": "2.4.2",
+      "license": "0BSD",
+      "integrity": "sha512-Uy48yfyo/hPQXF+XMXWIGomF6v8IvX5ErjozXMV7rlfU3EV7PSVX3J7plJXV6MRC3iI1z3PgTZTS7V0drCQVVw==",
+      "resolved": "https://registry.npmjs.org/@atcute/cid/-/cid-2.4.2.tgz"
+    },
+    {
+      "path": "node_modules/@atcute/crypto",
+      "version": "2.4.4",
+      "license": "0BSD",
+      "integrity": "sha512-Yc7lXz4ndDjbs+/WrKeGS+sVEr+sx8xi5zSVInKNl0FAEY6KbvcT+bjaU9A3erUVviFp9yEcu/1aSg/f+GPpBg==",
+      "resolved": "https://registry.npmjs.org/@atcute/crypto/-/crypto-2.4.4.tgz"
+    },
+    {
+      "path": "node_modules/@atcute/multibase",
+      "version": "1.2.5",
+      "license": "0BSD",
+      "integrity": "sha512-cReTONgYpQo/VHD3ZmzPNoyBKJgSk1J4h//cvvdVVJBMar+SjlQ/sUXeTjQfuyfmDKv+TLKhmutLcvbMcQ9Rvw==",
+      "resolved": "https://registry.npmjs.org/@atcute/multibase/-/multibase-1.2.5.tgz"
+    },
+    {
+      "path": "node_modules/@atcute/uint8array",
+      "version": "1.1.5",
+      "license": "0BSD",
+      "integrity": "sha512-1SFCXOtjE3ismP92CqzbOfYSwJmPPPFbj798wLXSpLv2hSd5OIaUrTh6EqRVR1VZ3ZhR+vaBmd3kxAN0wkw+gQ==",
+      "resolved": "https://registry.npmjs.org/@atcute/uint8array/-/uint8array-1.1.5.tgz"
+    },
+    {
+      "path": "node_modules/@atcute/varint",
+      "version": "2.0.2",
+      "license": "0BSD",
+      "integrity": "sha512-/+hS1juMgnmf6eL6lICUkTw7wcGTo3I+Q0L1PI521mUz77rGSC6nXAUNKtvm2wYJpuWdEGq+GILGoYkOArn0TQ==",
+      "resolved": "https://registry.npmjs.org/@atcute/varint/-/varint-2.0.2.tgz"
+    },
     {
       "path": "node_modules/@atproto-labs/did-resolver",
       "version": "0.2.6",
@@ -850,13 +899,6 @@
       "resolved": "https://registry.npmjs.org/@atproto/syntax/-/syntax-0.5.4.tgz"
     },
     {
-      "path": "node_modules/@atproto/common/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@atproto/crypto",
       "version": "0.4.5",
       "license": "MIT",
@@ -899,13 +941,6 @@
       "resolved": "https://registry.npmjs.org/@atproto/lex-data/-/lex-data-0.0.12.tgz"
     },
     {
-      "path": "node_modules/@atproto/lex-cbor/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@atproto/lex-client",
       "version": "0.0.13",
       "license": "MIT",
@@ -927,18 +962,18 @@
       "resolved": "https://registry.npmjs.org/@atproto/lex-json/-/lex-json-0.0.12.tgz"
     },
     {
-      "path": "node_modules/@atproto/lex-client/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@atproto/lex-data",
       "version": "0.1.7",
       "license": "MIT",
       "integrity": "sha512-kW/dPLqo/WgCLV+XESR4JKwV6c1rZWJGOfuPupZGTjEDAKoBbKXdaEzX9/1vKQYbZ9U3j0DS/n7OFFK7wBugyQ==",
       "resolved": "https://registry.npmjs.org/@atproto/lex-data/-/lex-data-0.1.7.tgz"
+    },
+    {
+      "path": "node_modules/@atproto/lex-data/node_modules/multiformats",
+      "version": "13.4.2",
+      "license": "Apache-2.0 OR MIT",
+      "integrity": "sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ==",
+      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-13.4.2.tgz"
     },
     {
       "path": "node_modules/@atproto/lex-document",
@@ -969,13 +1004,6 @@
       "resolved": "https://registry.npmjs.org/@atproto/syntax/-/syntax-0.4.3.tgz"
     },
     {
-      "path": "node_modules/@atproto/lex-installer/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@atproto/lex-json",
       "version": "0.1.6",
       "license": "MIT",
@@ -1004,13 +1032,6 @@
       "resolved": "https://registry.npmjs.org/@atproto/syntax/-/syntax-0.4.3.tgz"
     },
     {
-      "path": "node_modules/@atproto/lex-resolver/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@atproto/lex-schema",
       "version": "0.0.13",
       "license": "MIT",
@@ -1032,13 +1053,6 @@
       "resolved": "https://registry.npmjs.org/@atproto/syntax/-/syntax-0.4.3.tgz"
     },
     {
-      "path": "node_modules/@atproto/lex-schema/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@atproto/lex/node_modules/@atproto/lex-data",
       "version": "0.0.12",
       "license": "MIT",
@@ -1053,18 +1067,18 @@
       "resolved": "https://registry.npmjs.org/@atproto/lex-json/-/lex-json-0.0.12.tgz"
     },
     {
-      "path": "node_modules/@atproto/lex/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@atproto/lexicon",
       "version": "0.7.12",
       "license": "MIT",
       "integrity": "sha512-bXVWXc2+ctVVUc3CEuWV9mVXRMMQcWmdzmyRE7w2Rli0B36HADU49Vvi7PWTw26zFFqumYVl9b23bW3vrzAzbg==",
       "resolved": "https://registry.npmjs.org/@atproto/lexicon/-/lexicon-0.7.12.tgz"
+    },
+    {
+      "path": "node_modules/@atproto/lexicon/node_modules/multiformats",
+      "version": "13.4.2",
+      "license": "Apache-2.0 OR MIT",
+      "integrity": "sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ==",
+      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-13.4.2.tgz"
     },
     {
       "path": "node_modules/@atproto/repo",
@@ -1107,13 +1121,6 @@
       "license": "MIT",
       "integrity": "sha512-9XJOpMAgsGFxMEIp8nJ8AIWv+krrY1xQMj+wULbbXhQztQV+9aZ0TbG9Jtn3Op2or8Kr6OqyWR4ga9Z189kKDw==",
       "resolved": "https://registry.npmjs.org/@atproto/syntax/-/syntax-0.5.4.tgz"
-    },
-    {
-      "path": "node_modules/@atproto/repo/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
     },
     {
       "path": "node_modules/@atproto/syntax",
@@ -1375,25 +1382,11 @@
       "resolved": "https://registry.npmjs.org/@atproto/syntax/-/syntax-0.4.3.tgz"
     },
     {
-      "path": "node_modules/@inlay/render/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/@ipld/dag-cbor",
       "version": "7.0.3",
       "license": "(Apache-2.0 AND MIT)",
       "integrity": "sha512-1VVh2huHsuohdXC1bGJNE8WR72slZ9XE2T3wbBBq31dm7ZBatmKLLxrB+XAqafxfRFjv08RZmj/W/ZqaM13AuA==",
       "resolved": "https://registry.npmjs.org/@ipld/dag-cbor/-/dag-cbor-7.0.3.tgz"
-    },
-    {
-      "path": "node_modules/@ipld/dag-cbor/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
     },
     {
       "path": "node_modules/@noble/curves",
@@ -1408,6 +1401,13 @@
       "license": "MIT",
       "integrity": "sha512-jCs9ldd7NwzpgXDIf6P3+NrHh9/sD6CQdxHyjQI+h/6rDNo88ypBxxz45UDuZHz9r3tNz7N/VInSVoVdtXEI4A==",
       "resolved": "https://registry.npmjs.org/@noble/hashes/-/hashes-1.8.0.tgz"
+    },
+    {
+      "path": "node_modules/@noble/secp256k1",
+      "version": "3.2.0",
+      "license": "MIT",
+      "integrity": "sha512-Z3ZAWOTxJ0EuTuZTi7Y69iK7GgrLHh8sgm45lVDhg/b3Nk1TpAiKhick2KkZisHuupeepSkyIydN/J459SdX1w==",
+      "resolved": "https://registry.npmjs.org/@noble/secp256k1/-/secp256k1-3.2.0.tgz"
     },
     {
       "path": "node_modules/@oxc-project/types",
@@ -1985,10 +1985,10 @@
     },
     {
       "path": "node_modules/multiformats",
-      "version": "13.4.2",
-      "license": "Apache-2.0 OR MIT",
-      "integrity": "sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-13.4.2.tgz"
+      "version": "9.9.0",
+      "license": "(Apache-2.0 AND MIT)",
+      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
+      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
     },
     {
       "path": "node_modules/nanoid",
@@ -2229,13 +2229,6 @@
       "resolved": "https://registry.npmjs.org/uint8arrays/-/uint8arrays-3.0.0.tgz"
     },
     {
-      "path": "node_modules/uint8arrays/node_modules/multiformats",
-      "version": "9.9.0",
-      "license": "(Apache-2.0 AND MIT)",
-      "integrity": "sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==",
-      "resolved": "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
-    },
-    {
       "path": "node_modules/undici-types",
       "version": "8.3.0",
       "license": "MIT",
@@ -2300,14 +2293,61 @@
     }
   ],
   "sourceHashes": {
+    "src/archive/archive.ts": "62dffe1be1671b274de978ae6dc3ef03b14cf7d96420f85bef968799959dab86",
+    "src/archive/chart.ts": "2ea0f71580a9fc33abadb1d361fcc13fed92aed0e12f7709f874351750b37149",
+    "src/archive/limits.ts": "f60704a8b407582a063cef123141ebe95a313a10f0581072f9fc509b6433379d",
+    "src/archive/notices.json": "477e43abbab2c5b4b477d45d372a2bdf01b96bfcc06929a58a3102c1ac08569a",
+    "src/browser/evaluator.ts": "afa17cc322fb6db72eeda01f3cead835d89dd11ad09d8c4c8e1827603ee287cc",
+    "src/browser/forms.ts": "5d8c760e2f623c3dc9f2c1a5a9f066118f1aed3de93017a44812fe02f77d806e",
+    "src/browser/index.html": "edce5713696b4e01ed4ab6a9e79606da434255697fe9894209ac4ffa706746c4",
+    "src/browser/main.ts": "5c1ea920ae9f3f8ae3dac6418606da5182d320a494111292b2296add4f19c3b4",
+    "src/browser/style.css": "2796d0c85780e7ef2460c6c32438d73be2fc11fb671b6b7faa6678f57945e56f",
+    "src/browser/worker.ts": "8ba8751b5f324009402fd920b9c7e9fb1a26a78e71392c7e106e38e507a951e5",
+    "src/cli/main.ts": "5c670fdb5578a30ec3dc5ce4cfdaa8f46d54805c272ffd89b5c51b2ec8ac9662",
+    "src/client/api.ts": "31669bb31e5d7e6c55b35f3165a2e6a403231e7ccca3f510f7ee8658db5f8ac4",
+    "src/client/definition.ts": "2e036731484cb8cfac61c9b3946b566a8e5de713baa5b365bcc99df7910cccc3",
+    "src/client/identity.ts": "e2e12ab667e0a99ef35b60f2ec8abbd148dd5830495dd454fc08e3c74af87823",
+    "src/client/store.ts": "19178b4e156874184043f2c8e578fdcbd840fc87690974cc2ef133fe4ce63e67",
+    "src/definition/activation.ts": "fb09f15d41453aed218e4da4b4f88155593cef46b854cfa2e13e5cb98182177e",
+    "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
+    "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
     "src/definition/schemas.ts": "52ef749be1198f48d5220f1579a54c1a6727b293882ca656628bfe94c13903c2",
+    "src/definition/source.ts": "2ef5b1eaaf7caa64be7e929977d2ddc5d51a4fcf7198ffa35312238617363aee",
+    "src/host/accounts.ts": "13df56ad649ed85db6de22b4846b4be2a30e42c3883272a6d32fc62016cf8313",
+    "src/host/application.ts": "03c399c1bab79c4968f1138d030c381fe53ab28cf71fd2a7a0697add3bfe6919",
+    "src/host/build.ts": "b651f8f4e79e8fb87fc4783bac27f8ca5146e873ec02d63905253eb4629f63a2",
+    "src/host/files.ts": "9c39c4f0f0717dff170695cb44519d418380f5215028f95537ea115b9d938862",
+    "src/host/http.ts": "8f391808eabb2e02f5779d16a165056e5b9d9f5ad18fa4b2a462e42fe3a944c5",
+    "src/host/lease.ts": "95c65692e820a53b9fb5aaafd392a0120c5e926a0be2905ee47c318a041c8aed",
+    "src/host/pds.ts": "516a2a731acd537a74496c40f03797d5df2a69db58168720e27f09f795ffa5f5",
+    "src/host/projection.ts": "ad6a440d9c3d88feaf13144868a3fd2ab4f79fafc335793b286e76ae6a61d569",
+    "src/host/sequencer.ts": "281d8dd868f3f5a5483f8fa902ccd21fbe8fd166c024a7621d2cf1c39500ddef",
+    "src/host/service.ts": "b9623d4bb0a2b66e74d0cbbadfe494c119c1d8729d4d9cedcef2d8bb97f82acd",
+    "src/host/source.ts": "74ee520bda18270cdf01585e4b29de3588af46a4508801a74f9bf8be6c4f6f23",
+    "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
+    "src/protocol/runtime-descriptor.json": "33808c464378b3274b70f1c93580ab6d4482a342abd08856c940578c3c8cb3cb",
+    "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
+    "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
+    "src/runtime/application-profile.json": "e37792bc74d7e41f47af2fd432e24c5cbad1dcaa7eab685aedf6e31c6c9394fc",
+    "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
     "src/runtime/evaluator.ts": "4f4008fbca9c9b60b9bdae09d55a5fe1c1ba062418662cbc363f02606da42be2",
+    "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
+    "src/runtime/identity.ts": "74ceee995dd7e73ca51ce1c9790e7dbbf936cee54c722ee9be67f21e35e3e5d9",
     "src/runtime/profile.ts": "909df5e771e58d79186373497a595b763e8db82800e7405ec355f6b7f5c4062d",
     "src/runtime/values.ts": "9194e65046b48be3e6a3f1bf38a4c42a1690d84cd91b78ba27ff7b1bac7bddaf",
     "src/ui/inlay.ts": "ebfda164531b88169508f44b208554a0a2398c80f09bc38e53945d0b8e9c4472",
-    "scripts/feasibility.ts": "f69bec460e9e53e5d33b399ecc2a1da152bf00438e778600c730223ef39e863d",
+    "scripts/acceptance.ts": "a0b37abd97f5e51c78bca7cc45415520b1caf79767214cece27a98b21ceb975d",
+    "scripts/browser-performance.ts": "54beff0a03d55338200dc7a577481a7b089d8f7195a9b73f6b11ecfe7e608412",
+    "scripts/check-author.ts": "3d726bfc946e03b32eb7fac3d2a45bd8e24b0197224fd14ebaba6766d249184d",
+    "scripts/feasibility.ts": "cc267f4838b01764ac04002bef80567f3b52618eef045ed52ff37da5d8d22049",
+    "scripts/flows.ts": "1e4b5a40bcacd1e23ee133ba89b594c738dd8d48cfa37a902dbc77cf1ee39c15",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
+    "scripts/notices.ts": "32275cf92c762a1db860bd135578095649987a1246a69052ada70f913355618c",
+    "scripts/performance.ts": "7c5ddfb5a139b8ecc41487fbdc6e44514927122970a43b5285e653f5606e5106",
     "scripts/probe-go.ts": "7b57827865a3949acc6b4e9adda1b9995f3040911eb5aa570a67be9c4217f519",
+    "scripts/report.ts": "0aba334c0cbecaf9df8571d5d8f4ca7e93abf98837593cb8419d42ff26388e8b",
+    "scripts/serve.ts": "320396edd8a32bcb26ebd71980683208406efae7fbf7ba01d6402bf0a02c159d",
+    "scripts/vectors/generate.mjs": "85a58d3f110898334edc2c12413116cace78ee84a43ffbc86af5e69c0cb751ea",
     "experiments/browser/index.html": "ae3cc44c47be4b98cf23cf9614b9f2f407d25fdf9719fa456d0bf2552ac9e104",
     "experiments/browser/main.ts": "65aaa9237552e7cf6cb48ba710cbf6b5f53741f30238ac614e25c63ac603edea",
     "experiments/browser/style.css": "56a0ea25a25e7813c3213b7cd80869beb36abeb5e3994ffd8fbf3a635f22cb96",
@@ -2318,12 +2358,26 @@
     "experiments/corpus.ts": "150a202acc05a6c27970c72569187d0460ac8fb597fa2efb560ded40be4f8b38",
     "experiments/fixtures.ts": "a56d5876edab4d182479d897ffe837568b5da5d3c5676c8080842058724e317a",
     "experiments/boundaries.ts": "74bf607daa97943fb68b0a50e3f7000fe7fc53b5e451cd5c79335bc346968213",
-    "package.json": "4658bc6bd98c927ed689d962360d92aabd36783c28b0e820dda7fbeb8ea82d71",
-    "package-lock.json": "97ddca1db5ddc702d18b4b6be8890e5c446d9c191bed90f3df6f3520df14dd3e",
+    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
+    "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111",
     "tsconfig.json": "b5eb553577d8cf84af7d2975168b7bb722c384a99b2a5f6e07fcc6952ecae8ad"
   },
   "screenshots": {
     "experiments/evidence/desktop.png": "72ba134c3beee455f375264aeff2a785a1dc673346a935634389f31360d77ac9",
-    "experiments/evidence/mobile.png": "aebed2c25362bd3a0241e3f658dbda7e52e92127ee1e8a9b148f1a7e998b1b2f"
+    "experiments/evidence/mobile.png": "aebed2c25362bd3a0241e3f658dbda7e52e92127ee1e8a9b148f1a7e998b1b2f",
+    "experiments/evidence/s3/guitar.car": "0e1ffc90f0b7fa33eb3897a077fe8ccdc18167dc7b030398d0e52a4bb9003158",
+    "experiments/evidence/s3/guitar.json": "3d1dadcdd762a4af7185e3da247c69ff2de3736f13aab39ff5c5fbd1b1f50c9e",
+    "experiments/evidence/s3/rainfall.car": "d96384420cc6fdf72e9365d94878e7590c462893827a8b9bf9b07469dafbd6e1",
+    "experiments/evidence/s3/rainfall.json": "271ffefefe14ba46a09af61f40416fa85b4590c164a67c2a020156ee419dc787",
+    "experiments/evidence/s4/desktop.png": "0fcea75ba3733a41dceb1470435565205a455d0b4031cea33bd3602b193e9612",
+    "experiments/evidence/s4/mobile.png": "6de2ae2c860c7160a9e5e4bc9cb18d60b04b1f66febf34274b65dd06c08a46eb",
+    "experiments/evidence/s5/reviewed.png": "63bbb5c7d98788523bc8336f0cbbcbf264782cb1fe35d9b20e1afc1ca5880541",
+    "experiments/evidence/s5/updated.png": "5596b7b7415f7fd4ba1cc20a21e4a4a357342199924349c3be6cc8865941511a",
+    "experiments/evidence/s6/chart.atseq.json": "e21fdb586b840a23c595169ff0eb84ebf034bc5c3e6e0dd6a3480bf47ae68c1a",
+    "experiments/evidence/s6/chart.html": "156c45003448f2dc8d2240258e2fab867611bec362fd1294965bd7ade56cbd3f",
+    "experiments/evidence/s6/chart.png": "423c44d0e8045f311795abb54c66b223537d10560619c9691800919a774c62e8",
+    "experiments/evidence/s6/chart.svg": "6c4a30eaec43d7fe218782d3a5ee2f1d0aa390cb928b5f55cebf6e77b9a5b4ec",
+    "experiments/evidence/s6/evolved.atseq.json": "c7d322ad4977de40392e6751bb94c1f45af0df8d23a4f898bbed2e09e14a26de",
+    "experiments/evidence/s6/offline.png": "2bce5359038c8160994d08a1da1aa6aefe6229cd0969e5c08179599d82bdd801"
   }
 }

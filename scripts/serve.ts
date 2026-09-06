@@ -1,5 +1,5 @@
 import { join, resolve } from 'node:path';
-import { build } from 'vite';
+import { buildShell } from '../src/host/build.ts';
 import { startEnvironment } from '../experiments/pds/environment.mjs';
 import { ApplicationHost } from '../src/host/application.ts';
 import { LocalAccounts } from '../src/host/accounts.ts';
@@ -9,7 +9,7 @@ import { bytes } from '../src/protocol/wire.ts';
 import { chartFixture, guitarFixture } from '../testdata/apps/fixtures.ts';
 
 const root = resolve('experiments/generated/app');
-await build({ root: resolve('src/browser'), logLevel: 'warn', build: { outDir: root, emptyOutDir: true } });
+await buildShell(root);
 const env = await startEnvironment(), directory = join(env.dir, 'apps');
 const host = new ApplicationHost(directory, new LocalAccounts(env.url, directory));
 const service = await startApplicationService(host, { staticRoot: root, port: Number(process.env.ATSEQ_PORT ?? 0) });

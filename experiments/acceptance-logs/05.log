@@ -1,0 +1,37 @@
+
+> atseq@0.0.0 test:pds
+> tsx --test tests/pds.test.ts
+
+▶ real disposable PDS persistence and recovery
+  ✔ genesis and initial head are a verified empty prefix (9.602625ms)
+  ✔ provisioning refuses to replace an existing application log (22.928083ms)
+  ✔ source blobs are retained and recovered by exact CID (22.263125ms)
+  ✔ reset refuses a live or unmarked directory (0.876541ms)
+  ✔ two concurrent submissions receive one contiguous order (79.255291ms)
+  ✔ same intent and a new valid signature return original receipt (56.794125ms)
+  ✔ second local writer is refused while the lease is held (0.259458ms)
+  ✔ official PDS process crash preserves acknowledged history and blobs (566.852375ms)
+  ✔ a rejected conditional batch leaves entry and head unchanged (45.827875ms)
+  ✔ malformed commit replies cannot remove an append or provision condition (59.424167ms)
+  ✔ an unrelated repo write races the append and is reconciled (99.163ms)
+  ✔ lost HTTP response after commit resolves to one original receipt (130.131625ms)
+  ✔ a different writer process cannot acquire the same local lease (104.142958ms)
+  ✔ writer crash after commit but before acknowledgment recovers one receipt (224.429167ms)
+  ✔ writer crash after acknowledgment keeps receipt and no domain effect claim (286.97075ms)
+  ✔ XRPC rejects a foreign receipt anchor and malformed submission (23.663334ms)
+  ✔ bootstrap at a chosen head catches up without notifications (202.788625ms)
+  ✔ repository CAR contains retention references but blobs require explicit export (13.760042ms)
+  ✔ missing and tampered source references fail, then recover by exact content (42.993791ms)
+  ✔ missing or corrupted physical blob bytes never satisfy a source CID (14.646208ms)
+  ✔ a retained verified head refuses repository rollback and signed-entry corruption (106.922375ms)
+  ✔ chosen-head catch-up verifies a prefix spanning real PDS pages (223.087167ms)
+  ✔ PDS compare-and-swap excludes competing writers even with the local lease bypassed (634.42175ms)
+✔ real disposable PDS persistence and recovery (3838.872125ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4120.26825
