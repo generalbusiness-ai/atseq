@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"Corrected documentation candidate. Incorporates independent review of bootstrap state, unavailable activation dependencies, generated UI trust boundaries, and S1 references. Documentation whitespace checks pass; no spike implementation claimed.","body":{"commit":"4ab86056b021ceb5428b807278036a8563fc695a","path":"notes/README.md"}}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:4900acb57b55d055617ebe1d42f4c11f44721958","text":"Retire the unlanded draft candidate; the corrected exact-head artifact is now the review candidate."}
