@@ -1,0 +1,34 @@
+{
+  "name": "atseq",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=22.12" },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "spike:feasibility": "tsx scripts/feasibility.ts",
+    "test:protocol": "node scripts/not-implemented.mjs S1",
+    "test:pds": "node scripts/not-implemented.mjs S2",
+    "test:runtime": "node scripts/not-implemented.mjs S3",
+    "test:dynamic-apps": "node scripts/not-implemented.mjs S3",
+    "test:flows": "node scripts/not-implemented.mjs S4-S5",
+    "spike:acceptance": "node scripts/not-implemented.mjs S6",
+    "spike:report": "node scripts/not-implemented.mjs S6",
+    "dev:experiment": "vite experiments/browser --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@atproto/lexicon": "0.7.12",
+    "@inlay/core": "0.0.13",
+    "@inlay/render": "0.3.1",
+    "jsonata": "2.2.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "26.4.1",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vite": "8.2.2"
+  }
+}

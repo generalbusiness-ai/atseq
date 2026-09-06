@@ -1,10 +1,11 @@
 ---
 date: 2026-09-06
-status: implementation plan; not started
+status: adopted for implementation; S0 implemented and awaiting review; S1–S6 not started
 companion: notes/2026-09-06-atseq-architecture.md
 planned_at: 133071b
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:95a7a733307fc1d78d8de0cf32c76f9a1b0e4502
+  - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
 ---
 
 # Atseq initial spike: create, use, evolve, and replay a unique app
@@ -23,8 +24,9 @@ pending action from the old definition honestly, export the app, and rebuild
 its projection from retained inputs.
 
 The [architecture note](2026-09-06-atseq-architecture.md) is the companion design.
-This plan is self-contained for execution. The current commission is to write
-and review these notes; implementation starts under a subsequent workroom task.
+This plan is self-contained for execution. Workroom proposal #28 adopted it
+for implementation after the user's authorization. The
+[S0 result](2026-09-06-atseq-runtime-feasibility.md) records the first experiment.
 
 **Success means a small working composition**, not adoption of every candidate
 library. GitSeq supplies development-workroom tooling and architectural

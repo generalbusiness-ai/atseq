@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Atseq · runtime experiment</title>
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <main>
+    <header><a class="wordmark" href="/">atseq<span> / experiment 00</span></a><span class="badge">Local sample data</span></header>
+    <section class="intro"><p class="eyebrow">A folder over a log</p><h1>One definition.<br>A shared interpretation.</h1><p>Try a tiny app assembled from Lexicon, JSONata and an Inlay template. This first experiment runs locally in your browser.</p></section>
+    <div class="columns">
+      <section class="card" aria-labelledby="sample-title"><div class="card-heading"><h2 id="sample-title">A running total</h2><span class="badge">Sandbox</span></div><p>Record an amount to try the declared action.</p><div id="app" aria-live="polite"></div><p id="action-status" role="status">Sample actions stay here. Nothing is published.</p></section>
+      <section class="card" aria-labelledby="checks-title"><p class="eyebrow">Feasibility evidence</p><h2 id="checks-title">Same rules, both places</h2><p>The browser runs the same authored programs and validation cases as Node, including malformed and hostile inputs.</p><button id="checks">Run browser checks</button><p id="check-status" role="status">Ready to run.</p><details><summary>Inspect the definition</summary><pre id="definition"></pre></details></section>
+    </div>
+    <footer>Runtime feasibility only · Identity, PDS persistence and replay are later spike stages.</footer>
+  </main>
+  <script type="module" src="/main.ts"></script>
+</body>
+</html>

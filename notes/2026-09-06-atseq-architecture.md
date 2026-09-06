@@ -1,10 +1,11 @@
 ---
 date: 2026-09-06
-status: proposed architecture; implementation unstarted
+status: adopted for the initial spike; implementation started
 companion: notes/2026-09-06-atseq-initial-spike.md
 origin: declarative application framework discussion and reviewed design draft
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:95a7a733307fc1d78d8de0cf32c76f9a1b0e4502
+  - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
 ---
 
 # Atseq: declarative applications on atproto
