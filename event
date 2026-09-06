@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2bbbd2d3ec20252da666ae03f9032626fc84c345","text":"Merge retired a covered predecessor; the successor is at src/runtime/folder.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:361d5f9e59da4bdfa240630b838315c43b8f525b","text":"Merge retired a covered predecessor; the successor is at lexicons/test/atseq/stageDefinition.json."}
