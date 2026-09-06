@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8ff8c7c057d499be04bb1c5827a8e6feb75b5db7","text":"Merge retired a covered predecessor; the successor is at src/protocol/runtime-descriptor.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ab36d270b8e2bf07558705efc296701b7c65af4f","text":"Merge retired a covered predecessor; the successor is at notes/2026-09-06-atseq-initial-spike.md."}
