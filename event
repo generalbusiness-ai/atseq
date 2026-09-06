@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"S4 generic interaction implementation and measured evidence at b765e6b: testdata/apps/fixtures.ts.","body":{"branch":"request/spike-flows","commit":"b765e6bd7902c0042baf1c6ec98c9a85e6d02215","path":"testdata/apps/fixtures.ts"}}
+{"kind":"artifact","text":"S4 generic interaction implementation and measured evidence at b765e6b: tests/flows.test.ts.","body":{"branch":"request/spike-flows","commit":"b765e6bd7902c0042baf1c6ec98c9a85e6d02215","path":"tests/flows.test.ts"}}
