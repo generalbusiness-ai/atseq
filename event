@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5b972c82c749dbf6571724e2514be2dc56a1908a","text":"Retire my abandoned S5 candidate artifact at b070ffb for scripts/flows.ts; independent approval of fe418e8 landed as 6493a2b, which now supplies this path."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6cdab9bcc2876c6a519d73c75ae633999e579929","text":"Retire my abandoned S5 candidate artifact at b070ffb for lexicons/test/atseq/sync.json; independent approval of fe418e8 landed as 6493a2b, which now supplies this path."}
