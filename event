@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:26a6f121f6bd32c722a1857d22a0338bed67ab9d","text":"Merge retired a covered predecessor; the successor is at tests/projection.test.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2905bc0efdcba942d970bbc2a8fb5e31ee8c3738","text":"Merge retired a covered predecessor; the successor is at notes/2026-09-06-atseq-runtime-spike.md."}
