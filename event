@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:087fe1b10d02ae04690717ef7b8954929b74e9dc","text":"Merge retired a covered predecessor; the successor is at experiments/agent-authored/mending-circle-tool-desk/source/folds/return.jsonata."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:09f1ddf153a122e9d051fd2234db53c230cf7b72","text":"Merge retired a covered predecessor; the successor is at scripts/check-author.ts."}
