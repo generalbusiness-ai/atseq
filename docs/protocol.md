@@ -73,10 +73,13 @@ Decode returns owned data; proof functions copy inputs before awaiting crypto.
 CIDs identify complete canonical blocks. Signature fields are included in entry
 CIDs. Intent identity instead hashes the unsigned intent alone. The runtime
 profile has its own [descriptor](../src/protocol/runtime-descriptor.json) and
-CBOR CID, including pinned package versions and SHA-256 hashes of the admitted
-runtime sources. Tests refuse a changed source with the old descriptor. Future
-interpretation changes must get a new profile identity. Genesis and the
-loaded definition must agree on that profile; definition loading is S3 work.
+CBOR CID, including pinned package versions and SHA-256 hashes of the S0 engine
+sources. S3's [application profile](../src/runtime/application-profile.json)
+links that immutable engine and additionally pins definition admission, protocol
+verification and folder behavior. Interpreted applications pin this complete
+profile in both genesis and definition. Tests refuse changed sources with old
+descriptors; interpretation changes get a new profile identity. S1's independent
+vectors retain their original engine CID; see [source loading](definitions.md).
 
 ## Genesis and initial head
 
@@ -171,7 +174,7 @@ must not present the head as an interpreted result.
 
 ## Verification
 
-`npm run test:protocol` runs the same 73 fixtures in Node and Chromium. It
+`npm run test:protocol` runs the same 80 fixtures in Node and Chromium. It
 checks the independent CBOR/CID blocks and two distinct valid actor signatures,
 then exercises mutation, malformed encoding, key/signature, retry, chain and
 boundary cases. It also loads every framework Lexicon and validates the fixed

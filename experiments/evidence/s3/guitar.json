@@ -1,0 +1,137 @@
+{
+  "genesis": {
+    "app": "did:plc:ffffffffffffffffffffffff",
+    "$type": "test.atseq.genesis",
+    "profile": {
+      "$link": "bafyreibkra5f7k2hdcok6teum6c6ii5roiurxiflv7onf4jdn5aylp5kxq"
+    },
+    "version": 0,
+    "definition": {
+      "$link": "bafyreig6wjm265jalhhcvvk6llud62n3uhg5bodzzsq3lp5guvs72teomy"
+    },
+    "sequencerKey": "did:key:zDnaenWn9HVgmGNUoa5WmD4qkZkyxZDx4Lb1G6J2FTNmsZqRk",
+    "activationKeys": [
+      "did:key:zDnaek99RDcoTV9WiihYyuQfe2oVfW3ZLDSioMy3cPeVQQZEi"
+    ]
+  },
+  "anchor": "bafyreie2527b43ozbvzmrlvy4tvufq76w4irx6wbf5gizymcm2pqleux7i",
+  "history": {
+    "head": {
+      "$type": "test.atseq.head",
+      "version": 0,
+      "app": "did:plc:ffffffffffffffffffffffff",
+      "genesis": {
+        "$link": "bafyreie2527b43ozbvzmrlvy4tvufq76w4irx6wbf5gizymcm2pqleux7i"
+      },
+      "position": 1,
+      "entry": {
+        "$link": "bafyreieta4xi4y3n7pskcee563ctbgluzm7nf6ynhgsy2cfsqzco7okklm"
+      }
+    },
+    "entries": [
+      {
+        "$type": "test.atseq.entry",
+        "version": 0,
+        "app": "did:plc:ffffffffffffffffffffffff",
+        "genesis": {
+          "$link": "bafyreie2527b43ozbvzmrlvy4tvufq76w4irx6wbf5gizymcm2pqleux7i"
+        },
+        "position": 1,
+        "prev": {
+          "$link": "bafyreie2527b43ozbvzmrlvy4tvufq76w4irx6wbf5gizymcm2pqleux7i"
+        },
+        "signedIntent": {
+          "sig": {
+            "$bytes": "7rxVTKPdM2Lf1KyUrFYDLnmN2Nwu/TOj/+uHmjV3P7ZLBswK2RejFGlJRbW9vutBqu3+B5QF151FwUwPa1Sk+Q"
+          },
+          "$type": "test.atseq.defs#signedIntent",
+          "intent": {
+            "app": "did:plc:ffffffffffffffffffffffff",
+            "$type": "test.atseq.defs#intent",
+            "nonce": {
+              "$bytes": "06UBDFfysldwo12dS95VnA"
+            },
+            "action": "test.generatede842f788ee.guitar.data#candidate",
+            "genesis": {
+              "$link": "bafyreie2527b43ozbvzmrlvy4tvufq76w4irx6wbf5gizymcm2pqleux7i"
+            },
+            "payload": {
+              "id": "one",
+              "title": "Example guitar",
+              "pricePence": 12500
+            },
+            "version": 0,
+            "actorKey": "did:key:zDnaek99RDcoTV9WiihYyuQfe2oVfW3ZLDSioMy3cPeVQQZEi",
+            "definition": {
+              "$link": "bafyreig6wjm265jalhhcvvk6llud62n3uhg5bodzzsq3lp5guvs72teomy"
+            }
+          }
+        },
+        "sequencerKey": "did:key:zDnaenWn9HVgmGNUoa5WmD4qkZkyxZDx4Lb1G6J2FTNmsZqRk",
+        "sig": {
+          "$bytes": "soT75nyhvXy082W33ceH39VE4040Jp1ZsHIAobCB30Ma9M/mpi8kMH437IxLdM8EGrBvFSsOBJ8aFWhF03A1pw"
+        }
+      }
+    ]
+  },
+  "projection": {
+    "app": "did:plc:ffffffffffffffffffffffff",
+    "genesis": "bafyreie2527b43ozbvzmrlvy4tvufq76w4irx6wbf5gizymcm2pqleux7i",
+    "definition": "bafyreig6wjm265jalhhcvvk6llud62n3uhg5bodzzsq3lp5guvs72teomy",
+    "frontier": {
+      "$type": "test.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreieta4xi4y3n7pskcee563ctbgluzm7nf6ynhgsy2cfsqzco7okklm"
+      }
+    },
+    "state": {
+      "candidates": [
+        {
+          "id": "one",
+          "pricePence": 12500,
+          "title": "Example guitar"
+        }
+      ],
+      "selected": ""
+    },
+    "outcomes": [
+      {
+        "position": 1,
+        "entry": "bafyreieta4xi4y3n7pskcee563ctbgluzm7nf6ynhgsy2cfsqzco7okklm",
+        "intent": "bafyreiaeiqcminpiqw2k47xh3u5rowz23jk46ryz3af6anzhs7ija4ky2y",
+        "outcome": {
+          "$type": "test.atseq.defs#effective"
+        }
+      }
+    ]
+  },
+  "query": {
+    "head": {
+      "app": "did:plc:ffffffffffffffffffffffff",
+      "$type": "test.atseq.head",
+      "entry": {
+        "$link": "bafyreieta4xi4y3n7pskcee563ctbgluzm7nf6ynhgsy2cfsqzco7okklm"
+      },
+      "genesis": {
+        "$link": "bafyreie2527b43ozbvzmrlvy4tvufq76w4irx6wbf5gizymcm2pqleux7i"
+      },
+      "version": 0,
+      "position": 1
+    },
+    "frontier": {
+      "$type": "test.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreieta4xi4y3n7pskcee563ctbgluzm7nf6ynhgsy2cfsqzco7okklm"
+      }
+    },
+    "result": {
+      "$type": "test.atseq.defs#queryAvailable",
+      "value": {
+        "count": 1,
+        "selected": ""
+      }
+    }
+  }
+}

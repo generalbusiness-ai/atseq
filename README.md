@@ -5,14 +5,13 @@ a log, with atproto as the retained substrate. Apps declare Lexicon schemas,
 JSONata behavior and views. GitSeq and Tailapps are architectural precursors;
 neither is a product dependency.
 
-The independently reviewed **S0 runtime baseline and S1 protocol are landed**.
-They provide bounded execution, canonical encoding, local signing, history
-verification and retry identity. **S2 persistence** now
-passes real-PDS recovery tests and is awaiting review. The sandbox still uses
-local sample data; generic interaction, activation and export remain later
-stages. See the [design](notes/2026-09-06-atseq-architecture.md),
+The independently reviewed **S0 engine, S1 protocol and S2 PDS persistence are
+landed**. **S3 source loading and interpretation** now pass Node/browser and
+late-loading gates and await review. Generic human/agent interaction, compatible
+activation and export remain later stages. See the
+[design](notes/2026-09-06-atseq-architecture.md),
 [plan](notes/2026-09-06-atseq-initial-spike.md) and
-[measured S0 result](notes/2026-09-06-atseq-runtime-feasibility.md).
+[S3 result](notes/2026-09-06-atseq-runtime-spike.md).
 
 ## Try the experiment
 
@@ -75,7 +74,21 @@ write conflicts, crash recovery and source retention, then stops its services.
 See the [host contract](docs/pds-host.md) and
 [S2 result](notes/2026-09-06-atseq-pds-spike.md). Rerun evidence goes to
 `experiments/generated/pds-results.json`; the candidate retains a copy at
-`experiments/pds.json`. S3–S6 commands still exit nonzero with “not implemented”.
+`experiments/pds.json`.
+
+## Reproduce S3
+
+```sh
+npm run test:runtime
+npm run test:dynamic-apps
+```
+
+The source loader uses a Lexicon manifest and standard CAR transport. The
+folder applies verified entries and exposes queries at their exact frontier.
+Two unrelated definitions are generated after a generic host process starts,
+then loaded without rebuilding it. See the [source contract](docs/definitions.md)
+and [S3 result](notes/2026-09-06-atseq-runtime-spike.md). S4–S6 commands still exit
+nonzero with “not implemented”.
 
 ## Current boundaries
 

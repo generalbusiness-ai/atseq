@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: S2 review corrections implemented; gate passes; awaiting fresh independent review
+status: S2 independently approved and landed
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
@@ -13,6 +13,11 @@ provisioning, conditional entry/head batches, one local writer lease, receipt
 lookup, verified bootstrap/catch-up, and retained source bytes. Local XRPC
 submit and receipt methods share the authored framework Lexicons. The
 [host contract and reproduction steps](../docs/pds-host.md) explain the limits.
+
+The independent reviewer approved corrected candidate
+`70f4c89d517fad69724b12caa76d1425ef9564cf`; it landed at
+`71d912ec7dea238f8709d336c5c988d035ceb18f` after both required corrections were
+verified. Review report: `603c3301b0b934b60f44c9d379eeb755ed2d35d1` in this workroom.
 
 ## Measured result
 
