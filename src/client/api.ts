@@ -1,12 +1,14 @@
 import { Lexicons, jsonToLex, lexToJson, type LexiconDoc } from '@atproto/lexicon';
 import { frameworkLexicons } from '../protocol/schemas.ts';
+import compareDefinition from '../../lexicons/test/atseq/compareDefinition.json';
+import stageDefinition from '../../lexicons/test/atseq/stageDefinition.json';
 import readDraft from '../../lexicons/test/atseq/readDraft.json';
 import list from '../../lexicons/test/atseq/list.json';
 import sync from '../../lexicons/test/atseq/sync.json';
 import validateDraft from '../../lexicons/test/atseq/validateDraft.json';
 import preview from '../../lexicons/test/atseq/preview.json';
 
-export const serviceSchemas = new Lexicons([...structuredClone(frameworkLexicons), list, sync, validateDraft, preview, readDraft] as LexiconDoc[]);
+export const serviceSchemas = new Lexicons([...structuredClone(frameworkLexicons), list, sync, validateDraft, preview, readDraft, compareDefinition, stageDefinition] as LexiconDoc[]);
 export const BODY_LIMIT = 32 * 1024 * 1024;
 export async function responseBytes(response: Response, limit = BODY_LIMIT) {
   const reader = response.body?.getReader(), chunks: Uint8Array[] = []; let size = 0;

@@ -38,7 +38,10 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       await a.goto(preview.previewUrl); await expect(a.getByRole('heading', { name: 'Weekend guitar search', exact: true })).toBeVisible();
       assert.equal((await api.call('list')).apps.length, 0);
       await expect(a.getByText('Draft · only here')).toBeVisible();
-      await a.getByRole('button', { name: 'Try sample action', exact: true }).count();
+      await a.getByRole('button', { name: 'Add candidate', exact: true }).click();
+      await a.getByRole('textbox', { name: 'id', exact: true }).fill('sample'); await a.getByRole('textbox', { name: 'title', exact: true }).fill('Sample only'); await a.getByRole('spinbutton', { name: 'pricePence', exact: true }).fill('9999');
+      await a.getByRole('button', { name: 'Try sample action', exact: true }).click(); await expect(a.getByText('Items: 1', { exact: true })).toBeVisible();
+      assert.equal((await api.call('list')).apps.length, 0);
     });
     await check('explicit identity and publication create an app once', async () => {
       await a.getByRole('button', { name: 'Start this app', exact: true }).click();
@@ -74,7 +77,11 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       // The page itself comes from the host in S4; cached inputs are persisted.
       // Reopen online, block submission, and inspect retained queue before retry.
       await b.route('**/xrpc/test.atseq.submit', route => route.abort()); await second.setOffline(false);
+      await b.route('**/xrpc/test.atseq.sync?**', route => route.abort());
       await b.reload(); await expect(b.getByText('Queued on device', { exact: true })).toBeVisible();
+      await expect(b.getByRole('heading', { name: 'Pending preview', exact: true }).locator('..').locator('pre')).toContainText('First guitar');
+      await expect(b.getByRole('status')).toContainText('Showing saved state');
+      await b.unroute('**/xrpc/test.atseq.sync?**');
       await b.unroute('**/xrpc/test.atseq.submit'); await b.getByRole('button', { name: 'Retry pending actions', exact: true }).click();
       await expect(b.getByText('Applied', { exact: true })).toBeVisible();
       assert.equal((await api.call('sync', invitation!)).entries.length, 1);
@@ -146,16 +153,22 @@ test('two browser identities and the JSON CLI use generic participation flows', 
         await page.goto(`${service.url}/#${new URLSearchParams(hostile)}`); await expect(page.getByText(script, { exact: false })).toBeVisible();
         await page.getByRole('button', { name: 'Create identity', exact: true }).click();
         await page.getByRole('textbox', { name: 'Display name' }).fill('Hostile-view reader'); await page.getByRole('button', { name: 'Continue', exact: true }).click();
+        await expect(page.getByText('Hostile-view reader · this device', { exact: true })).toBeVisible();
         await page.reload(); await expect(page.getByText(script, { exact: false })).toBeVisible();
         assert.equal(await page.evaluate(() => (window as any).hostileRan), undefined); assert.equal(await page.evaluate(() => (window as any).signatures), 0);
         assert.deepEqual(external, []); assert.equal((await api.call('sync', hostile)).entries.length, 0);
+        // Positive control: the counter must observe a deliberate real Save.
+        await page.getByRole('button', { name: 'Add candidate', exact: true }).click();
+        await page.getByRole('textbox', { name: 'id', exact: true }).fill('positive'); await page.getByRole('textbox', { name: 'title', exact: true }).fill('Deliberate save'); await page.getByRole('spinbutton', { name: 'pricePence', exact: true }).fill('100');
+        await page.getByRole('button', { name: 'Save action', exact: true }).click(); await expect(page.getByText('Applied', { exact: true })).toBeVisible();
+        assert.equal(await page.evaluate(() => (window as any).signatures), 1);
         // Unknown auto-submit properties cannot acquire the controller's signer.
         template.body.node.props.children[1].props.autoSubmit = true;
         const automatic = await SourceBundle.pack(fixture.manifest, { ...files, 'view.json': new TextEncoder().encode(JSON.stringify(view)) });
         const auto = await api.call('create', { source: bytes(await automatic.write()), activationKeys: original.genesis.activationKeys }, randomUUID());
         const target = { app: auto.genesis.app, genesis: auto.genesisCid.$link };
         await page.goto(`${service.url}/#${new URLSearchParams(target)}`); await expect(page.getByText(/View unavailable: Unsupported properties/)).toBeVisible();
-        assert.equal(await page.evaluate(() => (window as any).signatures), 0); assert.equal((await api.call('sync', target)).entries.length, 0); assert.deepEqual(external, []);
+        assert.equal(await page.evaluate(() => (window as any).signatures), 1); assert.equal((await api.call('sync', target)).entries.length, 0); assert.deepEqual(external, []);
       } finally { await reader.close(); }
     });
   } finally { await recordFlowEvidence('participation', results, { expectedCases: 10, browserVersion: browser.version(), isolatedBrowserIdentities: 2, separateCliKey: true }); await browser.close(); await service.close(); await env.close(); await resetDisposable(env.dir); }

@@ -50,9 +50,11 @@ export async function startApplicationService(host: ApplicationHost, options: { 
         case 'test.atseq.readDraft': link(input.definition); output = { source: bytes(await readFile(resolve(host.directory, 'drafts', input.definition + '.car'))) }; break;
         case 'test.atseq.create': output = await host.create(String(req.headers['idempotency-key'] ?? ''), fromBytes(input.source), input.activationKeys); break;
         case 'test.atseq.describe': output = await host.describe(input.app, input.genesis); break;
-        case 'test.atseq.sync': { const result = await host.sync(input.app, input.genesis); output = { ...result, source: bytes(result.source) }; break; }
+        case 'test.atseq.sync': { const result = await host.sync(input.app, input.genesis); output = { ...result, source: bytes(result.source), candidates: result.candidates.map(candidate => ({ ...candidate, source: bytes(candidate.source) })) }; break; }
+        case 'test.atseq.compareDefinition': output = await host.compareDefinition(input.app, input.genesis, input.expected, fromBytes(input.source)); break;
+        case 'test.atseq.stageDefinition': output = await host.stageDefinition(input.app, input.genesis, input.expected, fromBytes(input.source)); break;
         case 'test.atseq.submit': output = await host.submit(fromBytes(input.block)); break;
-        case 'test.atseq.query': output = await host.query(input.app, input.genesis, input.name, JSON.parse(input.params)); break;
+        case 'test.atseq.query': { let params; try { params = JSON.parse(input.params); } catch { throw new ProtocolError('input', 'Query params must be valid JSON'); } output = await host.query(input.app, input.genesis, input.name, params); break; }
         case 'test.atseq.receipt': output = await host.receipt(input.app, input.genesis, input.intent); if (!output) { send(404, { error: 'Unavailable', message: 'No verified receipt for this intent' }); return; } break;
         default: throw new ProtocolError('input', 'Unknown method');
       }

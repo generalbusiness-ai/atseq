@@ -4,7 +4,9 @@ import { randomUUID } from 'node:crypto';
 import { fromBytes } from '@atcute/cbor';
 import { AtseqClient } from '../client/api.ts';
 import { createIdentity, prepareIntent, type Identity } from '../client/identity.ts';
-import { SourceBundle } from '../definition/source.ts';
+import { ACTIVATE, activationPayload } from '../definition/control.ts';
+import { Folder } from '../runtime/folder.ts';
+import { SourceBundle, SourcePool } from '../definition/source.ts';
 import { LoadedDefinition } from '../definition/load.ts';
 import { Anchor, verifyIntent } from '../protocol/log.ts';
 import { bytes, contentCid, decodeBlock } from '../protocol/wire.ts';
@@ -44,6 +46,9 @@ async function pack(directory: string): Promise<SourceBundle> {
   await walk(root); return SourceBundle.pack(manifest, files);
 }
 export async function execute(input: any): Promise<unknown> {
+  const prepareOnly = input.operation === 'prepare';
+  if (prepareOnly) input = { ...input, operation: 'submit' };
+  if (input.operation === 'activate') input = { ...input, operation: 'submit', action: ACTIVATE, payload: { expected: input.definition, definition: input.candidate, closure: input.closure } };
   if (input.operation === 'identity') {
     const identity = await createOnce(resolve(input.keyFile), await createIdentity(input.name));
     return { name: identity.name, publicKey: identity.publicKey };
@@ -60,6 +65,8 @@ export async function execute(input: any): Promise<unknown> {
     case 'list': return api.call('list');
     case 'describe': return api.call('describe', target);
     case 'validate': return api.call('validateDraft', { source: bytes(await readFile(input.source)) });
+    case 'compare': return api.call('compareDefinition', { ...target, expected: input.definition, source: bytes(await readFile(input.source)) });
+    case 'stage': return api.call('stageDefinition', { ...target, expected: input.definition, source: bytes(await readFile(input.source)) });
     case 'preview': return api.call('preview', { source: bytes(await readFile(input.source)), ...(input.action ? { action: input.action, payload: input.payload } : {}), ...(input.state !== undefined ? { state: input.state } : {}) });
     case 'create': {
       const identity = await privateJson(input.keyFile) as Identity;
@@ -73,10 +80,23 @@ export async function execute(input: any): Promise<unknown> {
       if (!pending) {
         const retained = await api.call('sync', target), source = await SourceBundle.read(fromBytes(retained.source));
         const anchor = await Anchor.from(retained.genesis, target.genesis);
-        if (anchor.genesis.app !== target.app || source.root !== input.definition) throw new Error('Definition changed; review before signing a new intent');
-        const definition = await LoadedDefinition.load(source.root, source);
-        if (!definition.manifest.actions.some(a => a.ref === input.action)) throw new Error('Unknown action');
-        definition.schemas.validate(input.action, input.payload);
+        if (anchor.genesis.app !== target.app || source.root !== anchor.genesis.definition.$link) throw new Error('Source differs from the pinned invitation');
+        await LoadedDefinition.load(source.root, source);
+        const pool = new SourcePool(); await pool.add(source);
+        for (const candidate of retained.candidates ?? []) {
+          const bundle = await SourceBundle.read(fromBytes(candidate.source)); if (bundle.root !== candidate.definition) throw new Error('Candidate source identity differs'); await pool.add(bundle);
+        }
+        const folder = await Folder.open(anchor, pool); const snapshot = await folder.catchUp(retained.head, retained.entries);
+        if (snapshot.stalled) throw new Error('History is paused; restore its source before signing a new action');
+        const definition = folder.activeDefinition();
+        if (definition.cid !== input.definition) throw new Error('Definition changed; review before signing a new intent');
+        if (input.action === ACTIVATE) {
+          const control = activationPayload(input.payload);
+          if (control.expected !== definition.cid || !anchor.genesis.activationKeys.includes(identity.publicKey)) throw new Error('Identity has no activation grant for this definition');
+        } else {
+          if (!definition.manifest.actions.some(a => a.ref === input.action)) throw new Error('Unknown action');
+          definition.schemas.validate(input.action, input.payload);
+        }
         const prepared = await prepareIntent(identity, target, input.definition, input.action, input.payload);
         pending = await createOnce(path, { requested, ...prepared });
       }
@@ -86,6 +106,7 @@ export async function execute(input: any): Promise<unknown> {
       const verified = await verifyIntent(decodeBlock(new Uint8Array(pending.block)), await Anchor.from(described.genesis, target.genesis));
       const intent = verified.signed.intent;
       if (verified.intentCid !== pending.cid || await contentCid(verified.signed) !== await contentCid(pending.signed) || intent.actorKey !== requested.actorKey || intent.definition.$link !== requested.definition || intent.action !== requested.action || await contentCid(intent.payload) !== await contentCid(requested.payload)) throw new Error('Retained intent bytes differ from their recorded work');
+      if (prepareOnly) return { intent: pending.cid, intentFile: path, status: 'prepared' };
       return { intent: pending.cid, ...await api.call('submit', { block: bytes(new Uint8Array(pending.block)) }) };
     }
     case 'query': return api.call('query', { ...target, name: input.name, params: JSON.stringify(input.params ?? {}) });

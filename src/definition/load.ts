@@ -1,3 +1,4 @@
+import { ACTIVATE } from './control.ts';
 import { Lexicons, jsonToLex, type LexiconDoc } from '@atproto/lexicon';
 import { fromString, CODEC_DCBOR, CODEC_RAW } from '@atcute/cid';
 import { MissingError } from '@inlay/render';
@@ -77,6 +78,7 @@ export class LoadedDefinition {
     if (manifest.profile.$link !== await applicationRuntimeCid()) fail('unsupported_runtime', 'Definition requires a different runtime profile');
     unique(manifest.files.map(f => f.path), 'source path'); unique(manifest.lexicons, 'Lexicon path');
     unique(manifest.actions.map(a => a.ref), 'action'); unique(manifest.queries.map(q => q.name), 'query name'); unique(manifest.views.map(v => v.name), 'view name');
+    if (manifest.actions.some(action => action.ref === ACTIVATE)) fail('definition_binding', 'The activation control action cannot be rebound by application source');
     const files = new Map<string, Uint8Array>(); let size = rootBytes.length;
     for (const file of manifest.files) {
       if (!/^[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(file.path) || file.path.split('/').some(p => !p || p === '.' || p === '..')) fail('definition_path', `Invalid local source path: ${file.path}`);

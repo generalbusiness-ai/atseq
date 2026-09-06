@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: S4 participation gate passes; awaiting independent review
+status: S4 independently approved and landed
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
@@ -76,3 +76,9 @@ subscriptions, token-refresh daemon, fast projection restoration or disconnected
 shell bootstrap. It retains full-prefix verification and the reviewed bounded
 runtime. S5 adds compatible activation and review of stale pending work; S6
 adds complete archives, offline bootstrap/rebuild, chart export and measurements.
+
+S4 candidate `b765e6bd7902c0042baf1c6ec98c9a85e6d02215` was independently
+approved and landed at `6477b73f3be27880fd592f7015b4c7dcb1eda74a`. The reviewer
+reproduced all 242 tests and all retained evidence hashes. S5 strengthens the
+sample preview, cached-input and hostile-rendering checks and preserves final
+outbox outcomes when a later transport reply arrives.

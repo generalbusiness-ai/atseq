@@ -42,6 +42,11 @@ export class SourceBundle implements SourceReader {
       throw new InterpretationError('source_car', String((error as Error).message));
     }
   }
+  static async collect(root: string, ids: string[], reader: SourceReader): Promise<SourceBundle> {
+    const blocks = new Map<string, Uint8Array>();
+    for (const cid of ids) blocks.set(cid, await readSource(reader, cid));
+    return SourceBundle.read(await new SourceBundle(root, blocks).write());
+  }
   async get(cid: string): Promise<Uint8Array> {
     const block = this.blocks.get(cid);
     if (!block) throw new InterpretationError('content_missing', `Source is not in the retained bundle: ${cid}`);
@@ -68,5 +73,21 @@ export class SourceBundle implements SourceReader {
     const bundle = new SourceBundle(root, blocks);
     // Apply the same transport checks to author-created and imported bundles.
     return SourceBundle.read(await bundle.write());
+  }
+}
+
+/** One stable reader per app; new verified source bundles can arrive after opening. */
+export class SourcePool implements SourceReader {
+  private readonly blocks = new Map<string, Uint8Array>();
+  async add(bundle: SourceBundle): Promise<void> {
+    const next = new Map(this.blocks);
+    for (const cid of bundle.identities()) next.set(cid, await bundle.get(cid));
+    if (next.size > 2048 || [...next.values()].reduce((size, block) => size + block.length, 0) > 16 * 1024 * 1024) throw new InterpretationError('source_pool_limit', 'Retained application source exceeds the local 16 MiB / 2048-block limit');
+    this.blocks.clear(); for (const [cid, bytes] of next) this.blocks.set(cid, bytes);
+  }
+  async get(cid: string): Promise<Uint8Array> {
+    const value = this.blocks.get(cid);
+    if (!value) throw new InterpretationError('content_missing', `Retained source is unavailable: ${cid}`);
+    return new Uint8Array(value);
   }
 }
