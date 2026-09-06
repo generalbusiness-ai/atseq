@@ -31,7 +31,7 @@ export async function chartFixture(namespace = 'test.rainfall') {
   const files = {
     'schemas/data.json': json(schema), 'schemas/summary.json': json(summary), 'initial.json': json({ readings: [] }),
     'record.jsonata': text('{"decision":"effective","state":{"readings":$append(state.readings,act)}}'),
-    'summary.jsonata': text('{"count":$count(state.readings),"total":$sum(state.readings.millimetres)}'),
+    'summary.jsonata': text('{"count":$count(state.readings),"total":($count(state.readings) = 0 ? 0 : $sum(state.readings.millimetres))}'),
     'view.json': json(view(`${namespace}.data#record`, 'Record rainfall')),
   };
   return { manifest, files, bundle: await SourceBundle.pack(manifest, files), action: `${namespace}.data#record` };

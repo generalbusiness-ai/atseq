@@ -1,0 +1,77 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.sync",
+  "description": "Local spike host method; see docs/interaction.md.",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "required": [
+          "app",
+          "genesis"
+        ],
+        "properties": {
+          "app": {
+            "type": "string",
+            "format": "did",
+            "maxLength": 256
+          },
+          "genesis": {
+            "type": "string",
+            "format": "cid"
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "genesis",
+            "genesisCid",
+            "head",
+            "entries",
+            "source"
+          ],
+          "properties": {
+            "genesis": {
+              "type": "ref",
+              "ref": "test.atseq.genesis#value"
+            },
+            "genesisCid": {
+              "type": "string",
+              "format": "cid"
+            },
+            "head": {
+              "type": "ref",
+              "ref": "test.atseq.head#value"
+            },
+            "entries": {
+              "type": "array",
+              "maxLength": 20000,
+              "items": {
+                "type": "unknown"
+              }
+            },
+            "source": {
+              "type": "bytes",
+              "maxLength": 524288
+            }
+          }
+        }
+      },
+      "errors": [
+        {
+          "name": "InvalidRequest"
+        },
+        {
+          "name": "Unavailable"
+        },
+        {
+          "name": "VerificationFailed"
+        }
+      ]
+    }
+  }
+}

@@ -59,7 +59,11 @@ The immutable [engine profile](runtime-profile.md) applies to every program.
 the app DID, entry position, actor key and current definition CID. An action
 returns either `{decision:"effective", state:...}` or
 `{decision:"ineffective", reason:..., message?:...}`. Effective state must
-match its pinned Lexicon. An ineffective action preserves the prior state.
+match its pinned Lexicon. Lexicon objects are open: undeclared payload fields
+pass through validation and can enter state if a fold copies them. Authors
+should construct intended state fields explicitly; copying arbitrary payloads
+can consume the state cap and stall interpretation. An ineffective action
+preserves the prior state.
 
 Unknown actions, invalid action inputs and intents naming an old definition
 produce explicit ineffective outcomes. Malformed program output, invalid

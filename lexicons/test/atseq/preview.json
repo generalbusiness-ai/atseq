@@ -1,0 +1,85 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.preview",
+  "description": "Local spike host method; see docs/interaction.md.",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "source"
+          ],
+          "properties": {
+            "source": {
+              "type": "bytes",
+              "maxLength": 524288
+            },
+            "action": {
+              "type": "string",
+              "maxLength": 256
+            },
+            "payload": {
+              "type": "unknown"
+            },
+            "state": {
+              "type": "unknown"
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "definition",
+            "state",
+            "outcome",
+            "scope",
+            "previewUrl",
+            "views"
+          ],
+          "properties": {
+            "definition": {
+              "type": "unknown"
+            },
+            "state": {
+              "type": "unknown"
+            },
+            "outcome": {
+              "type": "unknown"
+            },
+            "scope": {
+              "type": "string",
+              "const": "local-preview"
+            },
+            "previewUrl": {
+              "type": "string",
+              "format": "uri"
+            },
+            "views": {
+              "type": "unknown"
+            }
+          },
+          "nullable": [
+            "outcome"
+          ]
+        }
+      },
+      "errors": [
+        {
+          "name": "InvalidRequest"
+        },
+        {
+          "name": "Unavailable"
+        },
+        {
+          "name": "VerificationFailed"
+        }
+      ]
+    }
+  }
+}
