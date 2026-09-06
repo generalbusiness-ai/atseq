@@ -1,0 +1,673 @@
+{
+  "passed": true,
+  "measuredAt": "2026-09-06T13:51:27.918Z",
+  "nodeVersion": "v26.8.1",
+  "browserVersion": "153.0.8010.12",
+  "node": [
+    {
+      "name": "independent CBOR and CID: profile",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: definition",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: genesis",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: intent",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: signed",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: entry",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: head",
+      "passed": true
+    },
+    {
+      "name": "runtime descriptor CID matches independent vector",
+      "passed": true
+    },
+    {
+      "name": "independent actor signature verifies",
+      "passed": true
+    },
+    {
+      "name": "independent sequencer signature verifies",
+      "passed": true
+    },
+    {
+      "name": "two valid signature encodings share content identity and receipt",
+      "passed": true
+    },
+    {
+      "name": "changed intent app rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent genesis rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent definition rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent payload rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent extra payload field rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent nonce rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent action rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent actor key rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent version rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent domain rejected",
+      "passed": true
+    },
+    {
+      "name": "unknown framework fields are refused, never stripped",
+      "passed": true
+    },
+    {
+      "name": "genesis anchor cannot be replaced",
+      "passed": true
+    },
+    {
+      "name": "duplicate genesis activation keys rejected",
+      "passed": true
+    },
+    {
+      "name": "signature bit flip rejected",
+      "passed": true
+    },
+    {
+      "name": "high-S variant rejected",
+      "passed": true
+    },
+    {
+      "name": "wire rejects duplicate map key",
+      "passed": true
+    },
+    {
+      "name": "wire rejects noncanonical key order",
+      "passed": true
+    },
+    {
+      "name": "wire rejects long integer encoding",
+      "passed": true
+    },
+    {
+      "name": "wire rejects float encoding of integer",
+      "passed": true
+    },
+    {
+      "name": "wire rejects negative zero",
+      "passed": true
+    },
+    {
+      "name": "wire rejects indefinite array",
+      "passed": true
+    },
+    {
+      "name": "wire rejects trailing bytes",
+      "passed": true
+    },
+    {
+      "name": "wire rejects non-string map key",
+      "passed": true
+    },
+    {
+      "name": "wire rejects unsupported tag",
+      "passed": true
+    },
+    {
+      "name": "wire rejects invalid UTF-8",
+      "passed": true
+    },
+    {
+      "name": "wire rejects truncated string",
+      "passed": true
+    },
+    {
+      "name": "wire rejects huge truncated array",
+      "passed": true
+    },
+    {
+      "name": "wire rejects deep nesting",
+      "passed": true
+    },
+    {
+      "name": "wire block byte boundary",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects undefined field",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects negative zero value",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects malformed Unicode key",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects malformed Unicode value",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects extra bytes member",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects noncanonical base64",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects padded base64",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects extra CID member",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects reserved data-model field",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects unsafe integer",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects float value",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects invalid CID",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 map ordering and absent/null remain distinct",
+      "passed": true
+    },
+    {
+      "name": "live signing verifies without a second SHA-256",
+      "passed": true
+    },
+    {
+      "name": "wrong signing key rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong curve rejected",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid secp256k1 actor signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects an uncompressed P-256 did:key with a valid signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign sequencer",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign app",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign genesis",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign app is rejected",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign genesis is rejected",
+      "passed": true
+    },
+    {
+      "name": "history follows signed positions, not arrival order",
+      "passed": true
+    },
+    {
+      "name": "empty genesis prefix",
+      "passed": true
+    },
+    {
+      "name": "missing history cannot appear current",
+      "passed": true
+    },
+    {
+      "name": "duplicate positions rejected",
+      "passed": true
+    },
+    {
+      "name": "altered predecessor invalidates proof",
+      "passed": true
+    },
+    {
+      "name": "valid signature on wrong predecessor still rejected",
+      "passed": true
+    },
+    {
+      "name": "valid signature on skipped position still rejected",
+      "passed": true
+    },
+    {
+      "name": "altered chosen head rejected",
+      "passed": true
+    },
+    {
+      "name": "position zero is genesis only",
+      "passed": true
+    },
+    {
+      "name": "entry keys have fixed width and safe bounds",
+      "passed": true
+    },
+    {
+      "name": "conflicting content under retained nonce is rejected",
+      "passed": true
+    },
+    {
+      "name": "same retry identity cannot be recorded twice",
+      "passed": true
+    },
+    {
+      "name": "nonce exact width",
+      "passed": true
+    },
+    {
+      "name": "signature exact width",
+      "passed": true
+    },
+    {
+      "name": "action payload exact JSON byte boundary",
+      "passed": true
+    },
+    {
+      "name": "framework validation retains unknown action content",
+      "passed": true
+    },
+    {
+      "name": "fixed XRPC schemas load and validate through Lexicon",
+      "passed": true
+    }
+  ],
+  "browser": [
+    {
+      "name": "independent CBOR and CID: profile",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: definition",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: genesis",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: intent",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: signed",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: entry",
+      "passed": true
+    },
+    {
+      "name": "independent CBOR and CID: head",
+      "passed": true
+    },
+    {
+      "name": "runtime descriptor CID matches independent vector",
+      "passed": true
+    },
+    {
+      "name": "independent actor signature verifies",
+      "passed": true
+    },
+    {
+      "name": "independent sequencer signature verifies",
+      "passed": true
+    },
+    {
+      "name": "two valid signature encodings share content identity and receipt",
+      "passed": true
+    },
+    {
+      "name": "changed intent app rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent genesis rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent definition rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent payload rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent extra payload field rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent nonce rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent action rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent actor key rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent version rejected",
+      "passed": true
+    },
+    {
+      "name": "changed intent domain rejected",
+      "passed": true
+    },
+    {
+      "name": "unknown framework fields are refused, never stripped",
+      "passed": true
+    },
+    {
+      "name": "genesis anchor cannot be replaced",
+      "passed": true
+    },
+    {
+      "name": "duplicate genesis activation keys rejected",
+      "passed": true
+    },
+    {
+      "name": "signature bit flip rejected",
+      "passed": true
+    },
+    {
+      "name": "high-S variant rejected",
+      "passed": true
+    },
+    {
+      "name": "wire rejects duplicate map key",
+      "passed": true
+    },
+    {
+      "name": "wire rejects noncanonical key order",
+      "passed": true
+    },
+    {
+      "name": "wire rejects long integer encoding",
+      "passed": true
+    },
+    {
+      "name": "wire rejects float encoding of integer",
+      "passed": true
+    },
+    {
+      "name": "wire rejects negative zero",
+      "passed": true
+    },
+    {
+      "name": "wire rejects indefinite array",
+      "passed": true
+    },
+    {
+      "name": "wire rejects trailing bytes",
+      "passed": true
+    },
+    {
+      "name": "wire rejects non-string map key",
+      "passed": true
+    },
+    {
+      "name": "wire rejects unsupported tag",
+      "passed": true
+    },
+    {
+      "name": "wire rejects invalid UTF-8",
+      "passed": true
+    },
+    {
+      "name": "wire rejects truncated string",
+      "passed": true
+    },
+    {
+      "name": "wire rejects huge truncated array",
+      "passed": true
+    },
+    {
+      "name": "wire rejects deep nesting",
+      "passed": true
+    },
+    {
+      "name": "wire block byte boundary",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects undefined field",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects negative zero value",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects malformed Unicode key",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects malformed Unicode value",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects extra bytes member",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects noncanonical base64",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects padded base64",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects extra CID member",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects reserved data-model field",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects unsafe integer",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects float value",
+      "passed": true
+    },
+    {
+      "name": "wire input rejects invalid CID",
+      "passed": true
+    },
+    {
+      "name": "UTF-8 map ordering and absent/null remain distinct",
+      "passed": true
+    },
+    {
+      "name": "live signing verifies without a second SHA-256",
+      "passed": true
+    },
+    {
+      "name": "wrong signing key rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong curve rejected",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid secp256k1 actor signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects an uncompressed P-256 did:key with a valid signature",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign sequencer",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign app",
+      "passed": true
+    },
+    {
+      "name": "verify rejects a valid entry proof for a foreign genesis",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign app is rejected",
+      "passed": true
+    },
+    {
+      "name": "head targeting a foreign genesis is rejected",
+      "passed": true
+    },
+    {
+      "name": "history follows signed positions, not arrival order",
+      "passed": true
+    },
+    {
+      "name": "empty genesis prefix",
+      "passed": true
+    },
+    {
+      "name": "missing history cannot appear current",
+      "passed": true
+    },
+    {
+      "name": "duplicate positions rejected",
+      "passed": true
+    },
+    {
+      "name": "altered predecessor invalidates proof",
+      "passed": true
+    },
+    {
+      "name": "valid signature on wrong predecessor still rejected",
+      "passed": true
+    },
+    {
+      "name": "valid signature on skipped position still rejected",
+      "passed": true
+    },
+    {
+      "name": "altered chosen head rejected",
+      "passed": true
+    },
+    {
+      "name": "position zero is genesis only",
+      "passed": true
+    },
+    {
+      "name": "entry keys have fixed width and safe bounds",
+      "passed": true
+    },
+    {
+      "name": "conflicting content under retained nonce is rejected",
+      "passed": true
+    },
+    {
+      "name": "same retry identity cannot be recorded twice",
+      "passed": true
+    },
+    {
+      "name": "nonce exact width",
+      "passed": true
+    },
+    {
+      "name": "signature exact width",
+      "passed": true
+    },
+    {
+      "name": "action payload exact JSON byte boundary",
+      "passed": true
+    },
+    {
+      "name": "framework validation retains unknown action content",
+      "passed": true
+    },
+    {
+      "name": "fixed XRPC schemas load and validate through Lexicon",
+      "passed": true
+    }
+  ],
+  "sourceHashes": {
+    "package.json": "8e839c1e68dc75ee728109eb3296c1efdcd74f739e2d4459f146b945c4f8e28e",
+    "package-lock.json": "2b0d96716e8c19632b2b76e67d1a629d9dda97050c41e45dc7324210c1d7e3cf",
+    "tests/protocol.test.ts": "c77e5515b73f3e57af92ba85994903bde08c2ace8d9dfa9a1f10d0735eba6a5d",
+    "tests/vectors/protocol-v0.json": "dc398067268956cc5ac1ae3b100a822ebafaac90995bdd17860126a200431a0f",
+    "scripts/vectors/generate.mjs": "85a58d3f110898334edc2c12413116cace78ee84a43ffbc86af5e69c0cb751ea",
+    "experiments/protocol-corpus.ts": "79fb7b00a4f6727c7d9ac0a72fd5e4ad836b69f9cca37a928e80ef82b6722042",
+    "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
+    "src/protocol/runtime-descriptor.json": "33808c464378b3274b70f1c93580ab6d4482a342abd08856c940578c3c8cb3cb",
+    "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
+    "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+    "lexicons/test/atseq/create.json": "7330be0dbdb764a133061be715c4cf88fd21994d92197e2659b7f93eca43690a",
+    "lexicons/test/atseq/defs.json": "47eef9c63820daa5d5968af9de30d23b2256aef549fa98392a5facfe06310e36",
+    "lexicons/test/atseq/describe.json": "027e63d410d80af27a709733aa7dabbc548145ff3b04cfbd949241b1d7a7dcbc",
+    "lexicons/test/atseq/entry.json": "3f62adf0ef715eb456d890b9ddbb85173a98b73a4fe6b3c0451d05553de8b40e",
+    "lexicons/test/atseq/genesis.json": "cf7971d53796155b6cd1db31ca3195c12f80b704146b7a02d979557e2a3d2357",
+    "lexicons/test/atseq/head.json": "eac851adb419ac28f5bb89ab057743b2f6611d5aa041ea3bdbda6dad09f7d296",
+    "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
+    "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
+    "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
+    "experiments/protocol-browser/index.html": "68a1a64a6f9589956962d59527606fde619ca18568914ae9926d525e2f393130",
+    "experiments/protocol-browser/main.ts": "b3f8528f7c81a1e0a970c1c0686e8b17e024394ebcc6b7d3d8a6f706be7c443a"
+  }
+}

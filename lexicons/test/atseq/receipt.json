@@ -1,0 +1,82 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.receipt",
+  "description": "Local-only spike service contract; see docs/protocol.md.",
+  "defs": {
+    "main": {
+      "type": "query",
+      "parameters": {
+        "type": "params",
+        "required": [
+          "app",
+          "genesis",
+          "intent"
+        ],
+        "properties": {
+          "app": {
+            "type": "string",
+            "format": "did",
+            "maxLength": 256
+          },
+          "genesis": {
+            "type": "string",
+            "format": "cid"
+          },
+          "intent": {
+            "type": "string",
+            "format": "cid"
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "receipt",
+            "outcome",
+            "head",
+            "frontier"
+          ],
+          "properties": {
+            "receipt": {
+              "type": "ref",
+              "ref": "test.atseq.defs#receipt"
+            },
+            "outcome": {
+              "type": "union",
+              "closed": true,
+              "refs": [
+                "test.atseq.defs#pending",
+                "test.atseq.defs#effective",
+                "test.atseq.defs#ineffective"
+              ]
+            },
+            "head": {
+              "type": "ref",
+              "ref": "test.atseq.head#value"
+            },
+            "frontier": {
+              "type": "ref",
+              "ref": "test.atseq.defs#cursor"
+            }
+          },
+          "nullable": [
+            "frontier"
+          ]
+        }
+      },
+      "errors": [
+        {
+          "name": "InvalidRequest"
+        },
+        {
+          "name": "Unavailable"
+        },
+        {
+          "name": "VerificationFailed"
+        }
+      ]
+    }
+  }
+}

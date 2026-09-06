@@ -1,0 +1,176 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.defs",
+  "description": "Local-only Atseq v0 protocol. The test namespace is not a production registration.",
+  "defs": {
+    "intent": {
+      "type": "object",
+      "required": [
+        "version",
+        "app",
+        "genesis",
+        "definition",
+        "actorKey",
+        "nonce",
+        "action",
+        "payload"
+      ],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 0
+        },
+        "app": {
+          "type": "string",
+          "format": "did",
+          "maxLength": 256
+        },
+        "genesis": {
+          "type": "cid-link"
+        },
+        "definition": {
+          "type": "cid-link"
+        },
+        "actorKey": {
+          "type": "string",
+          "format": "did",
+          "maxLength": 128
+        },
+        "nonce": {
+          "type": "bytes",
+          "minLength": 16,
+          "maxLength": 16
+        },
+        "action": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 256
+        },
+        "payload": {
+          "type": "unknown"
+        }
+      }
+    },
+    "signedIntent": {
+      "type": "object",
+      "required": [
+        "intent",
+        "sig"
+      ],
+      "properties": {
+        "intent": {
+          "type": "ref",
+          "ref": "test.atseq.defs#intent"
+        },
+        "sig": {
+          "type": "bytes",
+          "minLength": 64,
+          "maxLength": 64
+        }
+      }
+    },
+    "cursor": {
+      "type": "object",
+      "required": [
+        "position",
+        "entry"
+      ],
+      "properties": {
+        "position": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "entry": {
+          "type": "cid-link"
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "required": [
+        "app",
+        "genesis",
+        "intent",
+        "position",
+        "entry"
+      ],
+      "properties": {
+        "app": {
+          "type": "string",
+          "format": "did",
+          "maxLength": 256
+        },
+        "genesis": {
+          "type": "cid-link"
+        },
+        "intent": {
+          "type": "cid-link"
+        },
+        "position": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "entry": {
+          "type": "cid-link"
+        }
+      }
+    },
+    "queryAvailable": {
+      "type": "object",
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {
+          "type": "unknown"
+        }
+      }
+    },
+    "queryUnavailable": {
+      "type": "object",
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 1024
+        }
+      }
+    },
+    "pending": {
+      "type": "object",
+      "required": [],
+      "properties": {}
+    },
+    "effective": {
+      "type": "object",
+      "required": [],
+      "properties": {}
+    },
+    "ineffective": {
+      "type": "object",
+      "required": [
+        "reason"
+      ],
+      "properties": {
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 1024
+        }
+      }
+    }
+  }
+}

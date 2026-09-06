@@ -1,0 +1,200 @@
+{
+  "provenance": {
+    "encoder": "@ipld/dag-cbor 7.0.3",
+    "cid": "multiformats 9.9.0",
+    "signer": "Node OpenSSL ECDSA-SHA256, IEEE P1363, normalized low-S",
+    "node": "v26.8.1",
+    "publicTestScalars": [
+      1,
+      2
+    ],
+    "generatedAt": "2026-09-06T13:10:42.149Z"
+  },
+  "profile": {
+    "value": {
+      "name": "atseq-jsonata-js-2.2.2-candidate-2",
+      "version": 0,
+      "engine": {
+        "name": "jsonata",
+        "version": "2.2.2"
+      },
+      "schemas": {
+        "name": "@atproto/lexicon",
+        "version": "0.7.12"
+      },
+      "view": {
+        "@inlay/core": "0.0.13",
+        "@inlay/render": "0.3.1"
+      },
+      "wire": {
+        "format": "atseq-v0-drisl",
+        "library": "@atcute/cbor",
+        "version": "2.3.6"
+      },
+      "sources": {
+        "src/runtime/profile.ts": "909df5e771e58d79186373497a595b763e8db82800e7405ec355f6b7f5c4062d",
+        "src/runtime/evaluator.ts": "4f4008fbca9c9b60b9bdae09d55a5fe1c1ba062418662cbc363f02606da42be2",
+        "src/runtime/values.ts": "9194e65046b48be3e6a3f1bf38a4c42a1690d84cd91b78ba27ff7b1bac7bddaf",
+        "src/definition/schemas.ts": "52ef749be1198f48d5220f1579a54c1a6727b293882ca656628bfe94c13903c2",
+        "src/ui/inlay.ts": "ebfda164531b88169508f44b208554a0a2398c80f09bc38e53945d0b8e9c4472"
+      }
+    },
+    "cborHex": "a7646e616d65782261747365712d6a736f6e6174612d6a732d322e322e322d63616e6469646174652d326476696577a26b40696e6c61792f636f726566302e302e31336d40696e6c61792f72656e64657265302e332e316477697265a366666f726d61746e61747365712d76302d647269736c676c6962726172796c406174637574652f63626f726776657273696f6e65322e332e3666656e67696e65a2646e616d65676a736f6e6174616776657273696f6e65322e322e3267736368656d6173a2646e616d657040617470726f746f2f6c657869636f6e6776657273696f6e66302e372e313267736f7572636573a56f7372632f75692f696e6c61792e7473784065626664613136343533316238383136393530386634346232303835353461306132333938633830663039626333386535333934356430623865396334343732757372632f72756e74696d652f76616c7565732e7473784039313934653635303436623438626533653661336631626633386134633432613136393064383463643931623738626132376666376231626163376264646166767372632f72756e74696d652f70726f66696c652e747378403930396466356537373165353864373931383633373334393761353935623736336538646238323830306537343035656333353566366237663563343036326478187372632f72756e74696d652f6576616c7561746f722e747378403466343030386662636139633962363062396264616530396435356135666531633162613036323431383636326362633336336630323630366461343262653278197372632f646566696e6974696f6e2f736368656d61732e74737840353265663734396265313139386634386435323230663135373961353463316136373237623239333838326361363536363238626665393463313339303363326776657273696f6e00",
+    "cid": "bafyreiazdf73tcc7pv3aq7utqmu7rtdlwe63yipy2t46kxm4h2nbnrockm",
+    "sha256": "19197fb9885f7d76087e938329f8cc6bb13dbc21f8d4f9e55d9c3e9a16c5c253"
+  },
+  "definition": {
+    "value": {
+      "fixture": "source identity only; not an executable S3 definition"
+    },
+    "cborHex": "a167666978747572657835736f75726365206964656e74697479206f6e6c793b206e6f7420616e2065786563757461626c6520533320646566696e6974696f6e",
+    "cid": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse",
+    "sha256": "d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91"
+  },
+  "genesis": {
+    "value": {
+      "$type": "test.atseq.genesis",
+      "version": 0,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "profile": {
+        "$link": "bafyreiazdf73tcc7pv3aq7utqmu7rtdlwe63yipy2t46kxm4h2nbnrockm"
+      },
+      "definition": {
+        "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+      },
+      "sequencerKey": "did:key:zDnaer52RTwabaBeMkKYYwZmEFqPabLW78cRK62iovMUQhFif",
+      "activationKeys": [
+        "did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ"
+      ]
+    },
+    "cborHex": "a76361707078206469643a706c633a61616161616161616161616161616161616161616161616165247479706572746573742e61747365712e67656e657369736770726f66696c65d82a5825000171122019197fb9885f7d76087e938329f8cc6bb13dbc21f8d4f9e55d9c3e9a16c5c2536776657273696f6e006a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a916c73657175656e6365724b657978396469643a6b65793a7a446e616572353252547761626142654d6b4b5959775a6d4546715061624c57373863524b3632696f764d5551684669666e61637469766174696f6e4b6579738178396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a",
+    "cid": "bafyreic5ru27qxw6aslwxshcdvn6fxzkhnadl2y6czzoh5tostqozf3z4i",
+    "sha256": "5d8d35f85ede04976bc8e21d5be2df2a3b4035eb1e1672e3f66e94e0ec9779e2"
+  },
+  "intent": {
+    "value": {
+      "$type": "test.atseq.defs#intent",
+      "version": 0,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "genesis": {
+        "$link": "bafyreic5ru27qxw6aslwxshcdvn6fxzkhnadl2y6czzoh5tostqozf3z4i"
+      },
+      "definition": {
+        "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+      },
+      "actorKey": "did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ",
+      "nonce": {
+        "$bytes": "AAECAwQFBgcICQoLDA0ODw"
+      },
+      "action": "test.atseq.totals#add",
+      "payload": {
+        "delta": 3,
+        "note": null,
+        "extra": "retained"
+      }
+    },
+    "cborHex": "a96361707078206469643a706c633a61616161616161616161616161616161616161616161616165247479706576746573742e61747365712e6465667323696e74656e74656e6f6e636550000102030405060708090a0b0c0d0e0f66616374696f6e75746573742e61747365712e746f74616c73236164646767656e65736973d82a582500017112205d8d35f85ede04976bc8e21d5be2df2a3b4035eb1e1672e3f66e94e0ec9779e2677061796c6f6164a3646e6f7465f66564656c7461036565787472616872657461696e65646776657273696f6e00686163746f724b657978396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a6a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91",
+    "cid": "bafyreift62ohwaqo3momi7xfh2kbnnrou36xtxy4zyabb652ntzgyyle5e",
+    "sha256": "b3f69c7b020edb1cc47ee53e9416b62ea6fd79df1cce0010fbba6cf26c6164e9"
+  },
+  "signed": {
+    "value": {
+      "$type": "test.atseq.defs#signedIntent",
+      "intent": {
+        "$type": "test.atseq.defs#intent",
+        "version": 0,
+        "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+        "genesis": {
+          "$link": "bafyreic5ru27qxw6aslwxshcdvn6fxzkhnadl2y6czzoh5tostqozf3z4i"
+        },
+        "definition": {
+          "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+        },
+        "actorKey": "did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ",
+        "nonce": {
+          "$bytes": "AAECAwQFBgcICQoLDA0ODw"
+        },
+        "action": "test.atseq.totals#add",
+        "payload": {
+          "delta": 3,
+          "note": null,
+          "extra": "retained"
+        }
+      },
+      "sig": {
+        "$bytes": "7vWHL1QaT5WdgdUQLr+Uho9+MN1pzyJjkh96N9eDO1J+jR4m2bc/8Hlr3ukjEWnFlfgnwELaBGRztkMaGU46dw"
+      }
+    },
+    "cborHex": "a3637369675840eef5872f541a4f959d81d5102ebf94868f7e30dd69cf2263921f7a37d7833b527e8d1e26d9b73ff0796bdee9231169c595f827c042da046473b6431a194e3a77652474797065781c746573742e61747365712e64656673237369676e6564496e74656e7466696e74656e74a96361707078206469643a706c633a61616161616161616161616161616161616161616161616165247479706576746573742e61747365712e6465667323696e74656e74656e6f6e636550000102030405060708090a0b0c0d0e0f66616374696f6e75746573742e61747365712e746f74616c73236164646767656e65736973d82a582500017112205d8d35f85ede04976bc8e21d5be2df2a3b4035eb1e1672e3f66e94e0ec9779e2677061796c6f6164a3646e6f7465f66564656c7461036565787472616872657461696e65646776657273696f6e00686163746f724b657978396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a6a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91",
+    "cid": "bafyreif6wxvelal4vh452ccmrzautoxjgtkbfxp4og334rgmgqs7islaxe",
+    "sha256": "beb5ea45817ca9f9dd084c8e4149bae934d412ddfc71b7be44cc3425f44960b9"
+  },
+  "entry": {
+    "value": {
+      "$type": "test.atseq.entry",
+      "version": 0,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "genesis": {
+        "$link": "bafyreic5ru27qxw6aslwxshcdvn6fxzkhnadl2y6czzoh5tostqozf3z4i"
+      },
+      "position": 1,
+      "prev": {
+        "$link": "bafyreic5ru27qxw6aslwxshcdvn6fxzkhnadl2y6czzoh5tostqozf3z4i"
+      },
+      "signedIntent": {
+        "$type": "test.atseq.defs#signedIntent",
+        "intent": {
+          "$type": "test.atseq.defs#intent",
+          "version": 0,
+          "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+          "genesis": {
+            "$link": "bafyreic5ru27qxw6aslwxshcdvn6fxzkhnadl2y6czzoh5tostqozf3z4i"
+          },
+          "definition": {
+            "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+          },
+          "actorKey": "did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ",
+          "nonce": {
+            "$bytes": "AAECAwQFBgcICQoLDA0ODw"
+          },
+          "action": "test.atseq.totals#add",
+          "payload": {
+            "delta": 3,
+            "note": null,
+            "extra": "retained"
+          }
+        },
+        "sig": {
+          "$bytes": "7vWHL1QaT5WdgdUQLr+Uho9+MN1pzyJjkh96N9eDO1J+jR4m2bc/8Hlr3ukjEWnFlfgnwELaBGRztkMaGU46dw"
+        }
+      },
+      "sequencerKey": "did:key:zDnaer52RTwabaBeMkKYYwZmEFqPabLW78cRK62iovMUQhFif",
+      "sig": {
+        "$bytes": "BkiwfSyDGu7RwzwPVPcPGs+QPWv9qPo368OvwxWsW4o0KZ96YBrwTZi6CqaUNxbRWAlLk4ASyFeZyutgMP9CPw"
+      }
+    },
+    "cborHex": "a96361707078206469643a706c633a6161616161616161616161616161616161616161616161616373696758400648b07d2c831aeed1c33c0f54f70f1acf903d6bfda8fa37ebc3afc315ac5b8a34299f7a601af04d98ba0aa6943716d158094b938012c85799caeb6030ff423f6470726576d82a582500017112205d8d35f85ede04976bc8e21d5be2df2a3b4035eb1e1672e3f66e94e0ec9779e265247479706570746573742e61747365712e656e7472796767656e65736973d82a582500017112205d8d35f85ede04976bc8e21d5be2df2a3b4035eb1e1672e3f66e94e0ec9779e26776657273696f6e0068706f736974696f6e016c73657175656e6365724b657978396469643a6b65793a7a446e616572353252547761626142654d6b4b5959775a6d4546715061624c57373863524b3632696f764d5551684669666c7369676e6564496e74656e74a3637369675840eef5872f541a4f959d81d5102ebf94868f7e30dd69cf2263921f7a37d7833b527e8d1e26d9b73ff0796bdee9231169c595f827c042da046473b6431a194e3a77652474797065781c746573742e61747365712e64656673237369676e6564496e74656e7466696e74656e74a96361707078206469643a706c633a61616161616161616161616161616161616161616161616165247479706576746573742e61747365712e6465667323696e74656e74656e6f6e636550000102030405060708090a0b0c0d0e0f66616374696f6e75746573742e61747365712e746f74616c73236164646767656e65736973d82a582500017112205d8d35f85ede04976bc8e21d5be2df2a3b4035eb1e1672e3f66e94e0ec9779e2677061796c6f6164a3646e6f7465f66564656c7461036565787472616872657461696e65646776657273696f6e00686163746f724b657978396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a6a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91",
+    "cid": "bafyreihqxxfnhtgw3tfm22mhahdodu6jslwzem5t76atqawjvhnqaodw3m",
+    "sha256": "f0bdcad3ccd6dccacd698701c6e1d3c992ed9233b3ff813802c9a9db003876db"
+  },
+  "head": {
+    "value": {
+      "$type": "test.atseq.head",
+      "version": 0,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "genesis": {
+        "$link": "bafyreic5ru27qxw6aslwxshcdvn6fxzkhnadl2y6czzoh5tostqozf3z4i"
+      },
+      "position": 1,
+      "entry": {
+        "$link": "bafyreihqxxfnhtgw3tfm22mhahdodu6jslwzem5t76atqawjvhnqaodw3m"
+      }
+    },
+    "cborHex": "a66361707078206469643a706c633a6161616161616161616161616161616161616161616161616524747970656f746573742e61747365712e6865616465656e747279d82a58250001711220f0bdcad3ccd6dccacd698701c6e1d3c992ed9233b3ff813802c9a9db003876db6767656e65736973d82a582500017112205d8d35f85ede04976bc8e21d5be2df2a3b4035eb1e1672e3f66e94e0ec9779e26776657273696f6e0068706f736974696f6e01",
+    "cid": "bafyreie6fnrq66gbvvjgovof2cyfwx336viav5ciwwm3gzqrrtln5lrufa",
+    "sha256": "9e2b630f78c1ad526755c5d0b05b5f7bf5500af448b599b366118cd6deae3428"
+  },
+  "alternateActorSignature": {
+    "$bytes": "pbkshT1XnjarTTW5lBqYVbYJdU3ualyXZyF4iYQfoKs+hhNDiv56kKdtsqTffrWW5FoBJkMn4hYhPT2iN1F63w"
+  }
+}

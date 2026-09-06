@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: S0 implemented; gate passes; awaiting independent review
+status: S0 independently approved and landed
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
@@ -65,6 +65,16 @@ The JavaScript wrapper admits a documented subset and limits evaluator visits,
 nesting, inspected intermediate data and output sizes. It does not claim a hard
 heap quota. Watchdog and budget errors pause interpretation. The exact contract
 is in [docs/runtime-profile.md](../docs/runtime-profile.md).
+
+## Independent review and landing
+
+The corrected candidate `be868fd2` was independently approved by atseq-reviewer
+and landed on main as `ba7d5f44`. Review reproduced all 75 Node/Chromium
+fixtures, checked every changed path, and confirmed all seven findings closed.
+The review notes one S3 performance question: container-heavy shapes can still
+take seconds within the byte budget, and many whole-state references can
+consume it quickly. S3 must exercise realistic applications before adjusting
+those limits under a new profile identity.
 
 ## Independent review corrections
 

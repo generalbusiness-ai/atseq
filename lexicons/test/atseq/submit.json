@@ -1,0 +1,64 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.submit",
+  "description": "Local-only spike service contract; see docs/protocol.md.",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "block"
+          ],
+          "properties": {
+            "block": {
+              "type": "bytes",
+              "maxLength": 65536
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "receipt",
+            "head",
+            "frontier"
+          ],
+          "properties": {
+            "receipt": {
+              "type": "ref",
+              "ref": "test.atseq.defs#receipt"
+            },
+            "head": {
+              "type": "ref",
+              "ref": "test.atseq.head#value"
+            },
+            "frontier": {
+              "type": "ref",
+              "ref": "test.atseq.defs#cursor"
+            }
+          },
+          "nullable": [
+            "frontier"
+          ]
+        }
+      },
+      "errors": [
+        {
+          "name": "InvalidRequest"
+        },
+        {
+          "name": "Unavailable"
+        },
+        {
+          "name": "VerificationFailed"
+        }
+      ]
+    }
+  }
+}
