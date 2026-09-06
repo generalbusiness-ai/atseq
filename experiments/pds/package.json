@@ -1,0 +1,11 @@
+{
+  "name": "atseq-disposable-pds",
+  "private": true,
+  "type": "module",
+  "description": "Isolated official PDS and local PLC test services, not Atseq runtime dependencies",
+  "dependencies": {
+    "@atproto/pds": "0.5.31",
+    "@atproto/crypto": "0.5.4",
+    "@did-plc/server": "0.0.1"
+  }
+}

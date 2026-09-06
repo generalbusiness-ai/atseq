@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: S1 review corrections implemented; gate passes; awaiting fresh independent review
+status: S1 independently approved and landed
 companion: notes/2026-09-06-atseq-initial-spike.md
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:73bcf31fb42c5509ffd07714d6b361a8bf9659a0
@@ -13,6 +13,10 @@ CIDs, a pinned genesis, P-256 actor and sequencer proofs, explicit order, and
 content-based retry identity. The [protocol contract](../docs/protocol.md)
 links the authored framework Lexicons. The existing S0 runtime source now has
 a content-addressed descriptor; no runtime behavior changed in this stage.
+
+The corrected candidate `4651478aa193e0e71b6097cc25eb3b7fb9197662` received
+independent approval. It landed on main as
+`1f7a7a1ebb7189b91c3fd7aa3d6f8c9264c6529e` after requester ratification.
 
 ## Measured result
 

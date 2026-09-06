@@ -5,14 +5,14 @@
   "type": "module",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=22.12"
+    "node": ">=22.13"
   },
   "scripts": {
     "check": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "spike:feasibility": "tsx scripts/feasibility.ts",
     "test:protocol": "tsx --test tests/protocol.test.ts",
-    "test:pds": "node scripts/not-implemented.mjs S2",
+    "test:pds": "tsx --test tests/pds.test.ts",
     "test:runtime": "node scripts/not-implemented.mjs S3",
     "test:dynamic-apps": "node scripts/not-implemented.mjs S3",
     "test:flows": "node scripts/not-implemented.mjs S4-S5",
@@ -21,6 +21,7 @@
     "dev:experiment": "vite experiments/browser --host 127.0.0.1"
   },
   "dependencies": {
+    "@atcute/car": "6.0.2",
     "@atcute/cbor": "2.3.6",
     "@atcute/cid": "2.4.2",
     "@atcute/crypto": "2.4.4",

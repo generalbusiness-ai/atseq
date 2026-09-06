@@ -1,6 +1,6 @@
 ---
 date: 2026-09-06
-status: adopted for implementation; S0 approved and landed; S1 implemented and awaiting review; S2–S6 not started
+status: adopted for implementation; S0–S1 landed; S2 gate passes and awaiting review; S3–S6 not started
 companion: notes/2026-09-06-atseq-architecture.md
 planned_at: 133071b
 rests_on:
