@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"S6 acceptance at dd34b5e: src/browser/style.css. Retained archives, offline replay and measured acceptance under the adopted spike.","body":{"branch":"request/spike-acceptance","commit":"dd34b5e287d3106a83f90ec272d48debf2adf11d","path":"src/browser/style.css"}}
+{"kind":"artifact","text":"S6 acceptance at dd34b5e: src/browser/worker.ts. Retained archives, offline replay and measured acceptance under the adopted spike.","body":{"branch":"request/spike-acceptance","commit":"dd34b5e287d3106a83f90ec272d48debf2adf11d","path":"src/browser/worker.ts"}}
