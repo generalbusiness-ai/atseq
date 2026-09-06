@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"S6 acceptance at dd34b5e: tests/archive.test.ts. Retained archives, offline replay and measured acceptance under the adopted spike.","body":{"branch":"request/spike-acceptance","commit":"dd34b5e287d3106a83f90ec272d48debf2adf11d","path":"tests/archive.test.ts"}}
+{"kind":"artifact","text":"S6 acceptance and limitations at dd34b5e: README.md. All 13 gates pass; S5 and S6 independent approvals and landings remain required.","body":{"branch":"request/spike-acceptance","commit":"dd34b5e287d3106a83f90ec272d48debf2adf11d","path":"README.md"}}
