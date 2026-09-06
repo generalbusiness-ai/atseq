@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:a3793dd0cdbc3212a4aefe0d22e4746857b498f1","text":"Merge retired a covered predecessor; the successor is at src/runtime/application-profile.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:a3e35dfe00386dad451c3f2bf3fbf51cb8e82372","text":"Merge retired a covered predecessor; the successor is at tests/helpers/runtime-child.ts."}
