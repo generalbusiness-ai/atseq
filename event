@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f5b900eb95adbaa6da81c8957f64dad5fe8114bf","text":"Retire superseded S2 candidate artifact for notes/2026-09-06-atseq-pds-spike.md; corrected 70f4c89 is independently approved and landed at 71d912ec."}
+{"kind":"artifact","text":"S3 implementation and measured evidence at 9b00143: experiments/dynamic.json.","body":{"branch":"request/spike-runtime","commit":"9b00143e7e62b781394ce26f81129017e56ea314","path":"experiments/dynamic.json"}}
