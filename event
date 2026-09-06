@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:13af6594467fd884786d83d6a039861255b4074a","text":"Retire my abandoned S6 candidate artifact at dd34b5e for src/host/build.ts; corrected e60e603 was independently approved and landed as a684666, which supplies this path."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:bcc1d409c6480968dd115ae9c778b212f01a6dd3","text":"Retire my abandoned S6 candidate artifact at dd34b5e for src/cli/main.ts; corrected e60e603 was independently approved and landed as a684666, which supplies this path."}
