@@ -1,0 +1,188 @@
+{
+  "completedAt": "2026-09-06T16:45:03.489511+00:00",
+  "status": "completed",
+  "sourceOrigin": "Authored from an empty new folder using only docs/definitions.md, docs/interaction.md, docs/runtime-profile.md and docs/evolution.md. No implementation or fixtures inspected.",
+  "adapterCommands": 26,
+  "adapterFailures": [],
+  "invitation": {
+    "title": "Mending circle: shared tool desk",
+    "host": "http://127.0.0.1:63947",
+    "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+    "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+    "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+    "scope": "Disposable loopback test PDS; synthetic data only."
+  },
+  "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+  "runtimeProfile": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm",
+  "canonicalEntries": 5,
+  "effectiveEntries": 3,
+  "ineffectiveEntries": 2,
+  "exactRetry": {
+    "step": 24,
+    "reusedPosition": 5,
+    "sameReceipt": true
+  },
+  "outcomes": [
+    {
+      "position": 1,
+      "intent": "bafyreihmtjrydpyngp4bnruq5p7whah6aqbobiwagrd2wcn7opvf4uo2wm",
+      "outcome": {
+        "$type": "test.atseq.defs#effective"
+      }
+    },
+    {
+      "position": 2,
+      "intent": "bafyreihqsxdc2msw66ovdoifbwioxnmyrm6g3aejswawvwajwrfdzgwtxe",
+      "outcome": {
+        "$type": "test.atseq.defs#ineffective",
+        "reason": "tool_in_use",
+        "message": "This tool is already out on loan."
+      }
+    },
+    {
+      "position": 3,
+      "intent": "bafyreifef3m265dtb7xx62ckgmw7vgera6gss6aaqav2h3amwcqudtvax4",
+      "outcome": {
+        "$type": "test.atseq.defs#ineffective",
+        "reason": "not_borrower",
+        "message": "Only the borrowing identity can return this tool."
+      }
+    },
+    {
+      "position": 4,
+      "intent": "bafyreib42swt5lv56vxotay6jhbzpyajem74u42pysarrvbytzt7vmqwiq",
+      "outcome": {
+        "$type": "test.atseq.defs#effective"
+      }
+    },
+    {
+      "position": 5,
+      "intent": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq",
+      "outcome": {
+        "$type": "test.atseq.defs#effective"
+      }
+    }
+  ],
+  "finalQuery": {
+    "request": {
+      "operation": "query",
+      "host": "http://127.0.0.1:63947",
+      "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+      "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+      "name": "summary",
+      "params": {}
+    },
+    "response": {
+      "head": {
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "$type": "test.atseq.head",
+        "entry": {
+          "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+        },
+        "genesis": {
+          "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+        },
+        "version": 0,
+        "position": 5
+      },
+      "frontier": {
+        "$type": "test.atseq.defs#cursor",
+        "position": 5,
+        "entry": {
+          "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+        }
+      },
+      "result": {
+        "$type": "test.atseq.defs#queryAvailable",
+        "value": {
+          "available": 2,
+          "checkouts": 2,
+          "outOnLoan": 1,
+          "returns": 1,
+          "session": "Sunday mending circle",
+          "tools": [
+            {
+              "holder": "Sam (synthetic)",
+              "holderKey": "did:key:zDnaeTBNKcrCtLpvfHBAagy7NyPcTDgmkD3mT7asu3RUwfE2m",
+              "id": "shears",
+              "label": "Fabric shears"
+            },
+            {
+              "holder": "",
+              "holderKey": "",
+              "id": "snap-pliers",
+              "label": "Snap pliers"
+            },
+            {
+              "holder": "",
+              "holderKey": "",
+              "id": "seam-ripper",
+              "label": "Seam ripper"
+            }
+          ],
+          "total": 3
+        }
+      }
+    }
+  },
+  "finalOutcome": {
+    "receipt": {
+      "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+      "$type": "test.atseq.defs#receipt",
+      "entry": {
+        "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+      },
+      "intent": {
+        "$link": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq"
+      },
+      "genesis": {
+        "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+      },
+      "position": 5
+    },
+    "head": {
+      "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+      "$type": "test.atseq.head",
+      "entry": {
+        "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+      },
+      "genesis": {
+        "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+      },
+      "version": 0,
+      "position": 5
+    },
+    "frontier": {
+      "$type": "test.atseq.defs#cursor",
+      "position": 5,
+      "entry": {
+        "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+      }
+    },
+    "outcome": {
+      "$type": "test.atseq.defs#effective"
+    }
+  },
+  "findings": [
+    {
+      "id": "anonymous-preview-identity",
+      "adapterStep": 5,
+      "observed": "The documented preview request has no identity option and supplies an empty meta.actorKey. The initial identity-sensitive borrow preview looked effective while retaining an empty holder key.",
+      "response": "Retained the original draft CAR and added an explicit signing_identity_required refusal for missing/empty actor keys before publication. Live signed actions received the real actor did:key and passed.",
+      "gap": "Document anonymous preview metadata and consider a public-key-only preview actor option; do not use a successful anonymous preview as evidence for actor-dependent policy."
+    },
+    {
+      "id": "invitation-link",
+      "adapterStep": 11,
+      "observed": "create returns app/genesis/head data but no directly usable application URL; the permitted docs do not specify the live app URL shape.",
+      "response": "Retained the documented invitation tuple (host, app, genesis) rather than inventing a URL. The adapter does return a working previewUrl for draft views."
+    }
+  ],
+  "limits": [
+    "Only the documented adapter was used for application interaction.",
+    "Retained Inlay rendering was observed through preview response trees; no browser UI flow was performed by this author.",
+    "No host/client/package/docs files were edited, no commits or workroom acts were made.",
+    "This evidence directory retains source and adapter evidence; it is not a complete signed-log archive.",
+    "Parent owns before/after host and client build-hash comparison."
+  ]
+}

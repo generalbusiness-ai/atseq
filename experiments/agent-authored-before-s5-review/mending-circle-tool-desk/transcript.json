@@ -1,0 +1,2646 @@
+{
+  "exercise": "Mending-circle shared tool desk",
+  "startedAt": "2026-09-06T16:38:16.808955+00:00",
+  "host": "http://127.0.0.1:63947",
+  "hostStateAtStart": "Already running, provided by parent; this author did not start or rebuild it.",
+  "sourceOrigin": "Authored from an empty new folder using only docs/definitions.md, docs/interaction.md, docs/runtime-profile.md and docs/evolution.md. No implementation or fixtures inspected.",
+  "steps": [
+    {
+      "startedAt": "2026-09-06T16:38:16.835119+00:00",
+      "completedAt": "2026-09-06T16:38:17.145097+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "runtime"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "profile": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm",
+          "descriptor": {
+            "$type": "test.atseq.applicationRuntime",
+            "version": 0,
+            "contract": "atseq-folder-activation-v0",
+            "engine": {
+              "$link": "bafyreiazdf73tcc7pv3aq7utqmu7rtdlwe63yipy2t46kxm4h2nbnrockm"
+            },
+            "libraries": {
+              "@atcute/car": "6.0.2",
+              "@atcute/cbor": "2.3.6",
+              "@atcute/cid": "2.4.2",
+              "@atcute/crypto": "2.4.4"
+            },
+            "sources": {
+              "lexicons/test/atseq/activate.json": "1b58f204e70fed5317d699e6fbcebc967d5b0a3c47b64ac8adbbc3aa37124bca",
+              "lexicons/test/atseq/create.json": "7330be0dbdb764a133061be715c4cf88fd21994d92197e2659b7f93eca43690a",
+              "lexicons/test/atseq/definition.json": "0a481070bb9f796342af07e81635f84873695e3680f7b77dc6527472ab015310",
+              "lexicons/test/atseq/defs.json": "47eef9c63820daa5d5968af9de30d23b2256aef549fa98392a5facfe06310e36",
+              "lexicons/test/atseq/describe.json": "027e63d410d80af27a709733aa7dabbc548145ff3b04cfbd949241b1d7a7dcbc",
+              "lexicons/test/atseq/entry.json": "3f62adf0ef715eb456d890b9ddbb85173a98b73a4fe6b3c0451d05553de8b40e",
+              "lexicons/test/atseq/genesis.json": "cf7971d53796155b6cd1db31ca3195c12f80b704146b7a02d979557e2a3d2357",
+              "lexicons/test/atseq/head.json": "eac851adb419ac28f5bb89ab057743b2f6611d5aa041ea3bdbda6dad09f7d296",
+              "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
+              "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
+              "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
+              "src/definition/activation.ts": "0ed550991b61b6d6e10f654bdca9899061bc2dd5e807797dfeab6fb1b9acf7fe",
+              "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
+              "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
+              "src/definition/source.ts": "d41258ed51bd0f1d17a67ff3fd8dceca1124e65c5096b2870fd39642dcf08b15",
+              "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
+              "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
+              "src/protocol/wire.ts": "7c050e46d03d570fbfae45620b3832d20fe8e9306814fcc38ce0e87f765beba9",
+              "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
+              "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
+              "src/runtime/identity.ts": "74ceee995dd7e73ca51ce1c9790e7dbbf936cee54c722ee9be67f21e35e3e5d9"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 1
+    },
+    {
+      "startedAt": "2026-09-06T16:39:46.840725+00:00",
+      "completedAt": "2026-09-06T16:39:47.130686+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "pack",
+        "directory": "experiments/agent-authored/mending-circle-tool-desk/source",
+        "output": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "definition": "bafyreiegtry56mxmiszbh6gtpmun6p4umnhgayyty4m57x7moqdbp7xaja",
+          "output": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
+        }
+      },
+      "stderr": "",
+      "step": 2
+    },
+    {
+      "startedAt": "2026-09-06T16:39:52.861128+00:00",
+      "completedAt": "2026-09-06T16:39:53.163386+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "validate",
+        "host": "http://127.0.0.1:63947",
+        "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "definition": {
+            "cid": "bafyreiegtry56mxmiszbh6gtpmun6p4umnhgayyty4m57x7moqdbp7xaja",
+            "manifest": {
+              "$type": "test.atseq.definition",
+              "files": [
+                {
+                  "cid": "bafkreifdowbklu6tx4y6n5cfwuklvfwlhgyjqeh6b34oq2n7grb5tjrsjm",
+                  "path": "folds/borrow.jsonata"
+                },
+                {
+                  "cid": "bafkreidnz7jlammgb6oc4g4swhhkdmhqa26jslfvsgity4mfjhy2lx6key",
+                  "path": "folds/return.jsonata"
+                },
+                {
+                  "cid": "bafkreich4rdke4ayqq67dj5lajpqpkoewevbdjlo2577h5yhmaelpzloja",
+                  "path": "queries/summary.jsonata"
+                },
+                {
+                  "cid": "bafkreibdjb4wyqrzvb5jpd5drvz64odmrif2ks24fweiyqtdwao2ierp4q",
+                  "path": "schemas/mending-circle.json"
+                },
+                {
+                  "cid": "bafkreie2ukuli5naw63loyanc2dj2ew62v5cjqacd52lfdozgf5yq56gre",
+                  "path": "state.json"
+                },
+                {
+                  "cid": "bafkreiekzzfamiouap7wktb4prlcr7fsambyoftpxg6v6faoo7u5twysju",
+                  "path": "views/main.json"
+                }
+              ],
+              "state": {
+                "ref": "test.agent.mendingcircle#state",
+                "initial": "state.json"
+              },
+              "title": "Mending circle: shared tool desk",
+              "views": [
+                {
+                  "name": "main",
+                  "query": "summary",
+                  "source": "views/main.json"
+                }
+              ],
+              "actions": [
+                {
+                  "ref": "test.agent.mendingcircle#borrow",
+                  "fold": "folds/borrow.jsonata"
+                },
+                {
+                  "ref": "test.agent.mendingcircle#returnTool",
+                  "fold": "folds/return.jsonata"
+                }
+              ],
+              "profile": {
+                "$link": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm"
+              },
+              "queries": [
+                {
+                  "ref": "test.agent.mendingcircle#summary",
+                  "name": "summary",
+                  "program": "queries/summary.jsonata"
+                }
+              ],
+              "version": 0,
+              "lexicons": [
+                "schemas/mending-circle.json"
+              ]
+            },
+            "lexicons": [
+              {
+                "defs": {
+                  "borrow": {
+                    "description": "Borrow an available tool for this mending session. A tool already out on loan cannot be borrowed again.",
+                    "properties": {
+                      "borrower": {
+                        "description": "A synthetic display label for this session.",
+                        "maxLength": 80,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "item": {
+                        "description": "The shared tool ID.",
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item",
+                      "borrower"
+                    ],
+                    "type": "object"
+                  },
+                  "returnTool": {
+                    "description": "Return a shared tool. Only the signing identity that borrowed it can return it.",
+                    "properties": {
+                      "item": {
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item"
+                    ],
+                    "type": "object"
+                  },
+                  "state": {
+                    "properties": {
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "tools",
+                      "checkouts",
+                      "returns"
+                    ],
+                    "type": "object"
+                  },
+                  "summary": {
+                    "description": "Show the session tool desk, availability and completed loan counts.",
+                    "output": {
+                      "encoding": "application/json",
+                      "schema": {
+                        "ref": "#summaryResult",
+                        "type": "ref"
+                      }
+                    },
+                    "parameters": {
+                      "properties": {},
+                      "type": "params"
+                    },
+                    "type": "query"
+                  },
+                  "summaryResult": {
+                    "properties": {
+                      "available": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "outOnLoan": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      },
+                      "total": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "total",
+                      "available",
+                      "outOnLoan",
+                      "checkouts",
+                      "returns",
+                      "tools"
+                    ],
+                    "type": "object"
+                  },
+                  "tool": {
+                    "properties": {
+                      "holder": {
+                        "maxLength": 80,
+                        "type": "string"
+                      },
+                      "holderKey": {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      "id": {
+                        "maxLength": 40,
+                        "type": "string"
+                      },
+                      "label": {
+                        "maxLength": 80,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "label",
+                      "holder",
+                      "holderKey"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "id": "test.agent.mendingcircle",
+                "lexicon": 1
+              }
+            ]
+          }
+        }
+      },
+      "stderr": "",
+      "step": 3
+    },
+    {
+      "startedAt": "2026-09-06T16:40:08.110783+00:00",
+      "completedAt": "2026-09-06T16:40:08.419511+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "preview",
+        "host": "http://127.0.0.1:63947",
+        "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "definition": {
+            "cid": "bafyreiegtry56mxmiszbh6gtpmun6p4umnhgayyty4m57x7moqdbp7xaja",
+            "manifest": {
+              "$type": "test.atseq.definition",
+              "files": [
+                {
+                  "cid": "bafkreifdowbklu6tx4y6n5cfwuklvfwlhgyjqeh6b34oq2n7grb5tjrsjm",
+                  "path": "folds/borrow.jsonata"
+                },
+                {
+                  "cid": "bafkreidnz7jlammgb6oc4g4swhhkdmhqa26jslfvsgity4mfjhy2lx6key",
+                  "path": "folds/return.jsonata"
+                },
+                {
+                  "cid": "bafkreich4rdke4ayqq67dj5lajpqpkoewevbdjlo2577h5yhmaelpzloja",
+                  "path": "queries/summary.jsonata"
+                },
+                {
+                  "cid": "bafkreibdjb4wyqrzvb5jpd5drvz64odmrif2ks24fweiyqtdwao2ierp4q",
+                  "path": "schemas/mending-circle.json"
+                },
+                {
+                  "cid": "bafkreie2ukuli5naw63loyanc2dj2ew62v5cjqacd52lfdozgf5yq56gre",
+                  "path": "state.json"
+                },
+                {
+                  "cid": "bafkreiekzzfamiouap7wktb4prlcr7fsambyoftpxg6v6faoo7u5twysju",
+                  "path": "views/main.json"
+                }
+              ],
+              "state": {
+                "ref": "test.agent.mendingcircle#state",
+                "initial": "state.json"
+              },
+              "title": "Mending circle: shared tool desk",
+              "views": [
+                {
+                  "name": "main",
+                  "query": "summary",
+                  "source": "views/main.json"
+                }
+              ],
+              "actions": [
+                {
+                  "ref": "test.agent.mendingcircle#borrow",
+                  "fold": "folds/borrow.jsonata"
+                },
+                {
+                  "ref": "test.agent.mendingcircle#returnTool",
+                  "fold": "folds/return.jsonata"
+                }
+              ],
+              "profile": {
+                "$link": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm"
+              },
+              "queries": [
+                {
+                  "ref": "test.agent.mendingcircle#summary",
+                  "name": "summary",
+                  "program": "queries/summary.jsonata"
+                }
+              ],
+              "version": 0,
+              "lexicons": [
+                "schemas/mending-circle.json"
+              ]
+            },
+            "lexicons": [
+              {
+                "defs": {
+                  "borrow": {
+                    "description": "Borrow an available tool for this mending session. A tool already out on loan cannot be borrowed again.",
+                    "properties": {
+                      "borrower": {
+                        "description": "A synthetic display label for this session.",
+                        "maxLength": 80,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "item": {
+                        "description": "The shared tool ID.",
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item",
+                      "borrower"
+                    ],
+                    "type": "object"
+                  },
+                  "returnTool": {
+                    "description": "Return a shared tool. Only the signing identity that borrowed it can return it.",
+                    "properties": {
+                      "item": {
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item"
+                    ],
+                    "type": "object"
+                  },
+                  "state": {
+                    "properties": {
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "tools",
+                      "checkouts",
+                      "returns"
+                    ],
+                    "type": "object"
+                  },
+                  "summary": {
+                    "description": "Show the session tool desk, availability and completed loan counts.",
+                    "output": {
+                      "encoding": "application/json",
+                      "schema": {
+                        "ref": "#summaryResult",
+                        "type": "ref"
+                      }
+                    },
+                    "parameters": {
+                      "properties": {},
+                      "type": "params"
+                    },
+                    "type": "query"
+                  },
+                  "summaryResult": {
+                    "properties": {
+                      "available": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "outOnLoan": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      },
+                      "total": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "total",
+                      "available",
+                      "outOnLoan",
+                      "checkouts",
+                      "returns",
+                      "tools"
+                    ],
+                    "type": "object"
+                  },
+                  "tool": {
+                    "properties": {
+                      "holder": {
+                        "maxLength": 80,
+                        "type": "string"
+                      },
+                      "holderKey": {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      "id": {
+                        "maxLength": 40,
+                        "type": "string"
+                      },
+                      "label": {
+                        "maxLength": 80,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "label",
+                      "holder",
+                      "holderKey"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "id": "test.agent.mendingcircle",
+                "lexicon": 1
+              }
+            ]
+          },
+          "state": {
+            "checkouts": 0,
+            "returns": 0,
+            "session": "Sunday mending circle",
+            "tools": [
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "shears",
+                "label": "Fabric shears"
+              },
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "snap-pliers",
+                "label": "Snap pliers"
+              },
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "seam-ripper",
+                "label": "Seam ripper"
+              }
+            ]
+          },
+          "outcome": null,
+          "scope": "local-preview",
+          "views": [
+            {
+              "name": "main",
+              "tree": [
+                {
+                  "type": "test.atseq.ui.Panel",
+                  "props": {},
+                  "children": [
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Sunday mending circle"
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Available tools: ",
+                        "3",
+                        " of ",
+                        "3"
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Borrow a shared tool for this session, then return it with the same signing identity."
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Action",
+                      "props": {
+                        "action": "test.agent.mendingcircle#borrow",
+                        "label": "Borrow a tool"
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "test.atseq.ui.Action",
+                      "props": {
+                        "action": "test.agent.mendingcircle#returnTool",
+                        "label": "Return my tool"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "previewUrl": "http://127.0.0.1:63947/?preview=bafyreiegtry56mxmiszbh6gtpmun6p4umnhgayyty4m57x7moqdbp7xaja"
+        }
+      },
+      "stderr": "",
+      "step": 4
+    },
+    {
+      "startedAt": "2026-09-06T16:40:08.469470+00:00",
+      "completedAt": "2026-09-06T16:40:08.772115+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "preview",
+        "host": "http://127.0.0.1:63947",
+        "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car",
+        "action": "test.agent.mendingcircle#borrow",
+        "payload": {
+          "item": "shears",
+          "borrower": "Alex (synthetic)"
+        }
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "definition": {
+            "cid": "bafyreiegtry56mxmiszbh6gtpmun6p4umnhgayyty4m57x7moqdbp7xaja",
+            "manifest": {
+              "$type": "test.atseq.definition",
+              "files": [
+                {
+                  "cid": "bafkreifdowbklu6tx4y6n5cfwuklvfwlhgyjqeh6b34oq2n7grb5tjrsjm",
+                  "path": "folds/borrow.jsonata"
+                },
+                {
+                  "cid": "bafkreidnz7jlammgb6oc4g4swhhkdmhqa26jslfvsgity4mfjhy2lx6key",
+                  "path": "folds/return.jsonata"
+                },
+                {
+                  "cid": "bafkreich4rdke4ayqq67dj5lajpqpkoewevbdjlo2577h5yhmaelpzloja",
+                  "path": "queries/summary.jsonata"
+                },
+                {
+                  "cid": "bafkreibdjb4wyqrzvb5jpd5drvz64odmrif2ks24fweiyqtdwao2ierp4q",
+                  "path": "schemas/mending-circle.json"
+                },
+                {
+                  "cid": "bafkreie2ukuli5naw63loyanc2dj2ew62v5cjqacd52lfdozgf5yq56gre",
+                  "path": "state.json"
+                },
+                {
+                  "cid": "bafkreiekzzfamiouap7wktb4prlcr7fsambyoftpxg6v6faoo7u5twysju",
+                  "path": "views/main.json"
+                }
+              ],
+              "state": {
+                "ref": "test.agent.mendingcircle#state",
+                "initial": "state.json"
+              },
+              "title": "Mending circle: shared tool desk",
+              "views": [
+                {
+                  "name": "main",
+                  "query": "summary",
+                  "source": "views/main.json"
+                }
+              ],
+              "actions": [
+                {
+                  "ref": "test.agent.mendingcircle#borrow",
+                  "fold": "folds/borrow.jsonata"
+                },
+                {
+                  "ref": "test.agent.mendingcircle#returnTool",
+                  "fold": "folds/return.jsonata"
+                }
+              ],
+              "profile": {
+                "$link": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm"
+              },
+              "queries": [
+                {
+                  "ref": "test.agent.mendingcircle#summary",
+                  "name": "summary",
+                  "program": "queries/summary.jsonata"
+                }
+              ],
+              "version": 0,
+              "lexicons": [
+                "schemas/mending-circle.json"
+              ]
+            },
+            "lexicons": [
+              {
+                "defs": {
+                  "borrow": {
+                    "description": "Borrow an available tool for this mending session. A tool already out on loan cannot be borrowed again.",
+                    "properties": {
+                      "borrower": {
+                        "description": "A synthetic display label for this session.",
+                        "maxLength": 80,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "item": {
+                        "description": "The shared tool ID.",
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item",
+                      "borrower"
+                    ],
+                    "type": "object"
+                  },
+                  "returnTool": {
+                    "description": "Return a shared tool. Only the signing identity that borrowed it can return it.",
+                    "properties": {
+                      "item": {
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item"
+                    ],
+                    "type": "object"
+                  },
+                  "state": {
+                    "properties": {
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "tools",
+                      "checkouts",
+                      "returns"
+                    ],
+                    "type": "object"
+                  },
+                  "summary": {
+                    "description": "Show the session tool desk, availability and completed loan counts.",
+                    "output": {
+                      "encoding": "application/json",
+                      "schema": {
+                        "ref": "#summaryResult",
+                        "type": "ref"
+                      }
+                    },
+                    "parameters": {
+                      "properties": {},
+                      "type": "params"
+                    },
+                    "type": "query"
+                  },
+                  "summaryResult": {
+                    "properties": {
+                      "available": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "outOnLoan": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      },
+                      "total": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "total",
+                      "available",
+                      "outOnLoan",
+                      "checkouts",
+                      "returns",
+                      "tools"
+                    ],
+                    "type": "object"
+                  },
+                  "tool": {
+                    "properties": {
+                      "holder": {
+                        "maxLength": 80,
+                        "type": "string"
+                      },
+                      "holderKey": {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      "id": {
+                        "maxLength": 40,
+                        "type": "string"
+                      },
+                      "label": {
+                        "maxLength": 80,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "label",
+                      "holder",
+                      "holderKey"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "id": "test.agent.mendingcircle",
+                "lexicon": 1
+              }
+            ]
+          },
+          "state": {
+            "checkouts": 1,
+            "returns": 0,
+            "session": "Sunday mending circle",
+            "tools": [
+              {
+                "holder": "Alex (synthetic)",
+                "holderKey": "",
+                "id": "shears",
+                "label": "Fabric shears"
+              },
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "snap-pliers",
+                "label": "Snap pliers"
+              },
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "seam-ripper",
+                "label": "Seam ripper"
+              }
+            ]
+          },
+          "outcome": {
+            "decision": "effective"
+          },
+          "scope": "local-preview",
+          "views": [
+            {
+              "name": "main",
+              "tree": [
+                {
+                  "type": "test.atseq.ui.Panel",
+                  "props": {},
+                  "children": [
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Sunday mending circle"
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Available tools: ",
+                        "3",
+                        " of ",
+                        "3"
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Borrow a shared tool for this session, then return it with the same signing identity."
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Action",
+                      "props": {
+                        "action": "test.agent.mendingcircle#borrow",
+                        "label": "Borrow a tool"
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "test.atseq.ui.Action",
+                      "props": {
+                        "action": "test.agent.mendingcircle#returnTool",
+                        "label": "Return my tool"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "previewUrl": "http://127.0.0.1:63947/?preview=bafyreiegtry56mxmiszbh6gtpmun6p4umnhgayyty4m57x7moqdbp7xaja"
+        }
+      },
+      "stderr": "",
+      "step": 5
+    },
+    {
+      "startedAt": "2026-09-06T16:41:06.504362+00:00",
+      "completedAt": "2026-09-06T16:41:06.881737+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "pack",
+        "directory": "experiments/agent-authored/mending-circle-tool-desk/source",
+        "output": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+          "output": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
+        }
+      },
+      "stderr": "",
+      "step": 6
+    },
+    {
+      "startedAt": "2026-09-06T16:41:06.946598+00:00",
+      "completedAt": "2026-09-06T16:41:07.308103+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "validate",
+        "host": "http://127.0.0.1:63947",
+        "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "definition": {
+            "cid": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+            "manifest": {
+              "$type": "test.atseq.definition",
+              "files": [
+                {
+                  "cid": "bafkreiawquoivpm2twwvbl74huaasifgqoqlesddhf3kggqiheqiynot6a",
+                  "path": "folds/borrow.jsonata"
+                },
+                {
+                  "cid": "bafkreicgomzgd4ur4mrtt4hev4lkbnwyf6rbvrdw423ures4xg6ab2st5e",
+                  "path": "folds/return.jsonata"
+                },
+                {
+                  "cid": "bafkreich4rdke4ayqq67dj5lajpqpkoewevbdjlo2577h5yhmaelpzloja",
+                  "path": "queries/summary.jsonata"
+                },
+                {
+                  "cid": "bafkreibdjb4wyqrzvb5jpd5drvz64odmrif2ks24fweiyqtdwao2ierp4q",
+                  "path": "schemas/mending-circle.json"
+                },
+                {
+                  "cid": "bafkreie2ukuli5naw63loyanc2dj2ew62v5cjqacd52lfdozgf5yq56gre",
+                  "path": "state.json"
+                },
+                {
+                  "cid": "bafkreiekzzfamiouap7wktb4prlcr7fsambyoftpxg6v6faoo7u5twysju",
+                  "path": "views/main.json"
+                }
+              ],
+              "state": {
+                "ref": "test.agent.mendingcircle#state",
+                "initial": "state.json"
+              },
+              "title": "Mending circle: shared tool desk",
+              "views": [
+                {
+                  "name": "main",
+                  "query": "summary",
+                  "source": "views/main.json"
+                }
+              ],
+              "actions": [
+                {
+                  "ref": "test.agent.mendingcircle#borrow",
+                  "fold": "folds/borrow.jsonata"
+                },
+                {
+                  "ref": "test.agent.mendingcircle#returnTool",
+                  "fold": "folds/return.jsonata"
+                }
+              ],
+              "profile": {
+                "$link": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm"
+              },
+              "queries": [
+                {
+                  "ref": "test.agent.mendingcircle#summary",
+                  "name": "summary",
+                  "program": "queries/summary.jsonata"
+                }
+              ],
+              "version": 0,
+              "lexicons": [
+                "schemas/mending-circle.json"
+              ]
+            },
+            "lexicons": [
+              {
+                "defs": {
+                  "borrow": {
+                    "description": "Borrow an available tool for this mending session. A tool already out on loan cannot be borrowed again.",
+                    "properties": {
+                      "borrower": {
+                        "description": "A synthetic display label for this session.",
+                        "maxLength": 80,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "item": {
+                        "description": "The shared tool ID.",
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item",
+                      "borrower"
+                    ],
+                    "type": "object"
+                  },
+                  "returnTool": {
+                    "description": "Return a shared tool. Only the signing identity that borrowed it can return it.",
+                    "properties": {
+                      "item": {
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item"
+                    ],
+                    "type": "object"
+                  },
+                  "state": {
+                    "properties": {
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "tools",
+                      "checkouts",
+                      "returns"
+                    ],
+                    "type": "object"
+                  },
+                  "summary": {
+                    "description": "Show the session tool desk, availability and completed loan counts.",
+                    "output": {
+                      "encoding": "application/json",
+                      "schema": {
+                        "ref": "#summaryResult",
+                        "type": "ref"
+                      }
+                    },
+                    "parameters": {
+                      "properties": {},
+                      "type": "params"
+                    },
+                    "type": "query"
+                  },
+                  "summaryResult": {
+                    "properties": {
+                      "available": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "outOnLoan": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      },
+                      "total": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "total",
+                      "available",
+                      "outOnLoan",
+                      "checkouts",
+                      "returns",
+                      "tools"
+                    ],
+                    "type": "object"
+                  },
+                  "tool": {
+                    "properties": {
+                      "holder": {
+                        "maxLength": 80,
+                        "type": "string"
+                      },
+                      "holderKey": {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      "id": {
+                        "maxLength": 40,
+                        "type": "string"
+                      },
+                      "label": {
+                        "maxLength": 80,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "label",
+                      "holder",
+                      "holderKey"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "id": "test.agent.mendingcircle",
+                "lexicon": 1
+              }
+            ]
+          }
+        }
+      },
+      "stderr": "",
+      "step": 7
+    },
+    {
+      "startedAt": "2026-09-06T16:41:07.364408+00:00",
+      "completedAt": "2026-09-06T16:41:07.729229+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "preview",
+        "host": "http://127.0.0.1:63947",
+        "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car",
+        "action": "test.agent.mendingcircle#borrow",
+        "payload": {
+          "item": "shears",
+          "borrower": "Alex (synthetic)"
+        }
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "definition": {
+            "cid": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+            "manifest": {
+              "$type": "test.atseq.definition",
+              "files": [
+                {
+                  "cid": "bafkreiawquoivpm2twwvbl74huaasifgqoqlesddhf3kggqiheqiynot6a",
+                  "path": "folds/borrow.jsonata"
+                },
+                {
+                  "cid": "bafkreicgomzgd4ur4mrtt4hev4lkbnwyf6rbvrdw423ures4xg6ab2st5e",
+                  "path": "folds/return.jsonata"
+                },
+                {
+                  "cid": "bafkreich4rdke4ayqq67dj5lajpqpkoewevbdjlo2577h5yhmaelpzloja",
+                  "path": "queries/summary.jsonata"
+                },
+                {
+                  "cid": "bafkreibdjb4wyqrzvb5jpd5drvz64odmrif2ks24fweiyqtdwao2ierp4q",
+                  "path": "schemas/mending-circle.json"
+                },
+                {
+                  "cid": "bafkreie2ukuli5naw63loyanc2dj2ew62v5cjqacd52lfdozgf5yq56gre",
+                  "path": "state.json"
+                },
+                {
+                  "cid": "bafkreiekzzfamiouap7wktb4prlcr7fsambyoftpxg6v6faoo7u5twysju",
+                  "path": "views/main.json"
+                }
+              ],
+              "state": {
+                "ref": "test.agent.mendingcircle#state",
+                "initial": "state.json"
+              },
+              "title": "Mending circle: shared tool desk",
+              "views": [
+                {
+                  "name": "main",
+                  "query": "summary",
+                  "source": "views/main.json"
+                }
+              ],
+              "actions": [
+                {
+                  "ref": "test.agent.mendingcircle#borrow",
+                  "fold": "folds/borrow.jsonata"
+                },
+                {
+                  "ref": "test.agent.mendingcircle#returnTool",
+                  "fold": "folds/return.jsonata"
+                }
+              ],
+              "profile": {
+                "$link": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm"
+              },
+              "queries": [
+                {
+                  "ref": "test.agent.mendingcircle#summary",
+                  "name": "summary",
+                  "program": "queries/summary.jsonata"
+                }
+              ],
+              "version": 0,
+              "lexicons": [
+                "schemas/mending-circle.json"
+              ]
+            },
+            "lexicons": [
+              {
+                "defs": {
+                  "borrow": {
+                    "description": "Borrow an available tool for this mending session. A tool already out on loan cannot be borrowed again.",
+                    "properties": {
+                      "borrower": {
+                        "description": "A synthetic display label for this session.",
+                        "maxLength": 80,
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "item": {
+                        "description": "The shared tool ID.",
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item",
+                      "borrower"
+                    ],
+                    "type": "object"
+                  },
+                  "returnTool": {
+                    "description": "Return a shared tool. Only the signing identity that borrowed it can return it.",
+                    "properties": {
+                      "item": {
+                        "maxLength": 40,
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "item"
+                    ],
+                    "type": "object"
+                  },
+                  "state": {
+                    "properties": {
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "tools",
+                      "checkouts",
+                      "returns"
+                    ],
+                    "type": "object"
+                  },
+                  "summary": {
+                    "description": "Show the session tool desk, availability and completed loan counts.",
+                    "output": {
+                      "encoding": "application/json",
+                      "schema": {
+                        "ref": "#summaryResult",
+                        "type": "ref"
+                      }
+                    },
+                    "parameters": {
+                      "properties": {},
+                      "type": "params"
+                    },
+                    "type": "query"
+                  },
+                  "summaryResult": {
+                    "properties": {
+                      "available": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "checkouts": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "outOnLoan": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "returns": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "session": {
+                        "maxLength": 120,
+                        "type": "string"
+                      },
+                      "tools": {
+                        "items": {
+                          "ref": "#tool",
+                          "type": "ref"
+                        },
+                        "maxLength": 8,
+                        "type": "array"
+                      },
+                      "total": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "session",
+                      "total",
+                      "available",
+                      "outOnLoan",
+                      "checkouts",
+                      "returns",
+                      "tools"
+                    ],
+                    "type": "object"
+                  },
+                  "tool": {
+                    "properties": {
+                      "holder": {
+                        "maxLength": 80,
+                        "type": "string"
+                      },
+                      "holderKey": {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      "id": {
+                        "maxLength": 40,
+                        "type": "string"
+                      },
+                      "label": {
+                        "maxLength": 80,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "label",
+                      "holder",
+                      "holderKey"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "id": "test.agent.mendingcircle",
+                "lexicon": 1
+              }
+            ]
+          },
+          "state": {
+            "checkouts": 0,
+            "returns": 0,
+            "session": "Sunday mending circle",
+            "tools": [
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "shears",
+                "label": "Fabric shears"
+              },
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "snap-pliers",
+                "label": "Snap pliers"
+              },
+              {
+                "holder": "",
+                "holderKey": "",
+                "id": "seam-ripper",
+                "label": "Seam ripper"
+              }
+            ]
+          },
+          "outcome": {
+            "decision": "ineffective",
+            "message": "Borrowing and returning need a signing identity; anonymous preview cannot simulate this action.",
+            "reason": "signing_identity_required"
+          },
+          "scope": "local-preview",
+          "views": [
+            {
+              "name": "main",
+              "tree": [
+                {
+                  "type": "test.atseq.ui.Panel",
+                  "props": {},
+                  "children": [
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Sunday mending circle"
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Available tools: ",
+                        "3",
+                        " of ",
+                        "3"
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Text",
+                      "props": {},
+                      "children": [
+                        "Borrow a shared tool for this session, then return it with the same signing identity."
+                      ]
+                    },
+                    {
+                      "type": "test.atseq.ui.Action",
+                      "props": {
+                        "action": "test.agent.mendingcircle#borrow",
+                        "label": "Borrow a tool"
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "test.atseq.ui.Action",
+                      "props": {
+                        "action": "test.agent.mendingcircle#returnTool",
+                        "label": "Return my tool"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "previewUrl": "http://127.0.0.1:63947/?preview=bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse"
+        }
+      },
+      "stderr": "",
+      "step": 8
+    },
+    {
+      "startedAt": "2026-09-06T16:41:26.575340+00:00",
+      "completedAt": "2026-09-06T16:41:26.873483+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "identity",
+        "name": "Alex (synthetic mending participant)",
+        "keyFile": "<private-author-files>/alex-key.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "name": "Alex (synthetic mending participant)",
+          "publicKey": "did:key:zDnaewXQiXxPkx1zvVHcjFmMAnsbsUJVcTWbr2h5pf3e2BWKP"
+        }
+      },
+      "stderr": "",
+      "step": 9
+    },
+    {
+      "startedAt": "2026-09-06T16:41:26.924128+00:00",
+      "completedAt": "2026-09-06T16:41:27.216587+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "identity",
+        "name": "Sam (synthetic mending participant)",
+        "keyFile": "<private-author-files>/sam-key.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "name": "Sam (synthetic mending participant)",
+          "publicKey": "did:key:zDnaeTBNKcrCtLpvfHBAagy7NyPcTDgmkD3mT7asu3RUwfE2m"
+        }
+      },
+      "stderr": "",
+      "step": 10
+    },
+    {
+      "startedAt": "2026-09-06T16:41:27.273000+00:00",
+      "completedAt": "2026-09-06T16:41:28.265388+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "create",
+        "host": "http://127.0.0.1:63947",
+        "source": "experiments/agent-authored/mending-circle-tool-desk/definition.car",
+        "keyFile": "<private-author-files>/alex-key.json",
+        "creationId": "68a8f781-46ca-4365-8de5-62e88bdc9987"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "genesis": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.genesis",
+            "profile": {
+              "$link": "bafyreih66ootqazd3dz24woc4zd4qenyyqgwoxt7dclxctnsomvoqe2fkm"
+            },
+            "version": 0,
+            "definition": {
+              "$link": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse"
+            },
+            "sequencerKey": "did:key:zDnaeraqCgQKoS3cMApUApoV9RQpAFUjHRWzgmKSkKkg9wUoH",
+            "activationKeys": [
+              "did:key:zDnaewXQiXxPkx1zvVHcjFmMAnsbsUJVcTWbr2h5pf3e2BWKP"
+            ]
+          },
+          "genesisCid": {
+            "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 0
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 0,
+            "entry": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 11
+    },
+    {
+      "startedAt": "2026-09-06T16:42:00.512511+00:00",
+      "completedAt": "2026-09-06T16:42:00.803300+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "query",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "name": "summary",
+        "params": {}
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 0
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 0,
+            "entry": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            }
+          },
+          "result": {
+            "$type": "test.atseq.defs#queryAvailable",
+            "value": {
+              "available": 3,
+              "checkouts": 0,
+              "outOnLoan": 0,
+              "returns": 0,
+              "session": "Sunday mending circle",
+              "tools": [
+                {
+                  "holder": "",
+                  "holderKey": "",
+                  "id": "shears",
+                  "label": "Fabric shears"
+                },
+                {
+                  "holder": "",
+                  "holderKey": "",
+                  "id": "snap-pliers",
+                  "label": "Snap pliers"
+                },
+                {
+                  "holder": "",
+                  "holderKey": "",
+                  "id": "seam-ripper",
+                  "label": "Seam ripper"
+                }
+              ],
+              "total": 3
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 12
+    },
+    {
+      "startedAt": "2026-09-06T16:42:00.853506+00:00",
+      "completedAt": "2026-09-06T16:42:01.251210+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "submit",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+        "action": "test.agent.mendingcircle#borrow",
+        "payload": {
+          "item": "shears",
+          "borrower": "Alex (synthetic)"
+        },
+        "keyFile": "<private-author-files>/alex-key.json",
+        "intentFile": "<private-author-files>/borrow-shears-alex.intent.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "intent": "bafyreihmtjrydpyngp4bnruq5p7whah6aqbobiwagrd2wcn7opvf4uo2wm",
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            },
+            "intent": {
+              "$link": "bafyreihmtjrydpyngp4bnruq5p7whah6aqbobiwagrd2wcn7opvf4uo2wm"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 1
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 1
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 0,
+            "entry": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 13
+    },
+    {
+      "startedAt": "2026-09-06T16:42:01.303052+00:00",
+      "completedAt": "2026-09-06T16:42:01.633451+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "query",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "name": "summary",
+        "params": {}
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 1
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 1,
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            }
+          },
+          "result": {
+            "$type": "test.atseq.defs#queryAvailable",
+            "value": {
+              "available": 2,
+              "checkouts": 1,
+              "outOnLoan": 1,
+              "returns": 0,
+              "session": "Sunday mending circle",
+              "tools": [
+                {
+                  "holder": "Alex (synthetic)",
+                  "holderKey": "did:key:zDnaewXQiXxPkx1zvVHcjFmMAnsbsUJVcTWbr2h5pf3e2BWKP",
+                  "id": "shears",
+                  "label": "Fabric shears"
+                },
+                {
+                  "holder": "",
+                  "holderKey": "",
+                  "id": "snap-pliers",
+                  "label": "Snap pliers"
+                },
+                {
+                  "holder": "",
+                  "holderKey": "",
+                  "id": "seam-ripper",
+                  "label": "Seam ripper"
+                }
+              ],
+              "total": 3
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 14
+    },
+    {
+      "startedAt": "2026-09-06T16:42:34.423278+00:00",
+      "completedAt": "2026-09-06T16:42:34.738875+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "outcome",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "intent": "bafyreihmtjrydpyngp4bnruq5p7whah6aqbobiwagrd2wcn7opvf4uo2wm"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            },
+            "intent": {
+              "$link": "bafyreihmtjrydpyngp4bnruq5p7whah6aqbobiwagrd2wcn7opvf4uo2wm"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 1
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 1
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 1,
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            }
+          },
+          "outcome": {
+            "$type": "test.atseq.defs#effective"
+          }
+        }
+      },
+      "stderr": "",
+      "step": 15
+    },
+    {
+      "startedAt": "2026-09-06T16:42:34.761844+00:00",
+      "completedAt": "2026-09-06T16:42:35.186921+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "submit",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+        "action": "test.agent.mendingcircle#borrow",
+        "payload": {
+          "item": "shears",
+          "borrower": "Sam (synthetic)"
+        },
+        "keyFile": "<private-author-files>/sam-key.json",
+        "intentFile": "<private-author-files>/borrow-shears-sam-refused.intent.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "intent": "bafyreihqsxdc2msw66ovdoifbwioxnmyrm6g3aejswawvwajwrfdzgwtxe",
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreig5twjxlq5h3d55mkgza2pw6kb7gktniv4dscttqhb3h6lwtwssvi"
+            },
+            "intent": {
+              "$link": "bafyreihqsxdc2msw66ovdoifbwioxnmyrm6g3aejswawvwajwrfdzgwtxe"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 2
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreig5twjxlq5h3d55mkgza2pw6kb7gktniv4dscttqhb3h6lwtwssvi"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 2
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 1,
+            "entry": {
+              "$link": "bafyreidjyvgfn6sx4gzwq5lnn32vt6az4muc3m4iuclrjdjrcp5djffzla"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 16
+    },
+    {
+      "startedAt": "2026-09-06T16:42:35.210731+00:00",
+      "completedAt": "2026-09-06T16:42:35.547669+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "outcome",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "intent": "bafyreihqsxdc2msw66ovdoifbwioxnmyrm6g3aejswawvwajwrfdzgwtxe"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreig5twjxlq5h3d55mkgza2pw6kb7gktniv4dscttqhb3h6lwtwssvi"
+            },
+            "intent": {
+              "$link": "bafyreihqsxdc2msw66ovdoifbwioxnmyrm6g3aejswawvwajwrfdzgwtxe"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 2
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreig5twjxlq5h3d55mkgza2pw6kb7gktniv4dscttqhb3h6lwtwssvi"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 2
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 2,
+            "entry": {
+              "$link": "bafyreig5twjxlq5h3d55mkgza2pw6kb7gktniv4dscttqhb3h6lwtwssvi"
+            }
+          },
+          "outcome": {
+            "$type": "test.atseq.defs#ineffective",
+            "reason": "tool_in_use",
+            "message": "This tool is already out on loan."
+          }
+        }
+      },
+      "stderr": "",
+      "step": 17
+    },
+    {
+      "startedAt": "2026-09-06T16:42:35.572371+00:00",
+      "completedAt": "2026-09-06T16:42:36.002979+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "submit",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+        "action": "test.agent.mendingcircle#returnTool",
+        "payload": {
+          "item": "shears"
+        },
+        "keyFile": "<private-author-files>/sam-key.json",
+        "intentFile": "<private-author-files>/return-shears-sam-refused.intent.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "intent": "bafyreifef3m265dtb7xx62ckgmw7vgera6gss6aaqav2h3amwcqudtvax4",
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreidsk52i4cmag2tixf6k6b67e5je47dphtfydtx7nwcesfo4zx6wcq"
+            },
+            "intent": {
+              "$link": "bafyreifef3m265dtb7xx62ckgmw7vgera6gss6aaqav2h3amwcqudtvax4"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 3
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreidsk52i4cmag2tixf6k6b67e5je47dphtfydtx7nwcesfo4zx6wcq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 3
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 2,
+            "entry": {
+              "$link": "bafyreig5twjxlq5h3d55mkgza2pw6kb7gktniv4dscttqhb3h6lwtwssvi"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 18
+    },
+    {
+      "startedAt": "2026-09-06T16:42:36.027468+00:00",
+      "completedAt": "2026-09-06T16:42:36.360637+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "outcome",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "intent": "bafyreifef3m265dtb7xx62ckgmw7vgera6gss6aaqav2h3amwcqudtvax4"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreidsk52i4cmag2tixf6k6b67e5je47dphtfydtx7nwcesfo4zx6wcq"
+            },
+            "intent": {
+              "$link": "bafyreifef3m265dtb7xx62ckgmw7vgera6gss6aaqav2h3amwcqudtvax4"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 3
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreidsk52i4cmag2tixf6k6b67e5je47dphtfydtx7nwcesfo4zx6wcq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 3
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 3,
+            "entry": {
+              "$link": "bafyreidsk52i4cmag2tixf6k6b67e5je47dphtfydtx7nwcesfo4zx6wcq"
+            }
+          },
+          "outcome": {
+            "$type": "test.atseq.defs#ineffective",
+            "reason": "not_borrower",
+            "message": "Only the borrowing identity can return this tool."
+          }
+        }
+      },
+      "stderr": "",
+      "step": 19
+    },
+    {
+      "startedAt": "2026-09-06T16:42:36.384148+00:00",
+      "completedAt": "2026-09-06T16:42:36.830587+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "submit",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+        "action": "test.agent.mendingcircle#returnTool",
+        "payload": {
+          "item": "shears"
+        },
+        "keyFile": "<private-author-files>/alex-key.json",
+        "intentFile": "<private-author-files>/return-shears-alex.intent.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "intent": "bafyreib42swt5lv56vxotay6jhbzpyajem74u42pysarrvbytzt7vmqwiq",
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreigogtc7ojborse6tprmlqrmpgthdzzyr3cucsbfw5glmjxbmqkw7a"
+            },
+            "intent": {
+              "$link": "bafyreib42swt5lv56vxotay6jhbzpyajem74u42pysarrvbytzt7vmqwiq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 4
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreigogtc7ojborse6tprmlqrmpgthdzzyr3cucsbfw5glmjxbmqkw7a"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 4
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 3,
+            "entry": {
+              "$link": "bafyreidsk52i4cmag2tixf6k6b67e5je47dphtfydtx7nwcesfo4zx6wcq"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 20
+    },
+    {
+      "startedAt": "2026-09-06T16:42:36.854892+00:00",
+      "completedAt": "2026-09-06T16:42:37.198161+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "outcome",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "intent": "bafyreib42swt5lv56vxotay6jhbzpyajem74u42pysarrvbytzt7vmqwiq"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreigogtc7ojborse6tprmlqrmpgthdzzyr3cucsbfw5glmjxbmqkw7a"
+            },
+            "intent": {
+              "$link": "bafyreib42swt5lv56vxotay6jhbzpyajem74u42pysarrvbytzt7vmqwiq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 4
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreigogtc7ojborse6tprmlqrmpgthdzzyr3cucsbfw5glmjxbmqkw7a"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 4
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 4,
+            "entry": {
+              "$link": "bafyreigogtc7ojborse6tprmlqrmpgthdzzyr3cucsbfw5glmjxbmqkw7a"
+            }
+          },
+          "outcome": {
+            "$type": "test.atseq.defs#effective"
+          }
+        }
+      },
+      "stderr": "",
+      "step": 21
+    },
+    {
+      "startedAt": "2026-09-06T16:42:37.222924+00:00",
+      "completedAt": "2026-09-06T16:42:37.670818+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "submit",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+        "action": "test.agent.mendingcircle#borrow",
+        "payload": {
+          "item": "shears",
+          "borrower": "Sam (synthetic)"
+        },
+        "keyFile": "<private-author-files>/sam-key.json",
+        "intentFile": "<private-author-files>/borrow-shears-sam.intent.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "intent": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq",
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "intent": {
+              "$link": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 5
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 5
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 4,
+            "entry": {
+              "$link": "bafyreigogtc7ojborse6tprmlqrmpgthdzzyr3cucsbfw5glmjxbmqkw7a"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 22
+    },
+    {
+      "startedAt": "2026-09-06T16:42:37.695560+00:00",
+      "completedAt": "2026-09-06T16:42:38.023433+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "outcome",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "intent": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "intent": {
+              "$link": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 5
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 5
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 5,
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            }
+          },
+          "outcome": {
+            "$type": "test.atseq.defs#effective"
+          }
+        }
+      },
+      "stderr": "",
+      "step": 23
+    },
+    {
+      "startedAt": "2026-09-06T16:43:36.955815+00:00",
+      "completedAt": "2026-09-06T16:43:37.339362+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "submit",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+        "action": "test.agent.mendingcircle#borrow",
+        "payload": {
+          "item": "shears",
+          "borrower": "Sam (synthetic)"
+        },
+        "keyFile": "<private-author-files>/sam-key.json",
+        "intentFile": "<private-author-files>/borrow-shears-sam.intent.json"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "intent": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq",
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "intent": {
+              "$link": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 5
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 5
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 5,
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 24
+    },
+    {
+      "startedAt": "2026-09-06T16:43:37.392663+00:00",
+      "completedAt": "2026-09-06T16:43:37.695701+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "query",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "name": "summary",
+        "params": {}
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 5
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 5,
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            }
+          },
+          "result": {
+            "$type": "test.atseq.defs#queryAvailable",
+            "value": {
+              "available": 2,
+              "checkouts": 2,
+              "outOnLoan": 1,
+              "returns": 1,
+              "session": "Sunday mending circle",
+              "tools": [
+                {
+                  "holder": "Sam (synthetic)",
+                  "holderKey": "did:key:zDnaeTBNKcrCtLpvfHBAagy7NyPcTDgmkD3mT7asu3RUwfE2m",
+                  "id": "shears",
+                  "label": "Fabric shears"
+                },
+                {
+                  "holder": "",
+                  "holderKey": "",
+                  "id": "snap-pliers",
+                  "label": "Snap pliers"
+                },
+                {
+                  "holder": "",
+                  "holderKey": "",
+                  "id": "seam-ripper",
+                  "label": "Seam ripper"
+                }
+              ],
+              "total": 3
+            }
+          }
+        }
+      },
+      "stderr": "",
+      "step": 25
+    },
+    {
+      "startedAt": "2026-09-06T16:43:37.746056+00:00",
+      "completedAt": "2026-09-06T16:43:38.068883+00:00",
+      "command": "npm run --silent atseq",
+      "request": {
+        "operation": "outcome",
+        "host": "http://127.0.0.1:63947",
+        "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+        "genesis": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi",
+        "intent": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq"
+      },
+      "exitCode": 0,
+      "response": {
+        "ok": true,
+        "result": {
+          "receipt": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.defs#receipt",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "intent": {
+              "$link": "bafyreihat542oxet5fq7ewirqyeombzg7j2kgtyxlh7nsi6myhe3ru7rpq"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "position": 5
+          },
+          "head": {
+            "app": "did:plc:4vznzapg45zwon7kzs7wnr7i",
+            "$type": "test.atseq.head",
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            },
+            "genesis": {
+              "$link": "bafyreihfmic5s3f7a2xltc6x3lrcgyhdsa2pcbfte5qb4w7lnn2w72rzbi"
+            },
+            "version": 0,
+            "position": 5
+          },
+          "frontier": {
+            "$type": "test.atseq.defs#cursor",
+            "position": 5,
+            "entry": {
+              "$link": "bafyreicvgnfe5bbdi6dr4qcnsunndlg4j4hf7n73lqxyoofaaqo73eeyse"
+            }
+          },
+          "outcome": {
+            "$type": "test.atseq.defs#effective"
+          }
+        }
+      },
+      "stderr": "",
+      "step": 26
+    }
+  ],
+  "completedAt": "2026-09-06T16:45:03.489511+00:00",
+  "resultSummary": {
+    "definition": "bafyreiechuca3c64bg6k6u6k42wj3psff5ehvmp7jqt33eunbwgjhysyse",
+    "canonicalEntries": 5,
+    "effectiveEntries": 3,
+    "ineffectiveEntries": 2,
+    "exactRetryAtPosition": 5,
+    "finalQueryStep": 25,
+    "finalOutcomeStep": 26,
+    "findings": [
+      {
+        "id": "anonymous-preview-identity",
+        "adapterStep": 5,
+        "observed": "The documented preview request has no identity option and supplies an empty meta.actorKey. The initial identity-sensitive borrow preview looked effective while retaining an empty holder key.",
+        "response": "Retained the original draft CAR and added an explicit signing_identity_required refusal for missing/empty actor keys before publication. Live signed actions received the real actor did:key and passed.",
+        "gap": "Document anonymous preview metadata and consider a public-key-only preview actor option; do not use a successful anonymous preview as evidence for actor-dependent policy."
+      },
+      {
+        "id": "invitation-link",
+        "adapterStep": 11,
+        "observed": "create returns app/genesis/head data but no directly usable application URL; the permitted docs do not specify the live app URL shape.",
+        "response": "Retained the documented invitation tuple (host, app, genesis) rather than inventing a URL. The adapter does return a working previewUrl for draft views."
+      }
+    ]
+  }
+}

@@ -1,4 +1,6 @@
+import { chartExport, type ChartSource } from '../archive/chart.ts';
 import './style.css';
+import { ARCHIVE_LIMIT } from '../archive/limits.ts';
 import { ACTIVATE } from '../definition/control.ts';
 import { fromBytes } from '@atcute/cbor';
 import { AtseqClient, ApiError } from '../client/api.ts';
@@ -117,7 +119,7 @@ async function openApp(invitation: Invitation) {
   changeDraft = await store.get<ChangeDraft>(`change:${invitation.app}`);
   const retained = await store.get<any>(`verified:${invitation.app}:${invitation.genesis}`);
   if (retained) try {
-    snapshot = await evaluator.call('sync', { invitation, input: retained }); definition = snapshot.definition;
+    snapshot = await evaluator.call('sync', { invitation, input: retained }, 120_000); definition = snapshot.definition;
     await drawApp(); tell('Saved state on this device. Checking for newer entries…');
   } catch { tell('Saved inputs failed verification. Fetching a verified prefix…'); }
   await refresh();
@@ -129,7 +131,8 @@ async function refresh() {
   document.querySelectorAll<HTMLButtonElement>('button[data-refresh]').forEach(button => { button.disabled = true; });
   const invitation = { ...current };
   try {
-    const input = await api.call('sync', invitation), checked = await evaluator.call('sync', { invitation, input });
+    tell('Checking retained history and interpreting updates…');
+    const input = await api.call('sync', invitation), checked = await evaluator.call('sync', { invitation, input }, 120_000);
     // Only worker-verified inputs become the device's canonical cache.
     await store.set(`verified:${invitation.app}:${invitation.genesis}`, input);
     if (current?.app !== invitation.app) return;
@@ -171,15 +174,17 @@ function primitive(node: ViewNode, area: HTMLElement): Node {
   if (typeof node === 'string') return document.createTextNode(node);
   if (node.type === 'test.atseq.ui.Action') {
     if (typeof node.props.action !== 'string' || typeof node.props.label !== 'string' || !definition?.manifest.actions.some(a => a.ref === node.props.action)) throw new Error('View names an unavailable action');
-    return button(node.props.label, () => openAction(node.props.action as string, area));
+    const action = button(node.props.label, () => openAction(node.props.action as string, area)); action.disabled = Boolean(snapshot?.stalled); return action;
   }
   if (!['test.atseq.ui.Panel', 'test.atseq.ui.Text'].includes(node.type)) throw new Error('Unknown view primitive');
   const target = element(node.type === 'test.atseq.ui.Text' ? 'p' : 'div'); target.append(...node.children.map(child => primitive(child, area))); return target;
 }
 function openAction(ref: string, area: HTMLElement, initial?: Record<string, Json>) {
+  if (snapshot?.stalled) { tell('Interpretation is paused. Your queued work is retained; refresh when its source is available.'); return; }
   if (!identity) { showIdentity(() => openAction(ref, area, initial)); return; }
   const pinned = { ...current! }, pinnedDefinition = definition!.cid;
   const form = actionForm(definition!, ref, 'Save action', async payload => {
+    if (snapshot?.stalled) throw new Error('Interpretation is paused. Retained work is unchanged.');
     if (current?.app !== pinned.app || definition?.cid !== pinnedDefinition) throw new Error('App changed. Review this action with the current form.');
     await evaluator.call('validateAction', { action: ref, payload });
     if (current?.app !== pinned.app || definition?.cid !== pinnedDefinition) throw new Error('App changed while validating. Review the current form.');
@@ -196,13 +201,15 @@ async function drawApp() {
   const workspace = element('section', undefined, 'card'), formArea = editorArea ??= element('div'), view = element('div', undefined, 'view');
   workspace.append(view, formArea);
   const actions = element('div', undefined, 'row');
-  for (const action of definition.manifest.actions) actions.append(button(action.ref.split('#').at(-1)!, () => openAction(action.ref, formArea)));
+  for (const action of definition.manifest.actions) { const control = button(action.ref.split('#').at(-1)!, () => openAction(action.ref, formArea)); control.disabled = Boolean(snapshot.stalled); actions.append(control); }
   workspace.prepend(element('h2', 'Participate'), actions);
   const queryArea = element('section', undefined, 'card'); queryArea.append(element('h2', 'Queries'));
   for (const query of definition.manifest.queries) {
     const result = element('div'), schema = resolveSchema(definition, query.ref);
     queryArea.append(element('h3', query.name), schemaForm(definition, schema.parameters ?? { properties: {} }, 'Run query', async params => {
+      const pinned = { ...current! }, cid = definition!.cid;
       const response = await evaluator.call('query', { name: query.name, params }); result.replaceChildren(element('p', `Interpreted through entry ${response.frontier.position}`, 'muted'), element('pre', JSON.stringify(response.result, null, 2)));
+      if (response.result.$type === 'test.atseq.defs#queryAvailable') result.append(queryExport(response.result.value, { ...pinned, definition: cid, position: response.frontier.position, entry: response.frontier.entry.$link, query: query.name, params }));
     }), result);
   }
   const activity = element('section', undefined, 'card'); activity.append(element('h2', 'Activity'));
@@ -230,7 +237,7 @@ async function drawApp() {
     const row = element('div', undefined, 'activity'); row.append(element('strong', `Entry ${outcome.position} · ${outcome.outcome.$type.endsWith('#effective') ? 'Applied' : 'Not applied'}`), inspect('Recorded effect', outcome)); activity.append(row);
   }
   if (!pending.length && !snapshot.projection.outcomes.length) activity.append(element('p', 'No actions yet. Reading this app creates no signature or commitment.', 'muted'));
-  content.replaceChildren(title, controls, workspace, queryArea, activity, changePanel(), inspect('Verified state and frontier', snapshot.projection), inspect('Inspect definition', definition));
+  content.replaceChildren(title, controls, workspace, queryArea, activity, changePanel(), archivePanel(), inspect('Verified state and frontier', snapshot.projection), inspect('Inspect definition', definition));
   try { const binding = definition.manifest.views[0]; if (binding) view.replaceChildren(...(await evaluator.call('view', { name: binding.name })).map((node: ViewNode) => primitive(node, formArea))); }
   catch (error) { view.replaceChildren(element('p', `View unavailable: ${(error as Error).message}`, 'muted')); }
 }
@@ -238,7 +245,7 @@ async function compareChange(source: number[]) {
   if (!current || !definition) throw new Error('Open an app first');
   const target = { ...current }, expected = definition.cid;
   tell('Checking the candidate and replaying the existing prefix…');
-  const comparison = await evaluator.call('compareDefinition', { source, expected });
+  const comparison = await evaluator.call('compareDefinition', { source, expected }, 120_000);
   const proposed = { source, expected, comparison };
   await store.set(`change:${target.app}`, proposed);
   if (current.app === target.app) { changeDraft = proposed; await drawApp(); tell('Candidate checked. Existing data is preserved. Apply explicitly to retain and activate it.'); }
@@ -284,3 +291,53 @@ try {
   else if (invitation.get('app') && invitation.get('genesis')) await openApp({ app: invitation.get('app')!, genesis: invitation.get('genesis')! });
   else { const empty = element('div', undefined, 'empty'); empty.append(element('h1', 'An app for the purpose at hand.'), element('p', 'Open a definition from your agent to try it locally, or return to an application in the sidebar.'), element('p', 'Your application brings its own schemas, actions and views. This host supplies the log and the interpreter.', 'muted')); content.replaceChildren(empty); }
 } catch (error) { failure(error); }
+
+function download(name: string, data: Uint8Array, type: string) {
+  const url = URL.createObjectURL(new Blob([new Uint8Array(data)], { type })), a = element('a');
+  a.href = url; a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+function archivePanel() {
+  const panel = element('section', undefined, 'card'); panel.append(element('h2', 'Keep a copy'), element('p', `App and verified history through entry ${snapshot.projection.frontier.position}. Includes definitions and data. Replay needs this installed runtime; signing keys are excluded.`, 'muted'));
+  panel.append(button('Download app and verified history', async () => {
+    tell('Verifying source and replaying the chosen prefix for export…');
+    try { const result = await evaluator.call('exportArchive', {}, 120_000); download('application.atseq.json', result.bytes, 'application/json'); tell(`Exported verified history through entry ${result.head.position}. The app remains open.`); }
+    catch (error) { failure(error); }
+  }));
+  return panel;
+}
+document.querySelector<HTMLInputElement>('#import-archive')!.onchange = async event => {
+  const input = event.target as HTMLInputElement, file = input.files?.[0]; if (!file) return;
+  try {
+    if (file.size > ARCHIVE_LIMIT) throw new Error('Archive exceeds 48 MiB');
+    tell('Verifying the archive and replaying its retained history…');
+    const checked = await evaluator.call('importArchive', { source: new Uint8Array(await file.arrayBuffer()) }, 120_000);
+    const invitation = { app: checked.input.genesis.app, genesis: checked.input.genesisCid };
+    await store.set(`verified:${invitation.app}:${invitation.genesis}`, checked.input);
+    await store.update<any[]>('apps', previous => [...(previous ?? []).filter(app => app.app !== invitation.app), { ...invitation, title: 'Imported application' }]);
+    await openApp(invitation); await applications();
+  } catch (error) { failure(error); } finally { input.value = ''; }
+};
+if ('serviceWorker' in navigator) { void navigator.serviceWorker.register('/sw.js').then(() => navigator.serviceWorker.ready).then(() => { document.querySelector('#offline-ready')!.textContent = 'Shell saved for offline use'; }).catch(() => { document.querySelector('#offline-ready')!.textContent = 'Offline shell is not saved'; }); }
+
+function queryExport(value: any, source: ChartSource) {
+  const panel = element('div'), datasets = Object.entries(value ?? {}).filter(([, rows]) => Array.isArray(rows) && rows.length && rows.length <= 100 && rows.every(row => row && typeof row === 'object' && !Array.isArray(row)));
+  for (const [name, data] of datasets) {
+    const rows = data as Record<string, unknown>[], labels = Object.keys(rows[0]!).filter(key => rows.every(row => typeof row[key] === 'string')), values = Object.keys(rows[0]!).filter(key => rows.every(row => Number.isSafeInteger(row[key])));
+    if (!labels.length || !values.length) continue;
+    const card = element('section', undefined, 'card'), label = element('select'), metric = element('select'), result = element('div');
+    label.setAttribute('aria-label', 'Chart labels'); metric.setAttribute('aria-label', 'Chart values');
+    for (const key of labels) { const option = element('option', key); option.value = key; label.append(option); }
+    for (const key of values) { const option = element('option', key); option.value = key; metric.append(option); }
+    card.append(element('h3', `Chart or table: ${name}`), label, metric, button('Draw chart', () => {
+      try {
+        const exported = chartExport(rows, label.value, metric.value, source), picture = element('img'); picture.alt = `${metric.value} by ${label.value}; values are in the accompanying table`; picture.style.width = '100%'; picture.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(exported.svg);
+        const table = element('table'), header = element('tr'); header.append(element('th', label.value), element('th', metric.value)); table.append(header);
+        for (const row of rows) { const tr = element('tr'); tr.append(element('td', String(row[label.value])), element('td', String(row[metric.value]))); table.append(tr); }
+        result.replaceChildren(picture, table, button('Download SVG', () => download('query.svg', new TextEncoder().encode(exported.svg), 'image/svg+xml')), button('Download table', () => download('query.html', new TextEncoder().encode(exported.html), 'text/html')));
+      } catch(error) { failure(error); }
+    }), result); panel.append(card);
+  }
+  return panel;
+}
+
+document.querySelector('#cancel-work')!.addEventListener('click', () => { evaluator.cancel(); tell('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.'); });

@@ -1,3 +1,5 @@
+import { applicationRuntimeCid, applicationRuntimeDescriptor } from '../runtime/identity.ts';
+import { exportArchive, importArchive, encodeArchive } from '../archive/archive.ts';
 import { readFile, readdir, lstat, mkdir, open, link as linkFile, rm } from 'node:fs/promises';
 import { resolve, dirname, join, relative } from 'node:path';
 import { randomUUID } from 'node:crypto';
@@ -46,6 +48,7 @@ async function pack(directory: string): Promise<SourceBundle> {
   await walk(root); return SourceBundle.pack(manifest, files);
 }
 export async function execute(input: any): Promise<unknown> {
+  if (input.operation === 'runtime') return { profile: await applicationRuntimeCid(), descriptor: applicationRuntimeDescriptor };
   const prepareOnly = input.operation === 'prepare';
   if (prepareOnly) input = { ...input, operation: 'submit' };
   if (input.operation === 'activate') input = { ...input, operation: 'submit', action: ACTIVATE, payload: { expected: input.definition, definition: input.candidate, closure: input.closure } };
@@ -59,14 +62,28 @@ export async function execute(input: any): Promise<unknown> {
     if (output.startsWith(root + '/')) throw new Error('Write the CAR outside its source folder');
     await atomicFile(output, await source.write()); return { definition: source.root, output };
   }
+  if (input.operation === 'replay') {
+    const rebuilt = await importArchive(await readFile(input.source), input.app && input.genesis ? { app: input.app, genesis: input.genesis } : undefined);
+    const output = resolve(input.outputDirectory);
+    await mkdir(output, { mode: 0o700 }); // Must be a new directory; never clear existing data.
+    await atomicFile(join(output, 'projection.json'), JSON.stringify(rebuilt.snapshot.projection));
+    await atomicFile(join(output, 'retry-index.json'), JSON.stringify(rebuilt.retries));
+    await atomicFile(join(output, 'archive.atseq.json'), encodeArchive(rebuilt.archive));
+    return { outputDirectory: output, head: rebuilt.snapshot.head, frontier: rebuilt.snapshot.projection.frontier, definition: rebuilt.snapshot.projection.definition };
+  }
   const api = new AtseqClient(input.host);
   const target = { app: input.app, genesis: input.genesis };
   switch (input.operation) {
+    case 'export': {
+      const archive = await exportArchive(await api.call('sync', target), input.position);
+      const output = resolve(input.output); await atomicFile(output, encodeArchive(archive));
+      return { output, head: archive.input.head, runtime: archive.input.genesis.profile, sourceBlocks: archive.inventory.length };
+    }
     case 'list': return api.call('list');
     case 'describe': return api.call('describe', target);
     case 'validate': return api.call('validateDraft', { source: bytes(await readFile(input.source)) });
-    case 'compare': return api.call('compareDefinition', { ...target, expected: input.definition, source: bytes(await readFile(input.source)) });
-    case 'stage': return api.call('stageDefinition', { ...target, expected: input.definition, source: bytes(await readFile(input.source)) });
+    case 'compare': return api.call('compareDefinition', { ...target, expected: input.expected ?? input.definition, source: bytes(await readFile(input.source)) });
+    case 'stage': return api.call('stageDefinition', { ...target, expected: input.expected ?? input.definition, source: bytes(await readFile(input.source)) });
     case 'preview': return api.call('preview', { source: bytes(await readFile(input.source)), ...(input.action ? { action: input.action, payload: input.payload } : {}), ...(input.state !== undefined ? { state: input.state } : {}) });
     case 'create': {
       const identity = await privateJson(input.keyFile) as Identity;

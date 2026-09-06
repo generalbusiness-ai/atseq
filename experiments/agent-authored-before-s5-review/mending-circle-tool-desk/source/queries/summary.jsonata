@@ -1,0 +1,9 @@
+{
+  "session": $exists(state.session) ? state.session : "Mending circle",
+  "total": $count(state.tools),
+  "available": $count(state.tools[holderKey = ""]),
+  "outOnLoan": $count(state.tools[holderKey != ""]),
+  "checkouts": $exists(state.checkouts) ? state.checkouts : 0,
+  "returns": $exists(state.returns) ? state.returns : 0,
+  "tools": [state.tools]
+}

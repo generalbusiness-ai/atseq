@@ -17,8 +17,8 @@ await mkdir(evidence, { recursive: true });
 const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));
 const version = (name: string): string => lock.packages[`node_modules/${name}`].version;
 const report: Record<string, any> = { stage: 'S0', passed: false, measuredAt: new Date().toISOString(), environment: { node: process.version, os: platform(), arch: arch(), cpu: cpus()[0]?.model }, profile: PROFILE, limitations: [
-  'A feasibility experiment only; no PDS log, signing, activation or exports implemented.',
-  'Local forms and fixture routes are experiment code. Generic application interaction belongs to S4.',
+  'This gate covers engine feasibility only; PDS, signing, activation and archives have separate gates.',
+  'Local forms and fixture routes here are experiment code. The separate S4 participation gate checks generic application interaction.',
   'One JSONata engine and candidate profile; only the documented expression/Lexicon subset is admitted.',
   'Chromium is the browser exercised here. No cross-browser or production isolation claim.',
   'No wall-time threshold defines semantic effectiveness. Watchdog failures pause interpretation.',

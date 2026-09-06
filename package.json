@@ -16,11 +16,12 @@
     "test:runtime": "tsx --test tests/runtime.test.ts tests/projection.test.ts",
     "test:dynamic-apps": "tsx --test tests/dynamic-apps.test.ts",
     "test:flows": "tsx scripts/flows.ts",
-    "spike:acceptance": "node scripts/not-implemented.mjs S6",
-    "spike:report": "node scripts/not-implemented.mjs S6",
+    "spike:acceptance": "tsx scripts/acceptance.ts",
+    "spike:report": "tsx scripts/report.ts",
     "dev:experiment": "vite experiments/browser --host 127.0.0.1",
     "atseq": "tsx src/cli/main.ts",
-    "dev:app": "tsx scripts/serve.ts"
+    "dev:app": "tsx scripts/serve.ts",
+    "test:archive": "tsx --test tests/archive.test.ts"
   },
   "dependencies": {
     "@atcute/car": "6.0.2",
