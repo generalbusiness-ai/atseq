@@ -174,8 +174,9 @@ verified atproto account identity. The browser stores its own key locally; the
 agent CLI uses a separate owner-readable key file outside version control.
 Losing a key requires a new identity in this spike; account recovery is deferred.
 
-Genesis declares the initial definition, initial state, protocol/profile,
-sequencer public key, and explicit activation-authority keys. Creation does
+Genesis references the initial definition, which is the sole source of initial
+state. It declares the protocol/profile, sequencer public key, and explicit
+activation-authority keys; its profile must agree with the definition. Creation does
 not establish an irrevocable owner role. The spike grants its test editor
 explicitly and tests that another participant cannot activate definitions.
 Initial grants are fixed for this experiment; production governance comes later.
@@ -197,7 +198,7 @@ Specify framework Lexicons and exact canonical bytes for:
 - Genesis and head record schemas, including exact initial-position conventions.
 
 Use established canonical CBOR/CID utilities. Reject duplicate fields,
-unsupported encodings, and trailing bytes before signing/verification. P1 must
+unsupported encodings, and trailing bytes before signing/verification. S1 must
 specify exactly how Lexicon JSON is transformed to canonical signed bytes.
 Store and verify original signed content; validation must not strip extra
 fields and then substitute re-encoded content for what the actor signed.
@@ -228,7 +229,7 @@ sequencer proof is corrupted history and pauses verification.
 
 Expose a small fixed XRPC surface for definition discovery, app creation,
 signed submission, named queries, and receipt/outcome lookup. Names are selected
-under an owned namespace during P1, not invented as globally registered names
+under an owned namespace during S1, not invented as globally registered names
 in this note. Standard PDS APIs supply records and exports. Schema-driven
 clients load domain definitions at runtime; no domain SDK build is required.
 
@@ -245,6 +246,9 @@ new definition CID, and dependency closure. If effective, N+1 uses the new
 definition. A second activation racing from the same old definition is
 recorded ineffective. Invalid shape/unsupported code fails draft validation;
 a malicious recorded invalid activation is ineffective under the control rules.
+Unavailable candidate content pauses interpretation; it cannot be treated as
+invalid just because a host failed to fetch it. Preserve the prior projection
+and retry the same entry once its dependency closure is available.
 
 Keep state schema and runtime unchanged in the first activation. Add a new
 action/query/view using existing state fields. Old action intents remain signed
@@ -492,6 +496,12 @@ cannot support the essential flow, keep its record/composition lessons and use
 a small declarative host renderer for the same bindings; record the missing
 capability. Do not add a second state or action system for the UI experiment.
 
+Allow only registered local primitives. Escape text and reject executable HTML,
+scripts, template access to signing keys, and action invocation on load/render.
+Resolve source dependencies only from the configured test PDS or retained
+archive. A human control interaction or explicit agent adapter call is required
+to submit an action; rendering a view is never a signing operation.
+
 **Gate:** `npm run spike:feasibility` exits 0 only when the selected evaluator,
 runtime validator, browser execution, and one declarative action control pass.
 It writes `experiments/feasibility.json` with selected/rejected candidates,
@@ -563,6 +573,8 @@ Local outbox order supplies a preview only; concurrent actors can change results
 browser identities plus the CLI; online/offline submit; double click; lost
 response; conflict/no-op; transport refusal; mobile layout and keyboard access.
 No action form or host switch statement names a particular demo domain.
+Include hostile view fixtures: scripts/HTML cannot execute, unsupported external
+resources do not load, and an auto-submit template produces no signature or act.
 
 ### S5 — Activate a definition and preserve pending work
 

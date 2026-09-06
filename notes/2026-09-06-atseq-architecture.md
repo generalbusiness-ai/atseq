@@ -150,6 +150,9 @@ later discovery of a different genesis for the same app is an error. Current
 DID resolution supplies routing and publication context, not retroactive proof
 of every historical actor key.
 
+Initial state comes exclusively from the referenced definition; genesis does
+not duplicate it. The genesis runtime identifier must agree with that definition.
+
 Retain actor and sequencing proofs independently of the PDS repository
 signature. Actors sign application intent; the sequencer signs position and
 predecessor. Specify domain separation, canonical bytes, key encoding, and
@@ -223,6 +226,8 @@ Definition publication and activation are separate. An activation act at
 position N is interpreted under the preceding definition and authority rules.
 If effective, the new definition applies from N+1. Retain both definitions and
 all referenced content. An ineffective activation leaves the old definition active.
+Unavailable candidate content pauses interpretation until it can be verified;
+only an available candidate can be judged deterministically invalid.
 
 The first spike requires exact matching between an ordinary intent's declared
 definition CID and the active definition. An old outbox intent is retained but
@@ -257,6 +262,12 @@ reuse candidates. Atsui describes primitive interfaces through Lexicon.
 Test a small view and action binding before adopting the renderer. Essential
 views need local implementations and pinned dependencies; external rendering
 endpoints remain optional live services. [Inlay](https://tangled.org/danabra.mov/inlay/)
+
+Generated views are data interpreted through allowlisted primitives. Templates
+cannot access signing keys, execute script/HTML, or submit actions on load.
+Human submission requires an explicit control interaction; agent submission
+requires an explicit adapter call. The spike resolves content only from its
+configured test PDS or retained archive.
 
 Keep a generic form, result view, and schema inspector as recovery/authoring
 affordances. A missing custom component should not erase access to the app's
