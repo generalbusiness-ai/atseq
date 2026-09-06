@@ -1,1 +1,1 @@
-{"kind":"artifact","text":"Corrected S6 at e60e603: notes/README.md. Describes archive trust, explicit resource limits, independently authored app evidence, and retained final acceptance; 13 commands passed.","body":{"branch":"request/spike-acceptance","commit":"e60e603ce2f57fd0a3a85ef39c024f18533513a9","path":"notes/README.md"}}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fc90064e2a7373e65df91bc7110533a8d94c13ae"}
