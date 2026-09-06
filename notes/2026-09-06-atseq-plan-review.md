@@ -5,6 +5,7 @@ reviews:
   - notes/2026-09-06-atseq-architecture.md
   - notes/2026-09-06-atseq-initial-spike.md
 reviewed_at: efbd900
+corrected_after: git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b1b80609adc9fc79396fe2ab95c17bd5ff7624a0
 rests_on:
   - git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:95a7a733307fc1d78d8de0cf32c76f9a1b0e4502
 ---
@@ -23,7 +24,15 @@ The short answer: the contracts are sound and unusually honest about failure
 states, and the plan should proceed. Six choices deserve revision before the
 work packages that depend on them, and one gap between the motivating examples
 and the substrate needs a stated decision. None of them requires abandoning
-the design.
+the design. Four of the recommendations (F1, F2, F4, F7) would change an
+accepted contract or gate, so they are proposals for a replacement decision,
+not amendments the plan can absorb in place. The current plan stays governed
+by the adopted commission until such a decision is adopted.
+
+This revision corrects the first version after independent review
+(verdict `ff7624a0`): it names which recommendations change accepted
+contracts, narrows the F2 efficiency claim, and qualifies the F6 statement
+about the JavaScript engine's built-in limits.
 
 ## 1. What the design is for
 
@@ -130,6 +139,14 @@ proposed. Cost: one interface and one reordering. Benefit: the hypothesis
 (authoring, shared interaction, replay) is tested weeks earlier, and the
 design regains the Level 0 deployment shape.
 
+Be clear about what this changes. Retaining the PDS gate is not the same as
+retaining the current contract. The accepted architecture makes the PDS
+repository the canonical log and the commit path; this recommendation makes
+the sequencer's store canonical and the PDS a publication of it. It also
+reorders S2, which the plan lists as an explicit prerequisite of S4. Both are
+changes to accepted contracts and need a replacement decision before anyone
+builds to them.
+
 If the authors prefer to keep the PDS canonical on principle, the note should
 say why the discussion's staged argument was rejected, and should add entry
 batching (several queued intents in one `applyWrites`) to S2 so the commit
@@ -171,15 +188,18 @@ records they touch. The discussion proposed exactly this shape, with the
 semantic action and its deterministic effects both retained in the entry.
 Three consequences follow:
 
-- Validation is O(change). Replay cost stops depending on state size.
+- Validation is O(change) instead of O(state). That is the narrow claim.
+  Reads inside a fold, queries, indexes, and serialisation of the state a
+  client holds can still depend on state size; the effects model lets a host
+  make those incremental later, it does not make them so by itself.
 - Effects are recorded, so the activity inspector can show what an act did,
   not only that it was effective.
 - Incremental storage, keyed reads, and indexes later become a host decision
   with no change to authored programs. Today they would require rewriting
   every fold.
 
-This is the one change in this review that alters an accepted contract, so it
-should be decided before S3. The document model can stay as the browser's
+This alters the accepted fold contract, as F1, F4 and F7 alter other accepted
+contracts and gates, and it should be decided before S3. The document model can stay as the browser's
 in-memory representation. If the authors keep complete-state output for the
 spike, the plan should add a third fixture app with ledger-shaped state and
 make S6 replay it, so the limit is measured rather than assumed.
@@ -231,7 +251,10 @@ current state exists when accepted", with strictness expressed as a
 precondition when an action needs it.
 
 **Recommendation.** Bind an intent to the CID of its action binding (input
-schema plus fold source), not to the whole definition. An activation that
+schema plus fold source), not to the whole definition. This changes the
+signed intent (its compatibility field), the exact-match rule, and the
+meaning of `definition_changed`, all of which the spike plan freezes at S1;
+it is a contract change that needs adoption, not an amendment. An activation that
 leaves an action's binding unchanged leaves that action's pending intents
 effective; one that changes the binding produces `definition_changed` as now.
 The fold always runs under the active definition. Actions that must see the
@@ -273,8 +296,8 @@ alone does not prove a browser build.
 
 **Efficiency of the plan itself.** The browser gate is the constraint that
 decides the question. The candidate most likely to satisfy it is the
-JavaScript JSONata implementation, which runs unchanged in Node and the
-browser. A Go-and-SQLite facade compiled to WebAssembly is many megabytes and
+JavaScript JSONata implementation (`jsonata`, 2.2.2 at the time of this
+review), which runs unchanged in Node and the browser. A Go-and-SQLite facade compiled to WebAssembly is many megabytes and
 would still need a facade to hide DDL from authors. Ordering the experiment
 with jsonataddl first spends the first package on the option least likely to
 pass.
@@ -282,11 +305,13 @@ pass.
 **Recommendation.** Start S0 with the JavaScript engine and freeze the bounded
 profile around it. Treat jsonataddl as a later host-side option if the
 effects model in F2 grows a SQL-backed store. Two facts to record when the
-profile is frozen: the JavaScript engine exposes evaluation entry and exit
-hooks for callers rather than built-in limits, so deterministic operation and
-depth limits need a wrapper on those hooks; and the plan's rule that limit
-exhaustion pauses interpretation rather than producing a verdict is what
-keeps a wall-clock limit from making host and browser disagree. Cost: a
+profile is frozen. First, `jsonata` 2.2.2 has built-in evaluation options for
+a wall-clock timeout, a maximum stack depth, and a maximum sequence length,
+plus evaluation entry and exit hooks; a deterministic operation counter is
+not built in and needs a wrapper on those hooks. Second, the plan's rule that
+limit exhaustion pauses interpretation rather than producing a verdict is
+what keeps the wall-clock limit from making host and browser disagree; the
+depth and sequence limits are deterministic and can be part of the profile. Cost: a
 reordering. Benefit: S0 answers the browser question first.
 
 ### F7. Views: the generic renderer should be the gate and Inlay the experiment
@@ -305,8 +330,10 @@ renderer produces from schemas and query results with no template at all.
 
 **Recommendation.** Make the schema-driven generic renderer the S0 and S4
 gate, with declared views as optional refinement, and keep the Inlay fixture
-as an experiment recorded in `experiments/`. Cost: none; it removes an
-external dependency from the critical path.
+as an experiment recorded in `experiments/`. This replaces the S0 gate's
+Inlay rendering requirement with a different requirement, so it is a gate
+change that needs adoption. Cost: none in code; it removes an external
+dependency from the critical path.
 
 ### F8. No checkpoint in the protocol
 
@@ -422,9 +449,13 @@ implementation in the spike.
 7. S6: replay the three fixtures; report the checkpoint's effect on first
    open.
 
-Nothing in this list weakens a gate. Two gates get harder: S3 must prove
-effects application and `allow` evaluation, and S6 must replay a ledger-shaped
-app.
+Four of these change accepted contracts or gates and need a replacement
+decision before they govern work: F1 (canonical store and S2 ordering), F2
+(fold output contract), F4 (intent compatibility anchor), and F7 (S0 Inlay
+gate replaced by the generic renderer). The rest are additive. Two gates get
+harder under this list: S3 must prove effects application and `allow`
+evaluation, and S6 must replay a ledger-shaped app. One gate changes shape:
+S0 proves a generic renderer instead of an Inlay template.
 
 ## 6. Decisions for the commissioner
 
@@ -435,6 +466,10 @@ These cannot be settled by review.
   portable representation.
 - Whether the fold contract changes to effects before S3 (F2). The review
   recommends yes.
+- Whether intents bind to the action binding rather than the whole
+  definition (F4). The review recommends yes.
+- Whether the S0 view gate is the generic renderer rather than an Inlay
+  template (F7). The review recommends yes.
 - The confidentiality direction (F10), because it constrains F2.
 
 ## 7. Method
