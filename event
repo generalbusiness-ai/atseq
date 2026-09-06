@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ba71cf0f2b68e3c78a0bb86b2e47b19e4814d731","text":"Merge retired a covered predecessor; the successor is at src/browser/worker.ts."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:bbcbd9eb00c108f7ff8b64ac5787b6daf9660f2f","text":"Merge retired a covered predecessor; the successor is at experiments/evidence/s6/chart.atseq.json."}
