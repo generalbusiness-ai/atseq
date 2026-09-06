@@ -1,0 +1,96 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.compareDefinition",
+  "description": "Compare a compatible candidate, or retain its source without activating it.",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "app",
+            "genesis",
+            "expected",
+            "source"
+          ],
+          "properties": {
+            "app": {
+              "type": "string",
+              "format": "did"
+            },
+            "genesis": {
+              "type": "string",
+              "format": "cid"
+            },
+            "expected": {
+              "type": "string",
+              "format": "cid"
+            },
+            "source": {
+              "type": "bytes",
+              "maxLength": 524288
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": [
+            "current",
+            "candidate",
+            "closure",
+            "frontier",
+            "head",
+            "statePreserved",
+            "replayPassed"
+          ],
+          "properties": {
+            "current": {
+              "type": "unknown"
+            },
+            "candidate": {
+              "type": "unknown"
+            },
+            "closure": {
+              "type": "array",
+              "maxLength": 64,
+              "items": {
+                "type": "string",
+                "format": "cid"
+              }
+            },
+            "frontier": {
+              "type": "ref",
+              "ref": "test.atseq.defs#cursor"
+            },
+            "head": {
+              "type": "ref",
+              "ref": "test.atseq.head#value"
+            },
+            "statePreserved": {
+              "type": "boolean"
+            },
+            "replayPassed": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "errors": [
+        {
+          "name": "InvalidRequest"
+        },
+        {
+          "name": "Unavailable"
+        },
+        {
+          "name": "VerificationFailed"
+        }
+      ]
+    }
+  }
+}

@@ -5,7 +5,9 @@ import { Anchor, type Genesis } from '../protocol/log.ts';
 import { contentCid, decodeBlock, encodeBlock, link, ProtocolError } from '../protocol/wire.ts';
 import { applicationRuntimeCid, applicationRuntimeDescriptor } from '../runtime/identity.ts';
 import { runtimeCid, runtimeDescriptor } from '../protocol/log.ts';
-import { SourceBundle } from '../definition/source.ts';
+import { SourceBundle, SOURCE_POOL_BYTES } from '../definition/source.ts';
+import { activationPayload, ACTIVATE } from '../definition/control.ts';
+import { compatibleDefinition } from '../definition/activation.ts';
 import { LoadedDefinition } from '../definition/load.ts';
 import { Folder } from '../runtime/folder.ts';
 import { describeDefinition } from '../client/definition.ts';
@@ -100,15 +102,48 @@ export class ApplicationHost {
     app.refreshTail = next.catch(() => {}); return next;
   }
   private created(app: Running) { const { head, projection } = app.folder.snapshot(); return { genesis: app.anchor.genesis, genesisCid: link(app.anchor.cid), head, frontier: projection.frontier }; }
-  list() { return [...this.apps.values()].map(a => ({ app: a.anchor.genesis.app, genesis: a.anchor.cid, title: a.definition.manifest.title })); }
-  async describe(app: string, genesis: string) { const found = this.get(app, genesis); await this.refresh(found); const { head, projection } = found.folder.snapshot(); return { genesis: found.anchor.genesis, definition: await describeDefinition(found.definition), head, frontier: projection.frontier }; }
+  list() { return [...this.apps.values()].map(a => ({ app: a.anchor.genesis.app, genesis: a.anchor.cid, title: a.folder.activeDefinition().manifest.title })); }
+  async describe(app: string, genesis: string) { const found = this.get(app, genesis); await this.refresh(found); const { head, projection } = found.folder.snapshot(); return { genesis: found.anchor.genesis, definition: await describeDefinition(found.folder.activeDefinition()), head, frontier: projection.frontier }; }
   async sync(app: string, genesis: string) {
     const found = this.get(app, genesis), history = await this.refresh(found);
     // Read retained source through the PDS, even if the host has a local copy.
     // Missing publication content must remain visible to a fresh reader.
     const store = new SourceStore(found.pds);
     for (const cid of found.source.identities()) await store.get(cid);
-    return { genesis: found.anchor.genesis, genesisCid: genesis, head: history.head, entries: history.entries, source: await found.source.write() };
+    const initial = await found.source.write();
+    const candidates = [], seen = new Set<string>(); let transported = initial.length;
+    for (const entry of history.entries) {
+      const intent = entry.signedIntent.intent;
+      if (intent.action !== ACTIVATE || !found.anchor.genesis.activationKeys.includes(intent.actorKey)) continue;
+      let payload; try { payload = activationPayload(intent.payload); } catch { continue; }
+      const identity = payload.closure.join(','); if (seen.has(identity)) continue;
+      seen.add(identity); if (seen.size > 32) throw new PdsError(503, 'DefinitionHistoryLimit');
+      let source;
+      try { source = await SourceBundle.collectClosure(payload.definition, payload.closure, store); }
+      catch (error) {
+        if (['content_missing', 'content_corrupt'].includes((error as any)?.code)) continue;
+        throw new PdsError(503, 'DefinitionHistoryLimit');
+      }
+      const car = await source.writeClosure(); transported += car.length;
+      if (transported > SOURCE_POOL_BYTES) throw new PdsError(503, 'DefinitionHistoryLimit');
+      candidates.push({ definition: payload.definition, source: car });
+    }
+    return { genesis: found.anchor.genesis, genesisCid: genesis, head: history.head, entries: history.entries, source: initial, candidates };
+  }
+  async compareDefinition(app: string, genesis: string, expected: string, car: Uint8Array) {
+    const found = this.get(app, genesis), history = await this.refresh(found), current = found.folder.activeDefinition(), projection = found.folder.snapshot().projection;
+    if (current.cid !== expected) throw new ProtocolError('definition_changed', 'App changed; refresh the comparison before applying');
+    const source = await SourceBundle.read(car), candidate = await LoadedDefinition.load(source.root, source);
+    compatibleDefinition(current, candidate, projection.state);
+    const replay = await Folder.open(found.anchor, new SourceStore(found.pds)); await replay.catchUp(history.head, history.entries);
+    if (replay.snapshot().stalled || JSON.stringify(replay.snapshot().projection) !== JSON.stringify(projection)) throw new ProtocolError('replay', 'Existing prefix did not replay to the captured projection');
+    return { current: await describeDefinition(current), candidate: await describeDefinition(candidate), closure: source.identities().sort(), frontier: projection.frontier, head: history.head, statePreserved: true, replayPassed: true };
+  }
+  async stageDefinition(app: string, genesis: string, expected: string, car: Uint8Array) {
+    const owned = new Uint8Array(car), comparison = await this.compareDefinition(app, genesis, expected, owned), source = await SourceBundle.read(owned);
+    const store = new SourceStore(this.get(app, genesis).pds);
+    for (const cid of source.identities()) await store.put(cid, await source.get(cid));
+    return comparison;
   }
   async submit(block: Uint8Array) {
     const signed = decodeBlock(block) as any, app = this.get(signed?.intent?.app, signed?.intent?.genesis?.$link);

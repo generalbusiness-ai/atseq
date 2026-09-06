@@ -1,61 +1,68 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:50:10.260Z",
+  "measuredAt": "2026-09-06T17:50:01.557Z",
   "nodeVersion": "v26.8.1",
-  "expectedCases": 10,
-  "browserVersion": "153.0.8010.12",
-  "isolatedBrowserIdentities": 2,
-  "separateCliKey": true,
+  "expectedCases": 12,
   "cases": [
     {
-      "name": "CLI preview opens the same source in the browser without publication",
+      "name": "activation at N preserves state and N+1 uses the new interface",
       "passed": true,
-      "elapsedMs": 462
+      "elapsedMs": 20
     },
     {
-      "name": "explicit identity and publication create an app once",
+      "name": "a full replay uses each definition at its original boundary",
       "passed": true,
-      "elapsedMs": 1340
+      "elapsedMs": 19
     },
     {
-      "name": "another browser can read before creating a distinct signing identity",
+      "name": "unavailable candidate pauses at N and resumes the same entry after repair",
       "passed": true,
-      "elapsedMs": 253
+      "elapsedMs": 27
     },
     {
-      "name": "offline double click retains one signed intent across reload and reconnect",
+      "name": "corrupt candidate content cannot fabricate an invalid-activation verdict",
       "passed": true,
-      "elapsedMs": 515
+      "elapsedMs": 26
     },
     {
-      "name": "a competing browser action is recorded with an honest ineffective outcome",
+      "name": "failed persistence leaves both definition and state before activation",
       "passed": true,
-      "elapsedMs": 288
+      "elapsedMs": 26
     },
     {
-      "name": "CLI uses a third private key and keeps exact retry bytes in a file",
+      "name": "another actor cannot activate or force a missing-content fetch",
       "passed": true,
-      "elapsedMs": 1335
+      "elapsedMs": 6
     },
     {
-      "name": "narrow layout remains usable with keyboard focus and no script errors",
+      "name": "available invalid candidate code is retained ineffective",
       "passed": true,
-      "elapsedMs": 194
+      "elapsedMs": 10
     },
     {
-      "name": "lost submit reply reconciles the retained intent without a second append",
+      "name": "an incomplete or extra signed closure has the same outcome with full and closure-only readers",
       "passed": true,
-      "elapsedMs": 343
+      "elapsedMs": 46
     },
     {
-      "name": "transport refusal retains the original signed work and invents no entry",
+      "name": "a closure over 512 KiB is transported and invalid on both full and closure-only readers",
       "passed": true,
-      "elapsedMs": 444
+      "elapsedMs": 29
     },
     {
-      "name": "hostile template text stays text and rendering cannot sign or fetch external resources",
+      "name": "an available query-less view with missing bindings is invalid rather than a permanent stall",
       "passed": true,
-      "elapsedMs": 2120
+      "elapsedMs": 8
+    },
+    {
+      "name": "state compatibility includes transitive schemas and ignores unrelated additions",
+      "passed": true,
+      "elapsedMs": 17
+    },
+    {
+      "name": "malformed closure and control-action rebinding are refused",
+      "passed": true,
+      "elapsedMs": 7
     }
   ],
   "sourceHashes": {

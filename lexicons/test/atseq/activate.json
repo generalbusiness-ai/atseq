@@ -1,0 +1,16 @@
+{
+  "lexicon": 1,
+  "id": "test.atseq.activate",
+  "description": "Fixed v0 control action. Publication is separate from activation.",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["expected", "definition", "closure"],
+      "properties": {
+        "expected": {"type": "string", "format": "cid"},
+        "definition": {"type": "string", "format": "cid"},
+        "closure": {"type": "array", "minLength": 1, "maxLength": 64, "items": {"type": "string", "format": "cid"}}
+      }
+    }
+  }
+}

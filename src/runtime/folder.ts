@@ -1,3 +1,5 @@
+import { ACTIVATE, activationPayload } from '../definition/control.ts';
+import { activationCandidate } from '../definition/activation.ts';
 import { Anchor, headAt, verifyHistory, type Entry, type Head } from '../protocol/log.ts';
 import { contentCid, link } from '../protocol/wire.ts';
 import { validateFramework } from '../protocol/schemas.ts';
@@ -25,7 +27,7 @@ export class Folder {
   private head: Head;
   private projection: Projection;
   private stalled?: Stalled;
-  private constructor(private readonly anchor: Anchor, private definition: LoadedDefinition, private readonly persist?: PersistProjection) {
+  private constructor(private readonly anchor: Anchor, private definition: LoadedDefinition, private readonly source: SourceReader, private readonly persist?: PersistProjection) {
     this.head = headAt(anchor);
     this.projection = { app: anchor.genesis.app, genesis: anchor.cid, definition: definition.cid, frontier: { $type: 'test.atseq.defs#cursor', position: 0, entry: link(anchor.cid) }, state: structuredClone(definition.initialState), outcomes: [] };
   }
@@ -33,9 +35,10 @@ export class Folder {
     if (anchor.genesis.profile.$link !== await applicationRuntimeCid()) throw new InterpretationError('unsupported_runtime', 'Genesis requires a different runtime profile');
     const definition = await LoadedDefinition.load(anchor.genesis.definition.$link, source);
     if (definition.manifest.profile.$link !== anchor.genesis.profile.$link) throw new InterpretationError('unsupported_runtime', 'Genesis and definition profiles differ');
-    const folder = new Folder(anchor, definition, persist);
+    const folder = new Folder(anchor, definition, source, persist);
     await persist?.(folder.snapshot().projection); return folder;
   }
+  activeDefinition(): LoadedDefinition { return this.definition; }
   snapshot(): { head: Head; projection: Projection; stalled?: Stalled } {
     return structuredClone({ head: this.head, projection: this.projection, ...(this.stalled ? { stalled: this.stalled } : {}) });
   }
@@ -53,16 +56,16 @@ export class Folder {
     this.head = structuredClone(verified.head); this.stalled = undefined;
     for (const entry of verified.entries.slice(frontier.position)) {
       try {
-        const { state, outcome } = await this.interpret(entry);
+        const { state, outcome, definition = this.definition } = await this.interpret(entry);
         validateFramework(outcome.$type, outcome);
         const entryCid = await contentCid(entry);
         const next: Projection = {
-          ...this.projection, state, definition: this.definition.cid,
+          ...this.projection, state, definition: definition.cid,
           frontier: { $type: 'test.atseq.defs#cursor', position: entry.position, entry: link(entryCid) },
           outcomes: [...this.projection.outcomes, { position: entry.position, entry: entryCid, intent: await contentCid(entry.signedIntent.intent), outcome }],
         };
         // State, outcomes and cursor cross the persistence boundary together.
-        await this.persist?.(structuredClone(next)); this.projection = next;
+        await this.persist?.(structuredClone(next)); this.definition = definition; this.projection = next;
       } catch (error) {
         const code = typeof (error as any)?.code === 'string' ? (error as any).code : 'interpretation_failed';
         this.stalled = { position: entry.position, code, message: error instanceof Error ? error.message : 'Interpretation could not complete' };
@@ -71,9 +74,21 @@ export class Folder {
     }
     return this.snapshot();
   }
-  private async interpret(entry: Entry): Promise<{ state: Json; outcome: Outcome }> {
+  private async interpret(entry: Entry): Promise<{ state: Json; outcome: Outcome; definition?: LoadedDefinition }> {
     const intent = entry.signedIntent.intent, state = this.projection.state;
     if (intent.definition.$link !== this.definition.cid) return { state, outcome: ineffective('definition_changed') };
+    if (intent.action === ACTIVATE) {
+      if (!this.anchor.genesis.activationKeys.includes(intent.actorKey)) return { state, outcome: ineffective('unauthorized_activation') };
+      try {
+        const payload = activationPayload(intent.payload);
+        if (payload.expected !== this.definition.cid) return { state, outcome: ineffective('definition_changed') };
+        const definition = await activationCandidate(this.definition, payload, this.source, state);
+        return { state, definition, outcome: { $type: 'test.atseq.defs#effective' } };
+      } catch (error) {
+        if (!(error instanceof InterpretationError) || ['content_missing', 'content_corrupt'].includes(error.code)) throw error;
+        return { state, outcome: ineffective(error.code === 'incompatible_definition' ? 'incompatible_definition' : 'invalid_activation') };
+      }
+    }
     const action = this.definition.manifest.actions.find(a => a.ref === intent.action);
     if (!action) return { state, outcome: ineffective('unknown_action') };
     try { this.definition.schemas.validate(action.ref, intent.payload); }

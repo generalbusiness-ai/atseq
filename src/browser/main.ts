@@ -1,4 +1,5 @@
 import './style.css';
+import { ACTIVATE } from '../definition/control.ts';
 import { fromBytes } from '@atcute/cbor';
 import { AtseqClient, ApiError } from '../client/api.ts';
 import { DeviceStore, saveDraft, type Draft } from '../client/store.ts';
@@ -13,8 +14,10 @@ import { element, button, actionForm, schemaForm } from './forms.ts';
 interface Pending {
   cid: string; block: number[]; signed: any; app: string; genesis: string;
   status: 'queued' | 'recorded' | 'applied' | 'not-applied' | 'refused';
-  receipt?: any; outcome?: any; error?: string;
+  receipt?: any; outcome?: any; error?: string; source?: number[];
 }
+interface ChangeDraft { source: number[]; expected: string; comparison: any }
+let changeDraft: ChangeDraft | undefined, applying = false;
 const api = new AtseqClient(location.origin), store = await DeviceStore.open(), evaluator = new Evaluator();
 const content = document.querySelector<HTMLDivElement>('#content')!, status = document.querySelector<HTMLParagraphElement>('#status')!;
 const identityDialog = document.querySelector<HTMLDialogElement>('#identity-dialog')!;
@@ -104,13 +107,14 @@ function drawDraft() {
       const invitation = { app: created.genesis.app, genesis: created.genesisCid.$link };
       await store.update<Draft>(`draft:${frozen.id}`, previous => ({ ...previous!, published: invitation }));
       await applications(); await openApp(invitation); tell('App started. Sample actions were kept in the preview.');
-    } catch (error) { tell(`Draft retained. ${navigator.onLine ? 'Starting could not be confirmed; retry this same draft.' : 'Offline — start when this device reconnects.'}`); }
+    } catch (error) { tell(`Draft retained. ${error instanceof ApiError && error.status >= 400 && error.status < 500 ? `Starting was refused: ${error.message}` : navigator.onLine ? 'Starting could not be confirmed; retry this same draft.' : 'Offline — start when this device reconnects.'}`); }
     finally { start.disabled = false; }
   }, 'primary');
   publication.append(start); content.replaceChildren(heading, card, publication, inspect('Inspect definition', definition), button('Cancel local preview work', () => { evaluator.cancel(); tell('Preview cancelled. Source remains saved on this device.'); }));
 }
 async function openApp(invitation: Invitation) {
   current = invitation; draft = undefined; editorArea = undefined; snapshot = undefined; definition = undefined; history.replaceState(null, '', `/#${new URLSearchParams({ ...invitation })}`);
+  changeDraft = await store.get<ChangeDraft>(`change:${invitation.app}`);
   const retained = await store.get<any>(`verified:${invitation.app}:${invitation.genesis}`);
   if (retained) try {
     snapshot = await evaluator.call('sync', { invitation, input: retained }); definition = snapshot.definition;
@@ -144,20 +148,20 @@ async function reconcile() {
   for (const pending of await store.list<Pending>(`outbox:${current.app}:`)) {
     const observed = snapshot.projection.outcomes.find((o: any) => o.intent === pending.cid);
     if (!observed) continue;
-    await store.set(`outbox:${pending.app}:${pending.cid}`, { ...pending, status: observed.outcome.$type === 'test.atseq.defs#effective' ? 'applied' : 'not-applied', outcome: observed.outcome, receipt: { position: observed.position, entry: observed.entry, intent: observed.intent }, error: undefined });
+    await store.update<Pending>(`outbox:${pending.app}:${pending.cid}`, previous => ({ ...(previous ?? pending), status: observed.outcome.$type === 'test.atseq.defs#effective' ? 'applied' : 'not-applied', outcome: observed.outcome, receipt: { position: observed.position, entry: observed.entry, intent: observed.intent }, error: undefined }));
   }
 }
 async function flush() {
   if (flushing) return; flushing = true;
   try {
     for (const pending of await store.list<Pending>('outbox:')) {
-      if (!['queued', 'recorded'].includes(pending.status)) continue;
+      if (pending.status !== 'queued') continue;
       try {
         const recorded = await api.call('submit', { block: bytes(new Uint8Array(pending.block)) });
-        await store.set(`outbox:${pending.app}:${pending.cid}`, { ...pending, status: 'recorded', receipt: recorded.receipt, error: undefined });
+        await store.update<Pending>(`outbox:${pending.app}:${pending.cid}`, previous => previous && ['applied', 'not-applied'].includes(previous.status) ? previous : { ...(previous ?? pending), status: 'recorded', receipt: recorded.receipt, error: undefined });
       } catch (error) {
         const refused = error instanceof ApiError && error.status >= 400 && error.status < 500;
-        await store.set(`outbox:${pending.app}:${pending.cid}`, { ...pending, status: refused ? 'refused' : pending.status, error: refused ? error.message : 'Reply uncertain. The original signed action is retained for retry.' });
+        await store.update<Pending>(`outbox:${pending.app}:${pending.cid}`, previous => previous && ['recorded', 'applied', 'not-applied'].includes(previous.status) ? previous : { ...(previous ?? pending), status: refused ? 'refused' : pending.status, error: refused ? error.message : 'Reply uncertain. The original signed action is retained for retry.' });
       }
     }
     await refresh();
@@ -177,10 +181,10 @@ function openAction(ref: string, area: HTMLElement, initial?: Record<string, Jso
   const pinned = { ...current! }, pinnedDefinition = definition!.cid;
   const form = actionForm(definition!, ref, 'Save action', async payload => {
     if (current?.app !== pinned.app || definition?.cid !== pinnedDefinition) throw new Error('App changed. Review this action with the current form.');
-    if ((await store.list<Pending>(`outbox:${pinned.app}:`)).filter(p => ['queued', 'recorded'].includes(p.status)).length >= 100) throw new Error('This device already has 100 waiting actions. Resolve them before adding another.');
     await evaluator.call('validateAction', { action: ref, payload });
+    if (current?.app !== pinned.app || definition?.cid !== pinnedDefinition) throw new Error('App changed while validating. Review the current form.');
     const prepared = await prepareIntent(identity!, pinned, pinnedDefinition, ref, payload);
-    await store.set<Pending>(`outbox:${pinned.app}:${prepared.cid}`, { ...prepared, ...pinned, status: 'queued' });
+    await store.enqueue<Pending>(pinned.app, prepared.cid, { ...prepared, ...pinned, status: 'queued' });
     tell('Queued on this device. Waiting for a verified receipt.'); area.replaceChildren(); await drawApp(); await flush();
   }, initial);
   area.replaceChildren(element('h3', ref.split('#').at(-1)), form); (form.querySelector('input,textarea,select') as HTMLElement | null)?.focus();
@@ -207,6 +211,11 @@ async function drawApp() {
   for (const item of pending) {
     const row = element('div', undefined, 'activity'); row.append(element('strong', labels[item.status]), element('p', item.signed.intent.action));
     if (item.outcome?.reason) row.append(element('p', item.outcome.reason)); if (item.error) row.append(element('p', item.error, 'error'));
+    if (item.outcome?.reason === 'definition_changed') {
+      row.append(element('p', 'This queued action used the previous app definition. Its original entry is kept. Review a replacement before saving again.', 'muted'));
+      if (item.source) row.append(button('Review update again', () => compareChange(item.source!).catch(failure)));
+      else if (definition.manifest.actions.some(action => action.ref === item.signed.intent.action)) row.append(button('Review with updated form', () => openAction(item.signed.intent.action, formArea, item.signed.intent.payload)));
+    }
     row.append(inspect('Intent, receipt and effect', { intent: item.signed.intent, receipt: item.receipt ?? null, outcome: item.outcome ?? null })); activity.append(row);
   }
   const waiting = pending.filter(p => ['queued', 'recorded'].includes(p.status));
@@ -221,9 +230,47 @@ async function drawApp() {
     const row = element('div', undefined, 'activity'); row.append(element('strong', `Entry ${outcome.position} · ${outcome.outcome.$type.endsWith('#effective') ? 'Applied' : 'Not applied'}`), inspect('Recorded effect', outcome)); activity.append(row);
   }
   if (!pending.length && !snapshot.projection.outcomes.length) activity.append(element('p', 'No actions yet. Reading this app creates no signature or commitment.', 'muted'));
-  content.replaceChildren(title, controls, workspace, queryArea, activity, inspect('Verified state and frontier', snapshot.projection), inspect('Inspect definition', definition));
+  content.replaceChildren(title, controls, workspace, queryArea, activity, changePanel(), inspect('Verified state and frontier', snapshot.projection), inspect('Inspect definition', definition));
   try { const binding = definition.manifest.views[0]; if (binding) view.replaceChildren(...(await evaluator.call('view', { name: binding.name })).map((node: ViewNode) => primitive(node, formArea))); }
   catch (error) { view.replaceChildren(element('p', `View unavailable: ${(error as Error).message}`, 'muted')); }
+}
+async function compareChange(source: number[]) {
+  if (!current || !definition) throw new Error('Open an app first');
+  const target = { ...current }, expected = definition.cid;
+  tell('Checking the candidate and replaying the existing prefix…');
+  const comparison = await evaluator.call('compareDefinition', { source, expected });
+  const proposed = { source, expected, comparison };
+  await store.set(`change:${target.app}`, proposed);
+  if (current.app === target.app) { changeDraft = proposed; await drawApp(); tell('Candidate checked. Existing data is preserved. Apply explicitly to retain and activate it.'); }
+}
+function changePanel(): HTMLElement {
+  const panel = element('section', undefined, 'card'); panel.append(element('h2', 'Change this app'));
+  const label = element('label', 'Import updated definition CAR'), file = element('input'); file.type = 'file'; file.accept = '.car'; file.setAttribute('aria-label', 'Import updated definition CAR');
+  file.onchange = async () => { const source = file.files?.[0]; if (!source) return; try { if (source.size > 512 * 1024) throw new Error('Definition exceeds 512 KiB'); await compareChange([...new Uint8Array(await source.arrayBuffer())]); } catch (error) { failure(error); } };
+  label.append(file); panel.append(label);
+  if (!changeDraft || !current || !definition) { panel.append(element('p', 'Preview an update that keeps the current data schema and runtime. A grant from genesis is required to apply it.', 'muted')); return panel; }
+  const proposed = changeDraft, target = { ...current }, comparison = proposed.comparison;
+  panel.append(element('p', `${comparison.current.manifest.title} → ${comparison.candidate.manifest.title}`), element('p', 'State schema matches · existing prefix replays · current data is preserved', 'tag'));
+  const additions = (key: 'actions' | 'queries' | 'views', identity: 'ref' | 'name') => comparison.candidate.manifest[key].filter((next: any) => !comparison.current.manifest[key].some((old: any) => old[identity] === next[identity])).map((value: any) => value[identity]);
+  panel.append(inspect('Inspect changes', { newActions: additions('actions', 'ref'), newQueries: additions('queries', 'name'), newViews: additions('views', 'name'), expected: proposed.expected, candidate: comparison.candidate.cid }));
+  const moved = proposed.expected !== definition.cid, authorized = identity && snapshot.genesis.activationKeys.includes(identity.publicKey);
+  if (moved) panel.append(element('p', 'The app changed after this comparison. Refresh it before applying.', 'error'), button('Refresh comparison', () => compareChange(proposed.source).catch(failure)));
+  if (!authorized) panel.append(element('p', 'This device does not hold an initial app-update grant. You can keep and inspect the proposal.', 'muted'));
+  const apply = button('Apply change', async () => {
+    if (!identity || !authorized || moved || apply.disabled || applying) return; applying = true; apply.disabled = true;
+    try {
+      const staged = await api.call('stageDefinition', { ...target, expected: proposed.expected, source: bytes(new Uint8Array(proposed.source)) });
+      if (staged.candidate.cid !== comparison.candidate.cid || JSON.stringify(staged.closure) !== JSON.stringify(comparison.closure)) throw new Error('Retained candidate differs from the reviewed source');
+      const payload = { expected: proposed.expected, definition: comparison.candidate.cid, closure: comparison.closure };
+      const prepared = await prepareIntent(identity, target, proposed.expected, ACTIVATE, payload);
+      await store.enqueue<Pending>(target.app, prepared.cid, { ...prepared, ...target, source: proposed.source, status: 'queued' });
+      await store.set(`change:${target.app}`, undefined); if (current?.app === target.app) changeDraft = undefined;
+      tell('Update queued on this device. Waiting for its recorded outcome.'); await drawApp(); await flush();
+    } catch (error) { tell(`Proposal retained. ${(error as Error).message}`); }
+    finally { applying = false; await drawApp(); }
+  }, 'primary');
+  apply.disabled = moved || !authorized || applying; panel.append(element('p', 'Apply retains this source on the test PDS and submits a signed activation. The new definition starts after that entry.', 'muted'), apply);
+  return panel;
 }
 window.addEventListener('hashchange', () => {
   const target = new URLSearchParams(location.hash.slice(1));

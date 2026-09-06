@@ -1,4 +1,4 @@
-import { encode, decode, BytesWrapper, CidLinkWrapper, fromBytes, type Bytes, type CidLink } from '@atcute/cbor';
+import { encode, decode, BytesWrapper, CidLinkWrapper, fromBytes, toBytes, type Bytes, type CidLink } from '@atcute/cbor';
 import { create, fromString, toString, CODEC_DCBOR } from '@atcute/cid';
 import { canonicalJson, type Json } from '../runtime/values.ts';
 
@@ -15,7 +15,7 @@ export function link(cid: string): CidLink {
   return { $link: cid };
 }
 export function bytes(raw: Uint8Array): Bytes {
-  return { $bytes: btoa(String.fromCharCode(...raw)).replace(/=+$/, '') };
+  return { $bytes: toBytes(raw).$bytes };
 }
 /** Plain Lexicon JSON is the API boundary. No coercion or omitted undefined values. */
 function validate(value: unknown): asserts value is Json {

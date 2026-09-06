@@ -20,10 +20,30 @@ export class DeviceStore {
     });
   }
   set<T>(key: string, value: T) { return this.update<T>(key, () => value); }
+  enqueue<T extends { status: string }>(app: string, cid: string, value: T): Promise<T & { order: number }> {
+    return new Promise((resolve, reject) => {
+      const tx = this.db.transaction('values', 'readwrite', { durability: 'strict' }), store = tx.objectStore('values');
+      const prefix = `outbox:${app}:`, orderKey = `outbox-order:${app}`, counter = store.get(orderKey);
+      let next: T & { order: number }, count = 0;
+      const fail = (error: Error) => { tx.abort(); reject(error); };
+      counter.onsuccess = () => {
+        const order = (counter.result ?? 0) + 1;
+        if (!Number.isSafeInteger(order) || value.status !== 'queued') { fail(new Error('Invalid local outbox order or state')); return; }
+        const scan = store.openCursor(IDBKeyRange.bound(prefix, prefix + '\uffff'));
+        scan.onsuccess = () => {
+          const cursor = scan.result;
+          if (cursor) { if (['queued', 'recorded'].includes(cursor.value.status)) count++; cursor.continue(); return; }
+          if (count >= 100) { fail(new Error('This device already has 100 waiting actions for this app')); return; }
+          next = { ...value, order }; store.add(next, prefix + cid); store.put(order, orderKey);
+        };
+      };
+      tx.oncomplete = () => resolve(next); tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error ?? new Error('Outbox admission aborted'));
+    });
+  }
   async list<T>(prefix: string): Promise<T[]> {
     return new Promise((resolve, reject) => {
       const request = this.db.transaction('values').objectStore('values').openCursor(), result: T[] = [];
-      request.onsuccess = () => { const cursor = request.result; if (!cursor) { resolve(result); return; } if (String(cursor.key).startsWith(prefix)) result.push(cursor.value); cursor.continue(); };
+      request.onsuccess = () => { const cursor = request.result; if (!cursor) { if (prefix.startsWith('outbox:')) result.sort((a: any, b: any) => (a.order ?? 0) - (b.order ?? 0)); resolve(result); return; } if (String(cursor.key).startsWith(prefix)) result.push(cursor.value); cursor.continue(); };
       request.onerror = () => reject(request.error);
     });
   }

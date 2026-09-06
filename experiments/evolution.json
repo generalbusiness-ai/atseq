@@ -1,61 +1,75 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T17:50:10.260Z",
+  "measuredAt": "2026-09-06T17:50:13.694Z",
   "nodeVersion": "v26.8.1",
-  "expectedCases": 10,
+  "expectedCases": 13,
   "browserVersion": "153.0.8010.12",
-  "isolatedBrowserIdentities": 2,
-  "separateCliKey": true,
+  "sourcePairs": 2,
   "cases": [
     {
-      "name": "CLI preview opens the same source in the browser without publication",
+      "name": "ordinary state is retained while another browser queues an old-definition act",
       "passed": true,
-      "elapsedMs": 462
+      "elapsedMs": 637
     },
     {
-      "name": "explicit identity and publication create an app once",
+      "name": "comparison works locally and an ungranted browser cannot apply",
       "passed": true,
-      "elapsedMs": 1340
+      "elapsedMs": 89
     },
     {
-      "name": "another browser can read before creating a distinct signing identity",
+      "name": "CLI staging and preparing an activation do not activate it",
       "passed": true,
-      "elapsedMs": 253
+      "elapsedMs": 818
     },
     {
-      "name": "offline double click retains one signed intent across reload and reconnect",
+      "name": "explicit Apply records the boundary and preserves existing data",
       "passed": true,
-      "elapsedMs": 515
+      "elapsedMs": 861
     },
     {
-      "name": "a competing browser action is recorded with an honest ineffective outcome",
+      "name": "a prepared activation racing from the same old definition is ineffective",
       "passed": true,
-      "elapsedMs": 288
+      "elapsedMs": 338
     },
     {
-      "name": "CLI uses a third private key and keeps exact retry bytes in a file",
+      "name": "reconnecting delivers the old signed intent unchanged exactly once",
       "passed": true,
-      "elapsedMs": 1335
+      "elapsedMs": 418
     },
     {
-      "name": "narrow layout remains usable with keyboard focus and no script errors",
+      "name": "review preserves entered values and signs a replacement only on Save",
       "passed": true,
-      "elapsedMs": 194
+      "elapsedMs": 557
     },
     {
-      "name": "lost submit reply reconciles the retained intent without a second append",
+      "name": "the new action, query and view use the preserved state",
       "passed": true,
-      "elapsedMs": 343
+      "elapsedMs": 584
     },
     {
-      "name": "transport refusal retains the original signed work and invents no entry",
+      "name": "offline queue order preserves add-then-select dependencies",
       "passed": true,
-      "elapsedMs": 444
+      "elapsedMs": 1410
     },
     {
-      "name": "hostile template text stays text and rendering cannot sign or fetch external resources",
+      "name": "a recorded unauthorized activation is refused under the fixed grant",
       "passed": true,
-      "elapsedMs": 2120
+      "elapsedMs": 185
+    },
+    {
+      "name": "an incompatible proposal preserves the app and current data",
+      "passed": true,
+      "elapsedMs": 285
+    },
+    {
+      "name": "sync delivers an oversized closure so host, CLI and fresh browser agree and continue",
+      "passed": true,
+      "elapsedMs": 2429
+    },
+    {
+      "name": "restarting the host rebuilds the active definition and every outcome",
+      "passed": true,
+      "elapsedMs": 797
     }
   ],
   "sourceHashes": {

@@ -123,10 +123,11 @@ creation ID across an uncertain create. Preserve `intentFile` across a submit
 retry: the CLI atomically creates that file before sending, verifies its signed
 bytes before reuse, and refuses to reuse it for different work. An explicit
 new action uses a new file. A source edit or a stale action must be reviewed
-before signing a replacement. Compatible activation/replacement UI comes in S5.
+before signing a replacement. See [compatible changes](evolution.md) for activation and explicit replacement.
 
 Both clients use the same public Lexicon methods: the five S1 contracts plus
-`list`, `validateDraft`, `preview`, `readDraft` and `sync`. Preview URLs identify
+`list`, `validateDraft`, `preview`, `readDraft`, `sync`, `compareDefinition` and
+`stageDefinition`. Preview URLs identify
 immutable retained local drafts; loading them does not publish. `sync` carries
 the pinned genesis, complete signed prefix and retained source CAR for client
 verification. Its entry values use the same unknown-record convention as PDS

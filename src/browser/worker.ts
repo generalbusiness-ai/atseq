@@ -2,11 +2,14 @@ import { fromBytes } from '@atcute/cbor';
 import { fold } from '../runtime/evaluator.ts';
 import { Folder } from '../runtime/folder.ts';
 import { Anchor } from '../protocol/log.ts';
-import { SourceBundle } from '../definition/source.ts';
+import { compatibleDefinition } from '../definition/activation.ts';
+import { SourceBundle, SourcePool } from '../definition/source.ts';
 import { LoadedDefinition } from '../definition/load.ts';
 import { describeDefinition, previewSource } from '../client/definition.ts';
 import { Applications } from '../runtime/apps.ts';
 
+const sources = new Map<string, SourcePool>();
+let lastInput: any;
 let apps = new Applications(), folder: Folder | undefined, definition: LoadedDefinition | undefined;
 let queue: Promise<unknown> = Promise.resolve();
 self.onmessage = ({ data }) => { queue = queue.then(() => handle(data)); };
@@ -20,9 +23,24 @@ async function handle(data: any) {
         if (input.genesis.app !== data.invitation.app || input.genesisCid !== data.invitation.genesis) throw new Error('Host response differs from the pinned invitation');
         const source = await SourceBundle.read(fromBytes(input.source));
         const anchor = await Anchor.from(input.genesis, data.invitation.genesis);
-        folder = await apps.open(anchor.genesis, anchor.cid, source);
-        definition = await LoadedDefinition.load(anchor.genesis.definition.$link, source);
-        result = { ...await folder.catchUp(input.head, input.entries), definition: await describeDefinition(definition) }; break;
+        if (source.root !== anchor.genesis.definition.$link) throw new Error('Initial CAR differs from genesis');
+        await LoadedDefinition.load(source.root, source);
+        const key = `${anchor.genesis.app}:${anchor.cid}`, pool = sources.get(key) ?? new SourcePool();
+        await pool.add(source);
+        for (const candidate of input.candidates ?? []) { const retained = await SourceBundle.readClosure(fromBytes(candidate.source)); if (retained.root !== candidate.definition) throw new Error('Candidate CAR differs from declared identity'); await pool.add(retained); }
+        sources.set(key, pool); folder = await apps.open(anchor.genesis, anchor.cid, pool);
+        const snapshot = await folder.catchUp(input.head, input.entries); definition = folder.activeDefinition(); lastInput = input;
+        result = { ...snapshot, genesis: anchor.genesis, definition: await describeDefinition(definition) }; break;
+      }
+      case 'compareDefinition': {
+        if (!folder || !definition || !lastInput) throw new Error('Open an app first');
+        if (definition.cid !== data.expected) throw new Error('App changed; refresh the comparison');
+        const source = await SourceBundle.read(new Uint8Array(data.source)), candidate = await LoadedDefinition.load(source.root, source);
+        const projection = folder.snapshot().projection; compatibleDefinition(definition, candidate, projection.state);
+        const anchor = await Anchor.from(lastInput.genesis, lastInput.genesisCid), pool = sources.get(`${anchor.genesis.app}:${anchor.cid}`)!;
+        const replay = await Folder.open(anchor, pool); await replay.catchUp(lastInput.head, lastInput.entries);
+        if (replay.snapshot().stalled || JSON.stringify(replay.snapshot().projection) !== JSON.stringify(projection)) throw new Error('Existing prefix did not replay to the captured projection');
+        result = { current: await describeDefinition(definition), candidate: await describeDefinition(candidate), closure: source.identities().sort(), statePreserved: true, replayPassed: true, frontier: projection.frontier }; break;
       }
       case 'previewPending': {
         if (!folder || !definition) throw new Error('Open an app first');
@@ -52,7 +70,7 @@ async function handle(data: any) {
         if (!props || Array.isArray(props) || typeof props !== 'object') throw new Error('View query must supply object properties');
         result = await definition.view(data.name, props as any); break;
       }
-      case 'reset': apps = new Applications(); folder = undefined; definition = undefined; result = true; break;
+      case 'reset': sources.clear(); lastInput = undefined; apps = new Applications(); folder = undefined; definition = undefined; result = true; break;
       default: throw new Error('Unknown worker operation');
     }
     self.postMessage({ id: data.id, result });

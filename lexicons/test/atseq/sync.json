@@ -57,6 +57,27 @@
             "source": {
               "type": "bytes",
               "maxLength": 524288
+            },
+            "candidates": {
+              "type": "array",
+              "maxLength": 32,
+              "items": {
+                "type": "object",
+                "required": [
+                  "definition",
+                  "source"
+                ],
+                "properties": {
+                  "definition": {
+                    "type": "string",
+                    "format": "cid"
+                  },
+                  "source": {
+                    "type": "bytes",
+                    "maxLength": 16777216
+                  }
+                }
+              }
             }
           }
         }
