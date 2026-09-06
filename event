@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1e068c987b1f373c421817cf67033f59e449e3ae","text":"Retire superseded S2 candidate artifact for tests/helpers/pds-faults.ts; corrected 70f4c89 is independently approved and landed at 71d912ec."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:238de4a20d7b592717f7ab60df04fbc29719686a","text":"Retire superseded S2 candidate artifact for notes/2026-09-06-atseq-protocol-spike.md; corrected 70f4c89 is independently approved and landed at 71d912ec."}
