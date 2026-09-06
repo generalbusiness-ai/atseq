@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f8b0fff96ce0dcfb9216faee6078d05d9e23a1cf","text":"Merge retired a covered predecessor; the successor is at src/runtime/application-profile.json."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2eabe5deb16c45100f6bccb775635538e8212c61","text":"Retire my abandoned S5 candidate artifact at b070ffb for notes/README.md; independent approval of fe418e8 landed as 6493a2b, which now supplies this path."}
