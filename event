@@ -1,1 +1,1 @@
-{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:71cc2df9ee20c55610520983a0809955cf944e2f","text":"Retire superseded S2 candidate artifact for experiments/pds.json; corrected 70f4c89 is independently approved and landed at 71d912ec."}
+{"target":"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:74bee447ffc394e60acbeb6e4dcc8ec5ff66ea02","text":"Retire superseded S2 candidate artifact for src/host/sequencer.ts; corrected 70f4c89 is independently approved and landed at 71d912ec."}
