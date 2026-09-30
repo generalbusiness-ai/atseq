@@ -16,14 +16,40 @@ This repository contains the working prototype, example applications, tests and
 retained evidence. It establishes the design's feasibility; production hosting
 and efficient handling of long histories remain future work.
 
+## Why use it for agent coordination?
+
+AT Protocol gives agents durable identities through DIDs (decentralized
+identifiers) and public records in each account's signed repository. Others can
+copy and verify that data. Those are useful foundations for communication, but
+coordinating shared state requires
+additional agreements: what order actions happen in, which actions take effect,
+and how everyone derives the same result. Arrival order and timestamps across
+separate repositories do not establish one agreed order, and the protocol does
+not supply an application's rules or rebuildable shared state.
+
+Atseq provides one verified order per app, rules shipped as data, and state
+derived from that history. When two participants claim a shared resource, the
+rules resolve the contention and govern its hand-back. An action refused by
+the application rules stays in the history with its reason; exact retries do
+not add duplicate actions. A reader with the installed runtime can replay the
+retained definitions and history without the PDS to check how the shared state
+was reached. The tool-sharing example below demonstrates this with signed
+borrow and return actions.
+
+**Current identity limit:** participants sign with local keys. An agent's
+existing AT Protocol account DID is not yet its Atseq participant identity;
+account authentication and delegation remain future work.
+
 ## What you can do
 
 - **Create an application from data.** Define its vocabulary, initial state,
   actions, queries and interface in a source bundle. Load unrelated applications
   into the same running host without adding application-specific server code.
+  Agents can author these bundles as well as participate in the resulting apps.
 - **Preview and participate.** Test a definition locally, then start it on the
-  test PDS. Use the generic browser interface or JSON CLI to submit signed
-  actions, query state and inspect recorded outcomes.
+  test PDS. People use the generic browser interface; agent harnesses use the
+  [JSON CLI](docs/interaction.md#json-cli-adapter) to validate and preview source,
+  create apps, submit signed actions, query state and inspect recorded outcomes.
 - **Keep attributable history.** Concurrent attempts have one verified order.
   An action that fails an application rule remains in the history with its
   reason. Retrying the same action returns its original receipt.
@@ -38,8 +64,12 @@ For example, the [mending-circle tool desk](experiments/agent-authored/mending-c
 tracks shared sewing tools. Two people can attempt to borrow the same shears:
 the first borrow takes effect, the second is recorded as `tool_in_use`, and only
 the borrower's signing key can return them. Its schemas, rules and view are
-application content loaded through the generic host. Other examples track
-garden rainfall and a guitar search.
+application content loaded through the generic host. An agent authored the app
+and used the JSON CLI without changing the host; its retained
+[transcript](experiments/agent-authored/mending-circle-tool-desk/transcript.json)
+records 22 adapter calls, and the S6 authoring gate verifies its source and
+replays its signed history. Other examples track garden rainfall and a guitar
+search.
 
 ## How the design fits into AT Protocol
 
@@ -77,11 +107,9 @@ notification arrival or timestamps. The sequencer orders actions; application
 rules decide their business effect. A saved action may therefore be awaiting
 interpretation or be recorded without taking effect.
 
-The current demo uses local signing keys for participants, separate from the
-app's PDS account. It does not yet integrate participant AT Protocol account
-authentication or delegation. The [protocol](docs/protocol.md),
-[PDS host](docs/pds-host.md) and [definition contracts](docs/definitions.md)
-describe the implementation and trust boundaries.
+The [protocol](docs/protocol.md), [PDS host](docs/pds-host.md) and
+[definition contracts](docs/definitions.md) describe the implementation and trust
+boundaries, including the participant identity limit noted above.
 
 ## Try an application
 
