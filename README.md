@@ -1,20 +1,120 @@
 # Atseq
 
-A lightweight framework for unique, purpose-specific applications: a folder over
-a log, with atproto as the retained substrate. Apps declare Lexicon schemas,
-JSONata behavior and views. GitSeq and Tailapps are architectural precursors;
-neither is a product dependency.
+Atseq is an experimental framework for small, purpose-specific applications on
+[AT Protocol](https://github.com/bluesky-social/atproto). An application is a
+bundle of schemas, rules and views that a shared host loads without rebuilding
+its server or browser client. People and agents participate through the same
+declared actions and queries.
 
-The **S0–S6 spike is independently approved and landed**: engine, protocol,
-persistence, folder, interaction, compatible activation, archives and offline
-rebuild. All 13 acceptance commands pass, including 283 full-suite tests.
-The measured full-prefix path needs revision before use with long, growing
-histories. See the [completion record](notes/2026-09-06-atseq-spike-completion.md),
-[design](notes/2026-09-06-atseq-architecture.md),
-[plan](notes/2026-09-06-atseq-initial-spike.md) and
-[spike results](notes/2026-09-06-atseq-spike-results.md).
+Every action is signed and recorded in an ordered history. The application's
+rules determine which actions take effect and how they change its state.
+Retaining both the history and the rules makes that state independently
+verifiable and rebuildable, including offline.
+
+The **S0–S6 research spikes are complete**, independently reviewed and merged.
+This repository contains the working prototype, example applications, tests and
+retained evidence. It establishes the design's feasibility; production hosting
+and efficient handling of long histories remain future work.
+
+## Why use it for agent coordination?
+
+AT Protocol gives agents durable identities through DIDs (decentralized
+identifiers) and public records in each account's signed repository. Others can
+copy and verify that data. Those are useful foundations for communication, but
+coordinating shared state requires
+additional agreements: what order actions happen in, which actions take effect,
+and how everyone derives the same result. Arrival order and timestamps across
+separate repositories do not establish one agreed order, and the protocol does
+not supply an application's rules or rebuildable shared state.
+
+Atseq provides one verified order per app, rules shipped as data, and state
+derived from that history. When two participants claim a shared resource, the
+rules resolve the contention and govern its hand-back. An action refused by
+the application rules stays in the history with its reason; exact retries do
+not add duplicate actions. A reader with the installed runtime can replay the
+retained definitions and history without the PDS to check how the shared state
+was reached. The tool-sharing example below demonstrates this with signed
+borrow and return actions.
+
+**Current identity limit:** participants sign with local keys. An agent's
+existing AT Protocol account DID is not yet its Atseq participant identity;
+account authentication and delegation remain future work.
+
+## What you can do
+
+- **Create an application from data.** Define its vocabulary, initial state,
+  actions, queries and interface in a source bundle. Load unrelated applications
+  into the same running host without adding application-specific server code.
+  Agents can author these bundles as well as participate in the resulting apps.
+- **Preview and participate.** Test a definition locally, then start it on the
+  test PDS. People use the generic browser interface; agent harnesses use the
+  [JSON CLI](docs/interaction.md#json-cli-adapter) to validate and preview source,
+  create apps, submit signed actions, query state and inspect recorded outcomes.
+- **Keep attributable history.** Concurrent attempts have one verified order.
+  An action that fails an application rule remains in the history with its
+  reason. Retrying the same action returns its original receipt.
+- **Change rules at a recorded boundary.** Compare and activate a compatible
+  definition while retaining the old rules for replay. Offline actions signed
+  under an old definition remain available for explicit review and replacement.
+- **Retain and rebuild an app.** Export its definitions and verified history,
+  replay them without the PDS using the installed runtime, and export query
+  results as static charts and tables.
+
+For example, the [mending-circle tool desk](experiments/agent-authored/mending-circle-tool-desk/README.md)
+tracks shared sewing tools. Two people can attempt to borrow the same shears:
+the first borrow takes effect, the second is recorded as `tool_in_use`, and only
+the borrower's signing key can return them. Its schemas, rules and view are
+application content loaded through the generic host. An agent authored the app
+and used the JSON CLI without changing the host; its retained
+[transcript](experiments/agent-authored/mending-circle-tool-desk/transcript.json)
+records 22 adapter calls, and the S6 authoring gate verifies its source and
+replays its signed history. Other examples track garden rainfall and a guitar
+search.
+
+## How the design fits into AT Protocol
+
+AT Protocol supplies application identity, repository storage and transport.
+Each Atseq app has its own DID (decentralized identifier) and repository on a
+PDS (Personal Data Server). The repository retains its definitions, signed
+actions and explicit log records.
+
+An application definition combines three parts:
+
+| Part | Role |
+|---|---|
+| Lexicon schemas | Describe state, action inputs and query interfaces; validate them at runtime. |
+| [JSONata](https://github.com/jsonata-js/jsonata) programs | Decide an action's effect, compute successor state and answer queries. |
+| Retained view templates | Bind query results and action controls to a small set of local UI primitives. |
+
+The execution model is a **fold over a log**: start with the declared initial
+state and apply each recorded action's rules in order. The code calls this
+interpreter the *folder*. The server and browser use the same bounded execution
+profile, so either can derive state from the same verified inputs.
+
+1. A participant signs an action bound to an app and definition.
+2. The sequencer verifies the submission and assigns its position. It atomically
+   writes a signed entry and advances the head using the PDS's `applyWrites`
+   operation.
+3. The folder verifies the history and retained definitions, then interprets
+   the actions. It records whether each action took effect.
+4. Queries and views describe the resulting state at an exact interpreted
+   position. A downloaded archive can reproduce that same state.
+
+AT Protocol repositories are mutable snapshots. Atseq adds explicit predecessor
+links, positions, actor signatures and sequencer signatures to retain a
+verifiable application log. Order comes from those records, rather than
+notification arrival or timestamps. The sequencer orders actions; application
+rules decide their business effect. A saved action may therefore be awaiting
+interpretation or be recorded without taking effect.
+
+The [protocol](docs/protocol.md), [PDS host](docs/pds-host.md) and
+[definition contracts](docs/definitions.md) describe the implementation and trust
+boundaries, including the participant identity limit noted above.
 
 ## Try an application
+
+Use Node 22.13 or later; the retained acceptance run used Node 26.8.1.
+From this checkout:
 
 ```sh
 npm ci
@@ -22,136 +122,86 @@ npm ci --prefix experiments/pds
 npm run dev:app
 ```
 
-Open one of the printed preview links. Try sample actions locally, create a
-signing identity, then explicitly Start on the test PDS. The browser and
-[JSON CLI](docs/interaction.md) use the same public Lexicon contracts. Use
-synthetic data only. This command starts disposable loopback test services;
-Ctrl-C stops them. The original S0 experiment below remains a separate probe.
+Open one of the printed preview links for **Garden rainfall** or **Weekend
+guitar search**. Try sample actions locally, create a signing identity, then
+choose **Start** to publish the app on the disposable loopback test PDS. Use
+synthetic data: PDS publication is public. Ctrl-C stops the services; each run
+starts a fresh test environment and leaves marked local data for inspection.
 
-## Try the experiment
+The [interaction guide](docs/interaction.md) explains source import, signing,
+progress labels and the JSON CLI for agent harnesses. The
+[evolution guide](docs/evolution.md) covers definition changes and queued work;
+[archives and replay](docs/archives.md) covers offline use and static exports.
 
-Use Node 22.13 or later (tested with Node 26.8.1). From this checkout:
+## What the spikes were for
 
-```sh
-npm ci
-npm run dev:experiment
-```
+The spikes tested the uncertain parts of the architecture in successive,
+bounded experiments: could declarative apps run consistently in a browser and
+host, use a real PDS as their retained substrate, evolve, and remain recoverable?
+They also measured the costs before committing to a larger implementation.
 
-Open the loopback URL printed by Vite. The page renders a retained Inlay
-template and runs a declared action against sample state in a browser worker.
-Reloading starts a new sample. Nothing is published.
+| Spike | What it established |
+|---|---|
+| [S0 — runtime feasibility](notes/2026-09-06-atseq-runtime-feasibility.md) | One bounded evaluator in Node and a browser worker, runtime Lexicon validation and local view rendering; comparison with the alternative Go core. |
+| [S1 — protocol](notes/2026-09-06-atseq-protocol-spike.md) | Canonical signed bytes, verifiable order and exact retry identity, checked against independent vectors. |
+| [S2 — persistence](notes/2026-09-06-atseq-pds-spike.md) | Atomic appends, crash recovery and source retention through the official PDS's real HTTP and SQLite implementation. |
+| [S3 — definitions and state](notes/2026-09-06-atseq-runtime-spike.md) | Retained source bundles, deterministic interpretation and queries, and unrelated apps loaded after host startup. |
+| [S4 — participation](notes/2026-09-06-atseq-interaction-spike.md) | A generic browser and JSON CLI sharing contracts, independent signing identities and recoverable publication. |
+| [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md) | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions. |
+| [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md) | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries. |
 
-## Reproduce S0
+The completed acceptance run passed all 13 gates, including 283 full-suite
+tests. The [completion record](notes/2026-09-06-atseq-spike-completion.md)
+records review and landing; the [results](notes/2026-09-06-atseq-spike-results.md)
+and [acceptance report](experiments/acceptance.json) retain the measurements
+and evidence.
 
-Also install Go 1.26.7 or later for the published-core comparison and Chromium:
+To reproduce the complete acceptance run, install the dependencies above,
+Chromium and Go 1.26.7 or later (Go is used only for the S0 core comparison):
 
 ```sh
 npx playwright install chromium
-npm run check
-npx tsx --test tests/feasibility.test.ts
-npm run spike:feasibility
-```
-
-The feasibility command builds and runs the published Go core natively and in
-Chromium, builds the JavaScript experiment, runs the shared corpus in both
-environments, and exercises the browser action. It records package versions,
-integrities, licenses, fixture outcomes, bundle sizes and measured load times
-in `experiments/feasibility.json`. It overwrites that evidence on each run.
-Representative screenshots are retained in `experiments/evidence/`. Build
-output and the full installed dependency tree go in ignored `experiments/generated/`. No sibling checkout is required.
-
-## Reproduce S1
-
-```sh
-npm run test:protocol
-```
-
-The same independent protocol vectors and rejection corpus run in Node and
-Chromium. See the [protocol contract](docs/protocol.md) and
-[S1 result](notes/2026-09-06-atseq-protocol-spike.md). Raw rerun evidence goes to
-`experiments/generated/protocol-results.json`; the reviewed candidate retains a
-copy at `experiments/protocol.json`. Expected vectors are never regenerated by
-the gate.
-
-## Reproduce S2 and the full test suite
-
-```sh
-npm ci --prefix experiments/pds
-npm test
-```
-
-Use `npm run test:pds` to run only the PDS integration gate.
-
-The isolated dependencies run the official PDS with real HTTP and SQLite on
-loopback. The gate does not require Docker and never skips unavailable PDS
-tests. It creates a marked disposable directory and test account, exercises
-write conflicts, crash recovery and source retention, then stops its services.
-See the [host contract](docs/pds-host.md) and
-[S2 result](notes/2026-09-06-atseq-pds-spike.md). Rerun evidence goes to
-`experiments/generated/pds-results.json`; the candidate retains a copy at
-`experiments/pds.json`.
-
-## Reproduce S3
-
-```sh
-npm run test:runtime
-npm run test:dynamic-apps
-```
-
-The source loader uses a Lexicon manifest and standard CAR transport. The
-folder applies verified entries and exposes queries at their exact frontier.
-Two unrelated definitions are generated after a generic host process starts,
-then loaded without rebuilding it. See the [source contract](docs/definitions.md)
-and [S3 result](notes/2026-09-06-atseq-runtime-spike.md).
-## Reproduce S4
-
-```sh
-npm run test:flows -- --group participation
-```
-
-The gate exercises the real PDS host, two isolated browser identities and the
-JSON CLI. See [interaction](docs/interaction.md) for its source format, retry
-rules, progress labels and current boundaries.
-
-## Reproduce S5
-
-```sh
-npm run test:flows -- --group evolution
-```
-
-See [compatible changes](docs/evolution.md) for the activation boundary and
-stale-action review flow. See [archives and replay](docs/archives.md) for offline retention and static
-query exports.
-
-## Reproduce S6 and the complete acceptance run
-
-```sh
-npm run test:archive
 npm run spike:acceptance
-npm run spike:report
 ```
 
-Acceptance runs all documented gates, real-PDS and browser measurements through
-10,000 entries, and verifies the retained agent-authoring transcript and archive.
-It writes command logs, source hashes and measured reports. The report command
-refuses stale or failed evidence. The complete local run takes several minutes;
-there is no invented latency threshold. The current full-prefix implementation
-becomes slow as history grows. The generated dated result records the next
-smallest implementation decision.
+This runs the documented gates and measurements and overwrites retained
+experiment evidence. The [acceptance runner](scripts/acceptance.ts) lists all
+13 commands, including archive, performance and authoring checks. The
+[spike plan](notes/2026-09-06-atseq-initial-spike.md) records the original gates
+and their setup. Use `npm run test:archive` for the archive gate alone, or
+`npm run dev:experiment` for the original S0 browser probe.
 
-The report command reproduces the acceptance snapshot from the reviewed S6
-candidate. It overwrites later review annotations in the generated result note;
-the separate completion record preserves approval, landing and follow-on status.
+## Current limits
 
-## Current boundaries
+The prototype uses one bounded state document per app, an integer-only
+evaluation profile, a restricted expression language and three local UI
+primitives. Unsupported execution or missing required content pauses
+interpretation. See the [runtime profile](docs/runtime-profile.md) for exact
+bounds.
 
-The [candidate runtime profile](docs/runtime-profile.md) documents exactly what
-is admitted. Unsupported input, expression, output or work exhaustion raises
-an interpretation error; it never fabricates an ineffective application act.
-Schemas load at runtime through `@atproto/lexicon`. Views use only local Inlay
-templates and three registered primitives; rendering receives no signing or
-network capability. Prototype UI and business examples are in `experiments/`.
+The current host repeatedly serves and verifies the full history. At 10,000
+entries, the retained local run measured a median confirmed append of 18.66
+seconds and browser replay plus transfer of 15.42 seconds. Efficient verified
+catch-up is needed before using this host for long-lived, growing histories.
+These measurements describe one machine, rather than production capacity.
 
-Dependency versions are exact in `package-lock.json` and the independent Go
-probe's `go.mod`/`go.sum`. Do not copy an evaluator into the repository or add
-authored SQL to application definitions.
+Private application data, production deployment and authentication,
+state-transforming migrations, runtime upgrades, sequencer failover and external
+side effects remain outside the completed spikes.
+
+## Related projects and design material
+
+- [GitSeq](https://github.com/generalbusiness-ai/gitseq) supplies the architectural
+  precedent of authenticated ordering with separate application interpretation.
+  Its workroom tracks development of this repository.
+- [Tailapps](https://github.com/generalbusiness-ai/tailapps) supplies a declarative
+  execution precedent. Its Go `jsonataddl` core was evaluated in S0; the selected
+  Atseq runtime uses the JavaScript JSONata evaluator.
+- [atcute](https://github.com/mary-ext/atcute) supplies reused AT Protocol
+  encoding, content-identifier, archive and cryptographic tooling.
+
+GitSeq and Tailapps are architectural precursors, with no Atseq runtime
+dependency or compatibility requirement. For the broader rationale, read the
+[architecture](notes/2026-09-06-atseq-architecture.md), written before the
+experiments; the [notes index](notes/README.md) distinguishes design proposals,
+completed results and remaining work.
