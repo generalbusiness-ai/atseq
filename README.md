@@ -137,8 +137,11 @@ npm run spike:acceptance
 ```
 
 This runs the documented gates and measurements and overwrites retained
-experiment evidence. Individual gates and their setup are listed in the
-[spike plan](notes/2026-09-06-atseq-initial-spike.md).
+experiment evidence. The [acceptance runner](scripts/acceptance.ts) lists all
+13 commands, including archive, performance and authoring checks. The
+[spike plan](notes/2026-09-06-atseq-initial-spike.md) records the original gates
+and their setup. Use `npm run test:archive` for the archive gate alone, or
+`npm run dev:experiment` for the original S0 browser probe.
 
 ## Current limits
 
