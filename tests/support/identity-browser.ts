@@ -16,7 +16,11 @@ export async function sharedIdentityFixtures(
       auditBytes: new Uint8Array(fixture.audit),
       selectedTipCid: fixture.selectedTipCid,
     });
-    if (binding.signingKeyDid !== fixture.key || binding.selectedTipCid !== fixture.selectedTipCid)
+    if (
+      binding.assuranceClass !== 'plc-audit-v1' ||
+      binding.signingKeyDid !== fixture.key ||
+      binding.selectedTipCid !== fixture.selectedTipCid
+    )
       throw new Error('Shared Node identity fixture differs in Chromium');
     checked.push(binding.principal);
   }

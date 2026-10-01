@@ -12,7 +12,7 @@ import { isDidPlc } from '@atproto/did';
 import * as v from 'valibot';
 import { ProtocolError } from '../core/errors.ts';
 import { assertDependencies } from '../core/dependencies.ts';
-import { assertCid } from './wire.ts';
+import { link } from './wire.ts';
 import { identityInput, identityObject, parseIdentityJson } from './identity-json.ts';
 import { identityPdsOrigin, normalizeIdentityDidKey } from './identity-key.ts';
 
@@ -38,7 +38,7 @@ function boundedContainers(value: unknown): void {
 }
 function plcCid(value: string) {
   try {
-    assertCid(value);
+    link(value);
   } catch (error) {
     if (error instanceof ProtocolError && error.kind === 'invalid_input') identityInput(error.message);
     throw error;

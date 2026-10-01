@@ -9,7 +9,8 @@ import {
   type IndexedEntry,
   type UnsignedOperation,
 } from '@atcute/did-plc';
-import { fromBase64Url, toBase64Url } from '@atcute/multibase';
+import { fromBase64Url, toBase64Url, toBase58Btc } from '@atcute/multibase';
+import { Point } from '@noble/secp256k1';
 import { ProtocolError } from '../../src/core/errors.ts';
 import { deriveIdentityBinding, sameIdentityObservation } from '../../src/protocol/identity-binding.ts';
 import { parseIdentityJson } from '../../src/protocol/identity-json.ts';
@@ -252,6 +253,47 @@ export async function identityCorpus() {
     passed(`${type} no lossy signed-field projection`);
   }
   const fixture = fixtures[0]!;
+  for (const [name, auditBytes] of [
+    ['PLC total response budget', new Uint8Array(1024 * 1024 + 1)],
+    ['PLC row budget', encode(Array.from({ length: 513 }, () => fixture.rows[0]))],
+    [
+      'PLC operation array budget',
+      encode([
+        {
+          ...fixture.rows[0],
+          operation: {
+            ...fixture.unsigned,
+            sig: fixture.rows[0]!.operation.sig,
+            alsoKnownAs: Array.from({ length: 65 }, () => 'at://a.example'),
+          },
+        },
+      ]),
+    ],
+    [
+      'PLC operation byte budget',
+      encode([
+        {
+          ...fixture.rows[0],
+          operation: {
+            ...fixture.unsigned,
+            sig: fixture.rows[0]!.operation.sig,
+            alsoKnownAs: ['at://' + 'a'.repeat(7600)],
+          },
+        },
+      ]),
+    ],
+  ] as const) {
+    await rejects(
+      () =>
+        deriveIdentityBinding(fixture.principal, {
+          assuranceClass: 'plc-audit-v1',
+          auditBytes,
+          selectedTipCid: fixture.selectedTipCid,
+        }),
+      name,
+    );
+    passed(name);
+  }
   const principal = 'did:web:alice.example';
   const document = {
     id: principal,
@@ -347,6 +389,45 @@ export async function identityCorpus() {
     'array budget',
   );
   passed('web service array budget');
+  await rejects(
+    () =>
+      deriveIdentityBinding(principal, {
+        assuranceClass: 'web-observation-v1',
+        documentBytes: new Uint8Array(32 * 1024 + 1),
+      }),
+    'web response budget',
+  );
+  passed('web response byte budget');
+  for (const [index, type] of (['p256', 'secp256k1'] as const).entries()) {
+    const fixture = fixtures[index]!,
+      raw = await fixture.key.exportPublicKey('raw');
+    let legacy: Uint8Array;
+    if (type === 'secp256k1') legacy = Point.fromBytes(raw).toBytes(false);
+    else {
+      const jwk = await fixture.key.exportPublicKey('jwk');
+      const imported = await crypto.subtle.importKey('jwk', jwk, { name: 'ECDSA', namedCurve: 'P-256' }, true, [
+        'verify',
+      ]);
+      legacy = new Uint8Array(await crypto.subtle.exportKey('raw', imported));
+    }
+    const method = {
+      ...document.verificationMethod[0],
+      type: type === 'p256' ? 'EcdsaSecp256r1VerificationKey2019' : 'EcdsaSecp256k1VerificationKey2019',
+      publicKeyMultibase: `z${toBase58Btc(legacy)}`,
+    };
+    check(
+      (await web({ ...document, verificationMethod: [method] })).signingKeyDid === fixture.signing,
+      'legacy key equivalence differs',
+    );
+    passed(`${type} web legacy/modern canonical key equivalence`);
+    const offCurve = new Uint8Array(65);
+    offCurve[0] = 4;
+    await rejects(
+      () => web({ ...document, verificationMethod: [{ ...method, publicKeyMultibase: `z${toBase58Btc(offCurve)}` }] }),
+      `${type} web off-curve point`,
+    );
+    passed(`${type} web off-curve legacy point rejected`);
+  }
   const legacyUnsigned = {
     type: 'create' as const,
     prev: null,

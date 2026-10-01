@@ -4,6 +4,8 @@ import { existsSync } from 'node:fs';
 import approved from '../src/core/dependencies-approved.json';
 import lock from '../npm-shrinkwrap.json';
 import { assertDependencies } from '../src/core/dependencies.ts';
+import { readFileSync } from 'node:fs';
+import { isNonExecutedPeer } from '../src/core/dependency-peers.ts';
 assertDependencies();
 const packages = lock.packages as Record<
   string,
@@ -34,6 +36,7 @@ function visit(path: string) {
     visit(target);
   }
   for (const name of [...Object.keys(entry.optionalDependencies ?? {}), ...Object.keys(entry.peerDependencies ?? {})]) {
+    if (isNonExecutedPeer(JSON.parse(readFileSync(`${path}/package.json`, 'utf8')), name)) continue;
     const target = resolve(path, name);
     if (target) visit(target);
   }
