@@ -1,0 +1,76 @@
+{
+  "capturedAt": "2026-10-01T17:30:44.320Z",
+  "sourceHead": "50bdce3f7bea7ef8353a7d02ab41793bc2fbf0ad",
+  "baseMain": "2c759838",
+  "trackedSourceClean": true,
+  "runtime": "v26.10.0",
+  "platform": "darwin",
+  "release": "27.0.0",
+  "architecture": "arm64",
+  "tests": {
+    "total": 360,
+    "pass": 360,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "nodeNativeCases": 49,
+    "chromiumNativeCases": 49
+  },
+  "commands": [
+    "npm test",
+    "npm run build",
+    "npm run check"
+  ],
+  "sourceHashes": {
+    "src/core/errors.ts": "e2aa383756ad38b9630216c5b892e38fb6fc446292b4c30b29ffbbddd4b7e250",
+    "src/protocol/native-proof.ts": "00212a1089385d0401ab703983cb0f95733a9afe9835a901e44318667e292fc8",
+    "tests/support/native-proof-corpus.ts": "9e9861b5d3e3845cd82f8b79835a23ea76243856bf248dc0f65fc8d826297c32",
+    "tests/native-proof.test.ts": "5bd7388bd37494bcf2f418a1c4bcbd8867b5b51b05664605d35797503da8803c",
+    "tests/native-proof-browser.test.ts": "f3c3bf63ebd69fabf4ecc01a5a5aaee4e17a40200128e6572541905d1073613b",
+    "tests/host-availability.test.ts": "335da45dc453975d6f96669532e69c07abd0505ad541af2b3fe22513446ab8ea",
+    "tests/profiles.test.ts": "f9317cd3a0472ac4cd6e9e00942eea6eb75c9fa7c7540749e7fc3f4f12a84eaf",
+    "src/core/contracts.ts": "03013fd0d1229dd010f95cdc0656a0bef0338d88c85d94e47b1ba1fd783d98fc",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/host/errors.ts": "236a50f5afc09e3bec84b83ef29d7d8d200c0db13c127df73ec87aad87eeaea4",
+    "src/protocol/wire.ts": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+    "tests/vectors/profiles-v1.json": "f0bd9d60d718ac1112a724ccea1e3df917ed5009dece4ea1f2ebdf9f160d3e86",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "ad408a2ce81f63bbeaf4a0800b37c5306870f4400729325a073e67f885f10502",
+    "tests/support/pds/package.json": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd"
+  },
+  "semanticVectorsChanged": false,
+  "dependenciesChanged": false,
+  "notes": [
+    "Native host HTTP test injects the actual typed proof failure into existing host boundary; P2/I1 integrations are later tasks.",
+    "Browser bundle executed shared corpus and both Node-produced p256/secp256k1 signing fixtures.",
+    "No performance claims or private-key material retained."
+  ],
+  "files": [
+    {
+      "path": "full-test.txt",
+      "bytes": 30660,
+      "sha256": "87be96e955d06c4556f18619e6b3d8ae4238e94076f1a564f164e4cb734e9f14"
+    },
+    {
+      "path": "build.txt",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "check.txt",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 2874,
+      "sha256": "789dadb90e900f4db03a3030476eaa1ca0cf8ddbfb93eb93bee0e1fee289184b"
+    },
+    {
+      "path": "node.json",
+      "bytes": 2722,
+      "sha256": "e77802a8aa6d0077dbff6e17b4c1adb95ef198e85564817478529c15b6013833"
+    }
+  ]
+}

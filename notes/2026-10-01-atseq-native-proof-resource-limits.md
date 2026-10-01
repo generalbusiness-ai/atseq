@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: adopted direction; implementation validation pending
+status: adopted; implementation candidate validated; exact-head review pending
 category: native proof resource policy
 request: d22a606dcd584df143acda4523c2dcae0e03b1bc
 examined_head: 3cdf0b0747336b201fbecb2f414a25957b3a8dda
@@ -30,8 +30,9 @@ required.
 
 ## Evidence in the landed code
 
-The source was inspected at the revision above. Tests were not run for this
-source-only proposal.
+The original proposal inspected source at the revision above without running
+tests. The adopted implementation and its exact validation are recorded in
+[the results](2026-10-01-atseq-native-proof-resource-limit-results.md).
 
 | Source | Current behavior |
 |---|---|
