@@ -1,21 +1,22 @@
 ---
 date: 2026-10-01
-status: decision proposal; independent review and implementation pending
+status: independently assessed; adopted direction with N1/I2 wire and implementation pending
 examined_at: cb3fd8472ccec1208b72e8adc81884ccfb1860d4
 request: 6f758f21
 ---
 
 # Definition activation and queued actions
 
-Bind ordinary actions to one derived execution contract for the active definition,
-instead of its complete source CID. Keep exact source-definition matching for
-activation itself. This lets a view or query update preserve queued actions while
-keeping changes to executable action meaning explicit. Prefer a single execution
-contract initially: it is more conservative and simpler than separate contracts
-for every action. An unrelated action edit will still invalidate queued actions.
+Bind each ordinary action to its own derived execution contract, instead of the
+complete source-definition CID. Keep exact source-definition matching for
+activation itself. This preserves queued actions and existing grants when a view,
+query or unrelated action changes, while keeping changes to that action's
+executable meaning explicit. Derive each contract using the same closure walk
+and canonical encoding.
 
-This is a proposed replacement contract for N1/I2 to review and implement, not a
-claim about current behavior or a finalized Lexicon. Prior spike compatibility is
+This is the independently assessed replacement direction for N1/I2 to review
+at the wire boundary and implement, not a claim about current behavior or a
+finalized Lexicon. Prior spike compatibility is
 not required. The [native authority decision](2026-10-01-atseq-native-authority-decision.md)
 remains the authority backbone. The app PDS can construct another ordering;
 compatibility never makes actor consent, grant authority or state independent of
@@ -59,30 +60,38 @@ runtime tests and does not claim that any proposed identity is implemented.
 | --- | --- | --- |
 | Exact complete definition CID | Only an identical definition | Already implemented; even a view update requires explicit replacement and potentially new delegation. |
 | One derived execution contract CID | View/query/title and source-layout changes that leave the operational projection identical | One projection and one identity per definition; changes to any action conservatively invalidate all ordinary queued actions. |
-| One derived contract per action | Also survives changes to unrelated actions | Needs shared state/runtime/metadata/authority closure in every binding, per-action grant scope and discovery. It is not just an input-schema-plus-fold hash. |
+| One derived contract per action | Also survives changes to unrelated actions | Reuses one closure algorithm per action, with shared state/runtime and action-specific input/fold/enforced-rule data. Grant scope and discovery name each computed CID. |
 
-Select the middle option. No observed workflow yet establishes a need for
-independent action compatibility, whereas view-only invalidation is demonstrated.
-Do not add both compatibility modes. If later evidence justifies per-action
-contracts, review that semantic change separately. Do not infer equivalence from
-unchanged action names, schema compatibility, tests, or a governance declaration.
+Select per-action contracts. Independent assessment `3dcab9c1` identifies the
+concrete counterexample to the initial single-contract proposal: adding a new
+action C would invalidate every queued A and B intent and every execution-scoped
+grant, although A and B did not change. Per-action descriptors reuse the same
+closure machinery and avoid this needless renewal. Adding C can change reachable
+states, but it does not change A's function of state, payload and metadata; an
+ordinary A intent never guaranteed the state at its execution position.
+
+Do not add both compatibility modes. Do not infer equivalence from unchanged
+action names, schema compatibility, tests, or a governance declaration.
 
 ## What the execution contract covers
 
-Derive a bounded canonical descriptor from a fully validated definition. The
+Derive a bounded canonical descriptor for each action from a fully validated
+definition. Reject duplicate action references before deriving descriptors. The
 following are logical contents; N1 owns the final versioned encoding and limits:
 
 1. A descriptor version and the supported Atseq application semantic-contract
    CID, covering evaluator behavior, limits, metadata, authorization and outcome
-   rules. This global semantic CID is distinct from this particular definition's
+   rules. This global semantic CID is distinct from this particular action's
    execution CID.
 2. The state-schema root and every reachable schema definition.
-3. Every ordinary action's full schema reference and exact fold-source CID,
-   with every schema definition reachable from those inputs. Include the entire
-   action set, sorted by reference; reject duplicates before deriving the CID.
-4. Any future definition-declared rule that can reject or authorize a domain
-   transition. A capability rule used only for advisory discovery is excluded;
-   if it becomes an enforced precondition it must enter this contract.
+3. This action's full schema reference and exact fold-source CID, with every
+   schema definition reachable from its input. Other actions and their input
+   schemas/folds do not enter this action's descriptor unless a schema is also
+   reachable from this action's input or the shared state.
+4. Any future definition-declared rule that can reject or authorize this action's
+   domain transition. A capability rule used only for advisory discovery is
+   excluded; if it becomes an enforced precondition for this action it must enter
+   this contract. A shared enforced rule enters every action it governs.
 
 Resolve references to full `documentID#definitionName` identities, retaining the
 complete referenced schema objects and recursively following `ref` and closed
@@ -92,8 +101,12 @@ fold bytes, not a normalized AST or a claim of behavioral equivalence. Moving
 unchanged fold bytes to another local source path does not change the execution
 descriptor. A whitespace change in fold bytes does.
 
-Retain schema descriptions and array order initially. This deliberately rejects
-some harmless schema edits, but avoids a new semantic normalization language.
+Retain schema descriptions and array order initially as exact consent and closure
+data. A wording edit inside a reachable schema can therefore invalidate queued
+work and exact-contract grants for the affected action; a shared state-schema
+wording edit can affect all actions. This deliberately conservative rule avoids
+adding semantic normalization now. Assessment `3dcab9c1` permits either treatment
+of descriptions; excluding them later requires an explicit reviewed identity rule.
 Schema document metadata outside the reachable definitions is excluded. The
 existing `stateContract` traversal supplies useful evidence, not an approved
 ready-made descriptor: implementation must cover action schemas as well as state,
@@ -108,8 +121,8 @@ initial state, queries and views, before accepting activation. Exclusion from
 execution identity does not relax source validation or permit missing source.
 
 Ordinary fold metadata must stop exposing the complete source-definition CID.
-Expose the execution contract identity instead, under a new reviewed semantic
-profile; do not relabel the old field without documenting the change. Source
+Expose this action's execution contract identity instead, under a new reviewed
+semantic profile; do not relabel the old field without documenting the change. Source
 definition identity remains available in discovery, projection and inspectable
 activation history. Without this metadata change, a view update can change a
 fold's result even when its purported execution contract is unchanged.
@@ -122,12 +135,20 @@ not this note.
 
 ## Grant scope and governance
 
-I2 should make exact execution-contract scope the default for delegated ordinary
-actions, rather than complete source-definition scope. A view-only activation
-then needs neither a replacement action nor a replacement grant. An execution
-change requires a fresh explicit grant for newly signed work. Do not rebind an
-existing grant in place. A grant with a deliberately persistent app/action scope
-can authorize newly signed work across changes, but the old intent still binds
+I2 should make exact per-action execution-contract scope the default for delegated
+ordinary actions, rather than complete source-definition scope. Scope entries
+name action references plus their contract CIDs. A view-only activation or adding
+an unrelated action then needs neither a replacement action nor replacement
+authority for unchanged actions. Adding an action requires an explicit grant for
+that new action; removing one makes its queued intents ineffective.
+
+Changing an action's execution contract requires fresh explicit grant authority
+for newly signed work under the new contract. Do not rebind an existing grant in
+place. Publishing a fresh grant does not necessarily require OAuth re-enrolment:
+an already authorized account session may have permission to publish it. Account
+authorization/session renewal and app grant admission remain separate operations.
+A grant with a deliberately persistent app/action scope can authorize newly
+signed work across changes, but the old intent still binds
 its original execution contract; broad grants do not upgrade queued consent.
 
 Grant checks and execution matching are separate. Current ordered authority
@@ -147,7 +168,8 @@ marker or account participation grant can create governance powers.
 Activation remains an explicit control action with the exact expected active
 source-definition CID, target source-definition CID and complete retained
 closure. Check appointed activation authority at its position. A stale expected
-definition is ineffective even when both definitions share an execution CID:
+definition is ineffective even when both definitions have identical per-action
+CIDs:
 administrators must not unknowingly overwrite each other's presentation changes.
 Keep the initial same-runtime/same-state-schema activation restriction. State
 migrations and runtime replacement need their own reviewed protocol.
@@ -173,13 +195,15 @@ domain outcome. Off-device preview is advisory, not a promise about either case.
 | Add a view/query; unchanged execution descriptor and live grant | Original bytes remain eligible; the fold evaluates current state normally. |
 | Change `borrow` from reservation to ownership transfer under the same action/schema names | Changed fold CID changes execution identity; old intent is ineffective. Schema compatibility is insufficient. |
 | Edit a nested referenced input schema, shared state constraint, enforced role rule or supported runtime meaning | Execution identity changes, or activation is disallowed by the same-schema/runtime rule. Never accept old work on a top-level-only hash. |
-| Change an unrelated ordinary action | Single execution identity changes; old queued work is conservatively ineffective. This is an accepted cost of simplicity. |
+| Add or change an unrelated ordinary action without changing shared state/schema/rules | Existing action CIDs and exact-contract authority remain unchanged; original queued bytes stay eligible. Only the new/changed action needs new contract authority. |
+| Remove the queued action from the active definition | Its intent is ineffective as an unavailable action; surviving actions' CIDs remain unchanged. |
+| Edit wording inside this action's reachable schema | Its exact closure and contract CID change; old work/grant scope does not silently follow the wording edit. |
 | Change only view source, but a fold formerly read `meta.definition` | Proposed profile supplies execution identity instead; old-profile behavior is not silently reused. |
 | Valid grant revoked/reset/out of scope before the original action's position | Ineffective, even if signed while authorized and even if execution still matches. |
 | State changes before an action with an expected version | Its fold records the defined precondition failure; no automatic rebase or version rewrite. |
 | State changes before an action without an expected version | Fold evaluates new state; a valid contract match can yield a different domain outcome. |
 | Exact recorded retry arrives after activation/revocation | Return its original receipt/outcome; do not append or evaluate another action. |
-| Two administrators activate from the same exact expected source definition | At most the first effective activation meets that expectation. Execution equality does not let the second overwrite it. |
+| Two administrators propose different view-only successors from the same exact expected source definition; every action CID remains equal | At most the first effective activation meets that expectation. The second fails its exact expected-source check, preserving the first administrator's presentation change. |
 
 ## Invalid, ineffective and stalled are separate
 
@@ -208,25 +232,35 @@ replicated outcome or a license to discard original signed work.
 N1 owns the execution descriptor, metadata and ordinary/control envelope change.
 I2 owns grant scope and ordered authority checks. C1 must identify whether its
 capability rules are advisory or enforced before their closure treatment freezes.
-B0 remains a transport/source reconstruction task: expose the derived execution
-identity when implemented, but never accept an author-supplied compatibility
-declaration. Packing the same source through another transport changes neither
-source identity nor execution meaning. P3/P4 retain execution identity with the
-coherent projection and the evidence needed to reproduce it.
+B0 remains a transport/source reconstruction task: discovery lists locally
+computed contract CIDs for each action when implemented, but never accepts an
+author-supplied compatibility declaration. Packing the same source through
+another transport changes neither source identity nor execution meaning. P3/P4
+retain the active source definition and reproducible per-action identities with
+the coherent projection and their required evidence.
 
-Before implementation lands, obtain independent workroom approval of this choice
-and the N1/I2 wire contract. Validate descriptor determinism in Node and browser;
-view/query-only equality; unrelated-action inequality; recursive/shared schema
-closure; fold metadata; forged compatibility declarations; grants and epoch/reset
-ordering; stale activation; expected-version/restoration examples; complete-root
-absence versus missing partial blocks; and exact retries before/after activation.
+Assessment `3dcab9c1` independently checked the source claims and supported the
+structure with required C0-1 granularity correction. This revision adopts that
+per-action correction, keeps descriptions with the explicit C0-2 wording-edit
+limitation, adds the C0-3 two-administrator view-only expected-source fixture, and
+preserves C0-4 absence classifications. Final N1/I2 wire and implementation still
+require independent workroom approval; this report supplies no runtime approval.
+
+Validate descriptor determinism in Node and browser; view/query-only equality;
+adding/changing an unrelated action preserves existing action CIDs and grants;
+changing an action changes that action's CID; removing an action makes queued
+work ineffective; recursive/shared schema closure; description wording changes;
+fold metadata; forged compatibility declarations; grants and epoch/reset ordering;
+two administrators proposing view-only updates from the same exact expected
+source with unchanged action CIDs, where the second activation is ineffective;
+expected-version/restoration examples; complete-root absence versus missing
+partial blocks; and exact retries before/after activation.
 For queued work, demonstrate byte-for-byte resubmission and explicit replacement:
 show the changed semantics/authority/precondition, require a deliberate save or
 agent instruction, use a fresh retry identity, and retain the old record/receipt.
 Never silently rewrite, re-sign, re-grant or discard a queued action.
 
-This proposal favors a bounded, exact operational projection over semantic
-inference. Independent review may reject its conservative all-actions binding
-if concrete workflow evidence shows the extra invalidation matters. The current
-evidence supports fixing presentation-only invalidation first, without promising
-that unchanged bytes imply unchanged state, authority or eventual outcome.
+The adopted direction uses bounded, exact per-action projections and one shared
+derivation algorithm. It preserves consent across unrelated feature additions
+without promising that unchanged action bytes imply unchanged state, authority
+or eventual outcome.
