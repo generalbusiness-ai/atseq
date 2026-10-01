@@ -1,0 +1,18 @@
+{
+  "capturedAt": "2026-10-01T14:13:32.864Z",
+  "command": "npm audit --json",
+  "cwd": "tests/support/pds",
+  "exitStatus": 1,
+  "node": "v26.10.0",
+  "npm": "11.19.1",
+  "gitHead": "cb3fd8472ccec1208b72e8adc81884ccfb1860d4",
+  "sourceSha256": {
+    "tests/support/pds/package.json": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6",
+    "tests/support/pds/package-lock.json": "227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41",
+    "tests/support/pds/environment.mjs": "899215bcbb92b1f777877a11b09c17361b19396bd23f184bfb68a24a0553e308",
+    "tests/support/pds/pds-server.mjs": "994569e77dea1706eab41882045fb589d26f8e2dba25bf08c7475555e97f94a9"
+  },
+  "auditSha256": "f7fe740f421d328bdd362000a86676fb6ffb512ff154c7e4235c64e61bd43a64",
+  "installedDependenciesPresent": false,
+  "stderr": ""
+}

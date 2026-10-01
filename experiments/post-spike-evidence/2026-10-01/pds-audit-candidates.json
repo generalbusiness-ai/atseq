@@ -1,0 +1,310 @@
+{
+  "capturedAt": "2026-10-01T14:15:29.119886+00:00",
+  "purpose": "Candidate availability and parent constraints only; no installation or compatibility test",
+  "packages": [
+    {
+      "package": "express",
+      "url": "https://registry.npmjs.org/express",
+      "distTags": {
+        "latest": "5.2.1",
+        "latest-4": "4.22.3"
+      },
+      "candidates": [
+        {
+          "version": "4.22.3",
+          "published": "2026-09-14T06:46:38.631Z",
+          "exists": true,
+          "dependencies": {
+            "qs": "~6.16.0",
+            "depd": "2.0.0",
+            "etag": "~1.8.1",
+            "send": "~0.19.0",
+            "vary": "~1.1.2",
+            "debug": "2.6.9",
+            "fresh": "~0.5.2",
+            "cookie": "~0.7.1",
+            "accepts": "~1.3.8",
+            "methods": "~1.1.2",
+            "type-is": "~1.6.18",
+            "parseurl": "~1.3.3",
+            "statuses": "~2.0.1",
+            "encodeurl": "~2.0.0",
+            "proxy-addr": "~2.0.7",
+            "body-parser": "~1.20.5",
+            "escape-html": "~1.0.3",
+            "http-errors": "~2.0.0",
+            "on-finished": "~2.4.1",
+            "safe-buffer": "5.2.1",
+            "utils-merge": "1.0.1",
+            "content-type": "~1.0.4",
+            "finalhandler": "~1.3.1",
+            "range-parser": "~1.2.1",
+            "serve-static": "~1.16.2",
+            "array-flatten": "1.1.1",
+            "path-to-regexp": "~0.1.13",
+            "setprototypeof": "1.2.0",
+            "cookie-signature": "~1.0.6",
+            "merge-descriptors": "1.0.3",
+            "content-disposition": "~0.5.4"
+          },
+          "engines": {
+            "node": ">= 0.10.0"
+          },
+          "integrity": "sha512-Bdcs4+3qlpVlx2NRn6fgX2Ue2/gGRaPeawebgclM0ERSCqDpA+owF1fdPwjJUTAJWMTuAaxjDf+hzb0/4eKvvw=="
+        }
+      ]
+    },
+    {
+      "package": "body-parser",
+      "url": "https://registry.npmjs.org/body-parser",
+      "distTags": {
+        "next": "2.1.0",
+        "latest": "2.3.0",
+        "latest-1.x": "1.20.8"
+      },
+      "candidates": [
+        {
+          "version": "1.20.7",
+          "published": null,
+          "exists": false,
+          "dependencies": null,
+          "engines": null,
+          "integrity": null
+        },
+        {
+          "version": "1.20.8",
+          "exists": true,
+          "dependencies": {
+            "qs": "~6.16.0",
+            "depd": "2.0.0",
+            "bytes": "~3.1.2",
+            "debug": "2.6.9",
+            "unpipe": "~1.0.0",
+            "destroy": "~1.2.0",
+            "type-is": "~1.6.18",
+            "raw-body": "~2.5.3",
+            "iconv-lite": "~0.4.24",
+            "http-errors": "~2.0.1",
+            "on-finished": "~2.4.1",
+            "content-type": "~1.0.5"
+          },
+          "engines": {
+            "npm": "1.2.8000 || >= 1.4.16",
+            "node": ">= 0.8"
+          },
+          "integrity": "sha512-JNcyFQ64OiijEkPzUBTCe+hyPXUD/3LEldGQ6iF5LR1w00mx9o7xtDWHXBY2iItjdCFGoilOLNQbH943ut7pHA=="
+        }
+      ]
+    },
+    {
+      "package": "qs",
+      "url": "https://registry.npmjs.org/qs",
+      "distTags": {
+        "v5.x-latest": "5.2.1",
+        "v6.0-latest": "6.0.6",
+        "v6.1-latest": "6.1.4",
+        "v6.2-latest": "6.2.6",
+        "v6.3-latest": "6.3.5",
+        "v6.4-latest": "6.4.3",
+        "v6.5-latest": "6.5.5",
+        "v6.6-latest": "6.6.3",
+        "v6.7-latest": "6.7.5",
+        "v6.8-latest": "6.8.5",
+        "v6.9-latest": "6.9.9",
+        "v6.10-latest": "6.10.7",
+        "v6.11-latest": "6.11.4",
+        "v6.12-latest": "6.12.5",
+        "v6.13-latest": "6.13.3",
+        "latest": "6.16.0"
+      },
+      "candidates": [
+        {
+          "version": "6.16.0",
+          "published": "2026-08-29T23:50:15.803Z",
+          "exists": true,
+          "dependencies": {
+            "side-channel": "^1.1.1",
+            "es-define-property": "^1.0.1"
+          },
+          "engines": {
+            "node": ">=0.6"
+          },
+          "integrity": "sha512-h6fhOIaRrID2CbEY2fqs+7t+UXZo+MLAnU5gRIq85uFtdiUPCdsApMlHhXogKVM4HM2DVbIjGNTTYH2OcmP1vA=="
+        }
+      ]
+    },
+    {
+      "package": "@grpc/grpc-js",
+      "url": "https://registry.npmjs.org/@grpc%2fgrpc-js",
+      "distTags": {
+        "false": "1.9.16",
+        "latest": "1.14.5",
+        "previous": "1.13.6"
+      },
+      "candidates": [
+        {
+          "version": "1.14.5",
+          "published": "2026-09-17T19:47:01.706Z",
+          "exists": true,
+          "dependencies": {
+            "@grpc/proto-loader": "^0.8.0",
+            "@js-sdsl/ordered-map": "^4.4.2"
+          },
+          "engines": {
+            "node": ">=12.10.0"
+          },
+          "integrity": "sha512-7VZM+SVdEcUUqSQeNI3zM8Qs/BhQKZndPo2h5VkYkAM8Iz0wJIa8mKV5ekQGqG8UUsnkQ0NMxIxwkIHYvj0qOw=="
+        }
+      ]
+    },
+    {
+      "package": "brace-expansion",
+      "url": "https://registry.npmjs.org/brace-expansion",
+      "distTags": {
+        "maintenance-v3": "3.0.6",
+        "maintenance-v2": "2.1.4",
+        "maintenance-v1": "1.1.18",
+        "2.x": "2.1.7",
+        "latest": "5.0.12",
+        "1.x": "1.1.21",
+        "3.x": "3.0.9"
+      },
+      "candidates": [
+        {
+          "version": "2.1.7",
+          "published": "2026-09-14T22:02:58.810Z",
+          "exists": true,
+          "dependencies": {
+            "balanced-match": "^1.0.0"
+          },
+          "engines": null,
+          "integrity": "sha512-uZbew1NqdmPDTMJ8ah1y+b+9QEJrfkXFk3RcTQw3X0jW/xRUvFKsg1CfQdSYGdTbXZWExtU3J3ccxtnfw1Fi0g=="
+        },
+        {
+          "version": "5.0.12",
+          "published": "2026-09-14T21:59:00.288Z",
+          "exists": true,
+          "dependencies": {
+            "balanced-match": "^4.0.2"
+          },
+          "engines": {
+            "node": "20 || >=22"
+          },
+          "integrity": "sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ=="
+        }
+      ]
+    },
+    {
+      "package": "@opentelemetry/sdk-node",
+      "url": "https://registry.npmjs.org/@opentelemetry%2fsdk-node",
+      "distTags": {
+        "next": "0.34.0",
+        "canary": "0.300.0-development.0",
+        "latest": "0.222.0"
+      },
+      "candidates": [
+        {
+          "version": "0.220.0",
+          "published": "2026-07-02T21:52:35.242Z",
+          "exists": true,
+          "dependencies": {
+            "@opentelemetry/core": "2.9.0",
+            "@opentelemetry/api-logs": "0.220.0",
+            "@opentelemetry/sdk-logs": "0.220.0",
+            "@opentelemetry/resources": "2.9.0",
+            "@opentelemetry/sdk-trace": "2.9.0",
+            "@opentelemetry/sdk-metrics": "2.9.0",
+            "@opentelemetry/configuration": "0.220.0",
+            "@opentelemetry/propagator-b3": "2.9.0",
+            "@opentelemetry/sdk-trace-base": "2.9.0",
+            "@opentelemetry/sdk-trace-node": "2.9.0",
+            "@opentelemetry/exporter-zipkin": "2.9.0",
+            "@opentelemetry/instrumentation": "0.220.0",
+            "@opentelemetry/propagator-jaeger": "2.9.0",
+            "@opentelemetry/otlp-exporter-base": "0.220.0",
+            "@opentelemetry/context-async-hooks": "2.9.0",
+            "@opentelemetry/exporter-prometheus": "0.220.0",
+            "@opentelemetry/semantic-conventions": "^1.29.0",
+            "@opentelemetry/exporter-logs-otlp-grpc": "0.220.0",
+            "@opentelemetry/exporter-logs-otlp-http": "0.220.0",
+            "@opentelemetry/otlp-grpc-exporter-base": "0.220.0",
+            "@opentelemetry/exporter-logs-otlp-proto": "0.220.0",
+            "@opentelemetry/exporter-trace-otlp-grpc": "0.220.0",
+            "@opentelemetry/exporter-trace-otlp-http": "0.220.0",
+            "@opentelemetry/exporter-trace-otlp-proto": "0.220.0",
+            "@opentelemetry/exporter-metrics-otlp-grpc": "0.220.0",
+            "@opentelemetry/exporter-metrics-otlp-http": "0.220.0",
+            "@opentelemetry/exporter-metrics-otlp-proto": "0.220.0"
+          },
+          "engines": {
+            "node": "^18.19.0 || >=20.6.0"
+          },
+          "integrity": "sha512-wHtGyHhSKHNH3fym33xRu4Ef/HXTFvX8eQ42xdQdEO9LYx9Y2qNyBDJytyqVlvmo6abWZlNYTUthuAGUMYqYnQ=="
+        }
+      ]
+    },
+    {
+      "package": "@opentelemetry/propagator-jaeger",
+      "url": "https://registry.npmjs.org/@opentelemetry%2fpropagator-jaeger",
+      "distTags": {
+        "next": "1.8.0",
+        "latest": "2.11.0",
+        "canary": "2.11.0-development.0"
+      },
+      "candidates": [
+        {
+          "version": "2.9.0",
+          "published": "2026-07-02T21:51:32.750Z",
+          "exists": true,
+          "dependencies": {
+            "@opentelemetry/core": "2.9.0"
+          },
+          "engines": {
+            "node": "^18.19.0 || >=20.6.0"
+          },
+          "integrity": "sha512-4mYGty27rYvSM0jtp1ZUOqd3LfVRCYg9H5G9OFzSx5HViYToU21MFhWfco7x1HwXr7ER8yGOiCIHZUwjPksc0Q=="
+        }
+      ]
+    },
+    {
+      "package": "nodemailer",
+      "url": "https://registry.npmjs.org/nodemailer",
+      "distTags": {
+        "beta": "2.4.0-beta.0",
+        "latest": "10.0.13"
+      },
+      "candidates": [
+        {
+          "version": "10.0.6",
+          "published": "2026-09-11T13:00:33.784Z",
+          "exists": true,
+          "dependencies": {},
+          "engines": {
+            "node": ">=20.0.0"
+          },
+          "integrity": "sha512-2u7OHvEQVVGvPo9Yhw/eN3xMO2Gnj2U2fGDP0BDpnRwJR//65AfGRQDiJqxix28gFRBvMqi2USA13x6RrfWuGg=="
+        }
+      ]
+    },
+    {
+      "package": "kysely",
+      "url": "https://registry.npmjs.org/kysely",
+      "distTags": {
+        "latest": "0.29.6",
+        "next": "0.30.0-beta.2"
+      },
+      "candidates": [
+        {
+          "version": "0.28.14",
+          "published": "2026-03-20T11:22:01.726Z",
+          "exists": true,
+          "dependencies": {},
+          "engines": {
+            "node": ">=20.0.0"
+          },
+          "integrity": "sha512-SU3lgh0rPvq7upc6vvdVrCsSMUG1h3ChvHVOY7wJ2fw4C9QEB7X3d5eyYEyULUX7UQtxZJtZXGuT6U2US72UYA=="
+        }
+      ]
+    }
+  ]
+}

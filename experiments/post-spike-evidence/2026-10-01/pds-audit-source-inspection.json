@@ -1,0 +1,94 @@
+[
+  {
+    "package": "@atproto/pds",
+    "version": "0.5.31",
+    "url": "https://registry.npmjs.org/@atproto/pds/-/pds-0.5.31.tgz",
+    "integrity": "sha512-XTSWQWTi86JBTjrczwm1urE952ZiAU24HRkdxIsQDy1oesb/oot2x0AqxP6VwfbJ3LKwLd6zp6klx9yFuYEGNQ==",
+    "integrityVerified": true,
+    "files": [
+      {
+        "path": "package/dist/context.js",
+        "sha256": "db9843a2991d5172790257937ffbea245f75c1428639034288d50588bd7c0b96",
+        "matches": [
+          {
+            "line": 80,
+            "text": "            : DiskBlobStore.creator(cfg.blobstore.location, cfg.blobstore.tempLocation);\n        const mailTransport = cfg.email !== null\n            ? nodemailer.createTransport(cfg.email.smtpUrl)\n            : nodemailer.createTransport({ jsonTransport: true });\n        const mailer = new ServerMailer(mailTransport, cfg.email, cfg.branding);\n        const modMailTransport = cfg.moderationEmail !== null"
+          }
+        ]
+      },
+      {
+        "path": "package/dist/config/config.js",
+        "sha256": "51715ff6ee4f91ff3ae476e8ce2188a1bb47d63c443e8cdda94135751c02051f",
+        "matches": [
+          {
+            "line": 139,
+            "text": "        }\n        emailCfg = {\n            smtpUrl: env.emailSmtpUrl,\n            fromAddress: env.emailFromAddress,\n            disableConfirmationLink: env.emailDisableConfirmationLink ?? false,\n        };"
+          },
+          {
+            "line": 153,
+            "text": "        }\n        moderationEmailCfg = {\n            smtpUrl: env.moderationEmailSmtpUrl,\n            fromAddress: env.moderationEmailAddress,\n            disableConfirmationLink: false,\n        };"
+          }
+        ]
+      },
+      {
+        "path": "package/dist/config/env.js",
+        "sha256": "7f623d93bacd050e27d7251edd2aeac75f4fa17e8193666f2776bcc6104b7fbc",
+        "matches": []
+      }
+    ]
+  },
+  {
+    "package": "@atproto-labs/opentelemetry-node",
+    "version": "0.1.0",
+    "url": "https://registry.npmjs.org/@atproto-labs/opentelemetry-node/-/opentelemetry-node-0.1.0.tgz",
+    "integrity": "sha512-YvuAHbiIdoCQTIdcTWOXRx8jFn9VEo89xu+CRH4yQQ6F60b+h76wgam0TsNxPd/lKLFmRwaqd/EhUYRRF2k2fg==",
+    "integrityVerified": true,
+    "files": [
+      {
+        "path": "package/dist/index.js",
+        "sha256": "71e813b1921bb9a4477ed9bd12d0c521011c69eab13fa62a208ad1293859afc2",
+        "matches": [
+          {
+            "line": 22,
+            "text": " */\nexport function setup(getOptions) {\n    const otelDisabled = getBooleanFromEnv('OTEL_SDK_DISABLED');\n    const tracesConfigured = isSignalConfigured('TRACES');\n    const metricsConfigured = isSignalConfigured('METRICS');\n    const logsConfigured = isSignalConfigured('LOGS');"
+          },
+          {
+            "line": 32,
+            "text": "    try {\n        const options = getOptions();\n        register('@opentelemetry/instrumentation/hook.mjs', import.meta.url);\n        const sdk = new NodeSDK({\n            // @NOTE Passing \"resource\" replaces (rather than augments) NodeSDK's\n            // defaultResource(), so merge our defaults on top of it. Detected"
+          },
+          {
+            "line": 93,
+            "text": "    }\n    return (!!getStringFromEnv(`OTEL_EXPORTER_OTLP_${signal}_ENDPOINT`) ||\n        !!getStringFromEnv('OTEL_EXPORTER_OTLP_ENDPOINT'));\n}\n//# sourceMappingURL=index.js.map"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "package": "@did-plc/server",
+    "version": "0.0.1",
+    "url": "https://registry.npmjs.org/@did-plc/server/-/server-0.0.1.tgz",
+    "integrity": "sha512-GtxxHcOrOQ6fNI1ufq3Zqjc2PtWqPZOdsuzlwtxiH9XibUGwDkb0GmaBHyU5GiOxOKZEW1GspZ8mreBA6XOlTQ==",
+    "integrityVerified": true,
+    "files": [
+      {
+        "path": "package/dist/db/index.js",
+        "sha256": "3d9de53b7e9cecc6d7b5211c733033874f89726fbee173d43fac7042e1be673a",
+        "matches": [
+          {
+            "line": 49324,
+            "text": "    }\n    const db = new Kysely({\n      dialect: new PostgresDialect({ pool })\n    });\n    return new Database(db, schema2);\n  }"
+          },
+          {
+            "line": 49328,
+            "text": "    return new Database(db, schema2);\n  }\n  static mock() {\n    return new mock_default();\n  }\n  async close() {"
+          },
+          {
+            "line": 49225,
+            "text": "// src/db/mock.ts\nvar plc = __toESM(require_dist2());\nvar MockDatabase = class {\n  constructor() {\n    this.contents = {};\n  }\n  async close() {\n  }"
+          }
+        ]
+      }
+    ]
+  }
+]
