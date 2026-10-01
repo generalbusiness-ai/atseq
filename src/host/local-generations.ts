@@ -105,15 +105,23 @@ export async function openLocalGenerations(
   }
   function pruneKey(kind: string, key: string, kept: number[]) {
     const versions = db
-      .prepare('SELECT generation,size FROM local_rows WHERE kind=? AND key=? ORDER BY generation')
+      .prepare(
+        'SELECT generation,size,value IS NULL AS deleted FROM local_rows WHERE kind=? AND key=? ORDER BY generation',
+      )
       .all(kind, key);
     const visible = new Set<number>();
     for (const id of kept) {
       const row = versions.findLast((r) => Number(r.generation) <= id);
       if (row) visible.add(Number(row.generation));
     }
-    for (const row of versions)
-      if (!visible.has(Number(row.generation))) {
+    // After invisible versions are removed, leading deletion markers mean the
+    // same as no version. Keep markers after a retained live value: an older pin
+    // may still see that value while a newer generation must see its deletion.
+    let retainedLiveValue = false;
+    for (const row of versions) {
+      const keep = visible.has(Number(row.generation)) && (!row.deleted || retainedLiveValue);
+      if (keep) retainedLiveValue = true;
+      else {
         db.prepare('DELETE FROM local_rows WHERE kind=? AND key=? AND generation=?').run(
           kind,
           key,
@@ -121,6 +129,7 @@ export async function openLocalGenerations(
         );
         charge(-Number(row.size), -1);
       }
+    }
   }
   function collect(previous: number, all = false) {
     const current = state().current;

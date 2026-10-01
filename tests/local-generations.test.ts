@@ -21,6 +21,51 @@ test('real SQLite generations, coherent abort/crash recovery and incremental ret
         openLocalGenerations(join(dir, `${name}.sqlite`), scope, limits),
       )),
     );
+    const tombstones = [];
+    for (const [name, current] of [
+      ['tombstone-churn', 302],
+      ['tombstone-small-quota', 152],
+      ['tombstone-repeated-delete', 53],
+      ['tombstone-pinned-value', 17],
+    ] as const) {
+      const db = new DatabaseSync(join(dir, `${name}.sqlite`));
+      try {
+        const used = db.prepare('SELECT current,bytes,rows FROM local_state').get()!;
+        const physical = db
+          .prepare(
+            'SELECT count(*) AS rows,coalesce(sum(value IS NULL),0) AS deletionMarkers,coalesce(sum(size),0) AS bytes FROM local_rows',
+          )
+          .get()!;
+        const generations = db
+          .prepare('SELECT count(*) AS count,coalesce(sum(length(metadata)+8),0) AS bytes FROM local_generations')
+          .get()!;
+        const pins = db
+          .prepare('SELECT count(*) AS count,coalesce(sum(length(reference)+8),0) AS bytes FROM local_pins')
+          .get()!;
+        const scope = db.prepare('SELECT length(scope) AS bytes FROM local_state').get()!;
+        assert.equal(used.current, current);
+        assert.equal(used.rows, 0);
+        assert.equal(physical.rows, 0);
+        assert.equal(physical.deletionMarkers, 0);
+        assert.equal(generations.count, 2);
+        assert.equal(pins.count, 0);
+        assert.equal(
+          used.bytes,
+          Number(physical.bytes) + Number(generations.bytes) + Number(pins.bytes) + Number(scope.bytes),
+        );
+        assert.equal(used.bytes, 31);
+        tombstones.push({
+          name,
+          ...used,
+          deletionMarkers: physical.deletionMarkers,
+          generations: generations.count,
+          pins: pins.count,
+        });
+      } finally {
+        db.close();
+      }
+    }
+    capture.tombstones = tombstones;
     const path = join(dir, 'abort.sqlite'),
       store = await openLocalGenerations(path, 'abort-scope');
     try {
@@ -214,7 +259,14 @@ test('real SQLite generations, coherent abort/crash recovery and incremental ret
       `experiments/generated/local-generations/node-${process.version}.json`,
       JSON.stringify({ ...capture, cases, sources }, null, 2) + '\n',
     );
-    console.log(JSON.stringify({ node: process.version, cases: cases.length, incremental: capture.incremental }));
+    console.log(
+      JSON.stringify({
+        node: process.version,
+        cases: cases.length,
+        incremental: capture.incremental,
+        tombstones: capture.tombstones,
+      }),
+    );
   } finally {
     await rm(dir, { recursive: true });
   }

@@ -40,6 +40,51 @@ export async function browserCorpus() {
   const cases = await localGenerationsCorpus((name, limits, scope = 'fixture-scope') =>
     openLocalGenerations(`corpus-${name}`, scope, limits),
   );
+  const tombstones = [];
+  for (const [name, current] of [
+    ['tombstone-churn', 302],
+    ['tombstone-small-quota', 152],
+    ['tombstone-repeated-delete', 53],
+    ['tombstone-pinned-value', 17],
+  ] as const) {
+    const db = await request(indexedDB.open(`corpus-${name}`, 1));
+    try {
+      const tx = db.transaction(['state', 'rows', 'values', 'generations', 'pins'], 'readonly');
+      const used = (await request(tx.objectStore('state').get('state'))) as {
+        current: number;
+        bytes: number;
+        rows: number;
+        scope: string;
+      };
+      const rows = (await request(tx.objectStore('rows').getAll())) as { size: number; deleted: boolean }[];
+      const values = await request(tx.objectStore('values').count());
+      const generations = (await request(tx.objectStore('generations').getAll())) as { metadata: Uint8Array }[];
+      const pins = (await request(tx.objectStore('pins').getAll())) as { reference: string }[];
+      const counted =
+        used.scope.length +
+        rows.reduce((sum, row) => sum + row.size, 0) +
+        generations.reduce((sum, generation) => sum + generation.metadata.byteLength + 8, 0) +
+        pins.reduce((sum, pin) => sum + pin.reference.length + 8, 0);
+      check(
+        used.current === current && used.rows === 0 && rows.length === 0 && values === 0,
+        'Churn reclaimed all physical rows and payloads',
+      );
+      check(generations.length === 2 && pins.length === 0, 'Churn retains only current and predecessor');
+      check(used.bytes === counted && used.bytes === 31, 'Churn exact byte and row accounting');
+      tombstones.push({
+        name,
+        current: used.current,
+        bytes: used.bytes,
+        rows: used.rows,
+        deletionMarkers: rows.filter((row) => row.deleted).length,
+        generations: generations.length,
+        pins: pins.length,
+        values,
+      });
+    } finally {
+      db.close();
+    }
+  }
   const abort = await openLocalGenerations('actual-abort', 'abort-scope');
   try {
     await abort.commit(null, new Uint8Array([1]), []);
@@ -64,7 +109,7 @@ export async function browserCorpus() {
     await abort.close();
   }
   const many = await openLocalGenerations('many', 'many-scope');
-  const metrics: Record<string, unknown> = {};
+  const metrics: Record<string, unknown> = { tombstones };
   try {
     await many.commit(
       null,

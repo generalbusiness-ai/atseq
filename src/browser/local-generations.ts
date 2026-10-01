@@ -143,14 +143,21 @@ export async function openLocalGenerations(
         const row = versions.findLast((r) => r.generation <= id);
         if (row) visible.add(row.generation);
       }
-      for (const row of versions)
-        if (!visible.has(row.generation)) {
+      // Absence and leading retained tombstones have the same reads once no
+      // older live version remains. A marker after a retained live value stays
+      // necessary for newer generations while an older pin still sees that value.
+      let retainedLiveValue = false;
+      for (const row of versions) {
+        const keep = visible.has(row.generation) && (!row.deleted || retainedLiveValue);
+        if (keep) retainedLiveValue = true;
+        else {
           const key = [row.kind, row.key, row.generation];
           await result(tx.objectStore('rows').delete(key));
           await result(tx.objectStore('values').delete(key));
           used.bytes -= row.size;
           used.rows--;
         }
+      }
     }
   }
   async function save(tx: IDBTransaction, used: State) {

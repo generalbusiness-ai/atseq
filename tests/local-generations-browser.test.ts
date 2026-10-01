@@ -45,7 +45,7 @@ test('real Chromium IndexedDB shares storage corpus, physical quota and renderer
       const path = '/probe.js';
       return (await import(path)).browserCorpus();
     });
-    assert.equal(corpus.cases.length, 20);
+    assert.equal(corpus.cases.length, 24);
     const quotaAddress = quotaServer.address();
     assert.ok(quotaAddress && typeof quotaAddress === 'object');
     const quotaOrigin = `http://127.0.0.1:${quotaAddress.port}`;

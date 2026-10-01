@@ -181,6 +181,103 @@ export async function localGenerationsCorpus(open: OpenStore) {
   } finally {
     await store.close();
   }
+  store = await open('tombstone-churn', { rows: 50 });
+  try {
+    let id: number | null = null;
+    for (let cycle = 0; cycle < 150; cycle++) {
+      const key = `k_${cycle}`;
+      id = await store.commit(id, bytes(1), [{ kind: 'pending', key, value: bytes(1) }]);
+      same([...(await store.row(id, 'pending', key))!], [1]);
+      id = await store.commit(id, bytes(1), [{ kind: 'pending', key, value: null }]);
+      check((await store.row(id, 'pending', key)) === undefined, 'Churn deletion');
+      same((await store.page(id, 'pending')).rows, []);
+    }
+    id = await store.commit(id, bytes(1), []);
+    id = await store.commit(id, bytes(1), []);
+    same(id, 302);
+    await store.close();
+    store = await open('tombstone-churn', { rows: 50 });
+    same((await store.current())!.id, 302);
+    same((await store.page(301, 'pending')).rows, []);
+    same((await store.page(302, 'pending')).rows, []);
+    passed.push('150 distinct-key insert/delete cycles reclaim tombstones and survive reopen');
+  } finally {
+    await store.close();
+  }
+  store = await open('tombstone-small-quota', { rows: 2, bytes: 80 });
+  try {
+    let id: number | null = null;
+    for (let cycle = 0; cycle < 75; cycle++) {
+      const key = `k_${cycle}`;
+      id = await store.commit(id, bytes(1), [{ kind: 'pending', key, value: bytes(1) }]);
+      id = await store.commit(id, bytes(1), [{ kind: 'pending', key, value: null }]);
+      same((await store.page(id, 'pending')).rows, []);
+    }
+    id = await store.commit(id, bytes(1), []);
+    id = await store.commit(id, bytes(1), []);
+    same(id, 152);
+    await error('quota', () =>
+      store.commit(id, bytes(1), [{ kind: 'pending', key: 'large', value: new Uint8Array(80) }]),
+    );
+    same((await store.current())!.id, 152);
+    check((await store.row(152, 'pending', 'large')) === undefined, 'Quota rollback after tombstone reclamation');
+    passed.push('two-row 80-byte quota permits repeated churn while genuine quota failures remain atomic');
+  } finally {
+    await store.close();
+  }
+  store = await open('tombstone-repeated-delete', { rows: 2, bytes: 80 });
+  try {
+    let id: number | null = null;
+    for (let cycle = 0; cycle < 25; cycle++) {
+      id = await store.commit(id, bytes(1), [{ kind: 'pending', key: 'x', value: null }]);
+      check((await store.row(id, 'pending', 'x')) === undefined, 'Repeated absent deletion');
+    }
+    id = await store.commit(id, bytes(1), [{ kind: 'pending', key: 'x', value: bytes(7) }]);
+    same([...(await store.row(id, 'pending', 'x'))!], [7]);
+    for (let cycle = 0; cycle < 25; cycle++) {
+      id = await store.commit(id, bytes(1), [{ kind: 'pending', key: 'x', value: null }]);
+      check((await store.row(id, 'pending', 'x')) === undefined, 'Repeated former-live deletion');
+    }
+    id = await store.commit(id, bytes(1), []);
+    id = await store.commit(id, bytes(1), []);
+    same(id, 53);
+    same((await store.page(id, 'pending')).rows, []);
+    passed.push('repeated deletions of absent and formerly live keys do not consume retained row quota');
+  } finally {
+    await store.close();
+  }
+  store = await open('tombstone-pinned-value', { rows: 3, bytes: 140 });
+  try {
+    let id = await store.commit(null, bytes(1), [{ kind: 'pending', key: 'x', value: bytes(7) }]);
+    await store.pin(id, 'audit');
+    for (let cycle = 0; cycle < 12; cycle++) {
+      id = await store.commit(id, bytes(1), [{ kind: 'pending', key: 'x', value: null }]);
+      same([...(await store.row(1, 'pending', 'x'))!], [7]);
+      check((await store.row(id, 'pending', 'x')) === undefined, 'Pinned value hidden in current generation');
+      if (id > 2) check((await store.row(id - 1, 'pending', 'x')) === undefined, 'Pinned value hidden in predecessor');
+      same((await store.page(id, 'pending')).rows, []);
+    }
+    await store.close();
+    store = await open('tombstone-pinned-value', { rows: 3, bytes: 140 });
+    same([...(await store.row(1, 'pending', 'x'))!], [7]);
+    check((await store.row(id, 'pending', 'x')) === undefined, 'Pinned deletion survives reopen');
+    await store.release('audit');
+    await error('missing', () => store.read(1));
+    id = await store.commit(id, bytes(1), [{ kind: 'pending', key: 'x', value: bytes(9) }]);
+    same([...(await store.row(id, 'pending', 'x'))!], [9]);
+    check(
+      (await store.row(id - 1, 'pending', 'x')) === undefined,
+      'Re-added value does not leak into prior generation',
+    );
+    id = await store.commit(id, bytes(1), [{ kind: 'pending', key: 'x', value: null }]);
+    same([...(await store.row(id - 1, 'pending', 'x'))!], [9]);
+    id = await store.commit(id, bytes(1), []);
+    id = await store.commit(id, bytes(1), []);
+    same((await store.page(id, 'pending')).rows, []);
+    passed.push('pinned older live value retains necessary deletion markers until release and re-addition');
+  } finally {
+    await store.close();
+  }
   store = await open('byte-pages', { pageBytes: 13 });
   try {
     await store.commit(null, bytes(1), [
