@@ -7,8 +7,10 @@ host, account-authority reducer or a supported application profile.
 Tracking: N1 request `fea766bc0c93b73199c016d1a402ef251e0d42f5`, implementation
 promise `9626c49589f6a39c8998b3288109c021e229709c`. The adopted logical contract is
 [NW0](2026-10-01-atseq-native-wire-contract.md) at `10e656b3`, reviewed in
-`a5f46ba7` and corrected-confirmation report `4d4f6f8d`. The literal genesis-role
-initializer below is a review supplement, not an already accepted initializer.
+`a5f46ba7` and corrected-confirmation report `4d4f6f8d`. The genesis-role
+initializer rule below was adopted in ratified assessment
+`83cd03d42f287d4016e21132dc367c2f7fa30d28`; literal vectors and reducer execution
+remain validation gates.
 
 The exact source and test candidate is `cf2dc095`. It starts from published
 `4b6ebab5` and merges the unchanged, separately reviewed I1 dependency candidate
@@ -98,14 +100,14 @@ source hashes and logs are in
 [the evidence directory](../experiments/post-spike-evidence/2026-10-01/native-wire-foundation/).
 No running browser or benchmark remains from this validation.
 
-## Review supplement: initial role revision
+## Adopted initial role revision
 
-An explicitly listed genesis role should initialize to enabled with revision
+An explicitly listed genesis role initializes to enabled with revision
 `G`. A never-assigned principal/role pair has revision null. An effective disable
 retains the disabling unsigned intent CID even though enabled becomes false.
 Future compare-and-set requests therefore distinguish absent from disabled.
 
-The independent fixture retains these exact proposed values:
+The independent fixture retains these exact values for the adopted rule:
 
 | Case | Revision |
 | --- | --- |
