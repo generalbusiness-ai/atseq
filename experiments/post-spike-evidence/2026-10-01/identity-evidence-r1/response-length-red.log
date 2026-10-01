@@ -1,0 +1,95 @@
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- 'content_unavailable'
+
+    at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:15:48 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: 'content_unavailable',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.10.0
+✖ identity transport classifies known mid-body faults and preserves programming/integrity failures (mock body) (788.445375ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 957.038625
+
+✖ failing tests:
+
+test at tests/identity-fetch.test.ts:39:292
+✖ identity transport classifies known mid-body faults and preserves programming/integrity failures (mock body) (788.445375ms)
+  Error: Command failed: /opt/homebrew/Cellar/node/26.10.0_1/bin/node --conditions=atseq-source --import /Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/node_modules/tsx/dist/loader.mjs --input-type=module -e import assert from 'node:assert/strict';
+      import {IdentityFetch} from "/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/src/host/identity-fetch.ts";
+      import {AtseqError} from "/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/src/core/errors.ts";
+      const transport=new IdentityFetch();let seen=0;
+      async function attempt(error) {
+        let pulls=0;
+        transport.fetch=async()=>new Response(new ReadableStream({pull(controller){
+          if(pulls++===0){controller.enqueue(new Uint8Array([1,2,3]));seen+=3;}else controller.error(error);
+        }}));
+        let caught;try{await transport.bytesFrom('https://pds.atseq-probe.net/a',100);}catch(fault){caught=fault;}
+        return caught;
+      }
+      for(const code of ['UND_ERR_SOCKET','UND_ERR_BODY_TIMEOUT','UND_ERR_RES_CONTENT_LENGTH_MISMATCH','UND_ERR_RES_EXCEEDED_MAX_SIZE']){
+        const fault=new TypeError('terminated',{cause:Object.assign(new Error('Body transport failed'),{code})});
+        const caught=await attempt(fault);assert.equal(caught?.code,'content_unavailable');
+      }
+      for(const fault of [new TypeError('Application programming error'),new TypeError('terminated'),
+        new TypeError('terminated',{cause:Object.assign(new Error('Invalid dispatcher use'),{code:'UND_ERR_INVALID_ARG'})}),
+        new TypeError('terminated',{cause:Object.assign(new Error('Invalid request size'),{code:'UND_ERR_REQ_CONTENT_LENGTH_MISMATCH'})}),
+        new AtseqError('dependency_mismatch','Integrity failure')])assert.equal(await attempt(fault),fault);
+      assert.equal(seen,27);assert.equal(transport.bytes,27);
+      transport.fetch=async()=>new Response(new Uint8Array([4]));
+      assert.deepEqual([...await transport.bytesFrom('https://pds.atseq-probe.net/a',100)],[4]);
+      process.stdout.write(JSON.stringify({mockMidBody:true,knownTransportCases:4,preservedFaultCases:5,consumedBeforeFailure:seen,resumed:true}));
+  node:internal/modules/run_main:111
+      triggerUncaughtException(
+      ^
+  
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'content_unavailable'
+  
+      at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:15:48 {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'content_unavailable',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+  
+  Node.js v26.10.0
+  
+      at genericNodeError (node:internal/errors:999:15)
+      at wrappedFn (node:internal/errors:544:14)
+      at checkExecSyncError (node:child_process:943:11)
+      at execFileSync (node:child_process:979:15)
+      at TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/tests/identity-fetch.test.ts:109:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', "node:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- 'content_unavailable'\n\n    at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:15:48 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: undefined,\n  expected: 'content_unavailable',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.10.0\n" ],
+    pid: 98988,
+    stdout: '',
+    stderr: "node:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- 'content_unavailable'\n\n    at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:15:48 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: undefined,\n  expected: 'content_unavailable',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.10.0\n"
+  }

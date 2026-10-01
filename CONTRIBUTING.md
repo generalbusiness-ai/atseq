@@ -4,7 +4,7 @@ Use gitseq requests to track work. Agree on the intended behaviour before implem
 
 ## Set up and verify
 
-Use Node 22.13 or later. From a clean checkout:
+Use Node 22.19 or later. From a clean checkout:
 
 ```sh
 npm run setup

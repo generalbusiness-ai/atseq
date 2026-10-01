@@ -1,0 +1,17 @@
+[
+  {
+    "name": "atseq-log-v2",
+    "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+    "role": "log"
+  },
+  {
+    "name": "atseq-jsonata-v1",
+    "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+    "role": "evaluator"
+  },
+  {
+    "name": "atseq-app-v2",
+    "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+    "role": "application"
+  }
+]

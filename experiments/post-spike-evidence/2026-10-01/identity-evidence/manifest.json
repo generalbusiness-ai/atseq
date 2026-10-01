@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-01",
+  "runtimeSourceHead": "fb5acd9ac3876de93917348e3ac12e080a885ef0",
+  "baseline": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "graphBaseline": "fd7dab4b8437437315df750e791ceba8b75610f1",
+  "request": "71b93a9c916f99f9828da61d3737553117e454ab",
+  "sourceHashes": {
+    "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "src/core/dependencies.ts": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4",
+    "src/integrity/files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149",
+    "tests/support/identity-corpus.ts": "753f0e34e9bcecdda9c88f71ca526a9cdf03623ceeafc36940073e40d393d589"
+  },
+  "retainedHashes": {
+    "full-serial.log": "96f018857427cb9db8a54ddbc6af196a77871c50439d0186da74083253599790",
+    "parallel-interrupted.log": "f09ed9e85491231c8fb6447e507d1c0931aef7292ea53e07cb53318ad3635100",
+    "browser-sessions-isolated.log": "1ff5260d1b683fcebcc97ea549ea3f9dcbf512276578de9048c4eb49aa925566",
+    "node22-focused.log": "6e79e1d6c9e45e519b02a34e4055e2996397563d4e45cb1f084274212573d376",
+    "node24-focused.log": "1b7567d5ac05785c03c6bae1845ff085bf2624657016417bbfc1e582923c49a8",
+    "check.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "dependency-metrics.json": "ead03858cc6db474cccbbdb34b3abd47db3f8066ebfd41c77a0b12d67391241e",
+    "chromium-corpus.json": "7d0465c2684b8a16454d3385d07831e2970dbb6baad0c71608780c5efc35aac3",
+    "compiled-package-conformance.json": "fbbd3874c1978f933f3973c973e53cdd2f4c3c6f4aa9e4886785dc60e73d65db",
+    "packed-host.json": "09f3e74a21c8b6ad072b9217529e8f9e5877434b17f6e58fbc634bd9e3f9d3f8",
+    "package-size.json": "7ae4d36807c5ebd6779acc03ff2c4c32452d8184da55fc95eb6b4390e08d9160",
+    "notices.json": "2f0f648faf7798f40e92cac85e27b3664b5945226d8ce78e82c6d78e08050874"
+  },
+  "fullSuite": {
+    "command": "node scripts/source-run.mjs --test --test-concurrency=1 --test-timeout=180000 tests/*.test.ts",
+    "tests": 380,
+    "passed": 380,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 206762.784542
+  },
+  "parallelAttempt": {
+    "command": "npm test",
+    "outcome": "Interrupted after browser tests stopped progressing; not a passing run"
+  },
+  "browser": {
+    "version": "153.0.8010.12",
+    "cases": 57,
+    "sharedPublicFixtures": 2,
+    "bundleBytes": 569863,
+    "bundleSha256": "beda7a8a1cd7ab0855e94c599a8863fd1c495e3e4bc8376a5e889bea9fe9ebde",
+    "hostRuntimeModules": []
+  },
+  "compiledPackage": {
+    "cases": 211,
+    "identityCases": 57,
+    "allPassed": true,
+    "packageSha256": "ebec10d84ff01081b819a0cd0b3d5f55613f31afaec9173e840b91a75cca85e2"
+  },
+  "notices": {
+    "command": "node scripts/source-run.mjs scripts/notices.ts --check",
+    "verifiedPackages": 127,
+    "preGraphDefaultEqualsExplicitEnglishOrder": true
+  },
+  "remaining": "Full observation/authority/native wire integration and assurance display/export remain gated"
+}

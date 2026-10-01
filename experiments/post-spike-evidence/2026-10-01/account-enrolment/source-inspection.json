@@ -1,0 +1,102 @@
+{
+  "inspectedAt": "2026-10-01",
+  "scope": "registry metadata and exact own-package tarball source only; no dependency install or runtime validation",
+  "packages": [
+    {
+      "package": "@atproto/oauth-client-node",
+      "version": "0.5.8",
+      "tarball": "https://registry.npmjs.org/@atproto/oauth-client-node/-/oauth-client-node-0.5.8.tgz",
+      "integrity": "sha512-Mhs0JlEiZC3iu0RB1XXjmbFodk8rTtyM+27tNm/2dHkTPdBZTbl7smwOoAXdNpa3rjgR4DlCEBLkTqS9XLsjcQ==",
+      "tarballBytes": 16041,
+      "dependencies": {
+        "@atproto/did": "^0.5.6",
+        "@atproto/jwk": "^0.7.4",
+        "@atproto/jwk-jose": "^0.2.4",
+        "@atproto/oauth-types": "^0.7.7",
+        "@atproto/oauth-client": "^0.8.8",
+        "@atproto/jwk-webcrypto": "^0.3.4",
+        "@atproto-labs/did-resolver": "^0.3.10",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto-labs/handle-resolver-node": "^0.2.11"
+      },
+      "engines": {
+        "node": ">=22"
+      },
+      "repository": {
+        "url": "https://github.com/bluesky-social/atproto",
+        "type": "git",
+        "directory": "packages/oauth/oauth-client-node"
+      }
+    },
+    {
+      "package": "@atproto/oauth-client-browser",
+      "version": "0.5.8",
+      "tarball": "https://registry.npmjs.org/@atproto/oauth-client-browser/-/oauth-client-browser-0.5.8.tgz",
+      "integrity": "sha512-bAJ/OtpdKHwtMuro6ZAmKQnD8dzV0wv+DydL04lvtMe828xcZmce9gylMZfpG7wF3Br5OaSsqCAVk4m8rEpuSg==",
+      "tarballBytes": 43658,
+      "dependencies": {
+        "core-js": "^3.50.0",
+        "@atproto/did": "^0.5.6",
+        "@atproto/jwk": "^0.7.4",
+        "@atproto/oauth-types": "^0.7.7",
+        "@atproto/oauth-client": "^0.8.8",
+        "@atproto/jwk-webcrypto": "^0.3.4",
+        "@atproto-labs/did-resolver": "^0.3.10",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto-labs/handle-resolver": "^0.4.10"
+      },
+      "engines": {
+        "node": ">=22"
+      },
+      "repository": {
+        "url": "https://github.com/bluesky-social/atproto",
+        "type": "git",
+        "directory": "packages/oauth/oauth-client-browser"
+      }
+    },
+    {
+      "package": "@atcute/oauth-node-client",
+      "version": "2.0.1",
+      "tarball": "https://registry.npmjs.org/@atcute/oauth-node-client/-/oauth-node-client-2.0.1.tgz",
+      "integrity": "sha512-MgqN9Rnt5nuUH5zriETtbQrwcx/tWaELKaFVQtqggMtRI4k4IP5+ZbnG40tiJjbZfSclapA2kwOnT14kO0nAxg==",
+      "tarballBytes": 26362,
+      "dependencies": {
+        "nanoid": "^5.1.16",
+        "valibot": "^1.4.1",
+        "@atcute/client": "^5.1.1",
+        "@atcute/identity": "^2.0.1",
+        "@atcute/lexicons": "^2.0.2",
+        "@atcute/util-fetch": "^2.0.1",
+        "@atcute/oauth-types": "^1.0.1",
+        "@atcute/oauth-crypto": "^1.0.1",
+        "@atcute/oauth-keyset": "^0.1.2",
+        "@atcute/identity-resolver": "^2.0.1"
+      },
+      "engines": {},
+      "repository": {
+        "url": "https://github.com/mary-ext/atcute",
+        "directory": "packages/oauth/node-client"
+      }
+    },
+    {
+      "package": "@atcute/oauth-browser-client",
+      "version": "5.1.0",
+      "tarball": "https://registry.npmjs.org/@atcute/oauth-browser-client/-/oauth-browser-client-5.1.0.tgz",
+      "integrity": "sha512-pcRhAeNQ36Gutear6jJobumoIK1KUJAyirhXcZYhN8rzDrhP+nuBYpxl7TIgAy99Q6+2B0aouzZ8bRjlwGbZBQ==",
+      "tarballBytes": 18777,
+      "dependencies": {
+        "nanoid": "^6.0.1",
+        "@atcute/client": "^5.1.2",
+        "@atcute/lexicons": "^2.1.1",
+        "@atcute/oauth-types": "^1.0.1",
+        "@atcute/oauth-crypto": "^1.0.1",
+        "@atcute/identity-resolver": "^2.0.2"
+      },
+      "engines": {},
+      "repository": {
+        "url": "https://tangled.org/did:plc:pljn5qch4tgadongtc7i6qij",
+        "directory": "packages/oauth/browser-client"
+      }
+    }
+  ]
+}

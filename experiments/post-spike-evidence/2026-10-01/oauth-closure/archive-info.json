@@ -1,0 +1,9 @@
+{
+  "format": "gzip, deterministic tar member metadata; exact raw capture bytes retained",
+  "path": "raw-captures.tar.gz",
+  "bytes": 8792711,
+  "sha256": "f3b28746cfa32424c14f7e278af77c880f891cbd9b379f1b9faf1c30881ac706",
+  "members": 139,
+  "rawBytes": 42994397,
+  "checked": "Every unpacked member SHA-256 and size matches the capture inventory; manifest included"
+}

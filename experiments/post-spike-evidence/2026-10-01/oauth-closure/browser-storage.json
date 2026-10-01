@@ -1,0 +1,36 @@
+{
+  "capturedAt": "2026-10-01T19:19:41.982Z",
+  "browser": "Chromium",
+  "version": "153.0.8010.12",
+  "method": "Two different synthetic client IDs on one loopback origin, public constructors/configuration, no token/state/session writes or provider calls. Official unsupported extra storageName option documents its absence; internal database constructor is not called.",
+  "outcomes": [
+    {
+      "variant": "official",
+      "indexedDBNames": [
+        "@atproto-oauth-client"
+      ],
+      "localStorageKeys": [],
+      "clientIDs": [
+        "https://runtime.example/oauth.json",
+        "https://publisher.example/oauth.json"
+      ]
+    },
+    {
+      "variant": "atcute",
+      "indexedDBNames": [],
+      "localStorageKeys": [
+        "atseq-publisher:version",
+        "atseq-runtime:version"
+      ],
+      "clientIDs": [
+        "https://runtime.example/oauth.json",
+        "https://publisher.example/oauth.json"
+      ]
+    }
+  ],
+  "limits": [
+    "Storage naming observation, not credential leak or successful login evidence",
+    "Exact source separately shows official session keys use account DID and fixed default database; Atcute configured storageName scopes all record prefixes",
+    "LocalStorage namespaces are logical separation, not protection from same-origin script access"
+  ]
+}

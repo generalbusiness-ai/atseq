@@ -1,0 +1,50 @@
+{
+  "capturedAt": "2026-10-01T19:19:41.982Z",
+  "browser": "Chromium",
+  "version": "153.0.8010.12",
+  "method": "Real Chromium imports exact installed-package bundles and constructs public browser clients. Service discovery is stopped by sentinel fetches. No provider network call or real login.",
+  "outcomes": [
+    {
+      "variant": "official",
+      "calls": {
+        "injected": [
+          "https://pds.example/.well-known/oauth-protected-resource",
+          "https://pds.example/.well-known/oauth-authorization-server"
+        ],
+        "ambient": []
+      },
+      "result": {
+        "completed": false,
+        "name": "Error",
+        "message": "Failed to resolve OAuth server metadata for resource: https://pds.example"
+      },
+      "storageKeys": [],
+      "secureContext": true,
+      "webLocks": true
+    },
+    {
+      "variant": "atcute",
+      "calls": {
+        "injected": [],
+        "ambient": [
+          "https://pds.example/.well-known/oauth-protected-resource"
+        ]
+      },
+      "result": {
+        "completed": false,
+        "name": "Error",
+        "message": "probe-ambient-network-refused"
+      },
+      "storageKeys": [
+        "atseq-probe-client-runtime:version"
+      ],
+      "secureContext": true,
+      "webLocks": true
+    }
+  ],
+  "limits": [
+    "Atcute extra fetch option is not its declared API and is ignored; ambient sentinel observes the source gap",
+    "Discovery seam only; token/refresh/resource edges are separately traced in exact source",
+    "No browser DNS pinning or real provider success claimed"
+  ]
+}

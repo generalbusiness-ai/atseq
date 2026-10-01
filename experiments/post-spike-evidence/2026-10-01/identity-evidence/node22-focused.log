@@ -1,0 +1,42 @@
+TAP version 13
+# {"identityCases":["strict retained JSON positive","duplicate names","escaped duplicate names","nested duplicate names","comment","trailing comma","trailing value","empty JSON","deep JSON","UTF-8 BOM rejected","fatal UTF-8","response budget before parsing","JSON depth32 accepted","p256 whole-log canonical tip, earlier selection rejected","p256 truncated authenticity is not latestness; before/after compares tips","p256 exact genesis DID and row issuer","p256 signed genesis cannot invent another principal","p256 invalid operation signature","p256 valid-hash high-S signature rejected","p256 canonical unpadded signature encoding","p256 tombstone tip cannot select older active operation","p256 duplicate operation CID","p256 nullification annotations checked","p256 higher-priority recovery and strict timestamp ordering","p256 no lossy signed-field projection","secp256k1 whole-log canonical tip, earlier selection rejected","secp256k1 truncated authenticity is not latestness; before/after compares tips","secp256k1 exact genesis DID and row issuer","secp256k1 signed genesis cannot invent another principal","secp256k1 invalid operation signature","secp256k1 valid-hash high-S signature rejected","secp256k1 canonical unpadded signature encoding","secp256k1 tombstone tip cannot select older active operation","secp256k1 duplicate operation CID","secp256k1 nullification annotations checked","secp256k1 higher-priority recovery and strict timestamp ordering","secp256k1 no lossy signed-field projection","PLC total response budget","PLC row budget","PLC operation array budget","PLC operation byte budget","web observation assurance and ignored unrelated metadata","web exact document DID","ATproto hostname web restriction","typed assurance cannot substitute method","relative and own-DID fragments","web key controller","web controller type is not coerced","HTTPS origin endpoint rules","first matching bad service cannot fall through","web service array budget","web response byte budget","p256 web legacy/modern canonical key equivalence","p256 web off-curve legacy point rejected","secp256k1 web legacy/modern canonical key equivalence","secp256k1 web off-curve legacy point rejected","legacy genesis exact DID/signature before maintained normalization"]}
+# Subtest: retained identity JSON and PLC canonical-tip corpus
+ok 1 - retained identity JSON and PLC canonical-tip corpus
+  ---
+  duration_ms: 652.040792
+  type: 'test'
+  ...
+# {"node":"v22.19.0","builtinUndici":"6.21.2","selectedAgentAlias":"undici_v6","selectedInstalledVersion":"6.29.0","selectedEntry":"/Users/hughpyle/play/atseq-worktrees/identity-evidence/node_modules/undici_v6/index.js","dispatchedCalls":7,"connectTimeDnsCalls":2,"privateConnections":0,"literalCases":6}
+# Subtest: production identity transport rejects literal/private addresses and connect-time DNS rebinding
+ok 2 - production identity transport rejects literal/private addresses and connect-time DNS rebinding
+  ---
+  duration_ms: 1075.291459
+  type: 'test'
+  ...
+# Subtest: identity transport applies credential/cache/redirect and failed-body total budgets (mock HTTP responses)
+ok 3 - identity transport applies credential/cache/redirect and failed-body total budgets (mock HTTP responses)
+  ---
+  duration_ms: 843.791042
+  type: 'test'
+  ...
+# Subtest: only the reviewed valibot optional typechecking peer is excluded
+ok 4 - only the reviewed valibot optional typechecking peer is excluded
+  ---
+  duration_ms: 0.400791
+  type: 'test'
+  ...
+# Subtest: a runtime reference to the excluded peer or computed import is refused
+ok 5 - a runtime reference to the excluded peer or computed import is refused
+  ---
+  duration_ms: 5.202625
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2029.141917

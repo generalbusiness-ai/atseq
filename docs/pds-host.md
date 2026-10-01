@@ -6,7 +6,7 @@ this stage. S3 adds interpretation; S4 adds provisioning and interaction flows.
 
 ## Reproduce
 
-Use Node 22.13 or later; the measured run uses 26.10.0. The local lease uses
+Use Node 22.19 or later; the measured run uses 26.10.0. The local lease uses
 [`node:sqlite`](https://nodejs.org/api/sqlite.html), available without an
 experimental flag from 22.13. A native compiler may be needed for the official
 PDS's SQLite package if that platform has no prebuilt binary.

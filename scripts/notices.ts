@@ -47,7 +47,7 @@ result.push({
 for (const name of Object.keys(root.dependencies)) await visit(name);
 const output =
   JSON.stringify(
-    result.sort((a, b) => a.name.localeCompare(b.name)),
+    result.sort((a, b) => a.name.localeCompare(b.name, 'en')),
     null,
     2,
   ) + '\n';

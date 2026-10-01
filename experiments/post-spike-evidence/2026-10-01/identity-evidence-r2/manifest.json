@@ -1,0 +1,257 @@
+{
+  "date": "2026-10-01",
+  "request": "de0005d38cad97ebb2fef942da7b561d761a8c00",
+  "promise": "ed59da3dc3e1a0f5c09d85030141264341191601",
+  "ratifiedAssessment": "b3ec610b27a89f47a50ad068ab4e1e2b74ea639d",
+  "runtimeSourceHead": "c079a412a4b4d0e6a43e326f7bc06061111944d6",
+  "predecessorCandidate": "2b9e255cf74ab5413d0baad49967ba1eda34906a",
+  "regression": {
+    "head": "abc52b7c6b86ad40eefd289ded686b29e2d9995e",
+    "command": "node scripts/source-run.mjs --test --test-name-pattern='real resetAndDestroy' tests/identity-fetch.test.ts",
+    "passed": 0,
+    "failed": 1,
+    "log": "rst-red.log",
+    "receivedBytes": 1000,
+    "error": "TypeError: terminated",
+    "causeCode": "ECONNRESET"
+  },
+  "phaseRule": "Non-AtseqError rejection from reader.read() after headers maps to content_unavailable. AtseqError retains its exact object; request construction, validation, budget accounting and copying are outside that catch. No transport cause-code list.",
+  "sourceHashes": {
+    "src/host/identity-fetch.ts": "6e17c6ca6a97180089a774a00d291dba7081d3ad5c56af242aab785a85a758cb",
+    "tests/identity-fetch.test.ts": "bae646b7aa49698e70fc548a16a00e56fd2c8eec13597851eb4793e301bdb091",
+    "src/protocol/identity-binding.ts": "f485f06544cbb17ec5fc7a2cc11ac5f2d1bd574020386d67e4e50363bf9db806",
+    "tests/support/identity-corpus.ts": "9d0e40b8b376ca827143250fbfb7a6eb1d8f4d6b0ee503845f494de8c1afc8c6",
+    "tests/identity-evidence-browser.test.ts": "5ff7185bac32fd91a16c1d387e8ae381f483bc1a45b56d8aaf61384393d38a53",
+    "tests/package.test.ts": "1c05298b406957a73b6c303d38ae1153ae0337ed1cf0f167a4bc0d862cae70af",
+    "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "src/core/dependencies.ts": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4",
+    "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "src/integrity/files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149",
+    "src/core/contracts.ts": "376d27a2dfcb2cd902f4181642c983f94cc33d76d6c38fc64170cc1768e9613e",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f"
+  },
+  "retainedHashes": {
+    "rst-red.log": "5ddb52902709b303f1cf36975106ecabb7c74685be5f249a4444dfc266e54ec2",
+    "node22-focused.log": "c1eaba1e0f1d5903bd5a1d66c6c342e54afb59138d6274100428606eb88ed605",
+    "node24-focused.log": "08106e6b7fa19b9af42c1dd44d560224c3d2b5e76d1cd362bd81b96c53093d4f",
+    "node26-focused.log": "0eafcd09e5dfc842765e939124d303b400ca210565c9f29b985a7216b081ddb3",
+    "build.log": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+    "check.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "build-provenance.json": "814fb7d6bf8af2b24754f2fee19cc56ffa11bd32b3327b73b6ce1ed194d08b86"
+  },
+  "unchangedFromPredecessor": [
+    "src/protocol/identity-binding.ts",
+    "tests/support/identity-corpus.ts",
+    "tests/identity-evidence-browser.test.ts",
+    "tests/package.test.ts",
+    "package.json",
+    "npm-shrinkwrap.json",
+    "tests/support/pds/package-lock.json",
+    "src/core/dependencies.ts",
+    "src/core/dependencies-approved.json",
+    "src/integrity/files-approved.json",
+    "src/core/contracts.ts",
+    "src/core/profile.ts"
+  ],
+  "runtimePaths": 147,
+  "semanticContracts": [
+    {
+      "name": "atseq-log-v2",
+      "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+      "role": "log"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+      "role": "evaluator"
+    },
+    {
+      "name": "atseq-app-v2",
+      "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+      "role": "application"
+    }
+  ],
+  "gates": [
+    {
+      "node": "v22.19.0",
+      "command": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node scripts/source-run.mjs --test tests/identity-fetch.test.ts tests/identity-evidence.test.ts tests/type-peer.test.ts",
+      "passed": 9,
+      "failed": 0,
+      "log": "node22-focused.log",
+      "identityCases": 60,
+      "productionTransportGuard": {
+        "node": "v22.19.0",
+        "builtinUndici": "6.21.2",
+        "selectedAgentAlias": "undici_v6",
+        "selectedInstalledVersion": "6.29.0",
+        "selectedEntry": "/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/node_modules/undici_v6/index.js",
+        "dispatchedCalls": 7,
+        "connectTimeDnsCalls": 2,
+        "privateConnections": 0,
+        "literalCases": 6
+      },
+      "bodyPhases": {
+        "mockBodyPhases": true,
+        "bodyReadFaultCases": 11,
+        "preservedBodyAtseqCases": 1,
+        "preservedRequestFaultCases": 5,
+        "consumedBeforeFailure": 36,
+        "resumed": true
+      },
+      "actualHttpTruncations": [
+        {
+          "actualHttpTruncation": true,
+          "termination": "destroy",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        },
+        {
+          "actualHttpTruncation": true,
+          "termination": "end",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        },
+        {
+          "actualHttpTruncation": true,
+          "termination": "resetAndDestroy",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        }
+      ]
+    },
+    {
+      "node": "v24.21.0",
+      "command": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node scripts/source-run.mjs --test tests/identity-fetch.test.ts tests/identity-evidence.test.ts tests/type-peer.test.ts",
+      "passed": 9,
+      "failed": 0,
+      "log": "node24-focused.log",
+      "identityCases": 60,
+      "productionTransportGuard": {
+        "node": "v24.21.0",
+        "builtinUndici": "7.29.1",
+        "selectedAgentAlias": "undici_v7",
+        "selectedInstalledVersion": "7.30.0",
+        "selectedEntry": "/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/node_modules/undici_v7/index.js",
+        "dispatchedCalls": 7,
+        "connectTimeDnsCalls": 2,
+        "privateConnections": 0,
+        "literalCases": 6
+      },
+      "bodyPhases": {
+        "mockBodyPhases": true,
+        "bodyReadFaultCases": 11,
+        "preservedBodyAtseqCases": 1,
+        "preservedRequestFaultCases": 5,
+        "consumedBeforeFailure": 36,
+        "resumed": true
+      },
+      "actualHttpTruncations": [
+        {
+          "actualHttpTruncation": true,
+          "termination": "destroy",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        },
+        {
+          "actualHttpTruncation": true,
+          "termination": "end",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        },
+        {
+          "actualHttpTruncation": true,
+          "termination": "resetAndDestroy",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        }
+      ]
+    },
+    {
+      "node": "v26.10.0",
+      "command": "node scripts/source-run.mjs --test tests/identity-fetch.test.ts tests/identity-evidence.test.ts tests/type-peer.test.ts",
+      "passed": 9,
+      "failed": 0,
+      "log": "node26-focused.log",
+      "identityCases": 60,
+      "productionTransportGuard": {
+        "node": "v26.10.0",
+        "builtinUndici": "8.10.2",
+        "selectedAgentAlias": "undici_v8",
+        "selectedInstalledVersion": "8.11.2",
+        "selectedEntry": "/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/node_modules/undici_v8/index.js",
+        "dispatchedCalls": 7,
+        "connectTimeDnsCalls": 2,
+        "privateConnections": 0,
+        "literalCases": 6
+      },
+      "bodyPhases": {
+        "mockBodyPhases": true,
+        "bodyReadFaultCases": 11,
+        "preservedBodyAtseqCases": 1,
+        "preservedRequestFaultCases": 5,
+        "consumedBeforeFailure": 36,
+        "resumed": true
+      },
+      "actualHttpTruncations": [
+        {
+          "actualHttpTruncation": true,
+          "termination": "destroy",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        },
+        {
+          "actualHttpTruncation": true,
+          "termination": "end",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        },
+        {
+          "actualHttpTruncation": true,
+          "termination": "resetAndDestroy",
+          "code": "content_unavailable",
+          "name": "AtseqError",
+          "message": "Identity evidence body is unavailable",
+          "receivedBytes": 1000
+        }
+      ]
+    },
+    {
+      "command": "npm run build",
+      "exit": 0,
+      "log": "build.log"
+    },
+    {
+      "command": "npm run check",
+      "exit": 0,
+      "log": "check.log"
+    }
+  ],
+  "inheritedPortableEvidence": {
+    "manifest": "../identity-evidence-r1/manifest.json",
+    "source": "1106015a6217a5321608278f061fad8d5faac296",
+    "candidate": "2b9e255cf74ab5413d0baad49967ba1eda34906a",
+    "identityCases": 60,
+    "chromiumVersion": "153.0.8010.12",
+    "compiledPackageCases": 219,
+    "note": "Historical portable and packed captures retained unchanged. They were not rerun on this host-only successor and their package hash does not describe this new build."
+  },
+  "limits": "No full-suite, Chromium, packed consumer, positive TLS/provider or Windows rerun. Native identity and authority integration remain open."
+}
