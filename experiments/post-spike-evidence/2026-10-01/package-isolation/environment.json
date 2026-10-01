@@ -1,0 +1,10 @@
+{
+  "node": "v26.10.0",
+  "npm": "11.19.1",
+  "platform": "Darwin",
+  "architecture": "arm64",
+  "chromium": "153.0.8010.12",
+  "runtimePackagePaths": 147,
+  "base": "fc8e20936c849d20e8e28be688afa08b29ce02ed",
+  "source": "f38da4f8c6530aa0db1a4870e1aae046a5e6fcd1"
+}

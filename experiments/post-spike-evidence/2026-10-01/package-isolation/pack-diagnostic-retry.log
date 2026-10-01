@@ -1,0 +1,14 @@
+
+added 1 package in 7s
+{
+  "root": 48,
+  "stage": 48,
+  "consumer": 47,
+  "differences": [
+    {
+      "path": "CHANGELOG.md",
+      "root": "6d8c24b278880ddaa66bb6a1755c2c79d70e2eb8c7deef9774cc4e6f4accc87d",
+      "stage": "6d8c24b278880ddaa66bb6a1755c2c79d70e2eb8c7deef9774cc4e6f4accc87d"
+    }
+  ]
+}

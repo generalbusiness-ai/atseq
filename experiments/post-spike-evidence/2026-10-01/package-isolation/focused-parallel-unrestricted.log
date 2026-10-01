@@ -1,0 +1,93 @@
+▶ browser sessions retain trust and device work across switches and restarts
+  ✔ CryptoKeys survive IndexedDB reload and private export is refused (123.761083ms)
+  ✔ every app operation rejects mismatched app, genesis and definition (45.274792ms)
+  ✔ a restarted worker replays saved history before a rollback from the host (90.473084ms)
+  ✔ a failed or cancelled first worker load preserves the saved prefix against host rollback (458.262458ms)
+  ✔ an older archive cannot replace saved history for the same genesis (285.290666ms)
+  ✔ a first visit with an invalid host signature does not blame saved device history (334.233541ms)
+  ✔ corrupt saved history has explicit recovery without losing its pin, key or signed work (393.678125ms)
+  ✔ an online event during the saved-prefix decision cannot load a fork before fresh restore (177.849083ms)
+  ✔ a slow A refresh cannot replace offline B or label its query and archive as A (458.680875ms)
+  ✔ a new save during a flush is sent, and only definite refusals require explicit resend (9.079542ms)
+  ✔ an invalid invitation cannot poison the pin and verified pins can be forgotten (255.239ms)
+  ✔ startup submits retained signed work without a Retry click (97.772958ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+  ✔ a shell update waits and keeps an open tab’s worker assets available offline (521.585792ms)
+✔ browser sessions retain trust and device work across switches and restarts (6721.966667ms)
+{"chromium":"153.0.8010.12","identityCases":["strict retained JSON positive","duplicate names","escaped duplicate names","nested duplicate names","comment","trailing comma","trailing value","empty JSON","deep JSON","UTF-8 BOM rejected","fatal UTF-8","response budget before parsing","JSON depth32 accepted","p256 whole-log canonical tip, earlier selection rejected","p256 truncated authenticity is not latestness; before/after compares tips","p256 exact genesis DID and row issuer","p256 signed genesis cannot invent another principal","p256 invalid operation signature","p256 valid-hash high-S signature rejected","p256 canonical unpadded signature encoding","p256 tombstone tip cannot select older active operation","p256 duplicate operation CID","p256 nullification annotations checked","p256 higher-priority recovery and strict timestamp ordering","p256 no lossy signed-field projection","secp256k1 whole-log canonical tip, earlier selection rejected","secp256k1 truncated authenticity is not latestness; before/after compares tips","secp256k1 exact genesis DID and row issuer","secp256k1 signed genesis cannot invent another principal","secp256k1 invalid operation signature","secp256k1 valid-hash high-S signature rejected","secp256k1 canonical unpadded signature encoding","secp256k1 tombstone tip cannot select older active operation","secp256k1 duplicate operation CID","secp256k1 nullification annotations checked","secp256k1 higher-priority recovery and strict timestamp ordering","secp256k1 no lossy signed-field projection","PLC total response budget","PLC row budget","PLC operation array budget","PLC operation byte budget","web observation assurance and ignored unrelated metadata","web exact document DID","ATproto hostname web restriction","typed assurance cannot substitute method","relative and own-DID fragments","web key controller","web controller type is not coerced","HTTPS origin endpoint rules","first matching bad service cannot fall through","first ATproto service ID with bad type cannot fall through","first ATproto key ID with foreign controller cannot fall through","first ATproto key ID with unsupported JsonWebKey2020 cannot fall through","web service array budget","web response byte budget","p256 web legacy/modern canonical key equivalence","p256 web off-curve legacy point rejected","secp256k1 web legacy/modern canonical key equivalence","secp256k1 web off-curve legacy point rejected","legacy genesis exact DID/signature before maintained normalization"],"shared":["did:plc:h5dnm5beemqahxv2swtn43nu","did:plc:wz4bx42h4uurpq76ukw5tl7v"]}
+✔ Chromium runs retained identity corpus and shared Node signed PLC fixtures (305.194792ms)
+{"browserCases":51,"bundleBytes":480134,"shared":["p256","secp256k1"]}
+✔ Chromium executes native hostile cases and shared Node key/commit fixtures (387.416416ms)
+▶ isolated native foundation agrees with independent fixtures in Node and Chromium
+  ✔ independent exact block disableRoleIntent (0.449584ms)
+  ✔ independent exact block appBinding (0.059459ms)
+  ✔ independent exact block receipt (0.033375ms)
+  ✔ independent exact block definition (0.029167ms)
+  ✔ independent exact block policy (0.026709ms)
+  ✔ independent exact block genesis (0.023833ms)
+  ✔ independent exact block epoch (0.021583ms)
+  ✔ independent exact block epochCurrent (0.027291ms)
+  ✔ independent exact block grant (0.037917ms)
+  ✔ independent exact block revoke (0.045458ms)
+  ✔ independent exact block intent (0.075583ms)
+  ✔ independent exact block signed (0.029083ms)
+  ✔ independent exact block entry (0.022541ms)
+  ✔ independent exact block head (0.021916ms)
+  ✔ independent exact block account (0.019333ms)
+  ✔ independent exact block observation (0.018583ms)
+  ✔ independent exact block accountEntry (0.018083ms)
+  ✔ independent exact block chunk0 (0.090917ms)
+  ✔ independent exact block chunk1 (0.020292ms)
+  ✔ independent exact block manifest (0.012583ms)
+  ✔ independent exact block file (0.010625ms)
+  ✔ independent exact block setControl (0.012ms)
+  ✔ independent exact block setRecovery (0.009167ms)
+  ✔ independent exact block setOwner (0.008625ms)
+  ✔ independent exact block setRole (0.008666ms)
+  ✔ independent exact block activate (0.0085ms)
+  ✔ independent exact block recoverParticipant (0.008459ms)
+  ✔ independent exact block recoverGovernance (0.008292ms)
+  ✔ independent exact block assignRole (0.008375ms)
+  ✔ independent exact block advanceEpoch (0.008875ms)
+  ✔ independent exact block revokeGrant (0.012042ms)
+  ✔ native record canonical keys and exact owned bytes (0.008625ms)
+  ✔ positive safe positions and full genesis paths (0.008084ms)
+  ✔ genesis external pin is exact and required (0.007959ms)
+  ✔ head zero/genesis equivalence and append overflow (0.008125ms)
+  ✔ two valid signatures share unsigned request and retry identity (0.009667ms)
+  ✔ every mutated signed binding fails verification (0.007583ms)
+  ✔ P256 devices and control; dual repository curve representation (0.008167ms)
+  ✔ closed schemas reject extra fields, unknown unions and coercion (0.007667ms)
+  ✔ ordinary entry content needs no extra ordering signature (0.00825ms)
+  ✔ proof-derived outer context mismatch is invalid content (0.007833ms)
+  ✔ observation projection binds everything except observation reference (0.007875ms)
+  ✔ five-field metadata excludes enrolment identity (0.00825ms)
+  ✔ chunked exact bytes keep raw file and native locator identities distinct (0.020208ms)
+  ✔ missing bytes and local limits stay transient (0.007917ms)
+  ✔ chunk tampering and noncanonical chunk lengths fail (0.00775ms)
+  ✔ typed shape remains separate from native authority acceptance (0.007791ms)
+  ✔ account principals use PLC or hostname web throughout (0.010375ms)
+  ✔ retained file-table order and unused assets remain exact identity (0.008166ms)
+  ✔ high-S signatures do not create accepted retry aliases (0.00725ms)
+  ✔ sparse receipt is closed framing, never self-appointed assurance (0.00775ms)
+  ✔ native preparation does not advertise a new supported profile (0.007792ms)
+  ✔ native shape returns owned immutable content and bounds enclosing blocks (0.007583ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✔ isolated native foundation agrees with independent fixtures in Node and Chromium (1207.864708ms)
+✔ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (31101.548792ms)
+ℹ tests 71
+ℹ suites 0
+ℹ pass 71
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31840.535708

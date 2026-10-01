@@ -1,0 +1,918 @@
+
+> atseq@0.1.0 build
+> node scripts/build.mjs
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+TypeScript public APIs and executables built; installed runtime file closure verified.
+node:internal/child_process:1175
+    result.error = new ErrnoException(result.error, 'spawnSync ' + options.file);
+                   ^
+
+<ref *1> Error: spawnSync npm ENOBUFS
+    at Object.spawnSync (node:internal/child_process:1175:20)
+    at spawnSync (node:child_process:929:24)
+    at execFileSync (node:child_process:972:15)
+    at file:///private/tmp/atseq-package-isolation-20261001/[eval1]:11:29 {
+  errno: -55,
+  code: 'ENOBUFS',
+  syscall: 'spawnSync npm',
+  path: 'npm',
+  spawnargs: [
+    'pack',
+    '--ignore-scripts',
+    '--json',
+    '--pack-destination',
+    '/private/tmp/atseq-package-isolation-diagnostic-20261001'
+  ],
+  error: [Circular *1],
+  status: null,
+  signal: 'SIGTERM',
+  output: [
+    null,
+    '[\n' +
+      '  {\n' +
+      '    "id": "atseq@0.1.0",\n' +
+      '    "name": "atseq",\n' +
+      '    "version": "0.1.0",\n' +
+      '    "size": 13311301,\n' +
+      '    "unpackedSize": 70084467,\n' +
+      '    "shasum": "e1429cf64fdb74aab3c3baeccae9ac52f56b4c86",\n' +
+      '    "integrity": "sha512-BS8hs2372epVFK7BMonr5mUK1JWIDCuOuBexEjbeuo31FPm4y1N9CS2ANWb1U4CtNtP4FiQoCB9eD1PkGeB59g==",\n' +
+      '    "filename": "atseq-0.1.0.tgz",\n' +
+      '    "files": [\n' +
+      '      {\n' +
+      '        "path": "CONTRIBUTING.md",\n' +
+      '        "size": 6767,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "LICENSE",\n' +
+      '        "size": 11366,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "README.md",\n' +
+      '        "size": 14434,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/build-provenance.json",\n' +
+      '        "size": 51955,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/activate.json",\n' +
+      '        "size": 880,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/compareDefinition.json",\n' +
+      '        "size": 2942,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/create.json",\n' +
+      '        "size": 2387,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/definition.json",\n' +
+      '        "size": 4469,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/defs.json",\n' +
+      '        "size": 4627,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/describe.json",\n' +
+      '        "size": 4368,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/entry.json",\n' +
+      '        "size": 1687,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/genesis.json",\n' +
+      '        "size": 2697,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/head.json",\n' +
+      '        "size": 1916,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/list.json",\n' +
+      '        "size": 1794,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/preview.json",\n' +
+      '        "size": 2434,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/query.json",\n' +
+      '        "size": 2272,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/readDraft.json",\n' +
+      '        "size": 933,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/receipt.json",\n' +
+      '        "size": 2479,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/source.json",\n' +
+      '        "size": 783,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/stageDefinition.json",\n' +
+      '        "size": 2940,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/submit.json",\n' +
+      '        "size": 1815,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/sync.json",\n' +
+      '        "size": 3089,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/lexicons/ai/generalbusiness/atseq/validateDraft.json",\n' +
+      '        "size": 1327,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/shell/assets/index-CasGVl9K.css",\n' +
+      '        "size": 3605,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/shell/assets/index-CiJCGtyH.js",\n' +
+      '        "size": 984484,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/shell/assets/worker-mObO6GDL.js",\n' +
+      '        "size": 1109282,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/shell/build-provenance.json",\n' +
+      '        "size": 46252,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/shell/index.html",\n' +
+      '        "size": 2870,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/shell/shell-manifest.json",\n' +
+      '        "size": 49329,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/shell/sw.js",\n' +
+      '        "size": 1708,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/api/index.d.ts",\n' +
+      '        "size": 367,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/api/index.d.ts.map",\n' +
+      '        "size": 315,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/api/index.js",\n' +
+      '        "size": 365,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/api/index.js.map",\n' +
+      '        "size": 313,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/apps.d.ts",\n' +
+      '        "size": 525,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/apps.d.ts.map",\n' +
+      '        "size": 544,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/apps.js",\n' +
+      '        "size": 1546,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/apps.js.map",\n' +
+      '        "size": 1463,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/definition.d.ts",\n' +
+      '        "size": 1272,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/definition.d.ts.map",\n' +
+      '        "size": 834,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/definition.js",\n' +
+      '        "size": 4811,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/definition.js.map",\n' +
+      '        "size": 4967,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/folder.d.ts",\n' +
+      '        "size": 3235,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/folder.d.ts.map",\n' +
+      '        "size": 2446,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/folder.js",\n' +
+      '        "size": 11670,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/folder.js.map",\n' +
+      '        "size": 10517,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/index.d.ts",\n' +
+      '        "size": 822,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/index.d.ts.map",\n' +
+      '        "size": 707,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/index.js",\n' +
+      '        "size": 646,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/application/index.js.map",\n' +
+      '        "size": 566,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/archive.d.ts",\n' +
+      '        "size": 2779,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/archive.d.ts.map",\n' +
+      '        "size": 1501,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/archive.js",\n' +
+      '        "size": 12966,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/archive.js.map",\n' +
+      '        "size": 12873,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/chart.d.ts",\n' +
+      '        "size": 634,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/chart.d.ts.map",\n' +
+      '        "size": 479,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/chart.js",\n' +
+      '        "size": 2860,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/chart.js.map",\n' +
+      '        "size": 2858,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/index.d.ts",\n' +
+      '        "size": 198,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/index.d.ts.map",\n' +
+      '        "size": 246,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/index.js",\n' +
+      '        "size": 138,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/index.js.map",\n' +
+      '        "size": 195,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/limits.d.ts",\n' +
+      '        "size": 80,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/limits.d.ts.map",\n' +
+      '        "size": 150,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/limits.js",\n' +
+      '        "size": 81,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/limits.js.map",\n' +
+      '        "size": 177,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/archive/notices.json",\n' +
+      '        "size": 142776,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/changes.d.ts",\n' +
+      '        "size": 1183,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/changes.d.ts.map",\n' +
+      '        "size": 1286,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/changes.js",\n' +
+      '        "size": 5105,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/changes.js.map",\n' +
+      '        "size": 4988,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/drafts.d.ts",\n' +
+      '        "size": 1755,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/drafts.d.ts.map",\n' +
+      '        "size": 1291,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/drafts.js",\n' +
+      '        "size": 7248,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/drafts.js.map",\n' +
+      '        "size": 6953,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/evaluator.d.ts",\n' +
+      '        "size": 1658,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/evaluator.d.ts.map",\n' +
+      '        "size": 1479,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/evaluator.js",\n' +
+      '        "size": 7513,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/evaluator.js.map",\n' +
+      '        "size": 7351,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/exports.d.ts",\n' +
+      '        "size": 598,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/exports.d.ts.map",\n' +
+      '        "size": 652,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/exports.js",\n' +
+      '        "size": 4328,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/exports.js.map",\n' +
+      '        "size": 4853,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/forms.d.ts",\n' +
+      '        "size": 888,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/forms.d.ts.map",\n' +
+      '        "size": 937,\n' +
+      '        "mode": 420\n' +
+      '      },\n' +
+      '      {\n' +
+      '        "path": "dist/src/browser/fo'... 1104112 more characters,
+    ''
+  ],
+  pid: 80626,
+  stdout: '[\n' +
+    '  {\n' +
+    '    "id": "atseq@0.1.0",\n' +
+    '    "name": "atseq",\n' +
+    '    "version": "0.1.0",\n' +
+    '    "size": 13311301,\n' +
+    '    "unpackedSize": 70084467,\n' +
+    '    "shasum": "e1429cf64fdb74aab3c3baeccae9ac52f56b4c86",\n' +
+    '    "integrity": "sha512-BS8hs2372epVFK7BMonr5mUK1JWIDCuOuBexEjbeuo31FPm4y1N9CS2ANWb1U4CtNtP4FiQoCB9eD1PkGeB59g==",\n' +
+    '    "filename": "atseq-0.1.0.tgz",\n' +
+    '    "files": [\n' +
+    '      {\n' +
+    '        "path": "CONTRIBUTING.md",\n' +
+    '        "size": 6767,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "LICENSE",\n' +
+    '        "size": 11366,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "README.md",\n' +
+    '        "size": 14434,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/build-provenance.json",\n' +
+    '        "size": 51955,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/activate.json",\n' +
+    '        "size": 880,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/compareDefinition.json",\n' +
+    '        "size": 2942,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/create.json",\n' +
+    '        "size": 2387,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/definition.json",\n' +
+    '        "size": 4469,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/defs.json",\n' +
+    '        "size": 4627,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/describe.json",\n' +
+    '        "size": 4368,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/entry.json",\n' +
+    '        "size": 1687,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/genesis.json",\n' +
+    '        "size": 2697,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/head.json",\n' +
+    '        "size": 1916,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/list.json",\n' +
+    '        "size": 1794,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/preview.json",\n' +
+    '        "size": 2434,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/query.json",\n' +
+    '        "size": 2272,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/readDraft.json",\n' +
+    '        "size": 933,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/receipt.json",\n' +
+    '        "size": 2479,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/source.json",\n' +
+    '        "size": 783,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/stageDefinition.json",\n' +
+    '        "size": 2940,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/submit.json",\n' +
+    '        "size": 1815,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/sync.json",\n' +
+    '        "size": 3089,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/lexicons/ai/generalbusiness/atseq/validateDraft.json",\n' +
+    '        "size": 1327,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/shell/assets/index-CasGVl9K.css",\n' +
+    '        "size": 3605,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/shell/assets/index-CiJCGtyH.js",\n' +
+    '        "size": 984484,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/shell/assets/worker-mObO6GDL.js",\n' +
+    '        "size": 1109282,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/shell/build-provenance.json",\n' +
+    '        "size": 46252,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/shell/index.html",\n' +
+    '        "size": 2870,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/shell/shell-manifest.json",\n' +
+    '        "size": 49329,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/shell/sw.js",\n' +
+    '        "size": 1708,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/api/index.d.ts",\n' +
+    '        "size": 367,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/api/index.d.ts.map",\n' +
+    '        "size": 315,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/api/index.js",\n' +
+    '        "size": 365,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/api/index.js.map",\n' +
+    '        "size": 313,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/apps.d.ts",\n' +
+    '        "size": 525,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/apps.d.ts.map",\n' +
+    '        "size": 544,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/apps.js",\n' +
+    '        "size": 1546,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/apps.js.map",\n' +
+    '        "size": 1463,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/definition.d.ts",\n' +
+    '        "size": 1272,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/definition.d.ts.map",\n' +
+    '        "size": 834,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/definition.js",\n' +
+    '        "size": 4811,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/definition.js.map",\n' +
+    '        "size": 4967,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/folder.d.ts",\n' +
+    '        "size": 3235,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/folder.d.ts.map",\n' +
+    '        "size": 2446,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/folder.js",\n' +
+    '        "size": 11670,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/folder.js.map",\n' +
+    '        "size": 10517,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/index.d.ts",\n' +
+    '        "size": 822,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/index.d.ts.map",\n' +
+    '        "size": 707,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/index.js",\n' +
+    '        "size": 646,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/application/index.js.map",\n' +
+    '        "size": 566,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/archive.d.ts",\n' +
+    '        "size": 2779,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/archive.d.ts.map",\n' +
+    '        "size": 1501,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/archive.js",\n' +
+    '        "size": 12966,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/archive.js.map",\n' +
+    '        "size": 12873,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/chart.d.ts",\n' +
+    '        "size": 634,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/chart.d.ts.map",\n' +
+    '        "size": 479,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/chart.js",\n' +
+    '        "size": 2860,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/chart.js.map",\n' +
+    '        "size": 2858,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/index.d.ts",\n' +
+    '        "size": 198,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/index.d.ts.map",\n' +
+    '        "size": 246,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/index.js",\n' +
+    '        "size": 138,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/index.js.map",\n' +
+    '        "size": 195,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/limits.d.ts",\n' +
+    '        "size": 80,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/limits.d.ts.map",\n' +
+    '        "size": 150,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/limits.js",\n' +
+    '        "size": 81,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/limits.js.map",\n' +
+    '        "size": 177,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/archive/notices.json",\n' +
+    '        "size": 142776,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/changes.d.ts",\n' +
+    '        "size": 1183,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/changes.d.ts.map",\n' +
+    '        "size": 1286,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/changes.js",\n' +
+    '        "size": 5105,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/changes.js.map",\n' +
+    '        "size": 4988,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/drafts.d.ts",\n' +
+    '        "size": 1755,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/drafts.d.ts.map",\n' +
+    '        "size": 1291,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/drafts.js",\n' +
+    '        "size": 7248,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/drafts.js.map",\n' +
+    '        "size": 6953,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/evaluator.d.ts",\n' +
+    '        "size": 1658,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/evaluator.d.ts.map",\n' +
+    '        "size": 1479,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/evaluator.js",\n' +
+    '        "size": 7513,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/evaluator.js.map",\n' +
+    '        "size": 7351,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/exports.d.ts",\n' +
+    '        "size": 598,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/exports.d.ts.map",\n' +
+    '        "size": 652,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/exports.js",\n' +
+    '        "size": 4328,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/exports.js.map",\n' +
+    '        "size": 4853,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/forms.d.ts",\n' +
+    '        "size": 888,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/forms.d.ts.map",\n' +
+    '        "size": 937,\n' +
+    '        "mode": 420\n' +
+    '      },\n' +
+    '      {\n' +
+    '        "path": "dist/src/browser/fo'... 1104112 more characters,
+  stderr: ''
+}
+
+Node.js v26.10.0

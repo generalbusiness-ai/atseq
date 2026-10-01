@@ -1,0 +1,151 @@
+{
+  "format": "atseq-package-test-isolation-evidence",
+  "version": 1,
+  "date": "2026-10-01",
+  "request": "d10cec26f86ec41d2bf58a05855588950c5f59e9",
+  "promise": "8ed7aadce34a1a1387ef569661277495a7685733",
+  "base": "fc8e20936c849d20e8e28be688afa08b29ce02ed",
+  "source": "f38da4f8c6530aa0db1a4870e1aae046a5e6fcd1",
+  "sourceHashes": {
+    "tests/helpers/package-build.ts": "d91b5b4b99ae456ee89c2c9e51e172987023fb6b6882190d6ac25ef2c8af6b7b",
+    "tests/package.test.ts": "d44fa8c944b08e16d0103afb36e2875b03a2b7954875c9e0fe17032cc8931059",
+    "scripts/build.mjs": "7aa085a227eed0cc9d0d5bf564620026273ba084570b87c5c673c2632567a608",
+    "scripts/build-shell.ts": "7b85de91d2c78584e83528e417e08220237aedb7dab62ec1a2f93993fb058feb",
+    "scripts/source-run.mjs": "0b453aaf5049038e8e02a33640b39f57d30bb3c3dff3c8b7ea2ffacaeb222e08",
+    "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "src/integrity/files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149",
+    "src/core/dependencies.ts": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4"
+  },
+  "captures": {
+    "baseline-build.log": {
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "bytes": 494
+    },
+    "check-final-source.log": {
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "bytes": 689
+    },
+    "check.log": {
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "bytes": 689
+    },
+    "environment.json": {
+      "sha256": "6ac1be43be528149adae1d4059ac8217537d227ddb8f3bdb0271de4987d13ba0",
+      "bytes": 267
+    },
+    "focused-package-conformance.json": {
+      "sha256": "d395e86f307cb9cd647e26fd22aa7723300ae78888557346249e2f635933b176",
+      "bytes": 77757
+    },
+    "focused-parallel-unrestricted-failure.log": {
+      "sha256": "831bfecec2e5fd9997fe290771f2821e1fab37b4f2fcd6b33cfa686c3a77192a",
+      "bytes": 14093
+    },
+    "focused-parallel-unrestricted.log": {
+      "sha256": "5456d83d93c8f985a299d79fa660579fa6b5f5e15a2cae020616f7dd00dced5a",
+      "bytes": 8715
+    },
+    "focused-parallel.log": {
+      "sha256": "9898ab4bcbaa5ae9773546c9d5f5d0129cf3fc6e3f04281409445b94598657bb",
+      "bytes": 8841
+    },
+    "node22-copy-probe-path-alias-failure.log": {
+      "sha256": "56b87a4a8a54b5ebcf33356b7e321c550f996f1aba0368e4b2f62bf90de25795",
+      "bytes": 410
+    },
+    "node22-copy-probe-path-alias-failure.txt": {
+      "sha256": "79a40116d5dffbfc3f0f5f53ae1ea0612914181b6440c7017961edc3af5b8969",
+      "bytes": 2043
+    },
+    "node22-copy-probe.json": {
+      "sha256": "66e61c6a7c433d2cb8404721085debce97cf86281b0de274d5a0a2d9bdf659a3",
+      "bytes": 370
+    },
+    "node22-copy-probe.mjs": {
+      "sha256": "445a076e1cb53e448b9d5b454c8f0d18028243cb24778543aba653172f191dec",
+      "bytes": 2061
+    },
+    "ordinary-package-conformance.json": {
+      "sha256": "f73d13eac335dbf1e2eca8b49f9f0f0613bf5f704765f6cfcc6ee0b4f358782b",
+      "bytes": 77756
+    },
+    "ordinary-parallel.log": {
+      "sha256": "2be81f2fb88c552d9cef7e881d09b2f37ecc6b29107b4c66746ae0e67c70c96a",
+      "bytes": 43445
+    },
+    "original-root-pack.json.gz": {
+      "sha256": "1190ff7f78bfe63c2d094027bbbf7322bcfc1b376a53a5861d36a030f729198e",
+      "bytes": 95623
+    },
+    "pack-diagnostic-retry.log": {
+      "sha256": "7c6d70e87ea790216508c4346e042cbb59bc47bf66d468d133d7ee20ee6ee3d2",
+      "bytes": 303
+    },
+    "pack-diagnostic.log": {
+      "sha256": "736b2e753796c3bc824580544c00a479e699950bf44e164d486eef2994655801",
+      "bytes": 30967
+    },
+    "pack-file-list-comparison.json": {
+      "sha256": "1c7a7a0ef58b4739d7a39e0a618cd3af81fc21dd0f27430d5f2f677fd7654127",
+      "bytes": 1120
+    },
+    "pds-install.log": {
+      "sha256": "c4c91f5123d07dc0dfd40f211f57e115da72ae0fca49d990fd51ca17acf6830e",
+      "bytes": 1141
+    },
+    "red-shared-build-package-test.txt": {
+      "sha256": "b7fde95a8b0f82cd2d6901da575793c6e72d401a5daf48118d2ca470bede0359",
+      "bytes": 16141
+    },
+    "red-shared-build.log": {
+      "sha256": "f316e391a4671977f5ff1fc5633e14bbae2f4d4cee77e3ca09648e083fa0185c",
+      "bytes": 705
+    },
+    "staged-pack-lock-last.json.gz": {
+      "sha256": "1190ff7f78bfe63c2d094027bbbf7322bcfc1b376a53a5861d36a030f729198e",
+      "bytes": 95623
+    },
+    "staged-pack.json.gz": {
+      "sha256": "e0a5a100be52ad52597ff5b897b5db9d615704807485a87f725d59e19329e263",
+      "bytes": 95542
+    }
+  },
+  "report": {
+    "path": "notes/2026-10-01-atseq-package-test-isolation-results.md",
+    "sha256": "9b8bbf32674f9b574c225d0a87dbaebe93f615b182767745840f54f993b8d83f"
+  },
+  "captureBasis": {
+    "red-shared-build.log": {
+      "sourceBeforeMutation": "edc535b5741c9254649f3389d993c1755b60a724",
+      "mutation": "Only npm build cwd changed from buildRoot to root.",
+      "exactMutant": "red-shared-build-package-test.txt"
+    },
+    "focused-parallel.log": {
+      "source": "edc535b5741c9254649f3389d993c1755b60a724",
+      "result": "Managed sandbox restrictions; no pass claimed."
+    },
+    "focused-parallel-unrestricted-failure.log": {
+      "source": "edc535b5741c9254649f3389d993c1755b60a724",
+      "result": "Installed dependency integrity refused omitted changelogs."
+    },
+    "focused-parallel-unrestricted.log": {
+      "source": "f38da4f8c6530aa0db1a4870e1aae046a5e6fcd1",
+      "result": "71 passed."
+    },
+    "ordinary-parallel.log": {
+      "source": "f38da4f8c6530aa0db1a4870e1aae046a5e6fcd1",
+      "result": "443 passed; deliberate large-boundary exclusion."
+    },
+    "check-final-source.log": {
+      "source": "f38da4f8c6530aa0db1a4870e1aae046a5e6fcd1",
+      "result": "Passed."
+    },
+    "node22-copy-probe.json": {
+      "source": "f38da4f8c6530aa0db1a4870e1aae046a5e6fcd1",
+      "runner": "node22-copy-probe.mjs",
+      "result": "Changed helper and copied dependency integrity passed."
+    }
+  }
+}
