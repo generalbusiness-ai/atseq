@@ -27,7 +27,10 @@ export class Evaluator {
       clearTimeout(request.timer);
       this.pending.delete(data.id);
       if (data.error) request.reject(Object.assign(new Error(data.error.message), { code: data.error.code }));
-      else request.resolve(data.result);
+      else {
+        this.failures = 0;
+        request.resolve(data.result);
+      }
     };
     active.onerror = () => {
       if (active === this.worker) this.failed('Worker failed');
@@ -72,6 +75,18 @@ export class Evaluator {
       }
     });
   }
+  /** Install the saved prefix before worker I/O; failure never discards this floor. */
+  async restore(session: AppSession, input: RetainedInput): Promise<Operations['sync']['result']> {
+    const retained = { session: { ...session }, input: structuredClone(input) };
+    this.retained = retained;
+    this.loaded = false;
+    const worker = this.worker;
+    const checked = await this.send('sync', { session, input: retained.input }, 120_000);
+    if (worker !== this.worker || this.retained !== retained) throw new Error('App changed while restoring');
+    this.retained = { session: checked.session, input: retained.input };
+    this.loaded = true;
+    return checked;
+  }
   async call<K extends keyof Operations>(
     kind: K,
     args: Operations[K]['args'],
@@ -90,14 +105,20 @@ export class Evaluator {
         120_000,
       )
         .then((rebuilt) => {
-          if (this.retained !== retained || !sameSession(rebuilt.session, retained.session))
+          if (
+            this.retained !== retained ||
+            rebuilt.session.app !== retained.session.app ||
+            rebuilt.session.genesis !== retained.session.genesis
+          )
             throw new Error('App changed while rebuilding');
+          this.retained = { session: rebuilt.session, input: retained.input };
           this.loaded = true;
         })
         .finally(() => {
           this.rebuilding = undefined;
         });
       await this.rebuilding;
+      if (kind === 'sync') args = { ...args, session: this.retained!.session };
     } else if ('session' in args && kind !== 'sync' && !this.loaded)
       throw new Error('Open saved verified history first');
     const result = await this.send(kind, args, timeoutMs);
@@ -114,6 +135,14 @@ export class Evaluator {
   select() {
     this.retained = undefined;
     this.restart('App changed. Saved work is unchanged.');
+  }
+  dispose() {
+    this.worker.terminate();
+    for (const item of this.pending.values()) {
+      clearTimeout(item.timer);
+      item.reject(new Error('Evaluator closed'));
+    }
+    this.pending.clear();
   }
   cancel(message = 'Preview cancelled. Saved work is unchanged.') {
     this.restart(message);

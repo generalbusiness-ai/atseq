@@ -1,3 +1,5 @@
+import { retainVerified } from './verified.ts';
+import type { Operations } from './protocol.ts';
 import { installHostAccess, hostMessage } from './host-access.ts';
 import { NSID } from '../core/nsids.ts';
 import { drawDraft as renderDraft, retainDraft } from './drafts.ts';
@@ -212,10 +214,9 @@ async function openApp(invitation: Invitation) {
   if (!stillCurrent(generation)) return;
   if (retained)
     try {
-      const checked = await evaluator.call(
-        'sync',
-        { session: { ...invitation, definition: retained.genesis.definition.$link }, input: retained },
-        120_000,
+      const checked = await evaluator.restore(
+        { ...invitation, definition: retained.genesis.definition.$link },
+        retained,
       );
       if (!stillCurrent(generation)) return;
       await pinInvitation(invitation);
@@ -224,9 +225,15 @@ async function openApp(invitation: Invitation) {
       definition = checked.definition;
       await drawApp();
       if (stillCurrent(generation)) tell('Saved state on this device. Checking for newer entries…');
-    } catch {
+    } catch (error) {
       if (!stillCurrent(generation)) return;
-      tell('Saved inputs failed verification. Fetching a verified prefix…');
+      content.replaceChildren(
+        element('h1', 'Saved state unavailable'),
+        element('p', 'Saved history is retained. Retry to rebuild it before checking the host.'),
+        button('Retry', () => refresh()),
+      );
+      failure(error);
+      return;
     }
   if (stillCurrent(generation)) await refresh();
 }
@@ -256,7 +263,7 @@ async function refresh() {
     await pinInvitation(invitation);
     if (!stillCurrent(generation)) return;
     // Only worker-verified inputs become the device's canonical cache.
-    await store.set(`verified:${invitation.app}:${invitation.genesis}`, input);
+    await retainVerified(store, input);
     if (!stillCurrent(generation)) return;
     snapshot = checked;
     definition = checked.definition;
@@ -607,6 +614,12 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('online', () => {
   void flush().catch(failure);
 });
+document.querySelector('#cancel-work')!.addEventListener('click', () => {
+  localWorkGeneration++;
+  evaluator.cancel('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
+  tell('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
+});
+
 drawIdentity();
 const startupFlush = outbox.flush();
 await applications();
@@ -644,15 +657,28 @@ document.querySelector<HTMLInputElement>('#import-archive')!.onchange = async (e
   try {
     if (file.size > ARCHIVE_LIMIT) throw new Error('Archive exceeds 48 MiB');
     tell('Verifying the archive and replaying its retained history…');
-    const checked = await evaluator.call(
-      'importArchive',
-      { source: new Uint8Array(await file.arrayBuffer()), expected: await knownInvitations() },
-      120_000,
-    );
+    const archiveEvaluator = new Evaluator();
+    let checked: Operations['importArchive']['result'];
+    try {
+      checked = await archiveEvaluator.call(
+        'importArchive',
+        { source: new Uint8Array(await file.arrayBuffer()), expected: await knownInvitations() },
+        120_000,
+      );
+      const pinned = { app: checked.input.genesis.app, genesis: checked.input.genesisCid };
+      const saved = await store.get<RetainedInput>(`verified:${pinned.app}:${pinned.genesis}`);
+      if (saved) {
+        archiveEvaluator.select();
+        const floor = await archiveEvaluator.restore({ ...pinned, definition: saved.genesis.definition.$link }, saved);
+        await archiveEvaluator.call('sync', { session: floor.session, input: checked.input }, 120_000);
+      }
+    } finally {
+      archiveEvaluator.dispose();
+    }
     if (!stillCurrent(generation)) return;
     const invitation = { app: checked.input.genesis.app, genesis: checked.input.genesisCid };
     await pinInvitation(invitation);
-    await store.set(`verified:${invitation.app}:${invitation.genesis}`, checked.input);
+    await retainVerified(store, checked.input);
     await store.update<AppInvitation[]>('apps', (previous) => [
       ...(previous ?? []).filter((app) => app.app !== invitation.app),
       { ...invitation, title: 'Imported application' },
@@ -677,9 +703,3 @@ if ('serviceWorker' in navigator) {
       document.querySelector('#offline-ready')!.textContent = 'Offline shell is not saved';
     });
 }
-
-document.querySelector('#cancel-work')!.addEventListener('click', () => {
-  localWorkGeneration++;
-  evaluator.cancel('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
-  tell('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
-});

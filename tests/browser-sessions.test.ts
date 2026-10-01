@@ -1,3 +1,4 @@
+import { exportArchive, encodeArchive } from '../src/archive/archive.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
@@ -181,6 +182,93 @@ test('browser sessions retain trust and device work across switches and restarts
         { probe, latestText: JSON.stringify(latestA), initialText: JSON.stringify(initialA), binding },
       );
       assert.equal(refused, true);
+    });
+    await t.test(
+      'a failed or cancelled first worker load preserves the saved prefix against host rollback',
+      async () => {
+        for (const mode of ['failed', 'cancelled']) {
+          const isolated = await browser.newContext({ serviceWorkers: 'block' });
+          await isolated.addInitScript({ content: 'globalThis.__name = (fn) => fn;' });
+          const tab = await isolated.newPage();
+          try {
+            await tab.goto(service.url);
+            await tab.evaluate(
+              async ({ probe, latestText }) => {
+                const { DeviceStore } = await import(probe);
+                const store = await DeviceStore.open(),
+                  input = JSON.parse(latestText);
+                await store.set(`verified:${input.genesis.app}:${input.genesisCid}`, input);
+                store.close();
+              },
+              { probe, latestText: JSON.stringify(latestA) },
+            );
+            await tab.route('**/xrpc/ai.generalbusiness.atseq.sync?**', (route) => route.fulfill({ json: initialA }));
+            let release!: () => void, arrived!: () => void;
+            const held = new Promise<void>((resolve) => (release = resolve)),
+              requested = new Promise<void>((resolve) => (arrived = resolve));
+            let first = true;
+            await tab.route('**' + worker, async (route) => {
+              if (!first) {
+                await route.continue();
+                return;
+              }
+              first = false;
+              arrived();
+              if (mode === 'failed') await route.fulfill({ status: 404, body: 'Missing worker' });
+              else {
+                await held;
+                await route.continue();
+              }
+            });
+            await tab.evaluate((target) => {
+              location.hash = new URLSearchParams(target).toString();
+            }, a);
+            await requested;
+            if (mode === 'cancelled') {
+              await tab.getByRole('button', { name: 'Cancel local work', exact: true }).click();
+              release();
+            }
+            await expect(tab.getByRole('status')).toContainText(mode === 'failed' ? 'Worker failed' : 'cancelled');
+            const retry = tab.getByRole('button', { name: 'Retry', exact: true });
+            await expect(retry).toBeVisible();
+            await retry.click();
+            await expect(tab.getByRole('status')).toContainText('behind interpretation');
+            const count = await tab.evaluate(
+              async ({ probe, a }) => {
+                const { DeviceStore } = await import(probe),
+                  store = await DeviceStore.open();
+                const saved = await store.get(`verified:${a.app}:${a.genesis}`);
+                store.close();
+                return saved.entries.length;
+              },
+              { probe, a },
+            );
+            assert.equal(count, 1);
+          } finally {
+            await isolated.close();
+          }
+        }
+      },
+    );
+    await t.test('an older archive cannot replace saved history for the same genesis', async () => {
+      await open(a);
+      const archived = encodeArchive(await exportArchive(initialA, a));
+      await page
+        .getByLabel('Import app archive', { exact: true })
+        .setInputFiles({ name: 'older.atseq.json', mimeType: 'application/json', buffer: Buffer.from(archived) });
+      await expect(page.getByRole('status')).toContainText('behind interpretation');
+      const count = await page.evaluate(
+        async ({ probe, a }) => {
+          const { DeviceStore } = await import(probe),
+            store = await DeviceStore.open();
+          const saved = await store.get(`verified:${a.app}:${a.genesis}`);
+          store.close();
+          return saved.entries.length;
+        },
+        { probe, a },
+      );
+      assert.equal(count, 1);
+      await expect(page.getByRole('heading', { name: 'Participate', exact: true })).toBeVisible();
     });
     await t.test('a slow A refresh cannot replace offline B or label its query and archive as A', async () => {
       await open(b);

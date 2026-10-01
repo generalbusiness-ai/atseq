@@ -15,8 +15,7 @@ invitations to verify, not trusted pins.
 
 A cancelled, failed or timed-out worker rebuilds from the saved verified prefix
 before interpreting a host update. This preserves rollback and fork detection.
-After three failures the shell requires a page reload. Saved inputs and signed
-work remain on the device.
+The evaluator holds that saved prefix before starting the first load. A failure to load it keeps the app unavailable until it can be rebuilt; it never authorizes a shorter host history. Cancellation is available during startup. After three consecutive worker failures the shell requires a page reload; a successful reply resets that count. Saved inputs and signed work remain on the device. Archive import uses a separate evaluator and checks the archive against the saved prefix before replacing device history. The storage transaction also refuses a shorter or forked replacement if another operation saved newer history meanwhile.
 
 ## Signing keys
 
