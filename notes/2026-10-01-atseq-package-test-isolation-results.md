@@ -105,7 +105,10 @@ permission. The first unrestricted run exposed the changelog omission described
 above. A diagnostic also exceeded its default output buffer; the retry retained
 npm's full file lists. The first Node 22 probe compared a macOS temporary-path
 alias with its real path; correcting the probe to compare real paths resolved
-that assertion. All failed captures remain available alongside the passing ones.
+that assertion. All failed captures remain available alongside the passing ones. Retained raw logs
+produce 15 `git diff --check` whitespace findings from original Vite output and
+blank lines in original failure traces; those capture bytes were preserved. The
+changed test/helper source and this report pass the whitespace check.
 
 The candidate is ready for independent review and integration. The pending OAuth
 candidate separately adds a packed-consumer tampering case to the same test file;
