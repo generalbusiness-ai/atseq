@@ -193,18 +193,20 @@ language or arbitrary directory extraction is added by this task.
 
 The [implementation result](2026-10-01-atseq-authoring-bundle-results.md) reports
 the real PDS, CLI, Chromium and packaged-consumer checks and retains exact source
-inputs and hashes. The final full suite passes 364 tests.
+inputs and hashes. The integrated successor passes all 373 tests; the original
+364-test candidate remains retained as historical evidence.
 
 - [`SourceBundle`](../src/definition/source.ts) packs raw bytes, verifies CAR
   blocks and enforces transport limits.
 - [`LoadedDefinition`](../src/definition/load.ts) checks manifest shape, paths,
   the complete source closure, schemas, programs and optional views.
 - [`describeDefinition`](../src/application/definition.ts) currently omits
-  exact source bytes; host and browser worker share it.
+  exact source bytes by default and supplies them only on explicit request;
+  host and browser worker share it.
 - [`JSON CLI`](../src/cli/main.ts) provides directory packing and generic
   creation, submit, query and outcome operations.
 - [`describe` Lexicon](../lexicons/ai/generalbusiness/atseq/describe.json)
-  currently leaves the definition representation unversioned and unknown.
+  validates the lean versioned definition and optional reconstructable source.
 - [Definition guide](../docs/definitions.md) explains the existing retained
   closure; [interaction guide](../docs/interaction.md) explains generic forms
   and the JSON CLI.
@@ -225,5 +227,8 @@ cases validate 1,000 maximum-valued items against each state schema, evaluate
 the retained query and validate the 1,000,000,000 output. They run in Node, the
 Chromium worker and the compiled consumer corpus. Source identities and current
 fixture evidence change; earlier captures remain immutable and are linked to
-their successors. Integration validation waits for the independently reviewed
-maintained dependency correction to land.
+their successors. Integration inherited the independently reviewed
+P1 native-proof and M0 dependency closure; the final Node, Chromium, real PDS
+and packaged-consumer validation passed at the code head named in the result.
+The separate successor captures retain every current derived identity without
+rewriting earlier evidence.

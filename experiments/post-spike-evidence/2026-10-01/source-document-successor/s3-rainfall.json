@@ -1,0 +1,134 @@
+{
+  "genesis": {
+    "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+    "$type": "ai.generalbusiness.atseq.genesis",
+    "profile": {
+      "$link": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu"
+    },
+    "version": 1,
+    "definition": {
+      "$link": "bafyreiavy3ioa4nlngl52i37en4gqjfed5sy42ap2axo3mcb5my6atqn2e"
+    },
+    "sequencerKey": "did:key:zDnaekGMRG8HwSvnvwkLz3jsThdQwgt3u9TmDm9Ps7NbXhzEo",
+    "activationKeys": [
+      "did:key:zDnaeR28WY8RSioMvC7CnPpTr85LZgy1Adv65BeBjQtYFKvcM"
+    ]
+  },
+  "anchor": "bafyreih22zsimkevrfq3oumgbvh3dlnbfmjgn4il7tchqlb4bxtqqt6t6i",
+  "history": {
+    "head": {
+      "$type": "ai.generalbusiness.atseq.head",
+      "version": 1,
+      "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+      "genesis": {
+        "$link": "bafyreih22zsimkevrfq3oumgbvh3dlnbfmjgn4il7tchqlb4bxtqqt6t6i"
+      },
+      "position": 1,
+      "entry": {
+        "$link": "bafyreih5gl2vaqzggfs6tslzn4gz5rs36miwu23k5webc4bhucrehaqkmq"
+      }
+    },
+    "entries": [
+      {
+        "$type": "ai.generalbusiness.atseq.entry",
+        "version": 1,
+        "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+        "genesis": {
+          "$link": "bafyreih22zsimkevrfq3oumgbvh3dlnbfmjgn4il7tchqlb4bxtqqt6t6i"
+        },
+        "position": 1,
+        "prev": {
+          "$link": "bafyreih22zsimkevrfq3oumgbvh3dlnbfmjgn4il7tchqlb4bxtqqt6t6i"
+        },
+        "signedIntent": {
+          "sig": {
+            "$bytes": "A+zPe8tZZFv9q7A6AQ3AePkxOquPgMGuHNBiwyttMDdQNy3uKsXab5kZKixFTv55L1bN15cvux8cGwScek3ohA"
+          },
+          "$type": "ai.generalbusiness.atseq.defs#signedIntent",
+          "intent": {
+            "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+            "$type": "ai.generalbusiness.atseq.defs#intent",
+            "nonce": {
+              "$bytes": "+D7a/igGBOIADzBrrmti1Q"
+            },
+            "action": "test.generated3f3319a788.rainfall.data#record",
+            "genesis": {
+              "$link": "bafyreih22zsimkevrfq3oumgbvh3dlnbfmjgn4il7tchqlb4bxtqqt6t6i"
+            },
+            "payload": {
+              "day": "Monday",
+              "millimetres": 7
+            },
+            "version": 1,
+            "actorKey": "did:key:zDnaeR28WY8RSioMvC7CnPpTr85LZgy1Adv65BeBjQtYFKvcM",
+            "definition": {
+              "$link": "bafyreiavy3ioa4nlngl52i37en4gqjfed5sy42ap2axo3mcb5my6atqn2e"
+            }
+          }
+        },
+        "sequencerKey": "did:key:zDnaekGMRG8HwSvnvwkLz3jsThdQwgt3u9TmDm9Ps7NbXhzEo",
+        "sig": {
+          "$bytes": "dIbrhPd2PMobtsVaGbDsU9BUJu+E2GlJlYe7LTcI4HAm0Z31CZxSqpt6cUH3AWcS6SQpC+XEJTnoo/tpEpvBTw"
+        }
+      }
+    ]
+  },
+  "projection": {
+    "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+    "genesis": "bafyreih22zsimkevrfq3oumgbvh3dlnbfmjgn4il7tchqlb4bxtqqt6t6i",
+    "definition": "bafyreiavy3ioa4nlngl52i37en4gqjfed5sy42ap2axo3mcb5my6atqn2e",
+    "frontier": {
+      "$type": "ai.generalbusiness.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreih5gl2vaqzggfs6tslzn4gz5rs36miwu23k5webc4bhucrehaqkmq"
+      }
+    },
+    "state": {
+      "readings": [
+        {
+          "day": "Monday",
+          "millimetres": 7
+        }
+      ]
+    },
+    "outcomes": [
+      {
+        "position": 1,
+        "entry": "bafyreih5gl2vaqzggfs6tslzn4gz5rs36miwu23k5webc4bhucrehaqkmq",
+        "intent": "bafyreifhphovbycnnhrnjhnzaetzkcd6r7y65vzgkfe2ac7fym5d4dqujy",
+        "outcome": {
+          "$type": "ai.generalbusiness.atseq.defs#effective"
+        }
+      }
+    ]
+  },
+  "query": {
+    "head": {
+      "app": "did:plc:eeeeeeeeeeeeeeeeeeeeeeee",
+      "$type": "ai.generalbusiness.atseq.head",
+      "entry": {
+        "$link": "bafyreih5gl2vaqzggfs6tslzn4gz5rs36miwu23k5webc4bhucrehaqkmq"
+      },
+      "genesis": {
+        "$link": "bafyreih22zsimkevrfq3oumgbvh3dlnbfmjgn4il7tchqlb4bxtqqt6t6i"
+      },
+      "version": 1,
+      "position": 1
+    },
+    "frontier": {
+      "$type": "ai.generalbusiness.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreih5gl2vaqzggfs6tslzn4gz5rs36miwu23k5webc4bhucrehaqkmq"
+      }
+    },
+    "result": {
+      "$type": "ai.generalbusiness.atseq.defs#queryAvailable",
+      "value": {
+        "count": 1,
+        "total": 7
+      }
+    }
+  }
+}

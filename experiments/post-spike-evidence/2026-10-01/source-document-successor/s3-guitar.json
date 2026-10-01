@@ -1,0 +1,137 @@
+{
+  "genesis": {
+    "app": "did:plc:ffffffffffffffffffffffff",
+    "$type": "ai.generalbusiness.atseq.genesis",
+    "profile": {
+      "$link": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu"
+    },
+    "version": 1,
+    "definition": {
+      "$link": "bafyreia7sdbxc3nkbzp7q6yakd3epcfze5vdn2cx2qlfhght5cplrgduwi"
+    },
+    "sequencerKey": "did:key:zDnaesrFdVgTPdA6Q8Y154Gyg4bCXc1nY2bK45eZ1MJrTaiFC",
+    "activationKeys": [
+      "did:key:zDnaeoo672rPVcjmUH1UFUgQHsPZrgAByo97LHRYyxUac2rDh"
+    ]
+  },
+  "anchor": "bafyreia53p4gazbot2oumc2epvrr25ia2hikjebahslxlvxfbfk672ciwu",
+  "history": {
+    "head": {
+      "$type": "ai.generalbusiness.atseq.head",
+      "version": 1,
+      "app": "did:plc:ffffffffffffffffffffffff",
+      "genesis": {
+        "$link": "bafyreia53p4gazbot2oumc2epvrr25ia2hikjebahslxlvxfbfk672ciwu"
+      },
+      "position": 1,
+      "entry": {
+        "$link": "bafyreibuv6vrruede6pr37xcgfslorteu4dpdapbip2amnahilvfk7ei4m"
+      }
+    },
+    "entries": [
+      {
+        "$type": "ai.generalbusiness.atseq.entry",
+        "version": 1,
+        "app": "did:plc:ffffffffffffffffffffffff",
+        "genesis": {
+          "$link": "bafyreia53p4gazbot2oumc2epvrr25ia2hikjebahslxlvxfbfk672ciwu"
+        },
+        "position": 1,
+        "prev": {
+          "$link": "bafyreia53p4gazbot2oumc2epvrr25ia2hikjebahslxlvxfbfk672ciwu"
+        },
+        "signedIntent": {
+          "sig": {
+            "$bytes": "W0w18Ucq8anRiVPa43dIE1jFBdm9YWfAPReJrlhj9xN66XmC/hbeSUD/KFz1U6j7BMLrOrEuLjAOEHSXslIxjg"
+          },
+          "$type": "ai.generalbusiness.atseq.defs#signedIntent",
+          "intent": {
+            "app": "did:plc:ffffffffffffffffffffffff",
+            "$type": "ai.generalbusiness.atseq.defs#intent",
+            "nonce": {
+              "$bytes": "W80yh0xoPnmb5/utiJPHFg"
+            },
+            "action": "test.generated3f3319a788.guitar.data#candidate",
+            "genesis": {
+              "$link": "bafyreia53p4gazbot2oumc2epvrr25ia2hikjebahslxlvxfbfk672ciwu"
+            },
+            "payload": {
+              "id": "one",
+              "title": "Example guitar",
+              "pricePence": 12500
+            },
+            "version": 1,
+            "actorKey": "did:key:zDnaeoo672rPVcjmUH1UFUgQHsPZrgAByo97LHRYyxUac2rDh",
+            "definition": {
+              "$link": "bafyreia7sdbxc3nkbzp7q6yakd3epcfze5vdn2cx2qlfhght5cplrgduwi"
+            }
+          }
+        },
+        "sequencerKey": "did:key:zDnaesrFdVgTPdA6Q8Y154Gyg4bCXc1nY2bK45eZ1MJrTaiFC",
+        "sig": {
+          "$bytes": "YQPaaXJpazjrgf7eagX6RiWvd801pY3deIBeBw1EeUERoG8GzAD9eOIop5vOOAXw3j5XY61ml3XHUhgbGD2yzw"
+        }
+      }
+    ]
+  },
+  "projection": {
+    "app": "did:plc:ffffffffffffffffffffffff",
+    "genesis": "bafyreia53p4gazbot2oumc2epvrr25ia2hikjebahslxlvxfbfk672ciwu",
+    "definition": "bafyreia7sdbxc3nkbzp7q6yakd3epcfze5vdn2cx2qlfhght5cplrgduwi",
+    "frontier": {
+      "$type": "ai.generalbusiness.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreibuv6vrruede6pr37xcgfslorteu4dpdapbip2amnahilvfk7ei4m"
+      }
+    },
+    "state": {
+      "candidates": [
+        {
+          "id": "one",
+          "pricePence": 12500,
+          "title": "Example guitar"
+        }
+      ],
+      "selected": ""
+    },
+    "outcomes": [
+      {
+        "position": 1,
+        "entry": "bafyreibuv6vrruede6pr37xcgfslorteu4dpdapbip2amnahilvfk7ei4m",
+        "intent": "bafyreiagy6nvvi5nnjlg4xzm6a4fgtwnqt2z5mxhrpqd7iftg76e6jayiq",
+        "outcome": {
+          "$type": "ai.generalbusiness.atseq.defs#effective"
+        }
+      }
+    ]
+  },
+  "query": {
+    "head": {
+      "app": "did:plc:ffffffffffffffffffffffff",
+      "$type": "ai.generalbusiness.atseq.head",
+      "entry": {
+        "$link": "bafyreibuv6vrruede6pr37xcgfslorteu4dpdapbip2amnahilvfk7ei4m"
+      },
+      "genesis": {
+        "$link": "bafyreia53p4gazbot2oumc2epvrr25ia2hikjebahslxlvxfbfk672ciwu"
+      },
+      "version": 1,
+      "position": 1
+    },
+    "frontier": {
+      "$type": "ai.generalbusiness.atseq.defs#cursor",
+      "position": 1,
+      "entry": {
+        "$link": "bafyreibuv6vrruede6pr37xcgfslorteu4dpdapbip2amnahilvfk7ei4m"
+      }
+    },
+    "result": {
+      "$type": "ai.generalbusiness.atseq.defs#queryAvailable",
+      "value": {
+        "count": 1,
+        "selected": ""
+      }
+    }
+  }
+}
