@@ -10,6 +10,7 @@
       <a href="/" class="brand">atseq<span>folder over a log</span></a
       ><span class="scope">Test PDS · public demo data</span>
       <div id="identity"></div>
+      <button id="host-access" type="button">Host access</button>
     </header>
     <div class="layout">
       <aside>
@@ -41,6 +42,20 @@
         <p id="identity-error" role="alert"></p>
         <button type="submit" class="primary">Continue</button
         ><button type="button" id="identity-cancel">Cancel</button>
+      </form>
+    </dialog>
+    <dialog id="host-access-dialog">
+      <form id="host-access-form">
+        <h2>Host operator access</h2>
+        <p>
+          Previewing, starting and staging apps requires the host operator token. Joining an app and submitting signed
+          actions does not.
+        </p>
+        <label>Operator token<input type="password" required autocomplete="off" /></label>
+        <p class="muted">
+          Read the token from the private file named by your host. It stays in this tab’s session storage.
+        </p>
+        <button type="submit">Save host access</button><button id="host-access-cancel" type="button">Cancel</button>
       </form>
     </dialog>
     <script type="module" src="./main.ts"></script>

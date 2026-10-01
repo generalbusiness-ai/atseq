@@ -2,7 +2,6 @@ import { randomBytes } from 'node:crypto';
 import { join } from 'node:path';
 import { atomicFile, readJson } from './files.ts';
 import { PdsClient, PdsError } from './pds.ts';
-import { responseBytes } from '../transport/api.ts';
 
 export interface AccountProvider {
   open(creationId: string): Promise<PdsClient>;
@@ -29,21 +28,10 @@ export class LocalAccounts implements AccountProvider {
       // back in to that same account instead of allocating a second application.
       await atomicFile(path, JSON.stringify(credentials));
     }
-    const call = async (method: string, body: unknown) => {
-      const response = await fetch(`${this.url}/xrpc/${method}`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(body),
-        redirect: 'error',
-        signal: AbortSignal.timeout(15_000),
-      });
-      const raw = new TextDecoder('utf-8', { fatal: true }).decode(await responseBytes(response, 65536));
-      const value = JSON.parse(raw);
-      if (!response.ok) throw new PdsError(response.status, value.error ?? 'AccountUnavailable');
-      if (typeof value.did !== 'string' || typeof value.accessJwt !== 'string')
-        throw new Error('Invalid account response');
-      return new PdsClient(this.url, value.did, value.accessJwt);
-    };
+    const call = (
+      method: 'com.atproto.server.createSession' | 'com.atproto.server.createAccount',
+      body: Record<string, unknown>,
+    ) => PdsClient.account(this.url, method, body);
     try {
       return await call('com.atproto.server.createSession', {
         identifier: credentials.handle,

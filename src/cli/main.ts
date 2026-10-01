@@ -14,10 +14,13 @@ import { Anchor, verifyIntent } from '../protocol/log.ts';
 import { bytes, contentCid, decodeBlock } from '../protocol/wire.ts';
 import { checkOutput, writeOutput, type OutputPolicy } from './output.ts';
 import { ProtocolError } from '../protocol/wire.ts';
+import { readPrivateFile } from '../storage/private.ts';
 function outputPolicy(input: any): OutputPolicy {
   return {
     overwrite: input.overwrite === true,
-    protectedFiles: [input.keyFile, input.intentFile].filter((path): path is string => typeof path === 'string'),
+    protectedFiles: [input.keyFile, input.intentFile, input.hostTokenFile].filter(
+      (path): path is string => typeof path === 'string',
+    ),
   };
 }
 
@@ -131,7 +134,9 @@ export async function execute(input: any): Promise<unknown> {
       definition: rebuilt.snapshot.projection.definition,
     };
   }
-  const api = new AtseqClient(input.host);
+  const token = input.hostTokenFile ? (await readPrivateFile(input.hostTokenFile)).trim() : undefined;
+  if (token && !/^[A-Za-z0-9_-]{43,128}$/.test(token)) throw new Error('Invalid host token file');
+  const api = new AtseqClient(input.host, token);
   const target = { app: input.app, genesis: input.genesis };
   switch (input.operation) {
     case 'export': {

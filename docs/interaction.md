@@ -105,7 +105,11 @@ writes the resulting CAR outside that source folder.
 { "operation": "pack", "directory": "/absolute/source", "output": "/absolute/draft.car" }
 ```
 
-The remaining requests include `host`, the printed Atseq origin:
+The remaining requests include `host`, the printed Atseq origin. Procedures also
+include `hostTokenFile`, the absolute path printed by the host. It is a regular
+file owned by the current user with mode 0600. The CLI sends its token only to
+the selected host; output commands protect the token file from replacement.
+Read methods (`list`, `describe`, `query`, `outcome` and `export`) remain public:
 
 | Operation  | Additional input                                                             | Result                                                  |
 | ---------- | ---------------------------------------------------------------------------- | ------------------------------------------------------- |
@@ -138,9 +142,28 @@ The local service accepts its exact Host and Origin, permits CLI calls without
 an Origin header and enables no cross-origin browser access. JSON import bodies
 are bounded to 768 KiB; signed blocks retain their 64 KiB limit, definitions
 512 KiB, and read responses 32 MiB. These operational bounds do not expand the
-runtime profile. PDS credentials live only in the host. Session renewal is
-performed when restoring/opening an account; automatic long-running token
-refresh and production provisioning are outside this spike.
+runtime profile. Operator procedures (`preview`, `validateDraft`, `create`,
+`compareDefinition` and `stageDefinition`) require the retained host token.
+Participant `submit` is authenticated by its signed intent and needs no operator
+token. All requests retain the same Origin, Host, size and signature checks.
+Browser invitation links work for participants without host credentials.
+**Host access** lets an operator enter a token from the private file; it stays
+in that tab’s session storage. Preview URLs contain no token and are safe to
+print. Authentication failure is an explicit host-access state, not a permanent
+refusal of signed work.
+
+The default host caps applications at 32, including incomplete creations, and
+retained drafts at 32 files / 16 MiB. Repeating an existing creation ID or draft
+remains possible within its existing allocation. Quota and authentication
+responses never mark a signed intent as permanently refused. Only definite
+signature or input-schema refusals are final; integrity and availability failures
+use HTTP 503 with separate error codes.
+
+PDS credentials live only in the host. Expired access sessions renew once using
+the retained refresh credential; concurrent requests share renewal. Unusable
+credentials report `host_authentication`. Restore attempts each app independently
+and writes `restore-errors.json` with failures. Production account provisioning
+is an operator concern.
 
 ## Verification
 
@@ -168,3 +191,17 @@ A created app's invitation is the host origin, app DID and pinned genesis CID.
 The live browser URL is `HOST/#app=URL_ENCODED_APP_DID&genesis=GENESIS_CID`;
 construct the fragment with `URLSearchParams`. Loading it creates no signature.
 The `previewUrl` returned by preview identifies a draft, which remains unpublished.
+
+Host previews are a bounded cache, separate from published source and device
+drafts. Reading or replacing a preview keeps it recent; older previews are
+evicted at the count or byte limit. An expired preview returns `draft_not_found`
+with 404 and can be recreated from its source. A single preview larger than the
+byte budget returns `draft_limit`.
+
+Complete-prefix limits have stable codes `snapshot_limit` and
+`definition_history_limit`, status 413 and `permanent: true`: retrying the same
+prefix cannot fit this host's bounds. They never retire valid signed work.
+Source transport failures retain `content_unavailable` rather than becoming a
+history-limit error. A known dead PDS credential is remembered until the host
+restarts and the account provider logs in again. Restore diagnostics keep the
+original error name and message in the local `restore-errors.json`.

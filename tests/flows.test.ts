@@ -1,3 +1,4 @@
+import { readHostToken } from '../src/host/token.ts';
 import test from 'node:test';
 import { recordFlowEvidence, type MeasuredCase } from './helpers/evidence.ts';
 import assert from 'node:assert/strict';
@@ -39,7 +40,7 @@ test('human and agent participation on a real PDS', async (t) => {
   const host = new ApplicationHost(directory, accounts);
   let service = await startApplicationService(host);
   try {
-    const api = new AtseqClient(service.url),
+    const api = new AtseqClient(service.url, await readHostToken(service.tokenFile)),
       fixture = await guitarFixture(),
       identity = await createIdentity('CLI test');
     const source = bytes(await fixture.bundle.write()),
@@ -80,16 +81,21 @@ test('human and agent participation on a real PDS', async (t) => {
     });
     await check('host restart restores the same app and interpreted history', async () => {
       await service.close();
+      const broken = randomUUID();
+      await mkdir(join(directory, broken));
+      await writeFile(join(directory, broken, 'creation-secret.json'), '{broken');
       const restored = new ApplicationHost(directory, accounts);
       await restored.restore();
+      assert.equal(Object.keys(restored.restorationFailures()).length, 1);
+      assert.equal(restored.restorationFailures()[broken]?.code, 'runtime_fault');
       service = await startApplicationService(restored);
-      const after = new AtseqClient(service.url);
+      const after = new AtseqClient(service.url, await readHostToken(service.tokenFile));
       const receipt = await after.call('receipt', { ...invitation, intent: intent.cid });
       assert.equal(receipt.receipt.position, 1);
       assert.equal((await after.call('list')).apps.length, 1);
     });
     await check('concurrent reads and submissions report coherent heads and frontiers', async () => {
-      const client = new AtseqClient(service.url);
+      const client = new AtseqClient(service.url, await readHostToken(service.tokenFile));
       const pending = await Promise.all(
         Array.from({ length: 5 }, (_, i) =>
           prepareIntent(identity, invitation, fixture.bundle.root, fixture.action, {
@@ -121,10 +127,22 @@ test('human and agent participation on a real PDS', async (t) => {
       }
       const packed = await cli({ operation: 'pack', directory: root, output });
       assert.equal(packed.definition, fixture.bundle.root);
-      const checked = await cli({ operation: 'validate', host: service.url, source: output });
+      const checked = await cli({
+        operation: 'validate',
+        host: service.url,
+        hostTokenFile: service.tokenFile,
+        source: output,
+      });
       assert.equal(checked.definition.cid, fixture.bundle.root);
       await cli({ operation: 'identity', keyFile, name: 'Source author' });
-      const input = { operation: 'create', host: service.url, source: output, keyFile, creationId: randomUUID() };
+      const input = {
+        operation: 'create',
+        host: service.url,
+        hostTokenFile: service.tokenFile,
+        source: output,
+        keyFile,
+        creationId: randomUUID(),
+      };
       const created = await cli(input);
       assert.deepEqual((await cli(input)).genesisCid, created.genesisCid);
     });

@@ -1,3 +1,4 @@
+import { readHostToken } from '../src/host/token.ts';
 import test from 'node:test';
 import { recordFlowEvidence, type MeasuredCase } from './helpers/evidence.ts';
 import assert from 'node:assert/strict';
@@ -44,9 +45,11 @@ test('two browser identities and the JSON CLI use generic participation flows', 
   const browser = await chromium.launch(),
     first = await browser.newContext(),
     second = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const testHostToken = await readHostToken(service.tokenFile);
+  await first.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
   const a = await first.newPage(),
     b = await second.newPage(),
-    api = new AtseqClient(service.url);
+    api = new AtseqClient(service.url, await readHostToken(service.tokenFile));
   a.setDefaultTimeout(5000);
   b.setDefaultTimeout(5000);
   const errors: string[] = [];
@@ -58,7 +61,12 @@ test('two browser identities and the JSON CLI use generic participation flows', 
   let invitation: { app: string; genesis: string };
   try {
     await check('CLI preview opens the same source in the browser without publication', async () => {
-      const preview = await cli({ operation: 'preview', host: service.url, source: sourcePath });
+      const preview = await cli({
+        operation: 'preview',
+        host: service.url,
+        hostTokenFile: service.tokenFile,
+        source: sourcePath,
+      });
       await a.goto(preview.previewUrl);
       await expect(a.getByRole('heading', { name: 'Weekend guitar search', exact: true })).toBeVisible();
       assert.equal((await api.call('list')).apps.length, 0);
@@ -159,6 +167,7 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       const input = {
         operation: 'submit',
         host: service.url,
+        hostTokenFile: service.tokenFile,
         ...invitation!,
         definition: fixture.bundle.root,
         keyFile,
@@ -174,7 +183,13 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       assert.equal(submitted.receipt.position, 3);
       assert.equal((await cli(input)).receipt.position, 3);
       assert.deepEqual(await readFile(intentFile), retained);
-      const receipt = await cli({ operation: 'outcome', host: service.url, ...invitation!, intent: submitted.intent });
+      const receipt = await cli({
+        operation: 'outcome',
+        host: service.url,
+        hostTokenFile: service.tokenFile,
+        ...invitation!,
+        intent: submitted.intent,
+      });
       assert.equal(receipt.outcome.$type, 'ai.generalbusiness.atseq.defs#effective');
       const history = await api.call('sync', invitation!);
       assert.ok(history.entries.slice(0, 2).every((e: any) => e.signedIntent.intent.actorKey !== identity.publicKey));
@@ -219,7 +234,12 @@ test('two browser identities and the JSON CLI use generic participation flows', 
         route.fulfill({
           status: 400,
           contentType: 'application/json',
-          body: JSON.stringify({ error: 'InvalidRequest', message: 'Fixture transport refusal' }),
+          body: JSON.stringify({
+            error: 'InvalidRequest',
+            code: 'signature',
+            permanent: true,
+            message: 'Fixture transport refusal',
+          }),
         }),
       );
       await a.getByRole('button', { name: 'candidate', exact: true }).click();

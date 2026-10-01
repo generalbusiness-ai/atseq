@@ -1,3 +1,4 @@
+import { readHostToken } from '../src/host/token.ts';
 import { join, resolve } from 'node:path';
 import { buildShell } from '../src/host/build.ts';
 import { startEnvironment } from '../experiments/pds/environment.mjs';
@@ -15,8 +16,9 @@ const env = await startEnvironment(),
 const host = new ApplicationHost(directory, new LocalAccounts(env.url, directory));
 const service = await startApplicationService(host, { staticRoot: root, port: Number(process.env.ATSEQ_PORT ?? 0) });
 console.log(`Atseq test host: ${service.url}`);
+console.log(`Host token file: ${service.tokenFile}`);
 console.log('Disposable test PDS; synthetic demo data only. No app is published until Start.');
-const api = new AtseqClient(service.url);
+const api = new AtseqClient(service.url, await readHostToken(service.tokenFile));
 for (const fixture of [await chartFixture(), await guitarFixture()]) {
   const preview = await api.call('preview', { source: bytes(await fixture.bundle.write()) });
   console.log(`${fixture.manifest.title}: ${preview.previewUrl}`);

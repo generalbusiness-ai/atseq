@@ -1,3 +1,4 @@
+import { readHostToken } from '../src/host/token.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
@@ -49,7 +50,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
   const accounts = new LocalAccounts(env.url, directory),
     host = new ApplicationHost(directory, accounts);
   let service = await startApplicationService(host, { staticRoot: root });
-  const api = new AtseqClient(service.url),
+  const api = new AtseqClient(service.url, await readHostToken(service.tokenFile)),
     identity = await createIdentity('Archive owner'),
     fixture = await guitarEvolution(),
     creationId = randomUUID();
@@ -195,7 +196,12 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       await rm(cache);
       await assert.rejects(() => readFile(cache), { code: 'ENOENT' });
       const output = join(env.dir, 'rebuilt');
-      const result = await cli({ operation: 'replay', source: archivePath, outputDirectory: output, ...target });
+      const result = await cli({
+        operation: 'replay',
+        source: archivePath,
+        outputDirectory: output,
+        ...target,
+      });
       assert.equal(result.frontier.position, 4);
       assert.deepEqual(
         JSON.parse(await readFile(join(output, 'projection.json'), 'utf8')),

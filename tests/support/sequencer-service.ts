@@ -1,31 +1,16 @@
-import { NSID } from '../core/nsids.ts';
+import { readInput } from '../../src/host/input.ts';
+import { NSID } from '../../src/core/nsids.ts';
 import { createServer, type IncomingMessage } from 'node:http';
 import { Lexicons, jsonToLex, lexToJson } from '@atproto/lexicon';
 import { fromBytes } from '@atcute/cbor';
-import { frameworkLexicons } from '../protocol/schemas.ts';
-import { ProtocolError, WIRE } from '../protocol/wire.ts';
-import type { Anchor } from '../protocol/log.ts';
-import { PdsError } from './pds.ts';
-import type { Sequencer } from './sequencer.ts';
+import { frameworkLexicons } from '../../src/protocol/schemas.ts';
+import { ProtocolError, WIRE } from '../../src/protocol/wire.ts';
+import type { Anchor } from '../../src/protocol/log.ts';
+import { PdsError } from '../../src/host/pds.ts';
+import type { Sequencer } from '../../src/host/sequencer.ts';
 
 const schemas = new Lexicons(structuredClone([...frameworkLexicons]));
-async function readInput(req: IncomingMessage): Promise<any> {
-  if (req.headers['content-type']?.split(';')[0] !== 'application/json')
-    throw new ProtocolError('input', 'Expected JSON');
-  const chunks: Buffer[] = [];
-  let size = 0;
-  for await (const chunk of req) {
-    size += chunk.length;
-    if (size > WIRE.jsonBytes) throw new ProtocolError('input', 'Request exceeds the wire limit');
-    chunks.push(chunk);
-  }
-  try {
-    return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(Buffer.concat(chunks)));
-  } catch {
-    throw new ProtocolError('input', 'Expected valid JSON');
-  }
-}
-/** S2 transport methods only. A receipt is never a claim of domain effect. */
+/** Test-only transport fixture for the sequencer crash/retry tests. */
 export async function startSequencerService(sequencer: Sequencer, anchor: Anchor, port = 0) {
   const server = createServer(async (req, res) => {
     const send = (status: number, value: unknown) => {
@@ -38,7 +23,7 @@ export async function startSequencerService(sequencer: Sequencer, anchor: Anchor
       const method = url.pathname.replace(/^\/xrpc\//, '');
       let output: any;
       if (method === NSID.submit && req.method === 'POST') {
-        const input = await readInput(req);
+        const input: any = await readInput(req, WIRE.jsonBytes);
         try {
           schemas.assertValidXrpcInput(method, jsonToLex(input));
         } catch {

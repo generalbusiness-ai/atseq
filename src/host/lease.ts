@@ -17,8 +17,9 @@ export function acquireWriterLease(directory: string, app: string): WriterLease 
     db.exec(
       'PRAGMA locking_mode=EXCLUSIVE; BEGIN EXCLUSIVE; CREATE TABLE IF NOT EXISTS checkpoint (id INTEGER PRIMARY KEY CHECK(id = 1), value TEXT NOT NULL); COMMIT',
     );
-  } catch {
+  } catch (error) {
     db.close();
+    if (((error as { errcode?: number }).errcode ?? 0) % 256 !== 5) throw error;
     throw new Error('Another local process holds this application writer lease');
   }
   let open = true;

@@ -3,7 +3,7 @@ import { P256PrivateKeyExportable } from '@atcute/crypto';
 import { Anchor } from '../../src/protocol/log.ts';
 import { PdsClient } from '../../src/host/pds.ts';
 import { Sequencer } from '../../src/host/sequencer.ts';
-import { startSequencerService } from '../../src/host/service.ts';
+import { startSequencerService } from '../support/sequencer-service.ts';
 
 try {
   const config = JSON.parse(await readFile(process.argv[2]!, 'utf8'));
