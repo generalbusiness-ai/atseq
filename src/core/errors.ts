@@ -85,6 +85,7 @@ export const HOST_ERRORS = Object.freeze({
   input: 'invalid_input',
   key: 'invalid_input',
   missing_history: 'invalid_input',
+  native_proof_limit: 'transient',
   origin: 'invalid_input',
   path: 'invalid_input',
   payload: 'invalid_input',

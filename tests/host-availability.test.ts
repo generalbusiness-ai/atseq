@@ -5,6 +5,9 @@ import { PdsClient } from '../src/host/pds.ts';
 import { PdsError } from '../src/host/pds.ts';
 import { ProtocolError, InterpretationError } from '../src/core/errors.ts';
 import { hostFailure } from '../src/host/errors.ts';
+import { authenticateRepo } from '../src/protocol/native-proof.ts';
+import { NSID } from '../src/core/nsids.ts';
+import { nativeFixture } from './support/native-proof-corpus.ts';
 import { readdir, utimes, mkdtemp, mkdir, rm, readFile, writeFile, stat, chmod, symlink } from 'node:fs/promises';
 import { randomUUID, createHash } from 'node:crypto';
 import { join } from 'node:path';
@@ -185,6 +188,49 @@ test('only definite invalid input is final; integrity and host availability erro
   assert.equal(auth.body.code, 'host_authentication');
   assert.equal(auth.body.permanent, false);
   assert.equal(hostFailure(new ProtocolError('definition_changed', 'refresh')).body.permanent, false);
+});
+
+test('actual native proof limits remain unavailable and nonpermanent through host HTTP', async () => {
+  const fixture = await nativeFixture();
+  const directory = await mkdtemp(join(tmpdir(), 'atseq-native-limit-http-'));
+  const host = new ApplicationHost(directory, {
+    open: async () => {
+      throw Error('Unused fixture account');
+    },
+  });
+  const service = await startApplicationService(host);
+  try {
+    for (const [options, status, code, permanent] of [
+      [{ ...fixture.options, limits: { carBytes: 1 } }, 503, 'native_proof_limit', false],
+      [{ ...fixture.options, expectedDid: 'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb' }, 400, 'input', true],
+    ] as const) {
+      let failure: unknown;
+      try {
+        await authenticateRepo(options);
+      } catch (error) {
+        failure = error;
+      }
+      assert.ok(failure instanceof ProtocolError);
+      const mapped = hostFailure(failure);
+      assert.equal(mapped.status, status);
+      assert.equal(mapped.body.code, code);
+      assert.equal(mapped.body.permanent, permanent);
+      // Inject the actual proof failure at the existing host boundary; native
+      // readers are not yet wired into host procedures by this task.
+      host.list = () => {
+        throw failure;
+      };
+      const response = await fetch(`${service.url}/xrpc/${NSID.list}`);
+      assert.equal(response.status, status);
+      assert.deepEqual(await response.json(), mapped.body);
+      const client = new AtseqClient(service.url);
+      await assert.rejects(() => client.call('list'), { status, code, permanent });
+    }
+  } finally {
+    await service.close();
+    await host.close();
+    await rm(directory, { recursive: true, force: true });
+  }
 });
 
 test('expiry renews once across concurrent JSON, blob and upload calls', async () => {

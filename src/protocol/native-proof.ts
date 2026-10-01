@@ -40,7 +40,10 @@ type CacheLimits = { [K in keyof typeof NATIVE_CACHE_BROWSER]: number };
 function fail(message: string): never {
   throw new ProtocolError('input', message);
 }
-/** Only bounded input failures from the pinned readers/walker are permanent. */
+function limit(message: string): never {
+  throw new ProtocolError('native_proof_limit', message);
+}
+/** Structural input failures are permanent; local resource limits are not. */
 function rethrowNativeInput(error: unknown): never {
   if (error instanceof AtseqError) {
     if (error instanceof ProtocolError && error.kind === 'invalid_input') fail(error.message);
@@ -89,9 +92,17 @@ function cborCid(value: string): string {
   if (parsed.codec !== CID.CODEC_DCBOR || CID.toString(parsed) !== value) fail('Expected canonical CBOR CID');
   return value;
 }
+function nativeFraming(raw: Uint8Array, depth: number): void {
+  try {
+    validateCborFraming(raw, depth);
+  } catch (error) {
+    if (error instanceof ProtocolError && error.code === 'wire_depth') limit('Native CBOR depth exceeds budget');
+    throw error;
+  }
+}
 function decode(raw: Uint8Array, limits: ProofLimits): unknown {
-  if (raw.length > limits.blockBytes) fail('Native block exceeds budget');
-  validateCborFraming(raw, limits.depth);
+  if (raw.length > limits.blockBytes) limit('Native block bytes exceed budget');
+  nativeFraming(raw, limits.depth);
   const value: unknown = CBOR.decode(raw);
   if (!sameBytes(raw, CBOR.encode(value))) fail('Noncanonical native CBOR block');
   return value;
@@ -182,8 +193,8 @@ export class VerifiedRepoBlocks {
   }
   #admit(staged: Map<string, Uint8Array<ArrayBuffer>>) {
     const stagedBytes = [...staged.values()].reduce((total, bytes) => total + bytes.length, 0);
-    if (stagedBytes > this.#limits.bytes || staged.size > this.#limits.blocks)
-      fail('One CAR exceeds retained cache budget');
+    if (stagedBytes > this.#limits.bytes) limit('One CAR exceeds retained cache byte budget');
+    if (staged.size > this.#limits.blocks) limit('One CAR exceeds retained cache block budget');
     // No await: failed authentication cannot evict anything; admitted blocks are
     // all verified, and this whole cache transaction completes synchronously.
     for (const [cid, bytes] of staged) {
@@ -210,18 +221,14 @@ export class VerifiedRepoBlocks {
       const expectedRoot = options.expectedRoot === undefined ? undefined : cborCid(options.expectedRoot);
       if (typeof expectedDid !== 'string' || expectedDid.length > 2048 || !expectedDid.startsWith('did:'))
         fail('Expected repository DID');
-      if (!(options.carBytes instanceof Uint8Array) || options.carBytes.length > limits.carBytes)
-        fail('CAR exceeds budget');
+      if (!(options.carBytes instanceof Uint8Array)) fail('Expected CAR bytes');
+      if (options.carBytes.length > limits.carBytes) limit('CAR bytes exceed budget');
       const raw = new Uint8Array(options.carBytes);
       const header = decodeVarint(raw, 0, 8);
-      if (
-        !Number.isSafeInteger(header.value) ||
-        header.value < 1 ||
-        header.value > limits.headerBytes ||
-        header.value > raw.length - header.nextOffset
-      )
-        fail('CAR header exceeds budget or input');
-      validateCborFraming(raw.subarray(header.nextOffset, header.nextOffset + header.value), limits.depth);
+      if (!Number.isSafeInteger(header.value) || header.value < 1 || header.value > raw.length - header.nextOffset)
+        fail('Invalid or truncated CAR header');
+      if (header.value > limits.headerBytes) limit('CAR header bytes exceed budget');
+      nativeFraming(raw.subarray(header.nextOffset, header.nextOffset + header.value), limits.depth);
       const car = CAR.fromUint8Array(raw, { verifyBlocks: false });
       if (car.roots.length !== 1) fail('Native CAR must select exactly one root');
       const root = cborCid(car.roots[0]!.$link);
@@ -229,8 +236,8 @@ export class VerifiedRepoBlocks {
       const staged = new Map<string, Uint8Array<ArrayBuffer>>();
       let count = 0;
       for (const block of car) {
-        if (++count > limits.carBlocks || block.bytes.length > limits.blockBytes)
-          fail('CAR block count or size exceeds budget');
+        if (++count > limits.carBlocks) limit('CAR block count exceeds budget');
+        if (block.bytes.length > limits.blockBytes) limit('CAR block bytes exceed budget');
         CAR.verifyBlock(block.cid, block.bytes);
         staged.set(CID.toString(block.cid), new Uint8Array(block.bytes));
       }
@@ -273,16 +280,20 @@ export class VerifiedRepoBlocks {
       };
       class BoundedNodes extends NodeStore {
         loads = 0;
-        constructor(readonly maximum: number) {
+        constructor(
+          readonly maximum: number,
+          readonly scope: 'path' | 'tree',
+        ) {
           super(store);
         }
         override async get(cid: string | null): Promise<MSTNode> {
-          if (++this.loads > this.maximum) fail('MST traversal exceeds budget');
+          if (++this.loads > this.maximum) limit(`MST ${this.scope} node loads exceed budget`);
           if (cid === null) return super.get(cid);
           const bytes = cache.#get(cborCid(cid));
           if (!bytes) throw new MissingBlockError(cid, 'MST node');
           const value = decode(bytes, limits);
-          if (!isNodeData(value) || value.e.length > limits.nodeEntries) fail('Invalid MST node or entry budget');
+          if (!isNodeData(value)) fail('Invalid MST node');
+          if (value.e.length > limits.nodeEntries) limit('MST node entries exceed budget');
           if (value.e.length === 0 && value.l === null && cid !== data)
             fail('Empty MST node is only canonical as the repository data root');
           if (
@@ -294,7 +305,7 @@ export class VerifiedRepoBlocks {
         }
       }
       function ranges(walker: NodeWalker) {
-        if (walker.stack.size > limits.pathLoads) fail('MST depth exceeds budget');
+        if (walker.stack.size > limits.pathLoads) limit('MST path depth exceeds budget');
         for (const frame of walker.stack)
           for (const path of frame.node.keys)
             if (path <= frame.lpath || path >= frame.rpath) fail('MST child overlaps its key interval');
@@ -308,12 +319,14 @@ export class VerifiedRepoBlocks {
         data,
         signingKey: trustedKey,
         async lookup(path, expectedCid) {
-          if (typeof path !== 'string' || path.length > limits.pathCharacters) fail('Repository path exceeds budget');
+          if (typeof path !== 'string') fail('Expected repository path');
           let walker: NodeWalker | undefined;
           try {
+            // Protocol syntax/maxima precede stricter local resource policy.
             assertMstKey(path);
+            if (path.length > limits.pathCharacters) limit('Repository path characters exceed budget');
             if (expectedCid !== undefined) expectedCid = cborCid(expectedCid);
-            walker = await NodeWalker.create(new BoundedNodes(limits.pathLoads), data);
+            walker = await NodeWalker.create(new BoundedNodes(limits.pathLoads, 'path'), data);
             const found = await walker.findRpath(path);
             ranges(walker);
             if (found === null) return { kind: 'absent' };
@@ -322,13 +335,14 @@ export class VerifiedRepoBlocks {
             const bytes = cache.#get(cid);
             return bytes ? { kind: 'found', cid, bytes: new Uint8Array(bytes) } : { kind: 'missing', cid };
           } catch (error) {
-            if (walker) ranges(walker);
+            // Preserve the observed failure; cleanup must not overwrite it
+            // with a second range/depth failure on an incomplete walk.
             if (error instanceof MissingBlockError) return { kind: 'missing', cid: error.cid };
             rethrowNativeInput(error);
           }
         },
         async validateTree() {
-          const nodes = new BoundedNodes(limits.treeLoads);
+          const nodes = new BoundedNodes(limits.treeLoads, 'tree');
           let walker: NodeWalker | undefined,
             records = 0;
           try {
@@ -342,7 +356,8 @@ export class VerifiedRepoBlocks {
             }
             return { kind: 'complete', records, nodeLoads: nodes.loads };
           } catch (error) {
-            if (walker) ranges(walker);
+            // Preserve the observed failure; cleanup must not overwrite it
+            // with a second range/depth failure on an incomplete walk.
             if (error instanceof MissingBlockError) return { kind: 'missing', cid: error.cid };
             rethrowNativeInput(error);
           }
