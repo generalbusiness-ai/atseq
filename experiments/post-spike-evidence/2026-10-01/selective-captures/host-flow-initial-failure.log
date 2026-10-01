@@ -1,0 +1,63 @@
+▶ human and agent participation on a real PDS
+  ✔ source validation and preview publish nothing (46.330166ms)
+  ✔ creation retry returns one app and binds its content (8.716417ms)
+  ✔ shared service exposes recorded and then interpreted progress (46.616583ms)
+  ✔ routine host metadata and receipts do not export a full Folder projection (13.308ms)
+  ✔ reads after confirmation pass an older held interpretation refresh (27.531875ms)
+  ✖ reads do not chase appends arriving during every interpretation refresh (2.622375ms)
+✖ human and agent participation on a real PDS (2792.039125ms)
+✔ HTTP receipts retain crash recovery and externally confirmed heads across rollback (3511.557917ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6825.248583
+
+✖ failing tests:
+
+test at tests/flows.test.ts:1:1400
+✖ reads do not chase appends arriving during every interpretation refresh (2.622375ms)
+  AssertionError [ERR_ASSERTION]: the call returns at its captured floor despite a newer confirmed append
+  
+  0 !== 1
+  
+      at <anonymous> (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:173:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:32:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async check (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:28:5)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:151:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/flows.test.ts:1:1267
+✖ human and agent participation on a real PDS (2792.039125ms)
+  AssertionError [ERR_ASSERTION]: the call returns at its captured floor despite a newer confirmed append
+  
+  0 !== 1
+  
+      at <anonymous> (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:173:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:32:9)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async check (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:28:5)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/selective-captures/tests/flows.test.ts:151:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
