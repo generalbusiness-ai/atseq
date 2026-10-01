@@ -1,3 +1,5 @@
+import { P256PrivateKeyExportable } from '@atcute/crypto';
+import { Anchor, headAt, sequence, type SignedIntent } from '../src/protocol/log.ts';
 import { exportArchive, encodeArchive } from '../src/archive/archive.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -14,7 +16,7 @@ import { startApplicationService } from '../src/host/http.ts';
 import { buildShell } from '../src/host/build.ts';
 import { readHostToken } from '../src/host/token.ts';
 import { AtseqClient } from '../src/client/api.ts';
-import { bytes } from '../src/protocol/wire.ts';
+import { bytes, decodeBlock, contentCid } from '../src/protocol/wire.ts';
 import { createIdentity, prepareIntent } from '../src/client/identity.ts';
 import { guitarFixture } from '../testdata/apps/fixtures.ts';
 import type { RetainedInput } from '../src/archive/archive.ts';
@@ -270,6 +272,154 @@ test('browser sessions retain trust and device work across switches and restarts
       assert.equal(count, 1);
       await expect(page.getByRole('heading', { name: 'Participate', exact: true })).toBeVisible();
     });
+    await t.test('corrupt saved history has explicit recovery without losing its pin, key or signed work', async () => {
+      const isolated = await browser.newContext({ serviceWorkers: 'block' });
+      await isolated.addInitScript({ content: 'globalThis.__name = (fn) => fn;' });
+      const tab = await isolated.newPage();
+      try {
+        await tab.goto(service.url);
+        const corrupted = structuredClone(latestA),
+          signature = corrupted.entries[0]!.sig.$bytes;
+        corrupted.entries[0]!.sig.$bytes = (signature.startsWith('A') ? 'B' : 'A') + signature.slice(1);
+        const key = await tab.evaluate(
+          async ({ probe, inputText, a }) => {
+            const { DeviceStore, createDeviceIdentity } = await import(probe),
+              store = await DeviceStore.open();
+            const identity = await createDeviceIdentity('Recovery key');
+            await store.set('identity', identity);
+            await store.set(`pin:${a.app}`, a);
+            await store.set(`verified:${a.app}:${a.genesis}`, JSON.parse(inputText));
+            await store.set(`outbox:${a.app}:retained`, { status: 'refused', block: [1, 2, 3] });
+            store.close();
+            return identity.publicKey;
+          },
+          { probe, inputText: JSON.stringify(corrupted), a },
+        );
+        await tab.evaluate((a) => {
+          location.hash = new URLSearchParams(a).toString();
+        }, a);
+        await expect(
+          tab.getByRole('heading', { name: 'Saved history on this device failed verification', exact: true }),
+        ).toBeVisible();
+        await expect(tab.getByRole('button', { name: 'Forget this invitation', exact: true })).toBeVisible();
+        await expect(
+          tab.getByText('Discarding saved history removes this device’s rollback protection.', { exact: false }),
+        ).toBeVisible();
+        await tab.getByRole('button', { name: 'Retry', exact: true }).click();
+        await expect(
+          tab.getByRole('heading', { name: 'Saved history on this device failed verification', exact: true }),
+        ).toBeVisible();
+        await tab.getByRole('button', { name: 'Discard saved history', exact: true }).click();
+        await expect(tab.getByRole('status')).toContainText('Verified through entry 1');
+        const retained = await tab.evaluate(
+          async ({ probe, a }) => {
+            const { DeviceStore } = await import(probe),
+              store = await DeviceStore.open();
+            const result = {
+              pin: await store.get(`pin:${a.app}`),
+              key: (await store.get('identity')).publicKey,
+              work: await store.get(`outbox:${a.app}:retained`),
+              count: (await store.get(`verified:${a.app}:${a.genesis}`)).entries.length,
+            };
+            store.close();
+            return result;
+          },
+          { probe, a },
+        );
+        assert.deepEqual(retained, { pin: a, key, work: { status: 'refused', block: [1, 2, 3] }, count: 1 });
+      } finally {
+        await isolated.close();
+      }
+    });
+    await t.test(
+      'an online event during the saved-prefix decision cannot load a fork before fresh restore',
+      async () => {
+        let writer: P256PrivateKeyExportable | undefined;
+        for (const id of await readdir(directory)) {
+          if (!/^[a-f0-9-]{36}$/.test(id)) continue;
+          const record = JSON.parse(await readFile(join(directory, id, 'creation-secret.json'), 'utf8'));
+          if (record.genesis?.app === a.app)
+            writer = await P256PrivateKeyExportable.importRaw(new Uint8Array(record.writer));
+        }
+        assert.ok(writer);
+        const anchor = await Anchor.from(latestA.genesis, a),
+          alternative = await prepareIntent(identity, a, fixture.bundle.root, fixture.action, {
+            id: 'forked',
+            title: 'Forked host',
+            pricePence: 100,
+          });
+        const entry = await sequence(
+          decodeBlock(new Uint8Array(alternative.block)) as unknown as SignedIntent,
+          anchor,
+          headAt(anchor),
+          writer,
+        );
+        const forked = { ...latestA, head: headAt(anchor, 1, await contentCid(entry)), entries: [entry] };
+        const isolated = await browser.newContext({ serviceWorkers: 'block' });
+        await isolated.addInitScript({ content: 'globalThis.__name = (fn) => fn;' });
+        const tab = await isolated.newPage();
+        let syncs = 0;
+        try {
+          await tab.goto(service.url);
+          await tab.evaluate(
+            async ({ probe, latestText, a }) => {
+              const { DeviceStore, Outbox } = await import(probe),
+                store = await DeviceStore.open();
+              await store.set(`verified:${a.app}:${a.genesis}`, JSON.parse(latestText));
+              store.close();
+              const flush = Outbox.prototype.flush;
+              Outbox.prototype.flush = function () {
+                return flush.call(this).then(() => {
+                  setTimeout(() => {
+                    (window as any).onlineEventProcessed = true;
+                  }, 0);
+                });
+              };
+              const original = DeviceStore.prototype.get;
+              let release!: () => void;
+              const held = new Promise<void>((resolve) => (release = resolve));
+              (window as any).releaseSaved = release;
+              DeviceStore.prototype.get = async function (key: string) {
+                if (key.startsWith('verified:')) {
+                  (window as any).savedReadHeld = true;
+                  await held;
+                }
+                return original.call(this, key);
+              };
+            },
+            { probe, latestText: JSON.stringify(latestA), a },
+          );
+          await tab.route('**/xrpc/ai.generalbusiness.atseq.sync?**', (route) => {
+            syncs++;
+            return route.fulfill({ json: forked });
+          });
+          await tab.evaluate((a) => {
+            location.hash = new URLSearchParams(a).toString();
+          }, a);
+          await tab.waitForFunction(() => (window as any).savedReadHeld);
+          await tab.evaluate(() => window.dispatchEvent(new Event('online')));
+          await tab.waitForFunction(() => (window as any).onlineEventProcessed);
+          assert.equal(syncs, 0);
+          await tab.evaluate(() => (window as any).releaseSaved());
+          await expect(tab.getByRole('status')).toContainText('differs from interpreted history');
+          await expect(tab.getByRole('heading', { name: 'Participate', exact: true })).toBeVisible();
+          const saved = await tab.evaluate(
+            async ({ probe, a }) => {
+              const { DeviceStore } = await import(probe),
+                store = await DeviceStore.open();
+              const saved = await store.get(`verified:${a.app}:${a.genesis}`);
+              store.close();
+              return saved;
+            },
+            { probe, a },
+          );
+          assert.deepEqual(saved, latestA);
+          assert.equal(syncs, 1);
+        } finally {
+          await isolated.close();
+        }
+      },
+    );
     await t.test('a slow A refresh cannot replace offline B or label its query and archive as A', async () => {
       await open(b);
       await open(a);
@@ -402,10 +552,34 @@ test('browser sessions retain trust and device work across switches and restarts
     });
     await t.test('an invalid invitation cannot poison the pin and verified pins can be forgotten', async () => {
       await open(a);
+      await page.evaluate(async (probe) => {
+        const { DeviceStore } = await import(probe),
+          original = DeviceStore.prototype.list;
+        let release!: () => void;
+        const held = new Promise<void>((resolve) => (release = resolve));
+        (window as any).releasePin = release;
+        let once = true;
+        DeviceStore.prototype.list = async function (prefix: string) {
+          const result = await original.call(this, prefix);
+          if (prefix === 'pin:' && once) {
+            once = false;
+            (window as any).pinReadHeld = true;
+            await held;
+            setTimeout(() => {
+              (window as any).oldPinFinished = true;
+            }, 0);
+          }
+          return result;
+        };
+      }, probe);
+      await page.evaluate(() => window.dispatchEvent(new Event('online')));
+      await page.waitForFunction(() => (window as any).pinReadHeld);
       await page.getByRole('button', { name: 'Forget this invitation', exact: true }).click();
       await expect(
         page.getByText('Invitation forgotten. Signed work remains on this device.', { exact: true }),
       ).toBeVisible();
+      await page.evaluate(() => (window as any).releasePin());
+      await page.waitForFunction(() => (window as any).oldPinFinished);
       await page.evaluate(
         (target) => {
           location.hash = new URLSearchParams(target).toString();

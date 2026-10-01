@@ -1,13 +1,50 @@
-import type { Operations, WorkerReply } from './protocol.ts';
+import type { Invitation } from '../protocol/log.ts';
+import type { AppSnapshot, Operations, WorkerReply } from './protocol.ts';
 import type { RetainedInput } from '../archive/archive.ts';
 import { sameSession, type AppSession } from './session.ts';
 
+export class WorkerReplyError extends Error {
+  constructor(
+    readonly code: string,
+    message: string,
+  ) {
+    super(message);
+  }
+}
+const invalidSavedHistory = new Set([
+  'signature',
+  'key',
+  'anchor',
+  'head',
+  'position',
+  'predecessor',
+  'missing_history',
+  'duplicate_retry',
+  'retry_conflict',
+  'content',
+  'envelope',
+  'payload',
+  'noncanonical',
+  'wire_value',
+  'wire_bytes',
+  'wire_cid',
+  'wire_number',
+  'wire_key',
+  'wire_depth',
+  'wire_size',
+]);
+export function savedHistoryFailed(error: unknown) {
+  return error instanceof WorkerReplyError && invalidSavedHistory.has(error.code);
+}
 /** One worker per page. Failed workers rebuild from saved verified inputs. */
 export class Evaluator {
   private worker!: Worker;
   private id = 0;
   private failures = 0;
   private loaded = false;
+  private dormant = false;
+  private decidingSaved = false;
+  private latest?: AppSnapshot;
   private rebuilding?: Promise<void>;
   private retained?: { session: AppSession; input: RetainedInput };
   private pending = new Map<
@@ -18,6 +55,7 @@ export class Evaluator {
     this.start();
   }
   private start() {
+    this.dormant = false;
     this.worker = new Worker(new URL('./worker.ts', import.meta.url), { type: 'module' });
     const active = this.worker;
     active.onmessage = ({ data }: MessageEvent<WorkerReply>) => {
@@ -26,7 +64,7 @@ export class Evaluator {
       if (!request) return;
       clearTimeout(request.timer);
       this.pending.delete(data.id);
-      if (data.error) request.reject(Object.assign(new Error(data.error.message), { code: data.error.code }));
+      if (data.error) request.reject(new WorkerReplyError(data.error.code, data.error.message));
       else {
         this.failures = 0;
         request.resolve(data.result);
@@ -45,8 +83,9 @@ export class Evaluator {
     this.restart(detail);
     this.onFailure(detail);
   }
-  private restart(message: string) {
+  private restart(message: string, start = true) {
     this.worker.terminate();
+    this.dormant = true;
     this.loaded = false;
     this.rebuilding = undefined;
     for (const item of this.pending.values()) {
@@ -54,7 +93,7 @@ export class Evaluator {
       item.reject(new Error(message));
     }
     this.pending.clear();
-    if (this.failures < 3) this.start();
+    if (start && this.failures < 3) this.start();
   }
   private send<K extends keyof Operations>(
     kind: K,
@@ -77,14 +116,18 @@ export class Evaluator {
   }
   /** Install the saved prefix before worker I/O; failure never discards this floor. */
   async restore(session: AppSession, input: RetainedInput): Promise<Operations['sync']['result']> {
+    this.restart('Rebuilding saved history; saved work is unchanged.');
     const retained = { session: { ...session }, input: structuredClone(input) };
     this.retained = retained;
+    this.latest = undefined;
+    this.decidingSaved = false;
     this.loaded = false;
     const worker = this.worker;
     const checked = await this.send('sync', { session, input: retained.input }, 120_000);
     if (worker !== this.worker || this.retained !== retained) throw new Error('App changed while restoring');
     this.retained = { session: checked.session, input: retained.input };
     this.loaded = true;
+    this.latest = structuredClone(checked);
     return checked;
   }
   async call<K extends keyof Operations>(
@@ -92,6 +135,9 @@ export class Evaluator {
     args: Operations[K]['args'],
     timeoutMs = 15_000,
   ): Promise<Operations[K]['result']> {
+    if ('session' in args && this.decidingSaved)
+      throw new Error('Saved history is still loading. Retry when it is ready.');
+    if (this.dormant && this.failures < 3) this.start();
     const worker = this.worker;
     if ('session' in args && !this.loaded && this.retained) {
       const retained = this.retained;
@@ -112,6 +158,7 @@ export class Evaluator {
           )
             throw new Error('App changed while rebuilding');
           this.retained = { session: rebuilt.session, input: retained.input };
+          this.latest = structuredClone(rebuilt);
           this.loaded = true;
         })
         .finally(() => {
@@ -127,6 +174,7 @@ export class Evaluator {
       const syncArgs = args as Operations['sync']['args'],
         checked = result as Operations['sync']['result'];
       this.retained = { session: checked.session, input: structuredClone(syncArgs.input) };
+      this.latest = structuredClone(checked);
       this.loaded = true;
     }
     return result;
@@ -134,7 +182,18 @@ export class Evaluator {
   /** App switches invalidate queued replies and drop the previous app cache. */
   select() {
     this.retained = undefined;
-    this.restart('App changed. Saved work is unchanged.');
+    this.latest = undefined;
+    this.decidingSaved = true;
+    this.restart('App changed. Saved work is unchanged.', false);
+  }
+  /** The shell has checked device storage and found no saved prefix for this app. */
+  ready() {
+    this.decidingSaved = false;
+  }
+  snapshot(invitation: Invitation): AppSnapshot | undefined {
+    return this.latest?.session.app === invitation.app && this.latest.session.genesis === invitation.genesis
+      ? structuredClone(this.latest)
+      : undefined;
   }
   dispose() {
     this.worker.terminate();

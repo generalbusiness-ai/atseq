@@ -15,7 +15,7 @@ invitations to verify, not trusted pins.
 
 A cancelled, failed or timed-out worker rebuilds from the saved verified prefix
 before interpreting a host update. This preserves rollback and fork detection.
-The evaluator holds that saved prefix before starting the first load. A failure to load it keeps the app unavailable until it can be rebuilt; it never authorizes a shorter host history. Cancellation is available during startup. After three consecutive worker failures the shell requires a page reload; a successful reply resets that count. Saved inputs and signed work remain on the device. Archive import uses a separate evaluator and checks the archive against the saved prefix before replacing device history. The storage transaction also refuses a shorter or forked replacement if another operation saved newer history meanwhile.
+The evaluator holds that saved prefix before starting the first load, always in a fresh worker. The shell holds host refreshes until it has decided whether device storage contains a saved prefix. A failure to load it keeps the app unavailable until it can be rebuilt; it never authorizes a shorter host history. Cancellation is available during startup. After three consecutive worker failures the shell requires a page reload; a successful reply resets that count. Saved inputs and signed work remain on the device. A definite verification refusal shows **Saved history on this device failed verification**. **Discard saved history** explicitly warns that this device loses rollback protection; it deletes only the saved prefix before fetching and verifying a new one. It keeps the invitation pin, key and signed work. **Forget this invitation** remains available on the failure screen. A rebuilt saved state stays visible when a host update is refused. Archive import uses a separate evaluator and checks the archive against the saved prefix before replacing device history. The storage transaction also refuses a shorter or forked replacement if another operation saved newer history meanwhile.
 
 ## Signing keys
 
@@ -65,3 +65,13 @@ storage cleanup is explicit, because it also affects device keys and work.
 The shell is split into typed session, identity, outbox, draft, change and export
 modules. `browser/protocol.ts` defines the worker operations and replies;
 `main.ts` connects them to navigation and the current page.
+
+## Remaining liveness limits
+
+A single refresh runs at a time across this page's apps. A slow old-app request can delay the new app until its bounded request finishes; cancelling stale host requests is deferred. Session and saved-prefix checks still prevent its reply from changing the new app.
+
+Transient outbox work retries at startup, on the online event, after a save or by explicit retry. Timer-based backoff is deferred; staying online alone does not schedule another attempt. Signed bytes remain on the device.
+
+Automatic cleanup of old shell caches after activation is deferred. Retaining them keeps lazy worker assets available to old tabs but uses disk space across updates. A future cleanup must wait until no old controlled tabs remain. Clearing all site data also removes device keys and signed work, so it is not the recovery action for a bad saved prefix.
+
+Forgetting an invitation cancels its current page session before deleting the pin and verified inputs. Pin and history writes check that session inside their storage transaction, so an older in-flight refresh cannot recreate the deleted trust floor. Signed work and keys remain on the device.
