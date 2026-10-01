@@ -1,0 +1,147 @@
+[
+  {
+    "path": "src/application/native-authority-evidence.ts",
+    "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e",
+    "matchesOriginal": true
+  },
+  {
+    "path": "src/application/native-authority-snapshot.ts",
+    "sha256": "c27d38aad6083f3f1965eb9ef74192e0f892e4d0102dcb8626dc4b4faa7882a6",
+    "matchesOriginal": true
+  },
+  {
+    "path": "src/application/native-authority.ts",
+    "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455",
+    "matchesOriginal": true
+  },
+  {
+    "path": "tests/native-authority-browser.test.ts",
+    "sha256": "87e1954a2cb6d3437604f0f51d735897b7d22b5b7007b8097a67495a565482ed",
+    "matchesOriginal": true
+  },
+  {
+    "path": "tests/native-authority.test.ts",
+    "sha256": "c8c3b4581ac46a88c3f1bd0f6231e4cbc56598dde0c1169350bf6fa2f13aa5c3",
+    "matchesOriginal": true
+  },
+  {
+    "path": "tests/support/native-authority-browser.ts",
+    "sha256": "29ca7e4ba1b644e7fdfb5b9ee9de2c064e9c57329871f4c310c63fe66c2481fb",
+    "matchesOriginal": true
+  },
+  {
+    "path": "tests/support/native-authority-corpus.ts",
+    "sha256": "f9e458df90f1d89872b5f6cbfc0d4c07d99a3959651470b95b1ad3f1c0bb542d",
+    "matchesOriginal": true
+  },
+  {
+    "path": "tests/support/native-authority-fixture.ts",
+    "sha256": "574e4a7a0422be4398293b6f98779f7fedce9e59e68e2d02803bb72b7c18fde6",
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/public-vectors.json.gz",
+    "sha256": "12091376fb35284eb64990edca4ad9a30cda0c4a186167b331d41188c02e08f0",
+    "bytes": 1933520,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/chromium.json",
+    "sha256": "77704905be325ba4ac1969c12a8622aca88ed25bbe1444ad79f7305be61de807",
+    "bytes": 4270,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/node22.json",
+    "sha256": "ea303cd682d097a8b645b03a9fb50ec24083772815b29451e15d7de692bfc587",
+    "bytes": 4016,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/cross-runtime.log",
+    "sha256": "b4ddeb9c4d0ae44c21f1f211ad578295d7015e2d44caaa7698016f727e8d3930",
+    "bytes": 8082,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/node22.log",
+    "sha256": "bc264fee021f3f9604e2b3cf7ce8965d92629d2b2e4ae9f7fa22e1b640045c5e",
+    "bytes": 3730,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/build.log",
+    "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+    "bytes": 494,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/check.log",
+    "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "bytes": 689,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/native-wire.log",
+    "sha256": "cf4e5f1293e60ba95c8c43fe440efdeacf53b9ab408bda38d236c76902b42c28",
+    "bytes": 3957,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/check-during-build-failed.log",
+    "sha256": "5882e4718a235372615e5ec70674352c596e063a29a70a800638edc48ed17b2c",
+    "bytes": 370,
+    "matchesOriginal": true
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-authority-foundation/wire-during-build-failed.log",
+    "sha256": "f0355c9c32bf6502943ba0d03d8ecbc5a78d31199e6e01fb0f51a9d8146d5d50",
+    "bytes": 1714,
+    "matchesOriginal": true
+  },
+  {
+    "path": "package.json",
+    "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "matchesApprovedBaseAndOriginalDependencyBasis": true
+  },
+  {
+    "path": "npm-shrinkwrap.json",
+    "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "matchesApprovedBaseAndOriginalDependencyBasis": true
+  },
+  {
+    "path": "src/core/dependencies.ts",
+    "sha256": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4",
+    "matchesApprovedBaseAndOriginalDependencyBasis": true
+  },
+  {
+    "path": "src/core/dependencies-approved.json",
+    "sha256": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "matchesApprovedBaseAndOriginalDependencyBasis": true
+  },
+  {
+    "path": "src/integrity/files-approved.json",
+    "sha256": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149",
+    "matchesApprovedBaseAndOriginalDependencyBasis": true
+  },
+  {
+    "path": "tests/support/pds/package-lock.json",
+    "sha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "matchesApprovedBaseAndOriginalDependencyBasis": true
+  },
+  {
+    "path": "src/protocol/native-schema.ts",
+    "sha256": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4",
+    "matchesApprovedWire": true
+  },
+  {
+    "path": "src/protocol/native-wire.ts",
+    "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+    "matchesApprovedWire": true
+  },
+  {
+    "path": "src/protocol/native-contract.ts",
+    "sha256": "7265b7be342861db65c90de19e27a6e100b76d40fdf27fbab200c68b3c9e61ae",
+    "matchesApprovedWire": true
+  }
+]

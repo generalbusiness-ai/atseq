@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-01",
+  "request": "bb56eebd1e67a86898433b0d2c7c6fa919bba7c1",
+  "promise": "7536eddb9e665e11084aa863d84dd902e9686cd3",
+  "fullI2Request": "0e55c16dc2d5fb359e3e033c1b901fd97cb2cb6e",
+  "approvedMainBasis": "fc8e20936c849d20e8e28be688afa08b29ce02ed",
+  "integrationSource": "dcacebdf73eb4269fb674bf4df6060fb34183ae0",
+  "originalRuntimeSource": "d08104ddae3e737b8de9e13a3e89116e65d84afc",
+  "originalEvidenceSource": "0095c5b672d8bc20e3d3632f5713c8cacf7b58c0",
+  "originalDependencyBasis": "412b0c9b83c921c86f95d847dabbba381767d783",
+  "runtimePaths": 147,
+  "packageGraphChanged": false,
+  "runtimeSourceChanged": false,
+  "publicPackageExportsChanged": false,
+  "semanticProfile": "atseq-app-v2",
+  "install": {
+    "root": "npm ci --ignore-scripts --no-audit --no-fund",
+    "fixtureDeclarations": "npm ci --prefix tests/support/pds --ignore-scripts --no-audit --no-fund",
+    "exitCodes": [
+      0,
+      0
+    ],
+    "livePdsStarted": false
+  },
+  "commands": {
+    "build": "npm run build",
+    "check": "npm run check",
+    "node26Foundation": "node --import tsx --test tests/native-authority.test.ts",
+    "retainedReplay": "<Node 22.19.0 or Node 26.10.0> --import tsx experiments/post-spike-evidence/2026-10-01/native-authority-integration/replay-retained.mjs"
+  },
+  "passed": {
+    "build": true,
+    "check": true,
+    "node26FoundationCases": 54,
+    "retainedNode22Cases": 54,
+    "retainedNode26Cases": 54,
+    "exactWholeSnapshotsAndOutcomes": true,
+    "allOriginalSourcesAndCapturesUnchanged": true
+  },
+  "inheritedChromium": {
+    "version": "153.0.8010.12",
+    "cases": 54,
+    "runtimeSource": "d08104ddae3e737b8de9e13a3e89116e65d84afc",
+    "rerunInThisIntegration": false,
+    "capture": "../native-authority-foundation/chromium.json"
+  },
+  "limitations": [
+    "Internal authority foundation; full I2 remains open.",
+    "No ordinary source/action derivation, activation, online observer, atomic Folder or host/browser/archive wiring.",
+    "No checkpoint restore or public package export.",
+    "No full npm test, compiled consumer, live provider or new Chromium run.",
+    "Fresh generator uses random signing material; only its case result is captured. Exact cross-runtime replay uses the unchanged retained public fixture."
+  ],
+  "files": [
+    {
+      "path": "build.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "identity-checks.json",
+      "bytes": 5461,
+      "sha256": "a94c68cefe47558d5ba1a9a24233d19a3b292fa4a6ce0d128be145b7b63b8420"
+    },
+    {
+      "path": "node22-retained.json",
+      "bytes": 4204,
+      "sha256": "e40d551a18bbca2fa1cb973310ee89c01a0f345b4a944851d1bb1ed8069550b9"
+    },
+    {
+      "path": "node22-retained.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "node26-foundation.log",
+      "bytes": 4004,
+      "sha256": "a1777491de9f9611ed354b7673d51e480d81c4ce7dff7b4ae53db656b8500c85"
+    },
+    {
+      "path": "node26-retained.json",
+      "bytes": 4204,
+      "sha256": "1abcaaf3ad15fa5c9935989bb228ac76d1681fca667372411dfc1d16370f015f"
+    },
+    {
+      "path": "node26-retained.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "replay-retained.mjs",
+      "bytes": 863,
+      "sha256": "21f392195acacaa46838eea78631a0c373fd2b27245fd598acc36ed2550debd2"
+    }
+  ]
+}

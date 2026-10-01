@@ -1,0 +1,11 @@
+import { readFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
+import { replayAuthorityFixtures } from '../../../../tests/support/native-authority-corpus.ts';
+const fixturePath = new URL('../native-authority-foundation/public-vectors.json.gz', import.meta.url);
+const compressed = readFileSync(fixturePath);
+const raw = gunzipSync(compressed);
+const fixtures = JSON.parse(raw.toString('utf8'));
+const cases = await replayAuthorityFixtures(fixtures);
+if (cases.length !== 54) throw new Error(`Expected 54 cases, received ${cases.length}`);
+console.log(JSON.stringify({node: process.version, fixtureSha256: createHash('sha256').update(compressed).digest('hex'), rawSha256: createHash('sha256').update(raw).digest('hex'), cases: cases.length, exactWholeSnapshotsAndOutcomes: true, names: cases}, null, 2));
