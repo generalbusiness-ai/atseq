@@ -1,0 +1,62 @@
+{
+  "baseline": "cb3fd8472ccec1208b72e8adc81884ccfb1860d4",
+  "unchangedSemanticInputs": [
+    {
+      "file": "src/core/contracts.ts",
+      "sha256": "03013fd0d1229dd010f95cdc0656a0bef0338d88c85d94e47b1ba1fd783d98fc",
+      "baselineSha256": "03013fd0d1229dd010f95cdc0656a0bef0338d88c85d94e47b1ba1fd783d98fc",
+      "identical": true
+    },
+    {
+      "file": "tests/vectors/profiles-v1.json",
+      "sha256": "f0bd9d60d718ac1112a724ccea1e3df917ed5009dece4ea1f2ebdf9f160d3e86",
+      "baselineSha256": "f0bd9d60d718ac1112a724ccea1e3df917ed5009dece4ea1f2ebdf9f160d3e86",
+      "identical": true
+    },
+    {
+      "file": "tests/vectors/protocol-v1.json",
+      "sha256": "e463fc076dcc65448521ab96a9e01c36ff5d1e296ca11280452aeed687e0ef22",
+      "baselineSha256": "e463fc076dcc65448521ab96a9e01c36ff5d1e296ca11280452aeed687e0ef22",
+      "identical": true
+    }
+  ],
+  "profileVectors": {
+    "provenance": {
+      "encoder": "@ipld/dag-cbor 7.0.3",
+      "cid": "multiformats 9.9.0",
+      "input": "normative descriptors; no protocol encoder"
+    },
+    "profiles": [
+      {
+        "name": "atseq-log-v1",
+        "cid": "bafyreibra4bl7gmpch4uskdghctvrlenkkes7qibjcgxgshkiitnbhn45a"
+      },
+      {
+        "name": "atseq-jsonata-v1",
+        "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm"
+      },
+      {
+        "name": "atseq-app-v1",
+        "cid": "bafyreicardamj74b7q4apgpugclazy3tu2vzafneiva6lwenurb724kruu"
+      }
+    ]
+  },
+  "protocolNodeAndChromium": "protocol-results.json",
+  "runtimeNodeAndChromium": "runtime-results.json",
+  "evolutionNodeAndChromium": "evolution-runtime-results.json",
+  "compiledConsumerConformance": "package-conformance.json",
+  "sourceHashes": {
+    "src/protocol/native-proof.ts": "c7f35eb3424082a4f2ce78a02e5b97f2ce2e4e896305cfe7fcc8e4f32ad34efd",
+    "src/protocol/wire.ts": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+    "scripts/native-proof-pds.ts": "63c9076ee3dc476001869aea8831a50c486ff55f9c1d85d7ecbc1c5a33d493ac",
+    "tests/support/native-proof-corpus.ts": "34eee604499e7826ae73ab024c62ceada1a6f054b8fa31d4dbab4c34ea8ec86d",
+    "tests/native-proof.test.ts": "5bd7388bd37494bcf2f418a1c4bcbd8867b5b51b05664605d35797503da8803c",
+    "tests/native-proof-browser.test.ts": "f3c3bf63ebd69fabf4ecc01a5a5aaee4e17a40200128e6572541905d1073613b",
+    "tests/support/native-proof-browser.ts": "9b4144f6a4fadc0e3167f4245fe5738a60e035ac976eb20cc26c25bb52d80dff",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "ad408a2ce81f63bbeaf4a0800b37c5306870f4400729325a073e67f885f10502",
+    "src/core/dependencies-approved.json": "c50990a7965843acd1f2cd2da19f739af7bcd6e88930e18cf8c07920341718a9",
+    "src/core/dependencies.ts": "baf4564a981e9b6e1994e8a4a831e9843ce300b1c1f8bd9caadb1bee5d258cf5",
+    "src/integrity/files-approved.json": "975b8d9d1642da05cddc6cf23e2e590c38d0d4ed39bbd781db8d9c2929fe6b62"
+  }
+}

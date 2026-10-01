@@ -88,7 +88,7 @@ export function encodeBlock(value: unknown): Uint8Array<ArrayBuffer> {
   return encoded;
 }
 /** Inspect only CBOR framing and text bytes; the decoder still checks canonicality. */
-function validateTextBytes(raw: Uint8Array): void {
+export function validateCborFraming(raw: Uint8Array, maxDepth: number = WIRE.depth): void {
   let offset = 0;
   const fail = (): never => {
     throw new ProtocolError('noncanonical', 'Invalid CBOR framing or UTF-8 text');
@@ -110,7 +110,7 @@ function validateTextBytes(raw: Uint8Array): void {
     return argument;
   }
   function item(depth: number): void {
-    if (depth > WIRE.depth) throw new ProtocolError('wire_depth', 'Block nesting exceeds the profile');
+    if (depth > maxDepth) throw new ProtocolError('wire_depth', 'Block nesting exceeds the profile');
     const first = take(1)[0]!,
       type = first >> 5,
       info = first & 31;
@@ -159,7 +159,7 @@ export function isCborInputError(error: unknown): error is Error {
 /** Preserve the exact canonical block; a decode/re-encode equality check is mandatory. */
 export function decodeBlock(raw: Uint8Array): Json {
   if (raw.length > WIRE.blockBytes) throw new ProtocolError('wire_size', 'Block exceeds 64 KiB');
-  validateTextBytes(raw);
+  validateCborFraming(raw);
   try {
     function plain(value: any, depth: number): Json {
       if (depth > WIRE.depth) throw new ProtocolError('wire_depth', 'Block nesting exceeds the profile');

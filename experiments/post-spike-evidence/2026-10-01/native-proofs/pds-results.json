@@ -1,0 +1,154 @@
+{
+  "node": "v26.10.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "pds": "0.5.31",
+  "pdsFixtureLockSha256": "227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41",
+  "mockPlc": true,
+  "peakRss": {
+    "value": 322944,
+    "units": "KiB",
+    "bytes": 330694656,
+    "method": "process.resourceUsage().maxRSS",
+    "scope": "whole probe Node process including setup and all cases; excludes child PDS and no proof-only attribution"
+  },
+  "results": [
+    {
+      "size": 1000,
+      "delta": 1,
+      "existingRecords": 1001,
+      "root": "bafyreic2tvvla6rosfedeq2h7fler62vx56amlafx6jkptq3t3xh7nfjom",
+      "beforeRoot": "bafyreidbm76gd2alci4ey25diou2vttufl4wrryamvf3gw6nv6srpnrbt4",
+      "beforeRev": "3mwt3lc4yhh2z",
+      "rev": "3mwt3lchali2z",
+      "did": "did:plc:sgq2nntt4n2xfjdwhg5hnxbx",
+      "trustedSigningKeyDid": "did:key:zQ3shThChMKPdq6uqgzEh47hmDde8GC7tyJTEkv8XsgTNYkQG",
+      "beforeBytes": 232423,
+      "diffBytes": 4042,
+      "fullBytes": 232825,
+      "diffRatio": 0.01736067862128208,
+      "beforeSha256": "bf49d5a23e73b7fa974eef63fc745b5cfef3fbc585567aa3f721d0147d89597d",
+      "diffSha256": "f7dc74adf46b05fb7f67daf6fe83cae8bcffe462a4ee09618b1268eb197f3fbc",
+      "fullSha256": "9bc35004b0ce4b59f31e4cfe3a154d23f4c539c542306ebd792901a363ae8211",
+      "newEntriesAndHeadVerified": 2,
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 1002,
+        "nodeLoads": 268
+      },
+      "oldPathMissingFromDiff": {
+        "path": "ai.generalbusiness.atseq.probe/000000000001",
+        "cid": "bafyreiaakrk3xhvt6wvlnytkdsycywlpulfaq3iyzs34vudrrdxryxw3xq"
+      },
+      "oldPathResolvedWithRetainedBlocks": true,
+      "deliberatelyOmittedNeededNode": "missing",
+      "fullExportRecovery": true,
+      "retainedCacheBytes": 187838,
+      "retainedCacheBlocks": 1277
+    },
+    {
+      "size": 1000,
+      "delta": 100,
+      "existingRecords": 1001,
+      "root": "bafyreidgcgljblspygytjjnlrz5n57oxatet6ruebuep5ll4z3zkihcdki",
+      "beforeRoot": "bafyreidbm76gd2alci4ey25diou2vttufl4wrryamvf3gw6nv6srpnrbt4",
+      "beforeRev": "3mwt3lc4yhh2z",
+      "rev": "3mwt3lcivg22z",
+      "did": "did:plc:sgq2nntt4n2xfjdwhg5hnxbx",
+      "trustedSigningKeyDid": "did:key:zQ3shThChMKPdq6uqgzEh47hmDde8GC7tyJTEkv8XsgTNYkQG",
+      "beforeBytes": 232423,
+      "diffBytes": 26854,
+      "fullBytes": 255637,
+      "diffRatio": 0.10504739141830016,
+      "beforeSha256": "bf49d5a23e73b7fa974eef63fc745b5cfef3fbc585567aa3f721d0147d89597d",
+      "diffSha256": "7724003b9392d5de128cc218b336d27578ff2b5df06e9bf3fbd8f78a8cd9a363",
+      "fullSha256": "b7b12f05c5c9de67bfa18f6577f95802001e5068d2ead59a73615f5346396413",
+      "newEntriesAndHeadVerified": 101,
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 1101,
+        "nodeLoads": 293
+      },
+      "oldPathMissingFromDiff": {
+        "path": "ai.generalbusiness.atseq.probe/000000000001",
+        "cid": "bafyreiaakrk3xhvt6wvlnytkdsycywlpulfaq3iyzs34vudrrdxryxw3xq"
+      },
+      "oldPathResolvedWithRetainedBlocks": true,
+      "deliberatelyOmittedNeededNode": "missing",
+      "fullExportRecovery": true,
+      "retainedCacheBytes": 205940,
+      "retainedCacheBlocks": 1401
+    },
+    {
+      "size": 10000,
+      "delta": 1,
+      "existingRecords": 10001,
+      "root": "bafyreifisub5oxrp3ivvrhek3cw5wn4af7fa24hnmbo5i5i6al7xn3oree",
+      "beforeRoot": "bafyreicuul24d2a6gfrmzfw757zufnmlpfh3e5yja6kgid4u6tw6ip3yvm",
+      "beforeRev": "3mwt3lfbdg42z",
+      "rev": "3mwt3lfemv52z",
+      "did": "did:plc:3w2r6cmixput4ojggyrp35ti",
+      "trustedSigningKeyDid": "did:key:zQ3shV2Q5VszCPXRxASgqAhkb3w92YrvQVqMaRUptVfHyvJ91",
+      "beforeBytes": 2330301,
+      "diffBytes": 3250,
+      "fullBytes": 2330500,
+      "diffRatio": 0.0013945505256382751,
+      "beforeSha256": "3130142ec84390733bcacc7918d24074668850f37b90ea5730a133e64d022a56",
+      "diffSha256": "23fb50ebd9e30118558da263f1663d8a6bb338cb3180f82e9ace82c187f622b3",
+      "fullSha256": "199ca2478e6e39033f74c94da4959ecd3359eae5485e0295ff6c9b5888e9d43b",
+      "newEntriesAndHeadVerified": 2,
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 10002,
+        "nodeLoads": 2726
+      },
+      "oldPathMissingFromDiff": {
+        "path": "ai.generalbusiness.atseq.probe/000000000001",
+        "cid": "bafyreihldw32wbs3ehnw55h4s2o3nbcrygzpqmbylohtqu634ti3igjbvm"
+      },
+      "oldPathResolvedWithRetainedBlocks": true,
+      "deliberatelyOmittedNeededNode": "missing",
+      "fullExportRecovery": true,
+      "retainedCacheBytes": 1849570,
+      "retainedCacheBlocks": 12738
+    },
+    {
+      "size": 10000,
+      "delta": 100,
+      "existingRecords": 10001,
+      "root": "bafyreidq6a3564de5mye76okqivjwvkcciauf5fyibbta7g72bq7t2iusm",
+      "beforeRoot": "bafyreicuul24d2a6gfrmzfw757zufnmlpfh3e5yja6kgid4u6tw6ip3yvm",
+      "beforeRev": "3mwt3lfbdg42z",
+      "rev": "3mwt3lfksap2z",
+      "did": "did:plc:3w2r6cmixput4ojggyrp35ti",
+      "trustedSigningKeyDid": "did:key:zQ3shV2Q5VszCPXRxASgqAhkb3w92YrvQVqMaRUptVfHyvJ91",
+      "beforeBytes": 2330301,
+      "diffBytes": 27456,
+      "fullBytes": 2354706,
+      "diffRatio": 0.01166005437621512,
+      "beforeSha256": "3130142ec84390733bcacc7918d24074668850f37b90ea5730a133e64d022a56",
+      "diffSha256": "aa3804537dd6a0943d74bfd0d1ce7ac84da0746a63924aa471c71e0dba02e10c",
+      "fullSha256": "7d66f7799e450f7e944efdf3a07809174436239e4f4eeed0858b88f633a4ac05",
+      "newEntriesAndHeadVerified": 101,
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 10101,
+        "nodeLoads": 2763
+      },
+      "oldPathMissingFromDiff": {
+        "path": "ai.generalbusiness.atseq.probe/000000000001",
+        "cid": "bafyreihldw32wbs3ehnw55h4s2o3nbcrygzpqmbylohtqu634ti3igjbvm"
+      },
+      "oldPathResolvedWithRetainedBlocks": true,
+      "deliberatelyOmittedNeededNode": "missing",
+      "fullExportRecovery": true,
+      "retainedCacheBytes": 1868613,
+      "retainedCacheBlocks": 12874
+    }
+  ],
+  "limitations": [
+    "Correctness/size evidence collected while other correctness work may run; no uncontended performance claim",
+    "Mock PLC, not a live provider/currentness or recovery trial",
+    "Fixture records/head demonstrate native map membership, not the final Atseq wire contract"
+  ]
+}
