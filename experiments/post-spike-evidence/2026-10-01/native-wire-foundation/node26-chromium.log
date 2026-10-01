@@ -1,0 +1,68 @@
+▶ isolated native foundation agrees with independent fixtures in Node and Chromium
+  ✔ independent exact block disableRoleIntent (0.2845ms)
+  ✔ independent exact block appBinding (0.033166ms)
+  ✔ independent exact block receipt (0.0315ms)
+  ✔ independent exact block definition (0.018625ms)
+  ✔ independent exact block policy (0.015625ms)
+  ✔ independent exact block genesis (0.018375ms)
+  ✔ independent exact block epoch (0.020833ms)
+  ✔ independent exact block epochCurrent (0.016958ms)
+  ✔ independent exact block grant (0.024667ms)
+  ✔ independent exact block revoke (0.031ms)
+  ✔ independent exact block intent (0.017291ms)
+  ✔ independent exact block signed (0.012333ms)
+  ✔ independent exact block entry (0.010625ms)
+  ✔ independent exact block head (0.009916ms)
+  ✔ independent exact block account (0.009625ms)
+  ✔ independent exact block observation (0.009417ms)
+  ✔ independent exact block accountEntry (0.00875ms)
+  ✔ independent exact block chunk0 (0.008583ms)
+  ✔ independent exact block chunk1 (0.008666ms)
+  ✔ independent exact block manifest (0.008291ms)
+  ✔ independent exact block file (0.008459ms)
+  ✔ independent exact block setControl (0.016459ms)
+  ✔ independent exact block setRecovery (0.00975ms)
+  ✔ independent exact block setOwner (0.008584ms)
+  ✔ independent exact block setRole (0.007541ms)
+  ✔ independent exact block activate (0.007291ms)
+  ✔ independent exact block recoverParticipant (0.008083ms)
+  ✔ independent exact block recoverGovernance (0.007458ms)
+  ✔ independent exact block assignRole (0.007459ms)
+  ✔ independent exact block advanceEpoch (0.007333ms)
+  ✔ independent exact block revokeGrant (0.007167ms)
+  ✔ native record canonical keys and exact owned bytes (0.008708ms)
+  ✔ positive safe positions and full genesis paths (0.007125ms)
+  ✔ genesis external pin is exact and required (0.007ms)
+  ✔ head zero/genesis equivalence and append overflow (0.018667ms)
+  ✔ two valid signatures share unsigned request and retry identity (0.006916ms)
+  ✔ every mutated signed binding fails verification (0.007084ms)
+  ✔ P256 devices and control; dual repository curve representation (0.006667ms)
+  ✔ closed schemas reject extra fields, unknown unions and coercion (0.009834ms)
+  ✔ ordinary entry content needs no extra ordering signature (0.00825ms)
+  ✔ proof-derived outer context mismatch is invalid content (0.007291ms)
+  ✔ observation projection binds everything except observation reference (0.0075ms)
+  ✔ five-field metadata excludes enrolment identity (0.006916ms)
+  ✔ chunked exact bytes keep raw file and native locator identities distinct (0.008125ms)
+  ✔ missing bytes and local limits stay transient (0.007167ms)
+  ✔ chunk tampering and noncanonical chunk lengths fail (0.006667ms)
+  ✔ typed shape remains separate from native authority acceptance (0.006833ms)
+  ✔ account principals use PLC or hostname web throughout (0.007042ms)
+  ✔ retained file-table order and unused assets remain exact identity (0.006917ms)
+  ✔ high-S signatures do not create accepted retry aliases (0.006875ms)
+  ✔ sparse receipt is closed framing, never self-appointed assurance (0.010917ms)
+  ✔ native preparation does not advertise a new supported profile (0.006958ms)
+  ✔ native shape returns owned immutable content and bounds enclosing blocks (0.006792ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✔ isolated native foundation agrees with independent fixtures in Node and Chromium (811.849584ms)
+ℹ tests 54
+ℹ suites 0
+ℹ pass 54
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1438.176459
