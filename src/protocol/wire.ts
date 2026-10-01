@@ -11,6 +11,7 @@ import {
 import { create, fromString, toString, CODEC_DCBOR } from '@atcute/cid';
 import { canonicalJson, type Json } from '../core/values.ts';
 import { assertDependencies } from '../core/dependencies.ts';
+import { isUtf8 } from '../core/utf8.ts';
 
 export const WIRE = Object.freeze({ version: 1, blockBytes: 64 * 1024, jsonBytes: 128 * 1024, depth: 32 });
 import { AtseqError, ProtocolError } from '../core/errors.ts';
@@ -58,6 +59,7 @@ function validate(value: unknown): asserts value is Json {
         Object.keys(v).length !== 1 ||
         typeof v.$bytes !== 'string' ||
         !/^[A-Za-z0-9+/]*$/.test(v.$bytes) ||
+        v.$bytes.length % 4 === 1 ||
         bytes(fromBytes(v)).$bytes !== v.$bytes
       )
         throw new ProtocolError('wire_bytes', 'Bytes use one $bytes field with canonical unpadded base64');
@@ -82,6 +84,47 @@ export function encodeBlock(value: unknown): Uint8Array<ArrayBuffer> {
   if (encoded.length > WIRE.blockBytes) throw new ProtocolError('wire_size', 'Block exceeds 64 KiB');
   return encoded;
 }
+/** Inspect only CBOR framing and text bytes; the decoder still checks canonicality. */
+function validateTextBytes(raw: Uint8Array): void {
+  let offset = 0;
+  const fail = (): never => {
+    throw new ProtocolError('noncanonical', 'Invalid CBOR framing or UTF-8 text');
+  };
+  function take(count: number): Uint8Array {
+    if (count > raw.length - offset) fail();
+    const result = raw.subarray(offset, offset + count);
+    offset += count;
+    return result;
+  }
+  function item(depth: number): void {
+    if (depth > WIRE.depth) throw new ProtocolError('wire_depth', 'Block nesting exceeds the profile');
+    const first = take(1)[0]!,
+      type = first >> 5,
+      info = first & 31;
+    if (type === 7) {
+      if (info === 27) take(8);
+      // Unsupported simple values are refused by the pinned decoder.
+      return;
+    }
+    let argument = info;
+    if (info >= 24) {
+      if (info > 27) fail();
+      argument = 0;
+      for (const byte of take(2 ** (info - 24))) argument = argument * 256 + byte;
+      if (!Number.isSafeInteger(argument)) fail();
+    }
+    if (type === 2 || type === 3) {
+      const value = take(argument);
+      if (type === 3 && !isUtf8(value)) fail();
+    } else if (type === 4 || type === 5) {
+      const count = argument * (type === 5 ? 2 : 1);
+      if (count > raw.length - offset) fail();
+      for (let i = 0; i < count; i++) item(depth + 1);
+    } else if (type === 6) item(depth); // A CID wrapper does not add value depth.
+  }
+  item(0);
+  if (offset !== raw.length) fail();
+}
 /** These messages come from the pinned @atcute/cbor decoder and its CID reader. */
 export function isCborInputError(error: unknown): error is Error {
   if (!(error instanceof Error)) return false;
@@ -92,7 +135,7 @@ export function isCborInputError(error: unknown): error is Error {
     ],
     [
       TypeError,
-      /^(input is not valid utf-8|The encoded data was not valid for encoding utf-8|The encoded data is not valid.|non-canonical argument encoding|expected map to only have string keys; got type \d+|expected cid-link to be type 2 \(bytes\); got type \d+|unsupported tag; got \d+|invalid type; got \d+|map keys are not in canonical order or contain duplicates)$/,
+      /^(non-canonical argument encoding|expected map to only have string keys; got type \d+|expected cid-link to be type 2 \(bytes\); got type \d+|unsupported tag; got \d+|invalid type; got \d+|map keys are not in canonical order or contain duplicates)$/,
     ],
     [SyntaxError, /^invalid binary cid$/],
     [Error, /^(invalid argument encoding; got \d+|invalid simple value; got \d+|decoded value contains remainder)$/],
@@ -102,6 +145,7 @@ export function isCborInputError(error: unknown): error is Error {
 /** Preserve the exact canonical block; a decode/re-encode equality check is mandatory. */
 export function decodeBlock(raw: Uint8Array): Json {
   if (raw.length > WIRE.blockBytes) throw new ProtocolError('wire_size', 'Block exceeds 64 KiB');
+  validateTextBytes(raw);
   try {
     function plain(value: any, depth: number): Json {
       if (depth > WIRE.depth) throw new ProtocolError('wire_depth', 'Block nesting exceeds the profile');

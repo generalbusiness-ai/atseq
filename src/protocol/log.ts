@@ -70,27 +70,37 @@ function fail(code: ErrorCode, message: string): never {
   throw new ProtocolError(code, message);
 }
 async function key(value: string): Promise<void> {
+  let parsed;
   try {
-    const parsed = parseDidKey(value);
-    if (parsed.type !== 'p256') throw new Error('Expected P-256');
-    const pub = await P256PublicKey.importRaw(parsed.publicKeyBytes);
-    if ((await pub.exportPublicKey('did')) !== value) throw new Error('Noncanonical key');
-  } catch {
+    parsed = parseDidKey(value);
+  } catch (error) {
+    // These are the pinned did:key parser's explicit input diagnostics.
+    if (
+      !(error instanceof SyntaxError) &&
+      !(error instanceof TypeError && /^unsupported key type \(0x[0-9a-f]+\)$/.test(error.message))
+    )
+      throw error;
     fail('key', 'Expected a canonical compressed P-256 did:key');
   }
+  if (parsed.type !== 'p256' || parsed.publicKeyBytes.length !== 33 || ![2, 3].includes(parsed.publicKeyBytes[0]!))
+    fail('key', 'Expected a canonical compressed P-256 did:key');
+  let pub;
+  try {
+    pub = await P256PublicKey.importRaw(parsed.publicKeyBytes);
+  } catch (error) {
+    if (!(error instanceof DOMException) || error.name !== 'DataError') throw error;
+    fail('key', 'Invalid P-256 point');
+  }
+  if ((await pub.exportPublicKey('did')) !== value) fail('key', 'Noncanonical key');
 }
 async function proof(keyId: string, signature: Bytes, data: unknown): Promise<void> {
   await key(keyId);
-  try {
-    if (
-      !(await verifySigWithDidKey(keyId, new Uint8Array(fromBytes(signature)), encodeBlock(data), {
-        allowMalleableSig: false,
-      }))
-    )
-      throw new Error('Signature rejected');
-  } catch {
+  if (
+    !(await verifySigWithDidKey(keyId, new Uint8Array(fromBytes(signature)), encodeBlock(data), {
+      allowMalleableSig: false,
+    }))
+  )
     fail('signature', 'Invalid P-256 low-S signature');
-  }
 }
 
 /** An invitation pins this CID. PDS/DID discovery cannot replace it. */

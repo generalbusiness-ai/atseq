@@ -265,6 +265,61 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
       equal(resumed.projection, healthy.snapshot().projection);
     }
   });
+  await check(
+    'parser TypeError and RangeError faults pause folds and activations, then resume identically',
+    async () => {
+      const next = await guitarEvolution(),
+        target = await fixtureApp(next.old.bundle);
+      const reader = {
+        get: async (cid: string) =>
+          next.bundle.identities().includes(cid) ? next.bundle.get(cid) : next.old.bundle.get(cid),
+      };
+      const activation = await fixtureHistory(target, [
+        {
+          action: ACTIVATE,
+          payload: {
+            expected: next.old.bundle.root,
+            definition: next.bundle.root,
+            closure: next.bundle.identities().sort(),
+          },
+        },
+      ]);
+      const activeSource = new TextDecoder().decode(next.files['select.jsonata']);
+      const foldSource = new TextDecoder().decode(chart.files['record.jsonata']);
+      for (const Fault of [TypeError, RangeError]) {
+        for (const kind of ['fold', 'activation'] as const) {
+          const anchor = kind === 'fold' ? app.anchor : target.anchor,
+            sources = kind === 'fold' ? chart.bundle : reader,
+            entries = kind === 'fold' ? history : activation,
+            source = kind === 'fold' ? foldSource : activeSource;
+          const healthy = await Folder.open(anchor, sources);
+          await healthy.catchUp(entries.head, entries.entries);
+          const folder = await Folder.open(anchor, sources),
+            original = String.prototype.charAt;
+          let injected = false;
+          String.prototype.charAt = function (index: number) {
+            if (String(this) === source) {
+              injected = true;
+              throw new Fault('Injected JSONata parser fault');
+            }
+            return original.call(this, index);
+          };
+          try {
+            const paused = await folder.catchUp(entries.head, entries.entries);
+            equal(injected, true);
+            equal(paused.stalled?.code, 'runtime_fault');
+            equal(paused.projection.frontier.position, 0);
+            equal(paused.projection.outcomes, []);
+          } finally {
+            String.prototype.charAt = original;
+          }
+          const resumed = await folder.catchUp(entries.head, entries.entries);
+          equal(resumed.stalled, undefined);
+          equal(resumed.projection, healthy.snapshot().projection);
+        }
+      }
+    },
+  );
   await check('malformed schema and view shapes cannot freeze activation', async () => {
     const next = await guitarEvolution(),
       target = await fixtureApp(next.old.bundle);
@@ -315,8 +370,17 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     }
   });
   await check('malformed UTF-8 source has a deterministic loader code', async () => {
-    const invalid = await repack({ files: { 'initial.json': new Uint8Array([0xff]) } });
-    await rejects(() => load(invalid), 'source_utf8');
+    for (const bytes of [
+      [0xff],
+      [0xc3, 0x28],
+      [0xc0, 0x80],
+      [0xed, 0xa0, 0x80],
+      [0xf4, 0x90, 0x80, 0x80],
+      [0xe2, 0x82],
+    ]) {
+      const invalid = await repack({ files: { 'initial.json': new Uint8Array(bytes) } });
+      await rejects(() => load(invalid), 'source_utf8');
+    }
   });
   await check('reader size claims require independently verified bytes', async () => {
     const raw = new Uint8Array(600 * 1024),

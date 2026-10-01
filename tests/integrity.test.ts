@@ -56,6 +56,12 @@ test('package file patches and unlisted nested resolution fail before interpreta
       await rm(join(root, shadow.split('/node_modules/')[0]!, 'node_modules'), { recursive: true });
     }
     const manifest = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
+    await writeFile(
+      join(root, 'src/runtime/package.json'),
+      JSON.stringify({ name: 'jsonata', exports: './shadow.cjs' }),
+    );
+    assert.throws(() => verifyInstalledDependencies(true, root), { code: 'dependency_mismatch' });
+    await rm(join(root, 'src/runtime/package.json'));
     manifest.imports['#atseq-integrity'].node = './src/integrity/browser.ts';
     await writeFile(join(root, 'package.json'), JSON.stringify(manifest));
     assert.throws(() => verifyInstalledDependencies(true, root), { code: 'dependency_mismatch' });

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:02:43.838Z",
+  "measuredAt": "2026-10-01T02:27:28.544Z",
   "nodeVersion": "v26.10.0",
   "browserVersion": "153.0.8010.12",
   "node": [
@@ -105,6 +105,10 @@
       "passed": true
     },
     {
+      "name": "signature verification and key import host faults retain their identity",
+      "passed": true
+    },
+    {
       "name": "high-S variant rejected",
       "passed": true
     },
@@ -145,15 +149,19 @@
       "passed": true
     },
     {
-      "name": "wire rejects invalid UTF-8",
-      "passed": true
-    },
-    {
       "name": "wire rejects truncated string",
       "passed": true
     },
     {
       "name": "wire rejects huge truncated array",
+      "passed": true
+    },
+    {
+      "name": "wire invalid UTF-8 has the same code in every engine",
+      "passed": true
+    },
+    {
+      "name": "incomplete base64 has a deterministic input code",
       "passed": true
     },
     {
@@ -427,6 +435,10 @@
       "passed": true
     },
     {
+      "name": "signature verification and key import host faults retain their identity",
+      "passed": true
+    },
+    {
       "name": "high-S variant rejected",
       "passed": true
     },
@@ -467,15 +479,19 @@
       "passed": true
     },
     {
-      "name": "wire rejects invalid UTF-8",
-      "passed": true
-    },
-    {
       "name": "wire rejects truncated string",
       "passed": true
     },
     {
       "name": "wire rejects huge truncated array",
+      "passed": true
+    },
+    {
+      "name": "wire invalid UTF-8 has the same code in every engine",
+      "passed": true
+    },
+    {
+      "name": "incomplete base64 has a deterministic input code",
       "passed": true
     },
     {
@@ -653,11 +669,11 @@
     "tests/protocol.test.ts": "3d3227be21a377a7fef2f188a6a0a73628df3ec87969ebbd2ae819ec200fd814",
     "tests/vectors/protocol-v1.json": "e463fc076dcc65448521ab96a9e01c36ff5d1e296ca11280452aeed687e0ef22",
     "scripts/vectors/generate.mjs": "7aef307ec1d31869c6573ed2974059fe6b04a4175f114603b2aaa79194934dd1",
-    "experiments/protocol-corpus.ts": "8c993001eccbdbefb886a113852c58fb621c51b6dd153c15942f7288d99b6955",
+    "experiments/protocol-corpus.ts": "e7e3496b350224af6959dcbe3de76e39555bd20351b3829884a3eec2a954ff9f",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
-    "src/protocol/log.ts": "ed74c2b5fc03bdb976e74a112d4f6b74ca91ff71f03e229d5f158fbbc93b75e2",
+    "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "ae2535ea4edfacc0e94987e80bb337788f9af17a61f3d7de3e9f828266feac0a",
+    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
     "lexicons/ai/generalbusiness/atseq/activate.json": "1d367f08b706dfda9f7be3fc5bb5b0f3d7b3af18e49a07d45ecd5db300ff16b5",
     "lexicons/ai/generalbusiness/atseq/compareDefinition.json": "5f9f8966d1a90dcfd73ca3d10e2b96856b7aaddc1cf63b097867ba2895d6daf8",
     "lexicons/ai/generalbusiness/atseq/create.json": "f7d9ca07964c58445b49eee8bb07bc4dafeebbb40fa75f3500025b661e214b82",

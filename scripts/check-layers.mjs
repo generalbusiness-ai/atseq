@@ -37,6 +37,23 @@ async function check(directory) {
       continue;
     }
     const tree = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true);
+    for (const reference of tree.referencedFiles)
+      inspect({ kind: ts.SyntaxKind.StringLiteral, text: reference.fileName });
+    const workers = new Set(['Worker', 'SharedWorker']);
+    function worker(expression) {
+      return (
+        (ts.isIdentifier(expression) && workers.has(expression.text)) ||
+        (ts.isPropertyAccessExpression(expression) &&
+          expression.expression.getText(tree) === 'globalThis' &&
+          ['Worker', 'SharedWorker'].includes(expression.name.text))
+      );
+    }
+    function aliases(node) {
+      if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && node.initializer && worker(node.initializer))
+        workers.add(node.name.text);
+      ts.forEachChild(node, aliases);
+    }
+    aliases(tree);
     function inspect(specifier) {
       if (!ts.isStringLiteralLike(specifier)) {
         failures.push(`${file}: computed import is not allowed`);
@@ -61,7 +78,7 @@ async function check(directory) {
       if (ts.isImportTypeNode(node) && ts.isLiteralTypeNode(node.argument)) inspect(node.argument.literal);
       if (ts.isImportEqualsDeclaration(node) && ts.isExternalModuleReference(node.moduleReference))
         inspect(node.moduleReference.expression);
-      if (ts.isNewExpression(node) && ts.isIdentifier(node.expression) && node.expression.text === 'Worker') {
+      if (ts.isNewExpression(node) && worker(node.expression)) {
         const url = node.arguments?.[0];
         if (
           !url ||
@@ -78,6 +95,7 @@ async function check(directory) {
       if (
         ts.isCallExpression(node) &&
         (node.expression.kind === ts.SyntaxKind.ImportKeyword ||
+          (ts.isPropertyAccessExpression(node.expression) && node.expression.getText(tree) === 'import.meta.resolve') ||
           (ts.isIdentifier(node.expression) && node.expression.text === 'require'))
       ) {
         if (!node.arguments[0]) failures.push(`${file}: empty dynamic import`);

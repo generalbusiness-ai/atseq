@@ -71,6 +71,7 @@ function checkInstalledDependencies(force = false, installationRoot = root): voi
   function sourceDirectories(directory: string): void {
     if (!existsSync(directory)) return;
     for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      if (entry.name === 'package.json') fail(`Source package scope: ${directory}/package.json`);
       if (entry.name === 'node_modules') fail(`Source dependency shadow: ${directory}/node_modules`);
       if (entry.isDirectory()) sourceDirectories(join(directory, entry.name));
       else if (!entry.isFile()) fail(`Source alias or special file: ${directory}/${entry.name}`);

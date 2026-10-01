@@ -176,6 +176,11 @@ service worker come from the serving host; this check does not authenticate that
 host, and the first page load precedes service-worker installation. Trust the
 runtime distribution and compare its published build provenance independently.
 
+UTF-8 is checked from the source and CBOR text bytes before decoding. Invalid
+text has the same input code in Node and browser engines. JSONata parser syntax
+errors use the pinned S0xxx codes; parser faults and cryptography host faults
+remain unavailable results and cannot become replicated outcomes.
+
 A dependency update requires a new semantic contract or an independently reviewed
 claim that the new closure preserves the existing contract, supported by the
 full conformance and acceptance suites. Approval updates the separate provenance
@@ -184,7 +189,8 @@ requires a new versioned descriptor and CID.
 
 Every app keeps its profile for its lifetime. A new semantic profile means a
 new genesis and a new app; activation cannot change the profile. Hosts retain
-an interpreter for every CID they advertise in the supported registry. A CID
+an interpreter for every profile they accept. The current registry is a library
+API; the host does not yet expose it through discovery. A CID
 is never reassigned to different interpretation. Implementation corrections
 within a contract follow the conformance and independent-review rule above.
 

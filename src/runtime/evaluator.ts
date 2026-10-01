@@ -109,7 +109,17 @@ export async function evaluate(source: string, input: unknown): Promise<Evaluati
   try {
     expression = jsonata(source, { sequence: PROFILE.sequenceLength });
   } catch (error) {
-    throw new InterpretationError('invalid_source', String((error as Error).message));
+    // JSONata syntax errors are plain objects with S0xxx parser codes. An
+    // engine fault (including a parser stack overflow) must pause the replica.
+    if (
+      !error ||
+      typeof error !== 'object' ||
+      !('code' in error) ||
+      typeof error.code !== 'string' ||
+      !/^S0\d{3}$/.test(error.code)
+    )
+      throw error;
+    throw new InterpretationError('invalid_source', 'message' in error ? String(error.message) : error.code);
   }
   const parents = checkAst(expression.ast());
   const active = new WeakMap<Ast, { depth: number; count: number }>();

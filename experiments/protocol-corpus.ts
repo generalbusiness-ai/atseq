@@ -1,4 +1,4 @@
-import { P256PrivateKeyExportable, Secp256k1PrivateKeyExportable } from '@atcute/crypto';
+import { P256PrivateKeyExportable, P256PublicKey, Secp256k1PrivateKeyExportable } from '@atcute/crypto';
 import { fromBytes } from '@atcute/cbor';
 import { Lexicons, jsonToLex } from '@atproto/lexicon';
 import vectors from '../tests/vectors/protocol-v1.json';
@@ -177,6 +177,34 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
     bad.sig = bytes(sig);
     return rejects(() => verifyIntent(bad, anchor), 'signature');
   });
+  await check('signature verification and key import host faults retain their identity', async () => {
+    const fault = new TypeError('Injected cryptography host fault'),
+      verify = P256PublicKey.prototype.verify,
+      importRaw = P256PublicKey.importRaw;
+    for (const method of ['verify', 'import'] as const) {
+      if (method === 'verify')
+        P256PublicKey.prototype.verify = async () => {
+          throw fault;
+        };
+      else
+        P256PublicKey.importRaw = async () => {
+          throw fault;
+        };
+      try {
+        let rejected = false;
+        try {
+          await verifyIntent(signed, anchor);
+        } catch (error) {
+          if (error !== fault) throw error;
+          rejected = true;
+        }
+        equal(rejected, true);
+      } finally {
+        P256PublicKey.prototype.verify = verify;
+        P256PublicKey.importRaw = importRaw;
+      }
+    }
+  });
   await check('high-S variant rejected', () => {
     const bad = clone(signed),
       sig = new Uint8Array(fromBytes(bad.sig));
@@ -196,11 +224,17 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
     ['trailing bytes', '0100'],
     ['non-string map key', 'a10102'],
     ['unsupported tag', 'c001'],
-    ['invalid UTF-8', '61ff'],
     ['truncated string', '6478'],
     ['huge truncated array', '9affffffff'],
   ])
     await check(`wire rejects ${name}`, () => rejects(() => decodeBlock(unhex(data!))));
+  await check('wire invalid UTF-8 has the same code in every engine', async () => {
+    for (const data of ['61ff', 'a1616164c3284141', 'a164c328414101', '64f0808080', '63eda080', '64f4908080'])
+      await rejects(() => decodeBlock(unhex(data)), 'noncanonical');
+  });
+  await check('incomplete base64 has a deterministic input code', () =>
+    rejects(() => encodeBlock({ $bytes: 'A' }), 'wire_bytes'),
+  );
   await check('wire rejects deep nesting', () => rejects(() => decodeBlock(unhex('81'.repeat(33) + '01'))));
   await check('wire block byte boundary', async () => {
     equal(encodeBlock('x'.repeat(65533)).length, 65536);

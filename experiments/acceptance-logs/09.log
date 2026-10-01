@@ -3,34 +3,34 @@
 > tsx scripts/flows.ts --group evolution
 
 ▶ compatible activation preserves its exact interpretation boundary
-  ✔ activation at N preserves state and N+1 uses the new interface (12.773417ms)
-  ✔ a full replay uses each definition at its original boundary (13.754041ms)
-  ✔ unavailable candidate pauses at N and resumes the same entry after repair (16.186334ms)
-  ✔ corrupt candidate content cannot fabricate an invalid-activation verdict (16.1175ms)
-  ✔ failed persistence leaves both definition and state before activation (17.916625ms)
-  ✔ another actor cannot activate or force a missing-content fetch (5.166417ms)
-  ✔ available invalid candidate code is retained ineffective (7.532084ms)
-  ✔ an incomplete or extra signed closure has the same outcome with full and closure-only readers (37.834333ms)
-  ✔ a closure over 512 KiB is transported and invalid on both full and closure-only readers (19.189458ms)
-  ✔ an available query-less view with missing bindings is invalid rather than a permanent stall (7.418167ms)
-  ✔ state compatibility includes transitive schemas and ignores unrelated additions (15.676541ms)
-  ✔ malformed closure and control-action rebinding are refused (6.771458ms)
-✔ compatible activation preserves its exact interpretation boundary (553.687584ms)
+  ✔ activation at N preserves state and N+1 uses the new interface (12.998541ms)
+  ✔ a full replay uses each definition at its original boundary (14.173875ms)
+  ✔ unavailable candidate pauses at N and resumes the same entry after repair (16.180792ms)
+  ✔ corrupt candidate content cannot fabricate an invalid-activation verdict (17.046875ms)
+  ✔ failed persistence leaves both definition and state before activation (19.135291ms)
+  ✔ another actor cannot activate or force a missing-content fetch (5.448291ms)
+  ✔ available invalid candidate code is retained ineffective (6.910708ms)
+  ✔ an incomplete or extra signed closure has the same outcome with full and closure-only readers (37.867292ms)
+  ✔ a closure over 512 KiB is transported and invalid on both full and closure-only readers (20.448042ms)
+  ✔ an available query-less view with missing bindings is invalid rather than a permanent stall (7.537292ms)
+  ✔ state compatibility includes transitive schemas and ignores unrelated additions (16.679042ms)
+  ✔ malformed closure and control-action rebinding are refused (7.052667ms)
+✔ compatible activation preserves its exact interpretation boundary (565.553625ms)
 ▶ evolve a real app and explicitly replace its stale pending work
-  ✔ ordinary state is retained while another browser queues an old-definition act (507.57225ms)
-  ✔ comparison works locally and an ungranted browser cannot apply (73.918125ms)
-  ✔ CLI staging and preparing an activation do not activate it (948.7815ms)
-  ✔ explicit Apply records the boundary and preserves existing data (227.133791ms)
-  ✔ a prepared activation racing from the same old definition is ineffective (632.725833ms)
-  ✔ reconnecting delivers the old signed intent unchanged exactly once (300.727042ms)
-  ✔ review preserves entered values and signs a replacement only on Save (301.272916ms)
-  ✔ the new action, query and view use the preserved state (354.574958ms)
-  ✔ offline queue order preserves add-then-select dependencies (541.160584ms)
-  ✔ a recorded unauthorized activation is refused under the fixed grant (86.407917ms)
-  ✔ an incompatible proposal preserves the app and current data (198.747625ms)
-  ✔ sync delivers an oversized closure so host, CLI and fresh browser agree and continue (2494.941ms)
-  ✔ restarting the host rebuilds the active definition and every outcome (668.721125ms)
-✔ evolve a real app and explicitly replace its stale pending work (9866.502875ms)
+  ✔ ordinary state is retained while another browser queues an old-definition act (504.630083ms)
+  ✔ comparison works locally and an ungranted browser cannot apply (71.648334ms)
+  ✔ CLI staging and preparing an activation do not activate it (964.2835ms)
+  ✔ explicit Apply records the boundary and preserves existing data (322.247375ms)
+  ✔ a prepared activation racing from the same old definition is ineffective (644.434042ms)
+  ✔ reconnecting delivers the old signed intent unchanged exactly once (305.488875ms)
+  ✔ review preserves entered values and signs a replacement only on Save (421.202083ms)
+  ✔ the new action, query and view use the preserved state (342.398875ms)
+  ✔ offline queue order preserves add-then-select dependencies (520.098958ms)
+  ✔ a recorded unauthorized activation is refused under the fixed grant (90.924459ms)
+  ✔ an incompatible proposal preserves the app and current data (199.519208ms)
+  ✔ sync delivers an oversized closure so host, CLI and fresh browser agree and continue (2528.265583ms)
+  ✔ restarting the host rebuilds the active definition and every outcome (646.706792ms)
+✔ evolve a real app and explicitly replace its stale pending work (9996.227ms)
 ℹ tests 27
 ℹ suites 0
 ℹ pass 27
@@ -38,4 +38,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 10521.627708
+ℹ duration_ms 10657.41125

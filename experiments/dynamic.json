@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:02:53.356Z",
+  "measuredAt": "2026-10-01T02:27:38.350Z",
   "nodeVersion": "v26.10.0",
   "fixtureGeneration": true,
   "autonomousAgentGeneration": false,
@@ -15,19 +15,19 @@
     {
       "event": "application-interpreted",
       "title": "Garden rainfall",
-      "schema": "test.generated64d69d286c.rainfall.data#record"
+      "schema": "test.generatedd62076870d.rainfall.data#record"
     },
     {
       "event": "application-interpreted",
       "title": "Weekend guitar search",
-      "schema": "test.generated64d69d286c.guitar.data#candidate"
+      "schema": "test.generatedd62076870d.guitar.data#candidate"
     }
   ],
   "before": {
     "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
-    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/application/folder.ts": "697abcbac082aaada268798f6f28027e33dfcc6c2209ce74bcca2a6babc1acc5",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "tests/helpers/runtime-child.ts": "5118bd451908dacb2394da41c88b0558c108cd11cd85a558fa2ba7511a801770"
@@ -36,7 +36,7 @@
     "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
-    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/application/folder.ts": "697abcbac082aaada268798f6f28027e33dfcc6c2209ce74bcca2a6babc1acc5",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "tests/helpers/runtime-child.ts": "5118bd451908dacb2394da41c88b0558c108cd11cd85a558fa2ba7511a801770"
@@ -45,13 +45,13 @@
     "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
-    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/application/folder.ts": "697abcbac082aaada268798f6f28027e33dfcc6c2209ce74bcca2a6babc1acc5",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "tests/helpers/runtime-child.ts": "5118bd451908dacb2394da41c88b0558c108cd11cd85a558fa2ba7511a801770",
     "tests/dynamic-apps.test.ts": "62694b0c0db74de7f630eed3a658104108f1c7c4c1fb40cfe666a4fe97255f34",
     "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
-    "experiments/runtime-corpus.ts": "824fe53637e0cde17cae3cc1c603e9366934614c024d6a0b4029b0cc3056545b",
+    "experiments/runtime-corpus.ts": "a39c0b9c416dcb07789b8412a41d2d17a2775878829b278d742a38cf8d51ef48",
     "package.json": "8810b830da8add8ef8319f7ee0f08b9c6d32d09e55507ca93a6bc66de0af2bd3",
     "package-lock.json": "c08be1e453181d5cb06cac6d546dfd403d34b8c2292f350b8473c22f8fce8171"
   }

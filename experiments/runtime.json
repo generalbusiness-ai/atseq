@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:02:51.949Z",
+  "measuredAt": "2026-10-01T02:27:36.919Z",
   "nodeVersion": "v26.10.0",
   "browserVersion": "153.0.8010.12",
   "browserWorker": true,
@@ -51,6 +51,10 @@
     },
     {
       "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
       "passed": true
     },
     {
@@ -284,6 +288,10 @@
       "passed": true
     },
     {
+      "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+      "passed": true
+    },
+    {
       "name": "malformed schema and view shapes cannot freeze activation",
       "passed": true
     },
@@ -469,11 +477,11 @@
     "src/core/dependencies-approved.json": "e8d60b92a922ed028cb8b580e669b845e3403ed019fa526a076dbad75df769cd",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
-    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/application/folder.ts": "697abcbac082aaada268798f6f28027e33dfcc6c2209ce74bcca2a6babc1acc5",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "tests/runtime.test.ts": "27e3bb10be05284b4da0f9192f53548a7c6a14f44d4c6ee7d3a97fafe3b8e36b",
-    "experiments/runtime-corpus.ts": "824fe53637e0cde17cae3cc1c603e9366934614c024d6a0b4029b0cc3056545b",
+    "experiments/runtime-corpus.ts": "a39c0b9c416dcb07789b8412a41d2d17a2775878829b278d742a38cf8d51ef48",
     "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
     "experiments/runtime-browser/main.ts": "8bed9735f980e208ea30ae572588a3b6983c743425b8754dd0b5c468e4a515b9",
     "experiments/runtime-browser/worker.ts": "f6da841f2c5c1c97e40e7eb63c1af5d4e875606a131ddb28f62e8b4820c54e20",

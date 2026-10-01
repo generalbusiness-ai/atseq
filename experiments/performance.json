@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:06:37.519Z",
+  "measuredAt": "2026-10-01T02:31:24.049Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 3,
   "topology": "Official PDS 0.5.31, loopback HTTP, real SQLite and file blobs; official mock PLC. One sequencer, no rate limits; signed setup batched separately from timed confirmed single appends.",
@@ -18,47 +18,47 @@
       "acknowledgment": [
         {
           "position": 92,
-          "elapsedMs": 153.00179200000002
+          "elapsedMs": 155.05204200000003
         },
         {
           "position": 93,
-          "elapsedMs": 150.63933299999985
+          "elapsedMs": 157.36670900000013
         },
         {
           "position": 94,
-          "elapsedMs": 153.58154100000002
+          "elapsedMs": 153.07837500000005
         },
         {
           "position": 95,
-          "elapsedMs": 152.30491700000016
+          "elapsedMs": 147.40912500000013
         },
         {
           "position": 96,
-          "elapsedMs": 147.35287500000004
+          "elapsedMs": 150.03258300000016
         },
         {
           "position": 97,
-          "elapsedMs": 148.03020800000013
+          "elapsedMs": 148.5001659999998
         },
         {
           "position": 98,
-          "elapsedMs": 148.40391699999964
+          "elapsedMs": 150.5327500000003
         },
         {
           "position": 99,
-          "elapsedMs": 155.96704200000022
+          "elapsedMs": 152.23520800000006
         },
         {
           "position": 100,
-          "elapsedMs": 152.23595899999964
+          "elapsedMs": 162.12579099999994
         }
       ],
-      "acknowledgmentP50Ms": 152.23595899999964,
-      "acknowledgmentP95Ms": 155.96704200000022,
-      "readVerifyMs": 72.72162500000013,
-      "runtimeLoadMs": 5.856667000000016,
-      "fullReplayMs": 82.37541599999986,
-      "catchUpOneMs": 63.39587500000016,
+      "acknowledgmentP50Ms": 152.23520800000006,
+      "acknowledgmentP95Ms": 162.12579099999994,
+      "readVerifyMs": 74.1066249999999,
+      "runtimeLoadMs": 6.669499999999971,
+      "fullReplayMs": 82.40179199999966,
+      "catchUpOneMs": 63.69879200000014,
       "boundedStateBytes": 26
     },
     {
@@ -66,47 +66,47 @@
       "acknowledgment": [
         {
           "position": 992,
-          "elapsedMs": 1383.391916
+          "elapsedMs": 1395.0199579999999
         },
         {
           "position": 993,
-          "elapsedMs": 1389.8532500000001
+          "elapsedMs": 1400.218833
         },
         {
           "position": 994,
-          "elapsedMs": 1404.4129169999997
+          "elapsedMs": 1412.0368749999998
         },
         {
           "position": 995,
-          "elapsedMs": 1403.144875
+          "elapsedMs": 1414.4979170000006
         },
         {
           "position": 996,
-          "elapsedMs": 1374.725124999999
+          "elapsedMs": 1416.4561249999988
         },
         {
           "position": 997,
-          "elapsedMs": 1387.5584170000002
+          "elapsedMs": 1400.4189999999999
         },
         {
           "position": 998,
-          "elapsedMs": 1380.7114169999986
+          "elapsedMs": 1409.0779160000002
         },
         {
           "position": 999,
-          "elapsedMs": 1380.855875000001
+          "elapsedMs": 1409.295959000001
         },
         {
           "position": 1000,
-          "elapsedMs": 1409.3986670000013
+          "elapsedMs": 1414.8555830000005
         }
       ],
-      "acknowledgmentP50Ms": 1387.5584170000002,
-      "acknowledgmentP95Ms": 1409.3986670000013,
-      "readVerifyMs": 708.8497080000016,
-      "runtimeLoadMs": 4.430207999997947,
-      "fullReplayMs": 769.9693339999976,
-      "catchUpOneMs": 609.0459169999995,
+      "acknowledgmentP50Ms": 1409.295959000001,
+      "acknowledgmentP95Ms": 1416.4561249999988,
+      "readVerifyMs": 703.6571659999972,
+      "runtimeLoadMs": 3.909708999999566,
+      "fullReplayMs": 785.4149170000019,
+      "catchUpOneMs": 622.7924999999996,
       "boundedStateBytes": 27
     },
     {
@@ -114,47 +114,47 @@
       "acknowledgment": [
         {
           "position": 9992,
-          "elapsedMs": 15125.766375000003
+          "elapsedMs": 15333.563417000001
         },
         {
           "position": 9993,
-          "elapsedMs": 15230.839708
+          "elapsedMs": 15327.737000000001
         },
         {
           "position": 9994,
-          "elapsedMs": 15636.597500000003
+          "elapsedMs": 15346.787167000002
         },
         {
           "position": 9995,
-          "elapsedMs": 15065.5625
+          "elapsedMs": 15341.235167000006
         },
         {
           "position": 9996,
-          "elapsedMs": 15179.362624999994
+          "elapsedMs": 15334.472167
         },
         {
           "position": 9997,
-          "elapsedMs": 15245.150083
+          "elapsedMs": 15335.389291
         },
         {
           "position": 9998,
-          "elapsedMs": 15360.43583300001
+          "elapsedMs": 15313.782332999981
         },
         {
           "position": 9999,
-          "elapsedMs": 15179.277583000017
+          "elapsedMs": 15357.849874999985
         },
         {
           "position": 10000,
-          "elapsedMs": 15515.01245900002
+          "elapsedMs": 15350.140167000005
         }
       ],
-      "acknowledgmentP50Ms": 15230.839708,
-      "acknowledgmentP95Ms": 15636.597500000003,
-      "readVerifyMs": 7652.864375000005,
-      "runtimeLoadMs": 3.3961249999993015,
-      "fullReplayMs": 7617.377334000019,
-      "catchUpOneMs": 6108.052374999999,
+      "acknowledgmentP50Ms": 15335.389291,
+      "acknowledgmentP95Ms": 15357.849874999985,
+      "readVerifyMs": 7694.743791999994,
+      "runtimeLoadMs": 3.8353750000242144,
+      "fullReplayMs": 7714.666250000009,
+      "catchUpOneMs": 6224.117999999988,
       "boundedStateBytes": 28
     }
   ],
@@ -163,17 +163,17 @@
     {
       "name": "history 100",
       "passed": true,
-      "elapsedMs": 82.37541599999986
+      "elapsedMs": 82.40179199999966
     },
     {
       "name": "history 1000",
       "passed": true,
-      "elapsedMs": 769.9693339999976
+      "elapsedMs": 785.4149170000019
     },
     {
       "name": "history 10000",
       "passed": true,
-      "elapsedMs": 7617.377334000019
+      "elapsedMs": 7714.666250000009
     }
   ],
   "sourceHashes": {
@@ -206,7 +206,7 @@
     "scripts/browser-performance.ts": "cdaa2dc3f23220dc192ee000d17b9c86fc03b97e9f7d028d1aac632dccd7212c",
     "scripts/check-author.ts": "892ac6d115a52d7824a0165e181d71626809468817e902eccee6a490fad7e1b4",
     "scripts/check-dependencies.ts": "fc92c8a88a8d60fc869a234b97470806ebe7f8c5a75d6a0822e8a47846a72603",
-    "scripts/check-layers.mjs": "f0efba16f010440fdc3f2850c699d603a8bad870991742d6dbb0b524cadec839",
+    "scripts/check-layers.mjs": "7269503f5d1958794c63945271666529ec0bde98fcec92a6a2e6ccca3abfa43a",
     "scripts/feasibility.ts": "ff7568f339dc47b5620d3303391ea84bad5694f672c7881ac4bbca9afa25ec20",
     "scripts/flows.ts": "e921a16fd8276cb6f1643594acf77f71e04e69f3bfdcb042056363c1b43552b7",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
@@ -241,10 +241,11 @@
     "src/core/freeze.ts": "53b07b8d407f965ab9fcb8995220683f6e758a5d5cd339a3268dba893c7a6542",
     "src/core/nsids.ts": "04b45ae5936465ec81e53b32e8b3bca5fece033cdba2598c9db08930908d32e7",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/core/utf8.ts": "e453d5b3b74545100d83fe585941080e88c4b5439466a2a63b0c414b7abd4b86",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
     "src/definition/activation.ts": "6a6fe8294060d469efbe096a14cc4cc26db1d1b832e1194428fb2507e4ca6592",
     "src/definition/control.ts": "de5fa87130c75688f2ee66c6d5d925192bd312a92f1494c8611c4269b87c2b7e",
-    "src/definition/load.ts": "272646b514f0d76c358b5dce2567cd5003be4f85d7b368dd5b491b97381783ed",
+    "src/definition/load.ts": "5c7cae17775551bb43e0075f859d86a54fd3cc31a6e2fdb9c0f910f6e0ad4a3b",
     "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
     "src/definition/source.ts": "aeadda8ad14863fb76aa58d0390d08f14a7b513aea02effe5f600a544e34d555",
     "src/host/accounts.ts": "003a2f00eb2997416d82580cfc125fee4f2ecb32de297a178a4316eb45db8ce9",
@@ -260,12 +261,12 @@
     "src/host/source.ts": "822c1f66645635de12b9c724c10fd3393b1ee77c23804a2ddaa7a1684604598f",
     "src/integrity/browser.ts": "565c1c4958ea060535e2c3283aa7b85651ae92eec5174f400f5bb71d16613228",
     "src/integrity/files-approved.json": "86cdc231bb9252357fb6f0b25c42a907734f421fe67dfea54da7aceb9ccc2c8a",
-    "src/integrity/node.ts": "1afcb61044499818bc43b2324b9c55de15c987e3acdf42ed27d09363330552e9",
+    "src/integrity/node.ts": "d8f7c87e292d5ffdfdc5d6550db692fd66422a3ecadb06ae20260b047869cfcb",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
-    "src/protocol/log.ts": "ed74c2b5fc03bdb976e74a112d4f6b74ca91ff71f03e229d5f158fbbc93b75e2",
+    "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "ae2535ea4edfacc0e94987e80bb337788f9af17a61f3d7de3e9f828266feac0a",
-    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",
     "src/view/inlay.ts": "416e85fd0fc610fa1080f0c6c97e49d732901e65ef8292e1563890ca4f42a2e3",
@@ -285,7 +286,7 @@
     "tests/helpers/runtime-child.ts": "5118bd451908dacb2394da41c88b0558c108cd11cd85a558fa2ba7511a801770",
     "tests/helpers/writer-child.ts": "acd367a013e7add37a23cb701761aa81caeb37074d09bb179e23d8b84c9ac4cb",
     "tests/helpers/writer-process.ts": "51f8f3b646f900eb0d39689121b91be694b658b38a3d5dad7de5cf39ef62d13c",
-    "tests/integrity.test.ts": "49c6c85e3436943be9e89906ad31a5e6b7a014471a44f4109ec58ce8a4bb44e7",
+    "tests/integrity.test.ts": "c961f6e95d3a092e7b8d65a122f910140534499bc0743c236f21816f696483de",
     "tests/loader-shapes.test.ts": "62308dd842fef220986152cc9db313dd942a29cb426a48acab734636d59fa003",
     "tests/participation.test.ts": "a5ce43dcb4930126a2d37d63c124198d2cc483bf144ae3642de08d3d89029df1",
     "tests/pds.test.ts": "40ae3b883048afb2ba2895f9c0180791f639af62a7512e2a2dbd0ecb88c81313",

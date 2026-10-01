@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:03:14.008Z",
+  "measuredAt": "2026-10-01T02:27:58.975Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 13,
   "browserVersion": "153.0.8010.12",
@@ -9,52 +9,52 @@
     {
       "name": "ordinary state is retained while another browser queues an old-definition act",
       "passed": true,
-      "elapsedMs": 507
+      "elapsedMs": 504
     },
     {
       "name": "comparison works locally and an ungranted browser cannot apply",
       "passed": true,
-      "elapsedMs": 74
+      "elapsedMs": 72
     },
     {
       "name": "CLI staging and preparing an activation do not activate it",
       "passed": true,
-      "elapsedMs": 949
+      "elapsedMs": 964
     },
     {
       "name": "explicit Apply records the boundary and preserves existing data",
       "passed": true,
-      "elapsedMs": 227
+      "elapsedMs": 322
     },
     {
       "name": "a prepared activation racing from the same old definition is ineffective",
       "passed": true,
-      "elapsedMs": 633
+      "elapsedMs": 644
     },
     {
       "name": "reconnecting delivers the old signed intent unchanged exactly once",
       "passed": true,
-      "elapsedMs": 301
+      "elapsedMs": 305
     },
     {
       "name": "review preserves entered values and signs a replacement only on Save",
       "passed": true,
-      "elapsedMs": 301
+      "elapsedMs": 421
     },
     {
       "name": "the new action, query and view use the preserved state",
       "passed": true,
-      "elapsedMs": 355
+      "elapsedMs": 342
     },
     {
       "name": "offline queue order preserves add-then-select dependencies",
       "passed": true,
-      "elapsedMs": 541
+      "elapsedMs": 520
     },
     {
       "name": "a recorded unauthorized activation is refused under the fixed grant",
       "passed": true,
-      "elapsedMs": 86
+      "elapsedMs": 91
     },
     {
       "name": "an incompatible proposal preserves the app and current data",
@@ -64,12 +64,12 @@
     {
       "name": "sync delivers an oversized closure so host, CLI and fresh browser agree and continue",
       "passed": true,
-      "elapsedMs": 2495
+      "elapsedMs": 2528
     },
     {
       "name": "restarting the host rebuilds the active definition and every outcome",
       "passed": true,
-      "elapsedMs": 669
+      "elapsedMs": 647
     }
   ],
   "sourceHashes": {
@@ -102,7 +102,7 @@
     "scripts/browser-performance.ts": "cdaa2dc3f23220dc192ee000d17b9c86fc03b97e9f7d028d1aac632dccd7212c",
     "scripts/check-author.ts": "892ac6d115a52d7824a0165e181d71626809468817e902eccee6a490fad7e1b4",
     "scripts/check-dependencies.ts": "fc92c8a88a8d60fc869a234b97470806ebe7f8c5a75d6a0822e8a47846a72603",
-    "scripts/check-layers.mjs": "f0efba16f010440fdc3f2850c699d603a8bad870991742d6dbb0b524cadec839",
+    "scripts/check-layers.mjs": "7269503f5d1958794c63945271666529ec0bde98fcec92a6a2e6ccca3abfa43a",
     "scripts/feasibility.ts": "ff7568f339dc47b5620d3303391ea84bad5694f672c7881ac4bbca9afa25ec20",
     "scripts/flows.ts": "e921a16fd8276cb6f1643594acf77f71e04e69f3bfdcb042056363c1b43552b7",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
@@ -137,10 +137,11 @@
     "src/core/freeze.ts": "53b07b8d407f965ab9fcb8995220683f6e758a5d5cd339a3268dba893c7a6542",
     "src/core/nsids.ts": "04b45ae5936465ec81e53b32e8b3bca5fece033cdba2598c9db08930908d32e7",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/core/utf8.ts": "e453d5b3b74545100d83fe585941080e88c4b5439466a2a63b0c414b7abd4b86",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
     "src/definition/activation.ts": "6a6fe8294060d469efbe096a14cc4cc26db1d1b832e1194428fb2507e4ca6592",
     "src/definition/control.ts": "de5fa87130c75688f2ee66c6d5d925192bd312a92f1494c8611c4269b87c2b7e",
-    "src/definition/load.ts": "272646b514f0d76c358b5dce2567cd5003be4f85d7b368dd5b491b97381783ed",
+    "src/definition/load.ts": "5c7cae17775551bb43e0075f859d86a54fd3cc31a6e2fdb9c0f910f6e0ad4a3b",
     "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
     "src/definition/source.ts": "aeadda8ad14863fb76aa58d0390d08f14a7b513aea02effe5f600a544e34d555",
     "src/host/accounts.ts": "003a2f00eb2997416d82580cfc125fee4f2ecb32de297a178a4316eb45db8ce9",
@@ -156,12 +157,12 @@
     "src/host/source.ts": "822c1f66645635de12b9c724c10fd3393b1ee77c23804a2ddaa7a1684604598f",
     "src/integrity/browser.ts": "565c1c4958ea060535e2c3283aa7b85651ae92eec5174f400f5bb71d16613228",
     "src/integrity/files-approved.json": "86cdc231bb9252357fb6f0b25c42a907734f421fe67dfea54da7aceb9ccc2c8a",
-    "src/integrity/node.ts": "1afcb61044499818bc43b2324b9c55de15c987e3acdf42ed27d09363330552e9",
+    "src/integrity/node.ts": "d8f7c87e292d5ffdfdc5d6550db692fd66422a3ecadb06ae20260b047869cfcb",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
-    "src/protocol/log.ts": "ed74c2b5fc03bdb976e74a112d4f6b74ca91ff71f03e229d5f158fbbc93b75e2",
+    "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "ae2535ea4edfacc0e94987e80bb337788f9af17a61f3d7de3e9f828266feac0a",
-    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",
     "src/view/inlay.ts": "416e85fd0fc610fa1080f0c6c97e49d732901e65ef8292e1563890ca4f42a2e3",
@@ -181,7 +182,7 @@
     "tests/helpers/runtime-child.ts": "5118bd451908dacb2394da41c88b0558c108cd11cd85a558fa2ba7511a801770",
     "tests/helpers/writer-child.ts": "acd367a013e7add37a23cb701761aa81caeb37074d09bb179e23d8b84c9ac4cb",
     "tests/helpers/writer-process.ts": "51f8f3b646f900eb0d39689121b91be694b658b38a3d5dad7de5cf39ef62d13c",
-    "tests/integrity.test.ts": "49c6c85e3436943be9e89906ad31a5e6b7a014471a44f4109ec58ce8a4bb44e7",
+    "tests/integrity.test.ts": "c961f6e95d3a092e7b8d65a122f910140534499bc0743c236f21816f696483de",
     "tests/loader-shapes.test.ts": "62308dd842fef220986152cc9db313dd942a29cb426a48acab734636d59fa003",
     "tests/participation.test.ts": "a5ce43dcb4930126a2d37d63c124198d2cc483bf144ae3642de08d3d89029df1",
     "tests/pds.test.ts": "40ae3b883048afb2ba2895f9c0180791f639af62a7512e2a2dbd0ecb88c81313",

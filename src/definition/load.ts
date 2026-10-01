@@ -1,4 +1,5 @@
 import { NSID } from '../core/nsids.ts';
+import { isUtf8 } from '../core/utf8.ts';
 import { errorKind, type ErrorCode } from '../core/errors.ts';
 import { ACTIVATE } from './control.ts';
 import { Lexicons, ValidationError, jsonToLex, type LexiconDoc } from '@atproto/lexicon';
@@ -83,12 +84,8 @@ function freeze<T>(value: T): T {
 function sourceText(files: Map<string, Uint8Array>, path: string): string {
   const bytes = files.get(path);
   if (!bytes) fail('definition_path', `Undeclared source path: ${path}`);
-  try {
-    return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
-  } catch (error) {
-    if (!(error instanceof TypeError) || !/encoded data.*(not valid|invalid)/i.test(error.message)) throw error;
-    return fail('source_utf8', `Source is not UTF-8: ${path}`);
-  }
+  if (!isUtf8(bytes)) return fail('source_utf8', `Source is not UTF-8: ${path}`);
+  return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
 }
 function sourceJson(files: Map<string, Uint8Array>, path: string): Json {
   try {
