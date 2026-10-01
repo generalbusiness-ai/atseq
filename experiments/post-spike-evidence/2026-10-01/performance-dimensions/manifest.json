@@ -1,0 +1,93 @@
+{
+  "capturedHead": "a29ae7cb237ecae62d6e6805008e6d3ce18048e4",
+  "rawResultSha256": "421ca6aa826c3e76abfd818f677dc78780f9e8b9c88367a371ac066cec8a9e6e",
+  "publicOnly": true,
+  "retention": "Exact raw result and public signed inputs, with source CARs. Compressed bounded inputs expand to the retained source fixtures byte-for-byte. No private keys.",
+  "files": [
+    {
+      "path": "results.json",
+      "bytes": 251275,
+      "sha256": "421ca6aa826c3e76abfd818f677dc78780f9e8b9c88367a371ac066cec8a9e6e"
+    },
+    {
+      "path": "run.log",
+      "bytes": 142774,
+      "sha256": "6c325291af81f8ea71001ca01b6a2112519c36822846605e905ec6c3a7edf8d8"
+    },
+    {
+      "path": "public-inputs/activation-next.car",
+      "bytes": 9587,
+      "sha256": "5c23422bab9aabc8d2d7a7735baeef2627165d81633c37b4993dd10aa74683e0"
+    },
+    {
+      "path": "public-inputs/activation-old.car",
+      "bytes": 5868,
+      "sha256": "92345ee15233ad4ca7821409f338efc143697163ba20da885d322116b8d82a12"
+    },
+    {
+      "path": "public-inputs/activation.json",
+      "bytes": 25715,
+      "sha256": "1a80ad4d7c23574741f58f5d66f5be5f116c76d649a1414e00a009717a4ea54f"
+    },
+    {
+      "path": "public-inputs/bounded-1-100.json.gz",
+      "bytes": 24199,
+      "sha256": "7b16c15ca4c31bf91ae1f4fd4736c6165bd260372030dd5d36bef81eb4f77812"
+    },
+    {
+      "path": "public-inputs/bounded-1-100.source.car",
+      "bytes": 4674,
+      "sha256": "8c6a9384eb7d246e631f4acfcdc05ac24069353de3b8d47fc679404365fe3d5d"
+    },
+    {
+      "path": "public-inputs/bounded-1-1000.json.gz",
+      "bytes": 212658,
+      "sha256": "ab4c93cf77f0ba3acc5a734a0926e2fe3d75732fa3ee549f809e016aac275d94"
+    },
+    {
+      "path": "public-inputs/bounded-1-1000.source.car",
+      "bytes": 4674,
+      "sha256": "8c6a9384eb7d246e631f4acfcdc05ac24069353de3b8d47fc679404365fe3d5d"
+    },
+    {
+      "path": "public-inputs/bounded-1-10000.json.gz",
+      "bytes": 2099160,
+      "sha256": "18585502cacd2f7e3905e9d974a438db639860ca41d0db8eeb79d2a9776aef67"
+    },
+    {
+      "path": "public-inputs/bounded-1-10000.source.car",
+      "bytes": 4674,
+      "sha256": "8c6a9384eb7d246e631f4acfcdc05ac24069353de3b8d47fc679404365fe3d5d"
+    },
+    {
+      "path": "public-inputs/bounded-16-100.json.gz",
+      "bytes": 24822,
+      "sha256": "e21f4bed7d8bc1acb308abb2d1f4ae5b190a85db2ac5f58a6de5d214352ac9ec"
+    },
+    {
+      "path": "public-inputs/bounded-16-100.source.car",
+      "bytes": 4674,
+      "sha256": "8c6a9384eb7d246e631f4acfcdc05ac24069353de3b8d47fc679404365fe3d5d"
+    },
+    {
+      "path": "public-inputs/bounded-16-1000.json.gz",
+      "bytes": 214380,
+      "sha256": "7cc254eeb592d71eb886dfa56ff85c2acbc4af543e144a4a490ef598d728942f"
+    },
+    {
+      "path": "public-inputs/bounded-16-1000.source.car",
+      "bytes": 4674,
+      "sha256": "8c6a9384eb7d246e631f4acfcdc05ac24069353de3b8d47fc679404365fe3d5d"
+    },
+    {
+      "path": "public-inputs/bounded-16-10000.json.gz",
+      "bytes": 2110779,
+      "sha256": "3e1e846e940f633327acf561f910eca573908a98efe4a39da0f40dca97cb3c6b"
+    },
+    {
+      "path": "public-inputs/bounded-16-10000.source.car",
+      "bytes": 4674,
+      "sha256": "8c6a9384eb7d246e631f4acfcdc05ac24069353de3b8d47fc679404365fe3d5d"
+    }
+  ]
+}
