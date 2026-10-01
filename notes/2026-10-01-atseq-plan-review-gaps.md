@@ -125,3 +125,25 @@ discovery), S0 (state model), Q0 (confidentiality), M0 (bundled dependency) and
 M1 (test-fixture advisories) are assigned requests in the programme. Shared
 deployment admission belongs to A2. Assessment approval does not approve each
 future contract or implementation.
+
+## Current disposition after the foundation deliveries
+
+The finding map above describes the examined revision. The
+[current programme](2026-10-01-atseq-implementation-programme.md) now records
+landed P0/P1 and fixture/CI work separately from design and runtime gates.
+
+F2 has measured growing-state evidence, but the state contract remains undecided;
+V0 tests cheaper canonical guards before an effects prototype. F3 has an adopted
+[actor-discovery direction](2026-10-01-atseq-actor-discovery.md), with I2's final
+enforced role interface and implementation still open. F4 has adopted
+[per-action compatibility](2026-10-01-atseq-activation-compatibility.md), with N1/I2
+wire and runtime work open. F5's reviewed
+[account admission](2026-10-01-atseq-account-admission-design.md) and
+[authority](2026-10-01-atseq-account-authority-design.md) notes now specify retained
+PLC history and weaker web observation, grants/reset/revocation and appointed
+control. F8 still needs native incremental reads, materialization and checkpoints;
+P1's shipped proofs are their foundation. F9 authoring is in final integration,
+including reviewed sample aggregate bounds. F10 adopts the existing
+[public scope](2026-10-01-atseq-confidentiality-direction.md); no speculative
+confidential mode is implemented. The listed concurrent tasks remain distinct
+from their downstream implementation completion.

@@ -29,7 +29,9 @@ recovery, observation, certification and proof-delivery boundaries. The
 reviewed decisions and deliveries. The alternatives and limits in this original
 design-space assessment remain evidence; they are not simultaneous runtime modes.
 
-## Chosen backbone and decision order
+The [landed performance baseline](2026-10-01-atseq-performance-baseline-results.md) now characterizes 10,000-action growing and bounded state, warm deltas, real-PDS requests and browser transfer. The [landed native proof foundation](2026-10-01-atseq-native-proof-results.md) authenticates roots and bounded sparse/full-tree proofs. Native incremental Atseq reads, coherent materialization and portable checkpoints remain open; the measurements do not establish that a checkpoint removes growing-state fold costs.
+
+## Historical backbone and decision order
 
 Keep an explicitly authorized sequencer separate from the app PDS. Retain local
 verified history, retry state and materialized interpretation; extend it from an
@@ -75,15 +77,15 @@ an isolated harness rather than silently changing production limits.
 
 Relevant code, checked at the revision above:
 
-| Location | Behavior |
-|---|---|
-| `src/protocol/log.ts`, `verifyHistory` | Requires `head.position === records.length`; verifies both signatures per entry and reconstructs the retry index |
-| `src/protocol/log.ts`, `RetryIndex` | Remembers each retry identity and original receipt; seals the index after verification |
-| `src/host/sequencer.ts`, `readSnapshot` / `SnapshotReader` | Reads all entry records; caches only while repository commit is unchanged |
-| `src/application/folder.ts`, `advanceVerified` | Folds only after the interpreted frontier, but receives a complete verified history |
-| `src/host/lease.ts`, `src/host/application.ts` | Saves a verified rollback floor; rebuilds application state after restart |
-| `lexicons/ai/generalbusiness/atseq/sync.json` | Transfers a complete prefix and source to clients |
-| `src/browser/evaluator.ts`, `src/archive/archive.ts` | Retains/replays inputs; does not restore a portable materialized checkpoint |
+| Location                                                   | Behavior                                                                                                         |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `src/protocol/log.ts`, `verifyHistory`                     | Requires `head.position === records.length`; verifies both signatures per entry and reconstructs the retry index |
+| `src/protocol/log.ts`, `RetryIndex`                        | Remembers each retry identity and original receipt; seals the index after verification                           |
+| `src/host/sequencer.ts`, `readSnapshot` / `SnapshotReader` | Reads all entry records; caches only while repository commit is unchanged                                        |
+| `src/application/folder.ts`, `advanceVerified`             | Folds only after the interpreted frontier, but receives a complete verified history                              |
+| `src/host/lease.ts`, `src/host/application.ts`             | Saves a verified rollback floor; rebuilds application state after restart                                        |
+| `lexicons/ai/generalbusiness/atseq/sync.json`              | Transfers a complete prefix and source to clients                                                                |
+| `src/browser/evaluator.ts`, `src/archive/archive.ts`       | Retains/replays inputs; does not restore a portable materialized checkpoint                                      |
 
 The current trust boundary is deliberate: `VerifiedHistory` is an in-memory
 capability issued by verification. Deserializing a file must not recreate it
@@ -102,7 +104,7 @@ checks today, encoding/hashing, ΣF(i,S), and copying/transfer. Repeating it aft
 each append can produce quadratic total verification work. Growing-state folds
 or repeated outcome copies can remain quadratic even after cryptographic
 verification becomes incremental. No checkpoint removes an expensive fold of
-the *next* action over a large state.
+the _next_ action over a large state.
 
 Measure stages separately; elapsed replay time divided by N is not a measured
 signature cost. Report HTTP requests, bytes, signature counts/time, hash/CBOR/MST
@@ -143,15 +145,15 @@ history on their own. The app chain supplies order. See the
 [repository](https://atproto.com/specs/repository) and
 [sync](https://atproto.com/specs/sync) specifications.
 
-| Reader circumstance | Candidate | Main cost / limitation |
-|---|---|---|
-| First independent open | Full CAR, retained source, history verification and fold | O(N) history work; complete audit |
-| Returning reader with retained app history | Chain-verified record suffix | Δ verification/folds; old repository mutations are not checked |
-| Intermittent reader with verified repository cache | `getRepo(since=rev)`, authenticate reachable MST and compare roots | Changed blocks/paths plus Δ; recovery if blocks are missing |
-| Continuous host or observer | Validated `subscribeRepos` diffs | Changed data per commit; stream gaps and backfill |
-| Restart with local materialization | Restore trusted local state, then delta sync | Load S+R and needed indexes, then changed work |
-| Fresh reader accepting a certifier | Portable checkpoint plus authenticated tail | State/evidence and required index proofs; historical derivation is trusted |
-| Fresh reader also auditing | Same early-use path plus background full replay | Early readiness can be small; eventual audit still reads/folds history |
+| Reader circumstance                                | Candidate                                                          | Main cost / limitation                                                     |
+| -------------------------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| First independent open                             | Full CAR, retained source, history verification and fold           | O(N) history work; complete audit                                          |
+| Returning reader with retained app history         | Chain-verified record suffix                                       | Δ verification/folds; old repository mutations are not checked             |
+| Intermittent reader with verified repository cache | `getRepo(since=rev)`, authenticate reachable MST and compare roots | Changed blocks/paths plus Δ; recovery if blocks are missing                |
+| Continuous host or observer                        | Validated `subscribeRepos` diffs                                   | Changed data per commit; stream gaps and backfill                          |
+| Restart with local materialization                 | Restore trusted local state, then delta sync                       | Load S+R and needed indexes, then changed work                             |
+| Fresh reader accepting a certifier                 | Portable checkpoint plus authenticated tail                        | State/evidence and required index proofs; historical derivation is trusted |
+| Fresh reader also auditing                         | Same early-use path plus background full replay                    | Early readiness can be small; eventual audit still reads/folds history     |
 
 For a small suffix, reading the selected head followed by bounded parallel
 `getRecord` calls for known position keys avoids cursor dependence. Verify every
@@ -253,12 +255,12 @@ commitments; reject substitution and preserve a newer local floor.
 The identity note's self-standing governance/succession certificate chain supplies
 the default certifier bootstrap; its size follows authority changes, not acts.
 
-| Starting trust | Meaning of rapid restore |
-|---|---|
-| Local state previously derived by this trusted build | Reuse prior verified work under the local-storage assumption |
-| App authority or designated attestor | Accept its assertion about the materialized prefix |
-| Several attestors | Accept the stated quorum and independence assumptions; not a proof of execution |
-| Independent replay | Verify the prefix and fold; no shortcut to arbitrary computation is supplied |
+| Starting trust                                       | Meaning of rapid restore                                                        |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Local state previously derived by this trusted build | Reuse prior verified work under the local-storage assumption                    |
+| App authority or designated attestor                 | Accept its assertion about the materialized prefix                              |
+| Several attestors                                    | Accept the stated quorum and independence assumptions; not a proof of execution |
+| Independent replay                                   | Verify the prefix and fold; no shortcut to arbitrary computation is supplied    |
 
 A reader may use an accepted checkpoint while auditing in the background. On
 mismatch, stop promoting dependent results, retain conflicting evidence and

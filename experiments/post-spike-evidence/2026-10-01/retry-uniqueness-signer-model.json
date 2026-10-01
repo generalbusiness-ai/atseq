@@ -1,0 +1,509 @@
+{
+  "kind": "atseq-retry-uniqueness-design-model",
+  "version": 2,
+  "capturedAt": "2026-10-01T15:37:40.142Z",
+  "node": "v26.10.0",
+  "sourceSha256": "cec1ef9e1ab8303bbfa2323fbc1b4a140a6509751eefae54e22d21173b273c2c",
+  "namespace": "(app, genesis, signer, nonce); counter comparison scoped to signer and grant",
+  "preCorrectionEvidence": {
+    "path": "experiments/post-spike-evidence/2026-10-01/retry-uniqueness-model.json",
+    "sha256": "2d86127c0102a32e5d5ea44ecc42b7c237db5af6f5d55efd4f3205b2692a0504",
+    "sourceSha256": "cce43b64f07985985bef57847c59d6c7f5cee57c6c5da02fae1ee9b19d7af479",
+    "sourceGitHead": "f8118814264ad15478b573ece074317c922b4020",
+    "assessment": "b4403ae5fbf68b91f8b83d8c0fd8c58b219296d9",
+    "correction": "Claimed principal did not authenticate the retry namespace; use the authenticated signer instead"
+  },
+  "identityEncoding": "sorted JSON and SHA-256 model hashes; not DRISL-CBOR or actual wire CIDs",
+  "nonceFixtures": "deterministic unique 16-byte hex values; no RNG quality experiment",
+  "storageEncoding": "UTF-8 sorted compact JSON; no compression, native MST/proofs, authority/grant records or durable DB overhead",
+  "limitations": [
+    "Semantic model only, no runtime/protocol conformance or signature tests",
+    "No timing, heap, transfer or checkpoint verification measurements",
+    "Grant/epoch/contract state modeled by supplied authorization, not independently verified",
+    "Signatures and canonical real signer-key encodings are assumed; nonce length tests use a sixteen-byte hex fixture",
+    "No CAS/network failures modeled as actual native operations",
+    "Retired counter marks retained because ineffective ordered work still participates in uniqueness"
+  ],
+  "cases": [
+    {
+      "case": "exact original retry after revocation/reset/activation returns its old outcome",
+      "mode": "nonce",
+      "passed": true,
+      "observed": "original_receipt"
+    },
+    {
+      "case": "different payload/contract/principal/type under the same signer and token conflicts",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "conflicts": 5
+      }
+    },
+    {
+      "case": "old content cannot be diagnosed without original evidence",
+      "mode": "nonce",
+      "passed": true,
+      "observed": "unavailable_original_evidence"
+    },
+    {
+      "case": "arbitrary old retry below the newest token still needs its original content",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 2,
+        "oldestRetry": "content_conflict"
+      }
+    },
+    {
+      "case": "cloned signer allocation: first content wins; exact retry is not another position",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 1
+      }
+    },
+    {
+      "case": "cancelled first draft followed by second token",
+      "mode": "nonce",
+      "passed": true,
+      "observed": "ordered"
+    },
+    {
+      "case": "higher offline token arrives before lower token",
+      "mode": "nonce",
+      "passed": true,
+      "observed": [
+        "ordered",
+        "ordered"
+      ]
+    },
+    {
+      "case": "authentic ineffective entry still consumes retry identity",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 1,
+        "outcome": "ineffective"
+      }
+    },
+    {
+      "case": "same token under another pinned genesis is a different identity",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 2
+      }
+    },
+    {
+      "case": "different signer reusing a token is new work; clients must forbid silent replacement",
+      "mode": "nonce",
+      "passed": true,
+      "observed": "ordered"
+    },
+    {
+      "case": "different device grants need no shared allocator",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 2
+      }
+    },
+    {
+      "case": "exact original retry after revocation/reset/activation returns its old outcome",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": "original_receipt"
+    },
+    {
+      "case": "different payload/contract/principal/type under the same signer and token conflicts",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": {
+        "conflicts": 4
+      }
+    },
+    {
+      "case": "old content cannot be diagnosed without original evidence",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": "unavailable_original_evidence"
+    },
+    {
+      "case": "arbitrary old retry below the newest token still needs its original content",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": {
+        "positions": 2,
+        "oldestRetry": "content_conflict"
+      }
+    },
+    {
+      "case": "cloned signer allocation: first content wins; exact retry is not another position",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": {
+        "positions": 1
+      }
+    },
+    {
+      "case": "cancelled first draft followed by second token",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": "counter_gap"
+    },
+    {
+      "case": "higher offline token arrives before lower token",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": [
+        "counter_gap",
+        "ordered"
+      ]
+    },
+    {
+      "case": "authentic ineffective entry still consumes retry identity",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": {
+        "positions": 1,
+        "outcome": "ineffective"
+      }
+    },
+    {
+      "case": "same token under another pinned genesis is a different identity",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": {
+        "positions": 2
+      }
+    },
+    {
+      "case": "different signer reusing a token is new work; clients must forbid silent replacement",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": "ordered"
+    },
+    {
+      "case": "different device grants need no shared allocator",
+      "mode": "consecutive",
+      "passed": true,
+      "observed": {
+        "positions": 2
+      }
+    },
+    {
+      "case": "exact original retry after revocation/reset/activation returns its old outcome",
+      "mode": "increasing",
+      "passed": true,
+      "observed": "original_receipt"
+    },
+    {
+      "case": "different payload/contract/principal/type under the same signer and token conflicts",
+      "mode": "increasing",
+      "passed": true,
+      "observed": {
+        "conflicts": 4
+      }
+    },
+    {
+      "case": "old content cannot be diagnosed without original evidence",
+      "mode": "increasing",
+      "passed": true,
+      "observed": "unavailable_original_evidence"
+    },
+    {
+      "case": "arbitrary old retry below the newest token still needs its original content",
+      "mode": "increasing",
+      "passed": true,
+      "observed": {
+        "positions": 2,
+        "oldestRetry": "content_conflict"
+      }
+    },
+    {
+      "case": "cloned signer allocation: first content wins; exact retry is not another position",
+      "mode": "increasing",
+      "passed": true,
+      "observed": {
+        "positions": 1
+      }
+    },
+    {
+      "case": "cancelled first draft followed by second token",
+      "mode": "increasing",
+      "passed": true,
+      "observed": "ordered"
+    },
+    {
+      "case": "higher offline token arrives before lower token",
+      "mode": "increasing",
+      "passed": true,
+      "observed": [
+        "ordered",
+        "stale_unused_counter"
+      ]
+    },
+    {
+      "case": "authentic ineffective entry still consumes retry identity",
+      "mode": "increasing",
+      "passed": true,
+      "observed": {
+        "positions": 1,
+        "outcome": "ineffective"
+      }
+    },
+    {
+      "case": "same token under another pinned genesis is a different identity",
+      "mode": "increasing",
+      "passed": true,
+      "observed": {
+        "positions": 2
+      }
+    },
+    {
+      "case": "different signer reusing a token is new work; clients must forbid silent replacement",
+      "mode": "increasing",
+      "passed": true,
+      "observed": "ordered"
+    },
+    {
+      "case": "different device grants need no shared allocator",
+      "mode": "increasing",
+      "passed": true,
+      "observed": {
+        "positions": 2
+      }
+    },
+    {
+      "case": "unrelated-key front-running cannot consume the victim signer namespace",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 2,
+        "victimOutcome": "effective"
+      }
+    },
+    {
+      "case": "wrong-principal grant front-running cannot consume the victim signer namespace",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 2,
+        "victimOutcome": "effective"
+      }
+    },
+    {
+      "case": "unadmitted signer front-running cannot consume the victim signer namespace",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 2,
+        "victimOutcome": "effective"
+      }
+    },
+    {
+      "case": "revoked signer front-running cannot consume the victim signer namespace",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 2,
+        "victimOutcome": "effective"
+      }
+    },
+    {
+      "case": "renewal with the same signer and nonce but a different grant conflicts",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 1
+      }
+    },
+    {
+      "case": "signer and nonce consume one namespace across account and control types",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "positions": 1
+      }
+    },
+    {
+      "case": "nonce fixture must represent exactly sixteen bytes",
+      "mode": "nonce",
+      "passed": true,
+      "observed": {
+        "rejectedFixtures": 8,
+        "positions": 0
+      }
+    }
+  ],
+  "storage": [
+    {
+      "actions": 100,
+      "scenario": "one long-lived grant",
+      "distinctGrants": 1,
+      "retiredGrantsCounted": 0,
+      "nonceUniqueKeys": 100,
+      "counterMarks": 1,
+      "noncePreventionJsonBytes": 15701,
+      "counterPreventionJsonBytes": 196,
+      "noncePreventionSharedPinsJsonBytes": 4501,
+      "counterPreventionSharedPinsJsonBytes": 82,
+      "nonceReceiptIndexJsonBytes": 34793,
+      "counterReceiptIndexJsonBytes": 40485
+    },
+    {
+      "actions": 100,
+      "scenario": "sixteen long-lived grants",
+      "distinctGrants": 16,
+      "retiredGrantsCounted": 0,
+      "nonceUniqueKeys": 100,
+      "counterMarks": 16,
+      "noncePreventionJsonBytes": 15737,
+      "counterPreventionJsonBytes": 3095,
+      "noncePreventionSharedPinsJsonBytes": 4537,
+      "counterPreventionSharedPinsJsonBytes": 1271,
+      "nonceReceiptIndexJsonBytes": 34829,
+      "counterReceiptIndexJsonBytes": 40429
+    },
+    {
+      "actions": 100,
+      "scenario": "many retained retired grants",
+      "distinctGrants": 100,
+      "retiredGrantsCounted": 99,
+      "nonceUniqueKeys": 100,
+      "counterMarks": 100,
+      "noncePreventionJsonBytes": 15791,
+      "counterPreventionJsonBytes": 19391,
+      "noncePreventionSharedPinsJsonBytes": 4591,
+      "counterPreventionSharedPinsJsonBytes": 7991,
+      "nonceReceiptIndexJsonBytes": 34883,
+      "counterReceiptIndexJsonBytes": 40483
+    },
+    {
+      "actions": 100,
+      "scenario": "one-use signer/grant per action",
+      "distinctGrants": 100,
+      "retiredGrantsCounted": 99,
+      "nonceUniqueKeys": 100,
+      "counterMarks": 100,
+      "noncePreventionJsonBytes": 15791,
+      "counterPreventionJsonBytes": 19391,
+      "noncePreventionSharedPinsJsonBytes": 4591,
+      "counterPreventionSharedPinsJsonBytes": 7991,
+      "nonceReceiptIndexJsonBytes": 34883,
+      "counterReceiptIndexJsonBytes": 40483
+    },
+    {
+      "actions": 1000,
+      "scenario": "one long-lived grant",
+      "distinctGrants": 1,
+      "retiredGrantsCounted": 0,
+      "nonceUniqueKeys": 1000,
+      "counterMarks": 1,
+      "noncePreventionJsonBytes": 157001,
+      "counterPreventionJsonBytes": 197,
+      "noncePreventionSharedPinsJsonBytes": 45001,
+      "counterPreventionSharedPinsJsonBytes": 83,
+      "nonceReceiptIndexJsonBytes": 348894,
+      "counterReceiptIndexJsonBytes": 406787
+    },
+    {
+      "actions": 1000,
+      "scenario": "sixteen long-lived grants",
+      "distinctGrants": 16,
+      "retiredGrantsCounted": 0,
+      "nonceUniqueKeys": 1000,
+      "counterMarks": 16,
+      "noncePreventionJsonBytes": 157373,
+      "counterPreventionJsonBytes": 3111,
+      "noncePreventionSharedPinsJsonBytes": 45373,
+      "counterPreventionSharedPinsJsonBytes": 1287,
+      "nonceReceiptIndexJsonBytes": 349266,
+      "counterReceiptIndexJsonBytes": 406122
+    },
+    {
+      "actions": 1000,
+      "scenario": "many retained retired grants",
+      "distinctGrants": 100,
+      "retiredGrantsCounted": 99,
+      "nonceUniqueKeys": 1000,
+      "counterMarks": 100,
+      "noncePreventionJsonBytes": 157901,
+      "counterPreventionJsonBytes": 19491,
+      "noncePreventionSharedPinsJsonBytes": 45901,
+      "counterPreventionSharedPinsJsonBytes": 8091,
+      "nonceReceiptIndexJsonBytes": 349794,
+      "counterReceiptIndexJsonBytes": 405894
+    },
+    {
+      "actions": 1000,
+      "scenario": "one-use signer/grant per action",
+      "distinctGrants": 1000,
+      "retiredGrantsCounted": 999,
+      "nonceUniqueKeys": 1000,
+      "counterMarks": 1000,
+      "noncePreventionJsonBytes": 158891,
+      "counterPreventionJsonBytes": 194891,
+      "noncePreventionSharedPinsJsonBytes": 46891,
+      "counterPreventionSharedPinsJsonBytes": 80891,
+      "nonceReceiptIndexJsonBytes": 350784,
+      "counterReceiptIndexJsonBytes": 406784
+    },
+    {
+      "actions": 10000,
+      "scenario": "one long-lived grant",
+      "distinctGrants": 1,
+      "retiredGrantsCounted": 0,
+      "nonceUniqueKeys": 10000,
+      "counterMarks": 1,
+      "noncePreventionJsonBytes": 1570001,
+      "counterPreventionJsonBytes": 198,
+      "noncePreventionSharedPinsJsonBytes": 450001,
+      "counterPreventionSharedPinsJsonBytes": 84,
+      "nonceReceiptIndexJsonBytes": 3498895,
+      "counterReceiptIndexJsonBytes": 4087789
+    },
+    {
+      "actions": 10000,
+      "scenario": "sixteen long-lived grants",
+      "distinctGrants": 16,
+      "retiredGrantsCounted": 0,
+      "nonceUniqueKeys": 10000,
+      "counterMarks": 16,
+      "noncePreventionJsonBytes": 1573751,
+      "counterPreventionJsonBytes": 3127,
+      "noncePreventionSharedPinsJsonBytes": 453751,
+      "counterPreventionSharedPinsJsonBytes": 1303,
+      "nonceReceiptIndexJsonBytes": 3502645,
+      "counterReceiptIndexJsonBytes": 4080917
+    },
+    {
+      "actions": 10000,
+      "scenario": "many retained retired grants",
+      "distinctGrants": 100,
+      "retiredGrantsCounted": 99,
+      "nonceUniqueKeys": 10000,
+      "counterMarks": 100,
+      "noncePreventionJsonBytes": 1579001,
+      "counterPreventionJsonBytes": 19591,
+      "noncePreventionSharedPinsJsonBytes": 459001,
+      "counterPreventionSharedPinsJsonBytes": 8191,
+      "nonceReceiptIndexJsonBytes": 3507895,
+      "counterReceiptIndexJsonBytes": 4077095
+    },
+    {
+      "actions": 10000,
+      "scenario": "one-use signer/grant per action",
+      "distinctGrants": 10000,
+      "retiredGrantsCounted": 9999,
+      "nonceUniqueKeys": 10000,
+      "counterMarks": 10000,
+      "noncePreventionJsonBytes": 1598891,
+      "counterPreventionJsonBytes": 1958891,
+      "noncePreventionSharedPinsJsonBytes": 478891,
+      "counterPreventionSharedPinsJsonBytes": 818891,
+      "nonceReceiptIndexJsonBytes": 3527785,
+      "counterReceiptIndexJsonBytes": 4087785
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "date": "2026-10-01",
+  "kind": "static published tarball and npm metadata inspection",
+  "baseAtseqHead": "66977be7e59527eccf3df91c55285e55914f3add",
+  "comparisonP1Head": "b4c7fb72c19cc6c9b6e0d5632a861af19762cb1e",
+  "executedAcceptanceTests": false,
+  "resolvedCandidateLock": false,
+  "tarballs": [
+    {
+      "file": "plc.tgz",
+      "bytes": 515368,
+      "sha256": "b738961ccf145f4d5399c4de7d8e62992de9be0009dde1870233680c5385c93c"
+    },
+    {
+      "file": "atcute-plc.tgz",
+      "bytes": 9460,
+      "sha256": "b4802eadf9aeb201ec6503235506ad535f6c24f14a285ca64c03c9948990b6e6"
+    },
+    {
+      "file": "fetch-node.tgz",
+      "bytes": 18712,
+      "sha256": "cca990ea4090e41d493056a936d35792617323c1ef08571e0b870a9897c75b2f"
+    },
+    {
+      "file": "jsonc.tgz",
+      "bytes": 27354,
+      "sha256": "4a0315b8671e7463bae7af7c142cdf19e9aa7ba39eb36dc2df383b8648e3cbc9"
+    },
+    {
+      "file": "valibot.tgz",
+      "bytes": 188725,
+      "sha256": "d2036be7ccacb18e917889402eae121cb160b48813edd0316fed3416ad5e7033"
+    }
+  ],
+  "metadata": [
+    {
+      "name": "@did-plc/lib",
+      "version": "0.0.4",
+      "dependencies": {
+        "@atproto/common": "0.1.1",
+        "@atproto/crypto": "0.1.0",
+        "@ipld/dag-cbor": "^7.0.3",
+        "axios": "^1.3.4",
+        "multiformats": "^9.6.4",
+        "uint8arrays": "3.0.0",
+        "zod": "^3.14.2"
+      },
+      "dist": {
+        "shasum": "be5400dc9464ec3088294bd089631e8a8aa98215",
+        "integrity": "sha512-Omeawq3b8G/c/5CtkTtzovSOnWuvIuCI4GTJNrt1AmCskwEQV7zbX5d6km1mjJNbE0gHuQPTVqZxLVqetNbfwA==",
+        "tarball": "https://registry.npmjs.org/@did-plc/lib/-/lib-0.0.4.tgz",
+        "fileCount": 32,
+        "unpackedSize": 2594252,
+        "signatures": [
+          {
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+            "sig": "MEUCIFDqBuhI3DYs11AY8CbAPLNkkmtyL4UJ4wnffm6jlmKDAiEA0n4j0p4EJVXx1HS+cr+BKmdf1m5C7LmykswnAj/p48A="
+          }
+        ],
+        "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJkLw11ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmrrHA//ciOKTphhHH46mp3Bzq0PbLrfCn9lP6ZJTw7UYPNtKdaxeAnB\r\nf6vRH/LGjO+2zlYYA7l6IqaTVDY3v/odMUH8cZKvpF3r0/jiAUsyHVS+A/P4\r\nTdYyP69087+eqYlLQDqZDu+B2DLdnC2ufLkf79LLi8wNUTjY1bvAROK0V/b5\r\nEjJV5VZgsvJYROtzOx9/MImjggWzm88/L5mm4vUqFGeqVG6/tQfCsqP0VPEd\r\nVc8Cf2U3DlJm1eD+fWXMT54S5QUnLQq5PHdhZU4l78kiYDZ+Oh4zgbRpVY+T\r\nnJ7RGeCXKZHGKTEjj0isRj41eOpzht4D6+tmxDOg4BhoYHpkCBU3RDYelmeQ\r\nd72LEkK7yweqHuOCzkCOsZiIX/FckkXPgKn//1rZ18ahu3HjkFv4/6JIzKS9\r\nFx18CoWr10VrEsRRayezJDLsjhydrhkixbwT5LsdeyXZ3TBNPWLW4kWE2NSr\r\neP8ZB7VYEScDxC0SsFZr6XjoMGSjTawJIwiwbpY0kKhb0KbLmVNrnf2m7ryF\r\nMORCnGuPVbMrNUYEerA3oeGRZ+XcrRp8xFV/5nXg29Lnlw30h/dcxDSwvlY9\r\niV4+BE38ynAQnNqoqbr3qzJuLEBIG51csOU/+UWRUTLX7datTRR0jQPiQZf7\r\nadRw4FzngUG4u1FM1MYAGZAv3FxyD8QRQDM=\r\n=/7ms\r\n-----END PGP SIGNATURE-----\r\n"
+      }
+    },
+    {
+      "name": "@atcute/did-plc",
+      "version": "1.0.2",
+      "dependencies": {
+        "@atcute/cbor": "^2.3.7",
+        "@atcute/cid": "^2.4.2",
+        "@atcute/crypto": "^2.4.4",
+        "@atcute/identity": "^2.0.2",
+        "@atcute/lexicons": "^2.1.0",
+        "@atcute/multibase": "^1.2.5",
+        "@atcute/uint8array": "^1.1.5",
+        "@atcute/util-fetch": "^2.0.2",
+        "valibot": "^1.5.0"
+      },
+      "peerDependencies": {
+        "@atcute/cbor": "^2.0.0",
+        "@atcute/cid": "^2.0.0",
+        "@atcute/identity": "^2.0.0",
+        "@atcute/lexicons": "^2.0.0"
+      },
+      "dist": {
+        "integrity": "sha512-z/gltUzhSeHN2LKosOsU5Fo8uS4p7c7oDydEDQcFK2DwM1u1jHghc5kYaKOQcriOcLXzf9/OetKQOU4P57uhVA==",
+        "shasum": "d5a43771cbcf193e9f0c6b05af9b5cbd9e702709",
+        "tarball": "https://registry.npmjs.org/@atcute/did-plc/-/did-plc-1.0.2.tgz",
+        "fileCount": 19,
+        "unpackedSize": 41349,
+        "signatures": [
+          {
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+            "sig": "MEUCIQD6YTc0pBaR+TiVTOjuyIKu8dTTnmaWLdO/apnsIT0JDQIgSziqOrtbk0y6ymjmvRonZ83W2cP6FGTWA+cC+Fu6B1o="
+          }
+        ]
+      }
+    },
+    {
+      "name": "@atcute/identity",
+      "version": "2.0.2",
+      "dependencies": {
+        "valibot": "^1.4.2",
+        "@atcute/lexicons": "^2.0.3"
+      },
+      "peerDependencies": {
+        "@atcute/lexicons": "^2.0.0"
+      },
+      "dist": {
+        "integrity": "sha512-amr/EQceqVtBVmjBK4uUF7nKKYuRttadigpvOcAn4dnO6SNSwSjQi8KDH9LnukEotPsSP4UDsQvNfHWEoUcslw==",
+        "shasum": "ef904ee18de6fe39071d216acaed16022ffb269e",
+        "tarball": "https://registry.npmjs.org/@atcute/identity/-/identity-2.0.2.tgz",
+        "fileCount": 17,
+        "unpackedSize": 28894,
+        "signatures": [
+          {
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+            "sig": "MEUCIQDyFootcwNhvTDGxaDvFFAkUNEjb/pcgJeZRNmLKfNzmAIgdV9aL7yoeliZ2Z1TgSCN4byMZOPrZZiAQ6Z9Pnb9c+o="
+          }
+        ]
+      }
+    },
+    {
+      "name": "@atcute/util-fetch",
+      "version": "2.0.2",
+      "dependencies": {
+        "valibot": "^1.4.2"
+      },
+      "dist": {
+        "integrity": "sha512-I0oenHlJjwRpWPyAJojox5H0z9NthhdMFaEjtkxyjo85VPPxk1vMJk/1ZjMJsrs1SgHhB3spazEWzV5DW8w70A==",
+        "shasum": "995f56702a54a1b9c00b19d637f4ab95114eebc7",
+        "tarball": "https://registry.npmjs.org/@atcute/util-fetch/-/util-fetch-2.0.2.tgz",
+        "fileCount": 15,
+        "unpackedSize": 14773,
+        "signatures": [
+          {
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+            "sig": "MEUCIQCRC7cFoI4p523AxV8fXYoyLrGPve9/WqbDIIeA5pSuIQIgJqNdrf9x5XUxjA5ibcRNv/avpZPI9CYFZCEf7ffROfY="
+          }
+        ]
+      }
+    },
+    {
+      "name": "valibot",
+      "version": "1.5.0",
+      "peerDependencies": {
+        "typescript": ">=5"
+      },
+      "peerDependenciesMeta": {
+        "typescript": {
+          "optional": true
+        }
+      },
+      "dist": {
+        "shasum": "c05adda6b2823807bb0248e2952c35e1a50046fd",
+        "tarball": "https://registry.npmjs.org/valibot/-/valibot-1.5.0.tgz",
+        "fileCount": 9,
+        "integrity": "sha512-nil6AkP2TChWL43Z5uJ6GTxX01CUA+g8LWUM+N/rB9NBbkUMaUsi9PUNzlUPgoKASgmx9f7eGOYpJ04/fSa6FQ==",
+        "signatures": [
+          {
+            "sig": "MEUCIQDBGhGRCeymOFNDyIsD6xVH1hjXU54zF/iGqDD5NMBndgIgAckaepz0yCSNACepjk51d1s3KNX9mSI1MX+YWg+U62c=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+            "sig": "MEYCIQCi+hy62G20RPdkljBTAELLh8Vf0fh3QaI7XTdCqHaxGwIhAIGV2VDzLPLe7px2C1N3lBTJhvamSngCK5zhI+1ZCedy"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/valibot@1.5.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 1865457
+      }
+    },
+    {
+      "name": "jsonc-parser",
+      "version": "3.3.1",
+      "dist": {
+        "shasum": "f2a524b4f7fd11e3d791e559977ad60b98b798b4",
+        "tarball": "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.3.1.tgz",
+        "fileCount": 19,
+        "integrity": "sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==",
+        "signatures": [
+          {
+            "sig": "MEUCIDSbkjGtpapd1HAX9+ZiZbtgDMhqZPXHT6KwmEFPUlKRAiEA785PDON6DayZiilBUTVCGgyL/ooKHwX1ocr/gLAsN3k=",
+            "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA"
+          }
+        ],
+        "unpackedSize": 212821
+      }
+    },
+    {
+      "name": "@atproto-labs/fetch-node",
+      "version": "0.4.0",
+      "dependencies": {
+        "ipaddr.js": "^2.1.0",
+        "undici_v6": "npm:undici@^6.x",
+        "undici_v7": "npm:undici@^7.x",
+        "undici_v8": "npm:undici@^8.x",
+        "@atproto-labs/pipe": "^0.2.4",
+        "@atproto-labs/fetch": "^0.3.6"
+      },
+      "engines": {
+        "node": ">=22"
+      },
+      "dist": {
+        "shasum": "79b7d4acd5722da3d1f3e1f98de3e773ee9c6a18",
+        "tarball": "https://registry.npmjs.org/@atproto-labs/fetch-node/-/fetch-node-0.4.0.tgz",
+        "fileCount": 23,
+        "integrity": "sha512-5Yi8fz/JDGEoObRgRJuglcodB/MJeQnnoqokOGSQK5ItISObSttbGIgHE1UMU1njcwxbvKtbGMWHUCRgqML2Dw==",
+        "signatures": [
+          {
+            "sig": "MEYCIQDK5/wpPYZo8nzvvhN+/hN/x943zIl9TfaJCtvO50PuygIhAK7Zei7ewydA8rg4hlwTD8vvO8ufqwjKno6HDm0cM2c5",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@atproto-labs%2ffetch-node@0.4.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 69119
+      }
+    },
+    {
+      "name": "@atproto-labs/fetch",
+      "version": "0.3.6",
+      "dependencies": {
+        "@atproto-labs/pipe": "^0.2.4"
+      },
+      "engines": {
+        "node": ">=22"
+      },
+      "dist": {
+        "integrity": "sha512-ro/J/cnqIp4bnSzDl8N3SkruvQcE3Pze+1H70mKdFfyFcdhPr+7O4lggl4VCbhI84Yqgz47c0xC6F/Yl39SxDA==",
+        "shasum": "5ae4f1963f70850fc53c83ab36a1b2f7f2867a7c",
+        "tarball": "https://registry.npmjs.org/@atproto-labs/fetch/-/fetch-0.3.6.tgz",
+        "fileCount": 35,
+        "unpackedSize": 106590,
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@atproto-labs%2ffetch@0.3.6",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "signatures": [
+          {
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+            "sig": "MEQCIA2T7kfgcj1CJTv7xIWwK1VLgmUzwYteF4IlzTXQloS8AiA5JySZPjE8WyZ7nT46EavkwvpsVEWFHfGT01RNUEaKJw=="
+          }
+        ]
+      }
+    },
+    {
+      "name": "@atproto-labs/pipe",
+      "version": "0.2.4",
+      "engines": {
+        "node": ">=22"
+      },
+      "dist": {
+        "shasum": "5a3fb21957b71131f33fed163bf4e94240cd9d26",
+        "tarball": "https://registry.npmjs.org/@atproto-labs/pipe/-/pipe-0.2.4.tgz",
+        "fileCount": 21,
+        "integrity": "sha512-n67jCcrC+ouAeO10cWkpPzzLMlDi/lDCU30Us+LGqhOPhT6c4t5ASdBLQi9W3jUQtRzQBt3G9zipF+xKWNvVbw==",
+        "signatures": [
+          {
+            "sig": "MEUCIQCUU4rMU9LauGuAh3pUQdaJLxFT1nU8JXs5X2JICh27gQIgeJShpbN3X8D5MP5Tl68yNGV09lccPO3tb9xNBTx7SC0=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@atproto-labs%2fpipe@0.2.4",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 58047
+      }
+    },
+    {
+      "name": "ipaddr.js",
+      "version": "2.5.0",
+      "engines": {
+        "node": ">= 10"
+      },
+      "dist": {
+        "shasum": "7d4b6c39f9392fb61cf807de6e425e22c10e061f",
+        "tarball": "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-2.5.0.tgz",
+        "fileCount": 5,
+        "integrity": "sha512-aq+t5NAc+cS6rZQQVWC2x98CPqGtKKTMDd4Gaodv0wShnItdKg/51djkGJ1hqH+Oy0ivDftCbSLCQob8zso01w==",
+        "signatures": [
+          {
+            "sig": "MEUCIETR/2NXEMreqongEKzvR0R0qxxTArVL/laPzW1uh+JHAiEA00r4xaHI9+Xyt7EYlYRQn2umQzyCyTYRx4uLgkfrSBY=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+            "sig": "MEUCIQDl5uqZ0ieHe6qLMi6C/drdNj5GNO3QvRRroOp14/44rgIgbPBbiTWxdCZ2m+tvJP1au+65FbjgPmgL9HDtwRjqQsI="
+          }
+        ],
+        "unpackedSize": 64424
+      }
+    },
+    {
+      "name": "undici",
+      "version": "6.29.0",
+      "engines": {
+        "node": ">=18.17"
+      },
+      "dist": {
+        "shasum": "140fa16e337ac706d6ff12f03fbe5c4357e5f9a3",
+        "tarball": "https://registry.npmjs.org/undici/-/undici-6.29.0.tgz",
+        "fileCount": 176,
+        "integrity": "sha512-R+RODBqp6i2pPflGdq+xIOUkl+RNfGgHwoinecKu/JCuf2uO06cOKoDbI2P7Dn6KcswdKwrczbU6IYJ6K8X+wg==",
+        "signatures": [
+          {
+            "sig": "MEUCIEiWLT7VaazLxZKPZt0vZK8NAqvjx+HHNZNPM4ef3XVDAiEAzNMoVuYLtecht9OEmS1C16ts23y4wuoJV67yj7iQUrE=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+            "sig": "MEUCIQCIajrhVmGLJSp3R3/HI7r/mG3OJtOjjiJAMApr9xs2FgIgBsKLKXGWrMPGw18+WRaU9O6991rzs/LBSnUJdZrAVdY="
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/undici@6.29.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 1200906
+      }
+    },
+    {
+      "name": "undici",
+      "version": "7.30.0",
+      "engines": {
+        "node": ">=20.18.1"
+      },
+      "dist": {
+        "shasum": "64a947266eb7e21dbeac8b99f8720feef308bbe0",
+        "tarball": "https://registry.npmjs.org/undici/-/undici-7.30.0.tgz",
+        "fileCount": 210,
+        "integrity": "sha512-dkrQXeHSaoamnItlYbmzG0wFYrM0ZwDxCIg0A7aKjTyyhh9svRzCNFEzV+Vm05/yehjCzjDZ31KXfGEjYSztDQ==",
+        "signatures": [
+          {
+            "sig": "MEUCIQCf6pt/wPeffsiSEy5LOP6q8n2o6xKcVvpeHzOpk5c1rwIgangpnnIzyaTzT4K6G0Oa7zvYcHofOwWjM4BMXq3bED0=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQCmdLQLzatWuC/9VUfvMD2oKOgSyxSHib7QgbcNaLIuFAIgU1CHeyKuj3/f+oK3erg87HCCEpCcUWRxpoRxZTqGtyA=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/undici@7.30.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 1658921
+      }
+    },
+    {
+      "name": "undici",
+      "version": "8.11.2",
+      "engines": {
+        "node": ">=22.19.0"
+      },
+      "dist": {
+        "shasum": "b8f6f6504384ae535c8e46f8403fd8075f011d46",
+        "tarball": "https://registry.npmjs.org/undici/-/undici-8.11.2.tgz",
+        "fileCount": 214,
+        "integrity": "sha512-u4UB2/IrKdU6lFxumHmmo1a3fCQO5tzQllRorfoRS63txhrB7xTpSn1PftwC4qEHkOaqP95fCWW4lJzwErwzhQ==",
+        "signatures": [
+          {
+            "sig": "MEUCIQCblzRH8BbuXwHurnQ3IM7VUIiTJz1hX8Erf1jyRn3f3gIgCsYm+azUfCh+2bEGrrZXNanWk8GvZLb1OrY9jgdNgqI=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIQCi1QhmSfam0NDyzHe0w1qQy/137dk1O3LFUa0PTKhAAQIfff5a98IvUyJKpoG3+EqpPANT9mAmRV2/gYhQCleajg==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/undici@8.11.2",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 1927456
+      }
+    }
+  ],
+  "staticChecks": {
+    "valibotRuntimeTypeScriptStringMatches": 0,
+    "valibotRuntimeFilesInspected": [
+      "dist/index.mjs",
+      "dist/index.min.mjs",
+      "dist/index.cjs",
+      "dist/index.min.cjs"
+    ],
+    "noRuntimeCodeExecuted": true
+  }
+}
