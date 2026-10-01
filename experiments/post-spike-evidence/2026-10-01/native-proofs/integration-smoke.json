@@ -1,0 +1,55 @@
+{
+  "node": "v26.10.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "pds": "0.5.31",
+  "pdsFixtureLockSha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+  "mockPlc": true,
+  "peakRss": {
+    "value": 225600,
+    "units": "KiB",
+    "bytes": 231014400,
+    "method": "process.resourceUsage().maxRSS",
+    "scope": "whole probe Node process including setup and all cases; excludes child PDS and no proof-only attribution"
+  },
+  "results": [
+    {
+      "size": 100,
+      "delta": 1,
+      "existingRecords": 101,
+      "root": "bafyreidtxan3nzhujmvoxqujjmc7fiainsb4gidnrhnxh5niiznp2azqdy",
+      "beforeRoot": "bafyreigm4ond4yyt3h643b2hmr3bqjnxfjvd72r4ssyy5mf5nszbidtqay",
+      "beforeRev": "3mwt4yscsh32u",
+      "rev": "3mwt4ysocme2u",
+      "did": "did:plc:mrba2g3o3iiv63logx5u7vex",
+      "trustedSigningKeyDid": "did:key:zQ3shfv8esGqVVSUAegm2T2jwTLPnFWL5msERfmcAfw8dFm6B",
+      "beforeBytes": 23347,
+      "diffBytes": 1388,
+      "fullBytes": 23556,
+      "diffRatio": 0.05892341653931058,
+      "beforeSha256": "f4aac21cf145339c9aa5e5c83d9b4030bd07c1a416774410b1b97808c1782913",
+      "diffSha256": "283d1961c383d2618012280077e5bdf0eb1f0201364583ad5c791dcd2fa052ed",
+      "fullSha256": "1263f9c8ac86a9f79b7496604e296b2f0dd56354b0d5d72a51988124aa3802dc",
+      "newEntriesAndHeadVerified": 2,
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 102,
+        "nodeLoads": 25
+      },
+      "oldPathMissingFromDiff": {
+        "path": "ai.generalbusiness.atseq.probe/000000000001",
+        "cid": "bafyreiaakrk3xhvt6wvlnytkdsycywlpulfaq3iyzs34vudrrdxryxw3xq"
+      },
+      "oldPathResolvedWithRetainedBlocks": true,
+      "deliberatelyOmittedNeededNode": "missing",
+      "fullExportRecovery": true,
+      "retainedCacheBytes": 19527,
+      "retainedCacheBlocks": 134
+    }
+  ],
+  "limitations": [
+    "Correctness/size evidence collected while other correctness work may run; no uncontended performance claim",
+    "Mock PLC, not a live provider/currentness or recovery trial",
+    "Fixture records/head demonstrate native map membership, not the final Atseq wire contract"
+  ]
+}

@@ -134,6 +134,28 @@ capture. The compressed public-input attachment prepared for gitseq is
 It includes exact CAR bytes, result JSON and source hashes, with no account tokens,
 passwords or private keys. The parent delivery records its durable attachment.
 
+## Integration with the reviewed fixture patches
+
+The candidate was rebased onto `66977be7e59527eccf3df91c55285e55914f3add`.
+The original four-case capture and equivalence evidence retain their original
+baseline and lock hashes. After installing the six independently reviewed MF1
+fixture patches, this command passed the same native proof/recovery checks over
+100 existing entries and a one-entry delta:
+
+```sh
+node scripts/source-run.mjs scripts/native-proof-pds.ts --smoke
+```
+
+The [integration smoke](../experiments/post-spike-evidence/2026-10-01/native-proofs/integration-smoke.json)
+authenticates 102 records and 25 MST nodes, with a 1,388-byte diff versus a
+23,556-byte current full export. Deliberate missing-node detection and full-export
+recovery pass. Its fixture lock hash is
+`762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd`.
+`--smoke` writes separately, preserving the original large-repository captures.
+`npm run check` passes on the rebased candidate. This is bounded integration
+confirmation, not a repeated 10k benchmark or a claim that the original capture
+used the patched fixture.
+
 ## Keys, dependencies and equivalent existing behavior
 
 Legacy uncompressed K-256 keys are validated and compressed with maintained Noble

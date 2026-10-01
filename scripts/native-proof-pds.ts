@@ -20,10 +20,11 @@ import {
 import { decodeBlock } from '../src/protocol/wire.ts';
 import { car } from '../tests/support/native-proof-corpus.ts';
 
+const smoke = process.argv.includes('--smoke');
 const env = await startEnvironment(),
   results: unknown[] = [],
   collection = 'ai.generalbusiness.atseq.probe',
-  out = 'experiments/generated/native-proof/pds';
+  out = smoke ? 'experiments/generated/native-proof/pds-smoke' : 'experiments/generated/native-proof/pds';
 const key = (n: number) => String(n).padStart(12, '0');
 const digest = (bytes: Uint8Array) => createHash('sha256').update(bytes).digest('hex');
 const index = (bytes: Uint8Array) =>
@@ -31,7 +32,7 @@ const index = (bytes: Uint8Array) =>
 try {
   await mkdir(out, { recursive: true });
   const config = JSON.parse(await readFile(`${env.dir}/pds-secrets.json`, 'utf8'));
-  for (const size of [1000, 10000]) {
+  for (const size of smoke ? [100] : [1000, 10000]) {
     const response = await fetch(`${env.url}/xrpc/com.atproto.server.createAccount`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -95,7 +96,7 @@ try {
       beforeRev = decode(beforeBlocks.get(beforeRoot)!).rev as string;
     const base: Omit<AuthenticateRepoOptions, 'carBytes'> = { expectedDid: account.did, trustedSigningKeyDid };
     await writeFile(`${out}/${size}-before.car`, before);
-    for (const delta of [1, 100]) {
+    for (const delta of smoke ? [1] : [1, 100]) {
       await write([
         ...entries(size + (delta === 1 ? 1 : 2), size + delta),
         {
