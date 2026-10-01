@@ -252,7 +252,13 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       await expect(a.getByText('Applied', { exact: true })).toBeVisible();
       assert.equal(lost, true);
       await a.unroute('**/xrpc/ai.generalbusiness.atseq.submit');
+      const retried = a.waitForResponse(
+        (response) => new URL(response.url()).pathname === '/xrpc/ai.generalbusiness.atseq.sync',
+      );
       await a.getByRole('button', { name: 'Retry pending actions', exact: true }).click();
+      await retried;
+      await expect(a.getByRole('status')).toContainText('Verified through entry 4');
+      await expect(a.getByRole('button', { name: 'Refresh', exact: true })).toBeEnabled();
       assert.equal((await api.call('sync', invitation!)).entries.length, 4);
     });
     await check('transport refusal retains the original signed work and invents no entry', async () => {
@@ -272,11 +278,40 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       await a.getByRole('textbox', { name: 'id', exact: true }).fill('four');
       await a.getByRole('textbox', { name: 'title', exact: true }).fill('Refused transport');
       await a.getByRole('spinbutton', { name: 'pricePence', exact: true }).fill('36000');
+      await a.evaluate(() => {
+        const open = IDBObjectStore.prototype.openCursor,
+          success = Object.getOwnPropertyDescriptor(IDBRequest.prototype, 'onsuccess')!.set!;
+        let scans = 0;
+        (window as any).heldDraft = document.querySelector('input[name=title]');
+        IDBObjectStore.prototype.openCursor = function (query, direction) {
+          const request = open.call(this, query, direction);
+          if (query instanceof IDBKeyRange && String(query.lower).startsWith('outbox:') && ++scans === 2) {
+            IDBObjectStore.prototype.openCursor = open;
+            Object.defineProperty(request, 'onsuccess', {
+              set(handler) {
+                success.call(request, (event: Event) => {
+                  if (request.result) handler.call(request, event);
+                  else (window as any).releaseDraftRead = () => handler.call(request, event);
+                });
+              },
+            });
+          }
+          return request;
+        };
+      });
       const refreshed = a.waitForResponse(
         (response) => new URL(response.url()).pathname === '/xrpc/ai.generalbusiness.atseq.sync',
       );
       await a.getByRole('button', { name: 'Refresh', exact: true }).click();
       await refreshed;
+      await expect.poll(() => a.evaluate(() => Boolean((window as any).releaseDraftRead))).toBe(true);
+      try {
+        assert.equal(await a.evaluate(() => (window as any).heldDraft.isConnected), true);
+        await expect(a.getByRole('textbox', { name: 'title', exact: true })).toHaveValue('Refused transport');
+      } finally {
+        await a.evaluate(() => (window as any).releaseDraftRead());
+      }
+      await expect(a.getByRole('button', { name: 'Refresh', exact: true })).toBeEnabled();
       await expect(a.getByRole('textbox', { name: 'title', exact: true })).toHaveValue('Refused transport');
       await a.getByRole('button', { name: 'Save action', exact: true }).click();
       await expect(a.getByText('Transport refused · retained on device', { exact: true })).toBeVisible();
