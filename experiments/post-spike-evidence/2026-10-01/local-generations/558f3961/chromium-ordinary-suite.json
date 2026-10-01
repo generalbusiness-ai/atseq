@@ -1,0 +1,101 @@
+{
+  "browser": "153.0.8010.12",
+  "cases": [
+    "owned inputs and reads",
+    "owned bounded pages",
+    "exact generation and deletion visibility",
+    "CAS conflict preserves generation",
+    "invalid caller inputs",
+    "durable reopen",
+    "scope isolation",
+    "bounded predecessor GC preserves baseline rows",
+    "pin and generation quota abort coherent transaction",
+    "pins survive reopen",
+    "pin release permits retirement",
+    "byte and row quotas roll back pointer and rows",
+    "two connections serialize compare and commit",
+    "nonadjacent pinned generations preserve exact updates and tombstones through retirement",
+    "page byte budget separates continuation from a single oversized row",
+    "closed store rejects subsequent operations",
+    "invalid limits are caller errors",
+    "actual IDB abort rolls back pointer and values",
+    "500-row one-key commit and selective page instrumentation with restored native methods",
+    "pin release scans metadata without loading old outcome bytes"
+  ],
+  "metrics": {
+    "commit": {
+      "cursorContinuations": 4,
+      "payloadReads": 0,
+      "payloadAdds": 1
+    },
+    "page": {
+      "cursorContinuations": 12,
+      "payloadReads": 10,
+      "payloadAdds": 0
+    },
+    "pinRelease": {
+      "cursorContinuations": 1004,
+      "payloadReads": 0,
+      "payloadAdds": 0
+    },
+    "storage": {
+      "historyRows": 500,
+      "storedVersions": 501,
+      "logicalBytes": 137794
+    }
+  },
+  "quota": {
+    "case": "actual Chromium quota abort preserves generation",
+    "generation": 1,
+    "attemptedBytes": 4194304,
+    "observed": {
+      "code": "quota",
+      "causeName": "QuotaExceededError",
+      "causeMessage": ""
+    },
+    "override": {
+      "usage": 0,
+      "quota": 1048576,
+      "overrideActive": true,
+      "usageBreakdown": [
+        {
+          "storageType": "file_systems",
+          "usage": 0
+        },
+        {
+          "storageType": "indexeddb",
+          "usage": 0
+        },
+        {
+          "storageType": "cache_storage",
+          "usage": 0
+        },
+        {
+          "storageType": "service_workers",
+          "usage": 0
+        }
+      ]
+    }
+  },
+  "crashes": [
+    {
+      "phase": "before",
+      "generation": 1,
+      "observedRequests": 317
+    },
+    {
+      "phase": "after",
+      "generation": 2,
+      "observedRequests": 0
+    }
+  ],
+  "sources": {
+    "src/core/local-generations.ts": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a",
+    "src/browser/local-generations.ts": "1751d51257c6268b8b53fb46c3f72d9fde5bc0b43ba06b8b4f811243099c1088",
+    "tests/support/local-generations-corpus.ts": "957e62c7d00c7bae2fea62ed86730c45be16c171662575a101b575484967b8ae",
+    "tests/support/local-generations-browser.ts": "f786be0ce23d498bb6c0b936304056e67a034380a59271b78cddb6c30af5bad0",
+    "tests/local-generations-browser.test.ts": "a270403c2d66270485a62ede0cf8dabd64430067d342baaae1b80a1e2396a5f4"
+  },
+  "bundleBytes": 23936,
+  "bundleSha256": "04bc783a9b6f9c6ba9750613290bcb14b593e74f789ec510da972444ff62c0ec"
+}

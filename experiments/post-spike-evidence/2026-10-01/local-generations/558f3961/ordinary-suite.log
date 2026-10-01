@@ -1,0 +1,734 @@
+✔ a failed acceptance run replaces a prior pass and retains its exact command logs (699.431833ms)
+✖ retain complete app history and rebuild without the PDS (1882.105166ms)
+✖ browser sessions retain trust and device work across switches and restarts (1791.888042ms)
+✔ outputs require explicit overwrite and never replace key/intent aliases (75.193125ms)
+✔ CAR output cannot enter its source through a directory alias or missing descendant (57.304625ms)
+✔ CLI export verifies the invitation instead of accepting the host’s self-pin (3911.745667ms)
+✔ CLI replay refuses a single pin; archive import owns verified typed data and codes malformed input (824.375708ms)
+✔ retry requests compare content identity across property order and retain signed bytes (1042.46775ms)
+✔ running host loads and interprets two newly generated unrelated applications (2878.723333ms)
+✔ worker requests honor longer replay budgets and retain the shorter preview default (1.04375ms)
+✔ worker failures stop after three attempts and require a page reload (0.248291ms)
+▶ compatible activation preserves its exact interpretation boundary
+  ✔ activation at N preserves state and N+1 uses the new interface (29.831292ms)
+  ✔ a full replay uses each definition at its original boundary (80.98725ms)
+  ✔ unavailable candidate pauses at N and resumes the same entry after repair (129.164458ms)
+  ✔ corrupt candidate content cannot fabricate an invalid-activation verdict (52.157ms)
+  ✔ failed persistence leaves both definition and state before activation (59.202375ms)
+  ✔ another actor cannot activate or force a missing-content fetch (9.694ms)
+  ✔ available invalid candidate code is retained ineffective (11.250833ms)
+  ✔ an incomplete or extra signed closure has the same outcome with full and closure-only readers (206.132833ms)
+  ✔ a closure over 512 KiB is transported and invalid on both full and closure-only readers (112.265042ms)
+  ✔ an available query-less view with missing bindings is invalid rather than a permanent stall (25.576208ms)
+  ✔ state compatibility includes transitive schemas and ignores unrelated additions (50.175209ms)
+  ✔ malformed closure and control-action rebinding are refused (9.89575ms)
+✔ compatible activation preserves its exact interpretation boundary (4037.189125ms)
+✖ evolve a real app and explicitly replace its stale pending work (1805.232041ms)
+▶ shared feasibility corpus passes in Node
+  ✔ effective state fold (0.322292ms)
+  ✔ ineffective leaves input state unchanged (0.054542ms)
+  ✔ pure query (0.034833ms)
+  ✔ array append and multiplication (0.032833ms)
+  ✔ malformed fold output (0.032583ms)
+  ✔ ineffective cannot carry state (0.032459ms)
+  ✔ no floating output (0.028917ms)
+  ✔ invalid syntax (0.029959ms)
+  ✔ forbidden: $now() (0.04775ms)
+  ✔ forbidden: $millis() (0.054083ms)
+  ✔ forbidden: $random() (0.027459ms)
+  ✔ forbidden: $shuffle([1,2]) (0.024958ms)
+  ✔ forbidden: $eval("1") (0.022541ms)
+  ✔ forbidden: function($x){$x}(1) (0.021708ms)
+  ✔ forbidden: ($v_f := $now; $v_f()) (0.028916ms)
+  ✔ forbidden: [1..100000000] (0.021791ms)
+  ✔ forbidden: /(a+)+$/ (0.02225ms)
+  ✔ forbidden: $pad("a",100000000) (0.020917ms)
+  ✔ forbidden: $map([1],function($x){$x}) (0.019625ms)
+  ✔ forbidden: $lookup({},"constructor")() (0.019792ms)
+  ✔ literal ambient-function text is data (0.019791ms)
+  ✔ deterministic work exhaustion (0.02075ms)
+  ✔ program bytes exact cap (0.020375ms)
+  ✔ action bytes exact cap (0.034375ms)
+  ✔ complete input bytes exact cap (0.021792ms)
+  ✔ query output bytes exact cap (0.016208ms)
+  ✔ source complexity rejected before evaluation (0.01675ms)
+  ✔ intermediate growth is bounded (0.015958ms)
+  ✔ ordinary JSONata locals need no custom naming (0.015ms)
+  ✔ built-in callable cannot be replaced (0.014292ms)
+  ✔ state bytes exact cap (0.013667ms)
+  ✔ input depth exact cap (0.012708ms)
+  ✔ safe integer boundaries (0.014667ms)
+  ✔ null, absent, extras, array order preserved (0.013334ms)
+  ✔ prototype and invalid Unicode refused (0.013584ms)
+  ✔ runtime-loaded state schema (0.013708ms)
+  ✔ runtime-loaded query contract (0.014084ms)
+  ✔ domain type validation does not coerce (0.014125ms)
+  ✔ query output validated (0.013583ms)
+  ✔ second bundle: nested refs, arrays and closed union (0.0145ms)
+  ✔ closed union rejects unknown member (0.013417ms)
+  ✔ optional does not mean nullable (0.014958ms)
+  ✔ missing ref fails before data use (0.015625ms)
+  ✔ defaulting rejected at source admission (0.016333ms)
+  ✔ schema closure bytes exact cap (0.0135ms)
+  ✔ schema file count exact cap (0.014542ms)
+  ✔ Inlay local template and query binding (0.014125ms)
+  ✔ Inlay absent component fails explicitly (0.014208ms)
+  ✔ Inlay external body refused without I/O (0.014125ms)
+  ✔ Inlay missing caller property fails (0.012666ms)
+  ✔ Inlay auto-submit property refused (0.014542ms)
+  ✔ engine evaluation nesting exact boundary (0.014083ms)
+  ✔ engine sequence exact boundary (0.01375ms)
+  ✔ AST container count exact boundary in unevaluated branch (0.014291ms)
+  ✔ AST container depth exact boundary (0.020792ms)
+  ✔ encoded-byte work budget exact boundary (0.015709ms)
+  ✔ large repeated intermediate strings exhaust byte budget (0.016375ms)
+  ✔ generated range rejected with stable code (0.016542ms)
+  ✔ regex rejected with stable code (0.013875ms)
+  ✔ Unicode casing is outside the portable profile (0.014041ms)
+  ✔ absent expression result is explicit (0.014917ms)
+  ✔ negative zero input is not a wire integer (0.013125ms)
+  ✔ malformed Unicode object key is rejected (0.014208ms)
+  ✔ fold input state exact byte cap (0.013458ms)
+  ✔ fold successor state exact byte cap (0.013208ms)
+  ✔ ineffective reason length and syntax (0.014209ms)
+  ✔ ineffective message must be a string (0.012792ms)
+  ✔ duplicate schema IDs rejected before validation (0.022333ms)
+  ✔ open union rejected at admission (0.013ms)
+  ✔ inherited type names are ordinary unsupported schemas (0.014959ms)
+  ✔ native grapheme constraints rejected at admission (0.013584ms)
+  ✔ Inlay source bytes exact boundary (0.02ms)
+  ✔ Inlay source record count exact boundary (0.015125ms)
+  ✔ Inlay expanded node count exact boundary (0.014417ms)
+  ✔ Inlay expansion depth exact boundary (0.013666ms)
+✔ shared feasibility corpus passes in Node (3506.807667ms)
+✖ human and agent participation on a real PDS (2176.480209ms)
+✖ HTTP receipts retain crash recovery and externally confirmed heads across rollback (1536.654958ms)
+✔ host procedures require a retained owner-only token; reads remain public (1484.276625ms)
+✔ draft cache evicts least recently used previews within count and byte budgets (90.242209ms)
+✔ incomplete creations consume application quota before an account is provisioned (58.666542ms)
+✔ a corrupt lease database keeps its SQLite diagnostic instead of claiming contention (2.935125ms)
+✔ only a PDS RecordNotFound response becomes a missing source (6.580458ms)
+✔ only definite invalid input is final; integrity and host availability errors use 503 (0.179292ms)
+✔ actual native proof limits remain unavailable and nonpermanent through host HTTP (65.034958ms)
+✔ expiry renews once across concurrent JSON, blob and upload calls (43.990125ms)
+✔ missing, rejected or repeatedly expired session credentials have a permanent authentication code (14.54775ms)
+✔ complete-prefix limits and nonce conflicts have stable permanent codes (0.190333ms)
+✔ authorization refusal does not permanently disable a valid PDS credential (3.5245ms)
+✔ preverified interpretation accepts only immutable history issued for its genesis (1301.165375ms)
+✔ snapshot reads share verification, invalidate changed commits and retain rollback and fork checks (42.687125ms)
+✔ receipt lookup completes while an append waits for its conditional write (83.135375ms)
+✔ confirmation replaces an in-flight read started before the conditional write completed (20.963583ms)
+✔ confirmed and repeated receipts retain their head across restart and refuse rollback (131.07425ms)
+✔ Node resolution consumes stdin payloads larger than 64 KiB (7261.695542ms)
+✔ package file patches and unlisted nested resolution fail before interpretation (4964.690833ms)
+✔ loader shape mutations remain coded input failures, including manifest and view edges (7004.011542ms)
+ℹ 3260 loader mutations checked against two loadable baselines
+{"cases":20,"metrics":{"commit":{"cursorContinuations":4,"payloadReads":0,"payloadAdds":1},"page":{"cursorContinuations":12,"payloadReads":10,"payloadAdds":0},"pinRelease":{"cursorContinuations":1004,"payloadReads":0,"payloadAdds":0},"storage":{"historyRows":500,"storedVersions":501,"logicalBytes":137794}},"quota":{"case":"actual Chromium quota abort preserves generation","generation":1,"attemptedBytes":4194304,"observed":{"code":"quota","causeName":"QuotaExceededError","causeMessage":""},"override":{"usage":0,"quota":1048576,"overrideActive":true,"usageBreakdown":[{"storageType":"file_systems","usage":0},{"storageType":"indexeddb","usage":0},{"storageType":"cache_storage","usage":0},{"storageType":"service_workers","usage":0}]}},"crashes":[{"phase":"before","generation":1,"observedRequests":317},{"phase":"after","generation":2,"observedRequests":0}]}
+✔ real Chromium IndexedDB shares storage corpus, physical quota and renderer crashes (826.013125ms)
+{"node":"v26.10.0","cases":22,"incremental":{"historyRows":500,"precedingChangedKeys":1,"actualRetirementKeys":1,"storedVersions":501,"sqlPlan":[{"id":3,"parent":0,"notused":61,"detail":"SEARCH local_rows USING INDEX local_rows_generation (generation=?)"}],"logicalUsage":{"bytes":137794,"rows":501}}}
+✔ real SQLite generations, coherent abort/crash recovery and incremental retirement (378.074375ms)
+{"browserCases":51,"bundleBytes":445724,"shared":["p256","secp256k1"]}
+✔ Chromium executes native hostile cases and shared Node key/commit fixtures (753.0515ms)
+{"nativeProofCases":["root fields, raw membership, absence and whole-tree checks","non-forgeable capability","wrong DID","wrong key","wrong root","truncated CAR","CAR byte budget: resource limit and sufficient-budget recovery","block count budget: resource limit and sufficient-budget recovery","block byte budget: resource limit and sufficient-budget recovery","header budget: resource limit and sufficient-budget recovery","native header depth budget: resource limit and sufficient-budget recovery","CAR type and truncated/zero header are input before local header policy","unknown and nonpositive/fractional/nonfinite/unsafe bounds remain caller input errors","corrupt block","wrong record CID","path protocol syntax/1024 maximum precede stricter local character policy","path node, full-tree node and walker-depth budgets are resource limits","node-entry policy yields resource limit and sufficient-budget recovery","native cached-node depth is local policy distinct from Atseq wire depth","cached native block bytes obey resource policy","caller CAR, options and returned-byte mutation isolation","sparse missing evidence distinct from absence","missing record bytes","full-export cache recovery","failed admission preserves prior evidence","single-CAR cache byte/count budgets are resource limits","LRU eviction yields missing evidence","optional expected root","exactly one selected CAR root","oversized authenticated admission is atomic","p256 legacy/compressed/off-curve keys and compact low-S signatures","secp256k1 legacy/compressed/off-curve keys and compact low-S signatures","wrong-layer signed MST node","unordered signed MST keys","wrong child layer","overlapping child interval","signed walked interval fault overrides withheld child for lookup and full tree","signed walked interval fault overrides node-load limit before withheld child for lookup and full tree","canonical MST fields","invalid node shape precedes local node-entry policy","canonical empty repository root","height-one signed empty non-root MST node","leaf signed empty non-root MST node","untrimmed keyless root is invalid input","noncanonical signed MST CBOR is invalid input","maintained MST deserialization errors are invalid input","noncanonical commit CBOR is invalid input","lookup/tree preserve observed runtime/resource/input/missing failures instead of cleanup depth error","genuine walker runtime faults retain identity","native depth limit does not claim validity; raised policy detects malformed commit","native membership cannot bypass strict Atseq record limits"]}
+✔ native repository proof corpus rejects hostile inputs and separates missing evidence (1539.726ms)
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (21255.166958ms)
+✖ two browser identities and the JSON CLI use generic participation flows (1756.961458ms)
+✔ PDS child keeps only OS paths and forced telemetry disable without mutating input (0.731ms)
+✖ inherited telemetry preload exports with legacy spread and is blocked by the fixture allowlist (1995.087ms)
+✖ real disposable PDS persistence and recovery (1532.5925ms)
+✔ interpretation observation preserves exact projection and restores all methods (1263.822875ms)
+✔ HTTP observer counts actual UTF-8 bodies, omits sensitive URL fields and restores after failure (28.149ms)
+✔ benchmark observation counts actual operations and restores WebCrypto after failure (8.296042ms)
+✔ v2 contract identities agree with independent encoder vectors and exclude implementation provenance (1071.76075ms)
+✔ unapproved, missing and duplicated installed dependency sets fail closed (5.659959ms)
+✔ host-only errors do not widen semantic interpretation outcomes (0.155ms)
+✔ host snapshot stays coherent during writes and rebuilds after cache deletion (1606.362792ms)
+▶ protocol vectors and rejection corpus agree in Node and Chromium
+  ✔ independent CBOR and CID: profile (0.383667ms)
+  ✔ independent CBOR and CID: definition (0.062541ms)
+  ✔ independent CBOR and CID: genesis (0.029083ms)
+  ✔ independent CBOR and CID: intent (0.03175ms)
+  ✔ independent CBOR and CID: signed (0.025292ms)
+  ✔ independent CBOR and CID: entry (0.029375ms)
+  ✔ independent CBOR and CID: head (0.029791ms)
+  ✔ application descriptor CID matches independent vector (0.029375ms)
+  ✔ independent actor signature verifies (0.047291ms)
+  ✔ independent sequencer signature verifies (0.045042ms)
+  ✔ two valid signature encodings share content identity and receipt (0.025166ms)
+  ✔ changed intent app rejected (0.020583ms)
+  ✔ changed intent genesis rejected (0.018041ms)
+  ✔ changed intent definition rejected (0.0205ms)
+  ✔ changed intent payload rejected (0.017ms)
+  ✔ changed intent extra payload field rejected (0.02975ms)
+  ✔ changed intent nonce rejected (0.036541ms)
+  ✔ changed intent action rejected (0.022ms)
+  ✔ changed intent actor key rejected (0.014458ms)
+  ✔ changed intent version rejected (0.016458ms)
+  ✔ changed intent domain rejected (0.013041ms)
+  ✔ unknown framework fields are refused, never stripped (0.014334ms)
+  ✔ genesis anchor cannot be replaced (0.012542ms)
+  ✔ duplicate genesis activation keys rejected (0.011583ms)
+  ✔ signature bit flip rejected (0.012333ms)
+  ✔ signature verification and key import host faults retain their identity (0.012666ms)
+  ✔ high-S variant rejected (0.012125ms)
+  ✔ wire rejects duplicate map key (0.022292ms)
+  ✔ wire rejects noncanonical key order (0.011042ms)
+  ✔ wire rejects long integer encoding (0.012833ms)
+  ✔ wire rejects float encoding of integer (0.012167ms)
+  ✔ wire rejects negative zero (0.011709ms)
+  ✔ wire rejects indefinite array (0.012542ms)
+  ✔ wire rejects trailing bytes (0.012167ms)
+  ✔ wire rejects non-string map key (0.012ms)
+  ✔ wire rejects unsupported tag (0.011542ms)
+  ✔ wire rejects truncated string (0.0125ms)
+  ✔ wire rejects huge truncated array (0.012458ms)
+  ✔ wire $type is a string in nested records (0.016833ms)
+  ✔ wire invalid UTF-8 has the same code in every engine (0.014584ms)
+  ✔ nested CID tags are refused without recursion in every engine (0.01175ms)
+  ✔ array nesting accepts the depth limit and refuses the next level (0.026791ms)
+  ✔ incomplete base64 has a deterministic input code (0.012ms)
+  ✔ wire rejects deep nesting (0.016417ms)
+  ✔ wire block byte boundary (0.013042ms)
+  ✔ wire input rejects undefined field (0.014708ms)
+  ✔ wire input rejects negative zero value (0.011125ms)
+  ✔ wire input rejects malformed Unicode key (0.013292ms)
+  ✔ wire input rejects malformed Unicode value (0.012834ms)
+  ✔ wire input rejects extra bytes member (0.011375ms)
+  ✔ wire input rejects noncanonical base64 (0.012709ms)
+  ✔ wire input rejects padded base64 (0.012042ms)
+  ✔ wire input rejects extra CID member (0.011708ms)
+  ✔ wire input rejects reserved data-model field (0.012208ms)
+  ✔ wire input rejects unsafe integer (0.012375ms)
+  ✔ wire input rejects float value (0.01125ms)
+  ✔ wire input rejects invalid CID (0.105583ms)
+  ✔ UTF-8 map ordering and absent/null remain distinct (0.071ms)
+  ✔ live signing verifies without a second SHA-256 (0.075958ms)
+  ✔ wrong signing key rejected (0.025333ms)
+  ✔ wrong curve rejected (0.017125ms)
+  ✔ verify rejects a valid secp256k1 actor signature (0.015209ms)
+  ✔ verify rejects an uncompressed P-256 did:key with a valid signature (0.013375ms)
+  ✔ verify rejects a valid entry proof for a foreign sequencer (0.014167ms)
+  ✔ verify rejects a valid entry proof for a foreign app (0.013583ms)
+  ✔ verify rejects a valid entry proof for a foreign genesis (0.013709ms)
+  ✔ head targeting a foreign app is rejected (0.013167ms)
+  ✔ head targeting a foreign genesis is rejected (0.022959ms)
+  ✔ history follows signed positions, not arrival order (0.01825ms)
+  ✔ empty genesis prefix (0.020584ms)
+  ✔ missing history cannot appear current (0.014125ms)
+  ✔ duplicate positions rejected (0.02525ms)
+  ✔ altered predecessor invalidates proof (0.013208ms)
+  ✔ valid signature on wrong predecessor still rejected (0.04125ms)
+  ✔ valid signature on skipped position still rejected (0.013667ms)
+  ✔ altered chosen head rejected (0.013375ms)
+  ✔ position zero is genesis only (0.013583ms)
+  ✔ entry keys have fixed width and safe bounds (0.024167ms)
+  ✔ conflicting content under retained nonce is rejected (0.033167ms)
+  ✔ same retry identity cannot be recorded twice (0.011417ms)
+  ✔ nonce exact width (0.011833ms)
+  ✔ signature exact width (0.012084ms)
+  ✔ action payload exact JSON byte boundary (0.011667ms)
+  ✔ framework validation retains unknown action content (0.011208ms)
+  ✔ fixed XRPC schemas load and validate through Lexicon (0.010959ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✔ protocol vectors and rejection corpus agree in Node and Chromium (1267.623208ms)
+▶ application interpretation agrees in Node and a Chromium worker
+  ✔ CAR round trip owns exact source bytes (0.395125ms)
+  ✔ two unrelated definitions resolve schemas and retained views (0.042833ms)
+  ✔ initial state comes only from the pinned definition (0.029042ms)
+  ✔ fold and query match independently specified values (0.025208ms)
+  ✔ rainfall summary covers the maximum valid aggregate (0.022417ms)
+  ✔ malformed domain input is retained ineffective (0.026583ms)
+  ✔ unknown action is retained ineffective (0.029834ms)
+  ✔ old definition intent is retained ineffective (0.024792ms)
+  ✔ domain refusal preserves complete prior state (0.035917ms)
+  ✔ restarting and replaying reproduces state outcomes and frontier (0.0435ms)
+  ✔ failed persistence advances neither state outcomes nor frontier (0.022167ms)
+  ✔ runtime faults pause without producing a replicated outcome and can resume (0.01725ms)
+  ✔ activation validation host faults pause and resume to the healthy replica (0.015083ms)
+  ✔ parser TypeError and RangeError faults pause folds and activations, then resume identically (0.013875ms)
+  ✔ malformed schema and view shapes cannot freeze activation (0.014584ms)
+  ✔ malformed UTF-8 source has a deterministic loader code (0.013625ms)
+  ✔ reader size claims require independently verified bytes (0.01275ms)
+  ✔ hash-valid oversized activation is ineffective; corrupt bytes pause until restored (0.012541ms)
+  ✔ query captures its prefix before concurrent catch-up (0.012667ms)
+  ✔ malformed fold result records framework failure and continues (0.027625ms)
+  ✔ invalid successor schema records framework failure and continues (0.016084ms)
+  ✔ ineffective successor state records framework failure and continues (0.016792ms)
+  ✔ noninteger computed state records framework failure and continues (0.011625ms)
+  ✔ the 1001st reading is ineffective and a later valid action clears state (0.011959ms)
+  ✔ copied extra payload bytes cannot freeze interpretation (0.011ms)
+  ✔ overlong ineffective message cannot block a later valid entry (0.010458ms)
+  ✔ invalid query output is unavailable at its exact unchanged prefix (0.011167ms)
+  ✔ caller snapshot mutation cannot change the projection (0.011ms)
+  ✔ unavailable source pauses definition loading (0.089375ms)
+  ✔ tampered source fails its pinned CID (0.066834ms)
+  ✔ unsupported definition runtime is refused (0.022458ms)
+  ✔ unsupported genesis runtime is refused even with a valid definition (0.01525ms)
+  ✔ definition refuses unknown binding field (0.013125ms)
+  ✔ definition refuses duplicate action binding (0.012583ms)
+  ✔ definition refuses missing binding schema (0.011666ms)
+  ✔ definition refuses missing program file (0.012292ms)
+  ✔ definition refuses escaping source path (0.012708ms)
+  ✔ definition refuses ambient program (0.012416ms)
+  ✔ definition refuses invalid program syntax (0.018875ms)
+  ✔ definition refuses noninteger program literal (0.014042ms)
+  ✔ definition refuses null initial state (0.014125ms)
+  ✔ definition refuses negative zero initial data (0.01275ms)
+  ✔ source closure and initial state byte limits are enforced (0.011667ms)
+  ✔ exact state and program limits pass and the next byte fails (0.014125ms)
+  ✔ definition counts the manifest within the 64-file limit (0.011083ms)
+  ✔ CAR blocks outside the declared closure are refused (0.011208ms)
+  ✔ work exhaustion records a framework refusal and preserves prior state (0.010792ms)
+  ✔ oversized action is refused before interpretation (0.010708ms)
+  ✔ unsupported schema constructs fail while loading the definition (0.010416ms)
+  ✔ application registry refuses anchor replacement (0.010625ms)
+  ✔ concurrent anchor replacement cannot persist a conflicting initial state (0.010375ms)
+  ✔ 64 sibling object values do not consume nesting depth (0.010583ms)
+  ✔ 100 grouped values do not consume nesting depth (0.010834ms)
+  ✔ intermediate negative zero can be consumed as integer zero (0.011125ms)
+  ✔ negative zero remains invalid at input and output boundaries (0.010583ms)
+  ✔ sum checks exact intermediate integers before cancellation (0.010292ms)
+  ✔ ineffective messages count Unicode code points and stop at 1024 (0.010042ms)
+  ✔ conditional integrity adapter matches the running environment (0.010333ms)
+  ✔ unmatched dependency closure fails closed in either environment (0.009959ms)
+  ✔ source document taskboard round trip and viewless preview (0.010167ms)
+  ✔ source document guitar round trip and viewless preview (0.010584ms)
+  ✔ source document ledger round trip and viewless preview (0.009625ms)
+  ✔ source document guitar summary covers the maximum valid aggregate (0.01025ms)
+  ✔ source document taskboard completes a retained task (0.010125ms)
+  ✔ source documents refuse the historical application v1 profile (0.010083ms)
+  ✔ source document retains exact bytes, aliases, unused files and manifest order (0.010417ms)
+  ✔ source document rejects nonzero base64 trailing bits (2-character remainder) as wire_bytes (0.010334ms)
+  ✔ source document rejects nonzero base64 trailing bits (3-character remainder) as wire_bytes (0.055375ms)
+  ✔ source document refuses path, version, byte and retained-table ambiguity (0.021375ms)
+✔ application interpretation agrees in Node and a Chromium worker (3017.563167ms)
+✖ single documents support generic CLI, host discovery and viewless browser participation (980.9675ms)
+ℹ tests 295
+ℹ suites 0
+ℹ pass 285
+ℹ fail 10
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23542.3125
+
+✖ failing tests:
+
+test at tests/archive.test.ts:1:1439
+✖ retain complete app history and rebuild without the PDS (1882.105166ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/browser-sessions.test.ts:1:1175
+✖ browser sessions retain trust and device work across switches and restarts (1791.888042ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/evolution.test.ts:1:1251
+✖ evolve a real app and explicitly replace its stale pending work (1805.232041ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/flows.test.ts:1:1267
+✖ human and agent participation on a real PDS (2176.480209ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/flows.test.ts:1:8543
+✖ HTTP receipts retain crash recovery and externally confirmed heads across rollback (1536.654958ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/package.test.ts:1:755
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (21255.166958ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/participation.test.ts:1:966
+✖ two browser identities and the JSON CLI use generic participation flows (1756.961458ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/pds-telemetry.test.ts:1:975
+✖ inherited telemetry preload exports with legacy spread and is blocked by the fixture allowlist (1995.087ms)
+  AssertionError [ERR_ASSERTION]: ocal-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+  
+  Node.js v26.10.0
+  
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/pds-telemetry.test.ts:98:16)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/pds.test.ts:1:1031
+✖ real disposable PDS persistence and recovery (1532.5925ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
+
+test at tests/source-document-flows.test.ts:1:978
+✖ single documents support generic CLI, host discovery and viewless browser participation (980.9675ms)
+  Error: Official PDS exited during startup (1): -worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+   → /Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node
+      at bindings (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/bindings/bindings.js:126:9)
+      at new Database (/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21)
+      at new DidSqliteCache (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/index.js:9:19)
+      at AppContext.fromConfig (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/context.js:87:26)
+      at PDS.create (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:150:38)
+      at PDS.fromEnv (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/@atproto/pds/dist/index.js:95:20)
+      at file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/pds-server.mjs:5:23 {
+    tries: [
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Debug/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/out/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/Release/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/build/default/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/compiled/26.10.0/darwin/arm64/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node',
+      '/Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/node_modules/better-sqlite3/lib/binding/node-v147-darwin-arm64/better_sqlite3.node'
+    ]
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/local-generations/tests/support/pds/environment.mjs:123:16)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)

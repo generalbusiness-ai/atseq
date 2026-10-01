@@ -1,0 +1,12 @@
+{"cases":20,"metrics":{"commit":{"cursorContinuations":4,"payloadReads":0,"payloadAdds":1},"page":{"cursorContinuations":12,"payloadReads":10,"payloadAdds":0},"pinRelease":{"cursorContinuations":1004,"payloadReads":0,"payloadAdds":0},"storage":{"historyRows":500,"storedVersions":501,"logicalBytes":137794}},"quota":{"case":"actual Chromium quota abort preserves generation","generation":1,"attemptedBytes":4194304,"observed":{"code":"quota","causeName":"QuotaExceededError","causeMessage":""},"override":{"usage":0,"quota":1048576,"overrideActive":true,"usageBreakdown":[{"storageType":"file_systems","usage":0},{"storageType":"indexeddb","usage":0},{"storageType":"cache_storage","usage":0},{"storageType":"service_workers","usage":0}]}},"crashes":[{"phase":"before","generation":1,"observedRequests":136},{"phase":"after","generation":2,"observedRequests":0}]}
+✔ real Chromium IndexedDB shares storage corpus, physical quota and renderer crashes (522.662125ms)
+{"node":"v26.10.0","cases":22,"incremental":{"historyRows":500,"precedingChangedKeys":1,"actualRetirementKeys":1,"storedVersions":501,"sqlPlan":[{"id":3,"parent":0,"notused":61,"detail":"SEARCH local_rows USING INDEX local_rows_generation (generation=?)"}],"logicalUsage":{"bytes":137794,"rows":501}}}
+✔ real SQLite generations, coherent abort/crash recovery and incremental retirement (228.72ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 933.08075

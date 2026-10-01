@@ -1,0 +1,10 @@
+{"node":"v26.10.0","cases":22,"incremental":{"historyRows":500,"precedingChangedKeys":1,"actualRetirementKeys":1,"storedVersions":501,"sqlPlan":[{"id":3,"parent":0,"notused":61,"detail":"SEARCH local_rows USING INDEX local_rows_generation (generation=?)"}],"logicalUsage":{"bytes":137794,"rows":501}}}
+✔ real SQLite generations, coherent abort/crash recovery and incremental retirement (272.096417ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 414.881834
