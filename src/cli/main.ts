@@ -107,6 +107,11 @@ export async function execute(input: any): Promise<unknown> {
   if (input.operation === 'replay') {
     if ((input.app !== undefined) !== (input.genesis !== undefined))
       throw new ProtocolError('anchor', 'Replay requires both app and genesis pins, or neither');
+    if (
+      input.app !== undefined &&
+      (typeof input.app !== 'string' || !input.app || typeof input.genesis !== 'string' || !input.genesis)
+    )
+      throw new ProtocolError('anchor', 'Replay requires valid app and genesis pins');
     const rebuilt = await importArchive(
       await readFile(input.source),
       input.app && input.genesis ? { app: input.app, genesis: input.genesis } : undefined,

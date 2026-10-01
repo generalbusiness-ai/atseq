@@ -120,15 +120,18 @@ export class Anchor {
     Object.freeze(this);
   }
   static async from(value: unknown, expected: Invitation): Promise<Anchor> {
+    if (typeof expected?.app !== 'string' || !expected.app || typeof expected.genesis !== 'string' || !expected.genesis)
+      fail('anchor', 'Invitation requires both app and genesis pins');
+    const pinned = { app: expected.app, genesis: expected.genesis };
     validateFramework(NSID.genesis, value);
     const genesis = copy(value) as Genesis;
-    if (!expected || genesis.app !== expected.app || (await contentCid(genesis)) !== link(expected.genesis).$link)
+    if (genesis.app !== pinned.app || (await contentCid(genesis)) !== link(pinned.genesis).$link)
       fail('anchor', 'Genesis differs from the pinned invitation');
     await key(genesis.sequencerKey);
     for (const actor of genesis.activationKeys) await key(actor);
     if (new Set(genesis.activationKeys).size !== genesis.activationKeys.length)
       fail('anchor', 'Duplicate initial activation key');
-    return new Anchor(genesis, expected.genesis);
+    return new Anchor(genesis, pinned.genesis);
   }
 }
 function intentShape(value: unknown): asserts value is Intent {

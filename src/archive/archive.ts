@@ -117,6 +117,7 @@ export async function replayInput(input: RetainedInput, expected?: Invitation) {
 }
 export async function exportArchive(input: RetainedInput, expected: Invitation, position?: number): Promise<Archive> {
   if (!expected?.app || !expected.genesis) throw new ProtocolError('anchor', 'Export requires both invitation pins');
+  const pinned = { app: expected.app, genesis: expected.genesis };
   const checked = await replayInput(
       {
         genesis: input.genesis,
@@ -126,7 +127,7 @@ export async function exportArchive(input: RetainedInput, expected: Invitation, 
         source: input.source,
         candidates: input.candidates,
       },
-      expected,
+      pinned,
     ),
     complete = checked.snapshot.projection.frontier.position;
   const chosen = position ?? complete;
@@ -158,7 +159,7 @@ export async function exportArchive(input: RetainedInput, expected: Invitation, 
       .filter((c) => definitions.has(c.definition))
       .map((c) => ({ definition: c.definition, source: bytes(fromBytes(c.source)) })),
   };
-  const selected = await replayInput(retained, expected);
+  const selected = await replayInput(retained, pinned);
   if (selected.snapshot.stalled || selected.snapshot.projection.frontier.position !== chosen)
     throw new ProtocolError('archive', 'Chosen archive prefix is incomplete');
   const archive: Archive = {
@@ -291,7 +292,7 @@ async function importVerifiedArchive(raw: Uint8Array, expected?: ArchiveInvitati
 
 export async function importArchive(raw: Uint8Array, expected?: ArchiveInvitation | ArchiveInvitation[]) {
   try {
-    return await importVerifiedArchive(raw, expected);
+    return await importVerifiedArchive(new Uint8Array(raw), expected && structuredClone(expected));
   } catch (error) {
     if (error instanceof AtseqError) throw error;
     throw new ProtocolError('archive', 'Archive contains invalid public data');
