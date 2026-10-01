@@ -94,7 +94,8 @@ JSON
 
 The identity command returns only name and public key. Its regular key file has
 mode 0600. Later commands read that file; they never send its private material
-to the host. The browser uses a separate device key and offers no actor switch.
+to the host. The browser uses a separate non-extractable device key and offers no actor switch.
+See [browser sessions and device storage](browser-device.md) for key loss, trust pins, retry rules and the IndexedDB schema.
 
 A source folder contains `manifest.json` in the shape documented in
 [definitions.md](definitions.md), omitting `files`, plus all retained source

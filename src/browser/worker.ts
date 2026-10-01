@@ -8,10 +8,14 @@ import { compatibleDefinition } from '../definition/activation.ts';
 import { SourceBundle, SourcePool } from '../definition/source.ts';
 import { LoadedDefinition } from '../definition/load.ts';
 import { describeDefinition, previewSource } from '../client/definition.ts';
+import type { RetainedInput } from '../archive/archive.ts';
+import type { WorkerRequest, WorkerReply } from './protocol.ts';
+import { sameSession, type AppSession } from './session.ts';
 import { Applications } from '../application/apps.ts';
 
 const sources = new Map<string, SourcePool>();
-let lastInput: any;
+let lastInput: RetainedInput | undefined;
+let session: AppSession | undefined;
 let apps = new Applications(),
   folder: Folder | undefined,
   definition: LoadedDefinition | undefined;
@@ -19,19 +23,30 @@ let queue: Promise<unknown> = Promise.resolve();
 self.onmessage = ({ data }) => {
   queue = queue.then(() => handle(data));
 };
-async function handle(data: any) {
+async function handle(data: WorkerRequest) {
   try {
-    let result;
+    if (
+      !['preview', 'importArchive', 'reset', 'sync'].includes(data.kind) &&
+      (!('session' in data) || !sameSession(data.session, session))
+    )
+      throw new Error('App session changed. Refresh before continuing.');
+    let result: unknown;
     switch (data.kind) {
       case 'preview':
         result = await previewSource(new Uint8Array(data.source), data.action, data.payload, data.state);
         break;
       case 'sync': {
-        const input = data.input;
-        if (input.genesis.app !== data.invitation.app || input.genesisCid !== data.invitation.genesis)
+        const input = data.input,
+          invitation = { app: data.session.app, genesis: data.session.genesis };
+        if (session?.app === invitation.app && session.genesis === invitation.genesis) {
+          if (!sameSession(data.session, session)) throw new Error('Definition changed. Refresh before continuing.');
+        } else if (data.session.definition !== input.genesis.definition.$link) {
+          throw new Error('Initial session must name the genesis definition');
+        }
+        if (input.genesis.app !== invitation.app || input.genesisCid !== invitation.genesis)
           throw new Error('Host response differs from the pinned invitation');
         const source = await SourceBundle.read(fromBytes(input.source));
-        const anchor = await Anchor.from(input.genesis, data.invitation);
+        const anchor = await Anchor.from(input.genesis, invitation);
         if (source.root !== anchor.genesis.definition.$link) throw new Error('Initial CAR differs from genesis');
         await LoadedDefinition.load(source.root, source);
         const key = `${anchor.genesis.app}:${anchor.cid}`,
@@ -43,11 +58,13 @@ async function handle(data: any) {
           await pool.add(retained);
         }
         sources.set(key, pool);
-        folder = await apps.open(anchor.genesis, { app: anchor.genesis.app, genesis: anchor.cid }, pool);
-        const snapshot = await folder.catchUp(input.head, input.entries);
+        const opened = await apps.open(anchor.genesis, { app: anchor.genesis.app, genesis: anchor.cid }, pool);
+        const snapshot = await opened.catchUp(input.head, input.entries);
+        folder = opened;
         definition = folder.activeDefinition();
-        lastInput = input;
-        result = { ...snapshot, genesis: anchor.genesis, definition: await describeDefinition(definition) };
+        lastInput = structuredClone(input);
+        session = { ...invitation, definition: definition.cid };
+        result = { ...snapshot, genesis: anchor.genesis, definition: await describeDefinition(definition), session };
         break;
       }
       case 'exportArchive': {
@@ -151,16 +168,17 @@ async function handle(data: any) {
         apps = new Applications();
         folder = undefined;
         definition = undefined;
+        session = undefined;
         result = true;
         break;
       default:
         throw new Error('Unknown worker operation');
     }
-    self.postMessage({ id: data.id, result });
+    self.postMessage({ id: data.id, result } satisfies WorkerReply);
   } catch (error) {
     self.postMessage({
       id: data.id,
-      error: { code: (error as any).code ?? 'unavailable', message: (error as Error).message },
+      error: { code: (error as { code?: string }).code ?? 'unavailable', message: (error as Error).message },
     });
   }
 }

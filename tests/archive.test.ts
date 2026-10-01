@@ -236,13 +236,9 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
     await check('installed shell bootstraps offline and rebuilds solely from an imported archive', async () => {
       await page.goto(service.url);
       await expect(page.getByText('Shell saved for offline use', { exact: true })).toBeVisible();
-      await page.evaluate(async () => {
-        await navigator.serviceWorker.ready;
-        if (!navigator.serviceWorker.controller)
-          await new Promise<void>((resolve) =>
-            navigator.serviceWorker.addEventListener('controllerchange', () => resolve(), { once: true }),
-          );
-      });
+      // Updates leave open tabs alone. The first installation controls the next navigation.
+      await page.reload();
+      await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
       await context.setOffline(true);
       await page.reload();
       await expect(page.getByRole('heading', { name: 'Your applications', exact: true })).toBeVisible();

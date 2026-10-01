@@ -15,7 +15,7 @@ export async function previewSource(car: Uint8Array, action?: string, payload?: 
     definition = await LoadedDefinition.load(source.root, source);
   let current = state === undefined ? jsonCopy(definition.initialState) : jsonCopy(state);
   definition.schemas.validate(definition.manifest.state.ref, current);
-  let outcome: unknown = null;
+  let outcome: { decision: 'effective' } | { decision: 'ineffective'; reason: string; message?: string } | null = null;
   if (action) {
     const binding = definition.manifest.actions.find((a) => a.ref === action);
     if (!binding) throw new Error('Unknown preview action');
