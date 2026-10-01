@@ -1,3 +1,4 @@
+import { SOURCE_LIMITS } from '../core/limits.ts';
 import { fromUint8Array, writeCarStream } from '@atcute/car';
 import { create, fromString, toString, CODEC_DCBOR, CODEC_RAW } from '@atcute/cid';
 import { AtseqError } from '../core/errors.ts';
@@ -14,7 +15,7 @@ export class SourceSizeError extends InterpretationError {
     this.bytes = new Uint8Array(bytes);
   }
 }
-export const SOURCE_POOL_BYTES = 16 * 1024 * 1024;
+export const SOURCE_POOL_BYTES = SOURCE_LIMITS.bytes;
 export async function readSource(reader: SourceReader, cid: string): Promise<Uint8Array> {
   let raw: Uint8Array;
   try {
@@ -166,7 +167,10 @@ export class SourcePool implements SourceReader {
   async add(bundle: SourceBundle): Promise<void> {
     const next = new Map(this.blocks);
     for (const cid of bundle.identities()) next.set(cid, await bundle.get(cid));
-    if (next.size > 2048 || [...next.values()].reduce((size, block) => size + block.length, 0) > SOURCE_POOL_BYTES)
+    if (
+      next.size > SOURCE_LIMITS.blocks ||
+      [...next.values()].reduce((size, block) => size + block.length, 0) > SOURCE_POOL_BYTES
+    )
       throw new InterpretationError(
         'source_pool_limit',
         'Retained application source exceeds the local 16 MiB / 2048-block limit',

@@ -4,6 +4,7 @@ import type { SignedIntent, Receipt } from '../protocol/log.ts';
 import type { Outcome } from '../application/folder.ts';
 import type { AppSnapshot } from './protocol.ts';
 import { bytes } from '../protocol/wire.ts';
+import { hostMessage } from './host-access.ts';
 import { NSID } from '../core/nsids.ts';
 export interface Pending {
   cid: string;
@@ -62,6 +63,9 @@ export class Outbox {
               'payload',
               'noncanonical',
               'retry_conflict',
+              'snapshot_limit',
+              'definition_history_limit',
+              'append_limit',
               'wire_bytes',
               'wire_cid',
               'wire_depth',
@@ -76,7 +80,9 @@ export class Outbox {
               : {
                   ...(previous ?? pending),
                   status: refused ? 'refused' : 'queued',
-                  error: refused ? error.message : 'Reply uncertain. The original signed action is retained for retry.',
+                  error: refused
+                    ? hostMessage(error)
+                    : 'Reply uncertain. The original signed action is retained for retry.',
                 },
           );
         }

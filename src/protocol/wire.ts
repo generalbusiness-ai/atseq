@@ -1,3 +1,4 @@
+import { WIRE_LIMITS } from '../core/limits.ts';
 import {
   encode,
   decode,
@@ -13,7 +14,7 @@ import { canonicalJson, type Json } from '../core/values.ts';
 import { assertDependencies } from '../core/dependencies.ts';
 import { isUtf8 } from '../core/utf8.ts';
 
-export const WIRE = Object.freeze({ version: 1, blockBytes: 64 * 1024, jsonBytes: 128 * 1024, depth: 32 });
+export const WIRE = WIRE_LIMITS;
 import { AtseqError, ProtocolError } from '../core/errors.ts';
 export { ProtocolError } from '../core/errors.ts';
 export function sameBytes(a: Uint8Array, b: Uint8Array): boolean {
@@ -70,6 +71,8 @@ function validate(value: unknown): asserts value is Json {
       link(v.$link);
       return;
     }
+    if (Object.hasOwn(v, '$type') && typeof v.$type !== 'string')
+      throw new ProtocolError('wire_value', '$type must be a string');
     for (const [key, item] of Object.entries(v)) {
       if (key.startsWith('$') && key !== '$type') throw new ProtocolError('wire_key', `Reserved data-model key ${key}`);
       walk(item);

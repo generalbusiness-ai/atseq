@@ -119,7 +119,7 @@ try {
     let started = performance.now();
     const snapshot = await readSnapshot(pds, anchor);
     const readVerifyMs = performance.now() - started;
-    all = snapshot.history.entries;
+    all = [...snapshot.history.entries];
     started = performance.now();
     const folder = await Folder.open(anchor, source);
     const loadedMs = performance.now() - started;

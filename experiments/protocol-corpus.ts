@@ -1,5 +1,5 @@
 import { P256PrivateKeyExportable, P256PublicKey, Secp256k1PrivateKeyExportable } from '@atcute/crypto';
-import { fromBytes } from '@atcute/cbor';
+import { encode as encodeCbor, fromBytes } from '@atcute/cbor';
 import { Lexicons, jsonToLex } from '@atproto/lexicon';
 import vectors from '../tests/vectors/protocol-v1.json';
 import { applicationRuntimeCid } from '../src/protocol/identity.ts';
@@ -238,6 +238,14 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
     ['huge truncated array', '9affffffff'],
   ])
     await check(`wire rejects ${name}`, () => rejects(() => decodeBlock(unhex(data!))));
+  await check('wire $type is a string in nested records', async () => {
+    equal(decodeBlock(encodeBlock({ nested: { $type: 'example.record' } })), { nested: { $type: 'example.record' } });
+    for (const type of [null, false, 1, [], {}]) {
+      const value = { nested: { $type: type } };
+      await rejects(() => encodeBlock(value), 'wire_value');
+      await rejects(() => decodeBlock(encodeCbor(value)), 'wire_value');
+    }
+  });
   await check('wire invalid UTF-8 has the same code in every engine', async () => {
     for (const data of ['61ff', 'a1616164c3284141', 'a164c328414101', '64f0808080', '63eda080', '64f4908080'])
       await rejects(() => decodeBlock(unhex(data)), 'noncanonical');

@@ -1,3 +1,4 @@
+import { HOST_LIMITS } from '../core/limits.ts';
 import { readdir, lstat, readFile, unlink, utimes } from 'node:fs/promises';
 import { join } from 'node:path';
 import { SerialQueue } from '../core/queue.ts';
@@ -11,7 +12,10 @@ export class DraftStore {
   private readonly directory: string;
   constructor(
     directory: string,
-    private readonly limits = { count: 32, bytes: 16 * 1024 * 1024 },
+    private readonly limits: { count: number; bytes: number } = {
+      count: HOST_LIMITS.drafts,
+      bytes: HOST_LIMITS.draftBytes,
+    },
   ) {
     this.directory = join(directory, 'drafts');
     if (![limits.count, limits.bytes].every((n) => Number.isSafeInteger(n) && n > 0))

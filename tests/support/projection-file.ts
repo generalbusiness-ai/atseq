@@ -1,7 +1,7 @@
 import { open, mkdir, rename, rm } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { randomUUID } from 'node:crypto';
-import type { PersistProjection } from '../application/folder.ts';
+import type { PersistProjection } from '../../src/application/folder.ts';
 
 /** Disposable host cache. Canonical truth remains the signed PDS prefix. */
 export function projectionFile(path: string): PersistProjection {

@@ -106,7 +106,7 @@ writes the resulting CAR outside that source folder.
 { "operation": "pack", "directory": "/absolute/source", "output": "/absolute/draft.car" }
 ```
 
-The remaining requests include `host`, the printed Atseq origin. Procedures also
+The remaining requests include `host`, the printed Atseq origin. Operator procedures (`validate`, `preview` and `create`) also
 include `hostTokenFile`, the absolute path printed by the host. It is a regular
 file owned by the current user with mode 0600. The CLI sends its token only to
 the selected host; output commands protect the token file from replacement.
@@ -133,7 +133,7 @@ before signing a replacement. See [compatible changes](evolution.md) for activat
 Both clients use the same public Lexicon methods: the five S1 contracts plus
 `list`, `validateDraft`, `preview`, `readDraft`, `sync`, `compareDefinition` and
 `stageDefinition`. Preview URLs identify
-immutable retained local drafts; loading them does not publish. `sync` carries
+content-addressed local drafts; loading them does not publish. Draft storage is a bounded cache: previews can be evicted. Public `readDraft` needs no host token and updates the draft’s last-used time. Anyone who knows its CID can keep it recent while it remains cached. `sync` carries
 the pinned genesis, complete signed prefix and retained source CAR for client
 verification. Its entry values use the same unknown-record convention as PDS
 listing and must pass the existing signed-entry verifier, not just its outer
@@ -154,11 +154,7 @@ print. Authentication failure is an explicit host-access state, not a permanent
 refusal of signed work.
 
 The default host caps applications at 32, including incomplete creations, and
-retained drafts at 32 files / 16 MiB. Repeating an existing creation ID or draft
-remains possible within its existing allocation. Quota and authentication
-responses never mark a signed intent as permanently refused. Only definite
-signature or input-schema refusals are final; integrity and availability failures
-use HTTP 503 with separate error codes.
+retained drafts at 32 files / 16 MiB. Drafts are evicted least-recently-used first to make room; create sends its own source bytes and does not depend on the preview cache. Repeating an existing creation ID remains possible within its allocation. Authentication, application quota, draft quota and temporary availability failures keep signed work queued. Invalid signature, key, envelope, payload or canonical wire bytes, and nonce conflicts, are permanent refusals. Complete-prefix bounds (`snapshot_limit`, `definition_history_limit`) and the append capacity bound (`append_limit`) return HTTP 413 with a permanent code. Integrity and temporary availability failures use HTTP 503. Refusal retains the signed bytes on the device; an explicit resend uses those same bytes.
 
 PDS credentials live only in the host. Expired access sessions renew once using
 the retained refresh credential; concurrent requests share renewal. Unusable

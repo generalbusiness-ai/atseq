@@ -2,6 +2,8 @@ import { ApiError, type AtseqClient } from '../client/api.ts';
 export function hostMessage(error: unknown): string {
   if (error instanceof ApiError && error.code === 'host_token')
     return 'Host access required. Enter the operator token using Host access to preview, start or stage an app. Participant actions need only your signing identity.';
+  if (error instanceof ApiError && error.code === 'append_limit')
+    return 'This app has reached this host’s entry limit. Existing history remains readable. Keep your signed action; it has not been appended.';
   if (error instanceof ApiError && ['snapshot_limit', 'definition_history_limit'].includes(error.code))
     return `Host limit reached (${error.code}). This host cannot serve this complete prefix. Keep your saved state and use a retained archive or another host.`;
   return error instanceof Error ? error.message : 'Host work is unavailable';

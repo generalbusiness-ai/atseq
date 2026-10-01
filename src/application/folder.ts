@@ -2,7 +2,16 @@ import { SerialQueue } from '../core/queue.ts';
 import { NSID } from '../core/nsids.ts';
 import { ACTIVATE, activationPayload } from '../definition/control.ts';
 import { activationCandidate } from '../definition/activation.ts';
-import { Anchor, headAt, verifyHistory, type Entry, type Head } from '../protocol/log.ts';
+import {
+  Anchor,
+  headAt,
+  verifyHistory,
+  assertVerifiedHistory,
+  verifiedEntryCid,
+  type VerifiedHistory,
+  type Entry,
+  type Head,
+} from '../protocol/log.ts';
 import { contentCid, link } from '../protocol/wire.ts';
 import { validateFramework } from '../protocol/schemas.ts';
 import { LoadedDefinition } from '../definition/load.ts';
@@ -76,15 +85,19 @@ export class Folder {
   catchUp(head: Head, records: unknown[]): Promise<ReturnType<Folder['snapshot']>> {
     const ownedHead = structuredClone(head),
       ownedRecords = structuredClone(records);
-    return this.queue.run(() => this.advance(ownedHead, ownedRecords));
+    return this.queue.run(async () => this.advanceVerified(await verifyHistory(this.anchor, ownedHead, ownedRecords)));
   }
-  private async advance(head: Head, records: unknown[]): Promise<ReturnType<Folder['snapshot']>> {
-    const verified = await verifyHistory(this.anchor, head, records);
+  catchUpVerified(history: VerifiedHistory): Promise<ReturnType<Folder['snapshot']>> {
+    assertVerifiedHistory(history, this.anchor);
+    return this.queue.run(() => this.advanceVerified(history));
+  }
+  private async advanceVerified(verified: VerifiedHistory): Promise<ReturnType<Folder['snapshot']>> {
+    assertVerifiedHistory(verified, this.anchor);
+    const head = verified.head;
     const frontier = this.projection.frontier;
     if (head.position < frontier.position)
       throw new InterpretationError('rollback', 'Chosen prefix is behind interpretation');
-    const previous =
-      frontier.position === 0 ? this.anchor.cid : await contentCid(verified.entries[frontier.position - 1]);
+    const previous = verifiedEntryCid(verified, this.anchor, frontier.position);
     if (previous !== frontier.entry.$link)
       throw new InterpretationError('fork', 'Chosen prefix differs from interpreted history');
     this.head = structuredClone(verified.head);
@@ -121,14 +134,18 @@ export class Folder {
         state,
         definition: definition.cid,
         frontier: { $type: NSID.defsCursor, position: entry.position, entry: link(entryCid) },
-        outcomes: [
-          ...this.projection.outcomes,
-          { position: entry.position, entry: entryCid, intent: await contentCid(entry.signedIntent.intent), outcome },
-        ],
+        outcomes: this.projection.outcomes,
+      };
+      const observed = {
+        position: entry.position,
+        entry: entryCid,
+        intent: await contentCid(entry.signedIntent.intent),
+        outcome,
       };
       try {
-        // State, outcomes and cursor cross the persistence boundary together.
-        await this.persist?.(structuredClone(next));
+        // Optional persistence receives a complete owned snapshot before memory advances.
+        if (this.persist) await this.persist(structuredClone({ ...next, outcomes: [...next.outcomes, observed] }));
+        next.outcomes.push(observed);
         this.definition = definition;
         this.projection = next;
       } catch (error) {

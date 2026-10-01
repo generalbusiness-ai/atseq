@@ -52,9 +52,14 @@ export function hostFailure(error: unknown) {
   else if (error instanceof PdsError) {
     code = error.code === 'AuthenticationUnavailable' ? 'host_authentication' : 'pds_unavailable';
     message = error.code;
-    if (['SnapshotLimit', 'DefinitionHistoryLimit'].includes(error.code)) {
+    if (['SnapshotLimit', 'DefinitionHistoryLimit', 'AppendLimit'].includes(error.code)) {
       status = 413;
-      code = error.code === 'SnapshotLimit' ? 'snapshot_limit' : 'definition_history_limit';
+      code =
+        error.code === 'SnapshotLimit'
+          ? 'snapshot_limit'
+          : error.code === 'AppendLimit'
+            ? 'append_limit'
+            : 'definition_history_limit';
       permanent = true;
     }
   } else if (error instanceof AtseqError) {

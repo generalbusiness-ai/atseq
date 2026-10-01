@@ -1,3 +1,4 @@
+import { PROFILE } from '../core/profile.ts';
 import { ACTIVATE } from '../definition/control.ts';
 import { bytes } from '../protocol/wire.ts';
 import type { Invitation } from '../protocol/log.ts';
@@ -61,7 +62,7 @@ export function changePanel(ctx: ChangeContext): HTMLElement {
     const source = file.files?.[0];
     if (!source || !visible()) return;
     try {
-      if (source.size > 512 * 1024) throw new Error('Definition exceeds 512 KiB');
+      if (source.size > PROFILE.definitionBytes) throw new Error('Definition exceeds 512 KiB');
       const raw = [...new Uint8Array(await source.arrayBuffer())];
       if (!visible()) return;
       await compareChange(raw);

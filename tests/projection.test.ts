@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { chartFixture } from '../testdata/apps/fixtures.ts';
 import { fixtureApp, fixtureHistory } from '../experiments/runtime-corpus.ts';
 import { Folder, type Projection } from '../src/application/folder.ts';
-import { projectionFile } from '../src/host/projection.ts';
+import { projectionFile } from './support/projection-file.ts';
 
 test('host snapshot stays coherent during writes and rebuilds after cache deletion', async () => {
   await mkdir('.atseq-local', { recursive: true });

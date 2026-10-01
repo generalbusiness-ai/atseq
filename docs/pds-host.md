@@ -105,10 +105,9 @@ rejects repeated cursors. Network calls time out after 15 seconds; a changing
 repository or uncertain append has at most eight reconciliation attempts.
 These are host operational limits, not new application schema contracts.
 
-Every append currently reverifies the full history. This favors an inspectable
-correctness baseline but gives quadratic total work over repeated growth. The
-111-entry pagination fixture is not a throughput benchmark. S6 must measure
-the planned larger replay cases before any performance claim.
+The host shares concurrent snapshot reads and reuses immutable verified history only while the repository commit CID is unchanged. Every changed commit requires full verification, including signatures, retry identity, fork and rollback checks. Appends therefore still take linear history work, giving quadratic total work over repeated growth. Receipt reads do not wait for the append queue. The current performance measurements are in [the README](../README.md).
+
+The sequencer accepts entry 20,000 and refuses a new entry beyond that capacity with permanent `append_limit` before writing. Existing retries still return their original receipt, and the app remains readable. There is no per-app rate limit in this loopback prototype. A local process, including one run by another OS user, can consume the remaining capacity with valid distinct signed intents. Origin and Host checks block cross-origin browser requests; they do not authorize local processes. Do not expose this service beyond loopback. A shared deployment needs an operator-defined admission policy or per-app submit quota; the finite history bound alone is not such a policy.
 
 The official PDS/PLC test packages have their own lockfile and are not Atseq
 runtime dependencies. At this run, `npm audit` reports 11 vulnerable packages
