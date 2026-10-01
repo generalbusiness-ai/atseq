@@ -113,6 +113,14 @@
   },
   {
     "name": "@atproto-labs/did-resolver",
+    "version": "0.3.10",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto-labs/did-resolver",
     "version": "0.2.6",
     "license": "MIT",
     "texts": {
@@ -144,6 +152,30 @@
     }
   },
   {
+    "name": "@atproto-labs/handle-resolver",
+    "version": "0.4.10",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto-labs/handle-resolver-node",
+    "version": "0.2.11",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto-labs/identity-resolver",
+    "version": "0.4.10",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
     "name": "@atproto-labs/pipe",
     "version": "0.2.4",
     "license": "MIT",
@@ -161,10 +193,26 @@
   },
   {
     "name": "@atproto-labs/simple-store",
+    "version": "0.5.1",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto-labs/simple-store",
     "version": "0.3.0",
     "license": "MIT",
     "texts": {
       "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2025 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto-labs/simple-store-memory",
+    "version": "0.2.6",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
     }
   },
   {
@@ -193,6 +241,14 @@
   },
   {
     "name": "@atproto/common-web",
+    "version": "0.5.13",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/common-web",
     "version": "0.4.21",
     "license": "MIT",
     "texts": {
@@ -210,6 +266,38 @@
   {
     "name": "@atproto/did",
     "version": "0.3.0",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/did",
+    "version": "0.5.6",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/jwk",
+    "version": "0.7.4",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/jwk-jose",
+    "version": "0.2.4",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/jwk-webcrypto",
+    "version": "0.3.4",
     "license": "MIT",
     "texts": {
       "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
@@ -345,7 +433,47 @@
   },
   {
     "name": "@atproto/lexicon",
+    "version": "0.7.15",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/lexicon",
     "version": "0.6.2",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/oauth-client",
+    "version": "0.8.8",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/oauth-client-browser",
+    "version": "0.5.8",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/oauth-client-node",
+    "version": "0.5.8",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/oauth-types",
+    "version": "0.7.7",
     "license": "MIT",
     "texts": {
       "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
@@ -369,6 +497,14 @@
   },
   {
     "name": "@atproto/syntax",
+    "version": "0.7.6",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/syntax",
     "version": "0.4.3",
     "license": "MIT",
     "texts": {
@@ -378,6 +514,14 @@
   {
     "name": "@atproto/syntax",
     "version": "0.5.4",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
+    }
+  },
+  {
+    "name": "@atproto/xrpc",
+    "version": "0.8.14",
     "license": "MIT",
     "texts": {
       "LICENSE.txt": "Dual MIT/Apache-2.0 License\n\nCopyright (c) 2022-2026 Bluesky Social PBC, and Contributors\n\nExcept as otherwise noted in individual files, this software is licensed under the MIT license (<http://opensource.org/licenses/MIT>), or the Apache License, Version 2.0 (<http://www.apache.org/licenses/LICENSE-2.0>).\n\nDownstream projects and end users may chose either license individually, or both together, at their discretion. The motivation for this dual-licensing is the additional software patent assurance provided by Apache 2.0.\n"
@@ -669,6 +813,14 @@
     "license": "MIT",
     "texts": {
       "LICENSE": "MIT License\r\n\r\nCopyright (c) 2019 Volodymyr Yepishev\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n"
+    }
+  },
+  {
+    "name": "jose",
+    "version": "5.10.0",
+    "license": "MIT",
+    "texts": {
+      "LICENSE.md": "The MIT License (MIT)\n\nCopyright (c) 2018 Filip Skokan\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
     }
   },
   {

@@ -196,6 +196,42 @@ void result; void apis;
         ],
         { cwd: directory, env: nativeEnv },
       );
+      // A1: the lazy Node entry must verify the same complete installed graph
+      // before any internal OAuth adapter code executes in a fresh consumer.
+      const oauthDependency = join(installed, 'node_modules/@atproto/oauth-client-node/dist/index.js');
+      const oauthAdapter = join(installed, 'dist/src/host/oauth-adapter.js');
+      const dependencyBytes = await readFile(oauthDependency),
+        adapterBytes = await readFile(oauthAdapter);
+      try {
+        await writeFile(
+          oauthDependency,
+          Buffer.concat([dependencyBytes, Buffer.from('\n// synthetic integrity mutation\n')]),
+        );
+        await writeFile(
+          oauthAdapter,
+          Buffer.concat([Buffer.from('globalThis.atseqOAuthAdapterExecuted = true;\n'), adapterBytes]),
+        );
+        const loader = join(installed, 'dist/src/host/oauth-loader.js');
+        const checked = await run(
+          process.execPath,
+          [
+            '--input-type=module',
+            '-e',
+            `
+import assert from 'node:assert/strict';
+const { loadNodeOAuthAdapter } = await import(${JSON.stringify('file://' + loader)});
+await assert.rejects(() => loadNodeOAuthAdapter({}), error => error.code === 'dependency_mismatch');
+assert.equal(globalThis.atseqOAuthAdapterExecuted, undefined);
+console.log('OAuth lazy integrity refusal passed');
+`,
+          ],
+          { cwd: directory, env: nativeEnv },
+        );
+        assert.match(checked.stdout, /OAuth lazy integrity refusal passed/);
+      } finally {
+        await writeFile(oauthDependency, dependencyBytes);
+        await writeFile(oauthAdapter, adapterBytes);
+      }
       const cli = join(directory, 'node_modules/.bin/atseq');
       assert.match((await run(cli, ['--help'], { cwd: directory, env: nativeEnv })).stdout, /identity/);
       assert.match(
