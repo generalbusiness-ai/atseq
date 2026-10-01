@@ -100,7 +100,9 @@ export class Folder {
       Number.isSafeInteger(position) && position > 0 ? this.projection.outcomes[position - 1] : undefined;
     return structuredClone({
       ...this.statusValue(),
-      ...(observed?.position === position && observed.intent === intent ? { outcome: observed.outcome } : {}),
+      ...(observed && observed.position === position && observed.intent === intent
+        ? { outcome: observed.outcome }
+        : {}),
     });
   }
   catchUp(head: Head, records: unknown[]): Promise<ReturnType<Folder['snapshot']>> {

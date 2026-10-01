@@ -513,8 +513,8 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     equal(observation.frontier.position, 1);
     equal(folder.outcomeAt(2, second).outcome, undefined);
     equal(folder.outcomeAt(1, second).outcome, undefined);
-    for (const position of [0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1])
-      equal(folder.outcomeAt(position, first).outcome, undefined);
+    for (const position of [0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1, undefined, null, '1'])
+      equal(folder.outcomeAt(position as number, first).outcome, undefined);
     status.head.position = 100;
     status.frontier.entry.$link = first;
     status.stalled!.code = 'caller_mutation';
