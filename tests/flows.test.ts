@@ -85,16 +85,39 @@ test('human and agent participation on a real PDS', async (t) => {
       const query = await api.call('query', { ...invitation, name: 'summary', params: '{}' });
       assert.equal(query.result.value.count, 1);
     });
+    await check('routine host metadata and receipts do not export a full Folder projection', async () => {
+      const full = t.mock.method(Folder.prototype, 'snapshot', () => {
+        throw new Error('Routine host read requested complete projection');
+      });
+      const catchUp = t.mock.method(Folder.prototype, 'catchUpVerified', () => {
+        throw new Error('Routine host refresh requested complete projection');
+      });
+      try {
+        const retry = await api.call('create', { source, activationKeys: [identity.publicKey] }, id);
+        assert.equal(retry.genesisCid.$link, invitation.genesis);
+        assert.equal((await api.call('describe', invitation)).frontier.position, 1);
+        const submitted = await api.call('submit', { block: bytes(new Uint8Array(intent.block)) });
+        assert.equal(submitted.receipt.position, 1);
+        assert.equal(submitted.frontier.position, 1);
+        const receipt = await api.call('receipt', { ...invitation, intent: intent.cid });
+        assert.equal(receipt.outcome.$type, 'ai.generalbusiness.atseq.defs#effective');
+        assert.equal(receipt.frontier.position, 1);
+        assert.equal((await api.call('query', { ...invitation, name: 'summary', params: '{}' })).result.value.count, 1);
+      } finally {
+        catchUp.mock.restore();
+        full.mock.restore();
+      }
+    });
     await check('reads after confirmation pass an older held interpretation refresh', async () => {
       let release!: () => void, entered!: () => void;
       const held = new Promise<void>((resolve) => (release = resolve)),
         reached = new Promise<void>((resolve) => (entered = resolve));
-      const original = Folder.prototype.catchUpVerified;
+      const original = Folder.prototype.catchUpVerifiedStatus;
       let once = true;
       const spy = t.mock.method(
         Folder.prototype,
-        'catchUpVerified',
-        async function (this: Folder, history: Parameters<Folder['catchUpVerified']>[0]) {
+        'catchUpVerifiedStatus',
+        async function (this: Folder, history: Parameters<Folder['catchUpVerifiedStatus']>[0]) {
           if (once && history.head.position === 1) {
             once = false;
             entered();

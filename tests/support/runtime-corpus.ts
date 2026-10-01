@@ -7,11 +7,20 @@ import { P256PrivateKeyExportable } from '@atcute/crypto';
 import { create, fromString, toString, CODEC_RAW } from '@atcute/cid';
 import { writeCarStream } from '@atcute/car';
 import { chartFixture, guitarFixture } from '../../testdata/apps/fixtures.ts';
-import { Anchor, headAt, randomNonce, sequence, signIntent, type Entry, type Intent } from '../../src/protocol/log.ts';
+import {
+  Anchor,
+  headAt,
+  randomNonce,
+  sequence,
+  signIntent,
+  verifyHistory,
+  type Entry,
+  type Intent,
+} from '../../src/protocol/log.ts';
 import { applicationRuntimeCid as runtimeCid } from '../../src/protocol/identity.ts';
 import { contentCid, encodeBlock, link } from '../../src/protocol/wire.ts';
 import { LoadedDefinition } from '../../src/definition/load.ts';
-import { SourceBundle, readSource, type SourceReader } from '../../src/definition/source.ts';
+import { SourceBundle, SourcePool, readSource, type SourceReader } from '../../src/definition/source.ts';
 import { Folder, type Projection } from '../../src/application/folder.ts';
 import { Applications } from '../../src/application/apps.ts';
 import { canonicalJson, type Json } from '../../src/core/values.ts';
@@ -485,6 +494,145 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     await advanced;
     equal(folder.snapshot().projection.frontier.position, 2);
   });
+  await check('selective status and exact-position outcomes stay owned across stall and resume', async () => {
+    let fail = true;
+    const folder = await Folder.open(app.anchor, chart.bundle, async (projection) => {
+      // Persistence still receives the complete outcome history.
+      equal(projection.outcomes.length, projection.frontier.position);
+      if (projection.frontier.position === 2 && fail) throw new Error('Selective capture disk failure');
+    });
+    const verified = await verifyHistory(app.anchor, history.head, history.entries);
+    const status = await folder.catchUpVerifiedStatus(verified);
+    equal(status.head.position, 2);
+    equal(status.frontier.position, 1);
+    equal(status.stalled?.code, 'persistence_failed');
+    const first = await contentCid(history.entries[0]!.signedIntent.intent);
+    const second = await contentCid(history.entries[1]!.signedIntent.intent);
+    const observation = folder.outcomeAt(1, first);
+    equal(observation.outcome, { $type: 'ai.generalbusiness.atseq.defs#effective' });
+    equal(observation.frontier.position, 1);
+    equal(folder.outcomeAt(2, second).outcome, undefined);
+    equal(folder.outcomeAt(1, second).outcome, undefined);
+    for (const position of [0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1])
+      equal(folder.outcomeAt(position, first).outcome, undefined);
+    status.head.position = 100;
+    status.frontier.entry.$link = first;
+    status.stalled!.code = 'caller_mutation';
+    observation.outcome!.$type = 'ai.generalbusiness.atseq.defs#ineffective';
+    equal(folder.status().head.position, 2);
+    equal(folder.status().stalled?.code, 'persistence_failed');
+    equal(folder.outcomeAt(1, first).outcome, { $type: 'ai.generalbusiness.atseq.defs#effective' });
+    const query = await folder.query('summary', {});
+    equal(query.frontier.position, 1);
+    equal(query.result, { $type: 'ai.generalbusiness.atseq.defs#queryAvailable', value: { count: 1, total: 3 } });
+    fail = false;
+    const resumed = await folder.catchUpVerifiedStatus(verified);
+    equal(resumed.stalled, undefined);
+    equal(resumed.frontier.position, 2);
+    equal(folder.outcomeAt(2, second).outcome, { $type: 'ai.generalbusiness.atseq.defs#effective' });
+    equal(folder.snapshot().projection.outcomes.length, 2);
+  });
+  await check('selective query retains its active definition across concurrent activation', async () => {
+    const next = await guitarEvolution(),
+      evolving = await fixtureApp(next.old.bundle),
+      pool = new SourcePool(),
+      candidate = await SourceBundle.pack(next.manifest, {
+        ...next.files,
+        'summary.jsonata': text('{"count":$count(state.candidates),"selected":"new-definition"}'),
+      });
+    await pool.add(next.old.bundle);
+    await pool.add(candidate);
+    const log = await fixtureHistory(evolving, [
+      { action: next.old.action, payload: { id: 'one', title: 'Example', pricePence: 123 } },
+      {
+        action: ACTIVATE,
+        payload: {
+          expected: next.old.bundle.root,
+          definition: candidate.root,
+          closure: candidate.identities().sort(),
+        },
+      },
+    ]);
+    const folder = await Folder.open(evolving.anchor, pool);
+    await folder.catchUp(headAt(evolving.anchor, 1, await contentCid(log.entries[0])), log.entries.slice(0, 1));
+    const oldQuery = folder.query('summary', {});
+    await folder.catchUpVerifiedStatus(await verifyHistory(evolving.anchor, log.head, log.entries));
+    const captured = await oldQuery;
+    equal(captured.frontier.position, 1);
+    equal(captured.head.position, 1);
+    equal(captured.result, {
+      $type: 'ai.generalbusiness.atseq.defs#queryAvailable',
+      value: { count: 1, selected: '' },
+    });
+    const current = await folder.query('summary', {});
+    equal(current.frontier.position, 2);
+    equal(current.result, {
+      $type: 'ai.generalbusiness.atseq.defs#queryAvailable',
+      value: { count: 1, selected: 'new-definition' },
+    });
+    current.head.position = 99;
+    current.frontier.position = 99;
+    (current.result as any).value.selected = 'caller mutation';
+    equal(folder.status().frontier.position, 2);
+    equal((await folder.query('summary', {})).result, {
+      $type: 'ai.generalbusiness.atseq.defs#queryAvailable',
+      value: { count: 1, selected: 'new-definition' },
+    });
+  });
+  let cloneEvidence: unknown;
+  await check('bounded many-outcome reads avoid full projection clone work', async () => {
+    const count = 1000,
+      log = await fixtureHistory(
+        app,
+        Array.from({ length: count }, () => ({
+          action: 'ai.generalbusiness.atseq.examples.rainfall.data#unknown',
+          payload: {},
+        })),
+      ),
+      verified = await verifyHistory(app.anchor, log.head, log.entries),
+      folder = await Folder.open(app.anchor, chart.bundle);
+    await folder.catchUpVerifiedStatus(verified);
+    const intent = await contentCid(log.entries[count - 1]!.signedIntent.intent);
+    const original = globalThis.structuredClone;
+    async function measure(run: () => unknown) {
+      const samples: { bytes: number; outcomes: number; hasState: boolean }[] = [];
+      globalThis.structuredClone = ((value: any, options?: StructuredSerializeOptions) => {
+        samples.push({
+          bytes: new TextEncoder().encode(JSON.stringify(value)).length,
+          outcomes: value?.projection?.outcomes?.length ?? value?.outcomes?.length ?? 0,
+          hasState: !!(value?.projection && 'state' in value.projection) || !!(value && 'state' in value),
+        });
+        return original(value, options);
+      }) as typeof structuredClone;
+      try {
+        await run();
+      } finally {
+        globalThis.structuredClone = original;
+      }
+      return {
+        calls: samples.length,
+        bytes: samples.reduce((sum, sample) => sum + sample.bytes, 0),
+        outcomeRows: samples.reduce((sum, sample) => sum + sample.outcomes, 0),
+        stateCopies: samples.filter((sample) => sample.hasState).length,
+      };
+    }
+    const full = await measure(() => folder.snapshot());
+    const query = await measure(() => folder.query('summary', {}));
+    const status = await measure(() => folder.status());
+    const outcome = await measure(() => folder.outcomeAt(count, intent));
+    const emptyDelta = await measure(() => folder.catchUpVerifiedStatus(verified));
+    equal(full.outcomeRows, count);
+    equal(query.outcomeRows, 0);
+    equal(query.stateCopies, 1);
+    for (const capture of [status, outcome, emptyDelta]) {
+      equal(capture.outcomeRows, 0);
+      equal(capture.stateCopies, 0);
+      if (capture.bytes >= full.bytes / 100) throw new Error('Routine read still copies history-sized data');
+    }
+    if (query.bytes >= full.bytes / 100) throw new Error('Query still copies history-sized data');
+    cloneEvidence = { count, state: { readings: [] }, full, query, status, outcome, emptyDelta };
+  });
+  if (cloneEvidence) results[results.length - 1]!.detail = JSON.stringify(cloneEvidence);
   for (const [label, source, code] of [
     ['malformed fold result', '{"decision":"effective","state":{},"extra":true}', 'fold_output'],
     ['invalid successor schema', '{"decision":"effective","state":{}}', 'schema_value'],
