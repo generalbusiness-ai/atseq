@@ -1,0 +1,258 @@
+{
+  "metadata": {
+    "version": 1,
+    "exactHead": "8b7e8f61598d5369cc0352e744cfe729b8fe326b",
+    "harnessSha256": "69ee93bc652996f056b41bddd1a5979f9efd0dc6ffd938f704eeb1918d8f88fd",
+    "runtime": "v26.10.0",
+    "fixtureFile": "experiments/generated/performance-stages/growing-1-1000.json",
+    "fixtureSha256": "8a90d9916fd9be52327b251b199d9a3aeb31014eb3b65eaaf950c7cf4dd72a54",
+    "sourceCid": "bafyreif7ktby246kcxgh4vasrxfeyzvxruzvn7jjk6znsnctumuiey42ea",
+    "limitations": [
+      "Independent ordered kernels, not exclusive attribution of whole replay",
+      "Timing includes measurement and Promise overhead; three samples on one machine",
+      "Fold includes input/output canonical guards and evaluation; evaluation includes AST admission and budget inspections"
+    ]
+  },
+  "captures": [
+    {
+      "length": 0,
+      "sample": 0,
+      "stateJsonBytes": 32,
+      "stateCborBytes": 24,
+      "stateCid": "bafyreihe7yn4g6ratheescrbh4xbszzuvueaeq3deeolwsbznjpden22ve",
+      "evaluationSteps": 18,
+      "inspectedBytes": 290,
+      "times": {
+        "canonicalJsonMs": 0.009084000000029846,
+        "jsonCopyMs": 0.00916600000005019,
+        "structuredCloneMs": 0.00987499999996544,
+        "cborEncodeMs": 0.03704200000004221,
+        "contentCidMs": 0.026666999999974905,
+        "schemaValidationMs": 0.0204590000000735,
+        "evaluationMs": 0.24254199999995762,
+        "foldMs": 0.22929099999998925,
+        "resultValidationMs": 0.0206670000000031
+      }
+    },
+    {
+      "length": 0,
+      "sample": 1,
+      "stateJsonBytes": 32,
+      "stateCborBytes": 24,
+      "stateCid": "bafyreihe7yn4g6ratheescrbh4xbszzuvueaeq3deeolwsbznjpden22ve",
+      "evaluationSteps": 18,
+      "inspectedBytes": 290,
+      "times": {
+        "canonicalJsonMs": 0.003416999999899417,
+        "jsonCopyMs": 0.0030419999999367064,
+        "structuredCloneMs": 0.0050420000000030996,
+        "cborEncodeMs": 0.01712499999996453,
+        "contentCidMs": 0.017583000000058746,
+        "schemaValidationMs": 0.009749999999939973,
+        "evaluationMs": 0.15562499999998636,
+        "foldMs": 0.1512920000000122,
+        "resultValidationMs": 0.014916999999968539
+      }
+    },
+    {
+      "length": 0,
+      "sample": 2,
+      "stateJsonBytes": 32,
+      "stateCborBytes": 24,
+      "stateCid": "bafyreihe7yn4g6ratheescrbh4xbszzuvueaeq3deeolwsbznjpden22ve",
+      "evaluationSteps": 18,
+      "inspectedBytes": 290,
+      "times": {
+        "canonicalJsonMs": 0.00254199999994853,
+        "jsonCopyMs": 0.0027079999999841675,
+        "structuredCloneMs": 0.0027079999999841675,
+        "cborEncodeMs": 0.013542000000029475,
+        "contentCidMs": 0.0206670000000031,
+        "schemaValidationMs": 0.009958000000096945,
+        "evaluationMs": 0.13279199999999491,
+        "foldMs": 0.1532919999999649,
+        "resultValidationMs": 0.0116249999999809
+      }
+    },
+    {
+      "length": 99,
+      "sample": 0,
+      "stateJsonBytes": 320,
+      "stateCborBytes": 201,
+      "stateCid": "bafyreiepskd5f3tgdf7mo6h5df64y7vumiqetnq6xykkwfmdcxjjnrznaa",
+      "evaluationSteps": 18,
+      "inspectedBytes": 2042,
+      "times": {
+        "canonicalJsonMs": 0.03704200000004221,
+        "jsonCopyMs": 0.0373339999999871,
+        "structuredCloneMs": 0.004500000000007276,
+        "cborEncodeMs": 0.057249999999953616,
+        "contentCidMs": 0.052874999999971806,
+        "schemaValidationMs": 0.1309999999999718,
+        "evaluationMs": 0.41800000000000637,
+        "foldMs": 0.48191700000006676,
+        "resultValidationMs": 0.1332079999999678
+      }
+    },
+    {
+      "length": 99,
+      "sample": 1,
+      "stateJsonBytes": 320,
+      "stateCborBytes": 201,
+      "stateCid": "bafyreiepskd5f3tgdf7mo6h5df64y7vumiqetnq6xykkwfmdcxjjnrznaa",
+      "evaluationSteps": 18,
+      "inspectedBytes": 2042,
+      "times": {
+        "canonicalJsonMs": 0.042082999999934145,
+        "jsonCopyMs": 0.04637500000001182,
+        "structuredCloneMs": 0.004707999999936874,
+        "cborEncodeMs": 0.05716600000005201,
+        "contentCidMs": 0.056166000000075655,
+        "schemaValidationMs": 0.13737500000002,
+        "evaluationMs": 0.4232079999999314,
+        "foldMs": 0.44191600000010567,
+        "resultValidationMs": 0.10587499999996908
+      }
+    },
+    {
+      "length": 99,
+      "sample": 2,
+      "stateJsonBytes": 320,
+      "stateCborBytes": 201,
+      "stateCid": "bafyreiepskd5f3tgdf7mo6h5df64y7vumiqetnq6xykkwfmdcxjjnrznaa",
+      "evaluationSteps": 18,
+      "inspectedBytes": 2042,
+      "times": {
+        "canonicalJsonMs": 0.03712499999994634,
+        "jsonCopyMs": 0.030666999999994005,
+        "structuredCloneMs": 0.004125000000044565,
+        "cborEncodeMs": 0.042041999999923974,
+        "contentCidMs": 0.04416700000001583,
+        "schemaValidationMs": 0.11570900000003803,
+        "evaluationMs": 0.37608299999999417,
+        "foldMs": 0.8852499999999281,
+        "resultValidationMs": 0.15716699999995853
+      }
+    },
+    {
+      "length": 999,
+      "sample": 0,
+      "stateJsonBytes": 3921,
+      "stateCborBytes": 2747,
+      "stateCid": "bafyreiey3m3cr6jdcfrounyjrtoieazkiummtaiafoqmme57gp7ubhif5e",
+      "evaluationSteps": 18,
+      "inspectedBytes": 23656,
+      "times": {
+        "canonicalJsonMs": 0.2902910000000247,
+        "jsonCopyMs": 0.2462079999999105,
+        "structuredCloneMs": 0.01712499999996453,
+        "cborEncodeMs": 0.33712500000001455,
+        "contentCidMs": 0.3122079999999414,
+        "schemaValidationMs": 0.7889999999999873,
+        "evaluationMs": 2.2104170000000067,
+        "foldMs": 3.5774999999999864,
+        "resultValidationMs": 0.843166999999994
+      }
+    },
+    {
+      "length": 999,
+      "sample": 1,
+      "stateJsonBytes": 3921,
+      "stateCborBytes": 2747,
+      "stateCid": "bafyreiey3m3cr6jdcfrounyjrtoieazkiummtaiafoqmme57gp7ubhif5e",
+      "evaluationSteps": 18,
+      "inspectedBytes": 23656,
+      "times": {
+        "canonicalJsonMs": 0.2357080000000451,
+        "jsonCopyMs": 0.24079100000005838,
+        "structuredCloneMs": 0.017167000000085864,
+        "cborEncodeMs": 0.28558399999997164,
+        "contentCidMs": 0.2833329999999705,
+        "schemaValidationMs": 0.7595000000000027,
+        "evaluationMs": 2.1028329999999187,
+        "foldMs": 3.474166999999966,
+        "resultValidationMs": 0.7659169999999449
+      }
+    },
+    {
+      "length": 999,
+      "sample": 2,
+      "stateJsonBytes": 3921,
+      "stateCborBytes": 2747,
+      "stateCid": "bafyreiey3m3cr6jdcfrounyjrtoieazkiummtaiafoqmme57gp7ubhif5e",
+      "evaluationSteps": 18,
+      "inspectedBytes": 23656,
+      "times": {
+        "canonicalJsonMs": 0.2459160000000793,
+        "jsonCopyMs": 0.2589580000000069,
+        "structuredCloneMs": 0.020541999999977634,
+        "cborEncodeMs": 0.30416600000000926,
+        "contentCidMs": 0.30070900000009715,
+        "schemaValidationMs": 0.7640420000000177,
+        "evaluationMs": 3.0366659999999683,
+        "foldMs": 2.6650829999999814,
+        "resultValidationMs": 0.8113329999999905
+      }
+    },
+    {
+      "length": 9999,
+      "sample": 0,
+      "stateJsonBytes": 48922,
+      "stateCborBytes": 29748,
+      "stateCid": "bafyreigfyzki4dqyzinzsm4waq3ao4upzuvzmoyp3acszrw33o6uv2dkyu",
+      "evaluationSteps": 18,
+      "inspectedBytes": 293670,
+      "times": {
+        "canonicalJsonMs": 3.3473750000000564,
+        "jsonCopyMs": 2.3661670000000186,
+        "structuredCloneMs": 0.10062500000003638,
+        "cborEncodeMs": 2.8553329999999733,
+        "contentCidMs": 3.0407500000000027,
+        "schemaValidationMs": 8.149499999999989,
+        "evaluationMs": 21.652584000000047,
+        "foldMs": 35.36779100000001,
+        "resultValidationMs": 9.283584000000019
+      }
+    },
+    {
+      "length": 9999,
+      "sample": 1,
+      "stateJsonBytes": 48922,
+      "stateCborBytes": 29748,
+      "stateCid": "bafyreigfyzki4dqyzinzsm4waq3ao4upzuvzmoyp3acszrw33o6uv2dkyu",
+      "evaluationSteps": 18,
+      "inspectedBytes": 293670,
+      "times": {
+        "canonicalJsonMs": 2.503417000000013,
+        "jsonCopyMs": 3.9244999999999663,
+        "structuredCloneMs": 0.1147920000000795,
+        "cborEncodeMs": 2.674333000000047,
+        "contentCidMs": 3.112875000000031,
+        "schemaValidationMs": 9.505167000000029,
+        "evaluationMs": 23.832625000000007,
+        "foldMs": 32.251750000000015,
+        "resultValidationMs": 9.706749999999943
+      }
+    },
+    {
+      "length": 9999,
+      "sample": 2,
+      "stateJsonBytes": 48922,
+      "stateCborBytes": 29748,
+      "stateCid": "bafyreigfyzki4dqyzinzsm4waq3ao4upzuvzmoyp3acszrw33o6uv2dkyu",
+      "evaluationSteps": 18,
+      "inspectedBytes": 293670,
+      "times": {
+        "canonicalJsonMs": 2.810457999999926,
+        "jsonCopyMs": 2.591083000000026,
+        "structuredCloneMs": 0.21524999999996908,
+        "cborEncodeMs": 4.058375000000069,
+        "contentCidMs": 3.3510420000000067,
+        "schemaValidationMs": 7.62195799999995,
+        "evaluationMs": 25.34608400000002,
+        "foldMs": 30.18170800000007,
+        "resultValidationMs": 9.785375000000045
+      }
+    }
+  ]
+}

@@ -12,23 +12,27 @@ import { headAt, randomNonce, sequence, signIntent, verifyHistory, type Entry } 
 import { bytes, contentCid, encodeBlock, link } from '../src/protocol/wire.ts';
 import { canonicalJson } from '../src/core/values.ts';
 import { observeCrypto } from './performance-observer.ts';
+import { observeInterpretation } from './performance-interpretation-observer.ts';
 
 const sizes = (process.env.ATSEQ_BENCH_SIZES ?? '100,1000,10000').split(',').map(Number);
 const actorCounts = (process.env.ATSEQ_BENCH_ACTORS ?? '1,16').split(',').map(Number);
 const repeats = Number(process.env.ATSEQ_BENCH_REPEATS ?? 3);
+const stateKinds = (process.env.ATSEQ_BENCH_STATES ?? 'bounded,growing').split(',');
 if (
   !sizes.every((n) => Number.isSafeInteger(n) && n > 0 && n <= 10000) ||
   !actorCounts.every((n) => Number.isSafeInteger(n) && n > 0 && n <= 100) ||
   !Number.isSafeInteger(repeats) ||
   repeats < 1 ||
-  repeats > 20
+  repeats > 20 ||
+  !stateKinds.length ||
+  !stateKinds.every((kind) => ['bounded', 'growing'].includes(kind))
 )
   throw new Error('Invalid bounded benchmark matrix');
 const text = (value: string) => new TextEncoder().encode(value);
 const hash = (raw: Uint8Array) => createHash('sha256').update(raw).digest('hex');
 const captures: unknown[] = [];
 const metadata = {
-  version: 1,
+  version: 2,
   exactHead: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
   harnessSha256: hash(new Uint8Array(await (await import('node:fs/promises')).readFile(new URL(import.meta.url)))),
   runtime: process.version,
@@ -43,17 +47,21 @@ const metadata = {
   sizes,
   actorCounts,
   repeats,
+  stateKinds,
   limitations: [
     'In-memory baseline; no PDS/network/browser measurements here',
     'Summed WebCrypto durations overlap under concurrency and include observer overhead',
     'CBOR/hash timings below measure an explicit separate entry traversal, not internal attribution of verifyHistory',
     'State transition time includes domain fold, validation, per-entry CIDs and snapshot copy; no inferred split',
+    'Observed fold region spans successful action validation to state validation: includes fold input/output checks, evaluation, source decoding and scheduling',
+    'Lexicon validation is nested within schema validation; spans must not be added as exclusive costs',
     'RSS/heap are boundary samples, not peak memory',
     'Unsigned randomness changes fixtures across runs; exact public fixture captures are retained',
   ],
 };
 await mkdir('experiments/generated/performance-stages', { recursive: true });
-for (const growing of [false, true]) {
+for (const kind of stateKinds) {
+  const growing = kind === 'growing';
   const base = await guitarFixture('ai.generalbusiness.atseq.examples.benchmark');
   const data = JSON.parse(new TextDecoder().decode(base.files['schemas/data.json']));
   data.defs.state.properties.candidates = { type: 'array', maxLength: 10000, items: { type: 'integer' } };
@@ -122,12 +130,16 @@ for (const growing of [false, true]) {
         const folder = await Folder.open(app.anchor, source);
         const loadMs = performance.now() - start;
         start = performance.now();
-        const interpreted = await folder.catchUpVerified(verified.result);
+        const interpretation = await observeInterpretation(folder, () => folder.catchUpVerified(verified.result));
+        const interpreted = interpretation.result;
         const interpretationMs = performance.now() - start;
         assert.equal(interpreted.stalled, undefined);
         assert.equal(interpreted.projection.frontier.position, size);
         assert.equal((interpreted.projection.state as { selected: string }).selected, String(size));
         assert.equal((interpreted.projection.state as { candidates: number[] }).candidates.length, growing ? size : 0);
+        assert.equal(interpretation.stages.actionValidation.calls, size);
+        assert.equal(interpretation.stages.stateValidation.calls, size);
+        assert.equal(interpretation.stages.foldRegion.calls, size);
         start = performance.now();
         folder.snapshot();
         const snapshotCopyMs = performance.now() - start;
@@ -143,6 +155,7 @@ for (const growing of [false, true]) {
           explicitEntryCidTraversalMs,
           loadMs,
           interpretationMs,
+          interpretationStages: interpretation.stages,
           snapshotCopyMs,
           stateBytes: Buffer.byteLength(canonicalJson(interpreted.projection.state, 2 ** 24)),
           historyBytes: fixtureRaw.length,
