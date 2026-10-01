@@ -308,11 +308,19 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       try {
         assert.equal(await a.evaluate(() => (window as any).heldDraft.isConnected), true);
         await expect(a.getByRole('textbox', { name: 'title', exact: true })).toHaveValue('Refused transport');
+        // The reader can keep typing while refresh finishes. Reparenting the
+        // retained form must not move its keyboard focus to the document body.
+        await a.getByRole('textbox', { name: 'title', exact: true }).focus();
+        await expect(a.getByRole('textbox', { name: 'title', exact: true })).toBeFocused();
       } finally {
         await a.evaluate(() => (window as any).releaseDraftRead());
       }
       await expect(a.getByRole('button', { name: 'Refresh', exact: true })).toBeEnabled();
       await expect(a.getByRole('textbox', { name: 'title', exact: true })).toHaveValue('Refused transport');
+      await expect(a.getByRole('textbox', { name: 'title', exact: true })).toBeFocused();
+      await a.keyboard.press('End');
+      await a.keyboard.insertText(' continued');
+      await expect(a.getByRole('textbox', { name: 'title', exact: true })).toHaveValue('Refused transport continued');
       await a.getByRole('button', { name: 'Save action', exact: true }).click();
       await expect(a.getByText('Transport refused · retained on device', { exact: true })).toBeVisible();
       assert.equal((await api.call('sync', invitation!)).entries.length, 4);

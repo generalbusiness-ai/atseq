@@ -1,0 +1,43 @@
+▶ browser sessions retain trust and device work across switches and restarts
+  ✔ CryptoKeys survive IndexedDB reload and private export is refused (83.238542ms)
+  ✔ every app operation rejects mismatched app, genesis and definition (46.138625ms)
+  ✔ a restarted worker replays saved history before a rollback from the host (90.872625ms)
+  ✔ a failed or cancelled first worker load preserves the saved prefix against host rollback (420.623167ms)
+  ✔ an older archive cannot replace saved history for the same genesis (284.607833ms)
+  ✔ a first visit with an invalid host signature does not blame saved device history (253.619792ms)
+  ✔ corrupt saved history has explicit recovery without losing its pin, key or signed work (380.372417ms)
+  ✔ an online event during the saved-prefix decision cannot load a fork before fresh restore (168.922167ms)
+  ✔ a slow A refresh cannot replace offline B or label its query and archive as A (414.603583ms)
+  ✔ a new save during a flush is sent, and only definite refusals require explicit resend (6.209625ms)
+  ✔ an invalid invitation cannot poison the pin and verified pins can be forgotten (199.248917ms)
+  ✔ startup submits retained signed work without a Retry click (71.686083ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+  ✔ a shell update waits and keeps an open tab’s worker assets available offline (484.646583ms)
+✔ browser sessions retain trust and device work across switches and restarts (5718.081791ms)
+▶ evolve a real app and explicitly replace its stale pending work
+  ✔ ordinary state is retained while another browser queues an old-definition act (550.091875ms)
+  ✔ comparison works locally and an ungranted browser cannot apply (64.437625ms)
+  ✔ CLI staging and preparing an activation do not activate it (1122.010334ms)
+  ✔ explicit Apply records the boundary and preserves existing data (318.280208ms)
+  ✔ a prepared activation racing from the same old definition is ineffective (710.260667ms)
+  ✔ reconnecting delivers the old signed intent unchanged exactly once (300.875041ms)
+  ✔ review preserves entered values and signs a replacement only on Save (304.075625ms)
+  ✔ the new action, query and view use the preserved state (337.020292ms)
+  ✔ offline queue order preserves add-then-select dependencies (498.660458ms)
+  ✔ a recorded unauthorized activation is refused under the fixed grant (23.948458ms)
+  ✔ an incompatible proposal preserves the app and current data (172.635334ms)
+  ✔ sync delivers an oversized closure so host, CLI and fresh browser agree and continue (2440.043917ms)
+  ✔ restarting the host rebuilds the active definition and every outcome (473.164792ms)
+✔ evolve a real app and explicitly replace its stale pending work (11225.764375ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11953.140958
