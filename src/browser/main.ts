@@ -450,7 +450,7 @@ async function drawApp() {
   const workspace = element('section', undefined, 'card'),
     formArea = (editorArea ??= element('div')),
     view = element('div', undefined, 'view');
-  workspace.append(view, formArea);
+  workspace.append(view);
   const actions = element('div', undefined, 'row');
   for (const action of definition.manifest.actions) {
     const control = button(action.ref.split('#').at(-1)!, () => openAction(action.ref, formArea));
@@ -586,6 +586,7 @@ async function drawApp() {
   }
   if (!pending.length && !snapshot.projection.outcomes.length)
     activity.append(element('p', 'No actions yet. Reading this app creates no signature or commitment.', 'muted'));
+  workspace.append(formArea);
   content.replaceChildren(
     title,
     controls,
