@@ -1,0 +1,832 @@
+{
+  "capturedAt": "2026-10-01T16:09:07.020180+00:00",
+  "basis": "P1 b4c7fb72c19cc6c9b6e0d5632a861af19762cb1e",
+  "method": "Public registry tarballs fetched in memory; SHA-512 SRI checked; JavaScript read as text. No dependency installation, code execution, audit or tests.",
+  "lockSha256": "ad408a2ce81f63bbeaf4a0800b37c5306870f4400729325a073e67f885f10502",
+  "packages": [
+    {
+      "name": "@inlay/core",
+      "version": "0.0.13",
+      "resolved": "https://registry.npmjs.org/@inlay/core/-/core-0.0.13.tgz",
+      "integrity": "sha512-UO3M3l96+Ed0RikY5SyDCP16yb+ceyYksQ2PLO3PyBZJ8EDvw9CfKIdbsOzraQp3lyUkmhrToJj1GED0tkvi1Q==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "@atproto/lex": "^0.0.18",
+        "@atproto/syntax": "^0.4.3"
+      },
+      "tarballSha256": "618a45639bbb71268dcac5f64d5b3f2e3a0e6c234a877aea36d6448a0aa5d9db",
+      "sourceObservations": [
+        {
+          "path": "package/dist/element.js",
+          "sha256": "b7461fd29bef035a23251b88abc52dfd13686338a315b85b2ca8a37d3e6c11e8",
+          "lines": 25,
+          "matches": []
+        },
+        {
+          "path": "package/dist/index.js",
+          "sha256": "002b31652772331810f9ecdc66b3ec4be6df0cbfb77c3c3a1844d39fb7cdbc92",
+          "lines": 116,
+          "matches": [
+            {
+              "line": 18,
+              "text": "import { ensureValidNsid } from \"@atproto/syntax\";"
+            },
+            {
+              "line": 19,
+              "text": "import { BRAND, createElement, keyStaticChildren, } from \"./element.js\";"
+            },
+            {
+              "line": 20,
+              "text": "export { isValidElement } from \"./element.js\";"
+            },
+            {
+              "line": 21,
+              "text": "export { BRAND } from \"./element.js\";"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/jsx-dev-runtime.js",
+          "sha256": "cd131b685efde871a0b4f7f80852582109eff0a5e03d35c666df4c40f131ceaa",
+          "lines": 5,
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { jsx, jsxs, Fragment } from \"./jsx-runtime.js\";"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/jsx-runtime.js",
+          "sha256": "01e7365168b47bfb2add67423bae1af856247bcc1cf992c740510eb8b171024f",
+          "lines": 27,
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { createElement, keyStaticChildren, } from \"./element.js\";"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@inlay/render",
+      "version": "0.3.1",
+      "resolved": "https://registry.npmjs.org/@inlay/render/-/render-0.3.1.tgz",
+      "integrity": "sha512-zlJCvpjFFqAa8dMBbLW5cYZ5w+ARHKej/DoBLRnjnjlXCnrOJyMXCef1J6Pc5a7761+2QhuSvP/1M4TDR+dw3w==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "@atproto/lexicon": "^0.6.1",
+        "@atproto/syntax": "^0.4.3"
+      },
+      "tarballSha256": "88a18820ced3b0e991864e88e6043c8e5e0271e60eea66ebf7b7c91e852b04bc",
+      "sourceObservations": [
+        {
+          "path": "package/dist/generated/at/inlay/component.defs.js",
+          "sha256": "06631b771b24fef67e8454ef017be30aebd9d6e21e9af2d13126ac81a2c70338",
+          "lines": 53,
+          "matches": [
+            {
+              "line": 4,
+              "text": "import { l } from \"@atproto/lex\";"
+            },
+            {
+              "line": 5,
+              "text": "import * as InlayDefs from \"./defs.defs\";"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/generated/at/inlay/defs.defs.js",
+          "sha256": "a26c6cdee56c506fbef8057ddd41579329dfff81bc360798b3c6ba992e345366",
+          "lines": 39,
+          "matches": [
+            {
+              "line": 4,
+              "text": "import { l } from \"@atproto/lex\";"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/generated/at/inlay/pack.defs.js",
+          "sha256": "e8c61fb18212ea7aa034ff0616269b6538ecbea6464e2eb82faf170af6fceefe",
+          "lines": 20,
+          "matches": [
+            {
+              "line": 4,
+              "text": "import { l } from \"@atproto/lex\";"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/packages/@inlay/render/src/index.js",
+          "sha256": "02d0ebf0b6a3cc8b87cab50cd0f77a170de110a715f35ae6ae6722cda0ddcf24",
+          "lines": 415,
+          "matches": [
+            {
+              "line": 2,
+              "text": "import { $, walkTree, resolveBindings, serializeTree, deserializeTree, isValidElement, } from \"@inlay/core\";"
+            },
+            {
+              "line": 3,
+              "text": "import { AtUri, ensureValidNsid, ensureValidDid, } from \"@atproto/syntax\";"
+            },
+            {
+              "line": 4,
+              "text": "import { validateProps } from \"./validate.js\";"
+            },
+            {
+              "line": 5,
+              "text": "import { viewRecord as viewRecordSchema } from \"../../../../generated/at/inlay/component.defs.js\";"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/packages/@inlay/render/src/validate.js",
+          "sha256": "5b93ac8845c1a04f7f66686a84417f7aada4c9dc206d03a3f6991a4234ca5cf3",
+          "lines": 208,
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { Lexicons, jsonToLex } from \"@atproto/lexicon\";"
+            },
+            {
+              "line": 2,
+              "text": "import { AtUri } from \"@atproto/syntax\";"
+            },
+            {
+              "line": 3,
+              "text": "import { walkTree, isValidElement } from \"@inlay/core\";"
+            },
+            {
+              "line": 4,
+              "text": "import { viewRecord as viewRecordSchema, viewPrimitive as viewPrimitiveSchema, } from \"../../../../generated/at/inlay/component.defs.js\";"
+            },
+            {
+              "line": 5,
+              "text": "import { MissingError } from \"./index.js\";"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@atproto/lex",
+      "version": "0.0.18",
+      "resolved": "https://registry.npmjs.org/@atproto/lex/-/lex-0.0.18.tgz",
+      "integrity": "sha512-uHqtV2gZNYOkOYXq1t6wO2Nb0gFfGmi40AGCVbTNccIkHsZvxRuLlaNuNrBFB+5h/HzlVeMwjBUf0ny3jD4hXw==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "@atproto/lex-builder": "^0.0.16",
+        "@atproto/lex-client": "^0.0.13",
+        "@atproto/lex-data": "^0.0.12",
+        "@atproto/lex-installer": "^0.0.18",
+        "@atproto/lex-json": "^0.0.12",
+        "@atproto/lex-schema": "^0.0.13",
+        "tslib": "^2.8.1",
+        "yargs": "^17.0.0"
+      },
+      "tarballSha256": "bf56e227e467537c1283f130a212d70a0506c3ca7634456b8f6e5b79aef05cc3",
+      "sourceObservations": [
+        {
+          "path": "package/dist/index.js",
+          "sha256": "8828ad379d7f69cfc087a4b8d9777d27df7cc2e46530445abe0934cba9447ae0",
+          "lines": 71,
+          "matches": [
+            {
+              "line": 4,
+              "text": "const tslib_1 = require(\"tslib\");"
+            },
+            {
+              "line": 67,
+              "text": "tslib_1.__exportStar(require(\"@atproto/lex-data\"), exports);"
+            },
+            {
+              "line": 68,
+              "text": "tslib_1.__exportStar(require(\"@atproto/lex-json\"), exports);"
+            },
+            {
+              "line": 69,
+              "text": "tslib_1.__exportStar(require(\"@atproto/lex-schema\"), exports);"
+            },
+            {
+              "line": 70,
+              "text": "tslib_1.__exportStar(require(\"@atproto/lex-client\"), exports);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@atproto/lex-builder",
+      "version": "0.0.16",
+      "resolved": "https://registry.npmjs.org/@atproto/lex-builder/-/lex-builder-0.0.16.tgz",
+      "integrity": "sha512-z9h6kLiifyL0mBVzlHJ3cK3XwhHRttSePmk2XmhQ1gC0tfa7exUhvCMp9YpEv2N5oUVMItl00L8SLBsVsuMMtg==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "@atproto/lex-document": "^0.0.14",
+        "@atproto/lex-schema": "^0.0.13",
+        "prettier": "^3.2.5",
+        "ts-morph": "^27.0.0",
+        "tslib": "^2.8.1"
+      },
+      "tarballSha256": "967546984c90daddffbd95e06ac1ffaa08ba51cea7fa83ab84491e6c77ab5459",
+      "sourceObservations": [
+        {
+          "path": "package/dist/filter.js",
+          "sha256": "83b460d3612229340c27d0a8ab6b5144e11e963268ac8380af2656281470c2d8",
+          "lines": 52,
+          "matches": []
+        },
+        {
+          "path": "package/dist/filtered-indexer.js",
+          "sha256": "3fad2c3c1813d5359734d2b61e099f35a1d0673f1bf19230383644829837d798",
+          "lines": 56,
+          "matches": []
+        },
+        {
+          "path": "package/dist/formatter.js",
+          "sha256": "8cf9c0557e6683622797c095f98fd1d46f66d77795b97fe6168d721d5025d0c6",
+          "lines": 59,
+          "matches": []
+        },
+        {
+          "path": "package/dist/index.js",
+          "sha256": "9267c363666fc88352753e0384ba47eaac8e5e10cc05cf7b3d7e5f4b6fc42378",
+          "lines": 39,
+          "matches": [
+            {
+              "line": 7,
+              "text": "const lex_builder_js_1 = require(\"./lex-builder.js\");"
+            },
+            {
+              "line": 8,
+              "text": "tslib_1.__exportStar(require(\"./lex-builder.js\"), exports);"
+            },
+            {
+              "line": 14,
+              "text": " * This is the main entry point for programmatic usage of the lex-builder"
+            },
+            {
+              "line": 24,
+              "text": " * import { build } from '@atproto/lex-builder'"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/lex-builder.js",
+          "sha256": "8c1b2489e8d551d5fc2ac25bf0a25708cafa2166fd5f5b9829668de50e619aea",
+          "lines": 164,
+          "matches": [
+            {
+              "line": 8,
+              "text": "const ts_morph_1 = require(\"ts-morph\");"
+            },
+            {
+              "line": 164,
+              "text": "//# sourceMappingURL=lex-builder.js.map"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/lex-def-builder.js",
+          "sha256": "5a2103b6f36d0175b0cd3b2bb9edc2a6f8f9512327997d49d3915bb263502161",
+          "lines": 757,
+          "matches": [
+            {
+              "line": 4,
+              "text": "const ts_morph_1 = require(\"ts-morph\");"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/lexicon-directory-indexer.js",
+          "sha256": "497b8fe2b7ff4443ccd90ca4d885e53035970333df071b44a1cdf8489f09894f",
+          "lines": 54,
+          "matches": []
+        },
+        {
+          "path": "package/dist/polyfill.js",
+          "sha256": "3793dbeccec4d17f5eeab6b6e979df103ddd71800c2a60db806240239ff92973",
+          "lines": 7,
+          "matches": []
+        },
+        {
+          "path": "package/dist/ref-resolver.js",
+          "sha256": "2c0c7ab6a11246b1fcb58ddcc534afe376265b2a6696a40e373a98fc0f656970",
+          "lines": 319,
+          "matches": []
+        },
+        {
+          "path": "package/dist/ts-lang.js",
+          "sha256": "0d9b458a6d95825a8da24964b8af7defe2f1680c6ebbc6854666c3e351ca6f84",
+          "lines": 197,
+          "matches": []
+        },
+        {
+          "path": "package/dist/util.js",
+          "sha256": "245ccebde716bd9f5be03baf1167c22e963a1d62ad6bf6f85a39641a179151c2",
+          "lines": 72,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "name": "ts-morph",
+      "version": "27.0.2",
+      "resolved": "https://registry.npmjs.org/ts-morph/-/ts-morph-27.0.2.tgz",
+      "integrity": "sha512-fhUhgeljcrdZ+9DZND1De1029PrE+cMkIP7ooqkLRTrRLTqcki2AstsyJm0vRNbTbVCNJ0idGlbBrfqc7/nA8w==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "@ts-morph/common": "~0.28.1",
+        "code-block-writer": "^13.0.3"
+      },
+      "tarballSha256": "46045a5ebd392ea65f29c7b6ff54f6168483ff2c4e90d382ffe3297c97110e2e",
+      "sourceObservations": [
+        {
+          "path": "package/dist/ts-morph.js",
+          "sha256": "6539389af77636d82fd3eaafde309e68d4396648487a100b0f0bfec297e1b764",
+          "lines": 21738,
+          "matches": [
+            {
+              "line": 3,
+              "text": "var common = require('@ts-morph/common');"
+            },
+            {
+              "line": 18881,
+              "text": "            const matchedPaths = common.matchGlobs(sourceFilePaths, globPatterns, dir.getPath());"
+            },
+            {
+              "line": 18911,
+              "text": "    addSourceFilesAtPaths(fileGlobs) {"
+            },
+            {
+              "line": 18918,
+              "text": "        return this._context.directoryCoordinator.addSourceFilesAtPaths(fileGlobs, { markInProject: this._isInProject() });"
+            },
+            {
+              "line": 19363,
+              "text": "    addSourceFilesAtPaths(fileGlobs, options) {"
+            },
+            {
+              "line": 19368,
+              "text": "        for (const filePath of this.#fileSystemWrapper.globSync(fileGlobs)) {"
+            },
+            {
+              "line": 20830,
+              "text": "    addSourceFilesAtPaths(fileGlobs) {"
+            },
+            {
+              "line": 20831,
+              "text": "        return this._context.directoryCoordinator.addSourceFilesAtPaths(fileGlobs, { markInProject: true });"
+            },
+            {
+              "line": 20908,
+              "text": "            const matchedPaths = common.matchGlobs(sourceFilePaths, globPatterns, fileSystemWrapper.getCurrentDirectory());"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@ts-morph/common",
+      "version": "0.28.1",
+      "resolved": "https://registry.npmjs.org/@ts-morph/common/-/common-0.28.1.tgz",
+      "integrity": "sha512-W74iWf7ILp1ZKNYXY5qbddNaml7e9Sedv5lvU1V8lftlitkc9Pq1A+jlH23ltDgWYeZFFEqGCD1Ies9hqu3O+g==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "minimatch": "^10.0.1",
+        "path-browserify": "^1.0.1",
+        "tinyglobby": "^0.2.14"
+      },
+      "tarballSha256": "05fe01efe1e3842d8eb60a4f4367ed23c220ddd6befc98855fff99c867087ffb",
+      "sourceObservations": [
+        {
+          "path": "package/dist/ts-morph-common.js",
+          "sha256": "62eada58492193641cfb1712a4544d26a4478de275e05aa1aff68b37f2e056f7",
+          "lines": 3302,
+          "matches": [
+            {
+              "line": 4,
+              "text": "var minimatch = require('minimatch');"
+            },
+            {
+              "line": 33,
+              "text": "var minimatch__namespace = /*#__PURE__*/_interopNamespaceCompat(minimatch);"
+            },
+            {
+              "line": 796,
+              "text": "class FileSystemDocumentCache {"
+            },
+            {
+              "line": 1165,
+              "text": "class BrowserRuntime {"
+            },
+            {
+              "line": 1174,
+              "text": "    getPathMatchesPattern(path, pattern) {"
+            },
+            {
+              "line": 1175,
+              "text": "        return minimatch__namespace.minimatch(path, pattern);"
+            },
+            {
+              "line": 1178,
+              "text": "class BrowserRuntimePath {"
+            },
+            {
+              "line": 1189,
+              "text": "class BrowserRuntimeFileSystem {"
+            },
+            {
+              "line": 1245,
+              "text": "    globSync(_patterns) {"
+            },
+            {
+              "line": 1253,
+              "text": "class NodeRuntime {"
+            },
+            {
+              "line": 1262,
+              "text": "    getPathMatchesPattern(path, pattern) {"
+            },
+            {
+              "line": 1263,
+              "text": "        return minimatch__namespace.minimatch(path, pattern);"
+            },
+            {
+              "line": 1266,
+              "text": "class NodeRuntimePath {"
+            },
+            {
+              "line": 1277,
+              "text": "class NodeRuntimeFileSystem {"
+            },
+            {
+              "line": 1391,
+              "text": "    globSync(patterns) {"
+            },
+            {
+              "line": 1392,
+              "text": "        return tinyglobby.globSync(patterns, {"
+            },
+            {
+              "line": 1683,
+              "text": "function matchGlobs(paths, patterns, cwd) {"
+            },
+            {
+              "line": 1696,
+              "text": "            if (runtime.getPathMatchesPattern(path, pattern))"
+            },
+            {
+              "line": 1712,
+              "text": "class InMemoryFileSystemHost {"
+            },
+            {
+              "line": 1893,
+              "text": "    globSync(patterns) {"
+            },
+            {
+              "line": 1895,
+              "text": "        return matchGlobs(allFilePaths, patterns, this.getCurrentDirectory());"
+            },
+            {
+              "line": 1921,
+              "text": "class RealFileSystemHost {"
+            },
+            {
+              "line": 2042,
+              "text": "    globSync(patterns) {"
+            },
+            {
+              "line": 2197,
+              "text": "class TransactionalFileSystem {"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/typescript.js",
+          "sha256": "9b15fee10d00493ef19be4c7b04aaadd7dc88e78e57c6e372a90b13560126510",
+          "lines": 200252,
+          "matches": []
+        }
+      ]
+    },
+    {
+      "name": "minimatch",
+      "version": "10.2.6",
+      "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-10.2.6.tgz",
+      "integrity": "sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "brace-expansion": "^5.0.8"
+      },
+      "tarballSha256": "5a3d2c8074a28229665727e47b8a1090941856a7962905efe05d20d3760355f8",
+      "sourceObservations": [
+        {
+          "path": "package/dist/commonjs/index.js",
+          "sha256": "d224f71f20d7c206fcc5b7e9f747324c7698345a0b2c28d717dd9cf698306783",
+          "lines": 1127,
+          "matches": [
+            {
+              "line": 4,
+              "text": "const brace_expansion_1 = require(\"brace-expansion\");"
+            },
+            {
+              "line": 131,
+              "text": "        braceExpand: (pattern, options = {}) => orig.braceExpand(pattern, ext(def, options)),"
+            },
+            {
+              "line": 153,
+              "text": "    if (options.nobrace || !/\\{(?:(?!\\{).)*\\}/.test(pattern)) {"
+            },
+            {
+              "line": 268,
+              "text": "        this.globSet = [...new Set(this.braceExpand())];"
+            },
+            {
+              "line": 897,
+              "text": "    braceExpand() {"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/esm/index.js",
+          "sha256": "59821ec2ce0d3df968292036e5c831ad322b33e9c33a949ecbc9dfe125d165be",
+          "lines": 1114,
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { expand } from 'brace-expansion';"
+            },
+            {
+              "line": 126,
+              "text": "        braceExpand: (pattern, options = {}) => orig.braceExpand(pattern, ext(def, options)),"
+            },
+            {
+              "line": 147,
+              "text": "    if (options.nobrace || !/\\{(?:(?!\\{).)*\\}/.test(pattern)) {"
+            },
+            {
+              "line": 151,
+              "text": "    return expand(pattern, { max: options.braceExpandMax });"
+            },
+            {
+              "line": 259,
+              "text": "        this.globSet = [...new Set(this.braceExpand())];"
+            },
+            {
+              "line": 888,
+              "text": "    braceExpand() {"
+            },
+            {
+              "line": 889,
+              "text": "        return braceExpand(this.pattern, this.options);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "brace-expansion",
+      "version": "5.0.9",
+      "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.9.tgz",
+      "integrity": "sha512-ScQ4IuvIEF1TMlP7Zt+vjJ//9zlPb2SDcxWxM3bk8s6t6GGdJ7KO1dCcTidOPJKePW30LE/2cT7wCyPho9/Wxg==",
+      "integrityVerified": true,
+      "inBundle": true,
+      "dependencies": {
+        "balanced-match": "^4.0.2"
+      },
+      "tarballSha256": "5d06001fddd25cbee90c96db4dc5b7b57711b984c3141e28d10f143deb52dbaf",
+      "sourceObservations": [
+        {
+          "path": "package/dist/commonjs/index.js",
+          "sha256": "8d1ea713e1dd03f52783bbceea9d85815a3587134d1936ea16257dea83884f15",
+          "lines": 289,
+          "matches": [
+            {
+              "line": 57,
+              "text": "function parseCommaParts(str) {"
+            },
+            {
+              "line": 69,
+              "text": "    const postParts = parseCommaParts(post);"
+            },
+            {
+              "line": 240,
+              "text": "            let n = parseCommaParts(m.body);"
+            }
+          ]
+        },
+        {
+          "path": "package/dist/esm/index.js",
+          "sha256": "af0e6438163b5ef866c52680ec58756bcf00cff330729c0d6a3a44ee57bde9d1",
+          "lines": 285,
+          "matches": [
+            {
+              "line": 53,
+              "text": "function parseCommaParts(str) {"
+            },
+            {
+              "line": 65,
+              "text": "    const postParts = parseCommaParts(post);"
+            },
+            {
+              "line": 236,
+              "text": "            let n = parseCommaParts(m.body);"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "candidate": {
+    "sourceUrl": "https://registry.npmjs.org/brace-expansion/5.0.12",
+    "name": "brace-expansion",
+    "version": "5.0.12",
+    "engines": {
+      "node": "20 || >=22"
+    },
+    "dependencies": {
+      "balanced-match": "^4.0.2"
+    },
+    "license": "MIT",
+    "dist": {
+      "shasum": "995fbb4750a77c4d16a7dc942ff2ca6ef8e675ec",
+      "tarball": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.12.tgz",
+      "fileCount": 13,
+      "integrity": "sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ==",
+      "signatures": [
+        {
+          "sig": "MEQCIAMXX2WNJDJJkVHQORu87Mi5BGgEzbA21nhoBLCd5pVbAiAty43mX29opG/0V0Oh41VVzPRs+bijBdQ3ao+wyviCsg==",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        },
+        {
+          "sig": "MEUCIQDZemgdCtGEvGCCV16aS9sGD8McnOAM5EM80gowpoytHwIgNLc7QYBEXho5Tgpn5+IY2fXgSrvXlQejMT/jf5f+++o=",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        }
+      ],
+      "unpackedSize": 84997
+    },
+    "gitHead": "f3410159d768f56c9d9f4511d3e1b46425fc1099",
+    "integrityVerified": true,
+    "tarballSha256": "ef8448ec78f20b692f04fa6d01f39b5ab34c66404bea3429f5a39c6c9e0be8b4",
+    "javascriptFileHashes": {
+      "package/dist/commonjs/index.js": "e0ede97c712339a70bae2c96c675b1ffd30052bdf57f37f5a97b5945c40a9ae6",
+      "package/dist/esm/index.js": "eea9a18920e1cde68f0068c36c040541ad6e93b0bb89eaab38c8ab49925b90a8"
+    }
+  },
+  "advisories": [
+    {
+      "sourceUrl": "https://api.github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "ghsa_id": "GHSA-6j4f-fj2g-mc7p",
+      "cve_id": "CVE-2026-102276",
+      "html_url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+      "summary": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+      "severity": "high",
+      "published_at": "2026-09-29T23:44:58Z",
+      "updated_at": "2026-09-29T23:44:59Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 4.0.0, < 5.0.10",
+          "first_patched_version": "5.0.10",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 3.0.0, < 3.0.7",
+          "first_patched_version": "3.0.7",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 2.0.0, < 2.1.5",
+          "first_patched_version": "2.1.5",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": "< 1.1.19",
+          "first_patched_version": "1.1.19",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://api.github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "ghsa_id": "GHSA-qhr7-859c-m2p7",
+      "cve_id": "CVE-2026-102278",
+      "html_url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+      "summary": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+      "severity": "high",
+      "published_at": "2026-09-29T23:45:17Z",
+      "updated_at": "2026-09-29T23:45:19Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 4.0.0, < 5.0.11",
+          "first_patched_version": "5.0.11",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 3.0.0, < 3.0.8",
+          "first_patched_version": "3.0.8",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 2.0.0, < 2.1.6",
+          "first_patched_version": "2.1.6",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": "< 1.1.20",
+          "first_patched_version": "1.1.20",
+          "vulnerable_functions": []
+        }
+      ]
+    },
+    {
+      "sourceUrl": "https://api.github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+      "ghsa_id": "GHSA-q2hr-2g5m-vwhr",
+      "cve_id": "CVE-2026-102277",
+      "html_url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+      "summary": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+      "severity": "medium",
+      "published_at": "2026-09-29T23:45:39Z",
+      "updated_at": "2026-09-29T23:45:39Z",
+      "vulnerabilities": [
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 4.0.0, < 5.0.12",
+          "first_patched_version": "5.0.12",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 3.0.0, < 3.0.9",
+          "first_patched_version": "3.0.9",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": ">= 2.0.0, < 2.1.7",
+          "first_patched_version": "2.1.7",
+          "vulnerable_functions": []
+        },
+        {
+          "package": {
+            "ecosystem": "npm",
+            "name": "brace-expansion"
+          },
+          "vulnerable_version_range": "< 1.1.21",
+          "first_patched_version": "1.1.21",
+          "vulnerable_functions": []
+        }
+      ]
+    }
+  ]
+}

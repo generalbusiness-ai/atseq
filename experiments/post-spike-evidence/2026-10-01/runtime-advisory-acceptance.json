@@ -1,0 +1,261 @@
+{
+  "passed": true,
+  "status": "complete",
+  "expectedCases": 13,
+  "measuredAt": "2026-10-01T17:00:58.850Z",
+  "nodeVersion": "v26.10.0",
+  "implementationCodeHead": "a501e1c5f83cf7316ef8840b6efd0600719f4a2b",
+  "scope": "M0 correctness acceptance; legacy timing data is not used for a performance recommendation. New dated successor; historical experiment reports remain immutable.",
+  "rawCaptureArchive": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-capture.tar.gz",
+  "rawCaptureManifest": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-capture.json",
+  "capturedSourceFileCount": 14648,
+  "sourceHashNote": "The complete original source hash table, retained hash table, result and 13 command logs are preserved in the verified capture archive; summary log links below point to the dated copies.",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 2614.071667,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/01.log",
+      "logSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalLog": "experiments/acceptance-logs/01.log"
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 77221.47733299999,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/02.log",
+      "logSha256": "dd1c365aa3c3d8f0d2b0355da9632b04367708a11847317f344cee9007a368e5",
+      "originalLog": "experiments/acceptance-logs/02.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "spike:feasibility"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 5092.159709,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/03.log",
+      "logSha256": "1e2dee740a9efa1543c2b96923d6438dc856f796dea82ebd9aa9cc5f04beab6f",
+      "originalLog": "experiments/acceptance-logs/03.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:protocol"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 1517.059374999997,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/04.log",
+      "logSha256": "70daafa5e02f45880580a4f062221c0c2e4b9abd7e9765ba70b7d2972c5c2016",
+      "originalLog": "experiments/acceptance-logs/04.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:pds"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 6076.462083000006,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/05.log",
+      "logSha256": "d31330fe3ee9d7b42b20446ef6ddc620d84c55a7d47d8e8cf383a22df376d68d",
+      "originalLog": "experiments/acceptance-logs/05.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:runtime"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 3182.037541999991,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/06.log",
+      "logSha256": "0e764c4f9e2beb236d04c0495bf9ccf4a4697db14e32916667c99de95a0271b4",
+      "originalLog": "experiments/acceptance-logs/06.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:dynamic-apps"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 1615.0824169999978,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/07.log",
+      "logSha256": "d1af856f4daadff45125f7a2f3a53684ea2a4722a0e6c8c377b2fef58a16ea7d",
+      "originalLog": "experiments/acceptance-logs/07.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:flows",
+        "--",
+        "--group",
+        "participation"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 11243.948541000005,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/08.log",
+      "logSha256": "0fd1d72ba4608e23380954dbd95709a3e9db7c643dc259e3845d6871e1c48a75",
+      "originalLog": "experiments/acceptance-logs/08.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:flows",
+        "--",
+        "--group",
+        "evolution"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 12087.416916000002,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/09.log",
+      "logSha256": "5af7c2918bfbd7f062a233fe8de1a4bf9cb57ea4a82bf91a08b2f7084c52a5ed",
+      "originalLog": "experiments/acceptance-logs/09.log"
+    },
+    {
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "--test",
+        "tests/archive.test.ts"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 8545.871209000004,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/10.log",
+      "logSha256": "1b63045a19875903f769774b4928f9f40bf32ab4b5973177cc4fce5c3cbd10d1",
+      "originalLog": "experiments/acceptance-logs/10.log"
+    },
+    {
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/performance.ts"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 129355.906,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/11.log",
+      "logSha256": "61fa795ba9a06a917d0937422ff965012f2eb1a42d6800ef8beccf9b6bca6d25",
+      "originalLog": "experiments/acceptance-logs/11.log"
+    },
+    {
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/browser-performance.ts"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 19439.561292,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/12.log",
+      "logSha256": "2e88add8c1e3cd55e0222733ccbc3be66a8a00b1a2e89a14adb909725d3b0ad3",
+      "originalLog": "experiments/acceptance-logs/12.log"
+    },
+    {
+      "command": [
+        "node",
+        "--import",
+        "tsx",
+        "scripts/check-author.ts"
+      ],
+      "exitCode": 0,
+      "passed": true,
+      "elapsedMs": 1413.3691659999895,
+      "log": "experiments/post-spike-evidence/2026-10-01/runtime-advisory-acceptance-logs/13.log",
+      "logSha256": "055125651dfe2cb92cc84a75299d493977d753ba8309c857e5c96519bbfa33b3",
+      "originalLog": "experiments/acceptance-logs/13.log"
+    }
+  ],
+  "cases": [
+    {
+      "name": "npm run check",
+      "passed": true,
+      "elapsedMs": 2614.071667
+    },
+    {
+      "name": "npm test",
+      "passed": true,
+      "elapsedMs": 77221.47733299999
+    },
+    {
+      "name": "npm run spike:feasibility",
+      "passed": true,
+      "elapsedMs": 5092.159709
+    },
+    {
+      "name": "npm run test:protocol",
+      "passed": true,
+      "elapsedMs": 1517.059374999997
+    },
+    {
+      "name": "npm run test:pds",
+      "passed": true,
+      "elapsedMs": 6076.462083000006
+    },
+    {
+      "name": "npm run test:runtime",
+      "passed": true,
+      "elapsedMs": 3182.037541999991
+    },
+    {
+      "name": "npm run test:dynamic-apps",
+      "passed": true,
+      "elapsedMs": 1615.0824169999978
+    },
+    {
+      "name": "npm run test:flows -- --group participation",
+      "passed": true,
+      "elapsedMs": 11243.948541000005
+    },
+    {
+      "name": "npm run test:flows -- --group evolution",
+      "passed": true,
+      "elapsedMs": 12087.416916000002
+    },
+    {
+      "name": "node --import tsx --test tests/archive.test.ts",
+      "passed": true,
+      "elapsedMs": 8545.871209000004
+    },
+    {
+      "name": "node --import tsx scripts/performance.ts",
+      "passed": true,
+      "elapsedMs": 129355.906
+    },
+    {
+      "name": "node --import tsx scripts/browser-performance.ts",
+      "passed": true,
+      "elapsedMs": 19439.561292
+    },
+    {
+      "name": "node --import tsx scripts/check-author.ts",
+      "passed": true,
+      "elapsedMs": 1413.3691659999895
+    }
+  ]
+}

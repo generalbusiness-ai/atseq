@@ -1,0 +1,8 @@
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+{"size":100,"workerLoadMs":39.80000001192093,"fullReplayAndTransferMs":158.5,"animationFrames":11,"maxAnimationGapMs":17.399999976158142,"responsivenessClickObserved":true,"browserRssBefore":269746176,"browserRssAfter":490553344}
+{"size":1000,"workerLoadMs":21.700000017881393,"fullReplayAndTransferMs":1331.4000000059605,"animationFrames":81,"maxAnimationGapMs":17.69999998807907,"responsivenessClickObserved":true,"browserRssBefore":490684416,"browserRssAfter":627834880}
+{"size":10000,"workerLoadMs":21.5,"fullReplayAndTransferMs":15162.600000023842,"animationFrames":907,"maxAnimationGapMs":70.60000002384186,"responsivenessClickObserved":true,"browserRssBefore":625541120,"browserRssAfter":1489108992}

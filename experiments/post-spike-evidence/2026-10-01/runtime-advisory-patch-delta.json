@@ -1,0 +1,72 @@
+{
+  "basis": "3cdf0b0747336b201fbecb2f414a25957b3a8dda",
+  "testedCodeHead": "a501e1c5f83cf7316ef8840b6efd0600719f4a2b",
+  "node": "v26.10.0",
+  "npm": "11.19.1",
+  "lockBeforeSha256": "ad408a2ce81f63bbeaf4a0800b37c5306870f4400729325a073e67f885f10502",
+  "lockAfterSha256": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b",
+  "addedPackages": [],
+  "removedPackages": [],
+  "changedPackages": [
+    {
+      "path": "node_modules/brace-expansion",
+      "before": {
+        "version": "5.0.9",
+        "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.9.tgz",
+        "integrity": "sha512-ScQ4IuvIEF1TMlP7Zt+vjJ//9zlPb2SDcxWxM3bk8s6t6GGdJ7KO1dCcTidOPJKePW30LE/2cT7wCyPho9/Wxg==",
+        "inBundle": true,
+        "license": "MIT",
+        "dependencies": {
+          "balanced-match": "^4.0.2"
+        },
+        "engines": {
+          "node": "20 || >=22"
+        }
+      },
+      "after": {
+        "version": "5.0.12",
+        "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-5.0.12.tgz",
+        "integrity": "sha512-YovQ3rzhaLMIrDjNDMkNS01tea93qhEhG5xy8f6+R0l+dw3Ki+5sCoIoI942iuLZTHWogWktgwVDhU09iNEimQ==",
+        "inBundle": true,
+        "license": "MIT",
+        "dependencies": {
+          "balanced-match": "^4.0.2"
+        },
+        "engines": {
+          "node": "20 || >=22"
+        }
+      }
+    }
+  ],
+  "fileClosure": {
+    "approvedPackages": 135,
+    "changedTrees": [
+      "node_modules/brace-expansion"
+    ],
+    "filesBefore": 13,
+    "filesAfter": 13,
+    "changedFiles": [
+      "dist/commonjs/index.d.ts",
+      "dist/commonjs/index.d.ts.map",
+      "dist/commonjs/index.js",
+      "dist/commonjs/index.js.map",
+      "dist/esm/index.d.ts",
+      "dist/esm/index.d.ts.map",
+      "dist/esm/index.js",
+      "dist/esm/index.js.map",
+      "package.json"
+    ],
+    "addedFiles": [],
+    "removedFiles": []
+  },
+  "hashes": {
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b",
+    "src/core/dependencies-approved.json": "bc222effd07d268ff6495076204d738b847b56a4bbfe28c57e9d47ad4421be97",
+    "src/integrity/files-approved.json": "b93ba3e37afb6e6fd8da563ad78015e5b4ce80e2b76219587a81a1ddc5331621",
+    "src/archive/notices.json": "41d01d27b593a014ae2d962fd79d0b30469359296f02dbce1e1647d6090f7130",
+    "src/core/contracts.ts": "03013fd0d1229dd010f95cdc0656a0bef0338d88c85d94e47b1ba1fd783d98fc",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "dist/build-provenance.json": "9f7cd2831df17fcd516ce58a95a70d583ad89f975cd8dbcca7cb3550e24afd08"
+  }
+}

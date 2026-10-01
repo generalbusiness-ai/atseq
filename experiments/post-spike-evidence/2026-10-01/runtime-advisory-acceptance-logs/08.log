@@ -1,0 +1,35 @@
+
+> atseq@0.1.0 test:flows
+> node scripts/source-run.mjs scripts/flows.ts --group participation
+
+▶ human and agent participation on a real PDS
+  ✔ source validation and preview publish nothing (42.280125ms)
+  ✔ creation retry returns one app and binds its content (7.548625ms)
+  ✔ shared service exposes recorded and then interpreted progress (45.221208ms)
+  ✔ reads after confirmation pass an older held interpretation refresh (29.017417ms)
+  ✔ reads do not chase appends arriving during every interpretation refresh (22.841791ms)
+  ✔ host restart restores the same app and interpreted history (435.181875ms)
+  ✔ concurrent reads and submissions report coherent heads and frontiers (147.610125ms)
+  ✔ documented CLI packs, validates and creates the same immutable source (2356.853708ms)
+✔ human and agent participation on a real PDS (5539.787917ms)
+✔ HTTP receipts retain crash recovery and externally confirmed heads across rollback (3331.766167ms)
+▶ two browser identities and the JSON CLI use generic participation flows
+  ✔ CLI preview opens the same source in the browser without publication (521.064709ms)
+  ✔ explicit identity and publication create an app once (1275.056708ms)
+  ✔ another browser can read before creating a distinct signing identity (234.993166ms)
+  ✔ offline double click retains one signed intent across reload and reconnect (326.723584ms)
+  ✔ a competing browser action is recorded with an honest ineffective outcome (151.5575ms)
+  ✔ CLI uses a third private key and keeps exact retry bytes in a file (2881.900334ms)
+  ✔ narrow layout remains usable with keyboard focus and no script errors (198.841417ms)
+  ✔ lost submit reply reconciles the retained intent without a second append (269.875833ms)
+  ✔ transport refusal retains the original signed work and invents no entry (296.703541ms)
+  ✔ hostile template text stays text and rendering cannot sign or fetch external resources (1700.448834ms)
+✔ two browser identities and the JSON CLI use generic participation flows (10141.103125ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10864.737
