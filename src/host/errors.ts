@@ -27,6 +27,7 @@ const finalInput = new Set([
   'wire_size',
   'wire_value',
   'noncanonical',
+  'retry_conflict',
 ]);
 const integrity = new Set([
   'anchor',
@@ -51,6 +52,11 @@ export function hostFailure(error: unknown) {
   else if (error instanceof PdsError) {
     code = error.code === 'AuthenticationUnavailable' ? 'host_authentication' : 'pds_unavailable';
     message = error.code;
+    if (['SnapshotLimit', 'DefinitionHistoryLimit'].includes(error.code)) {
+      status = 413;
+      code = error.code === 'SnapshotLimit' ? 'snapshot_limit' : 'definition_history_limit';
+      permanent = true;
+    }
   } else if (error instanceof AtseqError) {
     code = error.code;
     message = `${error.code}: ${error.message}`;

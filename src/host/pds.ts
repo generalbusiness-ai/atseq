@@ -33,6 +33,7 @@ async function jsonResponse(res: Response): Promise<any> {
 export class PdsClient {
   readonly service: string;
   private refreshing?: Promise<void>;
+  private authenticationDead = false;
   constructor(
     service: string,
     readonly did: string,
@@ -80,7 +81,10 @@ export class PdsClient {
   private async refresh(expiredToken: string): Promise<void> {
     if (this.token !== expiredToken) return; // Another request already renewed it.
     if (this.refreshing) return this.refreshing;
-    if (!this.refreshJwt) throw new PdsError(401, 'AuthenticationUnavailable');
+    if (!this.refreshJwt) {
+      this.authenticationDead = true;
+      throw new PdsError(401, 'AuthenticationUnavailable');
+    }
     const refreshJwt = this.refreshJwt;
     const run = (async () => {
       try {
@@ -108,8 +112,10 @@ export class PdsClient {
         if (
           error instanceof PdsError &&
           ([401, 403].includes(error.status) || ['ExpiredToken', 'InvalidToken'].includes(error.code))
-        )
+        ) {
+          this.authenticationDead = true;
           throw new PdsError(401, 'AuthenticationUnavailable');
+        }
         throw error;
       }
     })();
@@ -126,6 +132,7 @@ export class PdsClient {
     authenticated = true,
     params?: Record<string, unknown>,
   ): Promise<Response> {
+    if (authenticated && this.authenticationDead) throw new PdsError(401, 'AuthenticationUnavailable');
     const url = new URL(`/xrpc/${method}`, this.service);
     for (const [key, value] of Object.entries(params ?? {}))
       if (value !== undefined) url.searchParams.set(key, String(value));
@@ -146,8 +153,10 @@ export class PdsClient {
       await jsonResponse(response);
     } catch (error) {
       if (!(error instanceof PdsError) || error.code !== 'ExpiredToken') {
-        if (error instanceof PdsError && [401, 403].includes(error.status))
+        if (error instanceof PdsError && [401, 403].includes(error.status)) {
+          this.authenticationDead = true;
           throw new PdsError(401, 'AuthenticationUnavailable');
+        }
         throw error;
       }
     }
@@ -157,8 +166,10 @@ export class PdsClient {
       try {
         await jsonResponse(retried);
       } catch (error) {
-        if (error instanceof PdsError && (error.code === 'ExpiredToken' || [401, 403].includes(error.status)))
+        if (error instanceof PdsError && (error.code === 'ExpiredToken' || [401, 403].includes(error.status))) {
+          this.authenticationDead = true;
           throw new PdsError(401, 'AuthenticationUnavailable');
+        }
         throw error;
       }
     }

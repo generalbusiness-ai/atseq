@@ -1,3 +1,4 @@
+import { installHostAccess, hostMessage } from './host-access.ts';
 import { NSID } from '../core/nsids.ts';
 import { chartExport, type ChartSource } from '../archive/chart.ts';
 import './style.css';
@@ -47,6 +48,7 @@ if (access) {
 const api = new AtseqClient(location.origin, access ?? sessionStorage.getItem('atseq.host-token') ?? undefined),
   store = await DeviceStore.open(),
   evaluator = new Evaluator();
+installHostAccess(api);
 const content = document.querySelector<HTMLDivElement>('#content')!,
   status = document.querySelector<HTMLParagraphElement>('#status')!;
 const identityDialog = document.querySelector<HTMLDialogElement>('#identity-dialog')!;
@@ -66,7 +68,7 @@ function tell(message: string) {
   status.textContent = message;
 }
 function failure(error: unknown) {
-  tell((error as Error).message);
+  tell(hostMessage(error));
 }
 function inspect(label: string, value: unknown) {
   const details = element('details'),
@@ -281,7 +283,7 @@ function drawDraft() {
         tell('App started. Sample actions were kept in the preview.');
       } catch (error) {
         tell(
-          `Draft retained. ${error instanceof ApiError && error.status >= 400 && error.status < 500 ? `Starting was refused: ${error.message}` : navigator.onLine ? 'Starting could not be confirmed; retry this same draft.' : 'Offline — start when this device reconnects.'}`,
+          `Draft retained. ${error instanceof ApiError && error.code === 'host_token' ? hostMessage(error) : error instanceof ApiError && error.status >= 400 && error.status < 500 ? `Starting was refused: ${error.message}` : navigator.onLine ? 'Starting could not be confirmed; retry this same draft.' : 'Offline — start when this device reconnects.'}`,
         );
       } finally {
         start.disabled = false;

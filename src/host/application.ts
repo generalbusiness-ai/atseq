@@ -39,7 +39,7 @@ interface Running {
 }
 export class ApplicationHost {
   private readonly apps = new Map<string, Running>();
-  private readonly failedRestores = new Map<string, { code: string; message: string }>();
+  private readonly failedRestores = new Map<string, { code: string; message: string; name: string }>();
   private readonly queue = new SerialQueue();
   constructor(
     readonly directory: string,
@@ -140,7 +140,11 @@ export class ApplicationHost {
         await this.restoreOne(id);
       } catch (error) {
         const { code, message } = hostFailure(error).body;
-        this.failedRestores.set(id, { code, message });
+        this.failedRestores.set(id, {
+          code,
+          name: error instanceof Error ? error.name : 'UnknownError',
+          message: error instanceof Error ? error.message : message,
+        });
       }
     }
     await atomicFile(join(this.directory, 'restore-errors.json'), JSON.stringify(this.restorationFailures()));
@@ -260,7 +264,7 @@ export class ApplicationHost {
         source = await SourceBundle.collectClosure(payload.definition, payload.closure, store);
       } catch (error) {
         if (['content_missing', 'content_corrupt'].includes((error as any)?.code)) continue;
-        throw new PdsError(503, 'DefinitionHistoryLimit');
+        throw error;
       }
       const car = await source.writeClosure();
       transported += car.length;

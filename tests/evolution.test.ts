@@ -54,7 +54,6 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
     guestContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const testHostToken = await readHostToken(service.tokenFile);
   await ownerContext.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
-  await guestContext.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
   const owner = await ownerContext.newPage(),
     guest = await guestContext.newPage();
   owner.setDefaultTimeout(5000);

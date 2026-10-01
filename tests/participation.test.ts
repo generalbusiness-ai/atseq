@@ -47,7 +47,6 @@ test('two browser identities and the JSON CLI use generic participation flows', 
     second = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const testHostToken = await readHostToken(service.tokenFile);
   await first.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
-  await second.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
   const a = await first.newPage(),
     b = await second.newPage(),
     api = new AtseqClient(service.url, await readHostToken(service.tokenFile));
@@ -277,7 +276,6 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       const reader = await browser.newContext();
       const page = await reader.newPage();
       page.setDefaultTimeout(5000);
-      await page.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
       await page.addInitScript(() => {
         const original = crypto.subtle.sign.bind(crypto.subtle);
         (window as any).signatures = 0;

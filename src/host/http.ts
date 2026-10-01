@@ -43,13 +43,20 @@ export async function startApplicationService(
         const root = resolve(options.staticRoot),
           path = resolve(root, '.' + (url.pathname === '/' ? '/index.html' : decodeURIComponent(url.pathname)));
         if (!path.startsWith(root + sep)) throw new ProtocolError('path', 'Invalid static path');
-        const body = await readFile(path),
-          types: Record<string, string> = {
-            '.html': 'text/html',
-            '.js': 'text/javascript',
-            '.css': 'text/css',
-            '.svg': 'image/svg+xml',
-          };
+        let body;
+        try {
+          body = await readFile(path);
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code === 'ENOENT')
+            throw new HostError('static_not_found', 404, 'Static file not found');
+          throw error;
+        }
+        const types: Record<string, string> = {
+          '.html': 'text/html',
+          '.js': 'text/javascript',
+          '.css': 'text/css',
+          '.svg': 'image/svg+xml',
+        };
         res.writeHead(200, {
           'content-type': types[extname(path)] ?? 'application/octet-stream',
           'cache-control': 'no-cache',
@@ -66,7 +73,11 @@ export async function startApplicationService(
         send(404, { error: 'InvalidRequest', message: 'Unknown method' });
         return;
       }
-      if (schema.type === 'procedure' && !acceptsHostToken(req.headers.authorization, credential.token))
+      if (
+        schema.type === 'procedure' &&
+        method !== NSID.submit &&
+        !acceptsHostToken(req.headers.authorization, credential.token)
+      )
         throw new HostError('host_token', 401, 'This procedure requires the host token');
       const input: any =
         schema.type === 'procedure' ? await readInput(req, 768 * 1024) : Object.fromEntries(url.searchParams);
@@ -89,13 +100,13 @@ export async function startApplicationService(
           await drafts.put(preview.definition.cid, fromBytes(input.source));
           output = {
             ...preview,
-            previewUrl: `${origin}/?preview=${preview.definition.cid}#host-token=${credential.token}`,
+            previewUrl: `${origin}/?preview=${preview.definition.cid}`,
           };
           break;
         }
         case NSID.readDraft:
           link(input.definition);
-          output = { source: bytes(await readFile(resolve(host.directory, 'drafts', input.definition + '.car'))) };
+          output = { source: bytes(await drafts.read(input.definition)) };
           break;
         case NSID.create:
           output = await host.create(

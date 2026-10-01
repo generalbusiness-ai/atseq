@@ -5,7 +5,7 @@ import { PdsClient } from '../src/host/pds.ts';
 import { PdsError } from '../src/host/pds.ts';
 import { ProtocolError, InterpretationError } from '../src/core/errors.ts';
 import { hostFailure } from '../src/host/errors.ts';
-import { mkdtemp, mkdir, rm, readFile, writeFile, stat, chmod, symlink } from 'node:fs/promises';
+import { readdir, utimes, mkdtemp, mkdir, rm, readFile, writeFile, stat, chmod, symlink } from 'node:fs/promises';
 import { randomUUID, createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -60,7 +60,12 @@ test('host procedures require a retained owner-only token; reads remain public',
       authorized = new AtseqClient(service.url, token);
     const preview = await authorized.call('preview', { source });
     assert.equal(preview.definition.cid, fixture.bundle.root);
-    assert.equal(new URL(preview.previewUrl).hash, `#host-token=${token}`);
+    assert.equal(new URL(preview.previewUrl).hash, '');
+    const missing = await contentCid({ missing: true });
+    await assert.rejects(() => anonymous.call('readDraft', { definition: missing }), {
+      code: 'draft_not_found',
+      status: 404,
+    });
     await chmod(service.tokenFile, 0o644);
     await assert.rejects(() => readPrivateFile(service.tokenFile), /0600/);
     await chmod(service.tokenFile, 0o600);
@@ -74,18 +79,25 @@ test('host procedures require a retained owner-only token; reads remain public',
   }
 });
 
-test('draft count and byte quotas serialize concurrent writes and preserve retained drafts', async () => {
+test('draft cache evicts least recently used previews within count and byte budgets', async () => {
   const directory = await mkdtemp(join(tmpdir(), 'atseq-draft-quota-'));
   try {
     const ids = await Promise.all([1, 2, 3].map((n) => contentCid({ n })));
     const drafts = new DraftStore(directory, { count: 2, bytes: 6 });
-    const results = await Promise.allSettled(ids.map((id) => drafts.put(id, new Uint8Array([1, 2, 3]))));
-    assert.equal(results.filter((r) => r.status === 'fulfilled').length, 2);
-    assert.equal((results[2] as PromiseRejectedResult).reason.code, 'draft_limit');
-    assert.deepEqual([...(await readFile(join(directory, 'drafts', ids[0] + '.car')))], [1, 2, 3]);
-    await drafts.put(ids[0]!, new Uint8Array([7, 8, 9]));
-    await assert.rejects(() => drafts.put(ids[0]!, new Uint8Array(4)), { code: 'draft_limit' });
-    assert.deepEqual([...(await readFile(join(directory, 'drafts', ids[0] + '.car')))], [7, 8, 9]);
+    await drafts.put(ids[0]!, new Uint8Array([1, 2, 3]));
+    await drafts.put(ids[1]!, new Uint8Array([4, 5, 6]));
+    await utimes(join(directory, 'drafts', ids[0] + '.car'), new Date(0), new Date(0));
+    await drafts.read(ids[0]!); // A read keeps this draft more recent than the second.
+    await utimes(join(directory, 'drafts', ids[1] + '.car'), new Date(0), new Date(0));
+    await drafts.put(ids[2]!, new Uint8Array([7, 8, 9]));
+    assert.deepEqual([...(await drafts.read(ids[0]!))], [1, 2, 3]);
+    await assert.rejects(() => drafts.read(ids[1]!), { code: 'draft_not_found', status: 404 });
+    await drafts.put(ids[2]!, new Uint8Array(4)); // Byte pressure evicts the other preview.
+    await assert.rejects(() => drafts.read(ids[0]!), { code: 'draft_not_found' });
+    await assert.rejects(() => drafts.put(ids[2]!, new Uint8Array(7)), { code: 'draft_limit' });
+    assert.equal((await drafts.read(ids[2]!)).length, 4);
+    await Promise.all(ids.map((id) => drafts.put(id, new Uint8Array([1, 2, 3]))));
+    assert.equal((await readdir(join(directory, 'drafts'))).length, 2);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
@@ -233,8 +245,26 @@ test('missing, rejected or repeatedly expired session credentials have a permane
         code: 'AuthenticationUnavailable',
       });
       assert.equal(calls, mode === 'missing' ? 1 : mode === 'rejected' ? 2 : 3);
+      const firstCalls = calls;
+      await assert.rejects(() => client.request('com.atproto.repo.getRecord', {}), {
+        code: 'AuthenticationUnavailable',
+      });
+      assert.equal(calls, firstCalls);
     } finally {
       await server.close();
     }
   }
+});
+
+test('complete-prefix limits and nonce conflicts have stable permanent codes', () => {
+  for (const [pds, code] of [
+    ['SnapshotLimit', 'snapshot_limit'],
+    ['DefinitionHistoryLimit', 'definition_history_limit'],
+  ]) {
+    const failure = hostFailure(new PdsError(503, pds!));
+    assert.equal(failure.status, 413);
+    assert.equal(failure.body.code, code);
+    assert.equal(failure.body.permanent, true);
+  }
+  assert.equal(hostFailure(new ProtocolError('retry_conflict', 'nonce collision')).body.permanent, true);
 });

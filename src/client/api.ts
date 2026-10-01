@@ -16,7 +16,7 @@ export class AtseqClient {
   readonly origin: string;
   constructor(
     origin: string,
-    private readonly hostToken?: string,
+    private hostToken?: string,
   ) {
     const url = new URL(origin);
     if (
@@ -31,6 +31,9 @@ export class AtseqClient {
     if (url.protocol === 'http:' && !['localhost', '127.0.0.1', '[::1]'].includes(url.hostname))
       throw new Error('Nonlocal host requires HTTPS');
     this.origin = url.origin;
+  }
+  setHostToken(token: string | undefined) {
+    this.hostToken = token;
   }
   async call(name: string, input: Record<string, unknown> = {}, creationId?: string): Promise<any> {
     const method = methodNsid(name),
