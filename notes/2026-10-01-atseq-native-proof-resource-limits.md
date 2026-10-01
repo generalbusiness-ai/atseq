@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: adopted; PB1-R1 successor validation pending
+status: adopted; PB1-R1 successor validated; exact-head review pending
 category: native proof resource policy
 request: d22a606dcd584df143acda4523c2dcae0e03b1bc
 examined_head: 3cdf0b0747336b201fbecb2f414a25957b3a8dda
@@ -35,8 +35,8 @@ tests. The predecessor implementation and its validation are recorded in
 [the original results](2026-10-01-atseq-native-proof-resource-limit-results.md).
 Assessment `ea227dc086432172ac781955dea09376694fdb13` found that removing all
 failed-walk range checks hid an already walked structural fault as missing.
-Its required PB1-R1 correction is included below; the successor results are
-recorded separately.
+Its required PB1-R1 correction is included below; see the
+[successor validation](2026-10-01-atseq-native-proof-resource-limit-r1-results.md).
 
 | Source | Current behavior |
 |---|---|

@@ -1,0 +1,89 @@
+{
+  "capturedAt": "2026-10-01T17:50:13.197Z",
+  "sourceHead": "f95622cd5ed2c92c9301a49681aeceefccbb1ac2",
+  "baseMain": "2c759838",
+  "predecessorCandidate": "83a787017812b6ea1c7415ab13b1fade16a81e0c",
+  "predecessorSource": "50bdce3f7bea7ef8353a7d02ab41793bc2fbf0ad",
+  "review": "ea227dc086432172ac781955dea09376694fdb13",
+  "predecessorEvidenceUnchanged": true,
+  "predecessorValidationSha256": "6136b774b83072f3cb9257a7c015d7eb2b06e47b0b8033aace7bfc2a62031aa7",
+  "trackedSourceClean": true,
+  "runtime": "v26.10.0",
+  "platform": "darwin",
+  "release": "27.0.0",
+  "architecture": "arm64",
+  "tests": {
+    "total": 360,
+    "pass": 360,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "nodeNativeCases": 51,
+    "chromiumNativeCases": 51
+  },
+  "commands": [
+    "npm test",
+    "npm run check",
+    "npm run build"
+  ],
+  "sourceHashes": {
+    "src/core/errors.ts": "e2aa383756ad38b9630216c5b892e38fb6fc446292b4c30b29ffbbddd4b7e250",
+    "src/protocol/native-proof.ts": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9",
+    "tests/support/native-proof-corpus.ts": "30331b47450164f1053e70e3a0d4e899f96d8ddb85635a996a190fc625e9bd7c",
+    "tests/native-proof.test.ts": "5bd7388bd37494bcf2f418a1c4bcbd8867b5b51b05664605d35797503da8803c",
+    "tests/native-proof-browser.test.ts": "f3c3bf63ebd69fabf4ecc01a5a5aaee4e17a40200128e6572541905d1073613b",
+    "tests/host-availability.test.ts": "335da45dc453975d6f96669532e69c07abd0505ad541af2b3fe22513446ab8ea",
+    "tests/profiles.test.ts": "f9317cd3a0472ac4cd6e9e00942eea6eb75c9fa7c7540749e7fc3f4f12a84eaf",
+    "src/core/contracts.ts": "03013fd0d1229dd010f95cdc0656a0bef0338d88c85d94e47b1ba1fd783d98fc",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/host/errors.ts": "236a50f5afc09e3bec84b83ef29d7d8d200c0db13c127df73ec87aad87eeaea4",
+    "src/protocol/wire.ts": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+    "tests/vectors/profiles-v1.json": "f0bd9d60d718ac1112a724ccea1e3df917ed5009dece4ea1f2ebdf9f160d3e86",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "ad408a2ce81f63bbeaf4a0800b37c5306870f4400729325a073e67f885f10502",
+    "tests/support/pds/package.json": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd"
+  },
+  "semanticVectorsChanged": false,
+  "dependenciesChanged": false,
+  "regressionRed": {
+    "productionHead": "83a787017812b6ea1c7415ab13b1fade16a81e0c",
+    "test": "New PB1-R1 signed interval/withheld-child cases added before the production correction, subsequently included at the validated source head",
+    "command": "node scripts/source-run.mjs --test tests/native-proof.test.ts",
+    "exitCode": 1,
+    "failure": "withheld child: walked interval fault lookup accepted",
+    "meaning": "The predecessor failed to throw required invalid-input error; accepted is the regression helper wording, not a membership or validity claim"
+  },
+  "files": [
+    {
+      "path": "full-test.txt",
+      "bytes": 30864,
+      "sha256": "0d629e5912327c56ae100bbfaf004fc6a64b9fbeff8d782614bdd9767deec406"
+    },
+    {
+      "path": "build.txt",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "check.txt",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "browser.json",
+      "bytes": 3069,
+      "sha256": "3e46de989392fec2f379b043c58f670cb498049d9225e89ffb464416d1ea9ec2"
+    },
+    {
+      "path": "node.json",
+      "bytes": 2917,
+      "sha256": "841955abb10aee39afcf9d86bfac730cd4a19a95881c84e60c9c76edb1c45bfb"
+    },
+    {
+      "path": "regression-red.txt",
+      "bytes": 1095,
+      "sha256": "f7626fb8eda3a7f7b50d485681d77b15b1814585f410a4e1dd4e4d5c01722f79"
+    }
+  ]
+}
