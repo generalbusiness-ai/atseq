@@ -1,0 +1,19 @@
+{"identityCases":["strict retained JSON positive","duplicate names","escaped duplicate names","nested duplicate names","comment","trailing comma","trailing value","empty JSON","deep JSON","UTF-8 BOM rejected","fatal UTF-8","response budget before parsing","JSON depth32 accepted","p256 whole-log canonical tip, earlier selection rejected","p256 truncated authenticity is not latestness; before/after compares tips","p256 exact genesis DID and row issuer","p256 signed genesis cannot invent another principal","p256 invalid operation signature","p256 valid-hash high-S signature rejected","p256 canonical unpadded signature encoding","p256 tombstone tip cannot select older active operation","p256 duplicate operation CID","p256 nullification annotations checked","p256 higher-priority recovery and strict timestamp ordering","p256 no lossy signed-field projection","secp256k1 whole-log canonical tip, earlier selection rejected","secp256k1 truncated authenticity is not latestness; before/after compares tips","secp256k1 exact genesis DID and row issuer","secp256k1 signed genesis cannot invent another principal","secp256k1 invalid operation signature","secp256k1 valid-hash high-S signature rejected","secp256k1 canonical unpadded signature encoding","secp256k1 tombstone tip cannot select older active operation","secp256k1 duplicate operation CID","secp256k1 nullification annotations checked","secp256k1 higher-priority recovery and strict timestamp ordering","secp256k1 no lossy signed-field projection","PLC total response budget","PLC row budget","PLC operation array budget","PLC operation byte budget","web observation assurance and ignored unrelated metadata","web exact document DID","ATproto hostname web restriction","typed assurance cannot substitute method","relative and own-DID fragments","web key controller","web controller type is not coerced","HTTPS origin endpoint rules","first matching bad service cannot fall through","first ATproto service ID with bad type cannot fall through","first ATproto key ID with foreign controller cannot fall through","first ATproto key ID with unsupported JsonWebKey2020 cannot fall through","web service array budget","web response byte budget","p256 web legacy/modern canonical key equivalence","p256 web off-curve legacy point rejected","secp256k1 web legacy/modern canonical key equivalence","secp256k1 web off-curve legacy point rejected","legacy genesis exact DID/signature before maintained normalization"]}
+✔ retained identity JSON and PLC canonical-tip corpus (468.619167ms)
+{"node":"v26.10.0","builtinUndici":"8.10.2","selectedAgentAlias":"undici_v8","selectedInstalledVersion":"8.11.2","selectedEntry":"/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/node_modules/undici_v8/index.js","dispatchedCalls":7,"connectTimeDnsCalls":2,"privateConnections":0,"literalCases":6}
+{"mockMidBody":true,"knownTransportCases":4,"preservedFaultCases":5,"consumedBeforeFailure":27,"resumed":true}
+{"actualHttpTruncation":true,"code":"content_unavailable","name":"AtseqError","message":"Identity evidence fetch is unavailable","receivedBytes":1000}
+✔ production identity transport rejects literal/private addresses and connect-time DNS rebinding (821.222958ms)
+✔ identity transport applies credential/cache/redirect and failed-body total budgets (mock HTTP responses) (802.309ms)
+✔ identity transport classifies known mid-body faults and preserves programming/integrity failures (mock body) (827.690708ms)
+✔ identity body reader classifies a real truncated HTTP socket (injected loopback transport) (792.713667ms)
+✔ only the reviewed valibot optional typechecking peer is excluded (0.290875ms)
+✔ a runtime reference to the excluded peer or computed import is refused (3.168583ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3347.257875
