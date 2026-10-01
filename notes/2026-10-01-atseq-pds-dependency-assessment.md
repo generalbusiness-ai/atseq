@@ -1,21 +1,28 @@
 # Disposable PDS dependency assessment — 2026-10-01
 
-Status: assessment complete; proposed fixture maintenance needs independent review
-and implementation. No dependency or harness changes are included.
+Status: independently assessed; maintenance recommendations accepted with the
+refinements below. Implementation and its exact-head review remain pending. No
+dependency or harness changes are included.
 
 Workroom scope: M1, request `3b0bab47`, assessed against main `cb3fd847`.
+Independent assessment: `e23495f5` by `atseq-reviewer`.
 
 ## Recommendation
 
-Keep the existing locked PDS fixture as the identified source of the historical
-spike and initial performance evidence. Maintain a separate, explicitly identified
-current fixture baseline through narrow reviewed changes. Start with compatible
+Update the single fixture in `tests/support/pds` in place through narrow reviewed
+changes. Keep historical spike and initial performance captures immutable and
+identified by their old lock hash; new reports must name the new fixture lock hash.
+Start with compatible
 patches to Express/body-parser/qs, gRPC and the two brace-expansion copies. Do not
 use an automatic whole-graph audit fix or override Nodemailer, Kysely or the
 OpenTelemetry SDK across their declared compatibility ranges merely to make the
 audit count disappear.
 
-A separate small harness change should disable inherited telemetry explicitly.
+A separate small harness change should isolate the child environment through an
+explicit allowlist, omit inherited `OTEL_*` and exporter settings, and force
+`OTEL_SDK_DISABLED=true`. The parent mock PLC must have an explicit telemetry
+boundary through its runner environment or an isolated process, without mutating
+the global environment.
 The current child process inherits the developer's environment. Loopback listeners
 limit inbound exposure, but they do not prevent an inherited telemetry endpoint
 from receiving data. This also introduces avoidable variation into measurements.
@@ -122,17 +129,22 @@ Propose two separately reviewable implementation requests:
    test suite before exact-head review. Exercise native `getRepo(since)` evidence
    when P1 depends on the changed reference graph. This needs server startup,
    native SQLite installation and browser execution; schedule outside P0 captures.
-   Every new performance/protocol report must identify the updated fixture lock
-   hash. Do not overwrite the older capture or assert that residual findings are
-   fixed.
-2. **Deterministic fixture telemetry isolation.** Force `OTEL_SDK_DISABLED=true`
-   for the child and make the parent mock PLC's telemetry boundary explicit.
+   Update this one fixture in place; do not create a second installable fixture
+   tree. Every new performance/protocol report must identify the updated fixture
+   lock hash. Do not overwrite the older capture or assert that residual findings
+   are fixed.
+2. **Deterministic fixture telemetry isolation.** Give the PDS child an explicit
+   environment allowlist, excluding inherited `OTEL_*` and exporter settings,
+   and force `OTEL_SDK_DISABLED=true`. Make the parent mock PLC's telemetry
+   boundary explicit through its runner environment or an isolated process.
    Determine whether the PLC imports any startup instrumentation before choosing
    the smallest change; do not mutate the parent process environment globally.
    Validate with deliberately inherited OTLP/Jaeger settings and a local fake
    collector, showing that no telemetry is emitted while account/repository
    operations still work. Use synthetic metadata only. This is a fixture behavior
-   change and deserves its own exact-head review.
+   change and deserves its own exact-head review. Document that the local demo
+   uses the same fixture and is limited to loopback access, synthetic accounts
+   and test data.
 
 No new PDS test or exploit test ran for this assessment. Source inspection,
 registry metadata and the retained locked-graph audit support these recommendations;
