@@ -2,12 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
+import { createHash } from 'node:crypto';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { chartFixture } from '../testdata/apps/fixtures.ts';
 import { supportedProfiles } from '../src/protocol/identity.ts';
 import { startEnvironment, resetDisposable } from './support/pds/environment.mjs';
+import { preparePackageConformance } from './helpers/package-conformance.ts';
 
 const run = promisify(execFile);
 // A consumer must use plain Node, without the source-checkout resolution condition.
@@ -30,11 +32,58 @@ test(
         maxBuffer: 8 * 1024 * 1024,
       });
       const [metadata] = JSON.parse(packed.stdout);
+      assert.ok(
+        metadata.bundled.every((name: string) => !/^(?:vite|rolldown|lightningcss|fsevents|@rolldown\/)/.test(name)),
+        'The distribution must not bundle platform-specific shell build tools',
+      );
       await writeFile(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module' }));
       await run(
         'npm',
         ['install', '--offline', '--ignore-scripts', '--no-audit', '--no-fund', join(directory, metadata.filename)],
         { cwd: directory, env: nativeEnv },
+      );
+      const installed = join(directory, 'node_modules/atseq');
+      // Also reproduce the reviewer's missing-native-binding consumer explicitly.
+      for (const name of ['vite', 'rolldown', '@rolldown', 'lightningcss', 'fsevents'])
+        await rm(join(installed, 'node_modules', name), { recursive: true, force: true });
+      const { runner, sourceHashes } = await preparePackageConformance(root, installed),
+        conformancePath = join(directory, 'conformance.json');
+      assert.match(
+        (await run(process.execPath, [runner, conformancePath], { cwd: directory, env: nativeEnv })).stdout,
+        /Compiled package conformance passed/,
+      );
+      const cases = JSON.parse(await readFile(conformancePath, 'utf8'));
+      for (const name of [
+        'Inlay local template and query binding',
+        'Inlay external body refused without I/O',
+        'Inlay missing caller property fails',
+        'Inlay auto-submit property refused',
+        'malformed schema and view shapes cannot freeze activation',
+        'an available query-less view with missing bindings is invalid rather than a permanent stall',
+      ])
+        assert.ok(
+          cases.some((entry: { name: string; passed: boolean }) => entry.name === name && entry.passed),
+          name,
+        );
+      await writeFile(
+        join(root, 'experiments/generated/package-conformance.json'),
+        JSON.stringify(
+          {
+            format: 'atseq-package-conformance',
+            version: 1,
+            node: process.version,
+            cases,
+            sourceHashes,
+            adapterSha256: createHash('sha256')
+              .update(await readFile(join(installed, 'dist/vendor/inlay.js')))
+              .digest('hex'),
+            packageSha256: createHash('sha256')
+              .update(await readFile(join(directory, metadata.filename)))
+              .digest('hex'),
+          },
+          null,
+          2,
+        ) + '\n',
       );
       const fixture = await chartFixture();
       await writeFile(join(directory, 'fixture.car'), await fixture.bundle.write());
@@ -114,6 +163,11 @@ void result; void apis;
       );
       const cli = join(directory, 'node_modules/.bin/atseq');
       assert.match((await run(cli, ['--help'], { cwd: directory, env: nativeEnv })).stdout, /identity/);
+      assert.match(
+        (await run(join(directory, 'node_modules/.bin/atseq-host'), ['--help'], { cwd: directory, env: nativeEnv }))
+          .stdout,
+        /loopback host/,
+      );
       const cliChild = spawn(cli, [], { cwd: directory, env: nativeEnv, stdio: ['pipe', 'pipe', 'pipe'] });
       let cliOutput = '';
       cliChild.stdout.on('data', (chunk) => (cliOutput += chunk));
@@ -166,6 +220,18 @@ void result; void apis;
         await readFile(join(directory, 'node_modules/atseq/dist/build-provenance.json'), 'utf8'),
       );
       assert.ok(provenance.outputHashes['dist/vendor/inlay.js']);
+      assert.ok(provenance.outputHashes['dist/shell/index.html']);
+      const original = await readFile(join(installed, 'dist/shell/index.html'));
+      await writeFile(join(installed, 'dist/shell/index.html'), Buffer.concat([original, Buffer.from('drift')]));
+      const drift = await run(
+        process.execPath,
+        ['--input-type=module', '-e', `import {buildShell} from 'atseq/host'; await buildShell('rejected-shell');`],
+        { cwd: directory, env: nativeEnv },
+      ).then(
+        () => '',
+        (error) => error.stderr,
+      );
+      assert.match(drift, /Installed shell build drift/);
     } finally {
       if (host && host.exitCode === null) {
         const stopped = new Promise((resolve) => host!.once('close', resolve));

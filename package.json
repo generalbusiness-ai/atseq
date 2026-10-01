@@ -37,8 +37,7 @@
     "@atproto/lexicon": "0.7.12",
     "@inlay/core": "0.0.13",
     "@inlay/render": "0.3.1",
-    "jsonata": "2.2.2",
-    "vite": "8.2.2"
+    "jsonata": "2.2.2"
   },
   "devDependencies": {
     "@ipld/dag-cbor": "7.0.3",
@@ -48,7 +47,8 @@
     "prettier": "3.9.9",
     "ts-morph": "27.0.2",
     "tsx": "4.23.13",
-    "typescript": "7.0.2"
+    "typescript": "7.0.2",
+    "vite": "8.2.2"
   },
   "imports": {
     "#atseq-integrity": {

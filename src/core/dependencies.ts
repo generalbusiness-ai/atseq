@@ -298,8 +298,13 @@ export function assertDependencies(packages: [string, unknown][] = installed): v
   }
   if (
     !same(project.imports, approved.imports) ||
-    !same(project.dependencies, { ...approved.direct, ...approved.buildTools }) ||
-    !same(lock.packages[''].dependencies, { ...approved.direct, ...approved.buildTools })
+    !same(project.dependencies, approved.direct) ||
+    !same(lock.packages[''].dependencies, approved.direct) ||
+    Object.entries(approved.buildTools).some(
+      ([name, version]) =>
+        (project.devDependencies as Record<string, string>)[name] !== version ||
+        (lock.packages[''].devDependencies as Record<string, string>)[name] !== version,
+    )
   )
     throw new InterpretationError('dependency_mismatch', 'Unapproved direct dependencies');
   if (packages === installed) checked = true;
