@@ -19,6 +19,8 @@ The build uses TypeScript to emit JavaScript and declarations. Its final steps r
 
 An emitted Inlay adapter bundles its pinned core and renderer together because the upstream renderer contains an extensionless generated import that native Node cannot load. The adapter preserves their shared element identity. The packed-consumer test runs the same authored view, runtime and activation conformance cases against the installed compiled modules, including hostile views, missing bindings and view-dependent activation outcomes. It retains the cases, their source hashes and the adapter/package hashes in `experiments/generated/package-conformance.json`. Source, compiler, dependency metadata and output hashes remain separate from semantic contract CIDs in `dist/build-provenance.json`. Application expressions are neither bundled nor rewritten. Removing Vite from runtime reduces the package size; the remaining upstream Inlay dependency closure still includes developer tools such as Prettier and ts-morph.
 
+The retained [Node 22.13 capture](../experiments/adoption-g/compiled-node22.json) and [Node 26 capture](../experiments/adoption-g/compiled-node26.json) each contain 145 passing cases against the compiled adapter. They name the measured source revision and hashes; later documentation changes do not claim the same tarball hash.
+
 ## Public entry points
 
 | Import              | APIs                                                                                         |

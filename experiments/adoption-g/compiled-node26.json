@@ -1,7 +1,7 @@
 {
   "format": "atseq-package-conformance",
   "version": 1,
-  "node": "v22.13.0",
+  "node": "v26.10.0",
   "cases": [
     {
       "name": "effective state fold",
@@ -586,15 +586,15 @@
   ],
   "sourceHashes": {
     "tests/support/corpus.ts": "430a183263f04e37cc1a2457d52f00785c267b9677528842201c064df5e959e7",
-    "tests/support/runtime-corpus.ts": "559be56e92e04fef0cd90083d611f97b29532544646b6168be8b4a31189a12bf",
     "tests/support/evolution-corpus.ts": "62a64fe75e8f7b9bfda79d58ed589f9dde8c50a51e4c68c1ca6cc597c53f4f16",
+    "tests/support/runtime-corpus.ts": "559be56e92e04fef0cd90083d611f97b29532544646b6168be8b4a31189a12bf",
     "tests/support/fixtures.ts": "512d797612c7a702e225368ad5dcd275b7963d18c46fb94caf5c88c056e626f9",
     "testdata/apps/evolution.ts": "71031d4e35808dff51ae25bf390ca0da053d3ff4497c0bb104a92b3453744adc",
+    "tests/support/profile-corpus.ts": "2cb0ec6ce2595ee2f030a1cfc827bdeb5f55d1b586abe9793b0d39098838fdff",
     "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
-    "tests/support/boundaries.ts": "476844e1bdec8f01c44a4acb2fafed4fd3ce51967e9878f1fb8c565d4f5bc75c",
-    "tests/support/profile-corpus.ts": "2cb0ec6ce2595ee2f030a1cfc827bdeb5f55d1b586abe9793b0d39098838fdff"
+    "tests/support/boundaries.ts": "476844e1bdec8f01c44a4acb2fafed4fd3ce51967e9878f1fb8c565d4f5bc75c"
   },
   "adapterSha256": "9eabf2cf208adce9a657e0388c80fd73c584a67365d4bc10434c21fece48aeec",
-  "packageSha256": "f504e8ee5227fd0e4c1096e28408d1798604ec4bcafcb0ccf94f009aa878be73",
+  "packageSha256": "6612389dc6ed74ac618fcff014f04c96429046102b62630056cdf613fd95641b",
   "revision": "a031d7746aaeba57a9b88261ee43ad79354526c8"
 }
