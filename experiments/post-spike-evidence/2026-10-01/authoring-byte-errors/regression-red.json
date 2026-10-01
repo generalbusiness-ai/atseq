@@ -1,0 +1,47 @@
+{
+  "source": "pre-fix",
+  "results": [
+    {
+      "name": "source document taskboard round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document guitar round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document ledger round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document guitar summary covers the maximum valid aggregate",
+      "passed": true
+    },
+    {
+      "name": "source document taskboard completes a retained task",
+      "passed": true
+    },
+    {
+      "name": "source documents refuse the historical application v1 profile",
+      "passed": true
+    },
+    {
+      "name": "source document retains exact bytes, aliases, unused files and manifest order",
+      "passed": true
+    },
+    {
+      "name": "source document rejects nonzero base64 trailing bits (2-character remainder) as wire_bytes",
+      "passed": false,
+      "detail": "invalid base64 string"
+    },
+    {
+      "name": "source document rejects nonzero base64 trailing bits (3-character remainder) as wire_bytes",
+      "passed": false,
+      "detail": "invalid base64 string"
+    },
+    {
+      "name": "source document refuses path, version, byte and retained-table ambiguity",
+      "passed": true
+    }
+  ]
+}
