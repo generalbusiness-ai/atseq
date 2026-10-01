@@ -124,34 +124,35 @@ test('identity transport classifies known mid-body faults and preserves programm
   console.log(JSON.stringify(evidence));
 });
 
-test('identity body reader classifies a real truncated HTTP socket (injected loopback transport)', () => {
-  const probe = `import assert from 'node:assert/strict';import {createServer} from 'node:http';import {once} from 'node:events';
+for (const termination of ['destroy', 'end', 'resetAndDestroy'] as const)
+  test(`identity body reader classifies a real ${termination} HTTP socket (injected loopback transport)`, () => {
+    const probe = `import assert from 'node:assert/strict';import {createServer} from 'node:http';import {once} from 'node:events';
     import {IdentityFetch} from ${JSON.stringify(resolve('src/host/identity-fetch.ts'))};
     const server=createServer((request,response)=>{
       response.writeHead(200,{'content-length':100000});response.flushHeaders();response.write(new Uint8Array(1000));
-      setTimeout(()=>response.destroy(),20);
+      setTimeout(()=>response.socket.${termination}(),20);
     });server.listen(0,'127.0.0.1');await once(server,'listening');
     const transport=new IdentityFetch();
     // Only the body-read boundary is under test. Production SSRF policy is not bypassed in source.
     transport.fetch=globalThis.fetch;
     try{let caught;try{await transport.bytesFrom('http://127.0.0.1:'+server.address().port+'/body',100000);}catch(error){caught=error;}
-      process.stdout.write(JSON.stringify({actualHttpTruncation:true,code:caught?.code,name:caught?.name,message:caught?.message,causeCode:caught?.cause?.code,receivedBytes:transport.bytes}));
+      process.stdout.write(JSON.stringify({actualHttpTruncation:true,termination:${JSON.stringify(termination)},code:caught?.code,name:caught?.name,message:caught?.message,causeCode:caught?.cause?.code,receivedBytes:transport.bytes}));
       assert.equal(caught?.code,'content_unavailable');assert.equal(transport.bytes,1000);
     }finally{server.closeAllConnections();await new Promise(ok=>server.close(ok));}`;
-  const evidence = JSON.parse(
-    execFileSync(
-      process.execPath,
-      [
-        '--conditions=atseq-source',
-        '--import',
-        resolve('node_modules/tsx/dist/loader.mjs'),
-        '--input-type=module',
-        '-e',
-        probe,
-      ],
-      { encoding: 'utf8', timeout: 20_000 },
-    ),
-  );
-  assert.equal(evidence.receivedBytes, 1000);
-  console.log(JSON.stringify(evidence));
-});
+    const evidence = JSON.parse(
+      execFileSync(
+        process.execPath,
+        [
+          '--conditions=atseq-source',
+          '--import',
+          resolve('node_modules/tsx/dist/loader.mjs'),
+          '--input-type=module',
+          '-e',
+          probe,
+        ],
+        { encoding: 'utf8', timeout: 20_000 },
+      ),
+    );
+    assert.equal(evidence.receivedBytes, 1000);
+    console.log(JSON.stringify(evidence));
+  });
