@@ -17,6 +17,8 @@ jobs:
           cache-dependency-path: npm-shrinkwrap.json
           cache: npm
       - run: npm run setup
+      - name: Verify current runtime attribution
+        run: node scripts/source-run.mjs scripts/notices.ts --check
       - run: npm run check
       - name: Run suite without the large boundary fixture
         run: node scripts/source-run.mjs --test --test-skip-pattern='^entry 20000 is accepted' tests/*.test.ts

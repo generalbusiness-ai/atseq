@@ -45,12 +45,19 @@ result.push({
   texts: { LICENSE: await readFile('LICENSE', 'utf8') },
 });
 for (const name of Object.keys(root.dependencies)) await visit(name);
-await writeFile(
-  'src/archive/notices.json',
+const output =
   JSON.stringify(
     result.sort((a, b) => a.name.localeCompare(b.name)),
     null,
     2,
-  ) + '\n',
-);
-console.log(`Retained ${result.length} installed runtime package notices.`);
+  ) + '\n';
+if (process.argv.slice(2).includes('--check')) {
+  if ((await readFile('src/archive/notices.json', 'utf8')) !== output)
+    throw new Error(
+      'Runtime notices are stale. Run node scripts/source-run.mjs scripts/notices.ts, then review the notice delta.',
+    );
+  console.log(`Verified ${result.length} installed runtime package notices.`);
+} else {
+  await writeFile('src/archive/notices.json', output);
+  console.log(`Retained ${result.length} installed runtime package notices.`);
+}
