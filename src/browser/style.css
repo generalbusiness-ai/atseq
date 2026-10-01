@@ -225,6 +225,7 @@ dialog::backdrop {
 .activity p {
   font-size: 13px;
   margin: 6px 0;
+  overflow-wrap: anywhere;
 }
 .controls {
   margin: 20px 0;
