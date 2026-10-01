@@ -1,0 +1,14 @@
+{
+  "measuredAt": "2026-10-01T15:36:27.642Z",
+  "nodeVersion": "v26.10.0",
+  "expectedFailure": "Allowlist must block HTTP exports",
+  "testExitCode": 1,
+  "observedHttpExports": 55,
+  "originalSourceSha256": "1dbf937cfb043a9d360b3179f8ad8879366e67893f3e7cecb084c4e5b2b94ee6",
+  "mutatedSourceSha256": "5d49754ce82f8be34a2858d9c239cfa3e1ec7bcf858565acb287a6a7d078b78a",
+  "fixtureLockSha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+  "testSourceSha256": "77623b67c1c50bcc3861d06367f374db1c448122e3af71e7b2f39482f33b0111",
+  "probeSourceSha256": "117a6ed2c243236585736cfd9d5908885820f0675ef64682562db2eaf1408cd7",
+  "publicFailureOutput": "✔ PDS child keeps only OS paths and forced telemetry disable without mutating input (0.514667ms)\n✖ inherited telemetry preload exports with legacy spread and is blocked by the fixture allowlist (2996.2335ms)\nℹ tests 2\nℹ suites 0\nℹ pass 1\nℹ fail 1\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 3103.971625\n\n✖ failing tests:\n\ntest at tests/pds-telemetry.test.ts:34:1\n✖ inherited telemetry preload exports with legacy spread and is blocked by the fixture allowlist (2996.2335ms)\n  AssertionError [ERR_ASSERTION]: Allowlist must block HTTP exports\n  \n  55 !== 0\n  \n      at TestContext.<anonymous> (file:///Users/hughpyle/play/atseq-worktrees/fixture-telemetry/tests/pds-telemetry.test.ts:102:18)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 55,\n    expected: 0,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n",
+  "sourceRestoredExactly": true
+}

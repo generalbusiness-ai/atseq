@@ -81,6 +81,7 @@ test(
             OTEL_BLRP_SCHEDULE_DELAY: '1',
             OTEL_METRIC_EXPORT_INTERVAL: '10',
             OTEL_SERVICE_NAME: 'atseq-synthetic-telemetry-test',
+            OTEL_NODE_RESOURCE_DETECTORS: 'env',
             JAEGER_ENDPOINT: `${endpoint}/api/traces`,
             JAEGER_AGENT_HOST: '127.0.0.1',
             JAEGER_AGENT_PORT: String(udp.address().port),
