@@ -1,0 +1,54 @@
+{
+  "sourceHead": "c02662fa0630fb9a2e4d3cf166195bfe1a70e9c5",
+  "validatedAt": "2026-10-01T18:17:15.126976+00:00",
+  "nodeVersion": "v26.10.0",
+  "commands": [
+    {
+      "name": "check",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "runtime-package-flows",
+      "command": [
+        "node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/runtime.test.ts",
+        "tests/package.test.ts",
+        "tests/source-document-flows.test.ts",
+        "tests/cli-trust.test.ts"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "buildCommand": [
+    "npm",
+    "run",
+    "build"
+  ],
+  "sourceHashes": {
+    "src/definition/document.ts": "e6a7c7485ca60af294ed92c3d30bcd8e9bcd0d940d722fe220a778e3ca654081",
+    "tests/support/source-document-corpus.ts": "f0222d765c4f5207c6eba86e8d869604aa5f223548cb2d2738926662184a4fc3",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b",
+    "src/core/dependencies-approved.json": "8c16a3609bcc15b339b9351adf97ee45150b9b2010db924d8364eaa05b68d747",
+    "src/archive/notices.json": "41d01d27b593a014ae2d962fd79d0b30469359296f02dbce1e1647d6090f7130"
+  },
+  "captureHashes": {
+    "runtime.json": "8db02785244496456109b688c9bab3972deeb067cd5ff783cf492dd3a68d3ae8",
+    "check.txt": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "build.txt": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+    "build-provenance.json": "de43b78435866e4a21ed1b13437207a19e9acf98f032a04739dfa8f33c163290",
+    "regression-red-metadata.json": "1638b6bdd9eae7856ac4f762e4b73e65f1228ed5ab1980ace913a036e5c4e683",
+    "source-document-flows.json": "b01a63f7740bda54599d6d9b33335f358b4070c9c5b7f7a6d795bffa2e4ca531",
+    "regression-red.json": "cd6a4fb15955612e70b81cfc171978e7ea7ae1f65bd2f4c69ad98c7348bb8888",
+    "runtime-package-flows.txt": "19362cdbd1f1bf7fa76b0c0ca3f1e3fccda687dd9da18ca045b8a24c4e462cd0",
+    "package-conformance.json": "cbcc594e95b9f7aee3c805cb3c593a34fd30aef0e69c39996509a4520fec04b3"
+  },
+  "buildExitCode": 0
+}

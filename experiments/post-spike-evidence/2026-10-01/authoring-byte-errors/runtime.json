@@ -1,0 +1,585 @@
+{
+  "passed": true,
+  "measuredAt": "2026-10-01T18:16:54.971Z",
+  "nodeVersion": "v26.10.0",
+  "browserVersion": "153.0.8010.12",
+  "browserWorker": true,
+  "node": [
+    {
+      "name": "CAR round trip owns exact source bytes",
+      "passed": true
+    },
+    {
+      "name": "two unrelated definitions resolve schemas and retained views",
+      "passed": true
+    },
+    {
+      "name": "initial state comes only from the pinned definition",
+      "passed": true
+    },
+    {
+      "name": "fold and query match independently specified values",
+      "passed": true
+    },
+    {
+      "name": "rainfall summary covers the maximum valid aggregate",
+      "passed": true
+    },
+    {
+      "name": "malformed domain input is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "unknown action is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "old definition intent is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "domain refusal preserves complete prior state",
+      "passed": true
+    },
+    {
+      "name": "restarting and replaying reproduces state outcomes and frontier",
+      "passed": true
+    },
+    {
+      "name": "failed persistence advances neither state outcomes nor frontier",
+      "passed": true
+    },
+    {
+      "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+      "passed": true
+    },
+    {
+      "name": "malformed schema and view shapes cannot freeze activation",
+      "passed": true
+    },
+    {
+      "name": "malformed UTF-8 source has a deterministic loader code",
+      "passed": true
+    },
+    {
+      "name": "reader size claims require independently verified bytes",
+      "passed": true
+    },
+    {
+      "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+      "passed": true
+    },
+    {
+      "name": "query captures its prefix before concurrent catch-up",
+      "passed": true
+    },
+    {
+      "name": "malformed fold result records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "invalid successor schema records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "ineffective successor state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "noninteger computed state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "the 1001st reading is ineffective and a later valid action clears state",
+      "passed": true
+    },
+    {
+      "name": "copied extra payload bytes cannot freeze interpretation",
+      "passed": true
+    },
+    {
+      "name": "overlong ineffective message cannot block a later valid entry",
+      "passed": true
+    },
+    {
+      "name": "invalid query output is unavailable at its exact unchanged prefix",
+      "passed": true
+    },
+    {
+      "name": "caller snapshot mutation cannot change the projection",
+      "passed": true
+    },
+    {
+      "name": "unavailable source pauses definition loading",
+      "passed": true
+    },
+    {
+      "name": "tampered source fails its pinned CID",
+      "passed": true
+    },
+    {
+      "name": "unsupported definition runtime is refused",
+      "passed": true
+    },
+    {
+      "name": "unsupported genesis runtime is refused even with a valid definition",
+      "passed": true
+    },
+    {
+      "name": "definition refuses unknown binding field",
+      "passed": true
+    },
+    {
+      "name": "definition refuses duplicate action binding",
+      "passed": true
+    },
+    {
+      "name": "definition refuses missing binding schema",
+      "passed": true
+    },
+    {
+      "name": "definition refuses missing program file",
+      "passed": true
+    },
+    {
+      "name": "definition refuses escaping source path",
+      "passed": true
+    },
+    {
+      "name": "definition refuses ambient program",
+      "passed": true
+    },
+    {
+      "name": "definition refuses invalid program syntax",
+      "passed": true
+    },
+    {
+      "name": "definition refuses noninteger program literal",
+      "passed": true
+    },
+    {
+      "name": "definition refuses null initial state",
+      "passed": true
+    },
+    {
+      "name": "definition refuses negative zero initial data",
+      "passed": true
+    },
+    {
+      "name": "source closure and initial state byte limits are enforced",
+      "passed": true
+    },
+    {
+      "name": "exact state and program limits pass and the next byte fails",
+      "passed": true
+    },
+    {
+      "name": "definition counts the manifest within the 64-file limit",
+      "passed": true
+    },
+    {
+      "name": "CAR blocks outside the declared closure are refused",
+      "passed": true
+    },
+    {
+      "name": "work exhaustion records a framework refusal and preserves prior state",
+      "passed": true
+    },
+    {
+      "name": "oversized action is refused before interpretation",
+      "passed": true
+    },
+    {
+      "name": "unsupported schema constructs fail while loading the definition",
+      "passed": true
+    },
+    {
+      "name": "application registry refuses anchor replacement",
+      "passed": true
+    },
+    {
+      "name": "concurrent anchor replacement cannot persist a conflicting initial state",
+      "passed": true
+    },
+    {
+      "name": "64 sibling object values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "100 grouped values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "intermediate negative zero can be consumed as integer zero",
+      "passed": true
+    },
+    {
+      "name": "negative zero remains invalid at input and output boundaries",
+      "passed": true
+    },
+    {
+      "name": "sum checks exact intermediate integers before cancellation",
+      "passed": true
+    },
+    {
+      "name": "ineffective messages count Unicode code points and stop at 1024",
+      "passed": true
+    },
+    {
+      "name": "conditional integrity adapter matches the running environment",
+      "passed": true
+    },
+    {
+      "name": "unmatched dependency closure fails closed in either environment",
+      "passed": true
+    },
+    {
+      "name": "source document taskboard round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document guitar round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document ledger round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document guitar summary covers the maximum valid aggregate",
+      "passed": true
+    },
+    {
+      "name": "source document taskboard completes a retained task",
+      "passed": true
+    },
+    {
+      "name": "source documents refuse the historical application v1 profile",
+      "passed": true
+    },
+    {
+      "name": "source document retains exact bytes, aliases, unused files and manifest order",
+      "passed": true
+    },
+    {
+      "name": "source document rejects nonzero base64 trailing bits (2-character remainder) as wire_bytes",
+      "passed": true
+    },
+    {
+      "name": "source document rejects nonzero base64 trailing bits (3-character remainder) as wire_bytes",
+      "passed": true
+    },
+    {
+      "name": "source document refuses path, version, byte and retained-table ambiguity",
+      "passed": true
+    }
+  ],
+  "browser": [
+    {
+      "name": "CAR round trip owns exact source bytes",
+      "passed": true
+    },
+    {
+      "name": "two unrelated definitions resolve schemas and retained views",
+      "passed": true
+    },
+    {
+      "name": "initial state comes only from the pinned definition",
+      "passed": true
+    },
+    {
+      "name": "fold and query match independently specified values",
+      "passed": true
+    },
+    {
+      "name": "rainfall summary covers the maximum valid aggregate",
+      "passed": true
+    },
+    {
+      "name": "malformed domain input is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "unknown action is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "old definition intent is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "domain refusal preserves complete prior state",
+      "passed": true
+    },
+    {
+      "name": "restarting and replaying reproduces state outcomes and frontier",
+      "passed": true
+    },
+    {
+      "name": "failed persistence advances neither state outcomes nor frontier",
+      "passed": true
+    },
+    {
+      "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+      "passed": true
+    },
+    {
+      "name": "malformed schema and view shapes cannot freeze activation",
+      "passed": true
+    },
+    {
+      "name": "malformed UTF-8 source has a deterministic loader code",
+      "passed": true
+    },
+    {
+      "name": "reader size claims require independently verified bytes",
+      "passed": true
+    },
+    {
+      "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+      "passed": true
+    },
+    {
+      "name": "query captures its prefix before concurrent catch-up",
+      "passed": true
+    },
+    {
+      "name": "malformed fold result records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "invalid successor schema records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "ineffective successor state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "noninteger computed state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "the 1001st reading is ineffective and a later valid action clears state",
+      "passed": true
+    },
+    {
+      "name": "copied extra payload bytes cannot freeze interpretation",
+      "passed": true
+    },
+    {
+      "name": "overlong ineffective message cannot block a later valid entry",
+      "passed": true
+    },
+    {
+      "name": "invalid query output is unavailable at its exact unchanged prefix",
+      "passed": true
+    },
+    {
+      "name": "caller snapshot mutation cannot change the projection",
+      "passed": true
+    },
+    {
+      "name": "unavailable source pauses definition loading",
+      "passed": true
+    },
+    {
+      "name": "tampered source fails its pinned CID",
+      "passed": true
+    },
+    {
+      "name": "unsupported definition runtime is refused",
+      "passed": true
+    },
+    {
+      "name": "unsupported genesis runtime is refused even with a valid definition",
+      "passed": true
+    },
+    {
+      "name": "definition refuses unknown binding field",
+      "passed": true
+    },
+    {
+      "name": "definition refuses duplicate action binding",
+      "passed": true
+    },
+    {
+      "name": "definition refuses missing binding schema",
+      "passed": true
+    },
+    {
+      "name": "definition refuses missing program file",
+      "passed": true
+    },
+    {
+      "name": "definition refuses escaping source path",
+      "passed": true
+    },
+    {
+      "name": "definition refuses ambient program",
+      "passed": true
+    },
+    {
+      "name": "definition refuses invalid program syntax",
+      "passed": true
+    },
+    {
+      "name": "definition refuses noninteger program literal",
+      "passed": true
+    },
+    {
+      "name": "definition refuses null initial state",
+      "passed": true
+    },
+    {
+      "name": "definition refuses negative zero initial data",
+      "passed": true
+    },
+    {
+      "name": "source closure and initial state byte limits are enforced",
+      "passed": true
+    },
+    {
+      "name": "exact state and program limits pass and the next byte fails",
+      "passed": true
+    },
+    {
+      "name": "definition counts the manifest within the 64-file limit",
+      "passed": true
+    },
+    {
+      "name": "CAR blocks outside the declared closure are refused",
+      "passed": true
+    },
+    {
+      "name": "work exhaustion records a framework refusal and preserves prior state",
+      "passed": true
+    },
+    {
+      "name": "oversized action is refused before interpretation",
+      "passed": true
+    },
+    {
+      "name": "unsupported schema constructs fail while loading the definition",
+      "passed": true
+    },
+    {
+      "name": "application registry refuses anchor replacement",
+      "passed": true
+    },
+    {
+      "name": "concurrent anchor replacement cannot persist a conflicting initial state",
+      "passed": true
+    },
+    {
+      "name": "64 sibling object values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "100 grouped values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "intermediate negative zero can be consumed as integer zero",
+      "passed": true
+    },
+    {
+      "name": "negative zero remains invalid at input and output boundaries",
+      "passed": true
+    },
+    {
+      "name": "sum checks exact intermediate integers before cancellation",
+      "passed": true
+    },
+    {
+      "name": "ineffective messages count Unicode code points and stop at 1024",
+      "passed": true
+    },
+    {
+      "name": "conditional integrity adapter matches the running environment",
+      "passed": true
+    },
+    {
+      "name": "unmatched dependency closure fails closed in either environment",
+      "passed": true
+    },
+    {
+      "name": "source document taskboard round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document guitar round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document ledger round trip and viewless preview",
+      "passed": true
+    },
+    {
+      "name": "source document guitar summary covers the maximum valid aggregate",
+      "passed": true
+    },
+    {
+      "name": "source document taskboard completes a retained task",
+      "passed": true
+    },
+    {
+      "name": "source documents refuse the historical application v1 profile",
+      "passed": true
+    },
+    {
+      "name": "source document retains exact bytes, aliases, unused files and manifest order",
+      "passed": true
+    },
+    {
+      "name": "source document rejects nonzero base64 trailing bits (2-character remainder) as wire_bytes",
+      "passed": true
+    },
+    {
+      "name": "source document rejects nonzero base64 trailing bits (3-character remainder) as wire_bytes",
+      "passed": true
+    },
+    {
+      "name": "source document refuses path, version, byte and retained-table ambiguity",
+      "passed": true
+    }
+  ],
+  "sourceHashes": {
+    "src/core/contracts.ts": "376d27a2dfcb2cd902f4181642c983f94cc33d76d6c38fc64170cc1768e9613e",
+    "src/core/dependencies-approved.json": "8c16a3609bcc15b339b9351adf97ee45150b9b2010db924d8364eaa05b68d747",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+    "src/application/folder.ts": "f1fa704d3c0c410a93715095a229b7fbc69d5d81f4e7019ff40996f77269e66d",
+    "src/protocol/identity.ts": "4d9edb717b6d98e051a229f3d507012de2739659f231b82b558add4b177ddb49",
+    "tests/runtime.test.ts": "a526bfca82c845caadf465440e7eb1dcd9d0e4e14917d40ff599638a4f3a2e48",
+    "tests/support/runtime-corpus.ts": "8ffa2e1543e25c0c24346b5361fc97059a8b6c99a36ce4cfe092fd5fd54ec7f9",
+    "tests/support/source-document-corpus.ts": "f0222d765c4f5207c6eba86e8d869604aa5f223548cb2d2738926662184a4fc3",
+    "src/definition/document.ts": "e6a7c7485ca60af294ed92c3d30bcd8e9bcd0d940d722fe220a778e3ca654081",
+    "testdata/source-documents/taskboard.atseq.json": "bf2c631de02840922a58d61f921e6c3d3ddd7367ed05f21ec05c85651c03df20",
+    "testdata/source-documents/guitar.atseq.json": "1d1a5163f18f53e7eeae178f90fda440fee0efe42e6f8bcf5de7f1952dce9643",
+    "testdata/source-documents/ledger.atseq.json": "f0b35532e77430223b076a1b33b9cffebdab09ea02971f4275d12154ac615f82",
+    "testdata/apps/fixtures.ts": "d94df092b9bc659ab54c43cc8b9cc90dbd97884faf3d23ea8dd1de92d497a525",
+    "tests/support/runtime-browser/main.ts": "8bed9735f980e208ea30ae572588a3b6983c743425b8754dd0b5c468e4a515b9",
+    "tests/support/runtime-browser/worker.ts": "295acf7fbfa4387cbdf3e2853094971017956e5c92fc7dc30ef69289b6f43d0c",
+    "tests/support/runtime-browser/index.html": "45c356ee06af6857fa735d71ee89360723ee2215741a3dd7c83cfff9ca5faba8",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b"
+  }
+}
