@@ -297,6 +297,7 @@ export function assertDependencies(packages: [string, unknown][] = installed): v
       throw new InterpretationError('dependency_mismatch', `Unapproved dependency: ${path}`);
   }
   if (
+    !same(project.imports, approved.imports) ||
     !same(project.dependencies, { ...approved.direct, ...approved.buildTools }) ||
     !same(lock.packages[''].dependencies, { ...approved.direct, ...approved.buildTools })
   )

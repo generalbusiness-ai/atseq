@@ -197,6 +197,10 @@ CBOR hex, CID and SHA-256 for each vector. Its provenance names `@ipld/dag-cbor`
 [standalone writer](../scripts/vectors/generate.mjs) imports normative Atseq contract data, and no Atseq protocol implementation or atcute
 encoder. It uses explicitly public test scalars 1 and 2. Running it deliberately
 creates new valid signature bytes, which must be reviewed as new evidence.
+The v1 vectors were generated afresh for the owned namespace and semantic
+application contract during Adoption A+B, including the corrected UTF-8 error tag.
+They are new evidence for the planned v1 wire break; the original
+[protocol-v0.json](../tests/vectors/protocol-v0.json) remains byte-for-byte unchanged.
 Tests also sign through the actual browser/Node runtime. Neither identity,
 provisioning, replay performance nor production browser support is inferred
 from these protocol checks.

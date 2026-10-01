@@ -5,3 +5,10 @@ experiments/acceptance-logs/
 experiments/agent-authored*/
 notes/
 tests/vectors/protocol-v0.json
+
+# Retained historical evidence is immutable.
+experiments/agent-authored*/
+experiments/acceptance-logs/
+experiments/evidence/
+experiments/generated/
+experiments/*.json

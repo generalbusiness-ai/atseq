@@ -1,3 +1,4 @@
+import { SourceSizeError } from '../definition/source.ts';
 import { NSID } from '../core/nsids.ts';
 import { create, fromString, toString, CODEC_DCBOR, CODEC_RAW } from '@atcute/cid';
 import { encode } from '@atcute/cbor';
@@ -17,7 +18,7 @@ export class SourceStore {
       throw new ProtocolError('content', 'Unsupported source CID codec');
     if (toString(await create(expected.codec, content)) !== cid)
       throw new ProtocolError('content', 'Source bytes differ from the requested CID');
-    if (content.length > 512 * 1024) throw new ProtocolError('source_size', 'Source object exceeds 512 KiB');
+    if (content.length > 512 * 1024) throw new SourceSizeError(content);
     if (expected.codec === CODEC_DCBOR) decodeBlock(content);
   }
   async put(cid: string, value: Uint8Array): Promise<void> {

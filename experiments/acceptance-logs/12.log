@@ -3,6 +3,6 @@
 - Using dynamic import() to code-split the application
 - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
-{"size":100,"workerLoadMs":39.79999999701977,"fullReplayAndTransferMs":154.5,"animationFrames":11,"maxAnimationGapMs":17.5,"responsivenessClickObserved":true,"browserRssBefore":269664256,"browserRssAfter":489242624}
-{"size":1000,"workerLoadMs":20.700000002980232,"fullReplayAndTransferMs":1324.800000011921,"animationFrames":80,"maxAnimationGapMs":17.600000008940697,"responsivenessClickObserved":true,"browserRssBefore":489275392,"browserRssAfter":621756416}
-{"size":10000,"workerLoadMs":20.900000005960464,"fullReplayAndTransferMs":14659.10000000894,"animationFrames":877,"maxAnimationGapMs":70.09999999403954,"responsivenessClickObserved":true,"browserRssBefore":620609536,"browserRssAfter":1373061120}
+{"size":100,"workerLoadMs":38.5,"fullReplayAndTransferMs":155.5,"animationFrames":11,"maxAnimationGapMs":17.599999994039536,"responsivenessClickObserved":true,"browserRssBefore":269615104,"browserRssAfter":489275392}
+{"size":1000,"workerLoadMs":20.899999991059303,"fullReplayAndTransferMs":1304.0999999940395,"animationFrames":80,"maxAnimationGapMs":17.599999994039536,"responsivenessClickObserved":true,"browserRssBefore":489308160,"browserRssAfter":626753536}
+{"size":10000,"workerLoadMs":20.799999997019768,"fullReplayAndTransferMs":14675.10000000894,"animationFrames":878,"maxAnimationGapMs":69,"responsivenessClickObserved":true,"browserRssBefore":625606656,"browserRssAfter":1376698368}

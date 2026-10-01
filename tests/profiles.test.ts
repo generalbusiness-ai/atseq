@@ -43,5 +43,7 @@ test('unapproved, missing and duplicated installed dependency sets fail closed',
 
 test('host-only errors do not widen semantic interpretation outcomes', () => {
   assert.equal(Object.hasOwn(interpretationErrorTags, 'creation_conflict'), false);
-  assert.equal(interpretationCode(new InterpretationError('creation_conflict', 'Host-only failure')), 'runtime_fault');
+  assert.throws(() => interpretationCode(new InterpretationError('creation_conflict', 'Host-only failure')), {
+    code: 'runtime_fault',
+  });
 });

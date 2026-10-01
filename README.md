@@ -60,16 +60,16 @@ account authentication and delegation remain future work.
   replay them without the PDS using the installed runtime, and export query
   results as static charts and tables.
 
-For example, the [mending-circle tool desk](experiments/agent-authored/mending-circle-tool-desk/README.md)
-tracks shared sewing tools. Two people can attempt to borrow the same shears:
-the first borrow takes effect, the second is recorded as `tool_in_use`, and only
-the borrower's signing key can return them. Its schemas, rules and view are
+The completed pre-v1 spike included the [mending-circle tool desk](experiments/agent-authored/mending-circle-tool-desk/README.md)
+for shared sewing tools. In that retained historical app, two people could attempt to borrow the same shears:
+the first borrow took effect, the second was recorded as `tool_in_use`, and only
+the borrower's signing key could return them. Its schemas, rules and view were
 application content loaded through the generic host. An agent authored the app
 and used the JSON CLI without changing the host; its retained
 [transcript](experiments/agent-authored/mending-circle-tool-desk/transcript.json)
-records 22 adapter calls, and the S6 authoring gate verifies its source and
-replays its signed history. Other examples track garden rainfall and a guitar
-search.
+records 22 adapter calls. The S6 authoring gate verifies its original source and
+replays its signed history with the retained pre-v1 interpreter. The v1 runtime
+refuses that historical profile. Current examples track garden rainfall and a guitar search.
 
 ## How the design fits into AT Protocol
 
@@ -150,7 +150,7 @@ They also measured the costs before committing to a larger implementation.
 | [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md)               | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions.                                      |
 | [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md)  | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries.                          |
 
-The completed acceptance run passed all 13 gates, including 300 full-suite
+The completed acceptance run passed all 13 gates, including 305 full-suite
 tests. The [completion record](notes/2026-09-06-atseq-spike-completion.md)
 records the pre-v1 review and landing; the [results](notes/2026-09-06-atseq-spike-results.md)
 and [acceptance report](experiments/acceptance.json) retain the measurements
@@ -180,20 +180,20 @@ and their setup. Use `npm run test:archive` for the archive gate alone, or
 The prototype uses one bounded state document per app, an integer-only
 evaluation profile, a restricted expression language and three local UI
 primitives. Deterministic execution failures record an ineffective outcome and preserve
-state; later entries continue. Missing required content or failed storage pauses
+state; later entries continue. Missing required content, failed storage or runtime faults pause
 interpretation until repaired. The v1 contracts use the owned `ai.generalbusiness.atseq.*` namespace and semantic
 CIDs, with source and dependency provenance recorded separately. They deliberately
 refuse historical spike profiles. See the [runtime profile](docs/runtime-profile.md) for exact
 bounds.
 
 The current host repeatedly serves and verifies the full history. At 10,000
-entries, the retained local run measured a median confirmed append of 15.27
-seconds and browser replay plus transfer of 14.66 seconds. Efficient verified
+entries, the retained local run measured a median confirmed append of 15.23
+seconds and browser replay plus transfer of 14.68 seconds. Efficient verified
 catch-up is needed before using this host for long-lived, growing histories.
 These measurements describe one machine, rather than production capacity.
 
 Private application data, production deployment and authentication,
-state-transforming migrations, runtime upgrades, sequencer failover and external
+state-transforming migrations, creation of successor apps under new profiles, sequencer failover and external
 side effects remain outside the completed spikes.
 
 ## Related projects and design material

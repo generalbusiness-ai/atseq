@@ -41,7 +41,7 @@ export async function readSnapshot(pds: PdsClient, anchor: Anchor, knownHead?: H
     for (const record of records) {
       if ((await contentCid(record.value)) !== record.cid)
         throw new ProtocolError('content', 'Entry differs from its PDS CID');
-      if (record.uri !== `at://${pds.did}/ai.generalbusiness.atseq.entry/${positionKey(record.value.position)}`)
+      if (record.uri !== `at://${pds.did}/${NSID.entry}/${positionKey(record.value.position)}`)
         throw new ProtocolError('position', 'Entry record key differs from its signed position');
       values.push(record.value);
     }

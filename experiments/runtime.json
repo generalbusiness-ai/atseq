@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T01:22:04.722Z",
+  "measuredAt": "2026-10-01T02:02:51.949Z",
   "nodeVersion": "v26.10.0",
   "browserVersion": "153.0.8010.12",
   "browserWorker": true,
@@ -47,6 +47,22 @@
     },
     {
       "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "malformed schema and view shapes cannot freeze activation",
+      "passed": true
+    },
+    {
+      "name": "malformed UTF-8 source has a deterministic loader code",
+      "passed": true
+    },
+    {
+      "name": "reader size claims require independently verified bytes",
       "passed": true
     },
     {
@@ -264,6 +280,22 @@
       "passed": true
     },
     {
+      "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "malformed schema and view shapes cannot freeze activation",
+      "passed": true
+    },
+    {
+      "name": "malformed UTF-8 source has a deterministic loader code",
+      "passed": true
+    },
+    {
+      "name": "reader size claims require independently verified bytes",
+      "passed": true
+    },
+    {
       "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
       "passed": true
     },
@@ -434,19 +466,19 @@
   ],
   "sourceHashes": {
     "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
-    "src/core/dependencies-approved.json": "26f857762e3bfb5866f689d29024f253d2d171666815f32471ab08e50992b760",
+    "src/core/dependencies-approved.json": "e8d60b92a922ed028cb8b580e669b845e3403ed019fa526a076dbad75df769cd",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
     "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
-    "src/application/folder.ts": "530265550649b3784ab29899215c155d6e8604d30a0037477508058b09e0576c",
+    "src/application/folder.ts": "697abcbac082aaada268798f6f28027e33dfcc6c2209ce74bcca2a6babc1acc5",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "tests/runtime.test.ts": "27e3bb10be05284b4da0f9192f53548a7c6a14f44d4c6ee7d3a97fafe3b8e36b",
-    "experiments/runtime-corpus.ts": "80380a7c750ac85a44eac487275579768e278056b35322c30774df24e570f927",
+    "experiments/runtime-corpus.ts": "824fe53637e0cde17cae3cc1c603e9366934614c024d6a0b4029b0cc3056545b",
     "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
-    "experiments/runtime-browser/main.ts": "3d9843cbd8f9859172c94e8869f30f71fade8a188164593a285c4113e654724b",
-    "experiments/runtime-browser/worker.ts": "6714f9b59f0b3d213def14fd1230202191ad0e08437f17b0eaabde061641f1f5",
-    "experiments/runtime-browser/index.html": "10edc32e502253079e30b4283b1b5ae4afd2b82ea97f7039e1973d7f921df08c",
-    "package.json": "4cb87c3e9ecc2aee9dce57fd96a112ac4a7414c3fbf65cd63e197241d2c71377",
-    "package-lock.json": "51e68350cda6bd0a013de435660c6c391490b91e58c133629990865d0c0e79eb"
+    "experiments/runtime-browser/main.ts": "8bed9735f980e208ea30ae572588a3b6983c743425b8754dd0b5c468e4a515b9",
+    "experiments/runtime-browser/worker.ts": "f6da841f2c5c1c97e40e7eb63c1af5d4e875606a131ddb28f62e8b4820c54e20",
+    "experiments/runtime-browser/index.html": "45c356ee06af6857fa735d71ee89360723ee2215741a3dd7c83cfff9ca5faba8",
+    "package.json": "8810b830da8add8ef8319f7ee0f08b9c6d32d09e55507ca93a6bc66de0af2bd3",
+    "package-lock.json": "c08be1e453181d5cb06cac6d546dfd403d34b8c2292f350b8473c22f8fce8171"
   }
 }

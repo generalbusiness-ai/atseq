@@ -106,7 +106,14 @@ export class Folder {
         }
         // An ordinary action cannot hold the log hostage. This outcome is part
         // of the semantic contract and retains the last committed state.
-        result = { state: this.projection.state, outcome: ineffective(`fold_failed/${interpretationCode(error)}`) };
+        let code;
+        try {
+          code = interpretationCode(error);
+        } catch (fault) {
+          this.stalled = { position: entry.position, code: 'runtime_fault', message: (fault as Error).message };
+          break;
+        }
+        result = { state: this.projection.state, outcome: ineffective(`fold_failed/${code}`) };
       }
       const { state, outcome, definition = this.definition } = result;
       const entryCid = await contentCid(entry);

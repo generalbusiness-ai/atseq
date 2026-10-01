@@ -10,6 +10,11 @@ rests_on:
 
 # Atseq spike completion
 
+This note records the completed pre-v1 spike. Its original figures and runtime
+versions refer to the historical evidence linked below; the current v1 reports
+are separate measurements.
+
+
 The adopted S0–S6 spike is complete. The source, tests and retained evidence
 are independently approved and landed on `main` through
 `a68466608bc1f269d7296a5ed7d6d613d6cbd303`. This note records that completion
@@ -50,9 +55,9 @@ experiment reports, all 13 retained-output hashes and all 13 command-log hashes.
 The authoring exercise records 22 adapter calls and five signed entries, with
 all 51 captured source/build hashes unchanged. See the
 [result note](2026-09-06-atseq-spike-results.md),
-[acceptance report](../experiments/acceptance.json),
-[command logs](../experiments/acceptance-logs/) and
-[agent-authored application](../experiments/agent-authored/).
+[acceptance report](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/acceptance.json),
+[command logs](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/acceptance-logs/) and
+[agent-authored application](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/agent-authored/).
 
 At 10,000 entries the retained run measured 18.66 seconds for median confirmed
 append and 15.42 seconds for browser replay plus transfer. These are local

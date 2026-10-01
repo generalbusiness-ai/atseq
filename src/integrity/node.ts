@@ -18,7 +18,16 @@ export function installedTree(path: string, installationRoot = root): Record<str
   const tree: Record<string, string> = {};
   function walk(directory: string, prefix = '') {
     for (const entry of readdirSync(directory, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
-      if (entry.name === 'node_modules') continue;
+      if (entry.name === 'node_modules') {
+        // Only package-root dependency directories are reviewed separately.
+        // A directory below dist/, lib/, etc. changes resolution for those files.
+        if (!entry.isDirectory()) fail(`Unapproved dependency directory: ${path}/${prefix}/node_modules`);
+        if (!prefix) continue;
+        // Pino publishes this test fixture directory in its npm tarball. Its
+        // complete contents are hashed too; adding a shadow package changes them.
+        if (path !== 'node_modules/pino' || prefix !== 'test/fixtures/eval')
+          fail(`Unapproved dependency directory: ${path}/${prefix}/node_modules`);
+      }
       const name = prefix ? `${prefix}/${entry.name}` : entry.name;
       const file = join(directory, entry.name);
       if (entry.isDirectory()) walk(file, name);
@@ -59,6 +68,18 @@ function checkInstalledDependencies(force = false, installationRoot = root): voi
   installationRoot = realpathSync(installationRoot);
   if (verified && !force && installationRoot === root) return;
   const packages = new Set(Object.keys(approved.packages));
+  function sourceDirectories(directory: string): void {
+    if (!existsSync(directory)) return;
+    for (const entry of readdirSync(directory, { withFileTypes: true })) {
+      if (entry.name === 'node_modules') fail(`Source dependency shadow: ${directory}/node_modules`);
+      if (entry.isDirectory()) sourceDirectories(join(directory, entry.name));
+      else if (!entry.isFile()) fail(`Source alias or special file: ${directory}/${entry.name}`);
+    }
+  }
+  sourceDirectories(resolve(installationRoot, 'src'));
+  const manifest = JSON.parse(readFileSync(resolve(installationRoot, 'package.json'), 'utf8'));
+  if (JSON.stringify(manifest.imports) !== JSON.stringify(approved.imports))
+    fail('Unapproved integrity adapter imports');
   const edges: { parent: string; name: string; target: string }[] = [];
   for (const path of packages) {
     const actual = JSON.parse(readFileSync(resolve(installationRoot, path, 'package.json'), 'utf8'));

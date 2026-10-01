@@ -106,6 +106,11 @@ refs, closed unions, query definitions and parameters. References resolve only
 within retained schemas. Validation must preserve supplied values exactly;
 defaults and coercion are refused. Open unions, blobs, bytes, unknown values,
 records, procedures and subscriptions are outside the domain state profile.
+Array items may contain inline object schemas: the ecosystem runtime validator
+supports these, although its document parser excludes them. Atseq validates
+document metadata and every supported node shape before runtime validation;
+malformed references, constraints and view bindings are deterministic input
+errors. Unclassified library faults always propagate and pause interpretation.
 Framework records and methods have their own [Lexicons](../lexicons/ai/generalbusiness/atseq).
 ICU-dependent grapheme limits and Unicode casing are excluded for portability.
 
@@ -134,7 +139,18 @@ Adding a regression vector alone does not change an identity.
 The [approved interpreter dependency closure](../src/core/dependencies-approved.json)
 records exact direct and transitive versions, lockfile integrity and dependency
 edges, including installed optional and peer packages required by those packages.
-The [file manifest](../src/integrity/files-approved.json) records their file bytes
+The Node integrity check takes about 350–430 ms once per process on the measured
+machine. It reads package files synchronously and uses a child Node process to
+check import and require resolution. Successful checks are cached for that
+process; a later filesystem change requires a new process.
+
+The declared closure includes ts-morph, prettier, yargs and pino through
+`@inlay/core` → `@atproto/lex` and its builder, installer and repository packages.
+These are upstream production dependency declarations, even though Inlay's
+shipped core JavaScript does not call the Lex tooling. We retain the complete
+declared closure rather than claim these installed packages are absent.
+
+The [file manifest](../src/integrity/files-approved.json) records their file bytes, including Pino's shipped nested test fixture
 from a clean `npm ci`. Node checks those hashes before its first protocol or
 interpreter operation and uses Node's import and require resolvers, including
 package exports, to check the real paths reached by every dependency edge. It

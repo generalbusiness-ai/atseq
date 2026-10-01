@@ -108,7 +108,7 @@ an individual closure may use that transport budget, while every individual
 source block and an admitted definition retain their 512 KiB bounds. This is a small-history operational
 limit, not unbounded evolution. Exceeding the distinct-candidate limit makes
 sync unavailable; exceeding the transport budget also returns unavailable,
-without silently omitting an oversized available closure. Runtime/schema migrations, grant changes,
+without silently omitting an oversized available closure. State-transforming migrations between successor apps, grant changes,
 rotation and delegation remain later work. Pending activation has no speculative
 control fold; its pending preview reports unavailable until canonical replay.
 Complete archive/offline bootstrap and performance measurements are S6 work.

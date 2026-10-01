@@ -2,7 +2,7 @@
 > atseq@0.0.0 test:dynamic-apps
 > tsx --test tests/dynamic-apps.test.ts
 
-✔ running host loads and interprets two newly generated unrelated applications (905.520875ms)
+✔ running host loads and interprets two newly generated unrelated applications (895.8775ms)
 ℹ tests 1
 ℹ suites 0
 ℹ pass 1
@@ -10,4 +10,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 1134.073542
+ℹ duration_ms 1121.253916

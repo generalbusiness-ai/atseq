@@ -13,18 +13,32 @@ import { canonicalJson, type Json } from '../core/values.ts';
 import { assertDependencies } from '../core/dependencies.ts';
 
 export const WIRE = Object.freeze({ version: 1, blockBytes: 64 * 1024, jsonBytes: 128 * 1024, depth: 32 });
-import { ProtocolError } from '../core/errors.ts';
+import { AtseqError, ProtocolError } from '../core/errors.ts';
 export { ProtocolError } from '../core/errors.ts';
 export function sameBytes(a: Uint8Array, b: Uint8Array): boolean {
   return a.length === b.length && a.every((v, i) => v === b[i]);
 }
+export function isCidInputError(error: unknown): error is Error {
+  return (
+    error instanceof Error &&
+    ((error.constructor === SyntaxError && /^(not a valid cid string|invalid binary cid)$/.test(error.message)) ||
+      (error.constructor === RangeError &&
+        /^(cid too short|incorrect cid (version|codec|digest codec|digest size) \(got .+\)|cid bytes includes remainder|invalid digest length)$/.test(
+          error.message,
+        )))
+  );
+}
 export function link(cid: string): CidLink {
+  if (typeof cid !== 'string') throw new ProtocolError('wire_cid', 'Expected a CID string');
+  let parsed;
   try {
-    const parsed = fromString(cid);
-    if (parsed.codec !== CODEC_DCBOR || toString(parsed) !== cid) throw new Error('Expected canonical CBOR CID');
-  } catch {
+    parsed = fromString(cid);
+  } catch (error) {
+    if (!isCidInputError(error)) throw error;
     throw new ProtocolError('wire_cid', 'Expected a base32 CIDv1 with CBOR codec and SHA-256');
   }
+  if (parsed.codec !== CODEC_DCBOR || toString(parsed) !== cid)
+    throw new ProtocolError('wire_cid', 'Expected canonical CBOR CID');
   return { $link: cid };
 }
 export function bytes(raw: Uint8Array): Bytes {
@@ -63,15 +77,27 @@ function validate(value: unknown): asserts value is Json {
 }
 export function encodeBlock(value: unknown): Uint8Array<ArrayBuffer> {
   assertDependencies();
-  try {
-    validate(value);
-    const encoded = new Uint8Array(encode(value));
-    if (encoded.length > WIRE.blockBytes) throw new ProtocolError('wire_size', 'Block exceeds 64 KiB');
-    return encoded;
-  } catch (error) {
-    if (error instanceof ProtocolError) throw error;
-    throw new ProtocolError('wire_value', String((error as Error).message));
-  }
+  validate(value);
+  const encoded = new Uint8Array(encode(value));
+  if (encoded.length > WIRE.blockBytes) throw new ProtocolError('wire_size', 'Block exceeds 64 KiB');
+  return encoded;
+}
+/** These messages come from the pinned @atcute/cbor decoder and its CID reader. */
+export function isCborInputError(error: unknown): error is Error {
+  if (!(error instanceof Error)) return false;
+  const expected: [Function, RegExp][] = [
+    [
+      RangeError,
+      /^(could not decode varint|unexpected end of input|NaN and Infinity values not supported|can't decode integers beyond safe integer range|cid too short|incorrect cid version \(got v\d+\)|incorrect cid codec \(got 0x[0-9a-f]+\)|incorrect cid digest codec \(got 0x[0-9a-f]+\)|incorrect cid digest size \(got \d+\)|cid bytes includes remainder)$/,
+    ],
+    [
+      TypeError,
+      /^(input is not valid utf-8|The encoded data was not valid for encoding utf-8|The encoded data is not valid.|non-canonical argument encoding|expected map to only have string keys; got type \d+|expected cid-link to be type 2 \(bytes\); got type \d+|unsupported tag; got \d+|invalid type; got \d+|map keys are not in canonical order or contain duplicates)$/,
+    ],
+    [SyntaxError, /^invalid binary cid$/],
+    [Error, /^(invalid argument encoding; got \d+|invalid simple value; got \d+|decoded value contains remainder)$/],
+  ];
+  return expected.some(([constructor, pattern]) => error.constructor === constructor && pattern.test(error.message));
 }
 /** Preserve the exact canonical block; a decode/re-encode equality check is mandatory. */
 export function decodeBlock(raw: Uint8Array): Json {
@@ -90,8 +116,8 @@ export function decodeBlock(raw: Uint8Array): Json {
       throw new ProtocolError('noncanonical', 'Block has a different canonical encoding');
     return value;
   } catch (error) {
-    if (error instanceof ProtocolError) throw error;
-    throw new ProtocolError('noncanonical', String((error as Error).message));
+    if (error instanceof AtseqError || !isCborInputError(error)) throw error;
+    throw new ProtocolError('noncanonical', error.message);
   }
 }
 export async function blockCid(raw: Uint8Array): Promise<string> {

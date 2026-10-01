@@ -4,18 +4,18 @@
 - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
 ▶ retain complete app history and rebuild without the PDS
-  ✔ complete evolved archive retains source history, profiles and exact outcomes (55.328042ms)
-  ✔ chosen older prefix uses its original definition and no future candidate (37.136916ms)
-  ✔ missing activation source permits only the last complete prefix (46.444167ms)
-  ✔ changed history, inventory, runtime and invitation cannot be accepted (44.883708ms)
-  ✔ archive bounds, byte decoding and source identity guards reject malformed copies (25.820625ms)
-  ✔ CLI rebuild uses a new directory after removing only its marked projection cache (1816.174875ms)
-  ✔ installed shell bootstraps offline and rebuilds solely from an imported archive (493.446875ms)
-  ✔ an archive cannot replace this device’s genesis pin for an existing app DID (154.37925ms)
-  ✔ cancelling a held worker export keeps verified inputs and an offline signed action (345.015708ms)
-  ✔ small imported data produces a zero-based chart and static source-tagged exports (1158.427667ms)
-  ✔ archives retain oversized invalid activation evidence and replay its following action (411.535125ms)
-✔ retain complete app history and rebuild without the PDS (6766.925458ms)
+  ✔ complete evolved archive retains source history, profiles and exact outcomes (54.22625ms)
+  ✔ chosen older prefix uses its original definition and no future candidate (31.932583ms)
+  ✔ missing activation source permits only the last complete prefix (44.685125ms)
+  ✔ changed history, inventory, runtime and invitation cannot be accepted (44.194334ms)
+  ✔ archive bounds, byte decoding and source identity guards reject malformed copies (25.744458ms)
+  ✔ CLI rebuild uses a new directory after removing only its marked projection cache (1791.309292ms)
+  ✔ installed shell bootstraps offline and rebuilds solely from an imported archive (506.882834ms)
+  ✔ an archive cannot replace this device’s genesis pin for an existing app DID (153.325958ms)
+  ✔ cancelling a held worker export keeps verified inputs and an offline signed action (346.852458ms)
+  ✔ small imported data produces a zero-based chart and static source-tagged exports (1148.515375ms)
+  ✔ archives retain oversized invalid activation evidence and replay its following action (388.835875ms)
+✔ retain complete app history and rebuild without the PDS (6613.391667ms)
 ℹ tests 12
 ℹ suites 0
 ℹ pass 12
@@ -23,4 +23,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 7416.540084
+ℹ duration_ms 7252.93325

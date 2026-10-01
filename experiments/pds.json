@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T01:22:02.553Z",
+  "measuredAt": "2026-10-01T02:02:49.318Z",
   "nodeVersion": "v26.10.0",
   "pdsVersion": "0.5.31",
   "storage": "Official PDS HTTP and SQLite; loopback PLC with in-memory test database",
@@ -14,7 +14,7 @@
     {
       "name": "provisioning refuses to replace an existing application log",
       "passed": true,
-      "elapsedMs": 12
+      "elapsedMs": 13
     },
     {
       "name": "source blobs are retained and recovered by exact CID",
@@ -34,7 +34,7 @@
     {
       "name": "same intent and a new valid signature return original receipt",
       "passed": true,
-      "elapsedMs": 32
+      "elapsedMs": 31
     },
     {
       "name": "second local writer is refused while the lease is held",
@@ -44,17 +44,17 @@
     {
       "name": "official PDS process crash preserves acknowledged history and blobs",
       "passed": true,
-      "elapsedMs": 574
+      "elapsedMs": 584
     },
     {
       "name": "a rejected conditional batch leaves entry and head unchanged",
       "passed": true,
-      "elapsedMs": 28
+      "elapsedMs": 29
     },
     {
       "name": "malformed commit replies cannot remove an append or provision condition",
       "passed": true,
-      "elapsedMs": 29
+      "elapsedMs": 31
     },
     {
       "name": "an unrelated repo write races the append and is reconciled",
@@ -64,22 +64,22 @@
     {
       "name": "lost HTTP response after commit resolves to one original receipt",
       "passed": true,
-      "elapsedMs": 54
+      "elapsedMs": 53
     },
     {
       "name": "a different writer process cannot acquire the same local lease",
       "passed": true,
-      "elapsedMs": 470
+      "elapsedMs": 493
     },
     {
       "name": "writer crash after commit but before acknowledgment recovers one receipt",
       "passed": true,
-      "elapsedMs": 548
+      "elapsedMs": 541
     },
     {
       "name": "writer crash after acknowledgment keeps receipt and no domain effect claim",
       "passed": true,
-      "elapsedMs": 549
+      "elapsedMs": 538
     },
     {
       "name": "XRPC rejects a foreign receipt anchor and malformed submission",
@@ -89,7 +89,7 @@
     {
       "name": "bootstrap at a chosen head catches up without notifications",
       "passed": true,
-      "elapsedMs": 91
+      "elapsedMs": 95
     },
     {
       "name": "repository CAR contains retention references but blobs require explicit export",
@@ -104,27 +104,27 @@
     {
       "name": "missing or corrupted physical blob bytes never satisfy a source CID",
       "passed": true,
-      "elapsedMs": 6
+      "elapsedMs": 5
     },
     {
       "name": "a retained verified head refuses repository rollback and signed-entry corruption",
       "passed": true,
-      "elapsedMs": 66
+      "elapsedMs": 65
     },
     {
       "name": "chosen-head catch-up verifies a prefix spanning real PDS pages",
       "passed": true,
-      "elapsedMs": 212
+      "elapsedMs": 207
     },
     {
       "name": "PDS compare-and-swap excludes competing writers even with the local lease bypassed",
       "passed": true,
-      "elapsedMs": 493
+      "elapsedMs": 481
     }
   ],
   "sourceHashes": {
-    "package.json": "4cb87c3e9ecc2aee9dce57fd96a112ac4a7414c3fbf65cd63e197241d2c71377",
-    "package-lock.json": "51e68350cda6bd0a013de435660c6c391490b91e58c133629990865d0c0e79eb",
+    "package.json": "8810b830da8add8ef8319f7ee0f08b9c6d32d09e55507ca93a6bc66de0af2bd3",
+    "package-lock.json": "c08be1e453181d5cb06cac6d546dfd403d34b8c2292f350b8473c22f8fce8171",
     "tests/pds.test.ts": "40ae3b883048afb2ba2895f9c0180791f639af62a7512e2a2dbd0ecb88c81313",
     "lexicons/ai/generalbusiness/atseq/source.json": "b3dddb69081ecc2030d59e4a82270e6a482e5b67162d50326c39a9b6702190dc",
     "src/host/accounts.ts": "003a2f00eb2997416d82580cfc125fee4f2ecb32de297a178a4316eb45db8ce9",
@@ -135,9 +135,9 @@
     "src/host/lease.ts": "eab6c608fe7de53fa7cbb7ddaff34969ffaeb11e6e0a4a77c72f44181679ad44",
     "src/host/pds.ts": "2ff083f2da7a786cc931266ce0c1f048d21a8b942cef15cffc2bcf40c44042e5",
     "src/host/projection.ts": "5c8b022c5938bbcdc8a0f2e2960855a1b98533dc2f060ea9fec912772de8b6dd",
-    "src/host/sequencer.ts": "ece13022a72785e5df87661e419e2c01aa8737fd3d3dc546f6f7ff26a02ff9c6",
+    "src/host/sequencer.ts": "8034facf375ca92a6a50541c7ab23c48aefb003d8d38a44d1273f7f070fef592",
     "src/host/service.ts": "29d1ce2dc2c98576bfa9ad0bde4b5291db1b13274cfb2f195cb0c171daaa30ef",
-    "src/host/source.ts": "94225287153aa54416c32d39da272b98f79772128d4c6f097bb924cd9c54d5a6",
+    "src/host/source.ts": "822c1f66645635de12b9c724c10fd3393b1ee77c23804a2ddaa7a1684604598f",
     "tests/helpers/cli.ts": "73302d6f32d367eda3bc15d32123cb2937b5acb15a8f27456924ec28140efec2",
     "tests/helpers/evidence.ts": "39ee2e0f4cdf80caaa160b39eb2b55de626ba859f79505dfefa35353b74452c5",
     "tests/helpers/pds-faults.ts": "0db6d8482d734bff47f86c626bc04232553813d1a63c28d5b2ea71a3108e1aa9",
@@ -145,9 +145,9 @@
     "tests/helpers/writer-child.ts": "acd367a013e7add37a23cb701761aa81caeb37074d09bb179e23d8b84c9ac4cb",
     "tests/helpers/writer-process.ts": "51f8f3b646f900eb0d39689121b91be694b658b38a3d5dad7de5cf39ef62d13c",
     "experiments/pds/environment.d.mts": "8de6d5666f31fb04dbe291f0e03e9c26354065a1334e8397b0d0fbd98ad9f605",
-    "experiments/pds/environment.mjs": "2c7ef598b1e360e780dca1af32f6af89c093c4aed82572b5f51fdfadcfb9741a",
+    "experiments/pds/environment.mjs": "973320fb18f5dde11f1a4f9af7f9f2f344115d1074fbd39adda278a24e424282",
     "experiments/pds/package-lock.json": "227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41",
     "experiments/pds/package.json": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6",
-    "experiments/pds/pds-server.mjs": "063ee37be93943c57dad6911114d3573db8c75191ff7735c1e453380a6a90a4b"
+    "experiments/pds/pds-server.mjs": "994569e77dea1706eab41882045fb589d26f8e2dba25bf08c7475555e97f94a9"
   }
 }

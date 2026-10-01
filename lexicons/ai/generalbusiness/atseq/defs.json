@@ -115,7 +115,8 @@
         },
         "message": {
           "type": "string",
-          "maxLength": 4096
+          "maxLength": 4096,
+          "description": "Atseq v1 limits this field to 1024 Unicode code points; the 4096-byte Lexicon bound permits their UTF-8 encoding."
         }
       }
     },
@@ -140,7 +141,8 @@
         },
         "message": {
           "type": "string",
-          "maxLength": 4096
+          "maxLength": 4096,
+          "description": "Atseq v1 limits this field to 1024 Unicode code points; the 4096-byte Lexicon bound permits their UTF-8 encoding."
         }
       }
     }

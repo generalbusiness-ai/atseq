@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T01:22:34.518Z",
+  "measuredAt": "2026-10-01T02:03:21.582Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 11,
   "browserVersion": "153.0.8010.12",
@@ -9,69 +9,69 @@
     {
       "name": "complete evolved archive retains source history, profiles and exact outcomes",
       "passed": true,
-      "elapsedMs": 55.13499999999976
+      "elapsedMs": 54.042625000000044
     },
     {
       "name": "chosen older prefix uses its original definition and no future candidate",
       "passed": true,
-      "elapsedMs": 37.07920800000011
+      "elapsedMs": 31.887083000000075
     },
     {
       "name": "missing activation source permits only the last complete prefix",
       "passed": true,
-      "elapsedMs": 46.40016699999978
+      "elapsedMs": 44.646708999999646
     },
     {
       "name": "changed history, inventory, runtime and invitation cannot be accepted",
       "passed": true,
-      "elapsedMs": 44.838042000000314
+      "elapsedMs": 44.148125000000164
     },
     {
       "name": "archive bounds, byte decoding and source identity guards reject malformed copies",
       "passed": true,
-      "elapsedMs": 25.781332999999904
+      "elapsedMs": 25.69925000000012
     },
     {
       "name": "CLI rebuild uses a new directory after removing only its marked projection cache",
       "passed": true,
-      "elapsedMs": 1816.1178329999998
+      "elapsedMs": 1791.2575420000003
     },
     {
       "name": "installed shell bootstraps offline and rebuilds solely from an imported archive",
       "passed": true,
-      "elapsedMs": 493.3919999999998
+      "elapsedMs": 506.8297499999999
     },
     {
       "name": "an archive cannot replace this device’s genesis pin for an existing app DID",
       "passed": true,
-      "elapsedMs": 154.3292080000001
+      "elapsedMs": 153.27537500000017
     },
     {
       "name": "cancelling a held worker export keeps verified inputs and an offline signed action",
       "passed": true,
-      "elapsedMs": 344.95487500000036
+      "elapsedMs": 346.7928750000001
     },
     {
       "name": "small imported data produces a zero-based chart and static source-tagged exports",
       "passed": true,
-      "elapsedMs": 1158.3700420000005
+      "elapsedMs": 1148.4553329999999
     },
     {
       "name": "archives retain oversized invalid activation evidence and replay its following action",
       "passed": true,
-      "elapsedMs": 411.49362500000007
+      "elapsedMs": 388.79662499999995
     }
   ],
   "sourceHashes": {
-    "experiments/pds/environment.mjs": "2c7ef598b1e360e780dca1af32f6af89c093c4aed82572b5f51fdfadcfb9741a",
+    "experiments/pds/environment.mjs": "973320fb18f5dde11f1a4f9af7f9f2f344115d1074fbd39adda278a24e424282",
     "experiments/pds/package-lock.json": "227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41",
     "experiments/pds/package.json": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6",
-    "experiments/pds/pds-server.mjs": "063ee37be93943c57dad6911114d3573db8c75191ff7735c1e453380a6a90a4b",
+    "experiments/pds/pds-server.mjs": "994569e77dea1706eab41882045fb589d26f8e2dba25bf08c7475555e97f94a9",
     "lexicons/ai/generalbusiness/atseq/activate.json": "1d367f08b706dfda9f7be3fc5bb5b0f3d7b3af18e49a07d45ecd5db300ff16b5",
     "lexicons/ai/generalbusiness/atseq/compareDefinition.json": "5f9f8966d1a90dcfd73ca3d10e2b96856b7aaddc1cf63b097867ba2895d6daf8",
     "lexicons/ai/generalbusiness/atseq/create.json": "f7d9ca07964c58445b49eee8bb07bc4dafeebbb40fa75f3500025b661e214b82",
     "lexicons/ai/generalbusiness/atseq/definition.json": "7cb5e51d0e4a7a85884d7b28cf3bfd5424cd0c5dc6115c85555795b0650532e4",
-    "lexicons/ai/generalbusiness/atseq/defs.json": "a308ff14d2634658db5cb421c7b123e2b999447237eb86c0ece92c09128a3d88",
+    "lexicons/ai/generalbusiness/atseq/defs.json": "b1b0f900db28fe991f782670dd423865baa2f9670d352faf0a96466ba9a4d00d",
     "lexicons/ai/generalbusiness/atseq/describe.json": "683d87159226a1ef67e09fc6c15e14cffa9cd8d3678a0187402e3a99110968ff",
     "lexicons/ai/generalbusiness/atseq/entry.json": "060fdccbfa4ccaba305fc1574316309868ccca9bce39c7c6e0ad6e2b181f0139",
     "lexicons/ai/generalbusiness/atseq/genesis.json": "eac3ceaac8639f7cd31e0cfe3c0fe40e76a5794885356946df136a0cd684557e",
@@ -86,13 +86,13 @@
     "lexicons/ai/generalbusiness/atseq/submit.json": "72728be30d21a10ddb21d31a901107b44bd6c13a23b584c3d0d568515c8b56cb",
     "lexicons/ai/generalbusiness/atseq/sync.json": "fd825eb2f27978e4a0bedc5feac168a506f660cc398e4e009e1880358d42cf00",
     "lexicons/ai/generalbusiness/atseq/validateDraft.json": "9b79bcf112c285c94ac12c8bafb8d663ad1e22678c6c3a25cecc60a930d874ce",
-    "package-lock.json": "51e68350cda6bd0a013de435660c6c391490b91e58c133629990865d0c0e79eb",
-    "package.json": "4cb87c3e9ecc2aee9dce57fd96a112ac4a7414c3fbf65cd63e197241d2c71377",
+    "package-lock.json": "c08be1e453181d5cb06cac6d546dfd403d34b8c2292f350b8473c22f8fce8171",
+    "package.json": "8810b830da8add8ef8319f7ee0f08b9c6d32d09e55507ca93a6bc66de0af2bd3",
     "scripts/acceptance.ts": "ae6e2baaa01180fdfb72671ca345486de0e16b04a5daf5200ff9b9484bed03bf",
     "scripts/browser-performance.ts": "cdaa2dc3f23220dc192ee000d17b9c86fc03b97e9f7d028d1aac632dccd7212c",
     "scripts/check-author.ts": "892ac6d115a52d7824a0165e181d71626809468817e902eccee6a490fad7e1b4",
     "scripts/check-dependencies.ts": "fc92c8a88a8d60fc869a234b97470806ebe7f8c5a75d6a0822e8a47846a72603",
-    "scripts/check-layers.mjs": "cea69632229103c781a44d03dedf2e2f6e4d12c23e9cc54f0b9a5f5b2a6b2aab",
+    "scripts/check-layers.mjs": "f0efba16f010440fdc3f2850c699d603a8bad870991742d6dbb0b524cadec839",
     "scripts/feasibility.ts": "ff7568f339dc47b5620d3303391ea84bad5694f672c7881ac4bbca9afa25ec20",
     "scripts/flows.ts": "e921a16fd8276cb6f1643594acf77f71e04e69f3bfdcb042056363c1b43552b7",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
@@ -104,7 +104,7 @@
     "scripts/vectors/generate.mjs": "7aef307ec1d31869c6573ed2974059fe6b04a4175f114603b2aaa79194934dd1",
     "src/application/apps.ts": "a0b357b8e483c02642a04296dd95ce56a690676b048e592fc447a6486d610ce7",
     "src/application/definition.ts": "5c021ed4a0d3aa0d61556e39a4882220e7766ec3931a2e580d3281213885af92",
-    "src/application/folder.ts": "530265550649b3784ab29899215c155d6e8604d30a0037477508058b09e0576c",
+    "src/application/folder.ts": "697abcbac082aaada268798f6f28027e33dfcc6c2209ce74bcca2a6babc1acc5",
     "src/archive/archive.ts": "bd3ec2bf89176e5de4684b4dec5aaba11505ce55bd7a54ec7abbc5eed14b6137",
     "src/archive/chart.ts": "a5c7385e76c8648f59e1e7c3e2d4a7394cd53a3600d1b8ec296379fa83335fd6",
     "src/archive/limits.ts": "f60704a8b407582a063cef123141ebe95a313a10f0581072f9fc509b6433379d",
@@ -121,18 +121,18 @@
     "src/client/identity.ts": "c45d765ab568af05e4a93133cb9635947e1910cb84d9aff1b8c3793fb65d0db8",
     "src/client/store.ts": "f8751d52205845c3553ba21043dd42ca838be4aaff54ef9117158e978694329e",
     "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
-    "src/core/dependencies-approved.json": "26f857762e3bfb5866f689d29024f253d2d171666815f32471ab08e50992b760",
-    "src/core/dependencies.ts": "edd9689ba082d6dfba2408130149dff6fda98a1e14a1637e32929b9c7cabe449",
-    "src/core/errors.ts": "da567d03e11a033ad6d0103fd32a473536dfbab6a11619c5e71d3c3492276afb",
+    "src/core/dependencies-approved.json": "e8d60b92a922ed028cb8b580e669b845e3403ed019fa526a076dbad75df769cd",
+    "src/core/dependencies.ts": "6c04029a747a0f2f0a990cd4bbc3adda7d160b935cdc5832a7c872ad7abadb8b",
+    "src/core/errors.ts": "dee42b2c62528f070e7e82f24ba70371fa288134b4a2b343b59364caae32ba84",
     "src/core/freeze.ts": "53b07b8d407f965ab9fcb8995220683f6e758a5d5cd339a3268dba893c7a6542",
     "src/core/nsids.ts": "04b45ae5936465ec81e53b32e8b3bca5fece033cdba2598c9db08930908d32e7",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
     "src/definition/activation.ts": "6a6fe8294060d469efbe096a14cc4cc26db1d1b832e1194428fb2507e4ca6592",
-    "src/definition/control.ts": "6b5614ec2b053e97364da54d0bc55481e809d0af738a5930f0f71aa95aadac2b",
-    "src/definition/load.ts": "0a5abeadb5e092fa4c7a24934dc1bb81a3adea42fbcf9f78d83574705abf8594",
-    "src/definition/schemas.ts": "8c5f755a250d47392188a60873e06c15cd423ba3ab97df9c1ab8f544563b9572",
-    "src/definition/source.ts": "0b15e954584da1b8118523bdac4f52f3c231b7ca0650463c34992318e824490d",
+    "src/definition/control.ts": "de5fa87130c75688f2ee66c6d5d925192bd312a92f1494c8611c4269b87c2b7e",
+    "src/definition/load.ts": "272646b514f0d76c358b5dce2567cd5003be4f85d7b368dd5b491b97381783ed",
+    "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+    "src/definition/source.ts": "aeadda8ad14863fb76aa58d0390d08f14a7b513aea02effe5f600a544e34d555",
     "src/host/accounts.ts": "003a2f00eb2997416d82580cfc125fee4f2ecb32de297a178a4316eb45db8ce9",
     "src/host/application.ts": "37d9c7df45cabf705f74531382d79ec6ce81f03ea569583c054bd4529395844b",
     "src/host/build.ts": "5e1718607ae554abe682bfd47a131c318cc6696974c711434cb670824fb40cf7",
@@ -141,20 +141,20 @@
     "src/host/lease.ts": "eab6c608fe7de53fa7cbb7ddaff34969ffaeb11e6e0a4a77c72f44181679ad44",
     "src/host/pds.ts": "2ff083f2da7a786cc931266ce0c1f048d21a8b942cef15cffc2bcf40c44042e5",
     "src/host/projection.ts": "5c8b022c5938bbcdc8a0f2e2960855a1b98533dc2f060ea9fec912772de8b6dd",
-    "src/host/sequencer.ts": "ece13022a72785e5df87661e419e2c01aa8737fd3d3dc546f6f7ff26a02ff9c6",
+    "src/host/sequencer.ts": "8034facf375ca92a6a50541c7ab23c48aefb003d8d38a44d1273f7f070fef592",
     "src/host/service.ts": "29d1ce2dc2c98576bfa9ad0bde4b5291db1b13274cfb2f195cb0c171daaa30ef",
-    "src/host/source.ts": "94225287153aa54416c32d39da272b98f79772128d4c6f097bb924cd9c54d5a6",
+    "src/host/source.ts": "822c1f66645635de12b9c724c10fd3393b1ee77c23804a2ddaa7a1684604598f",
     "src/integrity/browser.ts": "565c1c4958ea060535e2c3283aa7b85651ae92eec5174f400f5bb71d16613228",
-    "src/integrity/files-approved.json": "8247857be332898c8694e8366cfc2a04d264b8517a6276d81fa23dc54407de54",
-    "src/integrity/node.ts": "9bc70d9b115556456e6ea6384a47b1bc4ae138fafa8d221f5fba4c23c46a954e",
+    "src/integrity/files-approved.json": "86cdc231bb9252357fb6f0b25c42a907734f421fe67dfea54da7aceb9ccc2c8a",
+    "src/integrity/node.ts": "1afcb61044499818bc43b2324b9c55de15c987e3acdf42ed27d09363330552e9",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "ed74c2b5fc03bdb976e74a112d4f6b74ca91ff71f03e229d5f158fbbc93b75e2",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "c4d1adb496f35c580143a6faff734051105a34df2da74206f363442ac1cec0ed",
+    "src/protocol/wire.ts": "ae2535ea4edfacc0e94987e80bb337788f9af17a61f3d7de3e9f828266feac0a",
     "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",
-    "src/view/inlay.ts": "6971d08e7be07ff90d92f26bfb2406ee0847633f876319fd362186ce5e2e8feb",
+    "src/view/inlay.ts": "416e85fd0fc610fa1080f0c6c97e49d732901e65ef8292e1563890ca4f42a2e3",
     "testdata/apps/evolution.ts": "71031d4e35808dff51ae25bf390ca0da053d3ff4497c0bb104a92b3453744adc",
     "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
     "tests/acceptance.test.ts": "5c3b3415462545399cdf0bd7d7167c2135496bc1279a7cd81d8877bc32cf3d31",
@@ -171,17 +171,18 @@
     "tests/helpers/runtime-child.ts": "5118bd451908dacb2394da41c88b0558c108cd11cd85a558fa2ba7511a801770",
     "tests/helpers/writer-child.ts": "acd367a013e7add37a23cb701761aa81caeb37074d09bb179e23d8b84c9ac4cb",
     "tests/helpers/writer-process.ts": "51f8f3b646f900eb0d39689121b91be694b658b38a3d5dad7de5cf39ef62d13c",
-    "tests/integrity.test.ts": "d8c797e51221e24e838ca232868814f1f86d1dac2161d621788bac8f7c97dffd",
+    "tests/integrity.test.ts": "49c6c85e3436943be9e89906ad31a5e6b7a014471a44f4109ec58ce8a4bb44e7",
+    "tests/loader-shapes.test.ts": "62308dd842fef220986152cc9db313dd942a29cb426a48acab734636d59fa003",
     "tests/participation.test.ts": "a5ce43dcb4930126a2d37d63c124198d2cc483bf144ae3642de08d3d89029df1",
     "tests/pds.test.ts": "40ae3b883048afb2ba2895f9c0180791f639af62a7512e2a2dbd0ecb88c81313",
-    "tests/profiles.test.ts": "8c146966d0e7e57a0444b4c2187ff3dd8cfc6c18b0352425e3fa73f5c487dc81",
+    "tests/profiles.test.ts": "3ad17e3acdcd4767e985d72be1c2b6f99755ccc182aac7ba4bf367c74b5e16da",
     "tests/projection.test.ts": "5bcdf56641f6ff2680d4857f1c25f5e3e227103a1688093ec5bbba28c70a7295",
     "tests/protocol.test.ts": "3d3227be21a377a7fef2f188a6a0a73628df3ec87969ebbd2ae819ec200fd814",
     "tests/runtime.test.ts": "27e3bb10be05284b4da0f9192f53548a7c6a14f44d4c6ee7d3a97fafe3b8e36b",
     "tests/support/historical-replay.ts": "0828e9c86dd06835f35b1a08725cdb5c74285ae806cf860fcb715c8650d53572",
     "tests/support/profile-corpus.ts": "e1c2fafaa403355bf0f6c5361d5cab799764fbc43720dcd720f9611037abf68b",
-    "tests/vectors/profiles-v1.json": "22e7ef398d952dc59926dfcf4f176391c170ddd82f3e2566250c9933f8b0d459",
+    "tests/vectors/profiles-v1.json": "f0bd9d60d718ac1112a724ccea1e3df917ed5009dece4ea1f2ebdf9f160d3e86",
     "tests/vectors/protocol-v0.json": "dc398067268956cc5ac1ae3b100a822ebafaac90995bdd17860126a200431a0f",
-    "tests/vectors/protocol-v1.json": "f09292ddba7267a8a20aa3ab41e43e94968becc201e7ae1a22b037f5089ddd32"
+    "tests/vectors/protocol-v1.json": "e463fc076dcc65448521ab96a9e01c36ff5d1e296ca11280452aeed687e0ef22"
   }
 }

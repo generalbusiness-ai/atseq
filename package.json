@@ -22,8 +22,8 @@
     "atseq": "tsx src/cli/main.ts",
     "dev:app": "tsx scripts/serve.ts",
     "test:archive": "tsx --test tests/archive.test.ts",
-    "format": "prettier --write src scripts tests testdata lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
-    "format:check": "prettier --check src scripts tests testdata lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
+    "format": "prettier --write src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
+    "format:check": "prettier --check src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
     "check:layers": "node scripts/check-layers.mjs",
     "check:dependencies": "tsx scripts/check-dependencies.ts"
   },
@@ -44,6 +44,7 @@
     "@types/node": "26.4.1",
     "multiformats": "9.9.0",
     "prettier": "3.9.9",
+    "ts-morph": "27.0.2",
     "tsx": "4.23.13",
     "typescript": "7.0.2"
   },

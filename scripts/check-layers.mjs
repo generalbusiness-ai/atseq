@@ -58,6 +58,21 @@ async function check(directory) {
       if (!allowed[layer].includes(other)) failures.push(`${file}: ${layer} imports ${other} (${name})`);
     }
     function visit(node) {
+      if (ts.isImportTypeNode(node) && ts.isLiteralTypeNode(node.argument)) inspect(node.argument.literal);
+      if (ts.isImportEqualsDeclaration(node) && ts.isExternalModuleReference(node.moduleReference))
+        inspect(node.moduleReference.expression);
+      if (ts.isNewExpression(node) && ts.isIdentifier(node.expression) && node.expression.text === 'Worker') {
+        const url = node.arguments?.[0];
+        if (
+          !url ||
+          !ts.isNewExpression(url) ||
+          !ts.isIdentifier(url.expression) ||
+          url.expression.text !== 'URL' ||
+          !url.arguments?.[0]
+        )
+          failures.push(`${file}: Worker must name a static local URL`);
+        else inspect(url.arguments[0]);
+      }
       if ((ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) && node.moduleSpecifier)
         inspect(node.moduleSpecifier);
       if (

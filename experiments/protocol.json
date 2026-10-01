@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T01:21:57.030Z",
+  "measuredAt": "2026-10-01T02:02:43.838Z",
   "nodeVersion": "v26.10.0",
   "browserVersion": "153.0.8010.12",
   "node": [
@@ -648,21 +648,21 @@
     }
   ],
   "sourceHashes": {
-    "package.json": "4cb87c3e9ecc2aee9dce57fd96a112ac4a7414c3fbf65cd63e197241d2c71377",
-    "package-lock.json": "51e68350cda6bd0a013de435660c6c391490b91e58c133629990865d0c0e79eb",
+    "package.json": "8810b830da8add8ef8319f7ee0f08b9c6d32d09e55507ca93a6bc66de0af2bd3",
+    "package-lock.json": "c08be1e453181d5cb06cac6d546dfd403d34b8c2292f350b8473c22f8fce8171",
     "tests/protocol.test.ts": "3d3227be21a377a7fef2f188a6a0a73628df3ec87969ebbd2ae819ec200fd814",
-    "tests/vectors/protocol-v1.json": "f09292ddba7267a8a20aa3ab41e43e94968becc201e7ae1a22b037f5089ddd32",
+    "tests/vectors/protocol-v1.json": "e463fc076dcc65448521ab96a9e01c36ff5d1e296ca11280452aeed687e0ef22",
     "scripts/vectors/generate.mjs": "7aef307ec1d31869c6573ed2974059fe6b04a4175f114603b2aaa79194934dd1",
-    "experiments/protocol-corpus.ts": "218c111890b54ee7e7234e34b1313dbc99552cc33c7ede67b50674aa5d48797a",
+    "experiments/protocol-corpus.ts": "8c993001eccbdbefb886a113852c58fb621c51b6dd153c15942f7288d99b6955",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "ed74c2b5fc03bdb976e74a112d4f6b74ca91ff71f03e229d5f158fbbc93b75e2",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "c4d1adb496f35c580143a6faff734051105a34df2da74206f363442ac1cec0ed",
+    "src/protocol/wire.ts": "ae2535ea4edfacc0e94987e80bb337788f9af17a61f3d7de3e9f828266feac0a",
     "lexicons/ai/generalbusiness/atseq/activate.json": "1d367f08b706dfda9f7be3fc5bb5b0f3d7b3af18e49a07d45ecd5db300ff16b5",
     "lexicons/ai/generalbusiness/atseq/compareDefinition.json": "5f9f8966d1a90dcfd73ca3d10e2b96856b7aaddc1cf63b097867ba2895d6daf8",
     "lexicons/ai/generalbusiness/atseq/create.json": "f7d9ca07964c58445b49eee8bb07bc4dafeebbb40fa75f3500025b661e214b82",
     "lexicons/ai/generalbusiness/atseq/definition.json": "7cb5e51d0e4a7a85884d7b28cf3bfd5424cd0c5dc6115c85555795b0650532e4",
-    "lexicons/ai/generalbusiness/atseq/defs.json": "a308ff14d2634658db5cb421c7b123e2b999447237eb86c0ece92c09128a3d88",
+    "lexicons/ai/generalbusiness/atseq/defs.json": "b1b0f900db28fe991f782670dd423865baa2f9670d352faf0a96466ba9a4d00d",
     "lexicons/ai/generalbusiness/atseq/describe.json": "683d87159226a1ef67e09fc6c15e14cffa9cd8d3678a0187402e3a99110968ff",
     "lexicons/ai/generalbusiness/atseq/entry.json": "060fdccbfa4ccaba305fc1574316309868ccca9bce39c7c6e0ad6e2b181f0139",
     "lexicons/ai/generalbusiness/atseq/genesis.json": "eac3ceaac8639f7cd31e0cfe3c0fe40e76a5794885356946df136a0cd684557e",
@@ -677,7 +677,7 @@
     "lexicons/ai/generalbusiness/atseq/submit.json": "72728be30d21a10ddb21d31a901107b44bd6c13a23b584c3d0d568515c8b56cb",
     "lexicons/ai/generalbusiness/atseq/sync.json": "fd825eb2f27978e4a0bedc5feac168a506f660cc398e4e009e1880358d42cf00",
     "lexicons/ai/generalbusiness/atseq/validateDraft.json": "9b79bcf112c285c94ac12c8bafb8d663ad1e22678c6c3a25cecc60a930d874ce",
-    "experiments/protocol-browser/index.html": "68a1a64a6f9589956962d59527606fde619ca18568914ae9926d525e2f393130",
-    "experiments/protocol-browser/main.ts": "b3f8528f7c81a1e0a970c1c0686e8b17e024394ebcc6b7d3d8a6f706be7c443a"
+    "experiments/protocol-browser/index.html": "aa7104c9086cda9e15f5a401306bea4412f3a2e0472e759eb500a2f08a128944",
+    "experiments/protocol-browser/main.ts": "29cc5c6ced0fa9d62545bb71a80ee1014d903fb232f5eedaa17747ffab53db86"
   }
 }

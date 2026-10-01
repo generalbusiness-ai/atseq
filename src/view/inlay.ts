@@ -1,3 +1,4 @@
+import { lexiconDoc } from '@atproto/lexicon';
 import { NSID } from '../core/nsids.ts';
 import { $, deserializeTree, isValidElement, type Element } from '@inlay/core';
 import { render, type Resolver, type RenderContext } from '@inlay/render';
@@ -26,16 +27,32 @@ export interface LocalView {
 export async function resolveView(view: LocalView, props: Record<string, Json>): Promise<ViewNode[]> {
   canonicalJson(view, PROFILE.definitionBytes);
   canonicalJson(props);
+  function object(value: unknown): value is Record<string, any> {
+    return value !== null && typeof value === 'object' && !Array.isArray(value);
+  }
+  if (
+    !object(view) ||
+    typeof view.root !== 'string' ||
+    !Array.isArray(view.imports) ||
+    view.imports.some((did: unknown) => typeof did !== 'string') ||
+    !object(view.records)
+  )
+    throw new InterpretationError('view_source', 'Expected a local root, import list and record map');
   if (Object.keys(view.records).length > PROFILE.definitionFiles)
     throw new InterpretationError('view_limit', 'Too many component records');
   const records = structuredClone(view.records) as Record<string, any>;
   const allowedTypes = new Set<string>([...PRIMITIVES, 'at.inlay.Binding']);
   for (const [uri, record] of Object.entries(records)) {
     const match = /^at:\/\/([^/]+)\/at\.inlay\.component\/([^/]+)$/.exec(uri);
-    if (!match || !view.imports.includes(match[1]!))
+    if (
+      !match ||
+      !view.imports.includes(match[1]!) ||
+      !lexiconDoc.safeParse({ lexicon: 1, id: match[2], defs: {} }).success
+    )
       throw new InterpretationError('view_source', 'Component must be in the retained import set');
     allowedTypes.add(match[2]!);
     if (
+      !object(record) ||
       record.$type !== 'at.inlay.component' ||
       Object.keys(record).some((k) => !['$type', 'body', 'imports'].includes(k))
     )
@@ -48,29 +65,47 @@ export async function resolveView(view: LocalView, props: Record<string, Json>):
         Object.keys(record.body).some((k) => !['$type', 'node'].includes(k)))
     )
       throw new InterpretationError('external_view', 'Only local Inlay templates are admitted');
+    if (
+      record.imports !== undefined &&
+      (!Array.isArray(record.imports) || record.imports.some((did: unknown) => typeof did !== 'string'))
+    )
+      throw new InterpretationError('view_source', 'Component imports must be strings');
     if ((record.imports ?? []).some((did: string) => !view.imports.includes(did)))
       throw new InterpretationError('view_source', 'Import is outside retained content');
   }
-  function inspect(value: any): void {
+  function available(type: string, imports: string[]): boolean {
+    return (
+      type === 'at.inlay.Binding' ||
+      imports.some((did) => Object.hasOwn(records, `at://${did}/at.inlay.component/${type}`))
+    );
+  }
+  if (!allowedTypes.has(view.root) || !available(view.root, view.imports))
+    throw new InterpretationError('view_source', 'Root is outside retained imports');
+  function inspect(value: any, imports: string[]): void {
     if (!value || typeof value !== 'object') return;
     if (Array.isArray(value)) {
-      value.forEach(inspect);
+      value.forEach((child) => inspect(child, imports));
       return;
     }
     if (value.$ === '$') {
-      if (!allowedTypes.has(value.type))
+      if (typeof value.type !== 'string' || !object(value.props))
+        throw new InterpretationError('view_source', 'Element requires a type and props object');
+      if (!allowedTypes.has(value.type) || !available(value.type, imports))
         throw new InterpretationError('unknown_component', `Unavailable component ${value.type}`);
       if (Object.keys(value).some((k) => !['$', 'type', 'props', 'key'].includes(k)))
         throw new InterpretationError('view_source', 'Invalid element member');
       if (
         value.type === 'at.inlay.Binding' &&
-        (!Array.isArray(value.props?.path) || value.props.path.some((k: unknown) => typeof k !== 'string'))
+        (!Array.isArray(value.props?.path) ||
+          !value.props.path.length ||
+          !['props', 'record'].includes(value.props.path[0]) ||
+          value.props.path.some((k: unknown) => typeof k !== 'string'))
       )
         throw new InterpretationError('view_source', 'Invalid binding path');
     }
-    Object.values(value).forEach(inspect);
+    Object.values(value).forEach((child) => inspect(child, imports));
   }
-  Object.values(records).forEach(inspect);
+  for (const record of Object.values(records)) inspect(record, record.imports ?? []);
   const resolver: Resolver = {
     async fetchRecord(uri) {
       return records[uri] ?? null;

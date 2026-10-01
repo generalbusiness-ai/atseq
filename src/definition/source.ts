@@ -1,10 +1,18 @@
 import { fromUint8Array, writeCarStream } from '@atcute/car';
 import { create, fromString, toString, CODEC_DCBOR, CODEC_RAW } from '@atcute/cid';
-import { decodeBlock, encodeBlock } from '../protocol/wire.ts';
+import { AtseqError } from '../core/errors.ts';
+import { decodeBlock, encodeBlock, isCborInputError } from '../protocol/wire.ts';
 import { InterpretationError, PROFILE } from '../core/profile.ts';
 
 export interface SourceReader {
   get(cid: string): Promise<Uint8Array>;
+}
+export class SourceSizeError extends InterpretationError {
+  readonly bytes: Uint8Array;
+  constructor(bytes: Uint8Array) {
+    super('source_size', 'Source object exceeds the definition bound');
+    this.bytes = new Uint8Array(bytes);
+  }
 }
 export const SOURCE_POOL_BYTES = 16 * 1024 * 1024;
 export async function readSource(reader: SourceReader, cid: string): Promise<Uint8Array> {
@@ -12,10 +20,13 @@ export async function readSource(reader: SourceReader, cid: string): Promise<Uin
   try {
     raw = new Uint8Array(await reader.get(cid));
   } catch (error) {
-    if ((error as any)?.code === 'source_size') throw error;
-    if (['content', 'content_corrupt'].includes((error as any)?.code))
+    if (error instanceof SourceSizeError) raw = new Uint8Array(error.bytes);
+    else if (['content', 'content_corrupt'].includes((error as any)?.code))
       throw new InterpretationError('content_corrupt', `Source reader reported corruption: ${cid}`);
-    throw new InterpretationError('content_missing', `Required source is unavailable: ${cid}`);
+    else {
+      if (error instanceof InterpretationError && error.kind === 'runtime_fault') throw error;
+      throw new InterpretationError('content_missing', `Required source is unavailable: ${cid}`);
+    }
   }
   try {
     const parsed = fromString(cid);
@@ -51,22 +62,30 @@ export class SourceBundle implements SourceReader {
       throw new InterpretationError('definition_size', `Source CAR exceeds its ${limit}-byte bound including framing`);
     try {
       const car = fromUint8Array(new Uint8Array(carBytes));
-      if (car.roots.length !== 1) throw new Error('Expected one definition root');
+      if (car.roots.length !== 1) throw new InterpretationError('source_car', 'Expected one definition root');
       const root = car.roots[0]!.$link;
       const blocks = new Map<string, Uint8Array>();
       for (const block of car) {
         const cid = toString(block.cid);
         if (blocks.has(cid) || blocks.size >= PROFILE.definitionFiles)
-          throw new Error('Duplicate or excessive source blocks');
+          throw new InterpretationError('source_car', 'Duplicate or excessive source blocks');
         blocks.set(cid, new Uint8Array(block.bytes));
       }
       const bundle = new SourceBundle(root, blocks);
       for (const cid of blocks.keys()) await readSource(bundle, cid);
-      if (!blocks.has(root)) throw new Error('Missing root');
+      if (!blocks.has(root)) throw new InterpretationError('source_car', 'Missing root');
       return bundle;
     } catch (error) {
-      if (error instanceof InterpretationError) throw error;
-      throw new InterpretationError('source_car', String((error as Error).message));
+      if (error instanceof AtseqError) throw error;
+      const carInput =
+        error instanceof Error &&
+        ((error.constructor === RangeError &&
+          /^(invalid car (block|header); length=\d+|unexpected end of data|incorrect cid digest type \(got 0x[0-9a-f]+\))$/.test(
+            error.message,
+          )) ||
+          (error.constructor === TypeError && error.message === 'expected a car v1 archive'));
+      if (!carInput && !isCborInputError(error)) throw error;
+      throw new InterpretationError('source_car', (error as Error).message);
     }
   }
   static async collect(root: string, ids: string[], reader: SourceReader): Promise<SourceBundle> {

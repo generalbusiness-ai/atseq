@@ -930,5 +930,11 @@
   },
   "buildTools": {
     "vite": "8.2.2"
+  },
+  "imports": {
+    "#atseq-integrity": {
+      "node": "./src/integrity/node.ts",
+      "default": "./src/integrity/browser.ts"
+    }
   }
 }
