@@ -1,0 +1,104 @@
+{
+  "node": "v26.10.0",
+  "tombstones": [
+    {
+      "name": "tombstone-churn",
+      "current": 302,
+      "bytes": 31,
+      "rows": 0,
+      "deletionMarkers": 0,
+      "generations": 2,
+      "pins": 0
+    },
+    {
+      "name": "tombstone-small-quota",
+      "current": 152,
+      "bytes": 31,
+      "rows": 0,
+      "deletionMarkers": 0,
+      "generations": 2,
+      "pins": 0
+    },
+    {
+      "name": "tombstone-repeated-delete",
+      "current": 53,
+      "bytes": 31,
+      "rows": 0,
+      "deletionMarkers": 0,
+      "generations": 2,
+      "pins": 0
+    },
+    {
+      "name": "tombstone-pinned-value",
+      "current": 17,
+      "bytes": 31,
+      "rows": 0,
+      "deletionMarkers": 0,
+      "generations": 2,
+      "pins": 0
+    }
+  ],
+  "quota": {
+    "attemptedBytes": 4194304,
+    "maxPages": 8,
+    "observed": {
+      "code": "quota",
+      "causeCode": "ERR_SQLITE_ERROR",
+      "causeErrcode": 13
+    },
+    "generation": 1
+  },
+  "incremental": {
+    "historyRows": 500,
+    "precedingChangedKeys": 1,
+    "actualRetirementKeys": 1,
+    "storedVersions": 501,
+    "sqlPlan": [
+      {
+        "id": 3,
+        "parent": 0,
+        "notused": 61,
+        "detail": "SEARCH local_rows USING INDEX local_rows_generation (generation=?)"
+      }
+    ],
+    "logicalUsage": {
+      "bytes": 137794,
+      "rows": 501
+    }
+  },
+  "cases": [
+    "owned inputs and reads",
+    "owned bounded pages",
+    "exact generation and deletion visibility",
+    "CAS conflict preserves generation",
+    "invalid caller inputs",
+    "durable reopen",
+    "scope isolation",
+    "bounded predecessor GC preserves baseline rows",
+    "pin and generation quota abort coherent transaction",
+    "pins survive reopen",
+    "pin release permits retirement",
+    "byte and row quotas roll back pointer and rows",
+    "two connections serialize compare and commit",
+    "nonadjacent pinned generations preserve exact updates and tombstones through retirement",
+    "150 distinct-key insert/delete cycles reclaim tombstones and survive reopen",
+    "two-row 80-byte quota permits repeated churn while genuine quota failures remain atomic",
+    "repeated deletions of absent and formerly live keys do not consume retained row quota",
+    "pinned older live value retains necessary deletion markers until release and re-addition",
+    "page byte budget separates continuation from a single oversized row",
+    "closed store rejects subsequent operations",
+    "invalid limits are caller errors",
+    "actual SQLite COMMIT failure preserves original error and rolls back all changes",
+    "actual SQLite FULL engine failure preserves prior generation and typed quota cause",
+    "SIGKILL before real SQLite COMMIT restores coherent old generation",
+    "SIGKILL after real SQLite COMMIT restores coherent new generation",
+    "500-row history one-key retirement uses generation index and exact incremental accounting"
+  ],
+  "sources": {
+    "src/core/local-generations.ts": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a",
+    "src/host/local-generations.ts": "82e251d0a99c799495c15db332fa37d78f6c021b378956630b2dcea61825ef6f",
+    "tests/support/local-generations-corpus.ts": "afdfe3536dd18dd58395a188f93b78a6dcabe5c105e9b58d7afb63c7ceb73a6c",
+    "tests/support/local-generation-crash.ts": "b820ecc763cea184cf913798d5342a039c487c62bb201d5d61de7808b3cfd78e",
+    "tests/local-generations.test.ts": "2594aa0ca2e146e54779313cc810f51579823040161e7d24166a7f611db2e53f"
+  }
+}

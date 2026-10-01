@@ -1,0 +1,16 @@
+{"node":"v26.10.0","attemptedGeneration":100,"current":99,"error":{"name":"LocalStorageError","code":"quota","message":"Local retained storage quota exceeded"},"usage":{"bytes":972,"rows":50},"physical":{"rows":50,"deletionMarkers":49},"currentVisibleRows":1}
+/Users/hughpyle/play/atseq-worktrees/local-generation-tombstones/src/host/local-generations.ts:153
+      throw new LocalStorageError('quota', 'Local retained storage quota exceeded');
+            ^
+
+LocalStorageError: Local retained storage quota exceeded
+    at quota (/Users/hughpyle/play/atseq-worktrees/local-generation-tombstones/src/host/local-generations.ts:153:13)
+    at <anonymous> (/Users/hughpyle/play/atseq-worktrees/local-generation-tombstones/src/host/local-generations.ts:223:9)
+    at transaction (/Users/hughpyle/play/atseq-worktrees/local-generation-tombstones/src/host/local-generations.ts:86:22)
+    at Object.commit (/Users/hughpyle/play/atseq-worktrees/local-generation-tombstones/src/host/local-generations.ts:208:14)
+    at <anonymous> (/Users/hughpyle/play/atseq-worktrees/local-generation-tombstones/experiments/post-spike-evidence/2026-10-01/local-generation-tombstones/red-probe.mjs:17:22) {
+  code: 'quota',
+  [cause]: undefined
+}
+
+Node.js v26.10.0

@@ -1,0 +1,322 @@
+{
+  "format": "atseq-local-generation-tombstone-evidence",
+  "version": 1,
+  "date": "2026-10-01",
+  "retainedAt": "2026-10-01T22:34:50.619701+00:00",
+  "request": "0a53491d00dfa61facfcff6923498feee357c568",
+  "promise": "92a2d479167aa6975a3f85adb0f6be7911b13324",
+  "assessment": "564e50463fabbafec6885819a21a7472f8fa3d9c",
+  "finding": "L1",
+  "basis": "ff4a30c48a0b59e5e082339f1f669cac6d3c35ec",
+  "approvedIdentityBasis": "3a40d2c5e230cd7698f9cd4b9e8e9729054be33e",
+  "testedSource": "c31213cc9f9bf0ee041f19e54bba652654caa49c",
+  "sourceSha256": {
+    "src/core/local-generations.ts": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a",
+    "src/host/local-generations.ts": "82e251d0a99c799495c15db332fa37d78f6c021b378956630b2dcea61825ef6f",
+    "src/browser/local-generations.ts": "5fcc3ba0ab63b5056fb443da37e4ef58eb34c0eefbaff52de4e62db83c6f6eed",
+    "tests/local-generations.test.ts": "2594aa0ca2e146e54779313cc810f51579823040161e7d24166a7f611db2e53f",
+    "tests/local-generations-browser.test.ts": "ad0ff5131fd4e5abc92ae3c5c430b4771f7d085a44beb9373ff7e507625c79e2",
+    "tests/support/local-generations-corpus.ts": "afdfe3536dd18dd58395a188f93b78a6dcabe5c105e9b58d7afb63c7ceb73a6c",
+    "tests/support/local-generation-crash.ts": "b820ecc763cea184cf913798d5342a039c487c62bb201d5d61de7808b3cfd78e",
+    "tests/support/local-generations-browser.ts": "4b0f2046426c466a66344eb95a1bd20ebfe5af3f8dbf219d5e34013c46895d6e"
+  },
+  "unchangedApprovedInputSha256": {
+    "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "src/core/dependency-peers.ts": "6b308d8fdca98081f6f40248789871046f08a55d2af5b61591508b75109f9d92",
+    "src/core/dependencies.ts": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4",
+    "tests/support/pds/package.json": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd"
+  },
+  "runtimePaths": 147,
+  "report": "notes/2026-10-01-atseq-local-generation-tombstone-results.md",
+  "reportSha256": "94d6a1cce16d5c3debb8ff30ebf87c719f6e5720c97590fd46906e4771083eed",
+  "results": {
+    "node": "v26.10.0",
+    "sqliteCases": 26,
+    "browser": "153.0.8010.12",
+    "indexedDbCases": 24,
+    "sqliteTombstones": [
+      {
+        "name": "tombstone-churn",
+        "current": 302,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0
+      },
+      {
+        "name": "tombstone-small-quota",
+        "current": 152,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0
+      },
+      {
+        "name": "tombstone-repeated-delete",
+        "current": 53,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0
+      },
+      {
+        "name": "tombstone-pinned-value",
+        "current": 17,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0
+      }
+    ],
+    "indexedDbTombstones": [
+      {
+        "name": "tombstone-churn",
+        "current": 302,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0,
+        "values": 0
+      },
+      {
+        "name": "tombstone-small-quota",
+        "current": 152,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0,
+        "values": 0
+      },
+      {
+        "name": "tombstone-repeated-delete",
+        "current": 53,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0,
+        "values": 0
+      },
+      {
+        "name": "tombstone-pinned-value",
+        "current": 17,
+        "bytes": 31,
+        "rows": 0,
+        "deletionMarkers": 0,
+        "generations": 2,
+        "pins": 0,
+        "values": 0
+      }
+    ],
+    "red": {
+      "attemptedGeneration": 100,
+      "current": 99,
+      "rows": 50,
+      "deletionMarkers": 49,
+      "currentVisibleRows": 1
+    },
+    "greenOriginalProbe": {
+      "completedCycles": 150,
+      "current": 302,
+      "rows": 0,
+      "logicalBytes": 31,
+      "rawSqlDeletionMarkerSum": null
+    }
+  },
+  "commands": [
+    {
+      "command": "node --import tsx --test tests/local-generations.test.ts",
+      "exitCode": 0,
+      "log": "focused-node26.log"
+    },
+    {
+      "command": "node --import tsx --test tests/local-generations-browser.test.ts",
+      "exitCode": 1,
+      "log": "focused-chromium.log",
+      "reason": "Managed sandbox blocked localhost listen EPERM; no browser assertions ran."
+    },
+    {
+      "command": "node --import tsx --test tests/local-generations-browser.test.ts",
+      "exitCode": 0,
+      "log": "focused-chromium-unrestricted.log",
+      "environment": "Approved unrestricted localhost browser execution."
+    },
+    {
+      "command": "node --import tsx experiments/post-spike-evidence/2026-10-01/local-generation-tombstones/red-probe.mjs",
+      "exitCode": 0,
+      "log": "green-probe.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "build.log"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 1,
+      "log": "check.log",
+      "reason": "Missing disposable PDS fixture @atproto/crypto type import."
+    },
+    {
+      "command": "npm ci --prefix tests/support/pds --ignore-scripts",
+      "exitCode": 0,
+      "log": "pds-fixture-install.log",
+      "scope": "Unchanged disposable test-only fixture; no native addon build or PDS execution."
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "log": "check-with-pds-fixture.log"
+    }
+  ],
+  "priorEvidenceVerified": [
+    {
+      "manifest": "experiments/post-spike-evidence/2026-10-01/local-generations/558f3961/manifest.json",
+      "manifestSha256": "dba9968347ddd875a7e715a71bfe6cb892acbffafc23dbb9fbe51878bec22dcd",
+      "verifiedCaptures": {
+        "build.log": {
+          "bytes": 494,
+          "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+        },
+        "check.log": {
+          "bytes": 689,
+          "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+        },
+        "chromium-ordinary-suite.json": {
+          "bytes": 3073,
+          "sha256": "f8b4c36c370d7caab196ffc7d567b9988212722e34d3477ed23d0f5d2d91b54c"
+        },
+        "chromium.json": {
+          "bytes": 3073,
+          "sha256": "161509668ac3eadca36cb2252ccc5e74104e245571816a52b0f84e0d1c211b17"
+        },
+        "focused-node22.13.log": {
+          "bytes": 816,
+          "sha256": "2c50c97ea81c4db77c3a4e81aa93993d1b5635854b13aea0b5d25cea1a1d22a4"
+        },
+        "focused-node22.19-chromium.log": {
+          "bytes": 1933,
+          "sha256": "2ada53d1963859fa16694484aff91c22172d856553178ccb5736b70ef6921cde"
+        },
+        "focused-node24.21.log": {
+          "bytes": 518,
+          "sha256": "413ca8844c75c4a2493828658423b19d10f863ab6786c5ea9d6c67a249dca6d0"
+        },
+        "focused-node26.10-chromium.log": {
+          "bytes": 1479,
+          "sha256": "06e94d49509be165081867c202ff63d69ad0ec07f593acdd9b15d994cdb9e8b0"
+        },
+        "focused-node26.10.log": {
+          "bytes": 518,
+          "sha256": "5a8b6c7878f9d3f8b85a03228aacda138bf5e9a4b4d3666d72e005940c0b0dd8"
+        },
+        "node-v22.13.0.json": {
+          "bytes": 2390,
+          "sha256": "1348f6f72c98121b0ae36a5be81ec9c7181f96d10cb426fe3c9eb0dc14ce3aae"
+        },
+        "node-v22.19.0.json": {
+          "bytes": 2390,
+          "sha256": "3a7219f6454e8cc2ef54eaca3e5f5b739fca452f429c538e62923b28778ba7af"
+        },
+        "node-v24.21.0.json": {
+          "bytes": 2390,
+          "sha256": "7362efc7741cc98fb449d6588892af254a1190893a1f011ae3ffc68956b6033e"
+        },
+        "node-v26.10.0-ordinary-suite.json": {
+          "bytes": 2390,
+          "sha256": "b965275f11f2404f941485f93431426a00876c31a6cd2dcf53b5bf633c6bb0d5"
+        },
+        "node-v26.10.0.json": {
+          "bytes": 2390,
+          "sha256": "b965275f11f2404f941485f93431426a00876c31a6cd2dcf53b5bf633c6bb0d5"
+        },
+        "ordinary-suite.log": {
+          "bytes": 70817,
+          "sha256": "cc42e9fea12634a6a98fd77348a61a10f205c6e4c16a8274959b034713331d52"
+        },
+        "pre-correction-quota-observations.json": {
+          "bytes": 708,
+          "sha256": "8745257f4d73d6c1d76aa2c641e5aa86069fc044be04fa341f4279f3cfeb90b5"
+        }
+      }
+    },
+    {
+      "manifest": "experiments/post-spike-evidence/2026-10-01/local-generations-integration/manifest.json",
+      "manifestSha256": "8a871838bf995b9ac2947f1bb9786cbc0a38cbe68c31aa037bdf7705b4418650",
+      "verifiedCaptures": {
+        "setup-build.log": {
+          "bytes": 2444,
+          "sha256": "4fb55b09f77a233a8e965e9fa052dd371a5aed5cdd3b1361ff5f4ce504992320"
+        },
+        "check.log": {
+          "bytes": 689,
+          "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+        },
+        "focused-node26.log": {
+          "bytes": 516,
+          "sha256": "f27f73cb712fe690b519fe5fd1873511a0bce253e3987a2ca390c2f1c9eca1c9"
+        }
+      }
+    }
+  ],
+  "artifacts": {
+    "build.log": {
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    "check-with-pds-fixture.log": {
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "check.log": {
+      "bytes": 290,
+      "sha256": "6459dff389eab994a0970929a6f8e3926c4028107faf893a72b2d58208a9cb09"
+    },
+    "chromium.json": {
+      "bytes": 4331,
+      "sha256": "eea8635b790dfd9d6a73b6229dbfd51824b85bcfa5bf1c38aad337079acb90d2"
+    },
+    "focused-chromium-unrestricted.log": {
+      "bytes": 1587,
+      "sha256": "d0239d3002ce6264bb72b20e5d805b115a4520dc75c09ba6efa534c3b1eac18c"
+    },
+    "focused-chromium.log": {
+      "bytes": 758,
+      "sha256": "ae59f215d3f82d51dfc93c16f7b0aa56455188b54ee495fec5c23cdf2fbec135"
+    },
+    "focused-node26.log": {
+      "bytes": 979,
+      "sha256": "c794cc37f2f084a290512a4046b21e27d5a1365603d2bca79df5753c5596e76e"
+    },
+    "green-probe.log": {
+      "bytes": 131,
+      "sha256": "271748ae5aecc1db39dfb550eec0902efcadad2a016600dc4519ac162c41fd6d"
+    },
+    "node-v26.10.0.json": {
+      "bytes": 3488,
+      "sha256": "3e898b0842d0f6c1590653ed1e1b419ff637a023cbd78c5177c988551c51840f"
+    },
+    "pds-fixture-install.log": {
+      "bytes": 612,
+      "sha256": "efe08c80254fe71f4f9685fa7c064163b1829c4dc431d3dfbf9ba0ab7f8b1dbb"
+    },
+    "red-probe.log": {
+      "bytes": 1239,
+      "sha256": "8f61d56c611f7966480f9c1d597b2108ff573df30be035b611879c1708bfe624"
+    },
+    "red-probe.mjs": {
+      "bytes": 1887,
+      "sha256": "204e032fd8dfb4ada85e67f645b9a0b59bc96d68d4eee18d91f4847191b40be2"
+    }
+  },
+  "scope": "Focused opaque-storage correctness revision only; no full-suite, Node22/24 rerun, native wire integration, timing, trusted restore, provider, power-loss or full P3 completion claim."
+}

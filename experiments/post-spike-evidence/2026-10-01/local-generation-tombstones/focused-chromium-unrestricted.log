@@ -1,0 +1,10 @@
+{"cases":24,"metrics":{"tombstones":[{"name":"tombstone-churn","current":302,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0,"values":0},{"name":"tombstone-small-quota","current":152,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0,"values":0},{"name":"tombstone-repeated-delete","current":53,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0,"values":0},{"name":"tombstone-pinned-value","current":17,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0,"values":0}],"commit":{"cursorContinuations":4,"payloadReads":0,"payloadAdds":1},"page":{"cursorContinuations":12,"payloadReads":10,"payloadAdds":0},"pinRelease":{"cursorContinuations":1004,"payloadReads":0,"payloadAdds":0},"storage":{"historyRows":500,"storedVersions":501,"logicalBytes":137794}},"quota":{"case":"actual Chromium quota abort preserves generation","generation":1,"attemptedBytes":4194304,"observed":{"code":"quota","causeName":"QuotaExceededError","causeMessage":""},"override":{"usage":0,"quota":1048576,"overrideActive":true,"usageBreakdown":[{"storageType":"file_systems","usage":0},{"storageType":"indexeddb","usage":0},{"storageType":"cache_storage","usage":0},{"storageType":"service_workers","usage":0}]}},"crashes":[{"phase":"before","generation":1,"observedRequests":156},{"phase":"after","generation":2,"observedRequests":0}]}
+✔ real Chromium IndexedDB shares storage corpus, physical quota and renderer crashes (3259.864834ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4347.938916

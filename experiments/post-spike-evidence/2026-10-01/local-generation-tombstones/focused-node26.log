@@ -1,0 +1,10 @@
+{"node":"v26.10.0","cases":26,"incremental":{"historyRows":500,"precedingChangedKeys":1,"actualRetirementKeys":1,"storedVersions":501,"sqlPlan":[{"id":3,"parent":0,"notused":61,"detail":"SEARCH local_rows USING INDEX local_rows_generation (generation=?)"}],"logicalUsage":{"bytes":137794,"rows":501}},"tombstones":[{"name":"tombstone-churn","current":302,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0},{"name":"tombstone-small-quota","current":152,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0},{"name":"tombstone-repeated-delete","current":53,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0},{"name":"tombstone-pinned-value","current":17,"bytes":31,"rows":0,"deletionMarkers":0,"generations":2,"pins":0}]}
+✔ real SQLite generations, coherent abort/crash recovery and incremental retirement (746.332417ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1077.636791

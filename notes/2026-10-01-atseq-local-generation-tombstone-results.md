@@ -1,0 +1,24 @@
+# Local generation deletion marker review fix
+
+Date: 2026-10-01. Status: P3-F1 revision awaiting independent review. Full P3 remains open.
+
+Workroom request: `0a53491d00dfa61facfcff6923498feee357c568`. Promise: `92a2d479167aa6975a3f85adb0f6be7911b13324`. This revision addresses finding L1 in the ratified independent assessment `564e50463fabbafec6885819a21a7472f8fa3d9c`.
+
+The original adapters kept deletion markers after every generation that could see an older live value had retired. Repeatedly inserting and deleting different keys therefore consumed the retained row quota even when current reads were empty. The retained red probe reached current generation 99 and refused attempted generation 100 under a 50-row limit: 50 physical row versions remained, including 49 deletion markers. One live row was visible in generation 99. These are separate attempted and committed generation numbers.
+
+Both collectors now compute which versions retained generations can see, then scan the versions in ascending order. A visible deletion marker is kept only after a visible live value has been kept. Leading markers represent the same absence as no stored version, so they can be removed together with invisible older versions. A marker following an older pinned live value remains necessary: that pin still reads the value while newer generations read its deletion. Removal and byte/row accounting remain inside the original atomic commit or pin-release transaction. Ordinary retirement still uses the previous generation's changed-key index; pin release still scans row metadata without loading old payloads. The fix adds no full-history scan to ordinary commits.
+
+Source `c31213cc9f9bf0ee041f19e54bba652654caa49c` contains the two collector changes and four shared regression cases, with backend inspection assertions. It rests on the previously reviewed P3-F1 integration candidate `ff4a30c48a0b59e5e082339f1f669cac6d3c35ec`, whose approved identity basis is `3a40d2c5e230cd7698f9cd4b9e8e9729054be33e`. Packages, locks, dependency approvals, the raw storage API and other runtime source remain unchanged. The newer, separate native wire addition is outside this tested basis; this report makes no integration claim about it.
+
+Fresh Node 26.10 SQLite and real Chromium 153 checks passed all 26 and 24 cases respectively. The shared regressions cover:
+
+- 150 distinct-key insert/delete cycles under the original 50-row limit, followed by reopen.
+- 75 cycles under a two-row, 80-byte limit, with a genuine quota failure leaving the current generation and rows unchanged.
+- Repeated deletion of absent and formerly live keys under the same small quota.
+- An older pinned live value through repeated deletion, reopen, pin release, re-addition and final retirement.
+
+Both backends finish all four stores with zero physical rows and deletion markers, two retained generation records, no pins, and exactly 31 logical bytes. IndexedDB also has zero payload records. The unchanged original probe now completes 150 cycles and reaches generation 302 with zero rows; its raw SQL `sum` reports `null` for markers over an empty table. The focused assertions use a zero-normalized count. The existing real quota, transaction abort, crash recovery, copied-byte, CAS and nonadjacent-pin checks also passed. The 500-row fixture still visits one SQLite retirement key; Chromium still performs four metadata cursor continuations and no old payload reads for the ordinary one-key commit. Pin release remains a disclosed full metadata pass.
+
+Build and `npm run check` passed against the unchanged approved 147-path runtime closure. The first Chromium attempt was blocked by the managed sandbox's localhost `listen EPERM`; the unrestricted rerun passed. The first check found the disposable PDS fixture dependencies absent in this checkout. Installing that unchanged fixture with `npm ci --prefix tests/support/pds --ignore-scripts` allowed the required type check to pass. Its native addon and PDS startup were not tested. Both failed attempts are retained alongside the successful captures.
+
+The [manifest and raw evidence](../experiments/post-spike-evidence/2026-10-01/local-generation-tombstones/manifest.json) pin the exact source and captures. All 16 original and three integration captures were verified unchanged. The prior [results](2026-10-01-atseq-local-generations-results.md) and [integration report](2026-10-01-atseq-local-generations-integration-results.md) remain historical evidence; Node 22/24 checks were not rerun on the changed collectors. No full-suite, performance timing, power-loss, provider, trusted-restore or full P3 completion claim is made. These adapters still store opaque local bytes. Acceptance of authority and checkpoint indexes remains the responsibility of the separately reviewed consumer.
