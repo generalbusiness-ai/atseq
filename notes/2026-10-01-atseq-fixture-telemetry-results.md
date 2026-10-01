@@ -2,6 +2,7 @@
 date: 2026-10-01
 status: implemented and tested; exact-head independent review pending
 examined_at: cb3fd8472ccec1208b72e8adc81884ccfb1860d4
+delivery_base: 853f671bd0acafe4619ad486b17967f602c9fc3f
 request: b5106f06
 ---
 
@@ -50,7 +51,9 @@ temporarily mutating the environment of unrelated concurrent tests.
 
 The fixture imports `@atproto/crypto` and the `@did-plc/server` library entry in
 the runner, then `@atproto/pds` in the child. The installed fixture remains pinned
-to PDS 0.5.31, crypto 0.5.4 and PLC server 0.0.1. No lockfile was changed.
+to PDS 0.5.31, crypto 0.5.4 and PLC server 0.0.1. MF2 changes no lockfile.
+The final delivery incorporates the separately reviewed MF1 dependency patches
+from main `853f671b` and was retested against their refreshed fixture lock.
 
 Inspection of PLC's distributed library and database bundles and its bundled
 PLC library found no OpenTelemetry/Jaeger SDK import or telemetry startup call.
@@ -100,28 +103,42 @@ idle service. The contaminated probe runner:
    helper emits only the forced disable flag from those variable families.
 
 The 29 operations above succeeded; collectors observed **0 HTTP requests and
-0 UDP datagrams** after their positive controls. Focused tests passed,
-including after formatting. Node was 26.10.0. The fixture lock SHA-256 was
-`227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41`.
-The generated public result, with timestamp and source/lock hashes, is
-`experiments/generated/pds-telemetry-results.json`; a new run replaces that
-generated file. Retain its exact bytes with the delivery's workroom evidence.
-The final capture SHA-256 is
-`60746382a40f1d5265b0e42b63140d8e8c758c8beaa3f3ba8458d4f59967936c`.
-It contains no account credentials, tokens, environment values or collector
-payloads. Historical evidence was not rewritten.
+0 UDP datagrams** after their positive controls under both locks. Node was
+26.10.0. The original result was copied byte-for-byte to a dated evidence path
+before rebasing or rerunning; the refreshed result is separately retained.
 
-`npm run build` and `npm run check` passed. `npm test` passed **354/354 tests**,
-including PDS persistence/recovery, the new regression, browser flows and
-Node/Chromium agreement. The fixture/root
-package manifests and lockfiles are unchanged. No production runtime source,
-wire contract, deployed service or public account was changed.
+| Capture | Fixture lock SHA-256 | Raw result SHA-256 |
+| --- | --- | --- |
+| Original MF2, 14:45:14 UTC | `227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41` | `60746382a40f1d5265b0e42b63140d8e8c758c8beaa3f3ba8458d4f59967936c` |
+| Refreshed MF1 lock, 14:56:58 UTC | `762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd` | `72a92e57ba617b139a13bbfd4b0e851bb15592ac2646322bc1a7dcd767669bda` |
+
+The exact public results, including source hashes, are
+[original](../experiments/post-spike-evidence/2026-10-01/pds-telemetry-original-results.json)
+and [refreshed](../experiments/post-spike-evidence/2026-10-01/pds-telemetry-refreshed-results.json).
+Each records 29 successful operations, 12 records, verified restart, unchanged
+runner environment, successful HTTP/UDP collector controls and zero telemetry.
+They contain no account credentials, tokens, environment values or collector
+payloads. Historical evidence was not rewritten. Future test runs continue to
+write only the replaceable `experiments/generated/pds-telemetry-results.json`.
+
+Original MF2 passed `npm run build`, `npm run check` and **354/354 `npm test`
+tests**, including PDS persistence/recovery, the new regression, browser flows
+and Node/Chromium agreement. After rebasing onto `853f671b`, clean
+`npm ci --prefix tests/support/pds` installed the refreshed graph; both focused
+telemetry tests and the required `npm run check` passed. All six inspected startup
+file hashes above remain unchanged. The targeted rerun exposed no concern, so
+the full suite was not repeated under the combined head; MF1's own full-suite
+results are in its [patch report](2026-10-01-atseq-pds-patch-results.md).
+
+MF2 changes neither package manifest nor root/fixture lockfile relative to its
+reviewed MF1 base. No production runtime source, wire contract, deployed service
+or public account was changed.
 
 ## Recommendations and limits
 
-Keep this small configuration boundary and the existing PLC lifecycle. Run MF1's
-fixture dependency refresh separately and rerun this regression under its new
-lock hash. Reassess the parent import path if a future PLC release introduces
+Keep this small configuration boundary and the existing PLC lifecycle. The MF1
+refresh is now incorporated and this regression passes under its new lock hash.
+Reassess the parent import path if a future PLC release introduces
 SDK startup. A subprocess would then be a concrete option rather than speculative
 infrastructure now.
 
