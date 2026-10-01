@@ -1,7 +1,7 @@
 import { evaluate, fold } from '../src/runtime/evaluator.ts';
-import { canonicalJson } from '../src/runtime/values.ts';
+import { canonicalJson } from '../src/core/values.ts';
 import { Schemas } from '../src/definition/schemas.ts';
-import { resolveView, type LocalView } from '../src/ui/inlay.ts';
+import { resolveView, type LocalView } from '../src/view/inlay.ts';
 import { offersSchemas, totalsSchemas } from './fixtures.ts';
 
 // These fixtures pin observable behavior of the profile and the selected engine.
@@ -18,13 +18,13 @@ function equal(actual: unknown, expected: unknown) {
 }
 function templateView(bodies: unknown[]): LocalView {
   const did = 'did:plc:localdemo';
-  return { root: 'test.atseq.component0', imports: [did], records: Object.fromEntries(bodies.map((node, i) => [
-    `at://${did}/at.inlay.component/test.atseq.component${i}`,
+  return { root: 'ai.generalbusiness.atseq.component0', imports: [did], records: Object.fromEntries(bodies.map((node, i) => [
+    `at://${did}/at.inlay.component/ai.generalbusiness.atseq.component${i}`,
     { $type: 'at.inlay.component', imports: [did], body: { $type: 'at.inlay.component#bodyTemplate', node } },
   ])) };
 }
 function chainView(length: number) {
-  return templateView(Array.from({ length }, (_, i) => i === length - 1 ? 'done' : { $: '$', type: `test.atseq.component${i + 1}`, props: {} }));
+  return templateView(Array.from({ length }, (_, i) => i === length - 1 ? 'done' : { $: '$', type: `ai.generalbusiness.atseq.component${i + 1}`, props: {} }));
 }
 export const boundaryCases: [string, () => unknown][] = [
   ['engine evaluation nesting exact boundary', async () => {
@@ -87,10 +87,10 @@ export const boundaryCases: [string, () => unknown][] = [
     return rejects(() => new Schemas(docs), 'unsupported_schema');
   }],
   ['inherited type names are ordinary unsupported schemas', async () => {
-    for (const type of ['constructor', '__proto__']) await rejects(() => new Schemas([{ lexicon: 1, id: 'test.atseq.example', defs: { main: { type } } }]), 'unsupported_schema');
+    for (const type of ['constructor', '__proto__']) await rejects(() => new Schemas([{ lexicon: 1, id: 'ai.generalbusiness.atseq.example', defs: { main: { type } } }]), 'unsupported_schema');
   }],
   ['native grapheme constraints rejected at admission', async () => {
-    for (const constraint of ['minGraphemes', 'maxGraphemes']) await rejects(() => new Schemas([{ lexicon: 1, id: 'test.atseq.example', defs: { main: { type: 'string', [constraint]: 1 } } }]), 'unsupported_schema');
+    for (const constraint of ['minGraphemes', 'maxGraphemes']) await rejects(() => new Schemas([{ lexicon: 1, id: 'ai.generalbusiness.atseq.example', defs: { main: { type: 'string', [constraint]: 1 } } }]), 'unsupported_schema');
   }],
   ['Inlay source bytes exact boundary', async () => {
     const view = templateView(['']);

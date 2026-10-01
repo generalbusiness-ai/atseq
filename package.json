@@ -8,7 +8,7 @@
     "node": ">=22.13"
   },
   "scripts": {
-    "check": "tsc --noEmit",
+    "check": "tsc --noEmit && npm run format:check && npm run check:layers && npm run check:dependencies",
     "test": "tsx --test tests/*.test.ts",
     "spike:feasibility": "tsx scripts/feasibility.ts",
     "test:protocol": "tsx --test tests/protocol.test.ts",
@@ -21,7 +21,11 @@
     "dev:experiment": "vite experiments/browser --host 127.0.0.1",
     "atseq": "tsx src/cli/main.ts",
     "dev:app": "tsx scripts/serve.ts",
-    "test:archive": "tsx --test tests/archive.test.ts"
+    "test:archive": "tsx --test tests/archive.test.ts",
+    "format": "prettier --write src scripts tests testdata lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
+    "format:check": "prettier --check src scripts tests testdata lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
+    "check:layers": "node scripts/check-layers.mjs",
+    "check:dependencies": "tsx scripts/check-dependencies.ts"
   },
   "dependencies": {
     "@atcute/car": "6.0.2",
@@ -38,6 +42,7 @@
     "@playwright/test": "1.63.0",
     "@types/node": "26.4.1",
     "multiformats": "9.9.0",
+    "prettier": "3.9.9",
     "tsx": "4.23.13",
     "typescript": "7.0.2",
     "vite": "8.2.2"

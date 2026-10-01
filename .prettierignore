@@ -1,0 +1,7 @@
+node_modules/
+experiments/generated/
+experiments/evidence/
+experiments/acceptance-logs/
+experiments/agent-authored*/
+notes/
+tests/vectors/protocol-v0.json

@@ -1,6 +1,6 @@
 import './style.css';
 import { localView, totalsSchemas, totalFold, summaryQuery, baseInput } from '../fixtures.ts';
-import { resolveView, type ViewNode } from '../../src/ui/inlay.ts';
+import { resolveView, type ViewNode } from '../../src/view/inlay.ts';
 import type { FixtureResult } from '../corpus.ts';
 
 const started = performance.now();
@@ -32,7 +32,7 @@ document.querySelector('#definition')!.textContent = JSON.stringify({ schemas: t
 
 function primitive(node: ViewNode): Node {
   if (typeof node === 'string') return document.createTextNode(node);
-  if (node.type === 'test.atseq.ui.Action') {
+  if (node.type === 'ai.generalbusiness.atseq.ui.Action') {
     if (node.props.action !== 'add' || typeof node.props.label !== 'string') throw new Error('Unknown experiment action');
     const form = document.createElement('form');
     const label = document.createElement('label'); label.textContent = 'Amount';
@@ -44,7 +44,7 @@ function primitive(node: ViewNode): Node {
       button.disabled = true; actionStatus.textContent = 'Checking sample action…';
       try {
         probe.submissions++;
-        const result = await call('fold', { source: totalFold, schemas: totalsSchemas, stateSchema: 'test.atseq.totals', actionSchema: 'test.atseq.totals#add', input: { ...input, act: { delta: Number(field.value) } } });
+        const result = await call('fold', { source: totalFold, schemas: totalsSchemas, stateSchema: 'ai.generalbusiness.atseq.totals', actionSchema: 'ai.generalbusiness.atseq.totals#add', input: { ...input, act: { delta: Number(field.value) } } });
         if (result.decision === 'effective') { input.state = result.state; await draw(); actionStatus.textContent = 'Applied to sample data. Nothing was published.'; }
         else actionStatus.textContent = `Not applied: ${result.reason}`;
       } catch (error) { actionStatus.textContent = (error as Error).message; }
@@ -52,8 +52,8 @@ function primitive(node: ViewNode): Node {
     };
     return form;
   }
-  const element = document.createElement(node.type === 'test.atseq.ui.Text' ? 'p' : 'div');
-  if (node.type === 'test.atseq.ui.Text') element.className = 'view-text';
+  const element = document.createElement(node.type === 'ai.generalbusiness.atseq.ui.Text' ? 'p' : 'div');
+  if (node.type === 'ai.generalbusiness.atseq.ui.Text') element.className = 'view-text';
   element.append(...node.children.map(primitive)); return element;
 }
 async function draw(summary?: string) {

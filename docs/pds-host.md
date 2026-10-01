@@ -60,8 +60,8 @@ Retrying the same unsigned content returns its original receipt, including
 when a different valid signature represents that content. Reusing its nonce
 for different content fails.
 
-`startSequencerService` exposes loopback `test.atseq.submit` and
-`test.atseq.receipt`, using the S1 Lexicons for inputs and outputs. It verifies
+`startSequencerService` exposes loopback `ai.generalbusiness.atseq.submit` and
+`ai.generalbusiness.atseq.receipt`, using the S1 Lexicons for inputs and outputs. It verifies
 the app and genesis on receipt queries. S2 always reports `frontier: null` and
 receipt lookup reports a pending outcome: ordering does not establish domain
 effect. Unknown receipts return `Unavailable` with HTTP 404. Service and
@@ -78,7 +78,7 @@ actor and sequencer proofs. PDS transport uses HTTPS except on loopback.
 
 ## Source retention
 
-The authored [`test.atseq.source` Lexicon](../lexicons/test/atseq/source.json)
+The authored [`ai.generalbusiness.atseq.source` Lexicon](../lexicons/ai/generalbusiness/atseq/source.json)
 stores a content CID and an ordinary atproto blob reference. The record key is
 the content CID. Source files use raw CIDs; canonical CBOR objects use their
 CBOR CIDs and are stored as blob bytes. Reads verify the retention record CID,

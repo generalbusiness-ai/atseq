@@ -1,0 +1,17 @@
+{
+  "encoder": "Independent @ipld/dag-cbor and multiformats; no protocol implementation",
+  "profiles": [
+    {
+      "name": "atseq-log-v1",
+      "cid": "bafyreidc6gedvk3znrcdgdxs2pv6gjzny3iuvg3g3ymk3o4avlshf7qsue"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreifvqg2yoiu7bs4v7bugx4mqwowk5pbav47k44flgeuvjl2poyaj7m"
+    },
+    {
+      "name": "atseq-app-v1",
+      "cid": "bafyreiftfh7gsgitptljo2mf7cnicama4xu6yl67ipc6t6a7yanzbs5kcq"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Compatible definition changes
 
-S5 adds one reserved control action, `test.atseq.activate`, to the application
+S5 adds one reserved control action, `ai.generalbusiness.atseq.activate`, to the application
 runtime. Applications still declare ordinary behavior through Lexicon, JSONata
 and Inlay. They cannot bind or override this control action.
 
@@ -73,12 +73,12 @@ reply cannot replace an already verified terminal outcome.
 
 The documented [JSON adapter](interaction.md) additionally supports:
 
-| Operation | Additional input beyond host/app/genesis | Result |
-|---|---|---|
-| `compare` | `expected`, `source` CAR path | Candidate/current interfaces, closure, preserved-state and replay checks |
-| `stage` | `expected`, `source` CAR path | The same comparison after retaining candidate content on the PDS |
-| `activate` | `definition` (expected current CID), `candidate` (new CID), `closure`, `keyFile`, `intentFile` | Signed activation and canonical receipt |
-| `prepare` | Same fields as `submit`, including `action` and `payload` | Persisted signed intent, without submission |
+| Operation  | Additional input beyond host/app/genesis                                                       | Result                                                                   |
+| ---------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `compare`  | `expected`, `source` CAR path                                                                  | Candidate/current interfaces, closure, preserved-state and replay checks |
+| `stage`    | `expected`, `source` CAR path                                                                  | The same comparison after retaining candidate content on the PDS         |
+| `activate` | `definition` (expected current CID), `candidate` (new CID), `closure`, `keyFile`, `intentFile` | Signed activation and canonical receipt                                  |
+| `prepare`  | Same fields as `submit`, including `action` and `payload`                                      | Persisted signed intent, without submission                              |
 
 `activate` is shorthand for `submit` with the reserved action and payload. For
 an activation to be prepared without submission, use `prepare` and that explicit
@@ -95,12 +95,11 @@ claim about which candidate took effect.
 
 ## Runtime version and limits
 
-S5 pins a new complete application runtime contract, `atseq-folder-activation-v0`.
-The immutable S0 engine identity and independent S1 vectors are unchanged. Apps
-created with the S3/S4 application profile still require that older installed
-runtime; loading them into S5 is explicitly refused. This spike does not provide
-transparent runtime upgrades. Compatible activation within an app retains its
-one pinned runtime identity.
+The current `atseq-app-v1` contract includes activation behavior. Genesis and
+all definitions activated within an app retain that pinned profile. Historical
+S3/S4/S5 spike profiles remain separate and require their original interpreter;
+the v1 registry explicitly refuses them. Future runtime changes follow the
+[profile compatibility policy](runtime-profile.md#identity-and-compatibility).
 
 The source pool is bounded to 2,048 blocks / 16 MiB, and a sync returns at most
 32 distinct authorized candidate closures. Initial and candidate CARs together

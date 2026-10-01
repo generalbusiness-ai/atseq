@@ -1,8 +1,8 @@
 import { evaluate, fold } from '../src/runtime/evaluator.ts';
-import { canonicalJson } from '../src/runtime/values.ts';
-import { PROFILE } from '../src/runtime/profile.ts';
+import { canonicalJson } from '../src/core/values.ts';
+import { PROFILE } from '../src/core/profile.ts';
 import { Schemas } from '../src/definition/schemas.ts';
-import { resolveView } from '../src/ui/inlay.ts';
+import { resolveView } from '../src/view/inlay.ts';
 import { totalsSchemas, offersSchemas, totalFold, summaryQuery, baseInput, localView } from './fixtures.ts';
 import { boundaryCases } from './boundaries.ts';
 
@@ -74,16 +74,16 @@ export async function runCorpus(): Promise<FixtureResult[]> {
   await check('null, absent, extras, array order preserved', async () => { const value = { nil: null, extra: { values: [2, 1] } }; equal((await evaluate('$', value)).value, value); });
   await check('prototype and invalid Unicode refused', async () => { await rejects(() => evaluate('$', JSON.parse('{"__proto__":1}')), 'reserved_key'); await rejects(() => evaluate('$', '\ud800'), 'unicode'); });
   const totals = new Schemas(totalsSchemas);
-  await check('runtime-loaded state schema', () => { totals.validate('test.atseq.totals', { total: 3, extra: 'retained' }); });
-  await check('runtime-loaded query contract', () => { totals.queryParams('test.atseq.totals#summary', {}); totals.queryResult('test.atseq.totals#summary', { summary: 'three' }); });
-  await check('domain type validation does not coerce', () => rejects(() => totals.validate('test.atseq.totals', { total: '3' }), 'schema_value'));
-  await check('query output validated', () => rejects(() => totals.queryResult('test.atseq.totals#summary', { summary: 3 }), 'schema_value'));
+  await check('runtime-loaded state schema', () => { totals.validate('ai.generalbusiness.atseq.totals', { total: 3, extra: 'retained' }); });
+  await check('runtime-loaded query contract', () => { totals.queryParams('ai.generalbusiness.atseq.totals#summary', {}); totals.queryResult('ai.generalbusiness.atseq.totals#summary', { summary: 'three' }); });
+  await check('domain type validation does not coerce', () => rejects(() => totals.validate('ai.generalbusiness.atseq.totals', { total: '3' }), 'schema_value'));
+  await check('query output validated', () => rejects(() => totals.queryResult('ai.generalbusiness.atseq.totals#summary', { summary: 3 }), 'schema_value'));
   await check('second bundle: nested refs, arrays and closed union', () => {
     const offers = new Schemas(offersSchemas);
-    offers.validate('test.atseq.offers', { offers: [{ name: 'Sam', note: null, availability: { $type: 'test.atseq.availability#weekend', day: 'Saturday' } }, { name: 'Alex', availability: { $type: 'test.atseq.availability#weekday', hours: [9, 15] } }] });
+    offers.validate('ai.generalbusiness.atseq.offers', { offers: [{ name: 'Sam', note: null, availability: { $type: 'ai.generalbusiness.atseq.availability#weekend', day: 'Saturday' } }, { name: 'Alex', availability: { $type: 'ai.generalbusiness.atseq.availability#weekday', hours: [9, 15] } }] });
   });
-  await check('closed union rejects unknown member', () => rejects(() => new Schemas(offersSchemas).validate('test.atseq.offers', { offers: [{ name: 'Sam', availability: { $type: 'test.atseq.availability#unknown' } }] }), 'schema_value'));
-  await check('optional does not mean nullable', () => rejects(() => totals.validate('test.atseq.totals', { total: null }), 'schema_value'));
+  await check('closed union rejects unknown member', () => rejects(() => new Schemas(offersSchemas).validate('ai.generalbusiness.atseq.offers', { offers: [{ name: 'Sam', availability: { $type: 'ai.generalbusiness.atseq.availability#unknown' } }] }), 'schema_value'));
+  await check('optional does not mean nullable', () => rejects(() => totals.validate('ai.generalbusiness.atseq.totals', { total: null }), 'schema_value'));
   await check('missing ref fails before data use', () => { const docs = structuredClone(offersSchemas); (docs[0] as any).defs.offer.properties.availability.refs.push('test.missing.defs#entry'); return rejects(() => new Schemas(docs), 'invalid_schema'); });
   await check('defaulting rejected at source admission', () => { const docs = structuredClone(totalsSchemas); (docs[0] as any).defs.main.properties.total.default = 0; return rejects(() => new Schemas(docs), 'unsupported_schema'); });
   await check('schema closure bytes exact cap', async () => {
@@ -94,15 +94,15 @@ export async function runCorpus(): Promise<FixtureResult[]> {
     await rejects(() => new Schemas(docs), 'value_bytes');
   });
   await check('schema file count exact cap', async () => {
-    const docs = Array.from({ length: 64 }, (_, i) => ({ lexicon: 1, id: `test.atseq.schema${i}`, defs: { main: { type: 'object', properties: {} } } }));
-    new Schemas(docs); docs.push({ ...docs[0]!, id: 'test.atseq.extra' });
+    const docs = Array.from({ length: 64 }, (_, i) => ({ lexicon: 1, id: `ai.generalbusiness.atseq.schema${i}`, defs: { main: { type: 'object', properties: {} } } }));
+    new Schemas(docs); docs.push({ ...docs[0]!, id: 'ai.generalbusiness.atseq.extra' });
     await rejects(() => new Schemas(docs), 'schema_count');
   });
   await check('Inlay local template and query binding', async () => {
     const nodes = await resolveView(localView(), { summary: 'Total: 5' });
-    equal(nodes, [{ type: 'test.atseq.ui.Panel', props: {}, children: [{ type: 'test.atseq.ui.Text', props: {}, children: ['Total: 5'] }, { type: 'test.atseq.ui.Action', props: { action: 'add', label: 'Record amount' }, children: [] }] }]);
+    equal(nodes, [{ type: 'ai.generalbusiness.atseq.ui.Panel', props: {}, children: [{ type: 'ai.generalbusiness.atseq.ui.Text', props: {}, children: ['Total: 5'] }, { type: 'ai.generalbusiness.atseq.ui.Action', props: { action: 'add', label: 'Record amount' }, children: [] }] }]);
   });
-  await check('Inlay absent component fails explicitly', () => { const view = localView(); delete view.records[`at://${view.imports[0]}/at.inlay.component/test.atseq.ui.Action`]; return rejects(() => resolveView(view, { summary: 'x' })); });
+  await check('Inlay absent component fails explicitly', () => { const view = localView(); delete view.records[`at://${view.imports[0]}/at.inlay.component/ai.generalbusiness.atseq.ui.Action`]; return rejects(() => resolveView(view, { summary: 'x' })); });
   await check('Inlay external body refused without I/O', () => { const view = localView(); (Object.values(view.records).at(-1) as any).body = { $type: 'at.inlay.component#bodyExternal', uri: 'https://example.test' }; return rejects(() => resolveView(view, {}), 'external_view'); });
   await check('Inlay missing caller property fails', () => { const view = localView(); const record = Object.values(view.records).at(-1) as any; record.body.node.props.children[0].props.children[0].props.path = ['props', 'signingKey']; return rejects(() => resolveView(view, { summary: 'x' })); });
   await check('Inlay auto-submit property refused', () => { const view = localView(); const record = Object.values(view.records).at(-1) as any; record.body.node.props.children[1].props.autoSubmit = true; return rejects(() => resolveView(view, { summary: 'x' }), 'view_props'); });

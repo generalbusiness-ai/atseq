@@ -1,16 +1,17 @@
+import { runProfileCorpus } from '../tests/support/profile-corpus.ts';
 import { P256PrivateKeyExportable } from '@atcute/crypto';
 import { create, fromString, toString, CODEC_RAW } from '@atcute/cid';
 import { writeCarStream } from '@atcute/car';
 import { chartFixture, guitarFixture } from '../testdata/apps/fixtures.ts';
 import { Anchor, headAt, randomNonce, sequence, signIntent, type Entry, type Intent } from '../src/protocol/log.ts';
-import { applicationRuntimeCid as runtimeCid } from '../src/runtime/identity.ts';
+import { applicationRuntimeCid as runtimeCid } from '../src/protocol/identity.ts';
 import { contentCid, encodeBlock, link } from '../src/protocol/wire.ts';
 import { LoadedDefinition } from '../src/definition/load.ts';
 import { SourceBundle, type SourceReader } from '../src/definition/source.ts';
-import { Folder, type Projection } from '../src/runtime/folder.ts';
-import { Applications } from '../src/runtime/apps.ts';
-import { canonicalJson, type Json } from '../src/runtime/values.ts';
-import { PROFILE } from '../src/runtime/profile.ts';
+import { Folder, type Projection } from '../src/application/folder.ts';
+import { Applications } from '../src/application/apps.ts';
+import { canonicalJson, type Json } from '../src/core/values.ts';
+import { PROFILE } from '../src/core/profile.ts';
 import type { FixtureResult } from './corpus.ts';
 
 const text = (s: string) => new TextEncoder().encode(s);
@@ -22,14 +23,14 @@ async function rejects(run: () => unknown, code: string) {
 }
 export async function fixtureApp(bundle: SourceBundle, app = 'did:plc:cccccccccccccccccccccccc') {
   const actor = await P256PrivateKeyExportable.createKeypair(), writer = await P256PrivateKeyExportable.createKeypair();
-  const genesis = { $type: 'test.atseq.genesis', version: 0, app, profile: link(await runtimeCid()), definition: link(bundle.root), sequencerKey: await writer.exportPublicKey('did'), activationKeys: [await actor.exportPublicKey('did')] };
+  const genesis = { $type: 'ai.generalbusiness.atseq.genesis', version: 1, app, profile: link(await runtimeCid()), definition: link(bundle.root), sequencerKey: await writer.exportPublicKey('did'), activationKeys: [await actor.exportPublicKey('did')] };
   const anchor = await Anchor.from(genesis, await contentCid(genesis));
   return { actor, writer, anchor, bundle };
 }
 export async function fixtureHistory(app: Awaited<ReturnType<typeof fixtureApp>>, acts: { action: string; payload: Record<string, Json>; definition?: string }[]) {
   let head = headAt(app.anchor); const entries: Entry[] = [];
   for (const act of acts) {
-    const intent: Intent = { $type: 'test.atseq.defs#intent', version: 0, app: app.anchor.genesis.app, genesis: link(app.anchor.cid), definition: link(act.definition ?? app.bundle.root), actorKey: await app.actor.exportPublicKey('did'), nonce: randomNonce(), action: act.action, payload: act.payload };
+    const intent: Intent = { $type: 'ai.generalbusiness.atseq.defs#intent', version: 1, app: app.anchor.genesis.app, genesis: link(app.anchor.cid), definition: link(act.definition ?? app.bundle.root), actorKey: await app.actor.exportPublicKey('did'), nonce: randomNonce(), action: act.action, payload: act.payload };
     const entry = await sequence(await signIntent(intent, app.actor), app.anchor, head, app.writer);
     entries.push(entry); head = headAt(app.anchor, entry.position, await contentCid(entry));
   }
@@ -66,8 +67,8 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
   await check('fold and query match independently specified values', async () => {
     const folder = await Folder.open(app.anchor, chart.bundle); await folder.catchUp(history.head, [...history.entries].reverse());
     equal(folder.snapshot().projection.state, { readings: [{ day: 'Monday', millimetres: 3 }, { day: 'Tuesday', millimetres: 4 }] });
-    equal(folder.snapshot().projection.outcomes.map(x => x.outcome.$type), ['test.atseq.defs#effective', 'test.atseq.defs#effective']);
-    const query = await folder.query('summary', {}); equal(query.result, { $type: 'test.atseq.defs#queryAvailable', value: { count: 2, total: 7 } }); equal(query.frontier.position, 2);
+    equal(folder.snapshot().projection.outcomes.map(x => x.outcome.$type), ['ai.generalbusiness.atseq.defs#effective', 'ai.generalbusiness.atseq.defs#effective']);
+    const query = await folder.query('summary', {}); equal(query.result, { $type: 'ai.generalbusiness.atseq.defs#queryAvailable', value: { count: 2, total: 7 } }); equal(query.frontier.position, 2);
   });
   for (const [label, action, payload, definition, reason] of [
     ['malformed domain input', chart.action, { day: 'Monday', millimetres: 'wet' }, undefined, 'invalid_action'],
@@ -77,7 +78,7 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     const log = await fixtureHistory(app, [{ action, payload, ...(definition ? { definition } : {}) }]);
     const folder = await Folder.open(app.anchor, chart.bundle); const result = await folder.catchUp(log.head, log.entries);
     equal(result.projection.state, { readings: [] }); equal(result.projection.frontier.position, 1);
-    equal(result.projection.outcomes[0]!.outcome, { $type: 'test.atseq.defs#ineffective', reason });
+    equal(result.projection.outcomes[0]!.outcome, { $type: 'ai.generalbusiness.atseq.defs#ineffective', reason });
   });
   await check('domain refusal preserves complete prior state', async () => {
     const guitarApp = await fixtureApp(guitar.bundle, 'did:plc:dddddddddddddddddddddddd');
@@ -85,7 +86,7 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     const log = await fixtureHistory(guitarApp, [candidate, candidate]);
     const folder = await Folder.open(guitarApp.anchor, guitar.bundle); const result = await folder.catchUp(log.head, log.entries);
     equal(result.projection.state, { candidates: [candidate.payload], selected: '' });
-    equal(result.projection.outcomes[1]!.outcome, { $type: 'test.atseq.defs#ineffective', reason: 'already_listed' });
+    equal(result.projection.outcomes[1]!.outcome, { $type: 'ai.generalbusiness.atseq.defs#ineffective', reason: 'already_listed' });
   });
   await check('restarting and replaying reproduces state outcomes and frontier', async () => {
     const first = await Folder.open(app.anchor, chart.bundle), rebuilt = await Folder.open(app.anchor, await SourceBundle.read(await chart.bundle.write()));
@@ -111,17 +112,45 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     ['invalid successor schema', '{"decision":"effective","state":{}}', 'schema_value'],
     ['ineffective successor state', '{"decision":"ineffective","reason":"no","state":{}}', 'fold_output'],
     ['noninteger computed state', 'act.millimetres > 0 ? {"decision":"effective","state":{"readings":[{"day":"Monday","millimetres":1/2}]}} : {"decision":"effective","state":{"readings":[]}}', 'wire_number'],
-  ]) await check(`${label} stalls without an invented outcome`, async () => {
+  ]) await check(`${label} records framework failure and continues`, async () => {
     const bundle = await repack({ files: { 'record.jsonata': text(source!) } }); const target = await fixtureApp(bundle);
     const log = await fixtureHistory(target, acts.slice(0, 1)); const folder = await Folder.open(target.anchor, bundle);
     const result = await folder.catchUp(log.head, log.entries);
-    equal(result.stalled?.code, code); equal(result.projection.state, { readings: [] }); equal(result.projection.outcomes, []); equal(result.projection.frontier.position, 0);
-    equal((await folder.query('summary', {})).frontier.position, 0);
+    equal(result.stalled, undefined); equal(result.projection.state, { readings: [] }); equal(result.projection.outcomes[0]!.outcome, { $type: 'ai.generalbusiness.atseq.defs#ineffective', reason: `fold_failed/${code}` }); equal(result.projection.frontier.position, 1);
+    equal((await folder.query('summary', {})).frontier.position, 1);
+  });
+  await check('the 1001st reading is ineffective and a later valid action clears state', async () => {
+    const initial = { readings: Array.from({length:1000},()=>({day:'Monday',millimetres:1})) };
+    const program = 'act.day = "clear" ? {"decision":"effective","state":{"readings":[]}} : {"decision":"effective","state":{"readings":$append(state.readings,act)}}';
+    const bundle = await repack({files:{'initial.json':json(initial),'record.jsonata':text(program)}});
+    const target=await fixtureApp(bundle), folder=await Folder.open(target.anchor,bundle);
+    const log=await fixtureHistory(target,[acts[0]!,{action:chart.action,payload:{day:'clear',millimetres:0}}]);
+    const result=await folder.catchUp(log.head,log.entries);
+    equal(result.stalled,undefined);equal(result.projection.frontier.position,2);equal(result.projection.state,{readings:[]});
+    equal(result.projection.outcomes.map(x=>x.outcome),[{$type:'ai.generalbusiness.atseq.defs#ineffective',reason:'fold_failed/schema_value'},{$type:'ai.generalbusiness.atseq.defs#effective'}]);
+  });
+  await check('copied extra payload bytes cannot freeze interpretation', async () => {
+    const program = 'act.day = "clear" ? {"decision":"effective","state":{"readings":[]}} : {"decision":"effective","state":{"readings":$append(state.readings,act)}}';
+    const bundle=await repack({files:{'record.jsonata':text(program)}}),target=await fixtureApp(bundle),folder=await Folder.open(target.anchor,bundle);
+    const padded={action:chart.action,payload:{day:'Monday',millimetres:1,padding:'x'.repeat(30000)}};
+    const log=await fixtureHistory(target,[padded,padded,padded,padded,padded,{action:chart.action,payload:{day:'clear',millimetres:0}}]);
+    const result=await folder.catchUp(log.head,log.entries);
+    equal(result.stalled,undefined);equal(result.projection.frontier.position,6);equal(result.projection.state,{readings:[]});
+    equal(result.projection.outcomes[4]!.outcome,{$type:'ai.generalbusiness.atseq.defs#ineffective',reason:'fold_failed/value_bytes'});
+    equal(result.projection.outcomes[5]!.outcome,{$type:'ai.generalbusiness.atseq.defs#effective'});
+  });
+  await check('overlong ineffective message cannot block a later valid entry', async () => {
+    const program = 'act.day = "broken" ? {"decision":"ineffective","reason":"refused","message":"'+'x'.repeat(1025)+'"} : {"decision":"effective","state":{"readings":[]}}';
+    const bundle=await repack({files:{'record.jsonata':text(program)}}),target=await fixtureApp(bundle),folder=await Folder.open(target.anchor,bundle);
+    const log=await fixtureHistory(target,[{action:chart.action,payload:{day:'broken',millimetres:0}},acts[0]!]);
+    const result=await folder.catchUp(log.head,log.entries);
+    equal(result.stalled,undefined);equal(result.projection.frontier.position,2);
+    equal(result.projection.outcomes.map(x=>x.outcome),[{$type:'ai.generalbusiness.atseq.defs#ineffective',reason:'fold_failed/fold_message'},{$type:'ai.generalbusiness.atseq.defs#effective'}]);
   });
   await check('invalid query output is unavailable at its exact unchanged prefix', async () => {
     const bundle = await repack({ files: { 'summary.jsonata': text('{"count":"wrong","total":0}') } }); const target = await fixtureApp(bundle);
     const folder = await Folder.open(target.anchor, bundle), before = folder.snapshot();
-    const result = await folder.query('summary', {}); equal(result.result.$type, 'test.atseq.defs#queryUnavailable'); equal(folder.snapshot(), before);
+    const result = await folder.query('summary', {}); equal(result.result.$type, 'ai.generalbusiness.atseq.defs#queryUnavailable'); equal(folder.snapshot(), before);
   });
   await check('caller snapshot mutation cannot change the projection', async () => {
     const folder = await Folder.open(app.anchor, chart.bundle), snapshot = folder.snapshot();
@@ -188,13 +217,13 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     const bundle = await SourceBundle.read(bytes); equal(bundle.identities().includes(toString(extra)), true);
     await rejects(() => load(bundle), 'source_car');
   });
-  await check('work exhaustion preserves the prior projection and produces no domain verdict', async () => {
+  await check('work exhaustion records a framework refusal and preserves prior state', async () => {
     const initial = { readings: [], padding: 'x'.repeat(40_000) };
     const source = `([${Array(30).fill('state').join(',')}]; {"decision":"effective","state":state})`;
     const bundle = await repack({ files: { 'initial.json': json(initial), 'record.jsonata': text(source) } });
     const target = await fixtureApp(bundle), log = await fixtureHistory(target, acts.slice(0, 1));
     const folder = await Folder.open(target.anchor, bundle), result = await folder.catchUp(log.head, log.entries);
-    equal(result.stalled?.code, 'value_bytes'); equal(result.projection.state, initial); equal(result.projection.outcomes, []); equal(result.projection.frontier.position, 0);
+    equal(result.stalled, undefined); equal(result.projection.state, initial); equal(result.projection.outcomes[0]!.outcome, { $type: 'ai.generalbusiness.atseq.defs#ineffective', reason: 'fold_failed/value_bytes' }); equal(result.projection.frontier.position, 1);
   });
   await check('oversized action is refused before interpretation', async () => {
     await rejects(() => fixtureHistory(app, [{ action: chart.action, payload: { day: 'Monday', millimetres: 3, padding: 'x'.repeat(PROFILE.actionBytes) } }]), 'payload');
@@ -222,5 +251,5 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     } finally { release(); }
     await first; equal(writes, 1);
   });
-  return results;
+  return [...results, ...await runProfileCorpus()];
 }

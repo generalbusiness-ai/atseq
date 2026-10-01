@@ -1,14 +1,14 @@
-# Atseq v0 protocol
+# Atseq v1 protocol
 
-This is the S1 wire contract for the local spike. It preserves the adopted
-single app DID, pinned genesis, sequencer, and folder split. It supplies no
-PDS storage or domain interpreter by itself. The namespace `test.atseq` is
-reserved for local tests; it claims no production Lexicon registration.
-Production publication requires an owned namespace and a new protocol version.
+This is the framework wire contract under the owned `ai.generalbusiness.atseq.*`
+namespace. It defines a single app DID, pinned genesis, sequencer, and verified
+prefix. AT Protocol supplies repository storage and discovery; Atseq supplies
+application ordering and deterministic interpretation. This first version makes
+a planned break from the completed spike records before external adoption.
 
 ## Schemas and ecosystem code
 
-The authored framework IDL is in [Lexicon documents](../lexicons/test/atseq/).
+The authored framework IDL is in [Lexicon documents](../lexicons/ai/generalbusiness/atseq/).
 `@atproto/lexicon` validates these at runtime. A small admission wrapper closes
 framework objects to extra fields and checks that validation did not change
 signed content. It does not replace Lexicon's field/type validation. Method
@@ -16,17 +16,17 @@ responses reference `genesis#value` and `head#value` object definitions because
 this validator cannot nest a record declaration through a ref. Tests keep
 these object definitions equal to their corresponding record bodies.
 
-| Schema | Purpose |
-|---|---|
-| [defs](../lexicons/test/atseq/defs.json) | Intent, actor proof, cursor, receipt, query availability, outcomes |
-| [genesis](../lexicons/test/atseq/genesis.json) | Initial immutable anchor, record key `self` |
-| [entry](../lexicons/test/atseq/entry.json) | Sequencer-signed record, positive position key |
-| [head](../lexicons/test/atseq/head.json) | Current chosen tip, record key `self` |
-| [create](../lexicons/test/atseq/create.json) | Local provisioning request |
-| [describe](../lexicons/test/atseq/describe.json) | Definition and progress discovery |
-| [submit](../lexicons/test/atseq/submit.json) | Submit a canonical signed block |
-| [query](../lexicons/test/atseq/query.json) | Named query at a reported frontier |
-| [receipt](../lexicons/test/atseq/receipt.json) | Receipt and interpreted outcome lookup |
+| Schema                                                         | Purpose                                                            |
+| -------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [defs](../lexicons/ai/generalbusiness/atseq/defs.json)         | Intent, actor proof, cursor, receipt, query availability, outcomes |
+| [genesis](../lexicons/ai/generalbusiness/atseq/genesis.json)   | Initial immutable anchor, record key `self`                        |
+| [entry](../lexicons/ai/generalbusiness/atseq/entry.json)       | Sequencer-signed record, positive position key                     |
+| [head](../lexicons/ai/generalbusiness/atseq/head.json)         | Current chosen tip, record key `self`                              |
+| [create](../lexicons/ai/generalbusiness/atseq/create.json)     | Local provisioning request                                         |
+| [describe](../lexicons/ai/generalbusiness/atseq/describe.json) | Definition and progress discovery                                  |
+| [submit](../lexicons/ai/generalbusiness/atseq/submit.json)     | Submit a canonical signed block                                    |
+| [query](../lexicons/ai/generalbusiness/atseq/query.json)       | Named query at a reported frontier                                 |
+| [receipt](../lexicons/ai/generalbusiness/atseq/receipt.json)   | Receipt and interpreted outcome lookup                             |
 
 Encoding uses unmodified `@atcute/cbor` 2.3.6, CID creation uses `@atcute/cid`
 2.4.2, and signatures use `@atcute/crypto` 2.4.4. These packages declare 0BSD.
@@ -59,32 +59,42 @@ requires exact equality between the supplied block and its re-encoding. That
 also rejects float encodings of integers and malformed UTF-8 normalization.
 Decode returns owned data; proof functions copy inputs before awaiting crypto.
 
-| Limit | Value |
-|---|---:|
-| One signed block or genesis/head record | 64 KiB CBOR |
-| Lexicon JSON admission representation | 128 KiB UTF-8 |
-| Nested JSON containers | 32 |
-| Action payload | 32 KiB canonical JSON |
-| Retry nonce | 16 random bytes |
-| P-256 signature | 64 bytes |
-| Initial activation grants | 1–16 distinct keys |
-| Position | 0 through 9,007,199,254,740,991; entries start at 1 |
+| Limit                                   |                                               Value |
+| --------------------------------------- | --------------------------------------------------: |
+| One signed block or genesis/head record |                                         64 KiB CBOR |
+| Lexicon JSON admission representation   |                                       128 KiB UTF-8 |
+| Nested JSON containers                  |                                                  32 |
+| Action payload                          |                               32 KiB canonical JSON |
+| Retry nonce                             |                                     16 random bytes |
+| P-256 signature                         |                                            64 bytes |
+| Initial activation grants               |                                  1–16 distinct keys |
+| Position                                | 0 through 9,007,199,254,740,991; entries start at 1 |
 
 CIDs identify complete canonical blocks. Signature fields are included in entry
 CIDs. Intent identity instead hashes the unsigned intent alone. The runtime
-profile has its own [descriptor](../src/protocol/runtime-descriptor.json) and
-CBOR CID, including pinned package versions and SHA-256 hashes of the S0 engine
-sources. S3's [application profile](../src/runtime/application-profile.json)
-links that immutable engine and additionally pins definition admission, protocol
-verification and folder behavior. Interpreted applications pin this complete
-profile in both genesis and definition. Tests refuse changed sources with old
-descriptors; interpretation changes get a new profile identity. S1's independent
-vectors retain their original engine CID; see [source loading](definitions.md).
+profile has a versioned [semantic descriptor](../src/core/contracts.ts) and
+canonical CBOR CID. The three contracts are `atseq-log-v1`, `atseq-jsonata-v1`
+and `atseq-app-v1`. The application contract includes the log, evaluator,
+definition admission, folding, queries, views and activation rules. Genesis and
+definition pin the application CID.
+
+Source files, formatting and dependency hashes are separate build provenance;
+they do not change the semantic CID. A behavior change requires a new reviewed
+contract. Dependency changes require a new contract or an independently reviewed
+claim of equivalent behavior, backed by the full conformance suite. The installed
+runtime refuses an unapproved dependency closure. See the
+[runtime identity and compatibility policy](runtime-profile.md#identity-and-compatibility).
+
+The owned namespace is `ai.generalbusiness.atseq.*`, controlled through
+`atseq.generalbusiness.ai`; source code uses the [NSID registry](../src/core/nsids.ts).
+This is a planned break before external data: the v1 interpreter refuses spike
+records and profiles. Original spike vectors and archives remain historical
+evidence and are replayed only with their original interpreter.
 
 ## Genesis and initial head
 
 An app invitation pins `(app DID, genesis CID)`. The genesis record includes
-that app DID, version 0, initial definition CID, runtime profile CID, sequencer
+that app DID, version 1, initial definition CID, runtime profile CID, sequencer
 P-256 `did:key`, and explicit initial activation keys. It contains no initial
 state: the referenced definition supplies that once. The creator acquires no
 implicit permanent authority. Grant changes and key rotation are deferred.
@@ -103,15 +113,15 @@ silently replace an existing invitation or cached anchor.
 
 ## Actor and sequencer proofs
 
-An intent contains `$type:"test.atseq.defs#intent"`, version 0, app DID,
+An intent contains `$type:"ai.generalbusiness.atseq.defs#intent"`, version 1, app DID,
 genesis link, definition link, actor key, nonce bytes, action Lexicon reference,
 and an object payload. The actor signs the canonical bytes of this whole
-object. A signed intent wraps it with `$type:"test.atseq.defs#signedIntent"`
+object. A signed intent wraps it with `$type:"ai.generalbusiness.atseq.defs#signedIntent"`
 and `sig`. Extra payload fields remain signed data; unknown framework fields
 are rejected. The sequencer does not inspect application schemas, active
 bindings, authorization rules, or effectiveness.
 
-An entry contains `$type:"test.atseq.entry"`, version 0, app DID, genesis link,
+An entry contains `$type:"ai.generalbusiness.atseq.entry"`, version 1, app DID, genesis link,
 position, predecessor link, complete signed intent, and sequencer key. Its
 `sig` covers the canonical entry with only its own `sig` field omitted. The
 nested actor signature is covered. Changing either domain identifier, target,

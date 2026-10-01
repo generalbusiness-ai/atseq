@@ -80,15 +80,15 @@ actions and explicit log records.
 
 An application definition combines three parts:
 
-| Part | Role |
-|---|---|
-| Lexicon schemas | Describe state, action inputs and query interfaces; validate them at runtime. |
-| [JSONata](https://github.com/jsonata-js/jsonata) programs | Decide an action's effect, compute successor state and answer queries. |
-| Retained view templates | Bind query results and action controls to a small set of local UI primitives. |
+| Part                                                      | Role                                                                          |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Lexicon schemas                                           | Describe state, action inputs and query interfaces; validate them at runtime. |
+| [JSONata](https://github.com/jsonata-js/jsonata) programs | Decide an action's effect, compute successor state and answer queries.        |
+| Retained view templates                                   | Bind query results and action controls to a small set of local UI primitives. |
 
 The execution model is a **fold over a log**: start with the declared initial
 state and apply each recorded action's rules in order. The code calls this
-interpreter the *folder*. The server and browser use the same bounded execution
+interpreter the _folder_. The server and browser use the same bounded execution
 profile, so either can derive state from the same verified inputs.
 
 1. A participant signs an action bound to an app and definition.
@@ -140,15 +140,15 @@ bounded experiments: could declarative apps run consistently in a browser and
 host, use a real PDS as their retained substrate, evolve, and remain recoverable?
 They also measured the costs before committing to a larger implementation.
 
-| Spike | What it established |
-|---|---|
+| Spike                                                                     | What it established                                                                                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [S0 — runtime feasibility](notes/2026-09-06-atseq-runtime-feasibility.md) | One bounded evaluator in Node and a browser worker, runtime Lexicon validation and local view rendering; comparison with the alternative Go core. |
-| [S1 — protocol](notes/2026-09-06-atseq-protocol-spike.md) | Canonical signed bytes, verifiable order and exact retry identity, checked against independent vectors. |
-| [S2 — persistence](notes/2026-09-06-atseq-pds-spike.md) | Atomic appends, crash recovery and source retention through the official PDS's real HTTP and SQLite implementation. |
-| [S3 — definitions and state](notes/2026-09-06-atseq-runtime-spike.md) | Retained source bundles, deterministic interpretation and queries, and unrelated apps loaded after host startup. |
-| [S4 — participation](notes/2026-09-06-atseq-interaction-spike.md) | A generic browser and JSON CLI sharing contracts, independent signing identities and recoverable publication. |
-| [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md) | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions. |
-| [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md) | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries. |
+| [S1 — protocol](notes/2026-09-06-atseq-protocol-spike.md)                 | Canonical signed bytes, verifiable order and exact retry identity, checked against independent vectors.                                           |
+| [S2 — persistence](notes/2026-09-06-atseq-pds-spike.md)                   | Atomic appends, crash recovery and source retention through the official PDS's real HTTP and SQLite implementation.                               |
+| [S3 — definitions and state](notes/2026-09-06-atseq-runtime-spike.md)     | Retained source bundles, deterministic interpretation and queries, and unrelated apps loaded after host startup.                                  |
+| [S4 — participation](notes/2026-09-06-atseq-interaction-spike.md)         | A generic browser and JSON CLI sharing contracts, independent signing identities and recoverable publication.                                     |
+| [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md)               | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions.                                      |
+| [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md)  | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries.                          |
 
 The completed acceptance run passed all 13 gates, including 283 full-suite
 tests. The [completion record](notes/2026-09-06-atseq-spike-completion.md)
@@ -175,13 +175,16 @@ and their setup. Use `npm run test:archive` for the archive gate alone, or
 
 The prototype uses one bounded state document per app, an integer-only
 evaluation profile, a restricted expression language and three local UI
-primitives. Unsupported execution or missing required content pauses
-interpretation. See the [runtime profile](docs/runtime-profile.md) for exact
+primitives. Deterministic execution failures record an ineffective outcome and preserve
+state; later entries continue. Missing required content or failed storage pauses
+interpretation until repaired. The v1 contracts use the owned `ai.generalbusiness.atseq.*` namespace and semantic
+CIDs, with source and dependency provenance recorded separately. They deliberately
+refuse historical spike profiles. See the [runtime profile](docs/runtime-profile.md) for exact
 bounds.
 
 The current host repeatedly serves and verifies the full history. At 10,000
-entries, the retained local run measured a median confirmed append of 18.66
-seconds and browser replay plus transfer of 15.42 seconds. Efficient verified
+entries, the retained local run measured a median confirmed append of 13.25
+seconds and browser replay plus transfer of 14.61 seconds. Efficient verified
 catch-up is needed before using this host for long-lived, growing histories.
 These measurements describe one machine, rather than production capacity.
 

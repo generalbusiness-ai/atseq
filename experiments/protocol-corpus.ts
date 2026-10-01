@@ -1,7 +1,7 @@
 import { P256PrivateKeyExportable, Secp256k1PrivateKeyExportable } from '@atcute/crypto';
 import { fromBytes } from '@atcute/cbor';
 import { Lexicons, jsonToLex } from '@atproto/lexicon';
-import vectors from '../tests/vectors/protocol-v0.json';
+import vectors from '../tests/vectors/protocol-v1.json';
 import { Anchor, headAt, positionKey, randomNonce, runtimeCid, sequence, signIntent, validateHead, verifyEntry, verifyHistory, verifyIntent, type Entry, type Genesis, type Intent, type SignedIntent } from '../src/protocol/log.ts';
 import { bytes, contentCid, decodeBlock, encodeBlock, link } from '../src/protocol/wire.ts';
 import { frameworkLexicons, validateFramework } from '../src/protocol/schemas.ts';
@@ -51,9 +51,9 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
     ['payload', (i: Intent) => { i.payload.delta = 4; }, 'signature'],
     ['extra payload field', (i: Intent) => { i.payload.another = true; }, 'signature'],
     ['nonce', (i: Intent) => { i.nonce = bytes(new Uint8Array(16).fill(5)); }, 'signature'],
-    ['action', (i: Intent) => { i.action = 'test.atseq.totals#other'; }, 'signature'],
+    ['action', (i: Intent) => { i.action = 'ai.generalbusiness.atseq.totals#other'; }, 'signature'],
     ['actor key', (i: Intent) => { i.actorKey = anchor.genesis.sequencerKey; }, 'signature'],
-    ['version', (i: Intent) => { (i as any).version = 1; }, 'envelope'],
+    ['version', (i: Intent) => { (i as any).version = 0; }, 'envelope'],
     ['domain', (i: Intent) => { (i as any).$type = 'test.other.defs#intent'; }, 'envelope'],
   ] as const) {
     await check(`changed intent ${name} rejected`, () => { const bad = clone(signed); mutate(bad.intent); return rejects(() => verifyIntent(bad, anchor), code); });
@@ -182,18 +182,18 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
   });
   await check('framework validation retains unknown action content', async () => {
     const other = await signIntent({ ...signed.intent, definition: link(vectors.profile.cid), action: 'test.unknown.act#custom', payload: { untouched: true } }, actor);
-    validateFramework('test.atseq.defs#signedIntent', other);
+    validateFramework('ai.generalbusiness.atseq.defs#signedIntent', other);
     equal((await verifyIntent(other, anchor)).signed.intent.payload, { untouched: true });
   });
   await check('fixed XRPC schemas load and validate through Lexicon', () => {
-    const schemas = new Lexicons(structuredClone(frameworkLexicons));
+    const schemas = new Lexicons(structuredClone([...frameworkLexicons]));
     const targets = { app: anchor.genesis.app, genesis: anchor.cid };
-    schemas.assertValidXrpcInput('test.atseq.submit', jsonToLex({ block: bytes(encodeBlock(signed)) } as any));
-    schemas.assertValidXrpcInput('test.atseq.create', jsonToLex({ source: bytes(new TextEncoder().encode('{}')), activationKeys: [signed.intent.actorKey] } as any));
-    schemas.assertValidXrpcParams('test.atseq.describe', targets);
-    schemas.assertValidXrpcParams('test.atseq.query', { ...targets, name: 'summary', params: '{}' });
-    schemas.assertValidXrpcParams('test.atseq.receipt', { ...targets, intent: vectors.intent.cid });
-    schemas.assertValidXrpcOutput('test.atseq.query', jsonToLex({ head: vectors.head.value, frontier: null, result: { $type: 'test.atseq.defs#queryUnavailable', code: 'content_missing', message: 'Definition is not available' } } as any));
+    schemas.assertValidXrpcInput('ai.generalbusiness.atseq.submit', jsonToLex({ block: bytes(encodeBlock(signed)) } as any));
+    schemas.assertValidXrpcInput('ai.generalbusiness.atseq.create', jsonToLex({ source: bytes(new TextEncoder().encode('{}')), activationKeys: [signed.intent.actorKey] } as any));
+    schemas.assertValidXrpcParams('ai.generalbusiness.atseq.describe', targets);
+    schemas.assertValidXrpcParams('ai.generalbusiness.atseq.query', { ...targets, name: 'summary', params: '{}' });
+    schemas.assertValidXrpcParams('ai.generalbusiness.atseq.receipt', { ...targets, intent: vectors.intent.cid });
+    schemas.assertValidXrpcOutput('ai.generalbusiness.atseq.query', jsonToLex({ head: vectors.head.value, frontier: null, result: { $type: 'ai.generalbusiness.atseq.defs#queryUnavailable', code: 'content_missing', message: 'Definition is not available' } } as any));
   });
   return results;
 }

@@ -1,4 +1,20 @@
 
 > atseq@0.0.0 check
-> tsc --noEmit
+> tsc --noEmit && npm run format:check && npm run check:layers && npm run check:dependencies
 
+
+> atseq@0.0.0 format:check
+> prettier --check src scripts tests testdata lexicons docs README.md package.json tsconfig.json .prettierrc.json .github
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> atseq@0.0.0 check:layers
+> node scripts/check-layers.mjs
+
+Source dependency directions and wire identities checked.
+
+> atseq@0.0.0 check:dependencies
+> tsx scripts/check-dependencies.ts
+
+Installed runtime closure, dependency edges and integrity pins match reviewed provenance.
