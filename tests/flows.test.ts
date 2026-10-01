@@ -244,7 +244,7 @@ test('human and agent participation on a real PDS', async (t) => {
     });
   } finally {
     await recordFlowEvidence('host-flows', results, {
-      expectedCases: 8,
+      expectedCases: 9,
       pdsVersion: '0.5.31',
       transport: 'real HTTP and SQLite',
     });
