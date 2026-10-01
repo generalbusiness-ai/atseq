@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-01",
+  "approvedBase": "3a40d2c5e230cd7698f9cd4b9e8e9729054be33e",
+  "originalSource": "558f396183904c01450bb2b7eb939a36f56f3a24",
+  "integratedSource": "760ec295eb0ddad75e234a0c51a6a625ab9926dd",
+  "testedHead": "c52b2223028ac79dad43608add98c462dfbca90a",
+  "runtimePaths": 147,
+  "originalManifestSha256": "dba9968347ddd875a7e715a71bfe6cb892acbffafc23dbb9fbe51878bec22dcd",
+  "originalSourceHashesVerified": {
+    "src/core/local-generations.ts": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a",
+    "src/host/local-generations.ts": "48ecb1041024c1fe149f78c709d067426b91aa9424e329d13f498624628931a5",
+    "src/browser/local-generations.ts": "1751d51257c6268b8b53fb46c3f72d9fde5bc0b43ba06b8b4f811243099c1088",
+    "tests/local-generations.test.ts": "42d32fab6374b2a2df53bfe374c9f50834931969e0c4a63a6f5b885ded18cf53",
+    "tests/local-generations-browser.test.ts": "a270403c2d66270485a62ede0cf8dabd64430067d342baaae1b80a1e2396a5f4",
+    "tests/support/local-generations-corpus.ts": "957e62c7d00c7bae2fea62ed86730c45be16c171662575a101b575484967b8ae",
+    "tests/support/local-generation-crash.ts": "b820ecc763cea184cf913798d5342a039c487c62bb201d5d61de7808b3cfd78e",
+    "tests/support/local-generations-browser.ts": "f786be0ce23d498bb6c0b936304056e67a034380a59271b78cddb6c30af5bad0"
+  },
+  "originalCaptureCountVerified": 16,
+  "freshChecks": {
+    "setupBuild": "passed",
+    "check": "passed",
+    "node26SQLiteCases": 22
+  },
+  "inheritedChecks": "Original Node22.13/22.19/24.21 and Chromium captures remain unchanged; these environments were not rerun after integration. The original broader-suite missing-PDS-addon failure remains disclosed. No performance timing or full P3 integration claim.",
+  "captures": {
+    "setup-build.log": {
+      "bytes": 2444,
+      "sha256": "4fb55b09f77a233a8e965e9fa052dd371a5aed5cdd3b1361ff5f4ce504992320"
+    },
+    "check.log": {
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "focused-node26.log": {
+      "bytes": 516,
+      "sha256": "f27f73cb712fe690b519fe5fd1873511a0bce253e3987a2ca390c2f1c9eca1c9"
+    }
+  }
+}
