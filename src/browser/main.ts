@@ -220,8 +220,10 @@ async function openApp(invitation: Invitation) {
   if (!stillCurrent(generation)) return;
   if (retained)
     try {
-      const restoring = evaluator.restore({ ...invitation, definition: retained.genesis.definition.$link }, retained);
-      const checked = await restoring;
+      const checked = await evaluator.restore(
+        { ...invitation, definition: retained.genesis.definition.$link },
+        retained,
+      );
       if (!stillCurrent(generation)) return;
       await pinInvitation(invitation, generation);
       if (!stillCurrent(generation)) return;
@@ -335,7 +337,7 @@ async function refresh() {
       tell(
         `${navigator.onLine ? `Latest data unavailable: ${hostMessage(error)}.` : 'Offline.'} Showing saved state through entry ${snapshot.projection.frontier.position}. Pending actions stay on this device.`,
       );
-    } else if (savedHistoryFailed(error)) {
+    } else if (evaluator.hasSavedHistory(invitation) && savedHistoryFailed(error)) {
       drawSavedFailure(error, invitation, generation);
       failure(error);
     } else {
@@ -343,7 +345,7 @@ async function refresh() {
         element('h1', 'App unavailable'),
         element(
           'p',
-          'No verified state is saved on this device. The invitation is retained; retry when its source is available.',
+          'No verified state is saved on this device. Data from the host could not be verified or loaded. Retry when the host is available.',
         ),
         button('Retry', () => refresh()),
       );

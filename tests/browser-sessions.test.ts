@@ -272,6 +272,46 @@ test('browser sessions retain trust and device work across switches and restarts
       assert.equal(count, 1);
       await expect(page.getByRole('heading', { name: 'Participate', exact: true })).toBeVisible();
     });
+    await t.test('a first visit with an invalid host signature does not blame saved device history', async () => {
+      const isolated = await browser.newContext({ serviceWorkers: 'block' });
+      await isolated.addInitScript({ content: 'globalThis.__name = (fn) => fn;' });
+      const tab = await isolated.newPage();
+      try {
+        await tab.goto(service.url);
+        const corrupted = structuredClone(latestA),
+          signature = corrupted.entries[0]!.sig.$bytes;
+        corrupted.entries[0]!.sig.$bytes = (signature.startsWith('A') ? 'B' : 'A') + signature.slice(1);
+        await tab.route('**/xrpc/ai.generalbusiness.atseq.sync?**', (route) => route.fulfill({ json: corrupted }));
+        await tab.evaluate((a) => {
+          location.hash = new URLSearchParams(a).toString();
+        }, a);
+        await expect(tab.getByRole('heading', { name: 'App unavailable', exact: true })).toBeVisible();
+        await expect(tab.getByRole('status')).toContainText('Invalid P-256 low-S signature');
+        await expect(
+          tab.getByText('Data from the host could not be verified or loaded.', { exact: false }),
+        ).toBeVisible();
+        await expect(tab.getByRole('button', { name: 'Discard saved history', exact: true })).toHaveCount(0);
+        await expect(
+          tab.getByRole('heading', { name: 'Saved history on this device failed verification', exact: true }),
+        ).toHaveCount(0);
+        const saved = await tab.evaluate(
+          async ({ probe, a }) => {
+            const { DeviceStore } = await import(probe),
+              store = await DeviceStore.open();
+            const records = [await store.get(`pin:${a.app}`), await store.get(`verified:${a.app}:${a.genesis}`)];
+            store.close();
+            return records;
+          },
+          { probe, a },
+        );
+        assert.deepEqual(saved, [undefined, undefined]);
+        await tab.unroute('**/xrpc/ai.generalbusiness.atseq.sync?**');
+        await tab.getByRole('button', { name: 'Retry', exact: true }).click();
+        await expect(tab.getByRole('status')).toContainText('Verified through entry 1');
+      } finally {
+        await isolated.close();
+      }
+    });
     await t.test('corrupt saved history has explicit recovery without losing its pin, key or signed work', async () => {
       const isolated = await browser.newContext({ serviceWorkers: 'block' });
       await isolated.addInitScript({ content: 'globalThis.__name = (fn) => fn;' });

@@ -190,6 +190,9 @@ export class Evaluator {
   ready() {
     this.decidingSaved = false;
   }
+  hasSavedHistory(invitation: Invitation): boolean {
+    return this.retained?.session.app === invitation.app && this.retained.session.genesis === invitation.genesis;
+  }
   snapshot(invitation: Invitation): AppSnapshot | undefined {
     return this.latest?.session.app === invitation.app && this.latest.session.genesis === invitation.genesis
       ? structuredClone(this.latest)
