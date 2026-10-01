@@ -1,4 +1,5 @@
 /** Internal native-format preparation; not registered with current supportedProfiles. */
+import { isAtprotoDid } from '@atproto/did';
 import { Lexicons, jsonToLex, lexToJson, type LexiconDoc } from '@atproto/lexicon';
 import { deepFreeze } from '../core/freeze.ts';
 import type { Json } from '../core/values.ts';
@@ -217,11 +218,24 @@ const registry = new Lexicons(structuredClone([...nativeLexicons]));
 const typed = new Set<string>(Object.keys(definitions).map(nativeRef));
 const withoutLex = (value: string) => value.replace(/^lex:/, '');
 
+/** Account syntax only; identity ownership/currentness requires retained I1 evidence. */
+export function validateNativeAccountDid(value: unknown): asserts value is string {
+  if (
+    typeof value !== 'string' ||
+    value.length > 2048 ||
+    !isAtprotoDid(value) ||
+    (value.startsWith('did:web:') && /%3a/i.test(value))
+  )
+    throw new ProtocolError('envelope', 'Expected PLC or hostname-only web account DID');
+}
+
 /** Strict owned shape. This does not establish native publication or interpret authority. */
 export function validateNativeShape(ref: string, value: unknown): void {
   const original = encodeBlock(value);
   function close(schema: any, data: any, expectedType?: string): void {
     if (!schema) throw new ProtocolError('envelope', 'Unknown native schema');
+    if (schema.type === 'string' && schema.format === 'did' && schema.maxLength === 2048)
+      validateNativeAccountDid(data);
     if (schema.type === 'record') return close(schema.record, data, expectedType);
     if (schema.type === 'ref') {
       const target = withoutLex(schema.ref);

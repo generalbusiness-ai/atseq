@@ -8,6 +8,7 @@ import { canonicalJson, type Json } from '../core/values.ts';
 import { PROFILE } from '../core/profile.ts';
 import { normalizeRepoSigningKey } from './native-proof.ts';
 import { NATIVE_NSID, nativeRef, validateNativeShape } from './native-schema.ts';
+export { validateNativeAccountDid } from './native-schema.ts';
 import { bytes, contentCid, decodeBlock, encodeBlock, link, ProtocolError } from './wire.ts';
 
 type Tag<T extends string> = `ai.generalbusiness.atseq.defs#${T}`;
