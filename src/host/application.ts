@@ -205,6 +205,7 @@ export class ApplicationHost {
     return found;
   }
   private async refresh(app: Running) {
+    const floor = app.snapshots.retainedHead();
     for (;;) {
       if (!app.refreshInFlight) {
         const run = (async () => {
@@ -220,8 +221,11 @@ export class ApplicationHost {
           .catch(() => {});
       }
       const history = await app.refreshInFlight;
-      // An append can be confirmed while interpretation of an older prefix waits.
-      if (app.snapshots.covers(history)) return history;
+      // Cover the floor captured by this call; later appends cannot keep it waiting.
+      if (app.snapshots.covers(history, floor)) {
+        app.sequencer.checkpoint();
+        return history;
+      }
     }
   }
   private created(app: Running) {
@@ -342,9 +346,10 @@ export class ApplicationHost {
   }
   async receipt(app: string, genesis: string, intent: string) {
     const found = this.get(app, genesis),
-      history = await this.refresh(found),
-      receipt = history.retries.lookupCid(intent);
-    if (!receipt) return undefined;
+      recorded = await found.sequencer.lookup(intent);
+    if (!recorded) return undefined;
+    await this.refresh(found);
+    const receipt = recorded.receipt;
     const { head, projection } = found.folder.snapshot();
     const outcome = projection.outcomes.find((o) => o.intent === intent)?.outcome ?? { $type: NSID.defsPending };
     return { receipt, head, frontier: projection.frontier, outcome };

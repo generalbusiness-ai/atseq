@@ -3,17 +3,22 @@ import test from 'node:test';
 import { recordFlowEvidence, type MeasuredCase } from './helpers/evidence.ts';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { cli } from './helpers/cli.ts';
 import { join, dirname } from 'node:path';
 import { startEnvironment, resetDisposable } from '../experiments/pds/environment.mjs';
+import { P256PrivateKeyExportable } from '@atcute/crypto';
+import { Sequencer } from '../src/host/sequencer.ts';
+import { acquireWriterLease } from '../src/host/lease.ts';
+import { NSID } from '../src/core/nsids.ts';
+import { Anchor, headAt, positionKey, sequence, validateHead, type SignedIntent } from '../src/protocol/log.ts';
 import { Folder } from '../src/application/folder.ts';
 import { ApplicationHost } from '../src/host/application.ts';
 import { LocalAccounts } from '../src/host/accounts.ts';
 import { startApplicationService } from '../src/host/http.ts';
 import { AtseqClient } from '../src/client/api.ts';
 import { createIdentity, prepareIntent } from '../src/client/identity.ts';
-import { bytes } from '../src/protocol/wire.ts';
+import { bytes, decodeBlock, contentCid } from '../src/protocol/wire.ts';
 import { chartFixture, guitarFixture } from '../testdata/apps/fixtures.ts';
 
 test('human and agent participation on a real PDS', async (t) => {
@@ -114,9 +119,36 @@ test('human and agent participation on a real PDS', async (t) => {
         assert.equal((await receipt).receipt.position, 2);
         assert.equal((await description).head.position, 2);
         assert.equal((await query).result.value.count, 2);
-        assert.equal((await older).head.position, 2);
+        assert.ok((await older).head.position >= 1);
       } finally {
         release();
+        spy.mock.restore();
+      }
+    });
+    await check('reads do not chase appends arriving during every interpretation refresh', async () => {
+      let refreshes = 0;
+      const original = Folder.prototype.catchUpVerified;
+      const spy = t.mock.method(
+        Folder.prototype,
+        'catchUpVerified',
+        async function (this: Folder, history: Parameters<Folder['catchUpVerified']>[0]) {
+          refreshes++;
+          const result = await original.call(this, history);
+          if (refreshes <= 4) {
+            const next = await prepareIntent(identity, invitation, fixture.bundle.root, fixture.action, {
+              id: 'steady-' + refreshes,
+              title: 'Arrives during refresh',
+              pricePence: 10000,
+            });
+            await api.call('submit', { block: bytes(new Uint8Array(next.block)) });
+          }
+          return result;
+        },
+      );
+      try {
+        assert.equal((await api.call('describe', invitation)).head.position, 2);
+        assert.equal(refreshes, 1, 'the call returns at its captured floor despite a newer confirmed append');
+      } finally {
         spy.mock.restore();
       }
     });
@@ -154,7 +186,7 @@ test('human and agent participation on a real PDS', async (t) => {
         ]),
       );
       for (const response of results) assert.ok(response.frontier.position <= response.head.position);
-      assert.equal((await client.call('sync', invitation)).entries.length, 7);
+      assert.equal((await client.call('sync', invitation)).entries.length, 8);
     });
     await check('documented CLI packs, validates and creates the same immutable source', async () => {
       const root = join(env.dir, 'authored'),
@@ -189,11 +221,129 @@ test('human and agent participation on a real PDS', async (t) => {
     });
   } finally {
     await recordFlowEvidence('host-flows', results, {
-      expectedCases: 7,
+      expectedCases: 8,
       pdsVersion: '0.5.31',
       transport: 'real HTTP and SQLite',
     });
     await service.close();
+    await env.close();
+    await resetDisposable(env.dir);
+  }
+});
+
+test('HTTP receipts retain crash recovery and externally confirmed heads across rollback', async (t) => {
+  const env = await startEnvironment(),
+    directory = join(env.dir, 'receipt-checkpoints'),
+    accounts = new LocalAccounts(env.url, directory),
+    id = randomUUID(),
+    fixture = await guitarFixture(),
+    identity = await createIdentity('Checkpoint owner');
+  let host = new ApplicationHost(directory, accounts),
+    service: Awaited<ReturnType<typeof startApplicationService>> | undefined = await startApplicationService(host);
+  const client = async () => new AtseqClient(service!.url, await readHostToken(service!.tokenFile));
+  const close = async () => {
+    const closing = service;
+    service = undefined;
+    await closing?.close();
+  };
+  const restart = async () => {
+    host = new ApplicationHost(directory, accounts);
+    await host.restore();
+    service = await startApplicationService(host);
+  };
+  try {
+    const api = await client(),
+      created = await api.call(
+        'create',
+        {
+          source: bytes(await fixture.bundle.write()),
+          activationKeys: [identity.publicKey],
+        },
+        id,
+      ),
+      invitation = { app: created.genesis.app, genesis: created.genesisCid.$link };
+    const intent = (name: string) =>
+      prepareIntent(identity, invitation, fixture.bundle.root, fixture.action, {
+        id: name,
+        title: name,
+        pricePence: 100,
+      });
+    const first = await intent('first');
+    await api.call('submit', { block: bytes(new Uint8Array(first.block)) });
+    const second = await intent('crashed');
+    let checkpoints = 0;
+    const checkpoint = Sequencer.prototype.checkpoint;
+    const crash = t.mock.method(Sequencer.prototype, 'checkpoint', function (this: Sequencer) {
+      if (++checkpoints === 2) throw new Error('Fixture crash before confirmation checkpoint');
+      return checkpoint.call(this);
+    });
+    try {
+      await assert.rejects(() => api.call('submit', { block: bytes(new Uint8Array(second.block)) }), {
+        status: 503,
+        code: 'runtime_fault',
+        permanent: false,
+      });
+    } finally {
+      crash.mock.restore();
+    }
+    await close();
+    const retainedPosition = () => {
+      const lease = acquireWriterLease(join(directory, id, 'writer'), invitation.app);
+      try {
+        return (lease.readHead() as { position: number }).position;
+      } finally {
+        lease.close();
+      }
+    };
+    assert.equal(retainedPosition(), 1, 'the simulated crash left confirmation uncheckpointed');
+    await restart();
+    const recovered = await client();
+    assert.equal((await recovered.call('receipt', { ...invitation, intent: second.cid })).receipt.position, 2);
+    await close();
+    assert.equal(retainedPosition(), 2, 'restore and HTTP receipt retain the confirmed crash recovery');
+    await restart();
+    const pds = await accounts.open(id),
+      previous = (await pds.get(NSID.head, 'self')).value;
+    const record = JSON.parse(await readFile(join(directory, id, 'creation-secret.json'), 'utf8')),
+      writer = await P256PrivateKeyExportable.importRaw(new Uint8Array(record.writer)),
+      anchor = await Anchor.from(created.genesis, invitation),
+      third = await intent('external');
+    validateHead(previous, anchor);
+    const entry = await sequence(
+        decodeBlock(new Uint8Array(third.block)) as unknown as SignedIntent,
+        anchor,
+        previous,
+        writer,
+      ),
+      head = headAt(anchor, entry.position, await contentCid(entry));
+    await pds.applyConditional(
+      [
+        {
+          $type: 'com.atproto.repo.applyWrites#create',
+          collection: NSID.entry,
+          rkey: positionKey(entry.position),
+          value: entry,
+        },
+        { $type: 'com.atproto.repo.applyWrites#update', collection: NSID.head, rkey: 'self', value: head },
+      ],
+      (await pds.latestCommit()).cid,
+    );
+    assert.equal((await (await client()).call('receipt', { ...invitation, intent: third.cid })).receipt.position, 3);
+    await close();
+    assert.equal(retainedPosition(), 3, 'HTTP polling checkpoints a new verified head without a host append');
+    await pds.applyConditional(
+      [
+        { $type: 'com.atproto.repo.applyWrites#delete', collection: NSID.entry, rkey: positionKey(entry.position) },
+        { $type: 'com.atproto.repo.applyWrites#update', collection: NSID.head, rkey: 'self', value: previous },
+      ],
+      (await pds.latestCommit()).cid,
+    );
+    await restart();
+    assert.equal(host.restorationFailures()[id]?.code, 'rollback');
+    assert.deepEqual(host.list(), []);
+  } finally {
+    await close();
+    await host.close();
     await env.close();
     await resetDisposable(env.dir);
   }

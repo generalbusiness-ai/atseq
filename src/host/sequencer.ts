@@ -88,33 +88,37 @@ export class SnapshotReader {
   retainedHead() {
     return this.knownHead && structuredClone(this.knownHead);
   }
-  covers(history: Snapshot['history']) {
-    if (!this.knownHead) return true;
-    if (history.head.position < this.knownHead.position) return false;
-    if (verifiedEntryCid(history, this.anchor, this.knownHead.position) !== this.knownHead.entry.$link)
+  covers(history: Snapshot['history'], floor: Head | undefined) {
+    if (!floor) return true;
+    if (history.head.position < floor.position) return false;
+    if (verifiedEntryCid(history, this.anchor, floor.position) !== floor.entry.$link)
       throw new ProtocolError('fork', 'Snapshot differs from the retained verified head');
     return true;
   }
   async read(): Promise<Snapshot> {
+    const generation = this.generation,
+      floor = this.retainedHead();
     for (;;) {
       const running = this.inFlight ?? this.startRead();
       try {
         const snapshot = await running.promise;
-        if (running.generation !== this.generation || !this.covers(snapshot.history)) continue;
+        if (running.generation < generation || !this.covers(snapshot.history, floor)) continue;
         return snapshot;
       } catch (error) {
-        if (running.generation !== this.generation) continue;
+        if (running.generation < generation) continue;
         throw error;
       }
     }
   }
   private startRead() {
-    const generation = this.generation;
+    const generation = this.generation,
+      floor = this.retainedHead();
     const run = (async () => {
       const cached = this.cached;
-      if (cached && this.covers(cached.history) && (await this.pds.latestCommit()).cid === cached.commit) return cached;
-      const snapshot = await readSnapshot(this.pds, this.anchor, this.knownHead);
-      if (!this.covers(snapshot.history))
+      if (cached && this.covers(cached.history, floor) && (await this.pds.latestCommit()).cid === cached.commit)
+        return cached;
+      const snapshot = await readSnapshot(this.pds, this.anchor, floor);
+      if (!this.covers(snapshot.history, floor))
         throw new ProtocolError('rollback', 'Snapshot is behind the retained verified head');
       this.requireHead(snapshot.history.head);
       // A write may have completed while this read was in progress.
@@ -159,6 +163,7 @@ export class Sequencer {
   private closed = false;
   private readonly lease: WriterLease;
   private readonly snapshots: SnapshotReader;
+  private checkpointed?: Head;
   constructor(
     private readonly pds: PdsClient,
     private readonly anchor: Anchor,
@@ -177,6 +182,7 @@ export class Sequencer {
       if (cached !== undefined) {
         validateHead(cached, anchor);
         retainedHead = structuredClone(cached);
+        this.checkpointed = structuredClone(cached);
       }
       if (knownHead) {
         validateHead(knownHead, anchor);
@@ -194,6 +200,15 @@ export class Sequencer {
       throw error;
     }
   }
+  /** Persist the newest verified floor before issuing a receipt or read result. */
+  checkpoint() {
+    if (this.closed) throw new Error('Sequencer is closed');
+    const head = this.snapshots.retainedHead();
+    if (!head || (this.checkpointed?.position === head.position && this.checkpointed.entry.$link === head.entry.$link))
+      return;
+    this.lease.saveHead(head);
+    this.checkpointed = head;
+  }
   submit(block: Uint8Array): Promise<{ receipt: Receipt; head: Head }> {
     if (this.closed) return Promise.reject(new Error('Sequencer is closed'));
     const owned = new Uint8Array(block);
@@ -206,7 +221,7 @@ export class Sequencer {
     const snapshot = await this.snapshots.read();
     const receipt = snapshot.history.retries.lookupCid(intentCid);
     if (!receipt) return undefined;
-    this.lease.saveHead(this.snapshots.retainedHead());
+    this.checkpoint();
     return { receipt, head: structuredClone(snapshot.history.head) };
   }
   private async append(block: Uint8Array): Promise<{ receipt: Receipt; head: Head }> {
@@ -215,11 +230,11 @@ export class Sequencer {
       const snapshot = await this.snapshots.read();
       const receipt = await snapshot.history.retries.lookup(signed.intent);
       if (receipt) {
-        this.lease.saveHead(this.snapshots.retainedHead());
+        this.checkpoint();
         return { receipt, head: snapshot.history.head };
       }
       if (snapshot.history.head.position >= HOST_LIMITS.historyEntries) throw new PdsError(413, 'AppendLimit');
-      this.lease.saveHead(this.snapshots.retainedHead());
+      this.checkpoint();
       const entry = await sequence(signed, this.anchor, snapshot.history.head, this.signer);
       const head = headAt(this.anchor, entry.position, await contentCid(entry));
       try {

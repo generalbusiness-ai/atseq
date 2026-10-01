@@ -218,7 +218,12 @@ test('confirmation replaces an in-flight read started before the conditional wri
     await written;
     releaseRead();
     assert.equal((await submitted).receipt.position, 2);
-    assert.equal((await overlapping).history.head.position, 2);
+    assert.equal(
+      (await overlapping).history.head.position,
+      1,
+      'a read covers its starting floor without chasing later writes',
+    );
+    assert.equal((await reader.read()).history.head.position, 2, 'a post-confirmation read covers the confirmed head');
     assert.equal(pds.writes, 1, 'confirmation must not re-sign after joining a pre-write read');
   } finally {
     releaseWrite();
