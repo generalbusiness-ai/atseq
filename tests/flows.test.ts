@@ -150,11 +150,11 @@ test('human and agent participation on a real PDS', async (t) => {
     });
     await check('reads do not chase appends arriving during every interpretation refresh', async () => {
       let refreshes = 0;
-      const original = Folder.prototype.catchUpVerified;
+      const original = Folder.prototype.catchUpVerifiedStatus;
       const spy = t.mock.method(
         Folder.prototype,
-        'catchUpVerified',
-        async function (this: Folder, history: Parameters<Folder['catchUpVerified']>[0]) {
+        'catchUpVerifiedStatus',
+        async function (this: Folder, history: Parameters<Folder['catchUpVerifiedStatus']>[0]) {
           refreshes++;
           const result = await original.call(this, history);
           if (refreshes <= 4) {

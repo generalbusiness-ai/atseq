@@ -555,8 +555,9 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     ]);
     const folder = await Folder.open(evolving.anchor, pool);
     await folder.catchUp(headAt(evolving.anchor, 1, await contentCid(log.entries[0])), log.entries.slice(0, 1));
+    const verified = await verifyHistory(evolving.anchor, log.head, log.entries);
     const oldQuery = folder.query('summary', {});
-    await folder.catchUpVerifiedStatus(await verifyHistory(evolving.anchor, log.head, log.entries));
+    const advanced = folder.catchUpVerifiedStatus(verified);
     const captured = await oldQuery;
     equal(captured.frontier.position, 1);
     equal(captured.head.position, 1);
@@ -564,6 +565,7 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
       $type: 'ai.generalbusiness.atseq.defs#queryAvailable',
       value: { count: 1, selected: '' },
     });
+    await advanced;
     const current = await folder.query('summary', {});
     equal(current.frontier.position, 2);
     equal(current.result, {
