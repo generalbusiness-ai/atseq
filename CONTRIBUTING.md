@@ -12,7 +12,7 @@ npm run check
 npm test
 ```
 
-Setup installs the root dependencies, the isolated official PDS/PLC test dependencies, Chromium and its Linux system dependencies, then builds the public JavaScript APIs and executables. It needs network access. CI runs these same commands. Tests create marked disposable loopback data under `.atseq-local`; never use production records or credentials as test fixtures.
+Setup installs the root dependencies, the isolated official PDS/PLC test dependencies, Chromium and its Linux system dependencies, then builds the public JavaScript APIs and executables. It needs network access. CI runs setup and checks, then runs the same tests in two steps: the main suite followed by the real 20,000-entry boundary test, without other tests competing for CPU. Tests create marked disposable loopback data under `.atseq-local`; never use production records or credentials as test fixtures.
 
 `npm-shrinkwrap.json` is the root installation lock and is included in packed distributions. The isolated PDS test environment keeps its own lock under `tests/support/pds`. Test helpers and browser harnesses live under `tests/support`; retained experiment results remain under `experiments`. Do not rewrite old evidence to make a new implementation appear measured. Retain new results separately, with commands, timestamps, source hashes and limitations.
 
