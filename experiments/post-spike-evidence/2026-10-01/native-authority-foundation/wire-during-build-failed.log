@@ -1,0 +1,35 @@
+node:internal/modules/esm/resolve:241
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/hughpyle/play/atseq-worktrees/native-authority/dist/src/integrity/node.js' imported from /Users/hughpyle/play/atseq-worktrees/native-authority/src/core/dependencies.ts
+    at finalizeResolution (node:internal/modules/esm/resolve:241:11)
+    at moduleResolve (node:internal/modules/esm/resolve:846:10)
+    at defaultResolve (node:internal/modules/esm/resolve:973:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:708:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:728:38)
+    at nextStep (node:internal/modules/customization_hooks:189:26)
+    at resolveBaseSync (file:///Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/register-SoqaU4rg.mjs:2:10932)
+    at resolveDirectorySync (file:///Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/register-SoqaU4rg.mjs:2:12238)
+    at resolveTsPathsSync (file:///Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/register-SoqaU4rg.mjs:2:13445)
+    at resolve (file:///Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/register-SoqaU4rg.mjs:2:15991) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///Users/hughpyle/play/atseq-worktrees/native-authority/dist/src/integrity/node.js'
+}
+
+Node.js v26.10.0
+✖ tests/native-wire.test.ts (345.995625ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 349.9965
+
+✖ failing tests:
+
+test at tests/native-wire.test.ts:1:1
+✖ tests/native-wire.test.ts (345.995625ms)
+  'test failed'

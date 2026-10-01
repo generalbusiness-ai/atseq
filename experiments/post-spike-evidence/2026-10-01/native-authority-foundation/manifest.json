@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-01",
+  "request": "0e55c16dc2d5fb359e3e033c1b901fd97cb2cb6e",
+  "promise": "942365bffda572511f6697783be31955db4c2cc4",
+  "runtimeSource": "d08104ddae3e737b8de9e13a3e89116e65d84afc",
+  "dependencyBasis": "412b0c9b83c921c86f95d847dabbba381767d783",
+  "nativeWireSource": "cf2dc095",
+  "packageSha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+  "shrinkwrapSha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+  "fixtureLockSha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+  "runtimePaths": 147,
+  "currentSemanticProfile": "atseq-app-v2",
+  "packageGraphChanged": false,
+  "publicPackageExportsChanged": false,
+  "cases": 54,
+  "node": "26.10.0",
+  "nodeFloor": "22.19.0",
+  "chromium": "153.0.8010.12",
+  "publicFixture": {
+    "bytes": 23114637,
+    "sha256": "a6ca8f0aa56a1986e6fc4e39f13da8b6609d3a6829c1349e94487c9496e4e019",
+    "compression": "gzip",
+    "noPrivateKeysOrCredentials": true,
+    "containsRealNativeCarsAndSignedRequests": true
+  },
+  "browserBundle": {
+    "bytes": 783800,
+    "sha256": "68aab4127b8c654a1372c10fe1f9c0461b5f9a3f00588f3b9b8188070c5d68c8",
+    "testHarnessNotStandaloneLibraryCost": true
+  },
+  "snapshotBytes": [
+    {
+      "app": "did:plc:puhubn7uku6ehbcl5nsfkssh",
+      "genesis": "bafyreifqm3r5qfsbw4tvzhsk6juej6juiad6swqypowzu55i2arfwb2pjq",
+      "vectors": 36,
+      "hostile": 10,
+      "lastSnapshotBytes": 14131
+    },
+    {
+      "app": "did:plc:7seqn36qagjryajyztiyn3mr",
+      "genesis": "bafyreieo3ezppdmhm4do43fe2f5wvy7mue737xkgqvp5hvxbax3rax3ai4",
+      "vectors": 2,
+      "hostile": 0,
+      "lastSnapshotBytes": 2468
+    },
+    {
+      "app": "did:plc:rgur6473moysqxsgpnqpowko",
+      "genesis": "bafyreia2x6k2feunez3cn7idplsn653brv72dsldrj7ndgafvgzkcevizq",
+      "vectors": 2,
+      "hostile": 0,
+      "lastSnapshotBytes": 2392
+    },
+    {
+      "app": "did:plc:bgl4dautakrzpixuphvv5d62",
+      "genesis": "bafyreign5eympipxja2ltd2n7dgrdleokyyofbsr6cdsyywdzti64ui6b4",
+      "vectors": 4,
+      "hostile": 0,
+      "lastSnapshotBytes": 4185
+    }
+  ],
+  "sources": [
+    {
+      "path": "src/application/native-authority-evidence.ts",
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    {
+      "path": "src/application/native-authority-snapshot.ts",
+      "sha256": "c27d38aad6083f3f1965eb9ef74192e0f892e4d0102dcb8626dc4b4faa7882a6"
+    },
+    {
+      "path": "src/application/native-authority.ts",
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    {
+      "path": "tests/native-authority-browser.test.ts",
+      "sha256": "87e1954a2cb6d3437604f0f51d735897b7d22b5b7007b8097a67495a565482ed"
+    },
+    {
+      "path": "tests/native-authority.test.ts",
+      "sha256": "c8c3b4581ac46a88c3f1bd0f6231e4cbc56598dde0c1169350bf6fa2f13aa5c3"
+    },
+    {
+      "path": "tests/support/native-authority-browser.ts",
+      "sha256": "29ca7e4ba1b644e7fdfb5b9ee9de2c064e9c57329871f4c310c63fe66c2481fb"
+    },
+    {
+      "path": "tests/support/native-authority-corpus.ts",
+      "sha256": "f9e458df90f1d89872b5f6cbfc0d4c07d99a3959651470b95b1ad3f1c0bb542d"
+    },
+    {
+      "path": "tests/support/native-authority-fixture.ts",
+      "sha256": "574e4a7a0422be4398293b6f98779f7fedce9e59e68e2d02803bb72b7c18fde6"
+    }
+  ],
+  "files": [
+    {
+      "path": "public-vectors.json.gz",
+      "bytes": 1933520,
+      "sha256": "12091376fb35284eb64990edca4ad9a30cda0c4a186167b331d41188c02e08f0"
+    },
+    {
+      "path": "chromium.json",
+      "bytes": 4270,
+      "sha256": "77704905be325ba4ac1969c12a8622aca88ed25bbe1444ad79f7305be61de807"
+    },
+    {
+      "path": "node22.json",
+      "bytes": 4016,
+      "sha256": "ea303cd682d097a8b645b03a9fb50ec24083772815b29451e15d7de692bfc587"
+    },
+    {
+      "path": "cross-runtime.log",
+      "bytes": 8082,
+      "sha256": "b4ddeb9c4d0ae44c21f1f211ad578295d7015e2d44caaa7698016f727e8d3930"
+    },
+    {
+      "path": "node22.log",
+      "bytes": 3730,
+      "sha256": "bc264fee021f3f9604e2b3cf7ce8965d92629d2b2e4ae9f7fa22e1b640045c5e"
+    },
+    {
+      "path": "build.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "native-wire.log",
+      "bytes": 3957,
+      "sha256": "cf4e5f1293e60ba95c8c43fe440efdeacf53b9ab408bda38d236c76902b42c28"
+    },
+    {
+      "path": "check-during-build-failed.log",
+      "bytes": 370,
+      "sha256": "5882e4718a235372615e5ec70674352c596e063a29a70a800638edc48ed17b2c"
+    },
+    {
+      "path": "wire-during-build-failed.log",
+      "bytes": 1714,
+      "sha256": "f0355c9c32bf6502943ba0d03d8ecbc5a78d31199e6e01fb0f51a9d8146d5d50"
+    }
+  ],
+  "commands": {
+    "crossRuntime": "node --import tsx --test tests/native-authority.test.ts tests/native-authority-browser.test.ts",
+    "nodeFloor": "Node 22.19.0 --import tsx; replayAuthorityFixtures(JSON.parse(readFile(.atseq-local/i2-browser-input.json)))",
+    "build": "npm run build",
+    "check": "npm run check",
+    "nativeWire": "node --import tsx --test tests/native-wire.test.ts",
+    "lockedInstall": "npm ci --ignore-scripts --no-audit --no-fund",
+    "fixtureDeclarations": "npm ci --prefix tests/support/pds --ignore-scripts --no-audit --no-fund",
+    "replayRetained": "Decompress public-vectors.json.gz; pass parsed array to tests/support/native-authority-corpus.ts replayAuthorityFixtures under scripts/source-run.mjs or Node --import tsx after build."
+  },
+  "passed": {
+    "crossRuntimeTests": 2,
+    "nativeWireTests": 54,
+    "nodeFloorCases": 54,
+    "exactWholeSnapshotsAgree": true,
+    "typesFormattingLayersIntegrity": true
+  },
+  "limitations": [
+    "Internal offline foundation, not completed I2 admission or public authority ABI.",
+    "Ordinary required-role/open-participation eligibility and activation await opaque supported source/action derivation.",
+    "Configured semantic/policy dispatch, bootstrap-currentness acceptance, method observer networking and retained app-binding wire envelope are not integrated.",
+    "Web raw evidence relies on external observation trust; an app PDS can fabricate web principal evidence under publication-only policy.",
+    "No accepted-state snapshot restore, host/browser/archive integration, checkpoint certification or real-provider trial.",
+    "Reducer clones and sorts full projection; no large-state/incremental performance or standalone bundle cost claim.",
+    "Full npm test, compiled consumer and Node24 were not run for this partial foundation."
+  ],
+  "unsuccessfulSetup": "check and native-wire were initially started during dist replacement by build; missing generated #atseq-integrity resolution. Their raw failed logs are retained; both passed after build completed. No concurrency policy change."
+}
