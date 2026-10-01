@@ -186,7 +186,7 @@ CIDs, with source and dependency provenance recorded separately. They deliberate
 refuse historical spike profiles. See the [runtime profile](docs/runtime-profile.md) for exact
 bounds.
 
-The host reuses verified snapshots while the repository commit stays unchanged and shares concurrent refreshes. It verifies the complete history again after each changed commit, so repeated growth still takes quadratic total work. At 10,000 entries, a fresh local before/after run reduced median confirmed append from 15.65 to 7.74 seconds. The cold first append remained 15.48 seconds; browser replay plus transfer was 14.53 seconds. These are measurements on one machine, not production capacity. See [host performance and remaining costs](docs/host-performance.md) for the workloads, raw evidence and limits.
+The host reuses verified snapshots while the repository commit stays unchanged and shares concurrent refreshes. It verifies the complete history again after each changed commit, so repeated growth still takes quadratic total work. At 10,000 entries, a fresh local before/after run reduced median confirmed append from 15.65 to 7.64 seconds. The cold first append remained 15.10 seconds; browser replay plus transfer was 14.33 seconds. These are measurements on one machine, not production capacity. See [host performance and remaining costs](docs/host-performance.md) for the workloads, raw evidence and limits.
 
 This host accepts at most 20,000 entries per app. It refuses further new appends while keeping the existing app readable. An unchanged verified prefix is cached in memory; restarting the host rebuilds it.
 

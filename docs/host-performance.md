@@ -8,21 +8,21 @@ The host keeps projections in memory. It rebuilds from signed history on restart
 
 ## Measured before and after
 
-These runs use the same machine, Node 26.10.0, Chromium and a disposable official PDS with real SQLite and loopback HTTP. The before run uses browser revision `c77bdfe`; the after run includes the reviewed browser correction, the host changes described here and the review fixes for concurrent refresh and durable confirmed heads. The first after captures from `8dc7056` remain beside the replacement captures with that revision in their filenames. The measurement revision is `e37fee8`; later test synchronization fixes do not change its runtime or benchmark code. Raw results include timestamps, hardware, samples and source hashes:
+These runs use the same machine, Node 26.10.0, Chromium and a disposable official PDS with real SQLite and loopback HTTP. The before run uses browser revision `c77bdfe`; the after run includes the reviewed browser correction, the host changes described here and the review fixes for concurrent refresh and durable confirmed heads. Earlier after captures from `8dc7056` and `e37fee8` remain beside the replacement captures with those revisions in their filenames. The final measurement revision is `97670fd`, including the HTTP receipt checkpoints and fixed read floors. Raw results include timestamps, hardware, samples and source hashes:
 
 - [Node before](../experiments/adoption-f/node-before.json) and [after](../experiments/adoption-f/node-after.json).
 - [Browser before](../experiments/adoption-f/browser-before.json) and [after](../experiments/adoption-f/browser-after.json).
 
 | Work at 10,000 entries                               |  Before |   After |
 | ---------------------------------------------------- | ------: | ------: |
-| Confirmed append, median of nine                     | 15.65 s |  7.74 s |
-| Confirmed append, nearest-rank p95 of nine           | 16.39 s | 15.48 s |
-| Complete PDS read and verification                   |  9.17 s |  7.72 s |
-| Cold Node replay, including verification             | 11.85 s |  7.75 s |
-| Catch-up by one entry from unverified complete input |  6.27 s |  6.29 s |
-| Browser replay and result transfer                   | 14.78 s | 14.53 s |
+| Confirmed append, median of nine                     | 15.65 s |  7.64 s |
+| Confirmed append, nearest-rank p95 of nine           | 16.39 s | 15.10 s |
+| Complete PDS read and verification                   |  9.17 s |  7.65 s |
+| Cold Node replay, including verification             | 11.85 s |  7.68 s |
+| Catch-up by one entry from unverified complete input |  6.27 s |  6.24 s |
+| Browser replay and result transfer                   | 14.78 s | 14.33 s |
 
-The first append in the after run starts with no cached snapshot and takes 15.48 seconds; subsequent appends reuse the preceding verified commit and verify the new commit once. The browser and public cold replay paths still verify their complete input. Browser timing changed little. These small samples describe this run and are not throughput or capacity guarantees.
+The first append in the after run starts with no cached snapshot and takes 15.10 seconds; subsequent appends reuse the preceding verified commit and verify the new commit once. The browser and public cold replay paths still verify their complete input. Browser timing changed little. These small samples describe this run and are not throughput or capacity guarantees.
 
 The append benchmark calls the sequencer directly. It never measured the application host's projection-file writes, so its improvement cannot be attributed to removing those writes. Removing the writes and per-entry outcomes copying removes separate host restore costs; the existing persistence and replay tests check that state, outcomes and frontier remain coherent.
 
