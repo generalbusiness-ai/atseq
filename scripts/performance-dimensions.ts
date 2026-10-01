@@ -170,6 +170,7 @@ for (const count of actors)
     const fixture = JSON.parse(raw.toString()) as Fixture;
     assert.equal(fixture.entries.length, size);
     assert.equal(fixture.head.position, size);
+    assert.equal(new Set(fixture.entries.map((entry) => entry.signedIntent.intent.actorKey)).size, count);
     const sourceBytes = fromBytes(fixture.source);
     const source = await SourceBundle.read(sourceBytes);
     const anchor = await Anchor.from(fixture.genesis, { app: fixture.genesis.app, genesis: fixture.genesisCid });
@@ -177,8 +178,9 @@ for (const count of actors)
     const cold = await Folder.open(anchor, source);
     const expected = await cold.catchUpVerified(verified);
     assert.equal(expected.stalled, undefined);
-    assert.equal((expected.projection.state as { selected: string }).selected, String(size));
-    await writeFile(join(output, 'public-inputs', `${name}.json.gz`), gzipSync(raw));
+    assert.deepEqual(expected.projection.state, { candidates: [], selected: String(size) });
+    const compressed = gzipSync(raw);
+    await writeFile(join(output, 'public-inputs', `${name}.json.gz`), compressed);
     await writeFile(join(output, 'public-inputs', `${name}.source.car`), sourceBytes);
     results.inputs.push({
       name,
@@ -186,7 +188,7 @@ for (const count of actors)
       sourceCarSha256: hash(sourceBytes),
       sourceCid: source.root,
       historyBytes: raw.length,
-      compressedFixtureSha256: hash(gzipSync(raw)),
+      compressedFixtureSha256: hash(compressed),
       sourceCarBytes: sourceBytes.length,
     });
     const lease = acquireWriterLease(join(output, 'storage', name), fixture.genesis.app);
@@ -236,6 +238,9 @@ for (const count of actors)
           await kernel('optionalProjectionFileWriteFlushMs', () =>
             writeFile(join(output, 'storage', `${name}.projection.json`), serialized, { flush: true }),
           );
+          // Set the retained floor outside the kernel. Delta zero rewrites the
+          // same head; other deltas measure one real head-value change.
+          lease.saveHead(floorHead);
           await kernel('actualLeaseHeadSaveMs', () => lease.saveHead(fixture.head));
           assert.deepEqual(lease.readHead(), fixture.head);
           assert.deepEqual(
