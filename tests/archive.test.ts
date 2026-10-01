@@ -327,6 +327,9 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
           db.close();
           return values;
         });
+      await expect
+        .poll(async () => (await device()).find((value) => value?.signed?.intent)?.error)
+        .toBe('Reply uncertain. The original signed action is retained for retry.');
       const before = await device();
       await page.evaluate(() => {
         const send = Worker.prototype.postMessage;

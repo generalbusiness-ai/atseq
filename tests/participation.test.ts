@@ -197,7 +197,29 @@ test('two browser identities and the JSON CLI use generic participation flows', 
     await check('narrow layout remains usable with keyboard focus and no script errors', async () => {
       await b.getByRole('button', { name: 'Refresh', exact: true }).click();
       await expect(b.getByText('Entry 3 · Applied', { exact: true })).toBeVisible();
-      assert.equal(await b.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      for (const width of [320, 375, 390]) {
+        await b.setViewportSize({ width, height: 844 });
+        const layout = await b.evaluate(() => ({
+          viewport: innerWidth,
+          width: document.documentElement.scrollWidth,
+          overflowing: [...document.querySelectorAll('body *')]
+            .filter(
+              (element) =>
+                element.getBoundingClientRect().right > innerWidth || element.scrollWidth > element.clientWidth,
+            )
+            .map((element) => ({
+              tag: element.tagName,
+              id: element.id,
+              className: element.className,
+              text: element.textContent?.slice(0, 80),
+              width: element.getBoundingClientRect().width,
+              scrollWidth: element.scrollWidth,
+              overflow: getComputedStyle(element).overflowX,
+              right: element.getBoundingClientRect().right,
+            })),
+        }));
+        assert.equal(layout.width <= layout.viewport, true, JSON.stringify(layout));
+      }
       await b.getByRole('button', { name: 'candidate', exact: true }).focus();
       await b.keyboard.press('Enter');
       await expect(b.getByRole('textbox', { name: 'id', exact: true })).toBeFocused();

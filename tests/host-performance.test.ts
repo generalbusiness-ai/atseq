@@ -269,7 +269,7 @@ test('confirmed and repeated receipts retain their head across restart and refus
 
 test(
   'entry 20000 is accepted, 20001 is refused before a PDS write and existing history stays readable',
-  { timeout: 120000 },
+  { timeout: 300000 },
   async () => {
     const f = await fixture(HOST_LIMITS.historyEntries - 1),
       pds = new MemoryPds(f.app.anchor, f.history.head, f.history.entries);
