@@ -21,7 +21,7 @@ import { bytes } from '../protocol/wire.ts';
 import type { Json } from '../core/values.ts';
 import { resolveSchema, type DefinitionInfo } from '../client/definition.ts';
 import type { ViewNode } from '../view/inlay.ts';
-import { Evaluator } from './evaluator.ts';
+import { Evaluator, savedHistoryFailed } from './evaluator.ts';
 import { element, button, actionForm, schemaForm } from './forms.ts';
 
 interface AppInvitation extends Invitation {
@@ -59,7 +59,8 @@ let draft: Draft | undefined,
   refreshAgain = false;
 let editorArea: HTMLElement | undefined,
   localWorkGeneration = 0,
-  drawVersion = 0;
+  drawVersion = 0,
+  openingGeneration: number | undefined;
 function activeSession(): AppSession | undefined {
   return current && definition ? { ...current, definition: definition.cid } : undefined;
 }
@@ -133,10 +134,13 @@ async function applications() {
 async function knownInvitations(): Promise<Invitation[]> {
   return store.list<Invitation>('pin:');
 }
-async function pinInvitation(invitation: Invitation) {
-  if ((await knownInvitations()).some((pin) => pin.app === invitation.app && pin.genesis !== invitation.genesis))
+async function pinInvitation(invitation: Invitation, generation: number) {
+  const pins = await knownInvitations();
+  if (!stillCurrent(generation)) throw new Error('App changed before saving its invitation');
+  if (pins.some((pin) => pin.app === invitation.app && pin.genesis !== invitation.genesis))
     throw new Error('Application differs from the pinned invitation');
   await store.update<Invitation>(`pin:${invitation.app}`, (previous) => {
+    if (!stillCurrent(generation)) throw new Error('App changed before saving its invitation');
     if (previous && previous.genesis !== invitation.genesis)
       throw new Error('Application differs from the pinned invitation');
     return previous ?? invitation;
@@ -201,6 +205,7 @@ function drawDraft() {
 }
 async function openApp(invitation: Invitation) {
   const generation = sessions.begin();
+  openingGeneration = generation;
   evaluator.select();
   current = { ...invitation };
   draft = undefined;
@@ -220,26 +225,69 @@ async function openApp(invitation: Invitation) {
         retained,
       );
       if (!stillCurrent(generation)) return;
-      await pinInvitation(invitation);
+      await pinInvitation(invitation, generation);
       if (!stillCurrent(generation)) return;
       snapshot = checked;
       definition = checked.definition;
       await drawApp();
-      if (stillCurrent(generation)) tell('Saved state on this device. Checking for newer entries…');
+      if (stillCurrent(generation)) {
+        openingGeneration = undefined;
+        tell('Saved state on this device. Checking for newer entries…');
+      }
     } catch (error) {
       if (!stillCurrent(generation)) return;
-      content.replaceChildren(
-        element('h1', 'Saved state unavailable'),
-        element('p', 'Saved history is retained. Retry to rebuild it before checking the host.'),
-        button('Retry', () => refresh()),
-      );
+      openingGeneration = undefined;
+      drawSavedFailure(error, invitation, generation);
       failure(error);
       return;
     }
+  else {
+    evaluator.ready();
+    openingGeneration = undefined;
+  }
   if (stillCurrent(generation)) await refresh();
 }
+function drawSavedFailure(error: unknown, invitation: Invitation, generation: number) {
+  const corrupt = savedHistoryFailed(error);
+  content.replaceChildren(
+    element('h1', corrupt ? 'Saved history on this device failed verification' : 'Saved state unavailable'),
+    element('p', 'Saved history is retained. Retry to rebuild it before checking the host.'),
+    button('Retry', () => refresh()),
+    button('Forget this invitation', () => forgetInvitation(invitation)),
+  );
+  if (corrupt)
+    content.append(
+      element(
+        'p',
+        'Discarding saved history removes this device’s rollback protection. Keep a trusted archive or another verified copy before discarding it. Signed actions and your key remain on this device.',
+      ),
+      button('Discard saved history', async () => {
+        if (!stillCurrent(generation)) return;
+        await store.delete(`verified:${invitation.app}:${invitation.genesis}`);
+        if (!stillCurrent(generation)) return;
+        await openApp(invitation);
+      }),
+    );
+}
+async function forgetInvitation(invitation: Invitation) {
+  // Cancel old reads before deletion; an in-flight refresh must not repin this app.
+  const generation = sessions.begin();
+  evaluator.select();
+  openingGeneration = undefined;
+  current = undefined;
+  snapshot = undefined;
+  definition = undefined;
+  history.replaceState(null, '', '/');
+  content.replaceChildren(element('p', 'Forgetting this invitation…'));
+  await store.delete(`pin:${invitation.app}`);
+  await store.delete(`verified:${invitation.app}:${invitation.genesis}`);
+  await store.update<Invitation[]>('apps', (previous) => (previous ?? []).filter((app) => app.app !== invitation.app));
+  if (!stillCurrent(generation)) return;
+  content.replaceChildren(element('p', 'Invitation forgotten. Signed work remains on this device.'));
+  await applications();
+}
 async function refresh() {
-  if (!current) return;
+  if (!current || openingGeneration === sessions.capture()) return;
   if (refreshing) {
     refreshAgain = true;
     return;
@@ -261,10 +309,10 @@ async function refresh() {
       120_000,
     );
     if (!stillCurrent(generation)) return;
-    await pinInvitation(invitation);
+    await pinInvitation(invitation, generation);
     if (!stillCurrent(generation)) return;
     // Only worker-verified inputs become the device's canonical cache.
-    await retainVerified(store, input);
+    await retainVerified(store, input, () => stillCurrent(generation));
     if (!stillCurrent(generation)) return;
     snapshot = checked;
     definition = checked.definition;
@@ -279,18 +327,25 @@ async function refresh() {
     );
   } catch (error) {
     if (!stillCurrent(generation)) return;
+    if (!snapshot) {
+      snapshot = evaluator.snapshot(invitation);
+      definition = snapshot?.definition;
+    }
     if (snapshot) {
       await drawApp();
       if (!stillCurrent(generation)) return;
       tell(
         `${navigator.onLine ? `Latest data unavailable: ${hostMessage(error)}.` : 'Offline.'} Showing saved state through entry ${snapshot.projection.frontier.position}. Pending actions stay on this device.`,
       );
+    } else if (evaluator.hasSavedHistory(invitation) && savedHistoryFailed(error)) {
+      drawSavedFailure(error, invitation, generation);
+      failure(error);
     } else {
       content.replaceChildren(
         element('h1', 'App unavailable'),
         element(
           'p',
-          'No verified state is saved on this device. The invitation is retained; retry when its source is available.',
+          'No verified state is saved on this device. Data from the host could not be verified or loaded. Retry when the host is available.',
         ),
         button('Retry', () => refresh()),
       );
@@ -390,21 +445,7 @@ async function drawApp() {
   controls.append(
     refreshButton,
     button('Retry pending actions', () => flush()),
-    button('Forget this invitation', async () => {
-      if (!visible()) return;
-      await store.delete(`pin:${binding.app}`);
-      await store.delete(`verified:${binding.app}:${binding.genesis}`);
-      await store.update<Invitation[]>('apps', (previous) => (previous ?? []).filter((app) => app.app !== binding.app));
-      if (!visible()) return;
-      sessions.begin();
-      evaluator.select();
-      current = undefined;
-      snapshot = undefined;
-      definition = undefined;
-      history.replaceState(null, '', '/');
-      content.replaceChildren(element('p', 'Invitation forgotten. Signed work remains on this device.'));
-      await applications();
-    }),
+    button('Forget this invitation', () => forgetInvitation(binding)),
   );
   const workspace = element('section', undefined, 'card'),
     formArea = (editorArea ??= element('div')),
@@ -683,8 +724,10 @@ document.querySelector<HTMLInputElement>('#import-archive')!.onchange = async (e
     }
     if (!stillCurrent(generation)) return;
     const invitation = { app: checked.input.genesis.app, genesis: checked.input.genesisCid };
-    await pinInvitation(invitation);
-    await retainVerified(store, checked.input);
+    await pinInvitation(invitation, generation);
+    if (!stillCurrent(generation)) return;
+    await retainVerified(store, checked.input, () => stillCurrent(generation));
+    if (!stillCurrent(generation)) return;
     await store.update<AppInvitation[]>('apps', (previous) => [
       ...(previous ?? []).filter((app) => app.app !== invitation.app),
       { ...invitation, title: 'Imported application' },
@@ -693,7 +736,7 @@ document.querySelector<HTMLInputElement>('#import-archive')!.onchange = async (e
     await openApp(invitation);
     await applications();
   } catch (error) {
-    failure(error);
+    if (stillCurrent(generation)) failure(error);
   } finally {
     input.value = '';
   }
