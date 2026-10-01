@@ -85,7 +85,10 @@ try {
       w.started = performance.now();
       w.done = false;
       w.run = w
-        .call('sync', { invitation: { app: input.genesis.app, genesis: input.genesisCid }, input })
+        .call('sync', {
+          session: { app: input.genesis.app, genesis: input.genesisCid, definition: input.genesis.definition.$link },
+          input,
+        })
         .then((snapshot: any) => {
           w.elapsed = performance.now() - w.started;
           w.ticking = false;
