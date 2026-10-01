@@ -80,7 +80,7 @@ test('identity transport applies credential/cache/redirect and failed-body total
   );
 });
 
-test('identity transport classifies known mid-body faults and preserves programming/integrity failures (mock body)', () => {
+test('identity transport classifies body-read failures and preserves request and Atseq faults (mock phases)', () => {
   const probe = `import assert from 'node:assert/strict';
     import {IdentityFetch} from ${JSON.stringify(resolve('src/host/identity-fetch.ts'))};
     import {AtseqError} from ${JSON.stringify(resolve('src/core/errors.ts'))};
@@ -93,18 +93,26 @@ test('identity transport classifies known mid-body faults and preserves programm
       let caught;try{await transport.bytesFrom('https://pds.atseq-probe.net/a',100);}catch(fault){caught=fault;}
       return caught;
     }
-    for(const code of ['UND_ERR_SOCKET','UND_ERR_BODY_TIMEOUT','UND_ERR_RES_CONTENT_LENGTH_MISMATCH','UND_ERR_RES_EXCEEDED_MAX_SIZE']){
-      const fault=new TypeError('terminated',{cause:Object.assign(new Error('Body transport failed'),{code})});
-      const caught=await attempt(fault);assert.equal(caught?.code,'content_unavailable');
-    }
-    for(const fault of [new TypeError('Application programming error'),new TypeError('terminated'),
+    const bodyFaults=['UND_ERR_SOCKET','UND_ERR_BODY_TIMEOUT','UND_ERR_RES_CONTENT_LENGTH_MISMATCH',
+      'UND_ERR_RES_EXCEEDED_MAX_SIZE','ECONNRESET','EPIPE','ETIMEDOUT','ERR_SSL_SSLV3_ALERT_BAD_RECORD_MAC']
+      .map(code=>new TypeError('terminated',{cause:Object.assign(new Error('Body transport failed'),{code})}));
+    bodyFaults.push(new TypeError('Stream implementation failed'),new TypeError('terminated'),'Remote stream failed');
+    for(const fault of bodyFaults)assert.equal((await attempt(fault))?.code,'content_unavailable');
+    const integrity=new AtseqError('dependency_mismatch','Integrity failure');
+    assert.equal(await attempt(integrity),integrity);
+    const requestFaults=[new TypeError('Application programming error'),new TypeError('terminated'),
       new TypeError('terminated',{cause:Object.assign(new Error('Invalid dispatcher use'),{code:'UND_ERR_INVALID_ARG'})}),
       new TypeError('terminated',{cause:Object.assign(new Error('Invalid request size'),{code:'UND_ERR_REQ_CONTENT_LENGTH_MISMATCH'})}),
-      new AtseqError('dependency_mismatch','Integrity failure')])assert.equal(await attempt(fault),fault);
-    assert.equal(seen,27);assert.equal(transport.bytes,27);
+      integrity];
+    for(const fault of requestFaults){
+      transport.fetch=async()=>{throw fault;};
+      await assert.rejects(()=>transport.bytesFrom('https://pds.atseq-probe.net/a',100),error=>error===fault);
+    }
+    await assert.rejects(()=>transport.bytesFrom('https://pds.atseq-probe.net/a',0),{code:'input'});
+    assert.equal(seen,36);assert.equal(transport.bytes,36);
     transport.fetch=async()=>new Response(new Uint8Array([4]));
     assert.deepEqual([...await transport.bytesFrom('https://pds.atseq-probe.net/a',100)],[4]);
-    process.stdout.write(JSON.stringify({mockMidBody:true,knownTransportCases:4,preservedFaultCases:5,consumedBeforeFailure:seen,resumed:true}));`;
+    process.stdout.write(JSON.stringify({mockBodyPhases:true,bodyReadFaultCases:bodyFaults.length,preservedBodyAtseqCases:1,preservedRequestFaultCases:requestFaults.length,consumedBeforeFailure:seen,resumed:true}));`;
   const evidence = JSON.parse(
     execFileSync(
       process.execPath,
@@ -119,8 +127,9 @@ test('identity transport classifies known mid-body faults and preserves programm
       { encoding: 'utf8', timeout: 20_000 },
     ),
   );
-  assert.equal(evidence.knownTransportCases, 4);
-  assert.equal(evidence.preservedFaultCases, 5);
+  assert.equal(evidence.bodyReadFaultCases, 11);
+  assert.equal(evidence.preservedBodyAtseqCases, 1);
+  assert.equal(evidence.preservedRequestFaultCases, 5);
   console.log(JSON.stringify(evidence));
 });
 

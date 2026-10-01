@@ -52,7 +52,12 @@ export class IdentityFetch {
       try {
         if (reader)
           for (;;) {
-            const { done, value } = await reader.read();
+            const { done, value } = await reader.read().catch((error: unknown) => {
+              // Headers have arrived. An unreadable remote body is unavailable
+              // evidence; our validation and budget checks stay outside this phase.
+              if (error instanceof AtseqError) throw error;
+              throw new AtseqError('content_unavailable', 'Identity evidence body is unavailable');
+            });
             if (done) break;
             size += value.length;
             this.bytes += value.length;
@@ -76,16 +81,6 @@ export class IdentityFetch {
     } catch (error) {
       if (
         (error instanceof TypeError && error.message === 'fetch failed') ||
-        (error instanceof TypeError &&
-          error.message === 'terminated' &&
-          error.cause instanceof Error &&
-          // These are remote response-body failures, not request construction errors.
-          [
-            'UND_ERR_SOCKET',
-            'UND_ERR_BODY_TIMEOUT',
-            'UND_ERR_RES_CONTENT_LENGTH_MISMATCH',
-            'UND_ERR_RES_EXCEEDED_MAX_SIZE',
-          ].includes((error.cause as Error & { code?: string }).code ?? '')) ||
         (error instanceof Error &&
           ['FetchRequestError', 'FetchResponseError'].includes(error.constructor.name) &&
           Number.isSafeInteger((error as Error & { statusCode?: number }).statusCode)) ||
