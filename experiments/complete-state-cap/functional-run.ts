@@ -33,7 +33,7 @@ for (const fixture of fixtures.filter((x) => x.size === 'at-cap')) {
   const snapshot = await folder.catchUp(history.head, history.entries);
   equal(snapshot.projection.state, fixture.state);
   equal(snapshot.projection.frontier.position, 1);
-  equal(snapshot.stalled, undefined);
+  if (snapshot.stalled !== undefined) throw new Error('One-action fixture stalled');
   equal(snapshot.projection.outcomes[0]!.outcome.$type, 'ai.generalbusiness.atseq.defs#effective');
   const query = await folder.query('summary', {});
   equal(query.result.$type, 'ai.generalbusiness.atseq.defs#queryAvailable');
