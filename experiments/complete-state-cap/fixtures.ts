@@ -205,7 +205,7 @@ async function sample(family: string, size: string, target?: number): Promise<Ca
     addition = predecessor[key].pop();
   if (family === 'ledger') predecessor.balanceMinor -= addition.amountMinor;
   const ref = original.manifest.actions[0]!.ref;
-  const expectedQuery =
+  const expectedQuery: Json =
     family === 'taskboard'
       ? { count, completed: 0 }
       : family === 'guitar'
