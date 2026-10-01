@@ -1,0 +1,9 @@
+{
+  "entry": "src/protocol/native-proof.ts",
+  "jsBytes": 407296,
+  "sha256": [
+    "f6f11e0883e9e2c7b9300bb428790bd7cb5a9082bf15d9cd69e6ee087bf9df1b"
+  ],
+  "noNodeImports": true,
+  "scope": "standalone minified browser proof wrapper including existing Atseq dependency-provenance checking; no compression; successor after assessment7f26f640"
+}

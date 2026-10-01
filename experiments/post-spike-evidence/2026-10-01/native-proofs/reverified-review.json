@@ -1,0 +1,183 @@
+{
+  "assessment": "7f26f640fa05c85716489d3197b10ce51032a868",
+  "node": "v26.10.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "originalCapture": {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-proofs/pds-results.json",
+    "sha256": "f07bdb5260f719d688c90005eb5532311d10997b1b7152248f7cbd693fec9b20",
+    "fixtureLockSha256": "227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41"
+  },
+  "historicalReverification": {
+    "path": "experiments/post-spike-evidence/2026-10-01/native-proofs/reverified.json",
+    "sha256": "f00b0e8020c89c90469eeca3749da5b3b0478efdc24e09ebdc9945f66ca15626",
+    "correction": "The historical scope said current31casecorpus; its actual associated corpus contained 33 cases. Original bytes are preserved."
+  },
+  "scope": "Selected root/DID/signature, every new entry, retained old path, whole canonical tree, diff-only and deliberate omission missingness, same-root full recovery, standalone full tree; shared current Node/Chromium corpus",
+  "currentCorpusCases": 41,
+  "currentCorpus": [
+    "root fields, raw membership, absence and whole-tree checks",
+    "non-forgeable capability",
+    "wrong DID",
+    "wrong key",
+    "wrong root",
+    "truncated CAR",
+    "CAR byte budget",
+    "block count budget",
+    "block byte budget",
+    "header budget",
+    "corrupt block",
+    "wrong record CID",
+    "invalid path",
+    "path and full-tree node budgets",
+    "caller CAR, options and returned-byte mutation isolation",
+    "sparse missing evidence distinct from absence",
+    "missing record bytes",
+    "full-export cache recovery",
+    "failed admission preserves prior evidence",
+    "single-CAR cache budget",
+    "LRU eviction yields missing evidence",
+    "optional expected root",
+    "exactly one selected CAR root",
+    "oversized authenticated admission is atomic",
+    "p256 legacy/compressed/off-curve keys and compact low-S signatures",
+    "secp256k1 legacy/compressed/off-curve keys and compact low-S signatures",
+    "wrong-layer signed MST node",
+    "unordered signed MST keys",
+    "wrong child layer",
+    "overlapping child interval",
+    "canonical MST fields",
+    "canonical empty repository root",
+    "height-one signed empty non-root MST node",
+    "leaf signed empty non-root MST node",
+    "untrimmed keyless root is invalid input",
+    "noncanonical signed MST CBOR is invalid input",
+    "maintained MST deserialization errors are invalid input",
+    "noncanonical commit CBOR is invalid input",
+    "genuine walker runtime faults retain identity",
+    "bounded native CBOR framing",
+    "native membership cannot bypass strict Atseq record limits"
+  ],
+  "chromium": {
+    "version": "153.0.8010.12",
+    "corpusCases": 41,
+    "bundleBytes": 439031,
+    "bundleSha256": "957a3bde5f54b08534715e666cac0f0491e57411343dabb9a46e52ae68a5d8d6"
+  },
+  "sourceSha256": {
+    "src/protocol/native-proof.ts": "6a6f1c888f9e5bff4a004c6d31a62e7e7c32ffe508de70c8c7300068658c05c7",
+    "src/protocol/wire.ts": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+    "src/integrity/node.ts": "fb17dd73a40fec088d23b2cce96eb35dd99c14f0c1da48bdc1e7dcc210a1ce47",
+    "tests/support/native-proof-corpus.ts": "fad60f672cc13e8e5945f7e05ad0845225c0e00f962c67068f883d054740a0ca",
+    "scripts/reverify-native-proof.ts": "66276052b13ce2e5dedbdaf89324811340b74c10c828468436fd5a5b4573f012",
+    "npm-shrinkwrap.json": "ad408a2ce81f63bbeaf4a0800b37c5306870f4400729325a073e67f885f10502"
+  },
+  "inputs": {
+    "1000-before.car": {
+      "bytes": 232423,
+      "sha256": "bf49d5a23e73b7fa974eef63fc745b5cfef3fbc585567aa3f721d0147d89597d"
+    },
+    "1000-delta1.car": {
+      "bytes": 4042,
+      "sha256": "f7dc74adf46b05fb7f67daf6fe83cae8bcffe462a4ee09618b1268eb197f3fbc"
+    },
+    "1000-delta1-full.car": {
+      "bytes": 232825,
+      "sha256": "9bc35004b0ce4b59f31e4cfe3a154d23f4c539c542306ebd792901a363ae8211"
+    },
+    "1000-delta100.car": {
+      "bytes": 26854,
+      "sha256": "7724003b9392d5de128cc218b336d27578ff2b5df06e9bf3fbd8f78a8cd9a363"
+    },
+    "1000-delta100-full.car": {
+      "bytes": 255637,
+      "sha256": "b7b12f05c5c9de67bfa18f6577f95802001e5068d2ead59a73615f5346396413"
+    },
+    "10000-before.car": {
+      "bytes": 2330301,
+      "sha256": "3130142ec84390733bcacc7918d24074668850f37b90ea5730a133e64d022a56"
+    },
+    "10000-delta1.car": {
+      "bytes": 3250,
+      "sha256": "23fb50ebd9e30118558da263f1663d8a6bb338cb3180f82e9ace82c187f622b3"
+    },
+    "10000-delta1-full.car": {
+      "bytes": 2330500,
+      "sha256": "199ca2478e6e39033f74c94da4959ecd3359eae5485e0295ff6c9b5888e9d43b"
+    },
+    "10000-delta100.car": {
+      "bytes": 27456,
+      "sha256": "aa3804537dd6a0943d74bfd0d1ce7ac84da0746a63924aa471c71e0dba02e10c"
+    },
+    "10000-delta100-full.car": {
+      "bytes": 2354706,
+      "sha256": "7d66f7799e450f7e944efdf3a07809174436239e4f4eeed0858b88f633a4ac05"
+    }
+  },
+  "results": [
+    {
+      "size": 1000,
+      "delta": 1,
+      "root": "bafyreic2tvvla6rosfedeq2h7fler62vx56amlafx6jkptq3t3xh7nfjom",
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 1002,
+        "nodeLoads": 268
+      },
+      "newEntriesVerified": 1,
+      "retainedOldPathVerified": true,
+      "diffAloneMissing": true,
+      "deliberatelyOmittedNodeMissing": true,
+      "sameRootFullExportRecovery": true,
+      "standaloneFullTreeVerified": true
+    },
+    {
+      "size": 1000,
+      "delta": 100,
+      "root": "bafyreidgcgljblspygytjjnlrz5n57oxatet6ruebuep5ll4z3zkihcdki",
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 1101,
+        "nodeLoads": 293
+      },
+      "newEntriesVerified": 100,
+      "retainedOldPathVerified": true,
+      "diffAloneMissing": true,
+      "deliberatelyOmittedNodeMissing": true,
+      "sameRootFullExportRecovery": true,
+      "standaloneFullTreeVerified": true
+    },
+    {
+      "size": 10000,
+      "delta": 1,
+      "root": "bafyreifisub5oxrp3ivvrhek3cw5wn4af7fa24hnmbo5i5i6al7xn3oree",
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 10002,
+        "nodeLoads": 2726
+      },
+      "newEntriesVerified": 1,
+      "retainedOldPathVerified": true,
+      "diffAloneMissing": true,
+      "deliberatelyOmittedNodeMissing": true,
+      "sameRootFullExportRecovery": true,
+      "standaloneFullTreeVerified": true
+    },
+    {
+      "size": 10000,
+      "delta": 100,
+      "root": "bafyreidq6a3564de5mye76okqivjwvkcciauf5fyibbta7g72bq7t2iusm",
+      "canonicalTree": {
+        "kind": "complete",
+        "records": 10101,
+        "nodeLoads": 2763
+      },
+      "newEntriesVerified": 100,
+      "retainedOldPathVerified": true,
+      "diffAloneMissing": true,
+      "deliberatelyOmittedNodeMissing": true,
+      "sameRootFullExportRecovery": true,
+      "standaloneFullTreeVerified": true
+    }
+  ]
+}

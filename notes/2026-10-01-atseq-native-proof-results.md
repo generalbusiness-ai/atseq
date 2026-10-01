@@ -45,7 +45,8 @@ node across all lookups.
 On each searched path, upstream node decoding checks optimal prefixes, strictly
 sorted keys and equal SHA-256 key layers. Unknown node/entry fields are refused. Its untrusted walker checks descending
 child layers. Atseq additionally checks every visited frame's key interval and
-traversal budgets. `validateTree` applies those checks to the whole tree and
+traversal budgets. An empty node is accepted only as the selected data root; a
+non-root empty node must use the canonical null link. `validateTree` applies those checks to the whole tree and
 requires every referenced record block. Signed hostile fixtures test mixed key
 layers, unordered keys, wrong child layers and overlapping child intervals in
 both sparse and full-tree modes. Sparse membership or exclusion says nothing
@@ -103,7 +104,11 @@ record count. An old path fails with a missing MST-node CID when only the diff i
 available, succeeds with retained blocks, and fails again when that needed node
 is deliberately omitted from the retained cache. Importing the full export at
 the same selected root restores it. Every retained public CAR was also
-[reverified against the final source](../experiments/post-spike-evidence/2026-10-01/native-proofs/reverified.json).
+[reverified after the independent review corrections](../experiments/post-spike-evidence/2026-10-01/native-proofs/reverified-review.json).
+The historical reverification file remains intact; its scope text incorrectly
+said 31 corpus cases where the associated capture contained 33. The successor
+records that correction, hashes the original capture and all ten CAR inputs,
+and records the current 41-case shared Node/Chromium corpus.
 This establishes that a real partial diff over a large existing map suffices
 with retained blocks; the earlier three-record probe could not establish that.
 
@@ -191,9 +196,12 @@ packages. Restoring the intended `true` and regenerating lock bundling metadata
 ships the new closure. The fresh compiled-package consumer then passed. There is
 no extra lexicons direct pin or unrelated dependency upgrade to disguise that fix.
 
-The standalone minified browser proof bundle is 405,187 JavaScript bytes before
+The original standalone minified browser proof bundle was 405,187 JavaScript bytes before
 compression, including Atseq's existing dependency-provenance checking metadata.
-The hostile-corpus bundle also includes fixture construction and is 435,514 bytes.
+The original hostile-corpus bundle also includes fixture construction and was 435,514 bytes.
+After the review corrections, the [standalone bundle](../experiments/post-spike-evidence/2026-10-01/native-proofs/library-bundle-review.json)
+is 407,296 bytes and the [corpus bundle](../experiments/post-spike-evidence/2026-10-01/native-proofs/browser-review-results.json)
+is 439,031 bytes.
 These are measured bundles, not upstream package-size estimates. The earlier
 37,632-byte upstream-only probe bundle excluded the Atseq wrapper and its
 provenance boundary; it is not this implementation's footprint. Downstream P2/E1
@@ -202,15 +210,40 @@ metadata, rather than claim this whole standalone size is a new application cost
 
 ## Validation and recommendations
 
-`npm run check` passes. The complete `npm test` run passes 354 tests, including
-unchanged protocol/runtime/evolution vectors in Node and Chromium and the fresh
-compiled-package conformance consumer. The native corpus separately passes
-33 named cases in both Node and actual Chromium, including explicit strict-record limits and retained-key encoding checks. Retained [protocol](../experiments/post-spike-evidence/2026-10-01/native-proofs/protocol-results.json),
-[runtime](../experiments/post-spike-evidence/2026-10-01/native-proofs/runtime-results.json),
-[evolution](../experiments/post-spike-evidence/2026-10-01/native-proofs/evolution-runtime-results.json),
-[package](../experiments/post-spike-evidence/2026-10-01/native-proofs/package-conformance.json)
-and [browser](../experiments/post-spike-evidence/2026-10-01/native-proofs/browser-results.json)
-evidence names the actual passed cases. No live provider, key rotation/recovery,
+The original candidate capture passed 354 tests and 33 native corpus cases.
+Independent assessment `7f26f640` reproduced an intermittent packed-consumer
+cancellation, accepted an empty non-root MST node, and found that maintained
+reader/walker structural errors could escape as temporary runtime faults.
+
+The [stdin correction](2026-10-01-atseq-integrity-stdin.md) drains the resolver
+child's UTF-8 stdin asynchronously. Its production-path regression completes
+twenty batches of a 552,961-byte dependency graph, checking both resolutions for
+all 4,096 edges per batch. The native wrapper now rejects empty non-root nodes
+and maps known bounded CAR/CBOR/MST structural failures to `ProtocolError(input)`.
+Missing blocks still report missing evidence; a synthetic unexpected walker
+fault retains its original identity. Sparse lookup and full-tree validation use
+the same checks. New cases also retain acceptance of a canonical empty root.
+
+The [combined successor validation](../experiments/post-spike-evidence/2026-10-01/native-proofs/review-validation.json)
+passes all 355 tests, with zero failures, cancellations or skipped tests, on
+Node 26.10.0, macOS arm64. Build, formatting, source-layer and dependency checks
+pass. The unchanged [protocol](../experiments/post-spike-evidence/2026-10-01/native-proofs/protocol-review-results.json),
+[runtime](../experiments/post-spike-evidence/2026-10-01/native-proofs/runtime-review-results.json) and
+[evolution](../experiments/post-spike-evidence/2026-10-01/native-proofs/evolution-runtime-review-results.json)
+vectors pass in Node and Chromium; the fresh
+[compiled-package consumer](../experiments/post-spike-evidence/2026-10-01/native-proofs/package-review-conformance.json)
+passes. Both native runtimes pass the same 41 named cases. The retained four
+large-repository cases pass without reseeding a PDS, including all new entries,
+old retained paths, standalone full-tree validation, diff-only missingness,
+deliberate omission and same-root full-export recovery. Run that successor with:
+
+```sh
+node scripts/source-run.mjs scripts/reverify-native-proof.ts
+```
+
+It requires the retained public CARs under `experiments/generated/native-proof/pds/`
+and a current Chromium corpus capture. It writes a separate successor and never
+changes the historical capture. No live provider, key rotation/recovery,
 application-chain floor or final native checkpoint case is claimed by these tests.
 
 Prefer one authenticated `getRepo(since)` root with retained blocks for P2.

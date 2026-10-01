@@ -1,0 +1,49 @@
+{
+  "assessment": "7f26f640fa05c85716489d3197b10ce51032a868",
+  "baseWithR1": "1b79d7a9",
+  "node": "v26.10.0",
+  "platform": "darwin",
+  "arch": "arm64",
+  "fullSuite": {
+    "tests": 355,
+    "pass": 355,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "nativeSharedCorpusCases": 41,
+  "largeRetainedCases": 4,
+  "retainedCarFiles": 10,
+  "commands": {
+    "npm test": {
+      "exitCode": 0,
+      "log": "review-full-test.txt",
+      "sha256": "ae60a2421423bbeb135409a015c443c6a6e3ed8297676f1761c43484aee21438"
+    },
+    "npm run check": {
+      "exitCode": 0,
+      "log": "review-check.txt",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "npm run build": {
+      "exitCode": 0,
+      "log": "review-build.txt",
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    "node scripts/source-run.mjs scripts/reverify-native-proof.ts": {
+      "exitCode": 0,
+      "log": "review-reverify.txt",
+      "sha256": "2cd37ac9431b4cdf74054db9514876dcd6bbc3be64ad819f709e187be05281ed"
+    }
+  },
+  "integrityRegression": {
+    "productionChild": true,
+    "batches": 20,
+    "edgesPerBatch": 4096,
+    "jsonPayloadBytes": 552961,
+    "resolutionsCheckedPerBatch": 8192,
+    "outerTimeoutMilliseconds": 30000
+  },
+  "historicalCapturesPreserved": true
+}

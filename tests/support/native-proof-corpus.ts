@@ -1,7 +1,14 @@
 import * as CBOR from '@atcute/cbor';
 import * as CID from '@atcute/cid';
 import { writeCarStream, fromUint8Array as readCar } from '@atcute/car';
-import { NodeStore, NodeWrangler, MemoryBlockStore, getKeyHeight, findRpathAndBuildProof } from '@atcute/mst';
+import {
+  NodeStore,
+  NodeWalker,
+  NodeWrangler,
+  MemoryBlockStore,
+  getKeyHeight,
+  findRpathAndBuildProof,
+} from '@atcute/mst';
 import { P256PrivateKeyExportable, Secp256k1PrivateKeyExportable, type PrivateKeyExportable } from '@atcute/crypto';
 import { Point } from '@noble/secp256k1';
 import { toBase58Btc } from '@atcute/multibase';
@@ -13,6 +20,7 @@ import {
   type AuthenticateRepoOptions,
 } from '../../src/protocol/native-proof.ts';
 import { decodeBlock } from '../../src/protocol/wire.ts';
+import { ProtocolError } from '../../src/core/errors.ts';
 
 const DID = 'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa';
 const COLLECTION = 'ai.generalbusiness.atseq.probe';
@@ -20,15 +28,21 @@ const path = (n: number) => `${COLLECTION}/${String(n).padStart(8, '0')}`;
 function check(value: unknown, message: string): asserts value {
   if (!value) throw Error(message);
 }
-async function rejects(run: () => unknown | Promise<unknown>, name: string) {
+async function rejects(run: () => unknown | Promise<unknown>, name: string, input = false) {
   let threw = false;
   try {
     await run();
-  } catch {
+  } catch (error) {
     threw = true;
+    if (input)
+      check(
+        error instanceof ProtocolError && error.code === 'input' && error.kind === 'invalid_input',
+        `${name} did not produce ProtocolError(input): ${String(error)}`,
+      );
   }
   check(threw, `${name} accepted`);
 }
+const rejectsInput = (run: () => unknown | Promise<unknown>, name: string) => rejects(run, name, true);
 export async function car(
   root: string,
   blocks: Map<string, Uint8Array>,
@@ -100,8 +114,8 @@ export async function nativeProofCorpus() {
   check((await verified.lookup(path(99))).kind === 'absent', 'absence not proved');
   check((await verified.validateTree()).kind === 'complete', 'full tree incomplete');
   passed('root fields, raw membership, absence and whole-tree checks');
-  await rejects(() => assertAuthenticatedRepo({ ...verified }), 'copied capability');
-  await rejects(() => assertAuthenticatedRepo({}), 'forged capability');
+  await rejectsInput(() => assertAuthenticatedRepo({ ...verified }), 'copied capability');
+  await rejectsInput(() => assertAuthenticatedRepo({}), 'forged capability');
   passed('non-forgeable capability');
   for (const [name, change] of [
     ['wrong DID', { expectedDid: 'did:plc:bbbbbbbbbbbbbbbbbbbbbbbb' }],
@@ -116,20 +130,20 @@ export async function nativeProofCorpus() {
     ['block byte budget', { limits: { blockBytes: 10 } }],
     ['header budget', { limits: { headerBytes: 10 } }],
   ] as const) {
-    await rejects(() => authenticateRepo({ ...options, ...change }), name);
+    await rejectsInput(() => authenticateRepo({ ...options, ...change }), name);
     passed(name);
   }
   const damaged = new Uint8Array(options.carBytes);
   damaged[damaged.length - 1]! ^= 1;
-  await rejects(() => authenticateRepo({ ...options, carBytes: damaged }), 'corrupt block');
+  await rejectsInput(() => authenticateRepo({ ...options, carBytes: damaged }), 'corrupt block');
   passed('corrupt block');
-  await rejects(() => verified.lookup(path(1), root), 'wrong record CID');
+  await rejectsInput(() => verified.lookup(path(1), root), 'wrong record CID');
   passed('wrong record CID');
-  await rejects(() => verified.lookup('bad/path/extra'), 'invalid path');
+  await rejectsInput(() => verified.lookup('bad/path/extra'), 'invalid path');
   passed('invalid path');
   const bounded = await authenticateRepo({ ...options, limits: { pathLoads: 1, treeLoads: 1 } });
-  await rejects(() => bounded.lookup(path(1)), 'path node budget');
-  await rejects(() => bounded.validateTree(), 'whole-tree node budget');
+  await rejectsInput(() => bounded.lookup(path(1)), 'path node budget');
+  await rejectsInput(() => bounded.validateTree(), 'whole-tree node budget');
   passed('path and full-tree node budgets');
   const mutableOptions = { ...options, carBytes: new Uint8Array(options.carBytes) },
     mutable = await authenticateRepo(mutableOptions);
@@ -304,37 +318,102 @@ export async function nativeProofCorpus() {
       ),
     ]),
   );
-  await rejects(() => wrongLayer.lookup(zero[0]!), 'wrong-layer node');
-  await rejects(() => wrongLayer.validateTree(), 'wrong-layer full tree');
+  await rejectsInput(() => wrongLayer.lookup(zero[0]!), 'wrong-layer node');
+  await rejectsInput(() => wrongLayer.validateTree(), 'wrong-layer full tree');
   passed('wrong-layer signed MST node');
   const a = zero[0]!,
     b = zero[1]!,
     unordered = await hostile(node([entry(b), entry(a, b)]));
-  await rejects(() => unordered.lookup(a), 'unordered keys');
-  await rejects(() => unordered.validateTree(), 'unordered full tree');
+  await rejectsInput(() => unordered.lookup(a), 'unordered keys');
+  await rejectsInput(() => unordered.validateTree(), 'unordered full tree');
   passed('unordered signed MST keys');
   const parent = one.find((p) => p > zero[0]!)!,
     child = node([entry(one.find((p) => p < parent)!)]),
     badChild = await hostile(node([entry(parent)], child.cid), new Map([[child.cid, child.raw]]));
-  await rejects(() => badChild.lookup(zero[0]!), 'child wrong height');
-  await rejects(() => badChild.validateTree(), 'child-height full tree');
+  await rejectsInput(() => badChild.lookup(zero[0]!), 'child wrong height');
+  await rejectsInput(() => badChild.validateTree(), 'child-height full tree');
   passed('wrong child layer');
   const overlap = node([entry(zero.find((p) => p > parent)!)]),
     overlapRoot = await hostile(node([entry(parent)], overlap.cid), new Map([[overlap.cid, overlap.raw]]));
-  await rejects(() => overlapRoot.lookup(zero[0]!), 'overlap path');
-  await rejects(() => overlapRoot.validateTree(), 'overlap full tree');
+  await rejectsInput(() => overlapRoot.lookup(zero[0]!), 'overlap path');
+  await rejectsInput(() => overlapRoot.validateTree(), 'overlap full tree');
   passed('overlapping child interval');
   const extraRaw = CBOR.encode({ ...CBOR.decode(blocks.get(data)!), unexpected: true }),
     extraCid = CID.toString(CID.createSync(CID.CODEC_DCBOR, extraRaw));
   const unknown = await hostile({ raw: extraRaw, cid: extraCid }, blocks);
-  await rejects(() => unknown.lookup(path(1)), 'unknown node field');
-  await rejects(() => unknown.validateTree(), 'unknown full-tree field');
+  await rejectsInput(() => unknown.lookup(path(1)), 'unknown node field');
+  await rejectsInput(() => unknown.validateTree(), 'unknown full-tree field');
   passed('canonical MST fields');
+
+  const empty = node([]),
+    emptyRoot = await hostile(empty);
+  check((await emptyRoot.lookup(path(1))).kind === 'absent', 'canonical empty root did not prove absence');
+  const emptyTree = await emptyRoot.validateTree();
+  check(emptyTree.kind === 'complete' && emptyTree.records === 0, 'canonical empty root rejected');
+  passed('canonical empty repository root');
+  for (const [name, parentKey] of [
+    ['height-one', parent],
+    ['leaf', zero[1]!],
+  ] as const) {
+    const emptyChild = await hostile(node([entry(parentKey)], empty.cid), new Map([[empty.cid, empty.raw]]));
+    await rejectsInput(() => emptyChild.lookup(zero[0]!), `${name} empty-child lookup`);
+    await rejectsInput(() => emptyChild.validateTree(), `${name} empty-child full tree`);
+    passed(`${name} signed empty non-root MST node`);
+  }
+  const leaf = node([entry(zero[0]!)]),
+    untrimmed = await hostile(node([], leaf.cid), new Map([[leaf.cid, leaf.raw]]));
+  await rejectsInput(() => untrimmed.lookup(zero[0]!), 'untrimmed root lookup');
+  await rejectsInput(() => untrimmed.validateTree(), 'untrimmed root full tree');
+  passed('untrimmed keyless root is invalid input');
+  const noncanonicalRaw = new Uint8Array([0xa2, 0x61, 0x6c, 0xf6, 0x61, 0x65, 0x80]),
+    noncanonical = await hostile({
+      raw: noncanonicalRaw,
+      cid: CID.toString(CID.createSync(CID.CODEC_DCBOR, noncanonicalRaw)),
+    });
+  await rejectsInput(() => noncanonical.lookup(zero[0]!), 'noncanonical node lookup');
+  await rejectsInput(() => noncanonical.validateTree(), 'noncanonical full tree');
+  passed('noncanonical signed MST CBOR is invalid input');
+  const malformedEntry = { ...entry(zero[0]!), p: -1 },
+    malformed = await hostile(node([malformedEntry]));
+  await rejectsInput(() => malformed.lookup(zero[0]!), 'malformed prefix lookup');
+  await rejectsInput(() => malformed.validateTree(), 'malformed prefix full tree');
+  passed('maintained MST deserialization errors are invalid input');
+  const malformedCommit = new Uint8Array([0xa2, 0x61, 0x62, 0xf6, 0x61, 0x61, 0xf6]),
+    malformedCommitCid = CID.toString(CID.createSync(CID.CODEC_DCBOR, malformedCommit));
+  await rejectsInput(
+    async () =>
+      authenticateRepo({
+        ...options,
+        expectedRoot: malformedCommitCid,
+        carBytes: await car(malformedCommitCid, new Map([[malformedCommitCid, malformedCommit]])),
+      }),
+    'noncanonical commit CBOR',
+  );
+  passed('noncanonical commit CBOR is invalid input');
+  const originalCreate = NodeWalker.create,
+    sentinel = new Error('unexpected walker runtime failure');
+  try {
+    NodeWalker.create = async () => {
+      throw sentinel;
+    };
+    for (const operation of [() => verified.lookup(path(1)), () => verified.validateTree()]) {
+      let caught: unknown;
+      try {
+        await operation();
+      } catch (error) {
+        caught = error;
+      }
+      check(caught === sentinel, 'genuine runtime fault changed classification');
+    }
+  } finally {
+    NodeWalker.create = originalCreate;
+  }
+  passed('genuine walker runtime faults retain identity');
 
   const deepRaw = new Uint8Array([...Array(80).fill(0x81), 0xf6]),
     deepCid = CID.toString(CID.createSync(CID.CODEC_DCBOR, deepRaw));
   const deepCar = await car(deepCid, new Map([[deepCid, deepRaw]]));
-  await rejects(() => authenticateRepo({ ...options, expectedRoot: deepCid, carBytes: deepCar }), 'deep commit');
+  await rejectsInput(() => authenticateRepo({ ...options, expectedRoot: deepCid, carBytes: deepCar }), 'deep commit');
   passed('bounded native CBOR framing');
   const largeRecord = CBOR.encode({ $type: COLLECTION, pad: 'x'.repeat(70 * 1024) }),
     largeCid = CID.toCidLink(CID.createSync(CID.CODEC_DCBOR, largeRecord));
