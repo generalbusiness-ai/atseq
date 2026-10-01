@@ -3,9 +3,46 @@ import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { cp, mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { join, resolve, relative } from 'node:path';
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { tmpdir } from 'node:os';
 import approved from '../src/core/dependencies-approved.json';
 import { verifyInstalledDependencies } from '../src/integrity/node.ts';
+
+test('Node resolution consumes stdin payloads larger than 64 KiB', () => {
+  const installationRoot = realpathSync(resolve('.'));
+  const edges = Array.from({ length: 4_096 }, () => ({
+    parent: '',
+    name: 'jsonata',
+    target: 'node_modules/jsonata',
+  }));
+  const payloadBytes = Buffer.byteLength(
+    JSON.stringify(
+      edges.map((edge) => ({ ...edge, parent: pathToFileURL(join(installationRoot, 'package.json')).href })),
+    ),
+  );
+  assert.ok(payloadBytes > 256 * 1024, `Regression must exceed 256 KiB: ${payloadBytes} bytes`);
+  const probe = `import assert from 'node:assert/strict';
+    import {resolveDependencyEdges} from ${JSON.stringify(resolve('src/integrity/node.ts'))};
+    const edges=Array.from({length:4_096},()=>({parent:'',name:'jsonata',target:'node_modules/jsonata'}));
+    const expected=${JSON.stringify(realpathSync(resolve('node_modules/jsonata/jsonata.js')))};
+    for(let iteration=0;iteration<20;iteration++){
+      const resolutions=resolveDependencyEdges(edges,${JSON.stringify(installationRoot)});
+      assert.equal(resolutions.length,edges.length);
+      for(const modes of resolutions)assert.deepEqual(modes,[expected,expected]);
+    }
+    process.stdout.write('20 complete batches');`;
+  // A separate timed process bounds this regression even if its synchronous
+  // adapter call deadlocks. It runs the production child, not a script copy.
+  assert.equal(
+    execFileSync(
+      process.execPath,
+      ['--import', resolve('node_modules/tsx/dist/loader.mjs'), '--input-type=module', '-e', probe],
+      { encoding: 'utf8', timeout: 30_000 },
+    ),
+    '20 complete batches',
+  );
+});
 
 test('package file patches and unlisted nested resolution fail before interpretation', async () => {
   const root = await mkdtemp(join(tmpdir(), 'atseq-integrity-'));

@@ -68,6 +68,34 @@ function nestedPackages(directory: string, installationRoot = root): string[] {
   }
   return found.filter((path) => existsSync(resolve(installationRoot, path, 'package.json')));
 }
+type DependencyEdge = { parent: string; name: string; target: string };
+
+// Internal adapter helper; admission and approved-target checks remain in the caller.
+export function resolveDependencyEdges(edges: readonly DependencyEdge[], installationRoot = root): string[][] {
+  // Use Node's own import and require resolution, including exports conditions.
+  const script = `import {createRequire} from 'node:module';import {realpathSync} from 'node:fs';
+    process.stdin.setEncoding('utf8');let input='';for await(const chunk of process.stdin)input+=chunk;
+    const edges=JSON.parse(input);const out=edges.map(e=>{
+      const results=[];for(const mode of ['import','require'])try{
+        const resolved=mode==='import'?import.meta.resolve(e.name,e.parent):createRequire(e.parent).resolve(e.name);
+        if (resolved.startsWith('node:') || (mode==='require' && !resolved.includes('/'))) results.push('node:'+e.name);
+        else results.push(realpathSync(mode==='import'?new URL(resolved):resolved));
+      }catch(error){if(error.code!=='ERR_PACKAGE_PATH_NOT_EXPORTED'&&error.code!=='MODULE_NOT_FOUND'&&error.code!=='ERR_MODULE_NOT_FOUND')throw error;}
+      return results;});process.stdout.write(JSON.stringify(out));`;
+  return JSON.parse(
+    execFileSync(process.execPath, ['--experimental-import-meta-resolve', '--input-type=module', '-e', script], {
+      input: JSON.stringify(
+        edges.map((edge) => ({
+          ...edge,
+          parent: pathToFileURL(resolve(installationRoot, edge.parent, 'package.json')).href,
+        })),
+      ),
+      encoding: 'utf8',
+      maxBuffer: 8 * 1024 * 1024,
+    }),
+  ) as string[][];
+}
+
 function checkInstalledDependencies(force = false, installationRoot = root): void {
   installationRoot = realpathSync(installationRoot);
   if (verified && !force && installationRoot === root) return;
@@ -85,7 +113,7 @@ function checkInstalledDependencies(force = false, installationRoot = root): voi
   const manifest = JSON.parse(readFileSync(resolve(installationRoot, 'package.json'), 'utf8'));
   if (JSON.stringify(manifest.imports) !== JSON.stringify(approved.imports))
     fail('Unapproved integrity adapter imports');
-  const edges: { parent: string; name: string; target: string }[] = [];
+  const edges: DependencyEdge[] = [];
   for (const path of packages) {
     const actual = JSON.parse(readFileSync(resolve(installationRoot, path, 'package.json'), 'utf8'));
     const expected = (files as Record<string, Record<string, string>>)[path];
@@ -117,27 +145,7 @@ function checkInstalledDependencies(force = false, installationRoot = root): voi
     if (!target || !packages.has(target)) fail(`Unapproved direct resolution: ${name}`);
     edges.push({ parent: '', name, target });
   }
-  // Use Node's own import and require resolution, including exports conditions.
-  const script = `import {createRequire} from 'node:module';import {readFileSync,realpathSync} from 'node:fs';
-    const edges=JSON.parse(readFileSync(0,'utf8'));const out=edges.map(e=>{
-      const results=[];for(const mode of ['import','require'])try{
-        const resolved=mode==='import'?import.meta.resolve(e.name,e.parent):createRequire(e.parent).resolve(e.name);
-        if (resolved.startsWith('node:') || (mode==='require' && !resolved.includes('/'))) results.push('node:'+e.name);
-        else results.push(realpathSync(mode==='import'?new URL(resolved):resolved));
-      }catch(error){if(error.code!=='ERR_PACKAGE_PATH_NOT_EXPORTED'&&error.code!=='MODULE_NOT_FOUND'&&error.code!=='ERR_MODULE_NOT_FOUND')throw error;}
-      return results;});process.stdout.write(JSON.stringify(out));`;
-  const resolutions = JSON.parse(
-    execFileSync(process.execPath, ['--experimental-import-meta-resolve', '--input-type=module', '-e', script], {
-      input: JSON.stringify(
-        edges.map((edge) => ({
-          ...edge,
-          parent: pathToFileURL(resolve(installationRoot, edge.parent, 'package.json')).href,
-        })),
-      ),
-      encoding: 'utf8',
-      maxBuffer: 8 * 1024 * 1024,
-    }),
-  ) as string[][];
+  const resolutions = resolveDependencyEdges(edges, installationRoot);
   for (const [index, edge] of edges.entries()) {
     const expected = resolve(installationRoot, edge.target) + '/';
     if (
