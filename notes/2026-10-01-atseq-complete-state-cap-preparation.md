@@ -18,7 +18,7 @@ run. These results establish inputs and measurement obligations, not latency,
 capacity, a worst case or a reason to replace complete-state folds.
 
 This is E1-K1 preparation for the cap-based gate in the independently reviewed
-[S0 options](2026-10-01-atseq-effects-transaction-options.md), read at `562e8ed9`
+S0 options (`notes/2026-10-01-atseq-effects-transaction-options.md`), read at `562e8ed9`
 on its separate branch. That source-only note remains a proposal outside this
 main basis. The baseline here includes the landed V0 ASCII-token optimization
 and S1 selective reads. There are no runtime, dependency, profile or public API
@@ -127,8 +127,8 @@ must be reported separately in timing results.
 
 The labelled raw CID of canonical JSON is only an output fingerprint. It is not
 an admitted native state/block identity, a policy bypass or a new checkpoint
-encoding. The [checkpoint proposal](2026-10-01-atseq-materialized-checkpoints.md)
-separately discusses bounded 32 KiB byte chunks and manifests. That pending native
+encoding. The pending checkpoint design separately discusses bounded 32 KiB byte
+chunks and manifests. That pending native
 path is not implemented or measured by this preparation.
 
 Brief source inspection and seven actual untimed flows establish the current
