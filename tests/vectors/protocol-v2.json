@@ -1,0 +1,1788 @@
+{
+  "provenance": {
+    "encoder": "@ipld/dag-cbor 7.0.3",
+    "cid": "multiformats 9.9.0",
+    "signer": "Node OpenSSL ECDSA-SHA256, IEEE P1363, normalized low-S",
+    "node": "v26.10.0",
+    "publicTestScalars": [1, 2],
+    "generatedAt": "2026-10-01T14:43:03.028Z"
+  },
+  "profile": {
+    "value": {
+      "name": "atseq-app-v2",
+      "version": 2,
+      "log": {
+        "name": "atseq-log-v2",
+        "version": 2,
+        "namespace": "ai.generalbusiness.atseq",
+        "wire": {
+          "model": "AT Protocol data model",
+          "encoding": "canonical DAG-CBOR",
+          "cid": "CIDv1 dag-cbor sha2-256 base32",
+          "blockBytes": 65536,
+          "jsonBytes": 131072,
+          "depth": 32,
+          "numbers": "safe integers excluding negative zero",
+          "bytes": "canonical unpadded base64",
+          "keys": "closed framework objects; only $type, $bytes, $link reserved forms"
+        },
+        "signatures": {
+          "algorithm": "P-256 SHA-256",
+          "format": "64-byte compact low-S",
+          "keys": "canonical compressed did:key",
+          "actor": "sign canonical intent block",
+          "sequencer": "sign entry excluding sig"
+        },
+        "order": [
+          "invitation pins app DID and genesis CID",
+          "genesis pins sequencer and activation keys",
+          "positions are contiguous positive safe integers",
+          "prev names the preceding canonical block; position zero names genesis",
+          "head chooses a complete verified prefix",
+          "retry identity is app, actorKey, nonce; same identity must bind the same intent CID"
+        ],
+        "lexicons": [
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.activate",
+            "defs": {
+              "main": {
+                "type": "object",
+                "required": ["expected", "definition", "closure"],
+                "properties": {
+                  "expected": {
+                    "type": "string",
+                    "format": "cid"
+                  },
+                  "definition": {
+                    "type": "string",
+                    "format": "cid"
+                  },
+                  "closure": {
+                    "type": "array",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "items": {
+                      "type": "string",
+                      "format": "cid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.compareDefinition",
+            "defs": {
+              "main": {
+                "type": "procedure",
+                "input": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["app", "genesis", "expected", "source"],
+                    "properties": {
+                      "app": {
+                        "type": "string",
+                        "format": "did"
+                      },
+                      "genesis": {
+                        "type": "string",
+                        "format": "cid"
+                      },
+                      "expected": {
+                        "type": "string",
+                        "format": "cid"
+                      },
+                      "source": {
+                        "type": "bytes",
+                        "maxLength": 524288
+                      }
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": [
+                      "current",
+                      "candidate",
+                      "closure",
+                      "frontier",
+                      "head",
+                      "statePreserved",
+                      "replayPassed"
+                    ],
+                    "properties": {
+                      "current": {
+                        "type": "unknown"
+                      },
+                      "candidate": {
+                        "type": "unknown"
+                      },
+                      "closure": {
+                        "type": "array",
+                        "maxLength": 64,
+                        "items": {
+                          "type": "string",
+                          "format": "cid"
+                        }
+                      },
+                      "frontier": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#cursor"
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "statePreserved": {
+                        "type": "boolean"
+                      },
+                      "replayPassed": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.create",
+            "defs": {
+              "main": {
+                "type": "procedure",
+                "input": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["source", "activationKeys"],
+                    "properties": {
+                      "source": {
+                        "type": "bytes",
+                        "maxLength": 524288
+                      },
+                      "activationKeys": {
+                        "type": "array",
+                        "minLength": 1,
+                        "maxLength": 16,
+                        "items": {
+                          "type": "string",
+                          "format": "did",
+                          "maxLength": 128
+                        }
+                      }
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["genesis", "genesisCid", "head", "frontier"],
+                    "properties": {
+                      "genesis": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.genesis#value"
+                      },
+                      "genesisCid": {
+                        "type": "cid-link"
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "frontier": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#cursor"
+                      }
+                    },
+                    "nullable": ["frontier"]
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.definition",
+            "defs": {
+              "main": {
+                "type": "object",
+                "required": [
+                  "version",
+                  "profile",
+                  "title",
+                  "files",
+                  "lexicons",
+                  "state",
+                  "actions",
+                  "queries",
+                  "views"
+                ],
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "const": 1
+                  },
+                  "profile": {
+                    "type": "cid-link"
+                  },
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "files": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                      "type": "ref",
+                      "ref": "#file"
+                    }
+                  },
+                  "lexicons": {
+                    "type": "array",
+                    "minLength": 1,
+                    "maxLength": 63,
+                    "items": {
+                      "type": "string",
+                      "maxLength": 200
+                    }
+                  },
+                  "state": {
+                    "type": "ref",
+                    "ref": "#state"
+                  },
+                  "actions": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                      "type": "ref",
+                      "ref": "#action"
+                    }
+                  },
+                  "queries": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                      "type": "ref",
+                      "ref": "#query"
+                    }
+                  },
+                  "views": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                      "type": "ref",
+                      "ref": "#view"
+                    }
+                  }
+                }
+              },
+              "file": {
+                "type": "object",
+                "required": ["path", "cid"],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "cid": {
+                    "type": "string",
+                    "format": "cid"
+                  }
+                }
+              },
+              "state": {
+                "type": "object",
+                "required": ["ref", "initial"],
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "maxLength": 300
+                  },
+                  "initial": {
+                    "type": "string",
+                    "maxLength": 200
+                  }
+                }
+              },
+              "action": {
+                "type": "object",
+                "required": ["ref", "fold"],
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "maxLength": 300
+                  },
+                  "fold": {
+                    "type": "string",
+                    "maxLength": 200
+                  }
+                }
+              },
+              "query": {
+                "type": "object",
+                "required": ["name", "ref", "program"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "ref": {
+                    "type": "string",
+                    "maxLength": 300
+                  },
+                  "program": {
+                    "type": "string",
+                    "maxLength": 200
+                  }
+                }
+              },
+              "view": {
+                "type": "object",
+                "required": ["name", "source"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "source": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "query": {
+                    "type": "string",
+                    "maxLength": 80
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.defs",
+            "defs": {
+              "intent": {
+                "type": "object",
+                "required": ["version", "app", "genesis", "definition", "actorKey", "nonce", "action", "payload"],
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "const": 1
+                  },
+                  "app": {
+                    "type": "string",
+                    "format": "did",
+                    "maxLength": 256
+                  },
+                  "genesis": {
+                    "type": "cid-link"
+                  },
+                  "definition": {
+                    "type": "cid-link"
+                  },
+                  "actorKey": {
+                    "type": "string",
+                    "format": "did",
+                    "maxLength": 128
+                  },
+                  "nonce": {
+                    "type": "bytes",
+                    "minLength": 16,
+                    "maxLength": 16
+                  },
+                  "action": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 256
+                  },
+                  "payload": {
+                    "type": "unknown"
+                  }
+                }
+              },
+              "signedIntent": {
+                "type": "object",
+                "required": ["intent", "sig"],
+                "properties": {
+                  "intent": {
+                    "type": "ref",
+                    "ref": "ai.generalbusiness.atseq.defs#intent"
+                  },
+                  "sig": {
+                    "type": "bytes",
+                    "minLength": 64,
+                    "maxLength": 64
+                  }
+                }
+              },
+              "cursor": {
+                "type": "object",
+                "required": ["position", "entry"],
+                "properties": {
+                  "position": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "entry": {
+                    "type": "cid-link"
+                  }
+                }
+              },
+              "receipt": {
+                "type": "object",
+                "required": ["app", "genesis", "intent", "position", "entry"],
+                "properties": {
+                  "app": {
+                    "type": "string",
+                    "format": "did",
+                    "maxLength": 256
+                  },
+                  "genesis": {
+                    "type": "cid-link"
+                  },
+                  "intent": {
+                    "type": "cid-link"
+                  },
+                  "position": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "entry": {
+                    "type": "cid-link"
+                  }
+                }
+              },
+              "queryAvailable": {
+                "type": "object",
+                "required": ["value"],
+                "properties": {
+                  "value": {
+                    "type": "unknown"
+                  }
+                }
+              },
+              "queryUnavailable": {
+                "type": "object",
+                "required": ["code", "message"],
+                "properties": {
+                  "code": {
+                    "type": "string",
+                    "maxLength": 64
+                  },
+                  "message": {
+                    "type": "string",
+                    "maxLength": 4096
+                  }
+                }
+              },
+              "pending": {
+                "type": "object",
+                "required": [],
+                "properties": {}
+              },
+              "effective": {
+                "type": "object",
+                "required": [],
+                "properties": {}
+              },
+              "ineffective": {
+                "type": "object",
+                "required": ["reason"],
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  },
+                  "message": {
+                    "type": "string",
+                    "maxLength": 4096
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.describe",
+            "defs": {
+              "main": {
+                "type": "query",
+                "parameters": {
+                  "type": "params",
+                  "required": ["app", "genesis"],
+                  "properties": {
+                    "app": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 256
+                    },
+                    "genesis": {
+                      "type": "string",
+                      "format": "cid"
+                    },
+                    "includeSource": {
+                      "type": "boolean",
+                      "default": false
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["genesis", "definition", "head", "frontier"],
+                    "properties": {
+                      "genesis": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.genesis#value"
+                      },
+                      "definition": {
+                        "type": "ref",
+                        "ref": "#definition"
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "frontier": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#cursor"
+                      }
+                    },
+                    "nullable": ["frontier"]
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              },
+              "definition": {
+                "type": "object",
+                "required": ["version", "cid", "manifest", "lexicons"],
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "const": 1
+                  },
+                  "cid": {
+                    "type": "string",
+                    "format": "cid"
+                  },
+                  "manifest": {
+                    "type": "ref",
+                    "ref": "ai.generalbusiness.atseq.definition"
+                  },
+                  "lexicons": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                      "type": "unknown"
+                    }
+                  },
+                  "source": {
+                    "type": "ref",
+                    "ref": "#sourceDocument"
+                  }
+                }
+              },
+              "sourceDocument": {
+                "type": "object",
+                "required": ["format", "version", "manifest", "sources"],
+                "properties": {
+                  "format": {
+                    "type": "string",
+                    "const": "atseq-source"
+                  },
+                  "version": {
+                    "type": "integer",
+                    "const": 1
+                  },
+                  "manifest": {
+                    "type": "ref",
+                    "ref": "ai.generalbusiness.atseq.definition"
+                  },
+                  "sources": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                      "type": "ref",
+                      "ref": "#sourceFile"
+                    }
+                  }
+                }
+              },
+              "sourceFile": {
+                "type": "object",
+                "required": ["path", "content"],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "content": {
+                    "type": "bytes",
+                    "maxLength": 524288
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.entry",
+            "defs": {
+              "main": {
+                "type": "record",
+                "key": "any",
+                "record": {
+                  "type": "object",
+                  "required": ["version", "app", "genesis", "position", "prev", "signedIntent", "sequencerKey", "sig"],
+                  "properties": {
+                    "version": {
+                      "type": "integer",
+                      "const": 1
+                    },
+                    "app": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 256
+                    },
+                    "genesis": {
+                      "type": "cid-link"
+                    },
+                    "position": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 9007199254740991
+                    },
+                    "prev": {
+                      "type": "cid-link"
+                    },
+                    "signedIntent": {
+                      "type": "ref",
+                      "ref": "ai.generalbusiness.atseq.defs#signedIntent"
+                    },
+                    "sequencerKey": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 128
+                    },
+                    "sig": {
+                      "type": "bytes",
+                      "minLength": 64,
+                      "maxLength": 64
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.genesis",
+            "defs": {
+              "main": {
+                "type": "record",
+                "key": "literal:self",
+                "record": {
+                  "type": "object",
+                  "required": ["version", "app", "profile", "definition", "sequencerKey", "activationKeys"],
+                  "properties": {
+                    "version": {
+                      "type": "integer",
+                      "const": 1
+                    },
+                    "app": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 256
+                    },
+                    "profile": {
+                      "type": "cid-link"
+                    },
+                    "definition": {
+                      "type": "cid-link"
+                    },
+                    "sequencerKey": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 128
+                    },
+                    "activationKeys": {
+                      "type": "array",
+                      "minLength": 1,
+                      "maxLength": 16,
+                      "items": {
+                        "type": "string",
+                        "format": "did",
+                        "maxLength": 128
+                      }
+                    }
+                  }
+                }
+              },
+              "value": {
+                "type": "object",
+                "required": ["version", "app", "profile", "definition", "sequencerKey", "activationKeys"],
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "const": 1
+                  },
+                  "app": {
+                    "type": "string",
+                    "format": "did",
+                    "maxLength": 256
+                  },
+                  "profile": {
+                    "type": "cid-link"
+                  },
+                  "definition": {
+                    "type": "cid-link"
+                  },
+                  "sequencerKey": {
+                    "type": "string",
+                    "format": "did",
+                    "maxLength": 128
+                  },
+                  "activationKeys": {
+                    "type": "array",
+                    "minLength": 1,
+                    "maxLength": 16,
+                    "items": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 128
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.head",
+            "defs": {
+              "main": {
+                "type": "record",
+                "key": "literal:self",
+                "record": {
+                  "type": "object",
+                  "required": ["version", "app", "genesis", "position", "entry"],
+                  "properties": {
+                    "version": {
+                      "type": "integer",
+                      "const": 1
+                    },
+                    "app": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 256
+                    },
+                    "genesis": {
+                      "type": "cid-link"
+                    },
+                    "position": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "entry": {
+                      "type": "cid-link"
+                    }
+                  }
+                }
+              },
+              "value": {
+                "type": "object",
+                "required": ["version", "app", "genesis", "position", "entry"],
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "const": 1
+                  },
+                  "app": {
+                    "type": "string",
+                    "format": "did",
+                    "maxLength": 256
+                  },
+                  "genesis": {
+                    "type": "cid-link"
+                  },
+                  "position": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "entry": {
+                    "type": "cid-link"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.list",
+            "defs": {
+              "main": {
+                "type": "query",
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["apps"],
+                    "properties": {
+                      "apps": {
+                        "type": "array",
+                        "maxLength": 100,
+                        "items": {
+                          "type": "object",
+                          "required": ["app", "genesis", "title"],
+                          "properties": {
+                            "app": {
+                              "type": "string",
+                              "format": "did"
+                            },
+                            "genesis": {
+                              "type": "string",
+                              "format": "cid"
+                            },
+                            "title": {
+                              "type": "string",
+                              "maxLength": 120
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.preview",
+            "defs": {
+              "main": {
+                "type": "procedure",
+                "input": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["source"],
+                    "properties": {
+                      "source": {
+                        "type": "bytes",
+                        "maxLength": 524288
+                      },
+                      "action": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "payload": {
+                        "type": "unknown"
+                      },
+                      "state": {
+                        "type": "unknown"
+                      }
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["definition", "state", "outcome", "scope", "previewUrl", "views"],
+                    "properties": {
+                      "definition": {
+                        "type": "unknown"
+                      },
+                      "state": {
+                        "type": "unknown"
+                      },
+                      "outcome": {
+                        "type": "unknown"
+                      },
+                      "scope": {
+                        "type": "string",
+                        "const": "local-preview"
+                      },
+                      "previewUrl": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "views": {
+                        "type": "unknown"
+                      }
+                    },
+                    "nullable": ["outcome"]
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.query",
+            "defs": {
+              "main": {
+                "type": "query",
+                "parameters": {
+                  "type": "params",
+                  "required": ["app", "genesis", "name", "params"],
+                  "properties": {
+                    "app": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 256
+                    },
+                    "genesis": {
+                      "type": "string",
+                      "format": "cid"
+                    },
+                    "name": {
+                      "type": "string",
+                      "maxLength": 256
+                    },
+                    "params": {
+                      "type": "string",
+                      "maxLength": 32768
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["result", "head", "frontier"],
+                    "properties": {
+                      "result": {
+                        "type": "union",
+                        "closed": true,
+                        "refs": [
+                          "ai.generalbusiness.atseq.defs#queryAvailable",
+                          "ai.generalbusiness.atseq.defs#queryUnavailable"
+                        ]
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "frontier": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#cursor"
+                      }
+                    },
+                    "nullable": ["frontier"]
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.readDraft",
+            "defs": {
+              "main": {
+                "type": "query",
+                "parameters": {
+                  "type": "params",
+                  "required": ["definition"],
+                  "properties": {
+                    "definition": {
+                      "type": "string",
+                      "format": "cid"
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["source"],
+                    "properties": {
+                      "source": {
+                        "type": "bytes",
+                        "maxLength": 524288
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.receipt",
+            "defs": {
+              "main": {
+                "type": "query",
+                "parameters": {
+                  "type": "params",
+                  "required": ["app", "genesis", "intent"],
+                  "properties": {
+                    "app": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 256
+                    },
+                    "genesis": {
+                      "type": "string",
+                      "format": "cid"
+                    },
+                    "intent": {
+                      "type": "string",
+                      "format": "cid"
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["receipt", "outcome", "head", "frontier"],
+                    "properties": {
+                      "receipt": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#receipt"
+                      },
+                      "outcome": {
+                        "type": "union",
+                        "closed": true,
+                        "refs": [
+                          "ai.generalbusiness.atseq.defs#pending",
+                          "ai.generalbusiness.atseq.defs#effective",
+                          "ai.generalbusiness.atseq.defs#ineffective"
+                        ]
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "frontier": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#cursor"
+                      }
+                    },
+                    "nullable": ["frontier"]
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.source",
+            "defs": {
+              "main": {
+                "type": "record",
+                "key": "any",
+                "record": {
+                  "type": "object",
+                  "required": ["content", "blob"],
+                  "properties": {
+                    "content": {
+                      "type": "cid-link"
+                    },
+                    "blob": {
+                      "type": "blob",
+                      "accept": ["application/octet-stream"],
+                      "maxSize": 524288
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.stageDefinition",
+            "defs": {
+              "main": {
+                "type": "procedure",
+                "input": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["app", "genesis", "expected", "source"],
+                    "properties": {
+                      "app": {
+                        "type": "string",
+                        "format": "did"
+                      },
+                      "genesis": {
+                        "type": "string",
+                        "format": "cid"
+                      },
+                      "expected": {
+                        "type": "string",
+                        "format": "cid"
+                      },
+                      "source": {
+                        "type": "bytes",
+                        "maxLength": 524288
+                      }
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": [
+                      "current",
+                      "candidate",
+                      "closure",
+                      "frontier",
+                      "head",
+                      "statePreserved",
+                      "replayPassed"
+                    ],
+                    "properties": {
+                      "current": {
+                        "type": "unknown"
+                      },
+                      "candidate": {
+                        "type": "unknown"
+                      },
+                      "closure": {
+                        "type": "array",
+                        "maxLength": 64,
+                        "items": {
+                          "type": "string",
+                          "format": "cid"
+                        }
+                      },
+                      "frontier": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#cursor"
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "statePreserved": {
+                        "type": "boolean"
+                      },
+                      "replayPassed": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.submit",
+            "defs": {
+              "main": {
+                "type": "procedure",
+                "input": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["block"],
+                    "properties": {
+                      "block": {
+                        "type": "bytes",
+                        "maxLength": 65536
+                      }
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["receipt", "head", "frontier"],
+                    "properties": {
+                      "receipt": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#receipt"
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "frontier": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.defs#cursor"
+                      }
+                    },
+                    "nullable": ["frontier"]
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.sync",
+            "defs": {
+              "main": {
+                "type": "query",
+                "parameters": {
+                  "type": "params",
+                  "required": ["app", "genesis"],
+                  "properties": {
+                    "app": {
+                      "type": "string",
+                      "format": "did",
+                      "maxLength": 256
+                    },
+                    "genesis": {
+                      "type": "string",
+                      "format": "cid"
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["genesis", "genesisCid", "head", "entries", "source"],
+                    "properties": {
+                      "genesis": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.genesis#value"
+                      },
+                      "genesisCid": {
+                        "type": "string",
+                        "format": "cid"
+                      },
+                      "head": {
+                        "type": "ref",
+                        "ref": "ai.generalbusiness.atseq.head#value"
+                      },
+                      "entries": {
+                        "type": "array",
+                        "maxLength": 20000,
+                        "items": {
+                          "type": "unknown"
+                        }
+                      },
+                      "source": {
+                        "type": "bytes",
+                        "maxLength": 524288
+                      },
+                      "candidates": {
+                        "type": "array",
+                        "maxLength": 32,
+                        "items": {
+                          "type": "object",
+                          "required": ["definition", "source"],
+                          "properties": {
+                            "definition": {
+                              "type": "string",
+                              "format": "cid"
+                            },
+                            "source": {
+                              "type": "bytes",
+                              "maxLength": 16777216
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "lexicon": 1,
+            "id": "ai.generalbusiness.atseq.validateDraft",
+            "defs": {
+              "main": {
+                "type": "procedure",
+                "input": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["source"],
+                    "properties": {
+                      "source": {
+                        "type": "bytes",
+                        "maxLength": 524288
+                      }
+                    }
+                  }
+                },
+                "output": {
+                  "encoding": "application/json",
+                  "schema": {
+                    "type": "object",
+                    "required": ["definition"],
+                    "properties": {
+                      "definition": {
+                        "type": "unknown"
+                      }
+                    }
+                  }
+                },
+                "errors": [
+                  {
+                    "name": "InvalidRequest"
+                  },
+                  {
+                    "name": "Unavailable"
+                  },
+                  {
+                    "name": "VerificationFailed"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "evaluator": {
+        "name": "atseq-jsonata-v1",
+        "version": 1,
+        "language": "JSONata expression semantics for the admitted pure subset",
+        "functions": [
+          "abs",
+          "ceil",
+          "floor",
+          "round",
+          "count",
+          "sum",
+          "min",
+          "max",
+          "length",
+          "exists",
+          "not",
+          "lookup",
+          "append",
+          "merge",
+          "contains",
+          "substring"
+        ],
+        "nodes": [
+          "path",
+          "name",
+          "string",
+          "number",
+          "value",
+          "variable",
+          "binary",
+          "unary",
+          "function",
+          "block",
+          "bind",
+          "condition",
+          "filter"
+        ],
+        "operators": ["+", "-", "*", "/", "%", "=", "!=", "<", "<=", ">", ">=", "and", "or", "in", "&"],
+        "limits": {
+          "id": "atseq-jsonata-v1",
+          "stateBytes": 131072,
+          "inputBytes": 262144,
+          "outputBytes": 262144,
+          "actionBytes": 32768,
+          "programBytes": 65536,
+          "definitionBytes": 524288,
+          "definitionFiles": 64,
+          "inputDepth": 32,
+          "astNodes": 4096,
+          "astDepth": 64,
+          "evaluationDepth": 64,
+          "evaluationSteps": 100000,
+          "sequenceLength": 16384,
+          "intermediateBytes": 1048576,
+          "inspectionBytes": 16777216,
+          "foldMessageLength": 1024,
+          "viewNodes": 2048,
+          "viewDepth": 24
+        },
+        "values": [
+          "plain owned JSON; well-formed Unicode; no cycles, accessors, symbols, sparse arrays or reserved property names",
+          "input and output integers must be safe and exclude negative zero",
+          "intermediate negative zero is inspected as zero; other non-safe integers fail",
+          "sum uses exact integer accumulation and rejects any unsafe intermediate sum",
+          "no external bindings, callbacks, time, randomness, lambdas, recursive calls or callable aliases",
+          "AST limits count containers; evaluation depth counts active AST ancestor nesting, never concurrent siblings",
+          "inspection budget charges every encoded token at each evaluated data result",
+          "undefined final result fails; engine sequence metadata is stripped at output"
+        ],
+        "fold": [
+          "effective result has exactly decision and object state within state bounds",
+          "ineffective result has decision and reason, optionally message",
+          "reason matches [a-z][a-z0-9_]{0,63}; message has at most 1024 Unicode code points"
+        ],
+        "errors": {
+          "absent_result": "invalid_input",
+          "content_corrupt": "transient",
+          "content_missing": "transient",
+          "definition_binding": "invalid_input",
+          "definition_duplicate": "invalid_input",
+          "definition_manifest": "invalid_input",
+          "definition_path": "invalid_input",
+          "definition_size": "invalid_input",
+          "engine_input": "invalid_input",
+          "envelope": "invalid_input",
+          "evaluation_depth": "invalid_input",
+          "external_view": "invalid_input",
+          "fold_message": "invalid_input",
+          "fold_output": "invalid_input",
+          "fork": "invalid_input",
+          "incompatible_definition": "invalid_input",
+          "inspection_budget": "invalid_input",
+          "invalid_activation": "invalid_input",
+          "invalid_schema": "invalid_input",
+          "invalid_source": "invalid_input",
+          "noncanonical": "invalid_input",
+          "persistence_failed": "transient",
+          "reserved_key": "invalid_input",
+          "rollback": "invalid_input",
+          "schema_coercion": "invalid_input",
+          "schema_count": "invalid_input",
+          "schema_value": "invalid_input",
+          "sequence_limit": "invalid_input",
+          "source_bytes": "invalid_input",
+          "source_car": "invalid_input",
+          "source_complexity": "invalid_input",
+          "source_json": "invalid_input",
+          "source_pool_limit": "invalid_input",
+          "source_size": "invalid_input",
+          "source_utf8": "invalid_input",
+          "step_budget": "invalid_input",
+          "sum_overflow": "invalid_input",
+          "unicode": "invalid_input",
+          "unknown_component": "invalid_input",
+          "unknown_primitive": "invalid_input",
+          "unknown_query": "invalid_input",
+          "unknown_view": "invalid_input",
+          "unsupported_expression": "invalid_input",
+          "unsupported_function": "invalid_input",
+          "unsupported_runtime": "invalid_input",
+          "unsupported_schema": "invalid_input",
+          "unsupported_variable": "invalid_input",
+          "value_bytes": "invalid_input",
+          "value_depth": "invalid_input",
+          "view_limit": "invalid_input",
+          "view_props": "invalid_input",
+          "view_source": "invalid_input",
+          "wire_bytes": "invalid_input",
+          "wire_cid": "invalid_input",
+          "wire_depth": "invalid_input",
+          "wire_key": "invalid_input",
+          "wire_number": "invalid_input",
+          "wire_size": "invalid_input",
+          "wire_value": "invalid_input"
+        }
+      },
+      "definition": [
+        "manifest is closed Lexicon data with immutable retained raw-CID source files",
+        "source closure is sorted and unique, bounded and hash-verified",
+        "all action, state and query schemas are checked without coercion",
+        "initial state and programs are preflighted; views use only retained local Inlay templates and registered primitives"
+      ],
+      "fold": [
+        "entries are interpreted once in verified order",
+        "wrong definition, unknown action, invalid action and unauthorized activation are ineffective",
+        "deterministic program, schema, state and bounds errors record fold_failed/<code> and retain prior state",
+        "restorable content errors, persistence failure and runtime faults pause the interpretation frontier",
+        "dependency mismatch refuses interpretation; runtime faults never become replicated outcomes",
+        "state, outcome, definition and frontier commit together",
+        "head may be ahead of the interpretation frontier"
+      ],
+      "activation": [
+        "genesis activation keys authorize the control action",
+        "expected definition must equal the active definition",
+        "complete retained closure is fetched before validation",
+        "activation requires identical runtime and complete state schema; migrations are unavailable",
+        "invalid available activation is ineffective; missing or corrupt content and runtime faults pause and can retry"
+      ],
+      "query": "query failure is unavailable and never advances or changes state",
+      "views": {
+        "primitives": [
+          "ai.generalbusiness.atseq.ui.Panel",
+          "ai.generalbusiness.atseq.ui.Text",
+          "ai.generalbusiness.atseq.ui.Action"
+        ],
+        "external": "no network, XRPC, ambient keys or scripts"
+      }
+    },
+    "cborHex": "a9636c6f67a7646e616d656c61747365712d6c6f672d76326477697265a963636964781e4349447631206461672d63626f7220736861322d32353620626173653332646b6579737842636c6f736564206672616d65776f726b206f626a656374733b206f6e6c792024747970652c202462797465732c20246c696e6b20726573657276656420666f726d73656279746573781963616e6f6e6963616c20756e706164646564206261736536346564657074681820656d6f64656c7641542050726f746f636f6c2064617461206d6f64656c676e756d6265727378257361666520696e746567657273206578636c7564696e67206e65676174697665207a65726f68656e636f64696e677263616e6f6e6963616c204441472d43424f52696a736f6e42797465731a000200006a626c6f636b42797465731a00010000656f72646572867827696e7669746174696f6e2070696e73206170702044494420616e642067656e6573697320434944782a67656e657369732070696e732073657175656e63657220616e642061637469766174696f6e206b657973782f706f736974696f6e732061726520636f6e746967756f757320706f736974697665207361666520696e746567657273784570726576206e616d65732074686520707265636564696e672063616e6f6e6963616c20626c6f636b3b20706f736974696f6e207a65726f206e616d65732067656e657369737827686561642063686f6f736573206120636f6d706c6574652076657269666965642070726566697878537265747279206964656e74697479206973206170702c206163746f724b65792c206e6f6e63653b2073616d65206964656e74697479206d7573742062696e64207468652073616d6520696e74656e74204349446776657273696f6e02686c657869636f6e7393a3626964782161692e67656e6572616c627573696e6573732e61747365712e61637469766174656464656673a1646d61696ea36474797065666f626a656374687265717569726564836865787065637465646a646566696e6974696f6e67636c6f737572656a70726f70657274696573a367636c6f73757265a46474797065656172726179656974656d73a2647479706566737472696e6766666f726d617463636964696d61784c656e6774681840696d696e4c656e67746801686578706563746564a2647479706566737472696e6766666f726d6174636369646a646566696e6974696f6ea2647479706566737472696e6766666f726d617463636964676c657869636f6e01a3626964782a61692e67656e6572616c627573696e6573732e61747365712e636f6d70617265446566696e6974696f6e6464656673a1646d61696ea464747970656970726f63656475726565696e707574a266736368656d61a36474797065666f626a65637468726571756972656484636170706767656e6573697368657870656374656466736f757263656a70726f70657274696573a463617070a2647479706566737472696e6766666f726d61746364696466736f75726365a26474797065656279746573696d61784c656e6774681a000800006767656e65736973a2647479706566737472696e6766666f726d617463636964686578706563746564a2647479706566737472696e6766666f726d61746363696468656e636f64696e67706170706c69636174696f6e2f6a736f6e666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a36474797065666f626a656374687265717569726564876763757272656e746963616e64696461746567636c6f737572656866726f6e7469657264686561646e73746174655072657365727665646c7265706c61795061737365646a70726f70657274696573a76468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c756564747970656372656667636c6f73757265a36474797065656172726179656974656d73a2647479706566737472696e6766666f726d617463636964696d61784c656e67746818406763757272656e74a1647479706567756e6b6e6f776e6866726f6e74696572a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323637572736f726474797065637265666963616e646964617465a1647479706567756e6b6e6f776e6c7265706c6179506173736564a1647479706567626f6f6c65616e6e7374617465507265736572766564a1647479706567626f6f6c65616e68656e636f64696e67706170706c69636174696f6e2f6a736f6e676c657869636f6e01a3626964781f61692e67656e6572616c627573696e6573732e61747365712e6372656174656464656673a1646d61696ea464747970656970726f63656475726565696e707574a266736368656d61a36474797065666f626a6563746872657175697265648266736f757263656e61637469766174696f6e4b6579736a70726f70657274696573a266736f75726365a26474797065656279746573696d61784c656e6774681a000800006e61637469766174696f6e4b657973a46474797065656172726179656974656d73a3647479706566737472696e6766666f726d617463646964696d61784c656e6774681880696d61784c656e67746810696d696e4c656e6774680168656e636f64696e67706170706c69636174696f6e2f6a736f6e666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a46474797065666f626a656374686e756c6c61626c65816866726f6e74696572687265717569726564846767656e657369736a67656e6573697343696464686561646866726f6e746965726a70726f70657274696573a46468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c75656474797065637265666767656e65736973a263726566782661692e67656e6572616c627573696e6573732e61747365712e67656e657369732376616c75656474797065637265666866726f6e74696572a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323637572736f726474797065637265666a67656e65736973436964a16474797065686369642d6c696e6b68656e636f64696e67706170706c69636174696f6e2f6a736f6e676c657869636f6e01a3626964782361692e67656e6572616c627573696e6573732e61747365712e646566696e6974696f6e6464656673a66466696c65a36474797065666f626a656374687265717569726564826470617468636369646a70726f70657274696573a263636964a2647479706566737472696e6766666f726d6174636369646470617468a3647479706566737472696e67696d61784c656e67746818c8696d696e4c656e67746801646d61696ea36474797065666f626a656374687265717569726564896776657273696f6e6770726f66696c65657469746c656566696c6573686c657869636f6e7365737461746567616374696f6e7367717565726965736576696577736a70726f70657274696573a96566696c6573a36474797065656172726179656974656d73a263726566652366696c65647479706563726566696d61784c656e677468183f657374617465a26372656666237374617465647479706563726566657469746c65a3647479706566737472696e67696d61784c656e6774681878696d696e4c656e67746801657669657773a36474797065656172726179656974656d73a263726566652376696577647479706563726566696d61784c656e677468183f67616374696f6e73a36474797065656172726179656974656d73a2637265666723616374696f6e647479706563726566696d61784c656e677468183f6770726f66696c65a16474797065686369642d6c696e6b6771756572696573a36474797065656172726179656974656d73a26372656666237175657279647479706563726566696d61784c656e677468183f6776657273696f6ea2647479706567696e746567657265636f6e737401686c657869636f6e73a46474797065656172726179656974656d73a2647479706566737472696e67696d61784c656e67746818c8696d61784c656e677468183f696d696e4c656e677468016476696577a36474797065666f626a65637468726571756972656482646e616d6566736f757263656a70726f70657274696573a3646e616d65a3647479706566737472696e67696d61784c656e6774681850696d696e4c656e67746801657175657279a2647479706566737472696e67696d61784c656e677468185066736f75726365a2647479706566737472696e67696d61784c656e67746818c8657175657279a36474797065666f626a65637468726571756972656483646e616d65637265666770726f6772616d6a70726f70657274696573a363726566a2647479706566737472696e67696d61784c656e67746819012c646e616d65a3647479706566737472696e67696d61784c656e6774681850696d696e4c656e677468016770726f6772616da2647479706566737472696e67696d61784c656e67746818c8657374617465a36474797065666f626a656374687265717569726564826372656667696e697469616c6a70726f70657274696573a263726566a2647479706566737472696e67696d61784c656e67746819012c67696e697469616ca2647479706566737472696e67696d61784c656e67746818c866616374696f6ea36474797065666f626a656374687265717569726564826372656664666f6c646a70726f70657274696573a263726566a2647479706566737472696e67696d61784c656e67746819012c64666f6c64a2647479706566737472696e67696d61784c656e67746818c8676c657869636f6e01a3626964781d61692e67656e6572616c627573696e6573732e61747365712e646566736464656673a966637572736f72a36474797065666f626a6563746872657175697265648268706f736974696f6e65656e7472796a70726f70657274696573a265656e747279a16474797065686369642d6c696e6b68706f736974696f6ea3647479706567696e7465676572676d6178696d756d1b001fffffffffffff676d696e696d756d0066696e74656e74a36474797065666f626a656374687265717569726564886776657273696f6e636170706767656e657369736a646566696e6974696f6e686163746f724b6579656e6f6e636566616374696f6e677061796c6f61646a70726f70657274696573a863617070a3647479706566737472696e6766666f726d617463646964696d61784c656e677468190100656e6f6e6365a36474797065656279746573696d61784c656e67746810696d696e4c656e6774681066616374696f6ea3647479706566737472696e67696d61784c656e677468190100696d696e4c656e677468036767656e65736973a16474797065686369642d6c696e6b677061796c6f6164a1647479706567756e6b6e6f776e6776657273696f6ea2647479706567696e746567657265636f6e737401686163746f724b6579a3647479706566737472696e6766666f726d617463646964696d61784c656e67746818806a646566696e6974696f6ea16474797065686369642d6c696e6b6770656e64696e67a36474797065666f626a656374687265717569726564806a70726f70657274696573a06772656365697074a36474797065666f626a65637468726571756972656485636170706767656e6573697366696e74656e7468706f736974696f6e65656e7472796a70726f70657274696573a563617070a3647479706566737472696e6766666f726d617463646964696d61784c656e67746819010065656e747279a16474797065686369642d6c696e6b66696e74656e74a16474797065686369642d6c696e6b6767656e65736973a16474797065686369642d6c696e6b68706f736974696f6ea3647479706567696e7465676572676d6178696d756d1b001fffffffffffff676d696e696d756d0069656666656374697665a36474797065666f626a656374687265717569726564806a70726f70657274696573a06b696e656666656374697665a36474797065666f626a6563746872657175697265648166726561736f6e6a70726f70657274696573a266726561736f6ea3647479706566737472696e67696d61784c656e6774681840696d696e4c656e67746801676d657373616765a2647479706566737472696e67696d61784c656e6774681910006c7369676e6564496e74656e74a36474797065666f626a6563746872657175697265648266696e74656e74637369676a70726f70657274696573a263736967a36474797065656279746573696d61784c656e6774681840696d696e4c656e677468184066696e74656e74a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323696e74656e746474797065637265666e7175657279417661696c61626c65a36474797065666f626a656374687265717569726564816576616c75656a70726f70657274696573a16576616c7565a1647479706567756e6b6e6f776e707175657279556e617661696c61626c65a36474797065666f626a6563746872657175697265648264636f6465676d6573736167656a70726f70657274696573a264636f6465a2647479706566737472696e67696d61784c656e6774681840676d657373616765a2647479706566737472696e67696d61784c656e677468191000676c657869636f6e01a3626964782161692e67656e6572616c627573696e6573732e61747365712e64657363726962656464656673a4646d61696ea46474797065657175657279666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a46474797065666f626a656374686e756c6c61626c65816866726f6e74696572687265717569726564846767656e657369736a646566696e6974696f6e64686561646866726f6e746965726a70726f70657274696573a46468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c75656474797065637265666767656e65736973a263726566782661692e67656e6572616c627573696e6573732e61747365712e67656e657369732376616c75656474797065637265666866726f6e74696572a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323637572736f726474797065637265666a646566696e6974696f6ea2637265666b23646566696e6974696f6e64747970656372656668656e636f64696e67706170706c69636174696f6e2f6a736f6e6a706172616d6574657273a3647479706566706172616d7368726571756972656482636170706767656e657369736a70726f70657274696573a363617070a3647479706566737472696e6766666f726d617463646964696d61784c656e6774681901006767656e65736973a2647479706566737472696e6766666f726d6174636369646d696e636c756465536f75726365a2647479706567626f6f6c65616e6764656661756c74f46a646566696e6974696f6ea36474797065666f626a656374687265717569726564846776657273696f6e63636964686d616e6966657374686c657869636f6e736a70726f70657274696573a563636964a2647479706566737472696e6766666f726d61746363696466736f75726365a2637265666f23736f75726365446f63756d656e746474797065637265666776657273696f6ea2647479706567696e746567657265636f6e737401686c657869636f6e73a36474797065656172726179656974656d73a1647479706567756e6b6e6f776e696d61784c656e677468183f686d616e6966657374a263726566782361692e67656e6572616c627573696e6573732e61747365712e646566696e6974696f6e6474797065637265666a736f7572636546696c65a36474797065666f626a65637468726571756972656482647061746867636f6e74656e746a70726f70657274696573a26470617468a3647479706566737472696e67696d61784c656e67746818c8696d696e4c656e6774680167636f6e74656e74a26474797065656279746573696d61784c656e6774681a000800006e736f75726365446f63756d656e74a36474797065666f626a6563746872657175697265648466666f726d61746776657273696f6e686d616e696665737467736f75726365736a70726f70657274696573a466666f726d6174a2647479706566737472696e6765636f6e73746c61747365712d736f7572636567736f7572636573a36474797065656172726179656974656d73a2637265666b23736f7572636546696c65647479706563726566696d61784c656e677468183f6776657273696f6ea2647479706567696e746567657265636f6e737401686d616e6966657374a263726566782361692e67656e6572616c627573696e6573732e61747365712e646566696e6974696f6e647479706563726566676c657869636f6e01a3626964781e61692e67656e6572616c627573696e6573732e61747365712e656e7472796464656673a1646d61696ea3636b657963616e796474797065667265636f7264667265636f7264a36474797065666f626a656374687265717569726564886776657273696f6e636170706767656e6573697368706f736974696f6e64707265766c7369676e6564496e74656e746c73657175656e6365724b6579637369676a70726f70657274696573a863617070a3647479706566737472696e6766666f726d617463646964696d61784c656e67746819010063736967a36474797065656279746573696d61784c656e6774681840696d696e4c656e67746818406470726576a16474797065686369642d6c696e6b6767656e65736973a16474797065686369642d6c696e6b6776657273696f6ea2647479706567696e746567657265636f6e73740168706f736974696f6ea3647479706567696e7465676572676d6178696d756d1b001fffffffffffff676d696e696d756d016c73657175656e6365724b6579a3647479706566737472696e6766666f726d617463646964696d61784c656e67746818806c7369676e6564496e74656e74a263726566782a61692e67656e6572616c627573696e6573732e61747365712e64656673237369676e6564496e74656e74647479706563726566676c657869636f6e01a3626964782061692e67656e6572616c627573696e6573732e61747365712e67656e657369736464656673a2646d61696ea3636b65796c6c69746572616c3a73656c666474797065667265636f7264667265636f7264a36474797065666f626a656374687265717569726564866776657273696f6e636170706770726f66696c656a646566696e6974696f6e6c73657175656e6365724b65796e61637469766174696f6e4b6579736a70726f70657274696573a663617070a3647479706566737472696e6766666f726d617463646964696d61784c656e6774681901006770726f66696c65a16474797065686369642d6c696e6b6776657273696f6ea2647479706567696e746567657265636f6e7374016a646566696e6974696f6ea16474797065686369642d6c696e6b6c73657175656e6365724b6579a3647479706566737472696e6766666f726d617463646964696d61784c656e67746818806e61637469766174696f6e4b657973a46474797065656172726179656974656d73a3647479706566737472696e6766666f726d617463646964696d61784c656e6774681880696d61784c656e67746810696d696e4c656e677468016576616c7565a36474797065666f626a656374687265717569726564866776657273696f6e636170706770726f66696c656a646566696e6974696f6e6c73657175656e6365724b65796e61637469766174696f6e4b6579736a70726f70657274696573a663617070a3647479706566737472696e6766666f726d617463646964696d61784c656e6774681901006770726f66696c65a16474797065686369642d6c696e6b6776657273696f6ea2647479706567696e746567657265636f6e7374016a646566696e6974696f6ea16474797065686369642d6c696e6b6c73657175656e6365724b6579a3647479706566737472696e6766666f726d617463646964696d61784c656e67746818806e61637469766174696f6e4b657973a46474797065656172726179656974656d73a3647479706566737472696e6766666f726d617463646964696d61784c656e6774681880696d61784c656e67746810696d696e4c656e67746801676c657869636f6e01a3626964781d61692e67656e6572616c627573696e6573732e61747365712e686561646464656673a2646d61696ea3636b65796c6c69746572616c3a73656c666474797065667265636f7264667265636f7264a36474797065666f626a656374687265717569726564856776657273696f6e636170706767656e6573697368706f736974696f6e65656e7472796a70726f70657274696573a563617070a3647479706566737472696e6766666f726d617463646964696d61784c656e67746819010065656e747279a16474797065686369642d6c696e6b6767656e65736973a16474797065686369642d6c696e6b6776657273696f6ea2647479706567696e746567657265636f6e73740168706f736974696f6ea3647479706567696e7465676572676d6178696d756d1b001fffffffffffff676d696e696d756d006576616c7565a36474797065666f626a656374687265717569726564856776657273696f6e636170706767656e6573697368706f736974696f6e65656e7472796a70726f70657274696573a563617070a3647479706566737472696e6766666f726d617463646964696d61784c656e67746819010065656e747279a16474797065686369642d6c696e6b6767656e65736973a16474797065686369642d6c696e6b6776657273696f6ea2647479706567696e746567657265636f6e73740168706f736974696f6ea3647479706567696e7465676572676d6178696d756d1b001fffffffffffff676d696e696d756d00676c657869636f6e01a3626964781d61692e67656e6572616c627573696e6573732e61747365712e6c6973746464656673a1646d61696ea36474797065657175657279666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a36474797065666f626a6563746872657175697265648164617070736a70726f70657274696573a16461707073a36474797065656172726179656974656d73a36474797065666f626a65637468726571756972656483636170706767656e65736973657469746c656a70726f70657274696573a363617070a2647479706566737472696e6766666f726d617463646964657469746c65a2647479706566737472696e67696d61784c656e67746818786767656e65736973a2647479706566737472696e6766666f726d617463636964696d61784c656e677468186468656e636f64696e67706170706c69636174696f6e2f6a736f6e676c657869636f6e01a3626964782061692e67656e6572616c627573696e6573732e61747365712e707265766965776464656673a1646d61696ea464747970656970726f63656475726565696e707574a266736368656d61a36474797065666f626a6563746872657175697265648166736f757263656a70726f70657274696573a4657374617465a1647479706567756e6b6e6f776e66616374696f6ea2647479706566737472696e67696d61784c656e67746819010066736f75726365a26474797065656279746573696d61784c656e6774681a00080000677061796c6f6164a1647479706567756e6b6e6f776e68656e636f64696e67706170706c69636174696f6e2f6a736f6e666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a46474797065666f626a656374686e756c6c61626c6581676f7574636f6d65687265717569726564866a646566696e6974696f6e657374617465676f7574636f6d656573636f70656a7072657669657755726c6576696577736a70726f70657274696573a66573636f7065a2647479706566737472696e6765636f6e73746d6c6f63616c2d70726576696577657374617465a1647479706567756e6b6e6f776e657669657773a1647479706567756e6b6e6f776e676f7574636f6d65a1647479706567756e6b6e6f776e6a646566696e6974696f6ea1647479706567756e6b6e6f776e6a7072657669657755726ca2647479706566737472696e6766666f726d61746375726968656e636f64696e67706170706c69636174696f6e2f6a736f6e676c657869636f6e01a3626964781e61692e67656e6572616c627573696e6573732e61747365712e71756572796464656673a1646d61696ea46474797065657175657279666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a46474797065666f626a656374686e756c6c61626c65816866726f6e746965726872657175697265648366726573756c7464686561646866726f6e746965726a70726f70657274696573a36468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c756564747970656372656666726573756c74a3647265667382782c61692e67656e6572616c627573696e6573732e61747365712e64656673237175657279417661696c61626c65782e61692e67656e6572616c627573696e6573732e61747365712e64656673237175657279556e617661696c61626c65647479706565756e696f6e66636c6f736564f56866726f6e74696572a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323637572736f7264747970656372656668656e636f64696e67706170706c69636174696f6e2f6a736f6e6a706172616d6574657273a3647479706566706172616d7368726571756972656484636170706767656e65736973646e616d6566706172616d736a70726f70657274696573a463617070a3647479706566737472696e6766666f726d617463646964696d61784c656e677468190100646e616d65a2647479706566737472696e67696d61784c656e67746819010066706172616d73a2647479706566737472696e67696d61784c656e6774681980006767656e65736973a2647479706566737472696e6766666f726d617463636964676c657869636f6e01a3626964782261692e67656e6572616c627573696e6573732e61747365712e7265616444726166746464656673a1646d61696ea36474797065657175657279666f7574707574a266736368656d61a36474797065666f626a6563746872657175697265648166736f757263656a70726f70657274696573a166736f75726365a26474797065656279746573696d61784c656e6774681a0008000068656e636f64696e67706170706c69636174696f6e2f6a736f6e6a706172616d6574657273a3647479706566706172616d73687265717569726564816a646566696e6974696f6e6a70726f70657274696573a16a646566696e6974696f6ea2647479706566737472696e6766666f726d617463636964676c657869636f6e01a3626964782061692e67656e6572616c627573696e6573732e61747365712e726563656970746464656673a1646d61696ea46474797065657175657279666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a46474797065666f626a656374686e756c6c61626c65816866726f6e74696572687265717569726564846772656365697074676f7574636f6d6564686561646866726f6e746965726a70726f70657274696573a46468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c7565647479706563726566676f7574636f6d65a3647265667383782561692e67656e6572616c627573696e6573732e61747365712e646566732370656e64696e67782761692e67656e6572616c627573696e6573732e61747365712e6465667323656666656374697665782961692e67656e6572616c627573696e6573732e61747365712e6465667323696e656666656374697665647479706565756e696f6e66636c6f736564f56772656365697074a263726566782561692e67656e6572616c627573696e6573732e61747365712e6465667323726563656970746474797065637265666866726f6e74696572a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323637572736f7264747970656372656668656e636f64696e67706170706c69636174696f6e2f6a736f6e6a706172616d6574657273a3647479706566706172616d7368726571756972656483636170706767656e6573697366696e74656e746a70726f70657274696573a363617070a3647479706566737472696e6766666f726d617463646964696d61784c656e67746819010066696e74656e74a2647479706566737472696e6766666f726d6174636369646767656e65736973a2647479706566737472696e6766666f726d617463636964676c657869636f6e01a3626964781f61692e67656e6572616c627573696e6573732e61747365712e736f757263656464656673a1646d61696ea3636b657963616e796474797065667265636f7264667265636f7264a36474797065666f626a6563746872657175697265648267636f6e74656e7464626c6f626a70726f70657274696573a264626c6f62a3647479706564626c6f62666163636570748178186170706c69636174696f6e2f6f637465742d73747265616d676d617853697a651a0008000067636f6e74656e74a16474797065686369642d6c696e6b676c657869636f6e01a3626964782861692e67656e6572616c627573696e6573732e61747365712e7374616765446566696e6974696f6e6464656673a1646d61696ea464747970656970726f63656475726565696e707574a266736368656d61a36474797065666f626a65637468726571756972656484636170706767656e6573697368657870656374656466736f757263656a70726f70657274696573a463617070a2647479706566737472696e6766666f726d61746364696466736f75726365a26474797065656279746573696d61784c656e6774681a000800006767656e65736973a2647479706566737472696e6766666f726d617463636964686578706563746564a2647479706566737472696e6766666f726d61746363696468656e636f64696e67706170706c69636174696f6e2f6a736f6e666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a36474797065666f626a656374687265717569726564876763757272656e746963616e64696461746567636c6f737572656866726f6e7469657264686561646e73746174655072657365727665646c7265706c61795061737365646a70726f70657274696573a76468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c756564747970656372656667636c6f73757265a36474797065656172726179656974656d73a2647479706566737472696e6766666f726d617463636964696d61784c656e67746818406763757272656e74a1647479706567756e6b6e6f776e6866726f6e74696572a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323637572736f726474797065637265666963616e646964617465a1647479706567756e6b6e6f776e6c7265706c6179506173736564a1647479706567626f6f6c65616e6e7374617465507265736572766564a1647479706567626f6f6c65616e68656e636f64696e67706170706c69636174696f6e2f6a736f6e676c657869636f6e01a3626964781f61692e67656e6572616c627573696e6573732e61747365712e7375626d69746464656673a1646d61696ea464747970656970726f63656475726565696e707574a266736368656d61a36474797065666f626a6563746872657175697265648165626c6f636b6a70726f70657274696573a165626c6f636ba26474797065656279746573696d61784c656e6774681a0001000068656e636f64696e67706170706c69636174696f6e2f6a736f6e666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a46474797065666f626a656374686e756c6c61626c65816866726f6e7469657268726571756972656483677265636569707464686561646866726f6e746965726a70726f70657274696573a36468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c75656474797065637265666772656365697074a263726566782561692e67656e6572616c627573696e6573732e61747365712e6465667323726563656970746474797065637265666866726f6e74696572a263726566782461692e67656e6572616c627573696e6573732e61747365712e6465667323637572736f7264747970656372656668656e636f64696e67706170706c69636174696f6e2f6a736f6e676c657869636f6e01a3626964781d61692e67656e6572616c627573696e6573732e61747365712e73796e636464656673a1646d61696ea46474797065657175657279666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a36474797065666f626a656374687265717569726564856767656e657369736a67656e65736973436964646865616467656e747269657366736f757263656a70726f70657274696573a66468656164a263726566782361692e67656e6572616c627573696e6573732e61747365712e686561642376616c756564747970656372656666736f75726365a26474797065656279746573696d61784c656e6774681a0008000067656e7472696573a36474797065656172726179656974656d73a1647479706567756e6b6e6f776e696d61784c656e677468194e206767656e65736973a263726566782661692e67656e6572616c627573696e6573732e61747365712e67656e657369732376616c75656474797065637265666a63616e64696461746573a36474797065656172726179656974656d73a36474797065666f626a656374687265717569726564826a646566696e6974696f6e66736f757263656a70726f70657274696573a266736f75726365a26474797065656279746573696d61784c656e6774681a010000006a646566696e6974696f6ea2647479706566737472696e6766666f726d617463636964696d61784c656e67746818206a67656e65736973436964a2647479706566737472696e6766666f726d61746363696468656e636f64696e67706170706c69636174696f6e2f6a736f6e6a706172616d6574657273a3647479706566706172616d7368726571756972656482636170706767656e657369736a70726f70657274696573a263617070a3647479706566737472696e6766666f726d617463646964696d61784c656e6774681901006767656e65736973a2647479706566737472696e6766666f726d617463636964676c657869636f6e01a3626964782661692e67656e6572616c627573696e6573732e61747365712e76616c696461746544726166746464656673a1646d61696ea464747970656970726f63656475726565696e707574a266736368656d61a36474797065666f626a6563746872657175697265648166736f757263656a70726f70657274696573a166736f75726365a26474797065656279746573696d61784c656e6774681a0008000068656e636f64696e67706170706c69636174696f6e2f6a736f6e666572726f727383a1646e616d656e496e76616c696452657175657374a1646e616d656b556e617661696c61626c65a1646e616d6572566572696669636174696f6e4661696c6564666f7574707574a266736368656d61a36474797065666f626a656374687265717569726564816a646566696e6974696f6e6a70726f70657274696573a16a646566696e6974696f6ea1647479706567756e6b6e6f776e68656e636f64696e67706170706c69636174696f6e2f6a736f6e676c657869636f6e01696e616d657370616365781861692e67656e6572616c627573696e6573732e61747365716a7369676e617475726573a5646b657973781c63616e6f6e6963616c20636f6d70726573736564206469643a6b6579656163746f72781b7369676e2063616e6f6e6963616c20696e74656e7420626c6f636b66666f726d61747536342d6279746520636f6d70616374206c6f772d5369616c676f726974686d6d502d323536205348412d3235366973657175656e63657278187369676e20656e747279206578636c7564696e672073696764666f6c6487782e656e74726965732061726520696e746572707265746564206f6e636520696e207665726966696564206f72646572785c77726f6e6720646566696e6974696f6e2c20756e6b6e6f776e20616374696f6e2c20696e76616c696420616374696f6e20616e6420756e617574686f72697a65642061637469766174696f6e2061726520696e656666656374697665786764657465726d696e69737469632070726f6772616d2c20736368656d612c20737461746520616e6420626f756e6473206572726f7273207265636f726420666f6c645f6661696c65642f3c636f64653e20616e642072657461696e207072696f722073746174657863726573746f7261626c6520636f6e74656e74206572726f72732c2070657273697374656e6365206661696c75726520616e642072756e74696d65206661756c74732070617573652074686520696e746572707265746174696f6e2066726f6e74696572785b646570656e64656e6379206d69736d61746368207265667573657320696e746572707265746174696f6e3b2072756e74696d65206661756c7473206e65766572206265636f6d65207265706c696361746564206f7574636f6d6573783773746174652c206f7574636f6d652c20646566696e6974696f6e20616e642066726f6e7469657220636f6d6d697420746f676574686572783068656164206d6179206265206168656164206f662074686520696e746572707265746174696f6e2066726f6e74696572646e616d656c61747365712d6170702d763265717565727978407175657279206661696c75726520697320756e617661696c61626c6520616e64206e6576657220616476616e636573206f72206368616e676573207374617465657669657773a26865787465726e616c78296e6f206e6574776f726b2c20585250432c20616d6269656e74206b657973206f7220736372697074736a7072696d69746976657383782161692e67656e6572616c627573696e6573732e61747365712e75692e50616e656c782061692e67656e6572616c627573696e6573732e61747365712e75692e54657874782261692e67656e6572616c627573696e6573732e61747365712e75692e416374696f6e6776657273696f6e02696576616c7561746f72aa64666f6c6483784a65666665637469766520726573756c74206861732065786163746c79206465636973696f6e20616e64206f626a6563742073746174652077697468696e20737461746520626f756e6473783e696e65666665637469766520726573756c7420686173206465636973696f6e20616e6420726561736f6e2c206f7074696f6e616c6c79206d6573736167657851726561736f6e206d617463686573205b612d7a5d5b612d7a302d395f5d7b302c36337d3b206d65737361676520686173206174206d6f7374203130323420556e69636f646520636f646520706f696e7473646e616d657061747365712d6a736f6e6174612d7631656e6f6465738d6470617468646e616d6566737472696e67666e756d6265726576616c7565687661726961626c656662696e61727965756e6172796866756e6374696f6e65626c6f636b6462696e6469636f6e646974696f6e6666696c746572666572726f7273b83b64666f726b6d696e76616c69645f696e70757467756e69636f64656d696e76616c69645f696e70757468656e76656c6f70656d696e76616c69645f696e70757468726f6c6c6261636b6d696e76616c69645f696e70757468776972655f6369646d696e76616c69645f696e70757468776972655f6b65796d696e76616c69645f696e70757469776972655f73697a656d696e76616c69645f696e7075746a736f757263655f6361726d696e76616c69645f696e7075746a766965775f6c696d69746d696e76616c69645f696e7075746a766965775f70726f70736d696e76616c69645f696e7075746a776972655f62797465736d696e76616c69645f696e7075746a776972655f64657074686d696e76616c69645f696e7075746a776972655f76616c75656d696e76616c69645f696e7075746b666f6c645f6f75747075746d696e76616c69645f696e7075746b736f757263655f6a736f6e6d696e76616c69645f696e7075746b736f757263655f73697a656d696e76616c69645f696e7075746b736f757263655f757466386d696e76616c69645f696e7075746b737465705f6275646765746d696e76616c69645f696e7075746b76616c75655f62797465736d696e76616c69645f696e7075746b76616c75655f64657074686d696e76616c69645f696e7075746b766965775f736f757263656d696e76616c69645f696e7075746b776972655f6e756d6265726d696e76616c69645f696e7075746c656e67696e655f696e7075746d696e76616c69645f696e7075746c666f6c645f6d6573736167656d696e76616c69645f696e7075746c6e6f6e63616e6f6e6963616c6d696e76616c69645f696e7075746c72657365727665645f6b65796d696e76616c69645f696e7075746c736368656d615f636f756e746d696e76616c69645f696e7075746c736368656d615f76616c75656d696e76616c69645f696e7075746c736f757263655f62797465736d696e76616c69645f696e7075746c73756d5f6f766572666c6f776d696e76616c69645f696e7075746c756e6b6e6f776e5f766965776d696e76616c69645f696e7075746d616273656e745f726573756c746d696e76616c69645f696e7075746d65787465726e616c5f766965776d696e76616c69645f696e7075746d756e6b6e6f776e5f71756572796d696e76616c69645f696e7075746e696e76616c69645f736368656d616d696e76616c69645f696e7075746e696e76616c69645f736f757263656d696e76616c69645f696e7075746e73657175656e63655f6c696d69746d696e76616c69645f696e7075746f636f6e74656e745f636f7272757074697472616e7369656e746f636f6e74656e745f6d697373696e67697472616e7369656e746f646566696e6974696f6e5f706174686d696e76616c69645f696e7075746f646566696e6974696f6e5f73697a656d696e76616c69645f696e7075746f736368656d615f636f657263696f6e6d696e76616c69645f696e707574706576616c756174696f6e5f64657074686d696e76616c69645f696e70757471696e7370656374696f6e5f6275646765746d696e76616c69645f696e70757471736f757263655f636f6d706c65786974796d696e76616c69645f696e70757471736f757263655f706f6f6c5f6c696d69746d696e76616c69645f696e70757471756e6b6e6f776e5f636f6d706f6e656e746d696e76616c69645f696e70757471756e6b6e6f776e5f7072696d69746976656d696e76616c69645f696e70757472646566696e6974696f6e5f62696e64696e676d696e76616c69645f696e70757472696e76616c69645f61637469766174696f6e6d696e76616c69645f696e7075747270657273697374656e63655f6661696c6564697472616e7369656e7472756e737570706f727465645f736368656d616d696e76616c69645f696e70757473646566696e6974696f6e5f6d616e69666573746d696e76616c69645f696e70757473756e737570706f727465645f72756e74696d656d696e76616c69645f696e70757474646566696e6974696f6e5f6475706c69636174656d696e76616c69645f696e70757474756e737570706f727465645f66756e6374696f6e6d696e76616c69645f696e70757474756e737570706f727465645f7661726961626c656d696e76616c69645f696e70757476756e737570706f727465645f65787072657373696f6e6d696e76616c69645f696e70757477696e636f6d70617469626c655f646566696e6974696f6e6d696e76616c69645f696e707574666c696d697473b36269647061747365712d6a736f6e6174612d76316861737444657074681840686173744e6f64657319100069766965774465707468181869766965774e6f6465731908006a696e70757442797465731a000400006a696e707574446570746818206a737461746542797465731a000200006b616374696f6e42797465731980006b6f757470757442797465731a000400006c70726f6772616d42797465731a000100006e73657175656e63654c656e6774681940006f646566696e6974696f6e42797465731a000800006f646566696e6974696f6e46696c657318406f6576616c756174696f6e446570746818406f6576616c756174696f6e53746570731a000186a06f696e7370656374696f6e42797465731a0100000071666f6c644d6573736167654c656e67746819040071696e7465726d65646961746542797465731a001000006676616c75657388786e706c61696e206f776e6564204a534f4e3b2077656c6c2d666f726d656420556e69636f64653b206e6f206379636c65732c206163636573736f72732c2073796d626f6c732c2073706172736520617272617973206f722072657365727665642070726f7065727479206e616d65737840696e70757420616e64206f757470757420696e746567657273206d757374206265207361666520616e64206578636c756465206e65676174697665207a65726f784d696e7465726d656469617465206e65676174697665207a65726f20697320696e73706563746564206173207a65726f3b206f74686572206e6f6e2d7361666520696e746567657273206661696c784b73756d207573657320657861637420696e746567657220616363756d756c6174696f6e20616e642072656a6563747320616e7920756e7361666520696e7465726d6564696174652073756d785f6e6f2065787465726e616c2062696e64696e67732c2063616c6c6261636b732c2074696d652c2072616e646f6d6e6573732c206c616d626461732c207265637572736976652063616c6c73206f722063616c6c61626c6520616c6961736573786b415354206c696d69747320636f756e7420636f6e7461696e6572733b206576616c756174696f6e20646570746820636f756e7473206163746976652041535420616e636573746f72206e657374696e672c206e6576657220636f6e63757272656e74207369626c696e6773784b696e7370656374696f6e20627564676574206368617267657320657665727920656e636f64656420746f6b656e2061742065616368206576616c7561746564206461746120726573756c74784c756e646566696e65642066696e616c20726573756c74206661696c733b20656e67696e652073657175656e6365206d65746164617461206973207374726970706564206174206f75747075746776657273696f6e01686c616e677561676578394a534f4e6174612065787072657373696f6e2073656d616e7469637320666f72207468652061646d69747465642070757265207375627365746966756e6374696f6e739063616273646365696c65666c6f6f7265726f756e6465636f756e746373756d636d696e636d6178666c656e67746866657869737473636e6f74666c6f6f6b757066617070656e64656d6572676568636f6e7461696e7369737562737472696e67696f70657261746f72738f612b612d612a612f6125613d62213d613c623c3d613e623e3d63616e64626f7262696e61266a61637469766174696f6e85783467656e657369732061637469766174696f6e206b65797320617574686f72697a652074686520636f6e74726f6c20616374696f6e7834657870656374656420646566696e6974696f6e206d75737420657175616c207468652061637469766520646566696e6974696f6e7836636f6d706c6574652072657461696e656420636c6f737572652069732066657463686564206265666f72652076616c69646174696f6e785b61637469766174696f6e207265717569726573206964656e746963616c2072756e74696d6520616e6420636f6d706c65746520737461746520736368656d613b206d6967726174696f6e732061726520756e617661696c61626c65786e696e76616c696420617661696c61626c652061637469766174696f6e20697320696e6566666563746976653b206d697373696e67206f7220636f727275707420636f6e74656e7420616e642072756e74696d65206661756c747320706175736520616e642063616e2072657472796a646566696e6974696f6e84784c6d616e696665737420697320636c6f736564204c657869636f6e2064617461207769746820696d6d757461626c652072657461696e6564207261772d43494420736f757263652066696c6573783e736f7572636520636c6f7375726520697320736f7274656420616e6420756e697175652c20626f756e64656420616e6420686173682d76657269666965647840616c6c20616374696f6e2c20737461746520616e6420717565727920736368656d61732061726520636865636b656420776974686f757420636f657263696f6e7873696e697469616c20737461746520616e642070726f6772616d732061726520707265666c6967687465643b20766965777320757365206f6e6c792072657461696e6564206c6f63616c20496e6c61792074656d706c6174657320616e642072656769737465726564207072696d697469766573",
+    "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+    "sha256": "e9676069b94c2a8d1b03ab01b2da9f010d1d7e4905e3a130d9391bcd613cad95"
+  },
+  "definition": {
+    "value": {
+      "fixture": "source identity only; not an executable S3 definition"
+    },
+    "cborHex": "a167666978747572657835736f75726365206964656e74697479206f6e6c793b206e6f7420616e2065786563757461626c6520533320646566696e6974696f6e",
+    "cid": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse",
+    "sha256": "d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91"
+  },
+  "genesis": {
+    "value": {
+      "$type": "ai.generalbusiness.atseq.genesis",
+      "version": 1,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "profile": {
+        "$link": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu"
+      },
+      "definition": {
+        "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+      },
+      "sequencerKey": "did:key:zDnaer52RTwabaBeMkKYYwZmEFqPabLW78cRK62iovMUQhFif",
+      "activationKeys": ["did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ"]
+    },
+    "cborHex": "a76361707078206469643a706c633a616161616161616161616161616161616161616161616161652474797065782061692e67656e6572616c627573696e6573732e61747365712e67656e657369736770726f66696c65d82a58250001711220e9676069b94c2a8d1b03ab01b2da9f010d1d7e4905e3a130d9391bcd613cad956776657273696f6e016a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a916c73657175656e6365724b657978396469643a6b65793a7a446e616572353252547761626142654d6b4b5959775a6d4546715061624c57373863524b3632696f764d5551684669666e61637469766174696f6e4b6579738178396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a",
+    "cid": "bafyreic7vkbnsqwtmfa3aqrfxirswri2nt45lzvxxbyqxhynvztzus3cle",
+    "sha256": "5faa82d942d36141b04225ba232b451a6cf9d5e6b7b8710b9f0dae679a4b6259"
+  },
+  "intent": {
+    "value": {
+      "$type": "ai.generalbusiness.atseq.defs#intent",
+      "version": 1,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "genesis": {
+        "$link": "bafyreic7vkbnsqwtmfa3aqrfxirswri2nt45lzvxxbyqxhynvztzus3cle"
+      },
+      "definition": {
+        "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+      },
+      "actorKey": "did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ",
+      "nonce": {
+        "$bytes": "AAECAwQFBgcICQoLDA0ODw"
+      },
+      "action": "ai.generalbusiness.atseq.totals#add",
+      "payload": {
+        "delta": 3,
+        "note": null,
+        "extra": "retained"
+      }
+    },
+    "cborHex": "a96361707078206469643a706c633a616161616161616161616161616161616161616161616161652474797065782461692e67656e6572616c627573696e6573732e61747365712e6465667323696e74656e74656e6f6e636550000102030405060708090a0b0c0d0e0f66616374696f6e782361692e67656e6572616c627573696e6573732e61747365712e746f74616c73236164646767656e65736973d82a582500017112205faa82d942d36141b04225ba232b451a6cf9d5e6b7b8710b9f0dae679a4b6259677061796c6f6164a3646e6f7465f66564656c7461036565787472616872657461696e65646776657273696f6e01686163746f724b657978396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a6a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91",
+    "cid": "bafyreib3wi4dyiklsfzkbpqsjux5e5b3eesxfeaygudkbf3wf5za65v6gy",
+    "sha256": "3bb2383c214b9172a0be124d2fd2743b21257290183506a097762f720f76be36"
+  },
+  "signed": {
+    "value": {
+      "$type": "ai.generalbusiness.atseq.defs#signedIntent",
+      "intent": {
+        "$type": "ai.generalbusiness.atseq.defs#intent",
+        "version": 1,
+        "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+        "genesis": {
+          "$link": "bafyreic7vkbnsqwtmfa3aqrfxirswri2nt45lzvxxbyqxhynvztzus3cle"
+        },
+        "definition": {
+          "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+        },
+        "actorKey": "did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ",
+        "nonce": {
+          "$bytes": "AAECAwQFBgcICQoLDA0ODw"
+        },
+        "action": "ai.generalbusiness.atseq.totals#add",
+        "payload": {
+          "delta": 3,
+          "note": null,
+          "extra": "retained"
+        }
+      },
+      "sig": {
+        "$bytes": "qwGs9r0URl3D+bGkvNzX0UGBhXketltleFblC2E1C3NVhXGo35aNFihuNCCjweV+pp3k6NYJiE9m652QMQO/OQ"
+      }
+    },
+    "cborHex": "a3637369675840ab01acf6bd14465dc3f9b1a4bcdcd7d1418185791eb65b657856e50b61350b73558571a8df968d16286e3420a3c1e57ea69de4e8d609884f66eb9d903103bf39652474797065782a61692e67656e6572616c627573696e6573732e61747365712e64656673237369676e6564496e74656e7466696e74656e74a96361707078206469643a706c633a616161616161616161616161616161616161616161616161652474797065782461692e67656e6572616c627573696e6573732e61747365712e6465667323696e74656e74656e6f6e636550000102030405060708090a0b0c0d0e0f66616374696f6e782361692e67656e6572616c627573696e6573732e61747365712e746f74616c73236164646767656e65736973d82a582500017112205faa82d942d36141b04225ba232b451a6cf9d5e6b7b8710b9f0dae679a4b6259677061796c6f6164a3646e6f7465f66564656c7461036565787472616872657461696e65646776657273696f6e01686163746f724b657978396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a6a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91",
+    "cid": "bafyreibw6fcics7mo3iyslpp4oke4b265w3ohaj6ussq726ggqyc2fynrm",
+    "sha256": "36f144814bec76d1892defe3944e075eedb6e3813ea4a50febc634302d170d8b"
+  },
+  "entry": {
+    "value": {
+      "$type": "ai.generalbusiness.atseq.entry",
+      "version": 1,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "genesis": {
+        "$link": "bafyreic7vkbnsqwtmfa3aqrfxirswri2nt45lzvxxbyqxhynvztzus3cle"
+      },
+      "position": 1,
+      "prev": {
+        "$link": "bafyreic7vkbnsqwtmfa3aqrfxirswri2nt45lzvxxbyqxhynvztzus3cle"
+      },
+      "signedIntent": {
+        "$type": "ai.generalbusiness.atseq.defs#signedIntent",
+        "intent": {
+          "$type": "ai.generalbusiness.atseq.defs#intent",
+          "version": 1,
+          "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+          "genesis": {
+            "$link": "bafyreic7vkbnsqwtmfa3aqrfxirswri2nt45lzvxxbyqxhynvztzus3cle"
+          },
+          "definition": {
+            "$link": "bafyreigzrmazqosv7jsvtquqrzrlgt7ghmq7zieteo73grr4frusimukse"
+          },
+          "actorKey": "did:key:zDnaepsL7AXenJkVYdkh5KuKsSU7Ykh7kyXaLLU7auN9FWSiZ",
+          "nonce": {
+            "$bytes": "AAECAwQFBgcICQoLDA0ODw"
+          },
+          "action": "ai.generalbusiness.atseq.totals#add",
+          "payload": {
+            "delta": 3,
+            "note": null,
+            "extra": "retained"
+          }
+        },
+        "sig": {
+          "$bytes": "qwGs9r0URl3D+bGkvNzX0UGBhXketltleFblC2E1C3NVhXGo35aNFihuNCCjweV+pp3k6NYJiE9m652QMQO/OQ"
+        }
+      },
+      "sequencerKey": "did:key:zDnaer52RTwabaBeMkKYYwZmEFqPabLW78cRK62iovMUQhFif",
+      "sig": {
+        "$bytes": "j5Uuocjl5JIO1NNsKuna8gVyaGo6uKsV7XY9t8p5PdVdNZ32x4zzxGwtIIGaCKfSQ5eIY90DStbk+8+dwr06vA"
+      }
+    },
+    "cborHex": "a96361707078206469643a706c633a6161616161616161616161616161616161616161616161616373696758408f952ea1c8e5e4920ed4d36c2ae9daf20572686a3ab8ab15ed763db7ca793dd55d359df6c78cf3c46c2d20819a08a7d243978863dd034ad6e4fbcf9dc2bd3abc6470726576d82a582500017112205faa82d942d36141b04225ba232b451a6cf9d5e6b7b8710b9f0dae679a4b6259652474797065781e61692e67656e6572616c627573696e6573732e61747365712e656e7472796767656e65736973d82a582500017112205faa82d942d36141b04225ba232b451a6cf9d5e6b7b8710b9f0dae679a4b62596776657273696f6e0168706f736974696f6e016c73657175656e6365724b657978396469643a6b65793a7a446e616572353252547761626142654d6b4b5959775a6d4546715061624c57373863524b3632696f764d5551684669666c7369676e6564496e74656e74a3637369675840ab01acf6bd14465dc3f9b1a4bcdcd7d1418185791eb65b657856e50b61350b73558571a8df968d16286e3420a3c1e57ea69de4e8d609884f66eb9d903103bf39652474797065782a61692e67656e6572616c627573696e6573732e61747365712e64656673237369676e6564496e74656e7466696e74656e74a96361707078206469643a706c633a616161616161616161616161616161616161616161616161652474797065782461692e67656e6572616c627573696e6573732e61747365712e6465667323696e74656e74656e6f6e636550000102030405060708090a0b0c0d0e0f66616374696f6e782361692e67656e6572616c627573696e6573732e61747365712e746f74616c73236164646767656e65736973d82a582500017112205faa82d942d36141b04225ba232b451a6cf9d5e6b7b8710b9f0dae679a4b6259677061796c6f6164a3646e6f7465f66564656c7461036565787472616872657461696e65646776657273696f6e01686163746f724b657978396469643a6b65793a7a446e616570734c374158656e4a6b5659646b68354b754b73535537596b68376b7958614c4c553761754e39465753695a6a646566696e6974696f6ed82a58250001711220d98b01983a55fa6559c2908e62b34fe63b21fca09323bfb3463c2c6924328a91",
+    "cid": "bafyreiaeszmrpge257jiowhhzgnmxgkamwfat4evutauunmq47re6syi2y",
+    "sha256": "04965917989aefd28758e7c99acb9940658a09f095a4c14a3590e7e24f4b08d6"
+  },
+  "head": {
+    "value": {
+      "$type": "ai.generalbusiness.atseq.head",
+      "version": 1,
+      "app": "did:plc:aaaaaaaaaaaaaaaaaaaaaaaa",
+      "genesis": {
+        "$link": "bafyreic7vkbnsqwtmfa3aqrfxirswri2nt45lzvxxbyqxhynvztzus3cle"
+      },
+      "position": 1,
+      "entry": {
+        "$link": "bafyreiaeszmrpge257jiowhhzgnmxgkamwfat4evutauunmq47re6syi2y"
+      }
+    },
+    "cborHex": "a66361707078206469643a706c633a616161616161616161616161616161616161616161616161652474797065781d61692e67656e6572616c627573696e6573732e61747365712e6865616465656e747279d82a5825000171122004965917989aefd28758e7c99acb9940658a09f095a4c14a3590e7e24f4b08d66767656e65736973d82a582500017112205faa82d942d36141b04225ba232b451a6cf9d5e6b7b8710b9f0dae679a4b62596776657273696f6e0168706f736974696f6e01",
+    "cid": "bafyreifd6obha6lnh5d6z4oxim5zbhwsny42nwyhhuldsuz667v3makf3q",
+    "sha256": "a3f38270796d3f47ecf1d7433b909ed26e39a6db073d1639533ef7ebb60145dc"
+  },
+  "alternateActorSignature": {
+    "$bytes": "Jw2hhN4IfzcurWHjHqVTsRAkKMTH3CObIczJ2AVgLTZOwbiYZwLZsj7Rp7CqRHlub+OLDfOydAYQOV+P49h9zg"
+  }
+}

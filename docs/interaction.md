@@ -113,22 +113,40 @@ writes the resulting CAR outside that source folder.
 { "operation": "pack", "directory": "/absolute/source", "output": "/absolute/draft.car" }
 ```
 
+For a single `atseq-source` JSON document, use `packDocument`. To reconstruct a
+document from an admitted CAR, use `unpackDocument`:
+
+```json
+{ "operation": "packDocument", "source": "/absolute/app.atseq.json", "output": "/absolute/app.car" }
+```
+
+```json
+{ "operation": "unpackDocument", "source": "/absolute/app.car", "output": "/absolute/app.atseq.json" }
+```
+
+These operations need no running host. They enforce the document and source
+bounds, reject input symlinks, and write one output file without extracting its
+source paths. They refuse to overwrite the input file or a supplied key, intent
+or token file, including aliases. Existing output files require explicit
+`"overwrite": true`. The [definition guide](definitions.md#authoring-without-a-compiled-sdk)
+explains exact source identity and the retained examples.
+
 The remaining requests include `host`, the printed Atseq origin. Operator procedures (`validate`, `preview` and `create`) also
 include `hostTokenFile`, the absolute path printed by the host. It is a regular
 file owned by the current user with mode 0600. The CLI sends its token only to
 the selected host; output commands protect the token file from replacement.
 Read methods (`list`, `describe`, `query`, `outcome` and `export`) remain public:
 
-| Operation  | Additional input                                                             | Result                                                  |
-| ---------- | ---------------------------------------------------------------------------- | ------------------------------------------------------- |
-| `validate` | `source`: CAR path                                                           | Validated manifest and Lexicons                         |
-| `preview`  | `source`; optional `action`, `payload`, `state`                              | Sandbox state/outcome, views and a `previewUrl` to open |
-| `create`   | `source`, `keyFile`, stable `creationId` UUID v4                             | Pinned genesis, head and interpretation frontier        |
-| `list`     | None                                                                         | Available local app invitations                         |
-| `describe` | `app`, `genesis`                                                             | Current definition and progress                         |
-| `submit`   | `app`, `genesis`, `definition`, `action`, `payload`, `keyFile`, `intentFile` | Intent CID and canonical receipt                        |
-| `query`    | `app`, `genesis`, `name`, `params`                                           | Available/unavailable result at its exact frontier      |
-| `outcome`  | `app`, `genesis`, `intent`                                                   | Receipt and pending/effective/ineffective result        |
+| Operation  | Additional input                                                             | Result                                                     |
+| ---------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `validate` | `source`: CAR path                                                           | Validated manifest and Lexicons                            |
+| `preview`  | `source`; optional `action`, `payload`, `state`                              | Sandbox state/outcome, views and a `previewUrl` to open    |
+| `create`   | `source`, `keyFile`, stable `creationId` UUID v4                             | Pinned genesis, head and interpretation frontier           |
+| `list`     | None                                                                         | Available local app invitations                            |
+| `describe` | `app`, `genesis`; optional `includeSource: true`                             | Versioned definition and progress; exact source on request |
+| `submit`   | `app`, `genesis`, `definition`, `action`, `payload`, `keyFile`, `intentFile` | Intent CID and canonical receipt                           |
+| `query`    | `app`, `genesis`, `name`, `params`                                           | Available/unavailable result at its exact frontier         |
+| `outcome`  | `app`, `genesis`, `intent`                                                   | Receipt and pending/effective/ineffective result           |
 
 `genesis` and `definition` in CLI input are plain CID strings. Preserve the
 creation ID across an uncertain create. Preserve `intentFile` across a submit

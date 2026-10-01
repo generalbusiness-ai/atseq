@@ -6,11 +6,12 @@ import { resolve } from 'node:path';
 import { build, preview } from 'vite';
 import { chromium } from '@playwright/test';
 import { runRuntimeCorpus } from '../tests/support/runtime-corpus.ts';
+import { runSourceDocumentCorpus } from './support/source-document-corpus.ts';
 import { runtimeCid } from '../src/protocol/log.ts';
 import { applicationRuntimeDescriptor } from '../src/protocol/identity.ts';
 
 test('application interpretation agrees in Node and a Chromium worker', async (t) => {
-  const node = await runRuntimeCorpus();
+  const node = [...(await runRuntimeCorpus()), ...(await runSourceDocumentCorpus())];
   for (const result of node)
     await t.test(result.name, () => assert.equal(result.passed, true, result.detail ?? result.name));
   const root = resolve('tests/support/runtime-browser'),
@@ -45,6 +46,11 @@ test('application interpretation agrees in Node and a Chromium worker', async (t
       'src/protocol/identity.ts',
       'tests/runtime.test.ts',
       'tests/support/runtime-corpus.ts',
+      'tests/support/source-document-corpus.ts',
+      'src/definition/document.ts',
+      'testdata/source-documents/taskboard.atseq.json',
+      'testdata/source-documents/guitar.atseq.json',
+      'testdata/source-documents/ledger.atseq.json',
       'testdata/apps/fixtures.ts',
       'tests/support/runtime-browser/main.ts',
       'tests/support/runtime-browser/worker.ts',

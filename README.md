@@ -182,7 +182,7 @@ The prototype uses one bounded state document per app, an integer-only
 evaluation profile, a restricted expression language and three local UI
 primitives. Deterministic execution failures record an ineffective outcome and preserve
 state; later entries continue. Missing required content, failed storage or runtime faults pause
-interpretation until repaired. The v1 contracts use the owned `ai.generalbusiness.atseq.*` namespace and semantic
+interpretation until repaired. The current contracts use the owned `ai.generalbusiness.atseq.*` namespace and semantic
 CIDs, with source and dependency provenance recorded separately. They deliberately
 refuse historical spike profiles. See the [runtime profile](docs/runtime-profile.md) for exact
 bounds.

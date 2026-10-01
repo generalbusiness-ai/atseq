@@ -1,5 +1,8 @@
 import { runRuntimeCorpus } from '../runtime-corpus.ts';
-runRuntimeCorpus().then(
-  (results) => postMessage({ results }),
-  (error) => postMessage({ error: String(error) }),
-);
+import { runSourceDocumentCorpus } from '../source-document-corpus.ts';
+runRuntimeCorpus()
+  .then(async (results) => [...results, ...(await runSourceDocumentCorpus())])
+  .then(
+    (results) => postMessage({ results }),
+    (error) => postMessage({ error: String(error) }),
+  );

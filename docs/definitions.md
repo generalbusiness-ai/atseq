@@ -114,10 +114,10 @@ controller and tests its hostile-view boundary.
 
 ## Runtime identity
 
-The [v1 semantic contracts](../src/core/contracts.ts) specify log verification,
+The [current semantic contracts](../src/core/contracts.ts) specify log verification,
 evaluation, definition admission and application behavior. Their canonical CIDs
 are independent of source layout and formatting. The installed
-[profile registry](../src/protocol/identity.ts) supports only v1; historical spike
+[profile registry](../src/protocol/identity.ts) supports log/application v2 and the unchanged evaluator v1; historical spike
 profiles are deliberately refused after the pre-adoption wire break. The
 [runtime profile](runtime-profile.md#identity-and-compatibility) explains how future
 versions retain replay support and how dependency equivalence is reviewed.
@@ -139,6 +139,44 @@ the additional agent-authoring exercise required by S6. See the
 [S3 result](../notes/2026-09-06-atseq-runtime-spike.md) for retained evidence.
 
 ## Authoring without a compiled SDK
+
+A single JSON document can carry a complete definition. Its format is
+`atseq-source`, version `1`, with `manifest` and a `sources` array of
+`{path, content: {"$bytes": "<canonical unpadded base64>"}}` items. These are the
+exact source bytes, including whitespace and line endings. Conversion produces
+the same standard CAR and runs the ordinary definition loader. The document
+allows an omitted manifest `profile`, which is filled from the installed
+runtime, and omitted `files`, which is derived from every supplied source item.
+A supplied profile must match the installed runtime; a supplied file table must
+name exactly the supplied paths and matching raw CIDs. Export retains the full
+manifest and its file-table order, preserving the definition CID.
+
+The document is bounded to 1 MiB of JSON, depth 32 and 63 source items. Existing
+512 KiB source and CAR limits also apply. Aliased bytes count separately toward
+the named-source byte allowance. No conversion reads remote URLs or extracts
+untrusted paths to the filesystem.
+
+Portable `atseq/application` APIs provide `sourceDocumentToBundle`,
+`sourceDocumentFromBundle`, `sourceDocumentFromDefinition` and
+`serializeSourceDocument`. These accept or return owned source data; named
+file bytes can be read from a loaded definition with `definition.bytes(path)`.
+The CLI provides `packDocument` and `unpackDocument`; both write one file and
+retain its existing output protections. See the
+[interaction guide](interaction.md#json-cli-adapter).
+
+The [taskboard](../testdata/source-documents/taskboard.atseq.json),
+[guitar shortlist](../testdata/source-documents/guitar.atseq.json) and
+[ledger](../testdata/source-documents/ledger.atseq.json) examples are complete
+single-document definitions with `views: []`. Generic action forms and query
+inspection work without an authored view. Guitar prices and ledger amounts use
+integer minor units. Local preview simulates a fold with an empty actor key;
+it does not establish whether an actor will be admitted or authorized.
+
+Routine discovery returns `version`, `cid`, `manifest` and parsed `lexicons`.
+Request `describe` with `includeSource: true` to obtain a complete `source`
+document that can be reconstructed and checked against `cid`. Source identity
+establishes the bytes. Verify and replay the pinned history to establish which
+definition is active at a particular frontier.
 
 Ask the JSON CLI for `{ "operation": "runtime" }` to obtain the installed
 application `profile` CID. Use that CID in `manifest.json`. A definition folder

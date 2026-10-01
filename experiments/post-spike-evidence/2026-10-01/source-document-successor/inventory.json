@@ -1,0 +1,284 @@
+{
+  "format": "atseq-source-document-inventory",
+  "version": 1,
+  "generatedAt": "2026-10-01T17:35:25.623Z",
+  "node": "v26.10.0",
+  "sourceHead": "51783e276e5a3aa4fb64c37c47aeb9138d9b939b",
+  "integratedMain": "a3c306aa8f5be555a88df8cb5b2bc30dc5ba1995",
+  "supersedes": [
+    "experiments/post-spike-evidence/2026-10-01/source-document-inventory.json",
+    "experiments/evidence/s3/rainfall.car",
+    "experiments/evidence/s3/guitar.car"
+  ],
+  "profiles": [
+    {
+      "name": "atseq-log-v2",
+      "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+      "role": "log"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+      "role": "evaluator"
+    },
+    {
+      "name": "atseq-app-v2",
+      "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+      "role": "application"
+    }
+  ],
+  "runtimePackagePaths": 135,
+  "examples": [
+    {
+      "name": "taskboard",
+      "path": "testdata/source-documents/taskboard.atseq.json",
+      "inputSha256": "bf2c631de02840922a58d61f921e6c3d3ddd7367ed05f21ec05c85651c03df20",
+      "definition": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "carBytes": 4314,
+      "carSha256": "e7f3647d87752e6b4d5f37fac6aef551f4c341706dd4ff83f7de2b18f71f0384",
+      "documentBytes": 5483,
+      "leanDiscoveryJsonBytes": 2478,
+      "fullDiscoveryJsonBytes": 7970,
+      "files": [
+        {
+          "cid": "bafkreifmc3akakf7rrvz3bmbddno57ptzrd6oforjvpgxaecjh3mj5hhv4",
+          "path": "add.jsonata",
+          "bytes": 200,
+          "sha256": "ac16c0a028bf8c6b9d858118daeefdf3cc47e715d14d5e6b808249f6c4f4e7af"
+        },
+        {
+          "cid": "bafkreiauohitaor77q47inyuykccsf5cbv3f3h5cehxk5n37dveg4emc2i",
+          "path": "complete.jsonata",
+          "bytes": 302,
+          "sha256": "1471d1303a3ffc39f43714c2842917a20d765d9fa221eeaeb77f1d486e1182d2"
+        },
+        {
+          "cid": "bafkreiepqrs7vjoy74z4dwq3pujl7wkxuaqxh642jd3is4yweyau2eptpq",
+          "path": "initial.json",
+          "bytes": 37,
+          "sha256": "8f8465faa5d8ff33c1da1b7d12bfd957a02173fb9a48f689731626014d11f37c"
+        },
+        {
+          "cid": "bafkreiggvwdnvylzccqrmme3k4sge2whi25nyt3372vfkaxdaotg5zundu",
+          "path": "schemas/data.json",
+          "bytes": 1577,
+          "sha256": "c6ad86dae17910a116309b5724626ac746badc4f7bfeaa5502e303a66ee68d1d"
+        },
+        {
+          "cid": "bafkreid2wxptgnzx5fhgcyjma2phhjvcl2nkuljbqzz36t2kk4tpdqew4m",
+          "path": "schemas/summary.json",
+          "bytes": 735,
+          "sha256": "7ab5df333737e94e61612c069e73a6a25e9aaa2d218673bf4f4a5726f1c096e3"
+        },
+        {
+          "cid": "bafkreihkyrhtumilojxlexozykabanqqpryw2ewgr6yber6hc3lnphozwi",
+          "path": "summary.jsonata",
+          "bytes": 66,
+          "sha256": "eac44f3a310b726eb25dd9c2801036107c716d12c68fb01247c716d6d79dd9b2"
+        }
+      ]
+    },
+    {
+      "name": "guitar",
+      "path": "testdata/source-documents/guitar.atseq.json",
+      "inputSha256": "1d1a5163f18f53e7eeae178f90fda440fee0efe42e6f8bcf5de7f1952dce9643",
+      "definition": "bafyreibd4esaloqg3yfoui4ndueevdrw45vux7cjdw2wmhht53vjist5sm",
+      "carBytes": 3683,
+      "carSha256": "090c3572dc54e04731d18119c84635d534cc8f54ba36e26b7a0cc661c0690a7a",
+      "documentBytes": 4684,
+      "leanDiscoveryJsonBytes": 2209,
+      "fullDiscoveryJsonBytes": 6902,
+      "files": [
+        {
+          "cid": "bafkreic7pyrpfijnmfyw2ttprqfe6eyfpypnd7g66pe3ktfttxeffrw3jq",
+          "path": "add.jsonata",
+          "bytes": 188,
+          "sha256": "5f7e22f2a12d61716d4e6f8c0a4f13057e1ed1fcdef3c9b54cb39dc852c6db4c"
+        },
+        {
+          "cid": "bafkreifneenifxf2i6a7v2hojrz4bfklfntkfhnzrqxxbha36ap4f34yua",
+          "path": "initial.json",
+          "bytes": 23,
+          "sha256": "ad211a82dcba4781fae8ee4c73c0954b2b66a29db98c2f709c1bf01fc2ef98a0"
+        },
+        {
+          "cid": "bafkreib3z4hh6qgy2rsncprj64kh34mbxgieojmpygepjdcfistscijjdu",
+          "path": "schemas/data.json",
+          "bytes": 1439,
+          "sha256": "3bcf0e7f40d8d464d13e29f7147df181b99047258fc188f48c4544a72121291d"
+        },
+        {
+          "cid": "bafkreiaesdvnulyrnvzhyfb4qgpelt6kp5chfm5wqxes7fhqbkhenzdoaq",
+          "path": "schemas/summary.json",
+          "bytes": 737,
+          "sha256": "0490eada2f116d727c143c819e45cfca7f4472b3b685c92f94f00a8e46e46e04"
+        },
+        {
+          "cid": "bafkreib7las2xjksorf4irno53fguokn7yvzooxu3ghxldfxy2vhnvkdqi",
+          "path": "summary.jsonata",
+          "bytes": 119,
+          "sha256": "3f5825aba552744bc445aeeeca6a394dfe2b973af4d98f758cb7c6aa76d54382"
+        }
+      ]
+    },
+    {
+      "name": "ledger",
+      "path": "testdata/source-documents/ledger.atseq.json",
+      "inputSha256": "f0b35532e77430223b076a1b33b9cffebdab09ea02971f4275d12154ac615f82",
+      "definition": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "carBytes": 4263,
+      "carSha256": "34412193f120663c2eae9166792298295833cd279295c09c4c37162074611d19",
+      "documentBytes": 5458,
+      "leanDiscoveryJsonBytes": 2462,
+      "fullDiscoveryJsonBytes": 7929,
+      "files": [
+        {
+          "cid": "bafkreihsfwse7fgj6sx335yfw6hpyni7nr3qgajm3wfeidkw552benaqna",
+          "path": "initial.json",
+          "bytes": 62,
+          "sha256": "f22da44f94c9f4afbdf705b78efc351f6c7703012cdd8a440d56ef7412341068"
+        },
+        {
+          "cid": "bafkreidox4qvc5v3f6dg2yoo4fg6xwv2moj5jmmte6d7rnss67jkby2dmy",
+          "path": "record.jsonata",
+          "bytes": 259,
+          "sha256": "6ebf215176bb2f866d61cee14debdaba6393d4b1932787f8b652f7d2a0e34366"
+        },
+        {
+          "cid": "bafkreibjd6qxn7g2yaw2bzecmxh26g37rolxbda2fbfg7abncilxgzsk24",
+          "path": "schemas/data.json",
+          "bytes": 1759,
+          "sha256": "291fa176fcdac02da0e48265cfaf1b7f8b97708c1a284a6f802d121773664ad7"
+        },
+        {
+          "cid": "bafkreicgj6cfjhvivncrtealzwoostxvezambgzitd5yjodulf2deghcbq",
+          "path": "schemas/summary.json",
+          "bytes": 904,
+          "sha256": "464f84549ea8ab4519900bcd9ce94ef52640c09b2898fb84b87459743218e20c"
+        },
+        {
+          "cid": "bafkreid7o6slw35ktcjjjbemtsgll7kl2wu7e6csmgbbcefzh2lab4xk4m",
+          "path": "summary.jsonata",
+          "bytes": 92,
+          "sha256": "7f77a4bb6faa989294848c9c8cb5fd4bd5a9f2785261821110b93e9600f2eae3"
+        }
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "name": "rainfall",
+      "source": "testdata/apps/fixtures.ts",
+      "definition": "bafyreianksdohdjeynj3t3r3jdnznqb5xkdwi2phu242icfo2ld5uabyia",
+      "carBytes": 5381,
+      "carSha256": "703f806b37c3ce7ce8262ccfe25ea84da6ca03660f6c2b87f4bedeaa879b37f0",
+      "documentBytes": 6921,
+      "leanDiscoveryJsonBytes": 2239,
+      "fullDiscoveryJsonBytes": 9169,
+      "files": [
+        {
+          "cid": "bafkreihaveveeh4pkzbkvmy2naojth7jjwjj52ksihppkerwilyapbu53e",
+          "path": "initial.json",
+          "bytes": 20,
+          "sha256": "e0a92a421f8f5642aab31a681c999fe94d929ee95241def5123642f007869dd9"
+        },
+        {
+          "cid": "bafkreiawujbjvewqbwimlgevn4vg7cbx4uymqv32wbcq6lwndihv7kvnjy",
+          "path": "record.jsonata",
+          "bytes": 73,
+          "sha256": "16a2429a92d00d90c598956f2a6f8837e530c8577ab0450f2ecd1a0f5faaad4e"
+        },
+        {
+          "cid": "bafkreihfygjjd2pgx62gluv2dyo64flxz6bhwyts3mnnbfapk4qipzm4je",
+          "path": "schemas/data.json",
+          "bytes": 1155,
+          "sha256": "e5c19291e9e6bfb465d2ba1e1dee1577cf827b6272db1ad0940f572087e59c49"
+        },
+        {
+          "cid": "bafkreig2eydauue6qvf3243he7as65uatle3okj6kkiklku7ike2eq5fhm",
+          "path": "schemas/summary.json",
+          "bytes": 728,
+          "sha256": "da26060a509e854bbd736727c12f76809ac9b7293e5290a5aa9f4289a243a53b"
+        },
+        {
+          "cid": "bafkreihrs44lia4z7h5wuyufupxmghicbpx5rup74txiqeybtaqxxzhbpy",
+          "path": "summary.jsonata",
+          "bytes": 108,
+          "sha256": "f19738b40399f9fb6a6285a3eec31d020befd8d1ffe4ee88130198217be4e17e"
+        },
+        {
+          "cid": "bafkreigz5anqrtvldcozugqpbmtaixj337vm5tgx6xw4eotwgjashxvutu",
+          "path": "view.json",
+          "bytes": 1946,
+          "sha256": "d9e81b08ceab189d9a1a0f0b26045d3bdfeaceccd7f5edc23a76324123deb49d"
+        }
+      ],
+      "action": "ai.generalbusiness.atseq.examples.rainfall.data#record"
+    },
+    {
+      "name": "guitar",
+      "source": "testdata/apps/fixtures.ts",
+      "definition": "bafyreidgdgs37qrrd5m4bzoc6lw2buvemf6jsgfbqo4uy5fnb4jty2o4jq",
+      "carBytes": 5868,
+      "carSha256": "93d2ecabc1d7a17048a2bf185d6368aa3b8f34f01b3ccb0fa5350b529ebdbad8",
+      "documentBytes": 7571,
+      "leanDiscoveryJsonBytes": 2415,
+      "fullDiscoveryJsonBytes": 9995,
+      "files": [
+        {
+          "cid": "bafkreih4antbd4jxcw7irttx2zow4hiqxxgombla52emf3ulj6hvgmvrxq",
+          "path": "candidate.jsonata",
+          "bytes": 213,
+          "sha256": "fc036611f13715be88ce77d65d6e1d10bdcce60560ee88c2ee8b4f8f5332b1bc"
+        },
+        {
+          "cid": "bafkreieitu4lgbzsjystmyuz4nz63dnkoazlnskbkgukpg63wfnx7lkwwi",
+          "path": "initial.json",
+          "bytes": 40,
+          "sha256": "889d38b307324e25366299e373ed8daa7032b6c94151a8a79bdbb15b7fad56b2"
+        },
+        {
+          "cid": "bafkreiawl47rcuhdlpdxz5yhoyptv6ewwjmvgcyi32cxl6zv3etxprw5di",
+          "path": "schemas/data.json",
+          "bytes": 1552,
+          "sha256": "165f3f1150e35bc77cf707761f3af896b259530b08de8575fb35d92777c6dd1a"
+        },
+        {
+          "cid": "bafkreie3mtsnsmrstlmjxpyzf3hklr6ggcorxx6adbawonzcvsbu2kmywy",
+          "path": "schemas/summary.json",
+          "bytes": 698,
+          "sha256": "9b64e4d932329ad89bbf192ecea5c7c6309d1bdfc01841673722ac834d2998b6"
+        },
+        {
+          "cid": "bafkreidzbax23p7vl465wd63vwnkyw7jnwrlslu3gkh4bcmzulbammouti",
+          "path": "summary.jsonata",
+          "bytes": 60,
+          "sha256": "79082fadbff55f3ddb0fdbad9aac5be96da2b92e9b328fc08999a2c20631d49a"
+        },
+        {
+          "cid": "bafkreia4umq2ksrh7yf4h6pl6xrkkehgzw654jw54omay7ltcqnufemm6m",
+          "path": "view.json",
+          "bytes": 1945,
+          "sha256": "1ca321a54a27fe0bc3f9ebf5e2a510e6cdbdde26dde3980c7d73141b42918cf3"
+        }
+      ],
+      "action": "ai.generalbusiness.atseq.examples.guitar.data#candidate"
+    }
+  ],
+  "sourceHashes": {
+    "src/core/contracts.ts": "376d27a2dfcb2cd902f4181642c983f94cc33d76d6c38fc64170cc1768e9613e",
+    "src/core/dependencies-approved.json": "8c16a3609bcc15b339b9351adf97ee45150b9b2010db924d8364eaa05b68d747",
+    "src/core/dependencies.ts": "baf4564a981e9b6e1994e8a4a831e9843ce300b1c1f8bd9caadb1bee5d258cf5",
+    "src/integrity/files-approved.json": "b93ba3e37afb6e6fd8da563ad78015e5b4ce80e2b76219587a81a1ddc5331621",
+    "src/archive/notices.json": "41d01d27b593a014ae2d962fd79d0b30469359296f02dbce1e1647d6090f7130",
+    "src/definition/document.ts": "2ad5c2efd40d59b3de7bdcb1058fbfe94ebc2df75a6141b16f6cf3b2773cd51d",
+    "src/definition/load.ts": "58f47a238bfc90d6f1cef4e4c6e41730ea4cb59584f6df8b0dac7f8394b9327b",
+    "src/application/definition.ts": "3b363c547032a940ff1b16df6531a1eeb8af51b1a767ec9b9f1a7a9637661c47",
+    "tests/source-document-flows.test.ts": "af7105b89738702d47d4a0124a732ca1ac2f675ca8485a2ce97cf081bda5bb97",
+    "tests/support/source-document-corpus.ts": "45f9a292ede3316655d8df752edf775e1cb6d9b4bb31bffcd909ebdf13ae6778",
+    "tests/support/runtime-corpus.ts": "8ffa2e1543e25c0c24346b5361fc97059a8b6c99a36ce4cfe092fd5fd54ec7f9",
+    "testdata/apps/fixtures.ts": "d94df092b9bc659ab54c43cc8b9cc90dbd97884faf3d23ea8dd1de92d497a525",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "provenance": {
+    "encoder": "@ipld/dag-cbor 7.0.3",
+    "cid": "multiformats 9.9.0",
+    "input": "normative descriptors; no protocol encoder"
+  },
+  "profiles": [
+    {
+      "name": "atseq-log-v2",
+      "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm"
+    },
+    {
+      "name": "atseq-app-v2",
+      "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu"
+    }
+  ]
+}

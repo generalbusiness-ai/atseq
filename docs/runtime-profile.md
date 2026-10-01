@@ -1,7 +1,7 @@
 # Runtime profile
 
-Atseq's first versioned application contract is `atseq-app-v1`. It includes
-`atseq-log-v1` and `atseq-jsonata-v1`. The [semantic descriptors](../src/core/contracts.ts)
+Atseq's current application contract is `atseq-app-v2`. It includes
+`atseq-log-v2` and the unchanged `atseq-jsonata-v1`. The [semantic descriptors](../src/core/contracts.ts)
 are canonical data identified by CBOR CIDs. The same evaluator and admission
 checks run in Node and browser workers.
 
@@ -124,15 +124,15 @@ an explicit user action. View bounds apply to source and expanded nodes.
 
 ## Identity and compatibility
 
-The [registry](../src/protocol/identity.ts) exposes the three supported v1 CIDs.
-Genesis and definition pin `atseq-app-v1`. The descriptor binds normative
+The [registry](../src/protocol/identity.ts) exposes the supported log v2,
+application v2 and evaluator v1 CIDs. Genesis and definition pin `atseq-app-v2`. The descriptor binds normative
 validation shapes, wire/signature rules, admitted evaluation behavior, limits,
 error outcomes, source loading and activation rules. Editorial Lexicon descriptions
 are excluded; all validation fields remain part of the contract.
 
 Formatting, source paths and implementation hashes do not enter these CIDs.
-Independent [wire vectors](../tests/vectors/protocol-v1.json),
-[contract CID vectors](../tests/vectors/profiles-v1.json), and shared Node/browser
+Independent [wire vectors](../tests/vectors/protocol-v2.json),
+[contract CID vectors](../tests/vectors/profiles-v2.json), and shared Node/browser
 conformance checks provide evidence that the implementation follows the contract.
 Adding a regression vector alone does not change an identity.
 
@@ -194,12 +194,25 @@ API; the host does not yet expose it through discovery. A CID
 is never reassigned to different interpretation. Implementation corrections
 within a contract follow the conformance and independent-review rule above.
 
-This first version makes one planned break before external adoption. The active
-registry contains only the three v1 contracts; the pre-v1 `test.atseq.*`
-interpreter is historical, not registered for new apps. Its signed records,
-profiles and archives are refused by v1. The agent-authored pre-v1 capture and
-v0 vectors retain their original bytes and are replayed with their retained
-original interpreter. Other spike reports, CARs, screenshots and s6 archives
-were regenerated to exercise v1. Their original evidence remains at
+The independently reviewed B0 discovery change advances the log and application
+profiles to v2. The current descriptors include service Lexicons, so adding
+validated versioned discovery and optional source export changes their semantic
+identity even though actor signatures, log ordering, folds and the evaluator
+remain unchanged. Descriptor names and versions advance explicitly; the
+evaluator retains its v1 CID. Record and source-manifest version fields retain
+their existing values. Future native protocol work will review separating the
+persisted log contract from its service contract; this release does not silently
+remove service schemas from the identity.
+
+The active registry accepts only these current profiles. A v1 genesis or
+definition returns `unsupported_runtime`; there is no automatic source,
+signature or archive migration. Historical v1 reports and captures remain
+unchanged and must be replayed with their original interpreter, including the
+[pre-B0 main revision](https://github.com/generalbusiness-ai/atseq/tree/cb3fd8472ccec1208b72e8adc81884ccfb1860d4).
+The retained v1 vectors are historical evidence; current gates use v2 vectors.
+
+The pre-v1 `test.atseq.*` interpreter is also historical and unregistered.
+The agent-authored pre-v1 capture and v0 vectors retain their original bytes and
+are replayed with their original interpreter. Older evidence remains at
 [26d1528 on GitHub](https://github.com/generalbusiness-ai/atseq/tree/26d15287f3955eebd543f2c519c8506378c63d60/experiments).
 Do not relabel old signatures or profile links.

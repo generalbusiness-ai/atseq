@@ -1,10 +1,10 @@
-import type { DefinitionManifest } from '../definition/load.ts';
-export { describeDefinition, previewSource } from '../application/definition.ts';
-export interface DefinitionInfo {
-  cid: string;
-  manifest: DefinitionManifest;
-  lexicons: any[];
-}
+import type { DefinitionInfo } from '../application/definition.ts';
+export {
+  describeDefinition,
+  validateDefinitionInfo,
+  previewSource,
+  type DefinitionInfo,
+} from '../application/definition.ts';
 export function resolveSchema(info: DefinitionInfo, ref: string, context?: string): any {
   const absolute = ref.startsWith('#') ? `${context}${ref}` : ref;
   const [id, name = 'main'] = absolute.split('#');

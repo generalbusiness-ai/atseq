@@ -50,7 +50,7 @@ function proof(k, v) {
     throw Error('Independent proof failed');
   return { $bytes: base64(sig) };
 }
-const { applicationDescriptor: profile } = await import('../../src/core/contracts.ts');
+const { applicationDescriptor: profile, engineDescriptor, logDescriptor } = await import('../../src/core/contracts.ts');
 const definition = { fixture: 'source identity only; not an executable S3 definition' };
 const genesis = {
   $type: 'ai.generalbusiness.atseq.genesis',
@@ -110,7 +110,7 @@ const encoded = Object.fromEntries(
   ),
 );
 await writeFile(
-  'tests/vectors/protocol-v1.json',
+  'tests/vectors/protocol-v2.json',
   JSON.stringify(
     {
       provenance: {
@@ -123,6 +123,26 @@ await writeFile(
       },
       ...encoded,
       alternateActorSignature: alternate,
+    },
+    null,
+    2,
+  ) + '\n',
+);
+await writeFile(
+  'tests/vectors/profiles-v2.json',
+  JSON.stringify(
+    {
+      provenance: {
+        encoder: '@ipld/dag-cbor 7.0.3',
+        cid: 'multiformats 9.9.0',
+        input: 'normative descriptors; no protocol encoder',
+      },
+      profiles: await Promise.all(
+        [logDescriptor, engineDescriptor, profile].map(async (descriptor) => ({
+          name: descriptor.name,
+          cid: await cid(descriptor),
+        })),
+      ),
     },
     null,
     2,

@@ -97,7 +97,7 @@ claim about which candidate took effect.
 
 ## Runtime version and limits
 
-The current `atseq-app-v1` contract includes activation behavior. Genesis and
+The current `atseq-app-v2` contract includes activation behavior. Genesis and
 all definitions activated within an app retain that pinned profile. Historical
 S3/S4/S5 spike profiles remain separate and require their original interpreter;
 the v1 registry explicitly refuses them. Future runtime changes follow the

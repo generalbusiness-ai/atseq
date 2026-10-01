@@ -1,4 +1,6 @@
 import test from 'node:test';
+import { LoadedDefinition } from '../src/definition/load.ts';
+import { describeDefinition } from '../src/application/definition.ts';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { mkdtemp, readFile, writeFile, rm, symlink } from 'node:fs/promises';
@@ -104,12 +106,13 @@ test('retry requests compare content identity across property order and retain s
   const retained = JSON.stringify({ requested, ...prepared });
   await writeFile(keyFile, JSON.stringify(identity), { mode: 0o600 });
   await writeFile(intentFile, retained, { mode: 0o600 });
+  const description = await describeDefinition(await LoadedDefinition.load(fixture.bundle.root, fixture.bundle));
   const server = createServer((_request, response) => {
     response.setHeader('content-type', 'application/json');
     response.end(
       JSON.stringify({
         genesis: app.anchor.genesis,
-        definition: {},
+        definition: description,
         head: headAt(app.anchor),
         frontier: { $type: NSID.defsCursor, position: 0, entry: link(app.anchor.cid) },
       }),

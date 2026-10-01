@@ -73,8 +73,8 @@ Decode returns owned data; proof functions copy inputs before awaiting crypto.
 CIDs identify complete canonical blocks. Signature fields are included in entry
 CIDs. Intent identity instead hashes the unsigned intent alone. The runtime
 profile has a versioned [semantic descriptor](../src/core/contracts.ts) and
-canonical CBOR CID. The three contracts are `atseq-log-v1`, `atseq-jsonata-v1`
-and `atseq-app-v1`. The application contract includes the log, evaluator,
+canonical CBOR CID. The three contracts are `atseq-log-v2`, `atseq-jsonata-v1`
+and `atseq-app-v2`. The application contract includes the log, evaluator,
 definition admission, folding, queries, views and activation rules. Genesis and
 definition pin the application CID.
 
@@ -191,7 +191,7 @@ boundary cases. It also loads every framework Lexicon and validates the fixed
 method contracts with the ecosystem validator. The gate never regenerates its
 expected vectors.
 
-[protocol-v1.json](../tests/vectors/protocol-v1.json) records the literal input,
+[protocol-v2.json](../tests/vectors/protocol-v2.json) records the literal input,
 CBOR hex, CID and SHA-256 for each vector. Its provenance names `@ipld/dag-cbor`
 7.0.3, `multiformats` 9.9.0, and Node's OpenSSL ECDSA-SHA256 interface. The
 [standalone writer](../scripts/vectors/generate.mjs) imports normative Atseq contract data, and no Atseq protocol implementation or atcute

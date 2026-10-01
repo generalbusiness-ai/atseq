@@ -15,6 +15,11 @@ export async function preparePackageConformance(root: string, installed: string)
     emitted.add(path);
     let source = await readFile(path, 'utf8');
     sourceHashes[relative(root, path)] = createHash('sha256').update(source).digest('hex');
+    if (path.endsWith('.json')) {
+      await mkdir(dirname(destination), { recursive: true });
+      await writeFile(destination, source);
+      return destination;
+    }
     const parsed = ts.createSourceFile(path, source, ts.ScriptTarget.Latest, true),
       edits: { start: number; end: number; value: string }[] = [];
     for (const statement of parsed.statements) {
@@ -42,7 +47,9 @@ export async function preparePackageConformance(root: string, installed: string)
     return destination;
   }
   const modules = await Promise.all(
-    ['corpus', 'runtime-corpus', 'evolution-corpus'].map((name) => compile(join(root, 'tests/support', name + '.ts'))),
+    ['corpus', 'runtime-corpus', 'evolution-corpus', 'source-document-corpus'].map((name) =>
+      compile(join(root, 'tests/support', name + '.ts')),
+    ),
   );
   const runner = join(directory, 'run.mjs');
   await writeFile(
@@ -52,7 +59,8 @@ import {writeFile} from 'node:fs/promises';
 import {runCorpus} from ${JSON.stringify(pathToFileURL(modules[0]!).href)};
 import {runRuntimeCorpus} from ${JSON.stringify(pathToFileURL(modules[1]!).href)};
 import {runEvolutionCorpus} from ${JSON.stringify(pathToFileURL(modules[2]!).href)};
-const cases = [...await runCorpus(), ...await runRuntimeCorpus()];
+import {runSourceDocumentCorpus} from ${JSON.stringify(pathToFileURL(modules[3]!).href)};
+const cases = [...await runCorpus(), ...await runRuntimeCorpus(), ...await runSourceDocumentCorpus()];
 await runEvolutionCorpus(async (name, run) => {
   try { await run(); cases.push({name, passed:true}); }
   catch(error) { cases.push({name, passed:false, detail:error.message}); }

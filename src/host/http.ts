@@ -84,6 +84,11 @@ export async function startApplicationService(
         schema.type === 'procedure'
           ? await readInput(req, HOST_LIMITS.requestBytes)
           : Object.fromEntries(url.searchParams);
+      if (method === NSID.describe && Object.hasOwn(input, 'includeSource')) {
+        if (!['true', 'false'].includes(input.includeSource))
+          throw new ProtocolError('input', 'includeSource must be true or false');
+        input.includeSource = input.includeSource === 'true';
+      }
       try {
         if (schema.type === 'procedure') serviceSchemas.assertValidXrpcInput(method, jsonToLex(input));
         else serviceSchemas.assertValidXrpcParams(method, input);
@@ -119,7 +124,7 @@ export async function startApplicationService(
           );
           break;
         case NSID.describe:
-          output = await host.describe(input.app, input.genesis);
+          output = await host.describe(input.app, input.genesis, input.includeSource === true);
           break;
         case NSID.sync: {
           const result = await host.sync(input.app, input.genesis);

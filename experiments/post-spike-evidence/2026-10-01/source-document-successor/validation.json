@@ -1,0 +1,135 @@
+{
+  "format": "atseq-authoring-bundle-validation",
+  "version": 1,
+  "sourceHead": "51783e276e5a3aa4fb64c37c47aeb9138d9b939b",
+  "integratedMain": "a3c306aa8f5be555a88df8cb5b2bc30dc5ba1995",
+  "node": "v26.10.0",
+  "fullSuite": {
+    "tests": 373,
+    "passed": 373,
+    "failed": 0,
+    "cancelled": 0
+  },
+  "runtimeCasesPerEnvironment": 67,
+  "sourceDocumentCasesPerEnvironment": 8,
+  "protocolCasesPerEnvironment": 85,
+  "compiledPackageCases": 154,
+  "sourceDocumentFlowCases": 4,
+  "sourceDocumentFlowTestsIncludingParent": 5,
+  "hostFlowCases": 8,
+  "runtimeClosure": {
+    "packagePaths": 135,
+    "notices": 115,
+    "graphAndFileHashesEqualReviewedMain": true
+  },
+  "initialRun": {
+    "tests": 371,
+    "passed": 369,
+    "failed": 2,
+    "cause": "New test used the CLI outcome alias as an XRPC method; corrected to receipt. The failure comprises the guitar subtest and its parent.",
+    "sourceHead": "8107d37aef1d18f20cfaffb33ee9aae7789ab566"
+  },
+  "artifacts": {
+    "build-provenance.json": {
+      "bytes": 46415,
+      "sha256": "9d1c4e78697368be0c9bc1f790e3f370df085091c10f89803abf0195d67504be"
+    },
+    "check.log": {
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "examples/guitar.atseq.json": {
+      "bytes": 4684,
+      "sha256": "ed2a399be76c3b316db033fdb36e222358e881c6b51a92c1a07ccdd5fe0a4135"
+    },
+    "examples/guitar.car": {
+      "bytes": 3683,
+      "sha256": "090c3572dc54e04731d18119c84635d534cc8f54ba36e26b7a0cc661c0690a7a"
+    },
+    "examples/ledger.atseq.json": {
+      "bytes": 5458,
+      "sha256": "f6775410b5733b66a6767eafdb69a5e11d101a507873015a958ff46006cae7c6"
+    },
+    "examples/ledger.car": {
+      "bytes": 4263,
+      "sha256": "34412193f120663c2eae9166792298295833cd279295c09c4c37162074611d19"
+    },
+    "examples/taskboard.atseq.json": {
+      "bytes": 5483,
+      "sha256": "5adf6712c42e375bd693050040ddbcb1124adfef939890048e9c9f3fdedb5f97"
+    },
+    "examples/taskboard.car": {
+      "bytes": 4314,
+      "sha256": "e7f3647d87752e6b4d5f37fac6aef551f4c341706dd4ff83f7de2b18f71f0384"
+    },
+    "fixtures/guitar.atseq.json": {
+      "bytes": 7571,
+      "sha256": "9dd235440d08354dbb95b6ee502a2649f816862745e7cc71a68556c4b69f8e4c"
+    },
+    "fixtures/guitar.car": {
+      "bytes": 5868,
+      "sha256": "93d2ecabc1d7a17048a2bf185d6368aa3b8f34f01b3ccb0fa5350b529ebdbad8"
+    },
+    "fixtures/rainfall.atseq.json": {
+      "bytes": 6921,
+      "sha256": "e72a99e0920bba22c3d8b918f9c8a013809173dc3d0fb860fb8de0b733b48a3c"
+    },
+    "fixtures/rainfall.car": {
+      "bytes": 5381,
+      "sha256": "703f806b37c3ce7ce8262ccfe25ea84da6ca03660f6c2b87f4bedeaa879b37f0"
+    },
+    "flow-results.json": {
+      "bytes": 22300,
+      "sha256": "e3a95a331ec9c7f1ad16d22aa7ffe5e3601f204436798ea424ac7fcc20e95008"
+    },
+    "host-flow-results.json": {
+      "bytes": 22526,
+      "sha256": "c3a4d3a06af60a576110a1d3b3af513a9fd4f29ffb066ccc8f71ebbd498a0427"
+    },
+    "initial-tests.log": {
+      "bytes": 32913,
+      "sha256": "af9796b8548672a05d16f64248e9373c6b453b2c182e7c3687099d8710ac99b2"
+    },
+    "inventory.json": {
+      "bytes": 11902,
+      "sha256": "af20292ade04311252fd86598b5a93b586ab2536b101375f1a631744488e7726"
+    },
+    "package-results.json": {
+      "bytes": 16997,
+      "sha256": "d66679cfb17f24d14485b156887daa6396ba7df8880c4154f4b61ec084c8ae8e"
+    },
+    "protocol-results.json": {
+      "bytes": 19467,
+      "sha256": "8b376a91ca08683a98acbceb6b0dc4e09e9d793760eb8403adad88b280be0af2"
+    },
+    "runtime-results.json": {
+      "bytes": 16951,
+      "sha256": "a79f4c7fdb026ba7aa33e7976eda60c93e16adfbabf88ea692d73261223260d6"
+    },
+    "s3-guitar.car": {
+      "bytes": 5814,
+      "sha256": "df05de35f7ac4983bb75bcaeace50c7e68e24c50e21b8c7374a9332122fa2183"
+    },
+    "s3-guitar.json": {
+      "bytes": 4353,
+      "sha256": "5884d7fd6995a1ad8024207f4569034d2e3117687be03dfbb56f48e3ba8c3c9d"
+    },
+    "s3-rainfall.car": {
+      "bytes": 5327,
+      "sha256": "b37e92de48d902cd991d0d0fbf48aa27806dfba2639df9ac5a64fe278c7795f2"
+    },
+    "s3-rainfall.json": {
+      "bytes": 4248,
+      "sha256": "30732386bf7b2748f505dfbcc678741f19920647bdf776ecd949ec3d77d0b70f"
+    },
+    "s3-results.json": {
+      "bytes": 3375,
+      "sha256": "5183bf10e2fb1306f22fbe87c33419f3ea4b847ca1aafb108f99440205b7754c"
+    },
+    "tests.log": {
+      "bytes": 30896,
+      "sha256": "7509f9543b02092b5e6bd7963174885162fb10fd174fe8b798146dbe32c2f703"
+    }
+  },
+  "retainedRawLogWhitespace": "Vite reporter lines in the raw test logs retain their original trailing space; source/artifact whitespace checks exclude .log files."
+}

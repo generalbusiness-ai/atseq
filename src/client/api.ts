@@ -1,6 +1,7 @@
 import { methodNsid } from '../core/nsids.ts';
 import { jsonToLex, lexToJson } from '@atproto/lexicon';
 import { serviceSchemas, BODY_LIMIT, responseBytes } from '../transport/api.ts';
+import { validateDefinitionInfo } from './definition.ts';
 export { serviceSchemas, BODY_LIMIT, responseBytes } from '../transport/api.ts';
 export class ApiError extends Error {
   constructor(
@@ -74,6 +75,8 @@ export class AtseqClient {
         value.message ?? 'Host request failed',
         value.permanent === true,
       );
-    return lexToJson(serviceSchemas.assertValidXrpcOutput(method, jsonToLex(value)));
+    const output: any = lexToJson(serviceSchemas.assertValidXrpcOutput(method, jsonToLex(value)));
+    if (name === 'describe') output.definition = await validateDefinitionInfo(output.definition);
+    return output;
   }
 }

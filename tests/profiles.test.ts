@@ -2,21 +2,43 @@ import { InterpretationError, interpretationCode, interpretationErrorTags } from
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import vectors from './vectors/profiles-v1.json';
+import vectors from './vectors/profiles-v2.json';
+import priorVectors from './vectors/profiles-v1.json';
 import oldVectors from './vectors/protocol-v0.json';
 import approved from '../src/core/dependencies-approved.json';
 import { assertDependencies } from '../src/core/dependencies.ts';
 import { engineDescriptor, applicationDescriptor, logDescriptor } from '../src/core/contracts.ts';
 import { supportedProfiles } from '../src/protocol/identity.ts';
+import { Anchor } from '../src/protocol/log.ts';
+import { Folder } from '../src/application/folder.ts';
+import priorProtocol from './vectors/protocol-v1.json';
 import { contentCid } from '../src/protocol/wire.ts';
 
-test('v1 contract identities agree with independent encoder vectors and exclude implementation provenance', async () => {
+test('v2 contract identities agree with independent encoder vectors and exclude implementation provenance', async () => {
   const registry = await supportedProfiles();
   assert.deepEqual(
     registry.map(({ name, cid }) => ({ name, cid })),
     vectors.profiles,
   );
   assert.ok(!registry.some(({ cid }) => cid === oldVectors.profile.cid));
+  assert.ok(!registry.some(({ cid }) => cid === priorProtocol.profile.cid));
+  assert.equal(
+    registry.find(({ role }) => role === 'evaluator')!.cid,
+    priorVectors.profiles.find(({ name }) => name === 'atseq-jsonata-v1')!.cid,
+  );
+  const oldAnchor = await Anchor.from(priorProtocol.genesis.value, {
+    app: priorProtocol.genesis.value.app,
+    genesis: priorProtocol.genesis.cid,
+  });
+  await assert.rejects(
+    () =>
+      Folder.open(oldAnchor, {
+        async get() {
+          throw new Error('No source should be requested');
+        },
+      }),
+    { code: 'unsupported_runtime' },
+  );
   for (const descriptor of [logDescriptor, engineDescriptor, applicationDescriptor]) {
     assert.ok(Object.isFrozen(descriptor));
     assert.equal(await contentCid(JSON.parse(JSON.stringify(descriptor, null, 7))), await contentCid(descriptor));
