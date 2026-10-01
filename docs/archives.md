@@ -31,7 +31,7 @@ When the device already knows an invitation for that DID, import must match it.
 A conflicting genesis fails verification without changing the pin, sidebar,
 verified inputs or open app. The device retains the pin across reloads and checks
 it again when opening an invitation. The CLI can require the same check with
-its optional app/genesis arguments. License notices and replay text are retained
+both optional app/genesis arguments together. Supplying only one is refused. License notices and replay text are retained
 metadata; different packaging text does not change the installed runtime CID
 or prevent an otherwise valid replay, and is never executed.
 
@@ -57,7 +57,7 @@ to reproduce the invalid outcome and continue with the following entries.
 ```
 
 An optional `position` chooses an earlier complete prefix. The reply names the
-exported head. `export` verifies and replays public `sync` data locally before
+exported head. `export` requires both invitation pins and verifies the host reply against them, then replays public `sync` data locally before
 writing. Rebuild needs no host or private key:
 
 ```json
@@ -74,6 +74,17 @@ invitation is already pinned and must match. The CLI never removes an existing
 application or directory. Acceptance recovery removes only one known disposable
 projection file inside a marked test environment, then compares the separate
 rebuild's state, definition, outcomes, retry index and frontier.
+
+File outputs are created exclusively by default. To replace an existing export,
+set `"overwrite": true` explicitly. Output cannot replace a supplied `keyFile`
+or `intentFile`, including a symlink or hard-link alias. Replay always creates a
+new directory; it never clears or reuses an existing directory.
+
+The reusable `Anchor.from(value, {app, genesis})` and
+`exportArchive(input, {app, genesis}, position?)` APIs require both pins.
+`importArchive(bytes, pins?)` can establish a first invitation from a complete
+verified archive; supplying pins checks them. It returns owned, verified typed
+public data and uses stable archive error codes for malformed copies.
 
 ## Browser and static query exports
 

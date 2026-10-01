@@ -98,7 +98,7 @@ to the host. The browser uses a separate device key and offers no actor switch.
 
 A source folder contains `manifest.json` in the shape documented in
 [definitions.md](definitions.md), omitting `files`, plus all retained source
-files. `pack` derives their raw CIDs and the CAR root. It refuses symlinks and
+files. `pack` derives their raw CIDs and the CAR root. Its output must be outside the real source directory, including directory aliases. It creates a new file by default; set `"overwrite": true` explicitly to replace an existing CAR. Supplied key and intent files are always protected. It refuses symlinks and
 writes the resulting CAR outside that source folder.
 
 ```json
