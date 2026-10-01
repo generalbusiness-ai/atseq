@@ -16,9 +16,20 @@ and discussion summaries.  Frontmatter "status" should be maintained.
 | [Spike results](2026-09-06-atseq-spike-results.md) | S6 independently approved and landed; retained acceptance snapshot | Archives, offline rebuild, chart export, agent authoring and measured scaling costs |
 | [Spike completion](2026-09-06-atseq-spike-completion.md) | S0–S6 complete; follow-on hypotheses remain unimplemented | Exact reviewed heads and landings, residual limits, and the Noseq handoff |
 | [Plan review](2026-09-06-atseq-plan-review.md) | Review; recommendations not yet adopted | Efficiency, adoption, and expressiveness findings against the architecture and spike plan at `efbd900` |
+| [Verification and bootstrap](2026-10-01-atseq-verification-and-bootstrap.md) | Proposed; independently assessed; prototypes pending | Performance cost space, retained state, verified suffixes and checkpoint trust |
+| [ATproto identity](2026-10-01-atseq-identity.md) | Proposed; independently assessed; prototypes pending | Account principals, device/agent authority, web identity adoption and recovery |
 
 The architecture and spike plan are companions. Read the architecture for the
 design basis and the plan for execution. New experiment results get their own
 dated note; this index should link them and distinguish planned from shipped
 behavior. GitSeq tracks repository work only and is not an atseq runtime
 dependency.
+
+The post-spike notes characterize options without fixed latency/capacity targets
+or a backward-compatibility requirement. Their current recommendation retains
+separate sequencer custody, verifies suffixes against retained state, and uses
+ATproto account identity with sequenced repository grants and revocations. The
+sequencer is the default admission observer and checkpoint certifier. Alternatives
+remain documented with conditions for revisiting them. Experiments are proposed,
+not completed. Gitseq requests `c93e8909` and `c83c4b44` track this work; independent
+assessments `564ea662`, `bd453363`, `6352f14b` and `a71b29a4` informed the revisions.
