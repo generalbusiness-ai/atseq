@@ -113,7 +113,7 @@ boundaries, including the participant identity limit noted above.
 
 ## Try an application
 
-Use Node 22.13 or later; the retained acceptance run used Node 26.8.1.
+Use Node 22.13 or later; the retained acceptance run used Node 26.10.0.
 From this checkout:
 
 ```sh
@@ -150,11 +150,15 @@ They also measured the costs before committing to a larger implementation.
 | [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md)               | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions.                                      |
 | [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md)  | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries.                          |
 
-The completed acceptance run passed all 13 gates, including 283 full-suite
+The completed acceptance run passed all 13 gates, including 300 full-suite
 tests. The [completion record](notes/2026-09-06-atseq-spike-completion.md)
-records review and landing; the [results](notes/2026-09-06-atseq-spike-results.md)
+records the pre-v1 review and landing; the [results](notes/2026-09-06-atseq-spike-results.md)
 and [acceptance report](experiments/acceptance.json) retain the measurements
-and evidence.
+and evidence. The current reports and most screenshots and archives were
+regenerated under v1; the spike notes describe the original measurements at
+[26d1528](https://github.com/generalbusiness-ai/atseq/tree/26d15287f3955eebd543f2c519c8506378c63d60).
+The agent-authored mending-circle example is a retained pre-v1 capture, replayed
+with its original interpreter.
 
 To reproduce the complete acceptance run, install the dependencies above,
 Chromium and Go 1.26.7 or later (Go is used only for the S0 core comparison):
@@ -183,8 +187,8 @@ refuse historical spike profiles. See the [runtime profile](docs/runtime-profile
 bounds.
 
 The current host repeatedly serves and verifies the full history. At 10,000
-entries, the retained local run measured a median confirmed append of 13.25
-seconds and browser replay plus transfer of 14.61 seconds. Efficient verified
+entries, the retained local run measured a median confirmed append of 15.27
+seconds and browser replay plus transfer of 14.66 seconds. Efficient verified
 catch-up is needed before using this host for long-lived, growing histories.
 These measurements describe one machine, rather than production capacity.
 

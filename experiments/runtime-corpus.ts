@@ -7,11 +7,12 @@ import { Anchor, headAt, randomNonce, sequence, signIntent, type Entry, type Int
 import { applicationRuntimeCid as runtimeCid } from '../src/protocol/identity.ts';
 import { contentCid, encodeBlock, link } from '../src/protocol/wire.ts';
 import { LoadedDefinition } from '../src/definition/load.ts';
-import { SourceBundle, type SourceReader } from '../src/definition/source.ts';
+import { SourceBundle, readSource, type SourceReader } from '../src/definition/source.ts';
 import { Folder, type Projection } from '../src/application/folder.ts';
 import { Applications } from '../src/application/apps.ts';
 import { canonicalJson, type Json } from '../src/core/values.ts';
 import { PROFILE } from '../src/core/profile.ts';
+import { ACTIVATE } from '../src/definition/control.ts';
 import type { FixtureResult } from './corpus.ts';
 
 const text = (s: string) => new TextEncoder().encode(s);
@@ -100,6 +101,39 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     equal(result.projection.outcomes.length, 1); equal(stored, result.projection);
     failSecond = false; const resumed = await folder.catchUp(history.head, history.entries);
     equal(resumed.projection.frontier.position, 2); equal(resumed.stalled, undefined);
+  });
+  await check('runtime faults pause without producing a replicated outcome and can resume', async () => {
+    const folder = await Folder.open(app.anchor, chart.bundle);
+    const definition = folder.activeDefinition(), original = definition.text;
+    definition.text = () => { throw new TypeError('Injected host fault'); };
+    const paused = await folder.catchUp(history.head, history.entries);
+    equal(paused.stalled?.code, 'runtime_fault'); equal(paused.projection.frontier.position, 0);
+    equal(paused.projection.outcomes, []); equal(paused.projection.state, { readings: [] });
+    definition.text = original;
+    const resumed = await folder.catchUp(history.head, history.entries);
+    equal(resumed.stalled, undefined); equal(resumed.projection.frontier.position, 2);
+  });
+  await check('hash-valid oversized activation is ineffective; corrupt bytes pause until restored', async () => {
+    const raw = new Uint8Array(600 * 1024), oversized = toString(await create(CODEC_RAW, raw));
+    let corrupt = true;
+    const reader: SourceReader = { get: async (cid) => {
+      if (cid !== oversized) return chart.bundle.get(cid);
+      const owned = new Uint8Array(raw); if (corrupt) owned[0] = 1; return owned;
+    } };
+    await rejects(() => readSource(reader, oversized), 'content_corrupt');
+    const log = await fixtureHistory(app, [
+      { action: ACTIVATE, payload: { expected: chart.bundle.root, definition: chart.bundle.root, closure: [oversized, chart.bundle.root].sort() } },
+      acts[0]!,
+    ]);
+    const folder = await Folder.open(app.anchor, reader);
+    const paused = await folder.catchUp(log.head, log.entries);
+    equal(paused.stalled?.code, 'content_corrupt'); equal(paused.projection.frontier.position, 0);
+    corrupt = false;
+    await rejects(() => readSource(reader, oversized), 'source_size');
+    const resumed = await folder.catchUp(log.head, log.entries);
+    equal(resumed.stalled, undefined); equal(resumed.projection.frontier.position, 2);
+    equal(resumed.projection.outcomes[0]!.outcome, { $type: 'ai.generalbusiness.atseq.defs#ineffective', reason: 'invalid_activation' });
+    equal(resumed.projection.state, { readings: [acts[0]!.payload] });
   });
   await check('query captures its prefix before concurrent catch-up', async () => {
     const folder = await Folder.open(app.anchor, chart.bundle);

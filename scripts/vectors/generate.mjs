@@ -50,7 +50,7 @@ function proof(k, v) {
     throw Error('Independent proof failed');
   return { $bytes: base64(sig) };
 }
-const { engineDescriptor: profile } = await import('../../src/core/contracts.ts');
+const { applicationDescriptor: profile } = await import('../../src/core/contracts.ts');
 const definition = { fixture: 'source identity only; not an executable S3 definition' };
 const genesis = {
   $type: 'ai.generalbusiness.atseq.genesis',

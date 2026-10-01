@@ -13,11 +13,11 @@ export class SourceStore {
   constructor(private readonly pds: PdsClient) {}
   private async verify(cid: string, content: Uint8Array): Promise<void> {
     const expected = fromString(cid);
-    if (content.length > 512 * 1024) throw new ProtocolError('source_size', 'Source object exceeds 512 KiB');
     if (expected.codec !== CODEC_RAW && expected.codec !== CODEC_DCBOR)
       throw new ProtocolError('content', 'Unsupported source CID codec');
     if (toString(await create(expected.codec, content)) !== cid)
       throw new ProtocolError('content', 'Source bytes differ from the requested CID');
+    if (content.length > 512 * 1024) throw new ProtocolError('source_size', 'Source object exceeds 512 KiB');
     if (expected.codec === CODEC_DCBOR) decodeBlock(content);
   }
   async put(cid: string, value: Uint8Array): Promise<void> {

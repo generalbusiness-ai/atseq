@@ -96,7 +96,7 @@ export class Folder {
         result = await this.interpret(entry);
         validateFramework(result.outcome.$type, result.outcome);
       } catch (error) {
-        if (errorKind(error) === 'transient') {
+        if (errorKind(error) !== 'invalid_input') {
           this.stalled = {
             position: entry.position,
             code: errorCode(error),
@@ -149,7 +149,7 @@ export class Folder {
         const definition = await activationCandidate(this.definition, payload, this.source, state);
         return { state, definition, outcome: { $type: NSID.defsEffective } };
       } catch (error) {
-        if (errorKind(error) === 'transient') throw error;
+        if (errorKind(error) !== 'invalid_input') throw error;
         return {
           state,
           outcome: ineffective(
@@ -209,7 +209,7 @@ export class Folder {
         result: {
           $type: NSID.defsQueryUnavailable,
           code: typeof (error as any)?.code === 'string' ? (error as any).code : 'query_failed',
-          message: (error instanceof Error ? error.message : 'Query could not complete').slice(0, 1024),
+          message: [...(error instanceof Error ? error.message : 'Query could not complete')].slice(0, 1024).join(''),
         },
       };
     }

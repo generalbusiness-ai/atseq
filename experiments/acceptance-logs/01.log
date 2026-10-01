@@ -12,7 +12,7 @@ All matched files use Prettier code style!
 > atseq@0.0.0 check:layers
 > node scripts/check-layers.mjs
 
-Source dependency directions and wire identities checked.
+Every source layer, portable import and wire identity checked.
 
 > atseq@0.0.0 check:dependencies
 > tsx scripts/check-dependencies.ts

@@ -10,6 +10,7 @@ import submit from '../../lexicons/ai/generalbusiness/atseq/submit.json';
 import query from '../../lexicons/ai/generalbusiness/atseq/query.json';
 import receipt from '../../lexicons/ai/generalbusiness/atseq/receipt.json';
 import { encodeBlock, sameBytes, ProtocolError } from './wire.ts';
+import { PROFILE } from '../core/profile.ts';
 import type { Json } from '../core/values.ts';
 
 export const frameworkLexicons = deepFreeze([
@@ -38,6 +39,8 @@ export function validateFramework(ref: string, value: unknown): void {
         throw new ProtocolError('envelope', `Expected $type ${expectedType}`);
       for (const [key, child] of Object.entries(data)) {
         if (key === '$type') continue;
+        if (key === 'message' && typeof child === 'string' && [...child].length > PROFILE.foldMessageLength)
+          throw new ProtocolError('envelope', 'Framework message exceeds 1024 Unicode code points');
         if (!Object.hasOwn(schema.properties, key))
           throw new ProtocolError('envelope', `Unknown framework field ${key}`);
         closed(schema.properties[key], child);

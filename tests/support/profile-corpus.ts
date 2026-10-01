@@ -1,6 +1,9 @@
+import { integrityEnvironment } from '#atseq-integrity';
 import { assertDependencies } from '../../src/core/dependencies.ts';
 import { canonicalJson } from '../../src/core/values.ts';
 import { evaluate, fold } from '../../src/runtime/evaluator.ts';
+import { validateFramework } from '../../src/protocol/schemas.ts';
+import { NSID } from '../../src/core/nsids.ts';
 import { errorCode } from '../../src/core/errors.ts';
 import type { FixtureResult } from '../../experiments/corpus.ts';
 
@@ -56,8 +59,18 @@ export async function runProfileCorpus(): Promise<FixtureResult[]> {
   await check('ineffective messages count Unicode code points and stop at 1024', async () => {
     const source = '{"decision":"ineffective","reason":"refused","message":act.message}';
     const input = { state: {}, meta: {}, act: { message: '🦉'.repeat(1024) } };
-    equal((await fold(source, input)).decision, 'ineffective');
+    const result = await fold(source, input);
+    equal(result.decision, 'ineffective');
+    if (result.decision === 'ineffective')
+      validateFramework(NSID.defsIneffective, {
+        $type: NSID.defsIneffective,
+        reason: result.reason,
+        message: result.message,
+      });
     await rejects(() => fold(source, { ...input, act: { message: '🦉'.repeat(1025) } }), 'fold_message');
+  });
+  await check('conditional integrity adapter matches the running environment', async () => {
+    equal(integrityEnvironment, typeof process === 'undefined' ? 'browser' : 'node');
   });
   await check('unmatched dependency closure fails closed in either environment', async () => {
     await rejects(async () => assertDependencies([]), 'dependency_mismatch');

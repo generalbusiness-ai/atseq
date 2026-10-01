@@ -12,6 +12,7 @@ export async function readSource(reader: SourceReader, cid: string): Promise<Uin
   try {
     raw = new Uint8Array(await reader.get(cid));
   } catch (error) {
+    if ((error as any)?.code === 'source_size') throw error;
     if (['content', 'content_corrupt'].includes((error as any)?.code))
       throw new InterpretationError('content_corrupt', `Source reader reported corruption: ${cid}`);
     throw new InterpretationError('content_missing', `Required source is unavailable: ${cid}`);
@@ -20,14 +21,15 @@ export async function readSource(reader: SourceReader, cid: string): Promise<Uin
     const parsed = fromString(cid);
     if (
       (parsed.codec !== CODEC_RAW && parsed.codec !== CODEC_DCBOR) ||
-      raw.length > PROFILE.definitionBytes ||
       toString(await create(parsed.codec, raw)) !== cid
     )
-      throw new Error('CID or size mismatch');
-    if (parsed.codec === CODEC_DCBOR) decodeBlock(raw);
+      throw new Error('CID mismatch');
   } catch {
     throw new InterpretationError('content_corrupt', `Source does not match its content identity: ${cid}`);
   }
+  if (raw.length > PROFILE.definitionBytes)
+    throw new InterpretationError('source_size', `Verified source object exceeds ${PROFILE.definitionBytes} bytes`);
+  if (fromString(cid).codec === CODEC_DCBOR) decodeBlock(raw);
   return raw;
 }
 

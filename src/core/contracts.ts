@@ -27,8 +27,8 @@ function semantic(value: any): any {
   if (value && typeof value === 'object')
     return Object.fromEntries(
       Object.entries(value)
-        .filter(([k]) => k !== 'description')
-        .map(([k, v]) => [k, semantic(v)]),
+        .filter(([k]) => k !== 'description' || (typeof value.type !== 'string' && value.lexicon !== 1))
+        .map(([k, v]) => [k, ['const', 'default', 'enum'].includes(k) ? v : semantic(v)]),
     );
   return value;
 }
@@ -155,7 +155,8 @@ export const applicationDescriptor = deepFreeze({
     'entries are interpreted once in verified order',
     'wrong definition, unknown action, invalid action and unauthorized activation are ineffective',
     'deterministic program, schema, state and bounds errors record fold_failed/<code> and retain prior state',
-    'only tagged restorable content errors or persistence failure pause the interpretation frontier',
+    'restorable content errors, persistence failure and runtime faults pause the interpretation frontier',
+    'dependency mismatch refuses interpretation; runtime faults never become replicated outcomes',
     'state, outcome, definition and frontier commit together',
     'head may be ahead of the interpretation frontier',
   ],
@@ -164,7 +165,7 @@ export const applicationDescriptor = deepFreeze({
     'expected definition must equal the active definition',
     'complete retained closure is fetched before validation',
     'activation requires identical runtime and complete state schema; migrations are unavailable',
-    'invalid available activation is ineffective; restorable missing or corrupt content pauses and can retry',
+    'invalid available activation is ineffective; missing or corrupt content and runtime faults pause and can retry',
   ],
   query: 'query failure is unavailable and never advances or changes state',
   views: {

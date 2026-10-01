@@ -3,30 +3,30 @@
 > tsx --test tests/pds.test.ts
 
 ▶ real disposable PDS persistence and recovery
-  ✔ genesis and initial head are a verified empty prefix (5.902458ms)
-  ✔ provisioning refuses to replace an existing application log (11.857875ms)
-  ✔ source blobs are retained and recovered by exact CID (10.229042ms)
-  ✔ reset refuses a live or unmarked directory (0.730542ms)
-  ✔ two concurrent submissions receive one contiguous order (43.928917ms)
-  ✔ same intent and a new valid signature return original receipt (30.813667ms)
-  ✔ second local writer is refused while the lease is held (0.2335ms)
-  ✔ official PDS process crash preserves acknowledged history and blobs (565.06ms)
-  ✔ a rejected conditional batch leaves entry and head unchanged (27.01075ms)
-  ✔ malformed commit replies cannot remove an append or provision condition (28.255292ms)
-  ✔ an unrelated repo write races the append and is reconciled (43.327416ms)
-  ✔ lost HTTP response after commit resolves to one original receipt (49.951875ms)
-  ✔ a different writer process cannot acquire the same local lease (150.411166ms)
-  ✔ writer crash after commit but before acknowledgment recovers one receipt (224.4425ms)
-  ✔ writer crash after acknowledgment keeps receipt and no domain effect claim (222.61775ms)
-  ✔ XRPC rejects a foreign receipt anchor and malformed submission (11.643709ms)
-  ✔ bootstrap at a chosen head catches up without notifications (84.704375ms)
-  ✔ repository CAR contains retention references but blobs require explicit export (5.70525ms)
-  ✔ missing and tampered source references fail, then recover by exact content (18.96825ms)
-  ✔ missing or corrupted physical blob bytes never satisfy a source CID (5.684292ms)
-  ✔ a retained verified head refuses repository rollback and signed-entry corruption (57.390958ms)
-  ✔ chosen-head catch-up verifies a prefix spanning real PDS pages (175.265291ms)
-  ✔ PDS compare-and-swap excludes competing writers even with the local lease bypassed (410.148542ms)
-✔ real disposable PDS persistence and recovery (3045.783834ms)
+  ✔ genesis and initial head are a verified empty prefix (6.481458ms)
+  ✔ provisioning refuses to replace an existing application log (11.677583ms)
+  ✔ source blobs are retained and recovered by exact CID (10.436ms)
+  ✔ reset refuses a live or unmarked directory (0.703417ms)
+  ✔ two concurrent submissions receive one contiguous order (45.082792ms)
+  ✔ same intent and a new valid signature return original receipt (32.103084ms)
+  ✔ second local writer is refused while the lease is held (0.252458ms)
+  ✔ official PDS process crash preserves acknowledged history and blobs (573.9835ms)
+  ✔ a rejected conditional batch leaves entry and head unchanged (28.455583ms)
+  ✔ malformed commit replies cannot remove an append or provision condition (29.383166ms)
+  ✔ an unrelated repo write races the append and is reconciled (44.25ms)
+  ✔ lost HTTP response after commit resolves to one original receipt (53.700375ms)
+  ✔ a different writer process cannot acquire the same local lease (470.241292ms)
+  ✔ writer crash after commit but before acknowledgment recovers one receipt (547.741166ms)
+  ✔ writer crash after acknowledgment keeps receipt and no domain effect claim (548.995041ms)
+  ✔ XRPC rejects a foreign receipt anchor and malformed submission (12.371125ms)
+  ✔ bootstrap at a chosen head catches up without notifications (90.965666ms)
+  ✔ repository CAR contains retention references but blobs require explicit export (5.785084ms)
+  ✔ missing and tampered source references fail, then recover by exact content (19.513792ms)
+  ✔ missing or corrupted physical blob bytes never satisfy a source CID (5.583542ms)
+  ✔ a retained verified head refuses repository rollback and signed-entry corruption (66.419333ms)
+  ✔ chosen-head catch-up verifies a prefix spanning real PDS pages (212.109208ms)
+  ✔ PDS compare-and-swap excludes competing writers even with the local lease bypassed (492.657625ms)
+✔ real disposable PDS persistence and recovery (4916.895292ms)
 ℹ tests 24
 ℹ suites 0
 ℹ pass 24
@@ -34,4 +34,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 3352.9215
+ℹ duration_ms 5237.80425

@@ -2,6 +2,7 @@ import { P256PrivateKeyExportable, Secp256k1PrivateKeyExportable } from '@atcute
 import { fromBytes } from '@atcute/cbor';
 import { Lexicons, jsonToLex } from '@atproto/lexicon';
 import vectors from '../tests/vectors/protocol-v1.json';
+import { applicationRuntimeCid } from '../src/protocol/identity.ts';
 import { Anchor, headAt, positionKey, randomNonce, runtimeCid, sequence, signIntent, validateHead, verifyEntry, verifyHistory, verifyIntent, type Entry, type Genesis, type Intent, type SignedIntent } from '../src/protocol/log.ts';
 import { bytes, contentCid, decodeBlock, encodeBlock, link } from '../src/protocol/wire.ts';
 import { frameworkLexicons, validateFramework } from '../src/protocol/schemas.ts';
@@ -34,7 +35,7 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
       equal(hex(encodeBlock(decodeBlock(unhex(vector.cborHex)))), vector.cborHex);
     });
   }
-  await check('runtime descriptor CID matches independent vector', async () => equal(await runtimeCid(), vectors.profile.cid));
+  await check('application descriptor CID matches independent vector', async () => equal(await applicationRuntimeCid(), vectors.profile.cid));
   await check('independent actor signature verifies', async () => equal((await verifyIntent(signed, anchor)).intentCid, vectors.intent.cid));
   await check('independent sequencer signature verifies', async () => equal((await verifyEntry(first, anchor)).receipt.entry.$link, vectors.entry.cid));
   await check('two valid signature encodings share content identity and receipt', async () => {

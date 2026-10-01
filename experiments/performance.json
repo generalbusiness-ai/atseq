@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T00:45:13.560Z",
+  "measuredAt": "2026-10-01T01:25:50.815Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 3,
   "topology": "Official PDS 0.5.31, loopback HTTP, real SQLite and file blobs; official mock PLC. One sequencer, no rate limits; signed setup batched separately from timed confirmed single appends.",
@@ -18,47 +18,47 @@
       "acknowledgment": [
         {
           "position": 92,
-          "elapsedMs": 129.113208
+          "elapsedMs": 152.673
         },
         {
           "position": 93,
-          "elapsedMs": 125.98737499999993
+          "elapsedMs": 149.93641700000012
         },
         {
           "position": 94,
-          "elapsedMs": 129.89858400000003
+          "elapsedMs": 149.66037499999993
         },
         {
           "position": 95,
-          "elapsedMs": 124.24462500000004
+          "elapsedMs": 146.8894580000001
         },
         {
           "position": 96,
-          "elapsedMs": 123.38462499999991
+          "elapsedMs": 153.18612500000017
         },
         {
           "position": 97,
-          "elapsedMs": 125.34816599999999
+          "elapsedMs": 149.42866699999968
         },
         {
           "position": 98,
-          "elapsedMs": 125.21612500000015
+          "elapsedMs": 153.07995900000014
         },
         {
           "position": 99,
-          "elapsedMs": 125.60283400000003
+          "elapsedMs": 150.51654199999984
         },
         {
           "position": 100,
-          "elapsedMs": 126.51299999999992
+          "elapsedMs": 153.53729199999998
         }
       ],
-      "acknowledgmentP50Ms": 125.60283400000003,
-      "acknowledgmentP95Ms": 129.89858400000003,
-      "readVerifyMs": 60.665750000000116,
-      "runtimeLoadMs": 4.707415999999739,
-      "fullReplayMs": 69.0135409999998,
-      "catchUpOneMs": 55.631708000000344,
+      "acknowledgmentP50Ms": 150.51654199999984,
+      "acknowledgmentP95Ms": 153.53729199999998,
+      "readVerifyMs": 72.50725000000011,
+      "runtimeLoadMs": 5.513625000000047,
+      "fullReplayMs": 81.8310419999998,
+      "catchUpOneMs": 63.93054200000006,
       "boundedStateBytes": 26
     },
     {
@@ -66,47 +66,47 @@
       "acknowledgment": [
         {
           "position": 992,
-          "elapsedMs": 1164.0822500000004
+          "elapsedMs": 1393.5585419999998
         },
         {
           "position": 993,
-          "elapsedMs": 1158.0777089999992
+          "elapsedMs": 1407.039291
         },
         {
           "position": 994,
-          "elapsedMs": 1163.3455830000003
+          "elapsedMs": 1402.5769580000006
         },
         {
           "position": 995,
-          "elapsedMs": 1153.0255829999996
+          "elapsedMs": 1411.1668750000008
         },
         {
           "position": 996,
-          "elapsedMs": 1158.0714579999994
+          "elapsedMs": 1387.3824999999997
         },
         {
           "position": 997,
-          "elapsedMs": 1154.217208
+          "elapsedMs": 1391.7297500000004
         },
         {
           "position": 998,
-          "elapsedMs": 1179.9181250000001
+          "elapsedMs": 1388.7282079999986
         },
         {
           "position": 999,
-          "elapsedMs": 1188.4840839999997
+          "elapsedMs": 1400.0131249999995
         },
         {
           "position": 1000,
-          "elapsedMs": 1174.530834000001
+          "elapsedMs": 1404.2272079999984
         }
       ],
-      "acknowledgmentP50Ms": 1163.3455830000003,
-      "acknowledgmentP95Ms": 1188.4840839999997,
-      "readVerifyMs": 576.682499999999,
-      "runtimeLoadMs": 3.021833000000697,
-      "fullReplayMs": 641.668416999999,
-      "catchUpOneMs": 512.8466669999998,
+      "acknowledgmentP50Ms": 1400.0131249999995,
+      "acknowledgmentP95Ms": 1411.1668750000008,
+      "readVerifyMs": 689.8016250000001,
+      "runtimeLoadMs": 3.333707999998296,
+      "fullReplayMs": 771.7783750000017,
+      "catchUpOneMs": 616.2602079999997,
       "boundedStateBytes": 27
     },
     {
@@ -114,47 +114,47 @@
       "acknowledgment": [
         {
           "position": 9992,
-          "elapsedMs": 13179.707292
+          "elapsedMs": 15281.586500000001
         },
         {
           "position": 9993,
-          "elapsedMs": 13131.662958
+          "elapsedMs": 15259.507334000002
         },
         {
           "position": 9994,
-          "elapsedMs": 13248.963083000002
+          "elapsedMs": 15256.893999999993
         },
         {
           "position": 9995,
-          "elapsedMs": 13162.608583000001
+          "elapsedMs": 15264.141791000002
         },
         {
           "position": 9996,
-          "elapsedMs": 13391.676707999999
+          "elapsedMs": 15296.690457999997
         },
         {
           "position": 9997,
-          "elapsedMs": 13195.313125
+          "elapsedMs": 15265.846625000006
         },
         {
           "position": 9998,
-          "elapsedMs": 13279.032042000006
+          "elapsedMs": 15269.950125000018
         },
         {
           "position": 9999,
-          "elapsedMs": 13275.712290999989
+          "elapsedMs": 15338.088874999987
         },
         {
           "position": 10000,
-          "elapsedMs": 13315.612165999992
+          "elapsedMs": 15228.124625000026
         }
       ],
-      "acknowledgmentP50Ms": 13248.963083000002,
-      "acknowledgmentP95Ms": 13391.676707999999,
-      "readVerifyMs": 6654.5217910000065,
-      "runtimeLoadMs": 3.2130419999884907,
-      "fullReplayMs": 6422.204499999993,
-      "catchUpOneMs": 5212.159749999992,
+      "acknowledgmentP50Ms": 15265.846625000006,
+      "acknowledgmentP95Ms": 15338.088874999987,
+      "readVerifyMs": 7615.958291000017,
+      "runtimeLoadMs": 3.2724160000216216,
+      "fullReplayMs": 7645.672499999986,
+      "catchUpOneMs": 6151.343291999976,
       "boundedStateBytes": 28
     }
   ],
@@ -163,17 +163,17 @@
     {
       "name": "history 100",
       "passed": true,
-      "elapsedMs": 69.0135409999998
+      "elapsedMs": 81.8310419999998
     },
     {
       "name": "history 1000",
       "passed": true,
-      "elapsedMs": 641.668416999999
+      "elapsedMs": 771.7783750000017
     },
     {
       "name": "history 10000",
       "passed": true,
-      "elapsedMs": 6422.204499999993
+      "elapsedMs": 7645.672499999986
     }
   ],
   "sourceHashes": {
@@ -185,7 +185,7 @@
     "lexicons/ai/generalbusiness/atseq/compareDefinition.json": "5f9f8966d1a90dcfd73ca3d10e2b96856b7aaddc1cf63b097867ba2895d6daf8",
     "lexicons/ai/generalbusiness/atseq/create.json": "f7d9ca07964c58445b49eee8bb07bc4dafeebbb40fa75f3500025b661e214b82",
     "lexicons/ai/generalbusiness/atseq/definition.json": "7cb5e51d0e4a7a85884d7b28cf3bfd5424cd0c5dc6115c85555795b0650532e4",
-    "lexicons/ai/generalbusiness/atseq/defs.json": "74d5fde9d9d2c155c941f963882fe290d795da6c3431eedadb81bb197cef0afc",
+    "lexicons/ai/generalbusiness/atseq/defs.json": "a308ff14d2634658db5cb421c7b123e2b999447237eb86c0ece92c09128a3d88",
     "lexicons/ai/generalbusiness/atseq/describe.json": "683d87159226a1ef67e09fc6c15e14cffa9cd8d3678a0187402e3a99110968ff",
     "lexicons/ai/generalbusiness/atseq/entry.json": "060fdccbfa4ccaba305fc1574316309868ccca9bce39c7c6e0ad6e2b181f0139",
     "lexicons/ai/generalbusiness/atseq/genesis.json": "eac3ceaac8639f7cd31e0cfe3c0fe40e76a5794885356946df136a0cd684557e",
@@ -200,13 +200,13 @@
     "lexicons/ai/generalbusiness/atseq/submit.json": "72728be30d21a10ddb21d31a901107b44bd6c13a23b584c3d0d568515c8b56cb",
     "lexicons/ai/generalbusiness/atseq/sync.json": "fd825eb2f27978e4a0bedc5feac168a506f660cc398e4e009e1880358d42cf00",
     "lexicons/ai/generalbusiness/atseq/validateDraft.json": "9b79bcf112c285c94ac12c8bafb8d663ad1e22678c6c3a25cecc60a930d874ce",
-    "package-lock.json": "4fcca1d7d4982fb6c58040f2afb174a88b383e5293cb2717dee44624c85d176b",
-    "package.json": "ec63058bc750aa7890f27bb394e4869609465c43ff755b7916b9370051189b8d",
+    "package-lock.json": "51e68350cda6bd0a013de435660c6c391490b91e58c133629990865d0c0e79eb",
+    "package.json": "4cb87c3e9ecc2aee9dce57fd96a112ac4a7414c3fbf65cd63e197241d2c71377",
     "scripts/acceptance.ts": "ae6e2baaa01180fdfb72671ca345486de0e16b04a5daf5200ff9b9484bed03bf",
     "scripts/browser-performance.ts": "cdaa2dc3f23220dc192ee000d17b9c86fc03b97e9f7d028d1aac632dccd7212c",
     "scripts/check-author.ts": "892ac6d115a52d7824a0165e181d71626809468817e902eccee6a490fad7e1b4",
     "scripts/check-dependencies.ts": "fc92c8a88a8d60fc869a234b97470806ebe7f8c5a75d6a0822e8a47846a72603",
-    "scripts/check-layers.mjs": "1a41776c26a6730254e2924830b00af59f2a7215f1b92cdab1f7b569f65853f8",
+    "scripts/check-layers.mjs": "cea69632229103c781a44d03dedf2e2f6e4d12c23e9cc54f0b9a5f5b2a6b2aab",
     "scripts/feasibility.ts": "ff7568f339dc47b5620d3303391ea84bad5694f672c7881ac4bbca9afa25ec20",
     "scripts/flows.ts": "e921a16fd8276cb6f1643594acf77f71e04e69f3bfdcb042056363c1b43552b7",
     "scripts/not-implemented.mjs": "18358bced5abb9f8f1d396730f79ebf27686c978a380eaab7c7db8c23a6d204f",
@@ -215,10 +215,10 @@
     "scripts/probe-go.ts": "b7c9ab47d7b72a7f564ed038d5df6da6f0e8692380759b9300db9caec75e4a6e",
     "scripts/report.ts": "d8cae0ef597999248742f08fc9bf51b60a8d9e06a2e04eefe78188a858ba8471",
     "scripts/serve.ts": "65200391a33eeabc6a865a749dd605309e0f78a5c613496f8f2d9ba05ffe68bd",
-    "scripts/vectors/generate.mjs": "a4290dcb15bdcf7f5063bd74d4ae7591b709d52f8c2b9e24b93add424e3afc36",
+    "scripts/vectors/generate.mjs": "7aef307ec1d31869c6573ed2974059fe6b04a4175f114603b2aaa79194934dd1",
     "src/application/apps.ts": "a0b357b8e483c02642a04296dd95ce56a690676b048e592fc447a6486d610ce7",
     "src/application/definition.ts": "5c021ed4a0d3aa0d61556e39a4882220e7766ec3931a2e580d3281213885af92",
-    "src/application/folder.ts": "aef5cb38cdb0c8448644fb7aa809c02091980243f5e9f66145d3d3fd70037963",
+    "src/application/folder.ts": "530265550649b3784ab29899215c155d6e8604d30a0037477508058b09e0576c",
     "src/archive/archive.ts": "bd3ec2bf89176e5de4684b4dec5aaba11505ce55bd7a54ec7abbc5eed14b6137",
     "src/archive/chart.ts": "a5c7385e76c8648f59e1e7c3e2d4a7394cd53a3600d1b8ec296379fa83335fd6",
     "src/archive/limits.ts": "f60704a8b407582a063cef123141ebe95a313a10f0581072f9fc509b6433379d",
@@ -229,40 +229,44 @@
     "src/browser/main.ts": "6de5b738caf0d2cff2bd3f745a1257250994fb7ecf00af2f8d8b583b660116e3",
     "src/browser/style.css": "c9b0552aaf773847b524c6fd1e04d04cf23f5a11660af85a2fbfeb703d6928da",
     "src/browser/worker.ts": "19bf348eb62956c2c24b6c23b14e44bf06827b5914acbf6d7ec3cee26de01c8e",
-    "src/cli/main.ts": "4fd8cb6864619ca8822d6d545b0f1af8a3cd914fe1006c3741718c5aec01d204",
+    "src/cli/main.ts": "eab7e1028d426388066a4b34ffb2b41f1af844f9ab76f4c3628e7377d693a2ec",
     "src/client/api.ts": "7ff19b39ba52eb9ee863092012b81c7e792cc109c4139f62b52d4a8251dd7b10",
     "src/client/definition.ts": "13369449ab11a4eb961c677996bcd167897b17fbc116f7676822e837d06fee48",
     "src/client/identity.ts": "c45d765ab568af05e4a93133cb9635947e1910cb84d9aff1b8c3793fb65d0db8",
     "src/client/store.ts": "f8751d52205845c3553ba21043dd42ca838be4aaff54ef9117158e978694329e",
-    "src/core/contracts.ts": "5784c0ea0ccdcf7a8502cf74d9a8ac8a25636e7978db58ce7707c0b7a7a87ece",
-    "src/core/dependencies-approved.json": "9efbff905854e2e6a11b19e2531ccccae39b2297208a9838cf4c198734c29118",
-    "src/core/dependencies.ts": "7206527cee029558d8f2299ab62e5c60e2c716db428819ea3626f0e02fbdc34b",
-    "src/core/errors.ts": "b4c49bbd7ce2ada1e6e5b79f465cf71d26b6c15414333d8b14f7edb2a7b10d40",
+    "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
+    "src/core/dependencies-approved.json": "26f857762e3bfb5866f689d29024f253d2d171666815f32471ab08e50992b760",
+    "src/core/dependencies.ts": "edd9689ba082d6dfba2408130149dff6fda98a1e14a1637e32929b9c7cabe449",
+    "src/core/errors.ts": "da567d03e11a033ad6d0103fd32a473536dfbab6a11619c5e71d3c3492276afb",
     "src/core/freeze.ts": "53b07b8d407f965ab9fcb8995220683f6e758a5d5cd339a3268dba893c7a6542",
     "src/core/nsids.ts": "04b45ae5936465ec81e53b32e8b3bca5fece033cdba2598c9db08930908d32e7",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
-    "src/definition/activation.ts": "444b9c8883369360c6770dce60d4c318e4dd31f75ae05242d5f1839afded381f",
+    "src/definition/activation.ts": "6a6fe8294060d469efbe096a14cc4cc26db1d1b832e1194428fb2507e4ca6592",
     "src/definition/control.ts": "6b5614ec2b053e97364da54d0bc55481e809d0af738a5930f0f71aa95aadac2b",
-    "src/definition/load.ts": "99335fccfed4cc1bfe6d9a51b28025cbf8b7844b4b4504cdf37f6ad6f26ce7bb",
+    "src/definition/load.ts": "0a5abeadb5e092fa4c7a24934dc1bb81a3adea42fbcf9f78d83574705abf8594",
     "src/definition/schemas.ts": "8c5f755a250d47392188a60873e06c15cd423ba3ab97df9c1ab8f544563b9572",
-    "src/definition/source.ts": "fd805a2718861b2106a8a899873f460912db1fe885a63af9ddaa505a5658dac3",
+    "src/definition/source.ts": "0b15e954584da1b8118523bdac4f52f3c231b7ca0650463c34992318e824490d",
     "src/host/accounts.ts": "003a2f00eb2997416d82580cfc125fee4f2ecb32de297a178a4316eb45db8ce9",
     "src/host/application.ts": "37d9c7df45cabf705f74531382d79ec6ce81f03ea569583c054bd4529395844b",
-    "src/host/build.ts": "56cd566af44ce254b752cd4a5d279291b089a54be8d1cac4c744761e0cb2b076",
-    "src/host/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
+    "src/host/build.ts": "5e1718607ae554abe682bfd47a131c318cc6696974c711434cb670824fb40cf7",
+    "src/host/files.ts": "1628797b453df41f7754ad4d4b1dac9e7fde8e639831b09b4d08c09d06b09333",
     "src/host/http.ts": "2cd867c522d575b81c606f66f33184079ab821ae1cdb87ce2eee5fe37af073ce",
     "src/host/lease.ts": "eab6c608fe7de53fa7cbb7ddaff34969ffaeb11e6e0a4a77c72f44181679ad44",
     "src/host/pds.ts": "2ff083f2da7a786cc931266ce0c1f048d21a8b942cef15cffc2bcf40c44042e5",
     "src/host/projection.ts": "5c8b022c5938bbcdc8a0f2e2960855a1b98533dc2f060ea9fec912772de8b6dd",
     "src/host/sequencer.ts": "ece13022a72785e5df87661e419e2c01aa8737fd3d3dc546f6f7ff26a02ff9c6",
     "src/host/service.ts": "29d1ce2dc2c98576bfa9ad0bde4b5291db1b13274cfb2f195cb0c171daaa30ef",
-    "src/host/source.ts": "6f4beb88e50084a39e0b8863a0aee967fab573e3a39024c89af11e653cfc4866",
+    "src/host/source.ts": "94225287153aa54416c32d39da272b98f79772128d4c6f097bb924cd9c54d5a6",
+    "src/integrity/browser.ts": "565c1c4958ea060535e2c3283aa7b85651ae92eec5174f400f5bb71d16613228",
+    "src/integrity/files-approved.json": "8247857be332898c8694e8366cfc2a04d264b8517a6276d81fa23dc54407de54",
+    "src/integrity/node.ts": "9bc70d9b115556456e6ea6384a47b1bc4ae138fafa8d221f5fba4c23c46a954e",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "ed74c2b5fc03bdb976e74a112d4f6b74ca91ff71f03e229d5f158fbbc93b75e2",
-    "src/protocol/schemas.ts": "4dc8ec4f3ae01fa5d09e882af574afb560736886c41ad692b1bddcf1f041e318",
+    "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
     "src/protocol/wire.ts": "c4d1adb496f35c580143a6faff734051105a34df2da74206f363442ac1cec0ed",
-    "src/runtime/evaluator.ts": "84e30924a5d09ac0af467cef74f465a34d0d29b859e47486bacbd52b22b1cc90",
+    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",
     "src/view/inlay.ts": "6971d08e7be07ff90d92f26bfb2406ee0847633f876319fd362186ce5e2e8feb",
     "testdata/apps/evolution.ts": "71031d4e35808dff51ae25bf390ca0da053d3ff4497c0bb104a92b3453744adc",
@@ -281,6 +285,7 @@
     "tests/helpers/runtime-child.ts": "5118bd451908dacb2394da41c88b0558c108cd11cd85a558fa2ba7511a801770",
     "tests/helpers/writer-child.ts": "acd367a013e7add37a23cb701761aa81caeb37074d09bb179e23d8b84c9ac4cb",
     "tests/helpers/writer-process.ts": "51f8f3b646f900eb0d39689121b91be694b658b38a3d5dad7de5cf39ef62d13c",
+    "tests/integrity.test.ts": "d8c797e51221e24e838ca232868814f1f86d1dac2161d621788bac8f7c97dffd",
     "tests/participation.test.ts": "a5ce43dcb4930126a2d37d63c124198d2cc483bf144ae3642de08d3d89029df1",
     "tests/pds.test.ts": "40ae3b883048afb2ba2895f9c0180791f639af62a7512e2a2dbd0ecb88c81313",
     "tests/profiles.test.ts": "8c146966d0e7e57a0444b4c2187ff3dd8cfc6c18b0352425e3fa73f5c487dc81",
@@ -288,9 +293,9 @@
     "tests/protocol.test.ts": "3d3227be21a377a7fef2f188a6a0a73628df3ec87969ebbd2ae819ec200fd814",
     "tests/runtime.test.ts": "27e3bb10be05284b4da0f9192f53548a7c6a14f44d4c6ee7d3a97fafe3b8e36b",
     "tests/support/historical-replay.ts": "0828e9c86dd06835f35b1a08725cdb5c74285ae806cf860fcb715c8650d53572",
-    "tests/support/profile-corpus.ts": "96f861d5af1fd6db34a52090a3b2c8ab1934d93ff038622cf3e89b7f08cef541",
-    "tests/vectors/profiles-v1.json": "61bf18e1da2fb86db6c4b21b3c3105fb8c24bb1a7df183cb2e2de77582cc27cd",
+    "tests/support/profile-corpus.ts": "e1c2fafaa403355bf0f6c5361d5cab799764fbc43720dcd720f9611037abf68b",
+    "tests/vectors/profiles-v1.json": "22e7ef398d952dc59926dfcf4f176391c170ddd82f3e2566250c9933f8b0d459",
     "tests/vectors/protocol-v0.json": "dc398067268956cc5ac1ae3b100a822ebafaac90995bdd17860126a200431a0f",
-    "tests/vectors/protocol-v1.json": "62900f891f03057ec2de98f35f2ccd09ca12eeec71e4228021906f6a92974097"
+    "tests/vectors/protocol-v1.json": "f09292ddba7267a8a20aa3ab41e43e94968becc201e7ae1a22b037f5089ddd32"
   }
 }

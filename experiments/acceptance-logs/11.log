@@ -1,33 +1,33 @@
 Seeding signed fixture history to 91; conditional real-PDS batches are setup, excluded from acknowledgment samples.
-Confirmed #92: 129.1 ms
-Confirmed #93: 126.0 ms
-Confirmed #94: 129.9 ms
-Confirmed #95: 124.2 ms
-Confirmed #96: 123.4 ms
-Confirmed #97: 125.3 ms
-Confirmed #98: 125.2 ms
-Confirmed #99: 125.6 ms
-Confirmed #100: 126.5 ms
-{"size":100,"acknowledgment":[{"position":92,"elapsedMs":129.113208},{"position":93,"elapsedMs":125.98737499999993},{"position":94,"elapsedMs":129.89858400000003},{"position":95,"elapsedMs":124.24462500000004},{"position":96,"elapsedMs":123.38462499999991},{"position":97,"elapsedMs":125.34816599999999},{"position":98,"elapsedMs":125.21612500000015},{"position":99,"elapsedMs":125.60283400000003},{"position":100,"elapsedMs":126.51299999999992}],"acknowledgmentP50Ms":125.60283400000003,"acknowledgmentP95Ms":129.89858400000003,"readVerifyMs":60.665750000000116,"runtimeLoadMs":4.707415999999739,"fullReplayMs":69.0135409999998,"catchUpOneMs":55.631708000000344,"boundedStateBytes":26}
+Confirmed #92: 152.7 ms
+Confirmed #93: 149.9 ms
+Confirmed #94: 149.7 ms
+Confirmed #95: 146.9 ms
+Confirmed #96: 153.2 ms
+Confirmed #97: 149.4 ms
+Confirmed #98: 153.1 ms
+Confirmed #99: 150.5 ms
+Confirmed #100: 153.5 ms
+{"size":100,"acknowledgment":[{"position":92,"elapsedMs":152.673},{"position":93,"elapsedMs":149.93641700000012},{"position":94,"elapsedMs":149.66037499999993},{"position":95,"elapsedMs":146.8894580000001},{"position":96,"elapsedMs":153.18612500000017},{"position":97,"elapsedMs":149.42866699999968},{"position":98,"elapsedMs":153.07995900000014},{"position":99,"elapsedMs":150.51654199999984},{"position":100,"elapsedMs":153.53729199999998}],"acknowledgmentP50Ms":150.51654199999984,"acknowledgmentP95Ms":153.53729199999998,"readVerifyMs":72.50725000000011,"runtimeLoadMs":5.513625000000047,"fullReplayMs":81.8310419999998,"catchUpOneMs":63.93054200000006,"boundedStateBytes":26}
 Seeding signed fixture history to 991; conditional real-PDS batches are setup, excluded from acknowledgment samples.
-Confirmed #992: 1164.1 ms
-Confirmed #993: 1158.1 ms
-Confirmed #994: 1163.3 ms
-Confirmed #995: 1153.0 ms
-Confirmed #996: 1158.1 ms
-Confirmed #997: 1154.2 ms
-Confirmed #998: 1179.9 ms
-Confirmed #999: 1188.5 ms
-Confirmed #1000: 1174.5 ms
-{"size":1000,"acknowledgment":[{"position":992,"elapsedMs":1164.0822500000004},{"position":993,"elapsedMs":1158.0777089999992},{"position":994,"elapsedMs":1163.3455830000003},{"position":995,"elapsedMs":1153.0255829999996},{"position":996,"elapsedMs":1158.0714579999994},{"position":997,"elapsedMs":1154.217208},{"position":998,"elapsedMs":1179.9181250000001},{"position":999,"elapsedMs":1188.4840839999997},{"position":1000,"elapsedMs":1174.530834000001}],"acknowledgmentP50Ms":1163.3455830000003,"acknowledgmentP95Ms":1188.4840839999997,"readVerifyMs":576.682499999999,"runtimeLoadMs":3.021833000000697,"fullReplayMs":641.668416999999,"catchUpOneMs":512.8466669999998,"boundedStateBytes":27}
+Confirmed #992: 1393.6 ms
+Confirmed #993: 1407.0 ms
+Confirmed #994: 1402.6 ms
+Confirmed #995: 1411.2 ms
+Confirmed #996: 1387.4 ms
+Confirmed #997: 1391.7 ms
+Confirmed #998: 1388.7 ms
+Confirmed #999: 1400.0 ms
+Confirmed #1000: 1404.2 ms
+{"size":1000,"acknowledgment":[{"position":992,"elapsedMs":1393.5585419999998},{"position":993,"elapsedMs":1407.039291},{"position":994,"elapsedMs":1402.5769580000006},{"position":995,"elapsedMs":1411.1668750000008},{"position":996,"elapsedMs":1387.3824999999997},{"position":997,"elapsedMs":1391.7297500000004},{"position":998,"elapsedMs":1388.7282079999986},{"position":999,"elapsedMs":1400.0131249999995},{"position":1000,"elapsedMs":1404.2272079999984}],"acknowledgmentP50Ms":1400.0131249999995,"acknowledgmentP95Ms":1411.1668750000008,"readVerifyMs":689.8016250000001,"runtimeLoadMs":3.333707999998296,"fullReplayMs":771.7783750000017,"catchUpOneMs":616.2602079999997,"boundedStateBytes":27}
 Seeding signed fixture history to 9991; conditional real-PDS batches are setup, excluded from acknowledgment samples.
-Confirmed #9992: 13179.7 ms
-Confirmed #9993: 13131.7 ms
-Confirmed #9994: 13249.0 ms
-Confirmed #9995: 13162.6 ms
-Confirmed #9996: 13391.7 ms
-Confirmed #9997: 13195.3 ms
-Confirmed #9998: 13279.0 ms
-Confirmed #9999: 13275.7 ms
-Confirmed #10000: 13315.6 ms
-{"size":10000,"acknowledgment":[{"position":9992,"elapsedMs":13179.707292},{"position":9993,"elapsedMs":13131.662958},{"position":9994,"elapsedMs":13248.963083000002},{"position":9995,"elapsedMs":13162.608583000001},{"position":9996,"elapsedMs":13391.676707999999},{"position":9997,"elapsedMs":13195.313125},{"position":9998,"elapsedMs":13279.032042000006},{"position":9999,"elapsedMs":13275.712290999989},{"position":10000,"elapsedMs":13315.612165999992}],"acknowledgmentP50Ms":13248.963083000002,"acknowledgmentP95Ms":13391.676707999999,"readVerifyMs":6654.5217910000065,"runtimeLoadMs":3.2130419999884907,"fullReplayMs":6422.204499999993,"catchUpOneMs":5212.159749999992,"boundedStateBytes":28}
+Confirmed #9992: 15281.6 ms
+Confirmed #9993: 15259.5 ms
+Confirmed #9994: 15256.9 ms
+Confirmed #9995: 15264.1 ms
+Confirmed #9996: 15296.7 ms
+Confirmed #9997: 15265.8 ms
+Confirmed #9998: 15270.0 ms
+Confirmed #9999: 15338.1 ms
+Confirmed #10000: 15228.1 ms
+{"size":10000,"acknowledgment":[{"position":9992,"elapsedMs":15281.586500000001},{"position":9993,"elapsedMs":15259.507334000002},{"position":9994,"elapsedMs":15256.893999999993},{"position":9995,"elapsedMs":15264.141791000002},{"position":9996,"elapsedMs":15296.690457999997},{"position":9997,"elapsedMs":15265.846625000006},{"position":9998,"elapsedMs":15269.950125000018},{"position":9999,"elapsedMs":15338.088874999987},{"position":10000,"elapsedMs":15228.124625000026}],"acknowledgmentP50Ms":15265.846625000006,"acknowledgmentP95Ms":15338.088874999987,"readVerifyMs":7615.958291000017,"runtimeLoadMs":3.2724160000216216,"fullReplayMs":7645.672499999986,"catchUpOneMs":6151.343291999976,"boundedStateBytes":28}

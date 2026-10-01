@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T00:42:01.310Z",
+  "measuredAt": "2026-10-01T01:22:04.722Z",
   "nodeVersion": "v26.10.0",
   "browserVersion": "153.0.8010.12",
   "browserWorker": true,
@@ -43,6 +43,14 @@
     },
     {
       "name": "failed persistence advances neither state outcomes nor frontier",
+      "passed": true
+    },
+    {
+      "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
       "passed": true
     },
     {
@@ -199,6 +207,10 @@
     },
     {
       "name": "ineffective messages count Unicode code points and stop at 1024",
+      "passed": true
+    },
+    {
+      "name": "conditional integrity adapter matches the running environment",
       "passed": true
     },
     {
@@ -248,6 +260,14 @@
       "passed": true
     },
     {
+      "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+      "passed": true
+    },
+    {
       "name": "query captures its prefix before concurrent catch-up",
       "passed": true
     },
@@ -404,25 +424,29 @@
       "passed": true
     },
     {
+      "name": "conditional integrity adapter matches the running environment",
+      "passed": true
+    },
+    {
       "name": "unmatched dependency closure fails closed in either environment",
       "passed": true
     }
   ],
   "sourceHashes": {
-    "src/core/contracts.ts": "5784c0ea0ccdcf7a8502cf74d9a8ac8a25636e7978db58ce7707c0b7a7a87ece",
-    "src/core/dependencies-approved.json": "9efbff905854e2e6a11b19e2531ccccae39b2297208a9838cf4c198734c29118",
+    "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
+    "src/core/dependencies-approved.json": "26f857762e3bfb5866f689d29024f253d2d171666815f32471ab08e50992b760",
     "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
     "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
-    "src/runtime/evaluator.ts": "84e30924a5d09ac0af467cef74f465a34d0d29b859e47486bacbd52b22b1cc90",
-    "src/application/folder.ts": "aef5cb38cdb0c8448644fb7aa809c02091980243f5e9f66145d3d3fd70037963",
+    "src/runtime/evaluator.ts": "2318f35105665bed38b19a31e0b861793ada3c3f213afc1eb4855e3ac3e17bc1",
+    "src/application/folder.ts": "530265550649b3784ab29899215c155d6e8604d30a0037477508058b09e0576c",
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "tests/runtime.test.ts": "27e3bb10be05284b4da0f9192f53548a7c6a14f44d4c6ee7d3a97fafe3b8e36b",
-    "experiments/runtime-corpus.ts": "9f64d3f608fc2ba3819a3d6bf6574e03408fedb4da07c8b87da74103095df064",
+    "experiments/runtime-corpus.ts": "80380a7c750ac85a44eac487275579768e278056b35322c30774df24e570f927",
     "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
     "experiments/runtime-browser/main.ts": "3d9843cbd8f9859172c94e8869f30f71fade8a188164593a285c4113e654724b",
     "experiments/runtime-browser/worker.ts": "6714f9b59f0b3d213def14fd1230202191ad0e08437f17b0eaabde061641f1f5",
     "experiments/runtime-browser/index.html": "10edc32e502253079e30b4283b1b5ae4afd2b82ea97f7039e1973d7f921df08c",
-    "package.json": "ec63058bc750aa7890f27bb394e4869609465c43ff755b7916b9370051189b8d",
-    "package-lock.json": "4fcca1d7d4982fb6c58040f2afb174a88b383e5293cb2717dee44624c85d176b"
+    "package.json": "4cb87c3e9ecc2aee9dce57fd96a112ac4a7414c3fbf65cd63e197241d2c71377",
+    "package-lock.json": "51e68350cda6bd0a013de435660c6c391490b91e58c133629990865d0c0e79eb"
   }
 }

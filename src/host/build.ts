@@ -1,9 +1,13 @@
 import { build } from 'vite';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
+import { verifyInstalledDependencies } from '../integrity/node.ts';
+import dependencies from '../core/dependencies-approved.json';
+import packageFiles from '../integrity/files-approved.json';
 import { createHash } from 'node:crypto';
 /** Cache only this installed shell; never XRPC replies, credentials or archives. */
 export async function buildShell(outDir: string) {
+  verifyInstalledDependencies();
   const root = resolve(outDir);
   await build({ root: resolve('src/browser'), logLevel: 'warn', build: { outDir: root, emptyOutDir: true } });
   const files: string[] = [];
@@ -16,11 +20,30 @@ export async function buildShell(outDir: string) {
   }
   await walk();
   files.sort();
+  const bundles = Object.fromEntries(
+    await Promise.all(
+      files.map(async (path) => [
+        path,
+        createHash('sha256')
+          .update(await readFile(root + path))
+          .digest('hex'),
+      ]),
+    ),
+  );
+  const provenance = {
+    format: 'atseq-build-provenance',
+    version: 1,
+    node: process.version,
+    dependencies,
+    packageFilesSha256: createHash('sha256').update(JSON.stringify(packageFiles)).digest('hex'),
+    bundles,
+  };
+  await writeFile(join(root, 'build-provenance.json'), JSON.stringify(provenance, null, 2) + '\n');
   const hash = createHash('sha256');
   for (const path of files) hash.update(path).update(await readFile(root + path));
   const cache = 'atseq-shell-v0-' + hash.digest('hex').slice(0, 20);
-  const script = `const NAME=${JSON.stringify(cache)}, FILES=${JSON.stringify(files)};
-self.addEventListener('install',event=>event.waitUntil(caches.open(NAME).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
+  const script = `const NAME=${JSON.stringify(cache)}, FILES=${JSON.stringify(files)}, HASHES=${JSON.stringify(bundles)};
+self.addEventListener('install',event=>event.waitUntil(caches.open(NAME).then(async cache=>{for(const path of FILES){const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw new Error('Shell fetch failed');const data=await response.clone().arrayBuffer();const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',data)),n=>n.toString(16).padStart(2,'0')).join('');if(hash!==HASHES[path])throw new Error('Shell build drift');await cache.put(path,response);}}).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('atseq-shell-v0-')&&key!==NAME).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
  const url=new URL(event.request.url);
@@ -29,5 +52,5 @@ self.addEventListener('fetch',event=>{
  if(FILES.includes(url.pathname)){event.respondWith(caches.open(NAME).then(async cache=>(await cache.match(url.pathname))||fetch(event.request)));}
 });\n`;
   await writeFile(join(root, 'sw.js'), script);
-  return { root, cache, files };
+  return { root, cache, files, provenance };
 }

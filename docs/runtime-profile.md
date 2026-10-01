@@ -85,9 +85,15 @@ rather than ad hoc code lists, to decide whether interpretation can continue.
 Deterministic program, schema, state, size or budget failures record
 `fold_failed/<code>`, preserve prior state and advance to the next entry.
 A program's own ineffective decision remains a separate domain outcome.
-Only restorable missing/corrupt retained source and persistence failure pause
-the frontier. Oversized blocks and ordinary actions never create a permanent pause.
-Repair source or storage and replay the same prefix to resume.
+Missing or corrupt retained source, persistence failure and runtime faults pause
+the frontier without recording an outcome. A hash-valid oversized source block
+is invalid input, so its activation is ineffective. Repair source or storage and
+replay the same prefix to resume. An unexpected TypeError, RangeError or engine
+fault requires a corrected interpreter; it never becomes replicated state.
+If the same runtime fault occurs on every host, the app stays paused until that
+implementation fix ships. A fix that restores the existing contract keeps its
+CID after independent review and conformance checks; it needs no new genesis.
+Dependency mismatch refuses execution before interpretation begins.
 
 Browser workers have an operational watchdog. A killed worker or transport
 failure is not a signed domain verdict. The verified history remains available
@@ -125,22 +131,53 @@ Independent [wire vectors](../tests/vectors/protocol-v1.json),
 conformance checks provide evidence that the implementation follows the contract.
 Adding a regression vector alone does not change an identity.
 
-The [approved dependency closure](../src/core/dependencies-approved.json) records
-exact direct and transitive versions, lockfile integrity and dependency edges.
-The runtime checks the actual installed package metadata and locked closure
-before execution, in both Node and browser builds. It refuses an unmatched set.
-Source and build hashes remain provenance in test reports and archives.
+The [approved interpreter dependency closure](../src/core/dependencies-approved.json)
+records exact direct and transitive versions, lockfile integrity and dependency
+edges, including installed optional and peer packages required by those packages.
+The [file manifest](../src/integrity/files-approved.json) records their file bytes
+from a clean `npm ci`. Node checks those hashes before its first protocol or
+interpreter operation and uses Node's import and require resolvers, including
+package exports, to check the real paths reached by every dependency edge. It
+refuses patched files, missing packages and unlisted nested packages. Successful
+checks are cached for the process lifetime. This detects accidental or partial
+installation drift; it is not a boundary against an attacker who can modify the
+installation, verifier or Node itself, including changes after that check.
+Node built-in modules belong to the trusted installed Node runtime.
+
+Vite is a separately pinned host build tool under runtime dependencies. The
+shell builder checks the interpreter closure before bundling and writes
+`build-provenance.json`, with the dependency pins, interpreter file-manifest
+hash, Node version and SHA-256 hashes of every emitted shell bundle. Keep that
+provenance with a published build so readers can compare bytes against a known
+build. It is excluded from semantic identity. Archives carry semantic runtime
+descriptors, not this build-integrity manifest.
+
+The browser selects a portable integrity adapter, never the Node filesystem
+adapter. Its installed bundle embeds the checked dependency metadata. The
+service worker compares downloaded bytes with the build's recorded hashes to
+detect stale builds, transit or cache corruption. The page, worker, hashes and
+service worker come from the serving host; this check does not authenticate that
+host, and the first page load precedes service-worker installation. Trust the
+runtime distribution and compare its published build provenance independently.
 
 A dependency update requires a new semantic contract or an independently reviewed
 claim that the new closure preserves the existing contract, supported by the
 full conformance and acceptance suites. Approval updates the separate provenance
-manifest. It never silently widens the semantic contract. Any behavior change
+manifests. It never silently widens the semantic contract. Any behavior change
 requires a new versioned descriptor and CID.
 
-This first version makes one planned break before external adoption. It refuses
-old `test.atseq.*` records, candidate profiles and spike archives. Those artifacts
-retain their original bytes and signed identities. Use the retained original
-interpreter to replay them; do not relabel their signatures or profile links.
-Future profile changes must retain interpreters for previously supported CIDs
-in the registry, or provide an explicit independently reviewed migration and
-historical replay path. A CID is never reassigned to different interpretation.
+Every app keeps its profile for its lifetime. A new semantic profile means a
+new genesis and a new app; activation cannot change the profile. Hosts retain
+an interpreter for every CID they advertise in the supported registry. A CID
+is never reassigned to different interpretation. Implementation corrections
+within a contract follow the conformance and independent-review rule above.
+
+This first version makes one planned break before external adoption. The active
+registry contains only the three v1 contracts; the pre-v1 `test.atseq.*`
+interpreter is historical, not registered for new apps. Its signed records,
+profiles and archives are refused by v1. The agent-authored pre-v1 capture and
+v0 vectors retain their original bytes and are replayed with their retained
+original interpreter. Other spike reports, CARs, screenshots and s6 archives
+were regenerated to exercise v1. Their original evidence remains at
+[26d1528 on GitHub](https://github.com/generalbusiness-ai/atseq/tree/26d15287f3955eebd543f2c519c8506378c63d60/experiments).
+Do not relabel old signatures or profile links.

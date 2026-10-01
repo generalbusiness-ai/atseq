@@ -1,3 +1,4 @@
+import { verifyInstalledDependencies } from '#atseq-integrity';
 import project from '../../package.json';
 import installed0 from '../../node_modules/@atcute/car/package.json';
 import installed1 from '../../node_modules/@atcute/cbor/package.json';
@@ -272,6 +273,7 @@ function same(a: unknown, b: unknown): boolean {
 /** Separate reviewed build provenance; it is never included in a semantic CID. */
 let checked = false;
 export function assertDependencies(packages: [string, unknown][] = installed): void {
+  if (packages === installed) verifyInstalledDependencies();
   if (packages === installed && checked) return;
   if (new Set(packages.map(([path]) => path)).size !== packages.length)
     throw new InterpretationError('dependency_mismatch', 'Duplicate dependency identity');
@@ -294,7 +296,10 @@ export function assertDependencies(packages: [string, unknown][] = installed): v
     )
       throw new InterpretationError('dependency_mismatch', `Unapproved dependency: ${path}`);
   }
-  if (!same(project.dependencies, approved.direct) || !same(lock.packages[''].dependencies, approved.direct))
+  if (
+    !same(project.dependencies, { ...approved.direct, ...approved.buildTools }) ||
+    !same(lock.packages[''].dependencies, { ...approved.direct, ...approved.buildTools })
+  )
     throw new InterpretationError('dependency_mismatch', 'Unapproved direct dependencies');
   if (packages === installed) checked = true;
 }

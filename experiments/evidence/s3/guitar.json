@@ -3,29 +3,29 @@
     "app": "did:plc:ffffffffffffffffffffffff",
     "$type": "ai.generalbusiness.atseq.genesis",
     "profile": {
-      "$link": "bafyreiftfh7gsgitptljo2mf7cnicama4xu6yl67ipc6t6a7yanzbs5kcq"
+      "$link": "bafyreih5fblugnkar4ktjlb7n67xqfgto76y3ccj3xitppu4lpq4wyvm7y"
     },
     "version": 1,
     "definition": {
-      "$link": "bafyreicsnv3e2rt2lemu2aezg75onpxk6mrdc73umhxps533m5kq4gp4ru"
+      "$link": "bafyreigs6igjuoljj75m7733vnuqdurrqwjsxf2tjon2rkjsvvfns55bwu"
     },
-    "sequencerKey": "did:key:zDnaewqcAEHzpMd4VeQh73fHHBtiUQGdPBt2zyneYoXYkubdn",
+    "sequencerKey": "did:key:zDnaenPAdXvqMtd4r7CTkuGCdACaBN8D1dfWNbP8qsbARM3b1",
     "activationKeys": [
-      "did:key:zDnaezj3AfpgBrZuw4snqfovyueojVbL4feds5a1XciPQJR9t"
+      "did:key:zDnaet5qWHshA3mWvD4DA8Zayv6jNPhVC2iFWmMaCKz6wRhey"
     ]
   },
-  "anchor": "bafyreiejoxn5fkspisv6huhtmbzlgdmio7pbm3eds4viuox6ox6nzdzpiy",
+  "anchor": "bafyreieen6y5oymup2muhrxrwkcorujeddakda6xw3uvlzzhiligmxidmm",
   "history": {
     "head": {
       "$type": "ai.generalbusiness.atseq.head",
       "version": 1,
       "app": "did:plc:ffffffffffffffffffffffff",
       "genesis": {
-        "$link": "bafyreiejoxn5fkspisv6huhtmbzlgdmio7pbm3eds4viuox6ox6nzdzpiy"
+        "$link": "bafyreieen6y5oymup2muhrxrwkcorujeddakda6xw3uvlzzhiligmxidmm"
       },
       "position": 1,
       "entry": {
-        "$link": "bafyreid2dkzjq4hdu7o6laiilu3j65ohhstnw4d7neti5x5qkzlfvpwupq"
+        "$link": "bafyreihcqntcwxy2nc7lsy4efmoj7laxem6g7rii32w2tp7uv2kybcsuxq"
       }
     },
     "entries": [
@@ -34,26 +34,26 @@
         "version": 1,
         "app": "did:plc:ffffffffffffffffffffffff",
         "genesis": {
-          "$link": "bafyreiejoxn5fkspisv6huhtmbzlgdmio7pbm3eds4viuox6ox6nzdzpiy"
+          "$link": "bafyreieen6y5oymup2muhrxrwkcorujeddakda6xw3uvlzzhiligmxidmm"
         },
         "position": 1,
         "prev": {
-          "$link": "bafyreiejoxn5fkspisv6huhtmbzlgdmio7pbm3eds4viuox6ox6nzdzpiy"
+          "$link": "bafyreieen6y5oymup2muhrxrwkcorujeddakda6xw3uvlzzhiligmxidmm"
         },
         "signedIntent": {
           "sig": {
-            "$bytes": "AvmxdRwVw1EVVhhI+vIiWiTFRHpgQVaKsiIFTaNAfZQBru0YhJ/stMzfuIXeMHow5pQIVolaT+a1Oe9oP8Is8A"
+            "$bytes": "DqhaUnSAGeQjEpfInKvYiclaMXbQRzUG9GpiDSy1s2N80f1ZOyvK2cQim6awBp710hxL8twsR6wtqkF8B3VAnA"
           },
           "$type": "ai.generalbusiness.atseq.defs#signedIntent",
           "intent": {
             "app": "did:plc:ffffffffffffffffffffffff",
             "$type": "ai.generalbusiness.atseq.defs#intent",
             "nonce": {
-              "$bytes": "icWcw3Xp9XV0+uWVS77wmg"
+              "$bytes": "zWuIPCnabPuy2XDdhNFhLA"
             },
-            "action": "test.generated37da5531b8.guitar.data#candidate",
+            "action": "test.generated5761ed3417.guitar.data#candidate",
             "genesis": {
-              "$link": "bafyreiejoxn5fkspisv6huhtmbzlgdmio7pbm3eds4viuox6ox6nzdzpiy"
+              "$link": "bafyreieen6y5oymup2muhrxrwkcorujeddakda6xw3uvlzzhiligmxidmm"
             },
             "payload": {
               "id": "one",
@@ -61,28 +61,28 @@
               "pricePence": 12500
             },
             "version": 1,
-            "actorKey": "did:key:zDnaezj3AfpgBrZuw4snqfovyueojVbL4feds5a1XciPQJR9t",
+            "actorKey": "did:key:zDnaet5qWHshA3mWvD4DA8Zayv6jNPhVC2iFWmMaCKz6wRhey",
             "definition": {
-              "$link": "bafyreicsnv3e2rt2lemu2aezg75onpxk6mrdc73umhxps533m5kq4gp4ru"
+              "$link": "bafyreigs6igjuoljj75m7733vnuqdurrqwjsxf2tjon2rkjsvvfns55bwu"
             }
           }
         },
-        "sequencerKey": "did:key:zDnaewqcAEHzpMd4VeQh73fHHBtiUQGdPBt2zyneYoXYkubdn",
+        "sequencerKey": "did:key:zDnaenPAdXvqMtd4r7CTkuGCdACaBN8D1dfWNbP8qsbARM3b1",
         "sig": {
-          "$bytes": "VwcPDSL2Xffz862Ylam2efK09XdcRCS9sMP/zxjH8OIDi+f8Wdxl7Q2PfHoMHT9DOfjrzdYdFZsKRqUZVXmYyA"
+          "$bytes": "2YUM+jZjBj3n+oNcc50rmnT8Jilf821YCaH/F85n+XJDd6XxQcEF5rR7UBhP/M+R6Sa1r8bbeKa4uyf06TCzGg"
         }
       }
     ]
   },
   "projection": {
     "app": "did:plc:ffffffffffffffffffffffff",
-    "genesis": "bafyreiejoxn5fkspisv6huhtmbzlgdmio7pbm3eds4viuox6ox6nzdzpiy",
-    "definition": "bafyreicsnv3e2rt2lemu2aezg75onpxk6mrdc73umhxps533m5kq4gp4ru",
+    "genesis": "bafyreieen6y5oymup2muhrxrwkcorujeddakda6xw3uvlzzhiligmxidmm",
+    "definition": "bafyreigs6igjuoljj75m7733vnuqdurrqwjsxf2tjon2rkjsvvfns55bwu",
     "frontier": {
       "$type": "ai.generalbusiness.atseq.defs#cursor",
       "position": 1,
       "entry": {
-        "$link": "bafyreid2dkzjq4hdu7o6laiilu3j65ohhstnw4d7neti5x5qkzlfvpwupq"
+        "$link": "bafyreihcqntcwxy2nc7lsy4efmoj7laxem6g7rii32w2tp7uv2kybcsuxq"
       }
     },
     "state": {
@@ -98,8 +98,8 @@
     "outcomes": [
       {
         "position": 1,
-        "entry": "bafyreid2dkzjq4hdu7o6laiilu3j65ohhstnw4d7neti5x5qkzlfvpwupq",
-        "intent": "bafyreibt2mb5q537gsojtexeplf5h6nni7uqceahadz7ukprt4zfdmzb3i",
+        "entry": "bafyreihcqntcwxy2nc7lsy4efmoj7laxem6g7rii32w2tp7uv2kybcsuxq",
+        "intent": "bafyreifl7kfxg5qgyqmjpikptzcyx3yhmioxvbxu625qgtyavb3p4mugse",
         "outcome": {
           "$type": "ai.generalbusiness.atseq.defs#effective"
         }
@@ -111,10 +111,10 @@
       "app": "did:plc:ffffffffffffffffffffffff",
       "$type": "ai.generalbusiness.atseq.head",
       "entry": {
-        "$link": "bafyreid2dkzjq4hdu7o6laiilu3j65ohhstnw4d7neti5x5qkzlfvpwupq"
+        "$link": "bafyreihcqntcwxy2nc7lsy4efmoj7laxem6g7rii32w2tp7uv2kybcsuxq"
       },
       "genesis": {
-        "$link": "bafyreiejoxn5fkspisv6huhtmbzlgdmio7pbm3eds4viuox6ox6nzdzpiy"
+        "$link": "bafyreieen6y5oymup2muhrxrwkcorujeddakda6xw3uvlzzhiligmxidmm"
       },
       "version": 1,
       "position": 1
@@ -123,7 +123,7 @@
       "$type": "ai.generalbusiness.atseq.defs#cursor",
       "position": 1,
       "entry": {
-        "$link": "bafyreid2dkzjq4hdu7o6laiilu3j65ohhstnw4d7neti5x5qkzlfvpwupq"
+        "$link": "bafyreihcqntcwxy2nc7lsy4efmoj7laxem6g7rii32w2tp7uv2kybcsuxq"
       }
     },
     "result": {

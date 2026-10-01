@@ -12,7 +12,7 @@ import { SourceBundle, SourcePool } from '../definition/source.ts';
 import { LoadedDefinition } from '../definition/load.ts';
 import { Anchor, verifyIntent } from '../protocol/log.ts';
 import { bytes, contentCid, decodeBlock } from '../protocol/wire.ts';
-import { atomicFile } from '../host/files.ts';
+import { atomicFile } from '../storage/files.ts';
 
 async function privateJson(path: string) {
   const stat = await lstat(path);

@@ -1,5 +1,5 @@
 import { NSID } from '../core/nsids.ts';
-import type { ErrorCode } from '../core/errors.ts';
+import { errorKind, type ErrorCode } from '../core/errors.ts';
 import { ACTIVATE } from './control.ts';
 import { Lexicons, jsonToLex, type LexiconDoc } from '@atproto/lexicon';
 import { fromString, CODEC_DCBOR, CODEC_RAW } from '@atcute/cid';
@@ -38,7 +38,7 @@ function manifestShape(value: unknown): asserts value is DefinitionManifest {
     return fail('definition_manifest', 'Manifest must be a Lexicon object');
   }
   if (!valid.success || (value as any).$type !== NSID.definition)
-    fail('definition_manifest', 'Manifest does not match ai.generalbusiness.atseq.definition');
+    fail('definition_manifest', `Manifest does not match ${NSID.definition}`);
   // Lexicon is open to extra object fields. The versioned manifest additionally
   // refuses unrecognized bindings so misspelled fields cannot silently disappear.
   function closed(schema: any, data: any): void {
@@ -193,7 +193,12 @@ export class LoadedDefinition {
       try {
         await evaluate(source, { meta: {}, act: {}, params: {}, state: {} });
       } catch (error) {
-        if (!(error instanceof InterpretationError) || staticFailures.has(error.code)) throw error;
+        if (
+          errorKind(error) !== 'invalid_input' ||
+          !(error instanceof InterpretationError) ||
+          staticFailures.has(error.code)
+        )
+          throw error;
       }
     }
     for (const view of manifest.views) {
@@ -205,6 +210,8 @@ export class LoadedDefinition {
         await definition.view(view.name, {});
       } catch (error) {
         if (view.query && error instanceof MissingError) continue;
+        if (error instanceof MissingError)
+          throw new InterpretationError('view_props', 'View requires an unavailable property binding');
         throw error;
       }
     }

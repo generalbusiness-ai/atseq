@@ -172,6 +172,8 @@ export async function evaluate(source: string, input: unknown): Promise<Evaluati
     if (code === 'D1011') throw new InterpretationError('evaluation_depth', 'Engine evaluation nesting limit reached');
     if (code === 'D2014' || code === 'D2015')
       throw new InterpretationError('sequence_limit', 'Engine sequence length limit reached');
+    if (typeof code === 'string' && /^[DT][0-9]{4}$/.test(code))
+      throw new InterpretationError('engine_input', `JSONata rejected the supplied data (${code})`);
     throw new InterpretationError('engine_error', String((error as Error).message));
   }
 }

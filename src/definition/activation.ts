@@ -3,6 +3,7 @@ import { SourceBundle, readSource, type SourceReader } from './source.ts';
 import { canonicalJson, type Json } from '../core/values.ts';
 import { InterpretationError, PROFILE } from '../core/profile.ts';
 import type { Activation } from './control.ts';
+import { errorKind } from '../core/errors.ts';
 
 /** Compare the reachable state interface, not unrelated actions in its document. */
 function stateContract(definition: LoadedDefinition) {
@@ -62,6 +63,7 @@ export async function activationCandidate(
     compatibleDefinition(current, next, state);
     return next;
   } catch (error) {
+    if (errorKind(error) === 'runtime_fault') throw error;
     if (error instanceof InterpretationError && error.code === 'incompatible_definition') throw error;
     throw new InterpretationError(
       'invalid_activation',

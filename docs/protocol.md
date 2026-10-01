@@ -39,10 +39,10 @@ separate CBOR implementation and Node's OpenSSL signing interface.
 
 The in-process boundary is plain Lexicon JSON. Ordinary JSON types map to
 CBOR types. Exactly `{"$bytes":"<base64>"}` maps to a byte string, and exactly
-`{"$link":"<cid>"}` maps to a tag-42 CID link. Atseq v0 requires unpadded,
+`{"$link":"<cid>"}` maps to a tag-42 CID link. Atseq v1 requires unpadded,
 canonical standard base64 in these JSON wrappers. A wrapper with extra fields
 is invalid. CID links use base32 CIDv1, CBOR codec `0x71`, SHA-256 `0x12/0x20`.
-Raw blob CIDs belong to the later source-retention layer, outside signed v0
+Raw blob CIDs belong to the later source-retention layer, outside signed v1
 record links. `$type` is a string domain identifier; other `$` fields are not
 admitted except the two exact wrappers.
 
@@ -191,11 +191,11 @@ boundary cases. It also loads every framework Lexicon and validates the fixed
 method contracts with the ecosystem validator. The gate never regenerates its
 expected vectors.
 
-[protocol-v0.json](../tests/vectors/protocol-v0.json) records the literal input,
+[protocol-v1.json](../tests/vectors/protocol-v1.json) records the literal input,
 CBOR hex, CID and SHA-256 for each vector. Its provenance names `@ipld/dag-cbor`
 7.0.3, `multiformats` 9.9.0, and Node's OpenSSL ECDSA-SHA256 interface. The
-[standalone writer](../scripts/vectors/generate.mjs) imports no Atseq or atcute
-code. It uses explicitly public test scalars 1 and 2. Running it deliberately
+[standalone writer](../scripts/vectors/generate.mjs) imports normative Atseq contract data, and no Atseq protocol implementation or atcute
+encoder. It uses explicitly public test scalars 1 and 2. Running it deliberately
 creates new valid signature bytes, which must be reviewed as new evidence.
 Tests also sign through the actual browser/Node runtime. Neither identity,
 provisioning, replay performance nor production browser support is inferred
