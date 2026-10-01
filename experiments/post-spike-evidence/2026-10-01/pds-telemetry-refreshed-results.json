@@ -1,0 +1,22 @@
+{
+  "measuredAt": "2026-10-01T14:56:58.509Z",
+  "nodeVersion": "v26.10.0",
+  "passed": true,
+  "operations": 29,
+  "records": 12,
+  "restartVerified": true,
+  "runnerEnvironmentUnchanged": true,
+  "httpTelemetry": 0,
+  "udpTelemetry": 0,
+  "collectorPositiveControls": {
+    "http": 1,
+    "udp": 1
+  },
+  "sourceHashes": {
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "tests/support/pds/environment.mjs": "1dbf937cfb043a9d360b3179f8ad8879366e67893f3e7cecb084c4e5b2b94ee6",
+    "tests/support/pds/child-environment.mjs": "8f63a6e9f540389b899af8b044db44a695a8e299843f7b782923e2f20dd7171c",
+    "tests/support/pds/telemetry-probe.mjs": "7cae72c3edbf16fcebb33f5a7ece192fac256bff616ef77cedc179faa52c5b21",
+    "tests/pds-telemetry.test.ts": "0314b5a2dacf42ea1c6bf67cc6328e8a35c5cd1b1311b1365b3167d6cc89141c"
+  }
+}

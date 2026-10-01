@@ -9,7 +9,7 @@ This remains a local spike with synthetic data on a disposable test PDS.
 
 ```sh
 npm ci
-npm ci --prefix experiments/pds
+npm ci --prefix tests/support/pds
 npx playwright install chromium
 npm run dev:app
 ```
@@ -21,6 +21,13 @@ services and leaves marked `.atseq-local/` data for inspection. This development
 runner starts a fresh test environment each time; the restart integration test
 separately proves host restoration against the same retained PDS. The GitSeq
 resident is unrelated and is not restarted.
+
+Keep this development fixture on loopback and use only synthetic accounts and
+test data. Never expose it publicly or use real accounts. The PDS child ignores
+inherited exporter/service settings and forces telemetry off. The mock PLC shares
+the development runner, whose library imports do not start a telemetry SDK; run
+it without externally preloaded telemetry instrumentation. See the
+[fixture boundary](pds-host.md) for the exact environment and runner limits.
 
 Open a preview link or import a definition CAR. Preview actions use sandbox
 state; Start uses the declared initial state. Starting requires an explicit

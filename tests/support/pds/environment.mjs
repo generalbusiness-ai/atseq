@@ -7,6 +7,7 @@ import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Secp256k1Keypair } from '@atproto/crypto';
 import plc from '@did-plc/server';
+import { fixtureChildEnvironment } from './child-environment.mjs';
 
 const packageDir = dirname(fileURLToPath(import.meta.url));
 const repo = resolve(packageDir, '../../..');
@@ -60,6 +61,8 @@ export async function startEnvironment() {
   await assertDisposable(dir);
   const plcPort = await freePort(),
     pdsPort = await freePort();
+  // Pinned PLC's library entry has no telemetry SDK startup. It shares the runner;
+  // externally preloaded runner instrumentation is outside this helper's boundary.
   const plcServer = plc.PlcServer.create({ db: plc.Database.mock(), port: plcPort });
   const listen = plcServer.app.listen.bind(plcServer.app);
   plcServer.app.listen = (port) => listen(port, '127.0.0.1');
@@ -96,7 +99,7 @@ export async function startEnvironment() {
     if (child && child.exitCode === null && child.signalCode === null) throw Error('PDS is already running');
     child = fork(join(packageDir, 'pds-server.mjs'), [configPath], {
       execArgv: [],
-      env: { ...process.env, LOG_ENABLED: 'false' },
+      env: fixtureChildEnvironment(),
       stdio: ['ignore', 'ignore', 'pipe', 'ipc'],
     });
     await writeFile(join(dir, 'pds.pid'), String(child.pid), { mode: 0o600 });

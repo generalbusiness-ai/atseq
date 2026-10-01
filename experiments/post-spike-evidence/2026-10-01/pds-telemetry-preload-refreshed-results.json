@@ -1,0 +1,40 @@
+{
+  "measuredAt": "2026-10-01T15:33:32.000Z",
+  "nodeVersion": "v26.10.0",
+  "paths": [
+    {
+      "mode": "allowlist",
+      "passed": true,
+      "operations": 29,
+      "records": 12,
+      "restartVerified": true,
+      "runnerEnvironmentUnchanged": true,
+      "preloadedPdsChildren": 0,
+      "httpTelemetry": 0,
+      "udpTelemetry": 0
+    },
+    {
+      "mode": "legacy",
+      "passed": true,
+      "operations": 29,
+      "records": 12,
+      "restartVerified": true,
+      "runnerEnvironmentUnchanged": true,
+      "preloadedPdsChildren": 2,
+      "httpTelemetry": 58,
+      "udpTelemetry": 0
+    }
+  ],
+  "vector": "Inherited NODE_OPTIONS telemetry preload in PDS child only; runner receives harmless sentinel",
+  "collectorPositiveControls": {
+    "http": 1,
+    "udp": 1
+  },
+  "sourceHashes": {
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "tests/support/pds/environment.mjs": "1dbf937cfb043a9d360b3179f8ad8879366e67893f3e7cecb084c4e5b2b94ee6",
+    "tests/support/pds/child-environment.mjs": "8f63a6e9f540389b899af8b044db44a695a8e299843f7b782923e2f20dd7171c",
+    "tests/support/pds/telemetry-probe.mjs": "117a6ed2c243236585736cfd9d5908885820f0675ef64682562db2eaf1408cd7",
+    "tests/pds-telemetry.test.ts": "77623b67c1c50bcc3861d06367f374db1c448122e3af71e7b2f39482f33b0111"
+  }
+}
