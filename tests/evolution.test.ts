@@ -361,10 +361,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
       const replay = await Folder.open(await Anchor.from(retained.genesis, invitation), pool);
       const snapshot = await replay.catchUp(retained.head, retained.entries);
       assert.equal(snapshot.stalled, undefined);
-      assert.deepEqual(
-        snapshot.projection,
-        JSON.parse(await readFile(join(directory, creationId, 'projection.json'), 'utf8')),
-      );
+      await assert.rejects(() => readFile(join(directory, creationId, 'projection.json')), { code: 'ENOENT' });
       assert.deepEqual(
         snapshot.projection.outcomes.slice(-2).map((o) => o.outcome),
         [

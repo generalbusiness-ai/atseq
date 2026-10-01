@@ -248,27 +248,55 @@ export function retryKey(intent: Intent): string {
   return JSON.stringify([intent.app, intent.actorKey, intent.nonce.$bytes]);
 }
 export class RetryIndex {
-  private readonly items = new Map<string, Receipt>();
+  #items = new Map<string, Receipt>();
+  #byIntent = new Map<string, Receipt>();
+  #sealed = false;
   async lookup(intent: Intent): Promise<Receipt | undefined> {
     intentShape(intent);
     const owned = copy(intent),
-      existing = this.items.get(retryKey(owned));
+      existing = this.#items.get(retryKey(owned));
     if (existing && existing.intent.$link !== (await contentCid(owned)))
       fail('retry_conflict', 'Nonce already binds different intent content');
     return existing && copy(existing);
   }
+  lookupCid(cid: string): Receipt | undefined {
+    link(cid);
+    const receipt = this.#byIntent.get(cid);
+    return receipt && copy(receipt);
+  }
+  seal(): this {
+    this.#sealed = true;
+    return Object.freeze(this);
+  }
   record(entry: Entry, receipt: Receipt): void {
+    if (this.#sealed) throw new Error('Verified retry index is immutable');
     const identity = retryKey(entry.signedIntent.intent);
-    if (this.items.has(identity)) fail('duplicate_retry', 'History records one retry identity more than once');
-    this.items.set(identity, copy(receipt));
+    if (this.#items.has(identity)) fail('duplicate_retry', 'History records one retry identity more than once');
+    const owned = copy(receipt);
+    this.#items.set(identity, owned);
+    this.#byIntent.set(receipt.intent.$link, owned);
   }
 }
+export interface VerifiedHistory {
+  head: Head;
+  entries: Entry[];
+  retries: RetryIndex;
+}
+const histories = new WeakMap<object, { genesis: string; entryCids: readonly string[] }>();
+/** Only verifyHistory can issue this immutable capability; copies are unverified. */
+export function assertVerifiedHistory(history: VerifiedHistory, anchor: Anchor): void {
+  if (histories.get(history)?.genesis !== anchor.cid)
+    fail('missing_history', 'History must be verified for this pinned genesis');
+}
+export function verifiedEntryCid(history: VerifiedHistory, anchor: Anchor, position: number): string {
+  assertVerifiedHistory(history, anchor);
+  if (position === 0) return anchor.cid;
+  const cid = histories.get(history)!.entryCids[position - 1];
+  if (!Number.isSafeInteger(position) || !cid) fail('position', 'Position is outside the verified prefix');
+  return cid;
+}
 /** Verify a complete chosen prefix, independent of record/page arrival order. */
-export async function verifyHistory(
-  anchor: Anchor,
-  value: Head,
-  records: unknown[],
-): Promise<{ head: Head; entries: Entry[]; retries: RetryIndex }> {
+export async function verifyHistory(anchor: Anchor, value: Head, records: unknown[]): Promise<VerifiedHistory> {
   validateHead(value, anchor);
   const head = copy(value);
   if (head.position !== records.length) fail('missing_history', 'Chosen head requires a complete prefix from genesis');
@@ -284,5 +312,8 @@ export async function verifyHistory(
     prev = receipt.entry.$link;
   }
   if (prev !== head.entry.$link) fail('head', 'Head does not name the verified final entry');
-  return { head, entries: verified.map((v) => v.entry), retries };
+  const owned = deepFreeze({ head, entries: verified.map((v) => v.entry) });
+  const history = Object.freeze({ ...owned, retries: retries.seal() });
+  histories.set(history, { genesis: anchor.cid, entryCids: Object.freeze(verified.map((v) => v.receipt.entry.$link)) });
+  return history;
 }

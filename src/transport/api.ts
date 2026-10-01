@@ -1,3 +1,4 @@
+import { HOST_LIMITS } from '../core/limits.ts';
 import { Lexicons, jsonToLex, lexToJson, type LexiconDoc } from '@atproto/lexicon';
 import { frameworkLexicons } from '../protocol/schemas.ts';
 import compareDefinition from '../../lexicons/ai/generalbusiness/atseq/compareDefinition.json';
@@ -18,7 +19,7 @@ export const serviceSchemas = new Lexicons([
   compareDefinition,
   stageDefinition,
 ] as LexiconDoc[]);
-export const BODY_LIMIT = 32 * 1024 * 1024;
+export const BODY_LIMIT = HOST_LIMITS.bodyBytes;
 export async function responseBytes(response: Response, limit = BODY_LIMIT) {
   const reader = response.body?.getReader(),
     chunks: Uint8Array[] = [];

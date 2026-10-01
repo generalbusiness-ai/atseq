@@ -1,5 +1,6 @@
 import { retainVerified } from './verified.ts';
 import type { Operations } from './protocol.ts';
+import { PROFILE } from '../core/profile.ts';
 import { installHostAccess, hostMessage } from './host-access.ts';
 import { NSID } from '../core/nsids.ts';
 import { drawDraft as renderDraft, retainDraft } from './drafts.ts';
@@ -164,7 +165,7 @@ document.querySelector<HTMLInputElement>('#import')!.onchange = async (event) =>
     file = input.files?.[0];
   if (!file) return;
   try {
-    if (file.size > 512 * 1024) throw new Error('Definition CAR exceeds 512 KiB');
+    if (file.size > PROFILE.definitionBytes) throw new Error('Definition CAR exceeds 512 KiB');
     await importDraft(new Uint8Array(await file.arrayBuffer()));
   } catch (error) {
     failure(error);
@@ -621,7 +622,8 @@ document.querySelector('#cancel-work')!.addEventListener('click', () => {
 });
 
 drawIdentity();
-const startupFlush = outbox.flush();
+const startupHasWork = (await store.list<Pending>('outbox:')).some((pending) => pending.status === 'queued'),
+  startupFlush = outbox.flush();
 await applications();
 const previewCid = new URLSearchParams(location.search).get('preview'),
   invitation = new URLSearchParams(location.hash.slice(1));
@@ -647,7 +649,11 @@ try {
 } catch (error) {
   failure(error);
 }
-void startupFlush.then(() => refresh()).catch(failure);
+void startupFlush
+  .then(() => {
+    if (startupHasWork) return refresh();
+  })
+  .catch(failure);
 
 document.querySelector<HTMLInputElement>('#import-archive')!.onchange = async (event) => {
   const input = event.target as HTMLInputElement,

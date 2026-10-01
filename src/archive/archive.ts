@@ -1,3 +1,4 @@
+import { HOST_LIMITS, SOURCE_LIMITS } from '../core/limits.ts';
 import { fromBytes } from '@atcute/cbor';
 import {
   Anchor,
@@ -61,9 +62,9 @@ function shape(input: RetainedInput) {
   if (
     !input ||
     !Array.isArray(input.entries) ||
-    input.entries.length > 20000 ||
+    input.entries.length > HOST_LIMITS.historyEntries ||
     !Array.isArray(input.candidates ?? []) ||
-    (input.candidates?.length ?? 0) > 32
+    (input.candidates?.length ?? 0) > HOST_LIMITS.retainedDefinitions
   )
     throw new ProtocolError('archive', 'Archive history or source count exceeds the installed bounds');
 }
@@ -105,7 +106,7 @@ export async function replayInput(input: RetainedInput, expected?: Invitation) {
     { anchor, pool, inventory } = await poolFor(owned, expected);
   const history = await verifyHistory(anchor, owned.head, owned.entries),
     folder = await Folder.open(anchor, pool);
-  const snapshot = await folder.catchUp(history.head, history.entries);
+  const snapshot = await folder.catchUpVerified(history);
   const retries = [];
   for (const entry of history.entries)
     retries.push({
@@ -244,7 +245,7 @@ async function importVerifiedArchive(raw: Uint8Array, expected?: ArchiveInvitati
     (await contentCid(parsed.runtime.engine)) !== (await runtimeCid())
   )
     throw new ProtocolError('archive_runtime', 'Archive requires a different installed runtime');
-  if (!Array.isArray(parsed.inventory) || parsed.inventory.length > 2048)
+  if (!Array.isArray(parsed.inventory) || parsed.inventory.length > SOURCE_LIMITS.blocks)
     throw new ProtocolError('archive_inventory', 'Invalid archive inventory');
   const inventory = parsed.inventory.map((item) => {
     fields(item, ['cid', 'bytes']);

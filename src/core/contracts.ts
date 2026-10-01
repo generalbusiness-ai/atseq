@@ -1,3 +1,4 @@
+import { WIRE_LIMITS } from './limits.ts';
 import { deepFreeze } from './freeze.ts';
 import schema0 from '../../lexicons/ai/generalbusiness/atseq/activate.json';
 import schema1 from '../../lexicons/ai/generalbusiness/atseq/compareDefinition.json';
@@ -40,9 +41,9 @@ export const logDescriptor = deepFreeze({
     model: 'AT Protocol data model',
     encoding: 'canonical DAG-CBOR',
     cid: 'CIDv1 dag-cbor sha2-256 base32',
-    blockBytes: 65536,
-    jsonBytes: 131072,
-    depth: 32,
+    blockBytes: WIRE_LIMITS.blockBytes,
+    jsonBytes: WIRE_LIMITS.jsonBytes,
+    depth: WIRE_LIMITS.depth,
     numbers: 'safe integers excluding negative zero',
     bytes: 'canonical unpadded base64',
     keys: 'closed framework objects; only $type, $bytes, $link reserved forms',

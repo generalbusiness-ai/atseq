@@ -50,8 +50,7 @@ durable transaction completes.
 
 The outbox submits queued work at startup and when connectivity returns. A save
 during a flush schedules a further scan. An uncertain reply, authentication,
-quota or availability failure keeps the original bytes queued. Only explicit,
-definite signature or request-schema refusals mark an item refused. **Resend
+quota or availability failure keeps the original bytes queued. Explicit signature, canonical wire, request-schema and nonce-conflict refusals are final, as are complete-prefix and append-capacity limits. Refused items retain their signed bytes and show the host-access or capacity message. **Resend
 original signed action** retries those exact bytes. A recorded receipt and an
 interpreted effect remain separate states.
 

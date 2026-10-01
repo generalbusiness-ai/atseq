@@ -90,13 +90,7 @@ query response names the exact captured interpretation frontier. Catch-up
 cannot relabel a query with a later frontier. A query can use a complete prior
 projection while interpretation is behind the canonical head.
 
-`Folder.catchUp` verifies a complete signed prefix before interpreting new
-entries. It refuses rollback or a fork across its retained frontier. The host
-may persist each complete projection with `projectionFile`, which syncs a
-temporary file and atomically renames it. Memory advances only after persistence
-returns. The cache is disposable: opening a folder rebuilds from initial state
-and verified history, rather than trusting a saved projection. S3 does not yet
-implement browser storage, public interaction or definition activation.
+`Folder.catchUp` verifies a complete signed prefix before interpreting new entries. `Folder.catchUpVerified` accepts only an immutable history issued by the shared verifier for that pinned genesis; copied or forged objects are refused. Both paths refuse rollback and forks across the retained frontier. The host interprets that verified history in memory and rebuilds from initial state on restart. It does not write a projection file or copy the growing outcomes list after each entry. Library callers can supply an optional persistence callback; memory then advances only after the callback succeeds. The atomic-file example and its coherence checks live in test support. Saved projections are never trusted as signed history.
 
 ## What import validation establishes
 

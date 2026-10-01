@@ -1,3 +1,4 @@
+import { HOST_LIMITS } from '../core/limits.ts';
 import { readInput } from './input.ts';
 import { NSID } from '../core/nsids.ts';
 import { createServer } from 'node:http';
@@ -80,7 +81,9 @@ export async function startApplicationService(
       )
         throw new HostError('host_token', 401, 'This procedure requires the host token');
       const input: any =
-        schema.type === 'procedure' ? await readInput(req, 768 * 1024) : Object.fromEntries(url.searchParams);
+        schema.type === 'procedure'
+          ? await readInput(req, HOST_LIMITS.requestBytes)
+          : Object.fromEntries(url.searchParams);
       try {
         if (schema.type === 'procedure') serviceSchemas.assertValidXrpcInput(method, jsonToLex(input));
         else serviceSchemas.assertValidXrpcParams(method, input);

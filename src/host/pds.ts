@@ -1,3 +1,4 @@
+import { HOST_LIMITS } from '../core/limits.ts';
 import { SOURCE_POOL_BYTES } from '../definition/source.ts';
 import { responseBytes } from '../transport/api.ts';
 import { link } from '../protocol/wire.ts';
@@ -111,7 +112,7 @@ export class PdsClient {
       } catch (error) {
         if (
           error instanceof PdsError &&
-          ([401, 403].includes(error.status) || ['ExpiredToken', 'InvalidToken'].includes(error.code))
+          ['ExpiredToken', 'InvalidToken', 'AuthenticationRequired', 'AuthRequired'].includes(error.code)
         ) {
           this.authenticationDead = true;
           throw new PdsError(401, 'AuthenticationUnavailable');
@@ -153,7 +154,10 @@ export class PdsClient {
       await jsonResponse(response);
     } catch (error) {
       if (!(error instanceof PdsError) || error.code !== 'ExpiredToken') {
-        if (error instanceof PdsError && [401, 403].includes(error.status)) {
+        if (
+          error instanceof PdsError &&
+          ['InvalidToken', 'AuthenticationRequired', 'AuthRequired'].includes(error.code)
+        ) {
           this.authenticationDead = true;
           throw new PdsError(401, 'AuthenticationUnavailable');
         }
@@ -166,7 +170,10 @@ export class PdsClient {
       try {
         await jsonResponse(retried);
       } catch (error) {
-        if (error instanceof PdsError && (error.code === 'ExpiredToken' || [401, 403].includes(error.status))) {
+        if (
+          error instanceof PdsError &&
+          ['ExpiredToken', 'InvalidToken', 'AuthenticationRequired', 'AuthRequired'].includes(error.code)
+        ) {
           this.authenticationDead = true;
           throw new PdsError(401, 'AuthenticationUnavailable');
         }
@@ -221,7 +228,7 @@ export class PdsClient {
         throw new PdsError(502, 'InvalidPage');
       records.push(...page.records);
       cursor = page.cursor;
-      if (records.length > 20_000) throw new PdsError(503, 'SnapshotLimit');
+      if (records.length > HOST_LIMITS.historyEntries) throw new PdsError(503, 'SnapshotLimit');
       if (cursor && seen.has(cursor)) throw new PdsError(502, 'RepeatedCursor');
       if (cursor) seen.add(cursor);
     } while (cursor);

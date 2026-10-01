@@ -1,3 +1,4 @@
+import { HOST_LIMITS } from '../core/limits.ts';
 import { SerialQueue } from '../core/queue.ts';
 import { NSID } from '../core/nsids.ts';
 import { readdir, readFile } from 'node:fs/promises';
@@ -13,9 +14,8 @@ import { compatibleDefinition } from '../definition/activation.ts';
 import { LoadedDefinition } from '../definition/load.ts';
 import { Folder } from '../application/folder.ts';
 import { describeDefinition } from '../application/definition.ts';
-import { projectionFile } from './projection.ts';
 import { SourceStore } from './source.ts';
-import { provisionLog, readSnapshot, Sequencer } from './sequencer.ts';
+import { provisionLog, readSnapshot, Sequencer, SnapshotReader } from './sequencer.ts';
 import { PdsError, type PdsClient } from './pds.ts';
 import { atomicFile, readJson } from './files.ts';
 import type { AccountProvider } from './accounts.ts';
@@ -29,7 +29,8 @@ interface Creation {
   published: boolean;
 }
 interface Running {
-  refreshQueue: SerialQueue;
+  refreshInFlight?: Promise<Awaited<ReturnType<typeof readSnapshot>>['history']>;
+  snapshots: SnapshotReader;
   anchor: Anchor;
   pds: PdsClient;
   sequencer: Sequencer;
@@ -44,7 +45,7 @@ export class ApplicationHost {
   constructor(
     readonly directory: string,
     private readonly accounts: AccountProvider,
-    private readonly limits = { applications: 32 },
+    private readonly limits: { applications: number } = { applications: HOST_LIMITS.applications },
   ) {
     if (!Number.isSafeInteger(limits.applications) || limits.applications < 1)
       throw new Error('Application limit must be a positive integer');
@@ -184,14 +185,11 @@ export class ApplicationHost {
     source: SourceBundle,
     definition: LoadedDefinition,
   ) {
-    const sequencer = new Sequencer(pds, anchor, writer, join(this.directory, id, 'writer'));
+    const snapshots = new SnapshotReader(pds, anchor);
+    const sequencer = new Sequencer(pds, anchor, writer, join(this.directory, id, 'writer'), undefined, snapshots);
     try {
-      const folder = await Folder.open(
-        anchor,
-        new SourceStore(pds),
-        projectionFile(join(this.directory, id, 'projection.json')),
-      );
-      const app = { anchor, pds, sequencer, folder, source, definition, refreshQueue: new SerialQueue() };
+      const folder = await Folder.open(anchor, new SourceStore(pds));
+      const app: Running = { anchor, pds, sequencer, folder, source, definition, snapshots };
       await this.refresh(app);
       this.apps.set(pds.did, app);
       return app;
@@ -206,12 +204,29 @@ export class ApplicationHost {
       throw new ProtocolError('anchor', 'Application is not available at this invitation');
     return found;
   }
-  private refresh(app: Running) {
-    return app.refreshQueue.run(async () => {
-      const snapshot = await readSnapshot(app.pds, app.anchor, app.folder.snapshot().head);
-      await app.folder.catchUp(snapshot.history.head, snapshot.history.entries);
-      return snapshot.history;
-    });
+  private async refresh(app: Running) {
+    const floor = app.snapshots.retainedHead();
+    for (;;) {
+      if (!app.refreshInFlight) {
+        const run = (async () => {
+          const snapshot = await app.snapshots.read();
+          await app.folder.catchUpVerified(snapshot.history);
+          return snapshot.history;
+        })();
+        app.refreshInFlight = run;
+        void run
+          .finally(() => {
+            if (app.refreshInFlight === run) app.refreshInFlight = undefined;
+          })
+          .catch(() => {});
+      }
+      const history = await app.refreshInFlight;
+      // Cover the floor captured by this call; later appends cannot keep it waiting.
+      if (app.snapshots.covers(history, floor)) {
+        app.sequencer.checkpoint();
+        return history;
+      }
+    }
   }
   private created(app: Running) {
     const { head, projection } = app.folder.snapshot();
@@ -258,7 +273,7 @@ export class ApplicationHost {
       const identity = payload.closure.join(',');
       if (seen.has(identity)) continue;
       seen.add(identity);
-      if (seen.size > 32) throw new PdsError(503, 'DefinitionHistoryLimit');
+      if (seen.size > HOST_LIMITS.retainedDefinitions) throw new PdsError(503, 'DefinitionHistoryLimit');
       let source;
       try {
         source = await SourceBundle.collectClosure(payload.definition, payload.closure, store);
@@ -291,7 +306,7 @@ export class ApplicationHost {
       candidate = await LoadedDefinition.load(source.root, source);
     compatibleDefinition(current, candidate, projection.state);
     const replay = await Folder.open(found.anchor, new SourceStore(found.pds));
-    await replay.catchUp(history.head, history.entries);
+    await replay.catchUpVerified(history);
     if (replay.snapshot().stalled || JSON.stringify(replay.snapshot().projection) !== JSON.stringify(projection))
       throw new ProtocolError('replay', 'Existing prefix did not replay to the captured projection');
     return {
@@ -331,17 +346,18 @@ export class ApplicationHost {
   }
   async receipt(app: string, genesis: string, intent: string) {
     const found = this.get(app, genesis),
-      receipt = await found.sequencer.lookup(intent);
-    if (!receipt) return undefined;
+      recorded = await found.sequencer.lookup(intent);
+    if (!recorded) return undefined;
     await this.refresh(found);
+    const receipt = recorded.receipt;
     const { head, projection } = found.folder.snapshot();
     const outcome = projection.outcomes.find((o) => o.intent === intent)?.outcome ?? { $type: NSID.defsPending };
-    return { ...receipt, head, frontier: projection.frontier, outcome };
+    return { receipt, head, frontier: projection.frontier, outcome };
   }
   async close() {
     await this.queue.idle();
     for (const app of this.apps.values()) {
-      await app.refreshQueue.idle();
+      await app.refreshInFlight?.catch(() => {});
       await app.sequencer.close();
     }
     this.apps.clear();

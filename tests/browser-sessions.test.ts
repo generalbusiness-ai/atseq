@@ -403,6 +403,9 @@ test('browser sessions retain trust and device work across switches and restarts
     await t.test('an invalid invitation cannot poison the pin and verified pins can be forgotten', async () => {
       await open(a);
       await page.getByRole('button', { name: 'Forget this invitation', exact: true }).click();
+      await expect(
+        page.getByText('Invitation forgotten. Signed work remains on this device.', { exact: true }),
+      ).toBeVisible();
       await page.evaluate(
         (target) => {
           location.hash = new URLSearchParams(target).toString();

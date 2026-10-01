@@ -258,6 +258,7 @@ test('missing, rejected or repeatedly expired session credentials have a permane
 
 test('complete-prefix limits and nonce conflicts have stable permanent codes', () => {
   for (const [pds, code] of [
+    ['AppendLimit', 'append_limit'],
     ['SnapshotLimit', 'snapshot_limit'],
     ['DefinitionHistoryLimit', 'definition_history_limit'],
   ]) {
@@ -267,4 +268,22 @@ test('complete-prefix limits and nonce conflicts have stable permanent codes', (
     assert.equal(failure.body.permanent, true);
   }
   assert.equal(hostFailure(new ProtocolError('retry_conflict', 'nonce collision')).body.permanent, true);
+});
+
+test('authorization refusal does not permanently disable a valid PDS credential', async () => {
+  for (const status of [401, 403]) {
+    let calls = 0;
+    const server = await mockPds((_req, res) => {
+      calls++;
+      json(res, calls === 1 ? status : 200, calls === 1 ? { error: 'Forbidden' } : { ok: true });
+    });
+    try {
+      const client = new PdsClient(server.origin, did, 'access', 'refresh');
+      await assert.rejects(() => client.request('com.atproto.repo.getRecord', {}), { code: 'Forbidden' });
+      assert.deepEqual(await client.request('com.atproto.repo.getRecord', {}), { ok: true });
+      assert.equal(calls, 2);
+    } finally {
+      await server.close();
+    }
+  }
 });

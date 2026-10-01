@@ -189,11 +189,9 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       await assert.rejects(() => importArchive(new Uint8Array([0xff])), /encoded data|encoding|UTF/i);
       await assert.rejects(() => importArchive(new Uint8Array(ARCHIVE_LIMIT + 1)), /48 MiB/);
     });
-    await check('CLI rebuild uses a new directory after removing only its marked projection cache', async () => {
+    await check('CLI rebuild uses a new directory with no host projection cache', async () => {
       await assertDisposable(env.dir);
       const cache = join(directory, creationId, 'projection.json');
-      assert.deepEqual(JSON.parse(await readFile(cache, 'utf8')), replayed.snapshot.projection);
-      await rm(cache);
       await assert.rejects(() => readFile(cache), { code: 'ENOENT' });
       const output = join(env.dir, 'rebuilt');
       const result = await cli({
@@ -239,6 +237,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       // Updates leave open tabs alone. The first installation controls the next navigation.
       await page.reload();
       await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
+      await context.route('**/xrpc/**', (route) => route.abort());
       await context.setOffline(true);
       await page.reload();
       await expect(page.getByRole('heading', { name: 'Your applications', exact: true })).toBeVisible();
@@ -349,6 +348,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       // Keep this context disconnected so its intentionally queued act cannot
       // change the retained four-entry archive used by the earlier assertions.
       await context.close();
+      assert.equal((await api.call('sync', target)).head.position, 4, 'the offline queued action must stay unrecorded');
     });
     await check('small imported data produces a zero-based chart and static source-tagged exports', async () => {
       const chartContext = await browser.newContext(),
