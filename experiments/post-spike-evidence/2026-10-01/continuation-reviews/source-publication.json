@@ -10,9 +10,10 @@
     "01253121bfaaf66b40df849e8f89d9dffde2fd6b",
     "a03c7402ab2e946608ae8e6fb007fc7b70954acb",
     "e28c0d229bea433a450bc9d183939f04da466f39",
-    "3f022792302ccc8a52fca4ef1d693bb961335017"
+    "3f022792302ccc8a52fca4ef1d693bb961335017",
+    "f3c65906b134740f3e4e17ce7d5fb2c48b9955bf"
   ],
-  "publicationChanges": "Native wire adds ratified NW0-3 role-revision/map-pressure clarification and adopted status. Its original source hash is retained. Materialization and checkpoint-byte notes use corrected source2fec4532, adopting ratified P4-A..D and S1 selective outcome limits. Other copied sources and raw captures are byte identical. Programme/index/gap snapshots are updated separately. State/effects adds current adopted/shipped status and pinned GitHub code-line links; historical analysis/captures retain their basis.",
+  "publicationChanges": "Native wire adds ratified NW0-3 role-revision/map-pressure clarification and adopted status. Its original source hash is retained. Materialization and checkpoint-byte notes use corrected source2fec4532, adopting ratified P4-A..D and S1 selective outcome limits. Other copied sources and raw captures are byte identical. Programme/index/gap snapshots are updated separately. State/effects adds current adopted/shipped status and pinned GitHub code-line links; historical analysis/captures retain their basis. OAuth comparison/captures remain exact; separate review disposition adds subsequent requester ratification, with original source hash retained.",
   "files": [
     {
       "path": "notes/2026-10-01-atseq-incremental-reader-requirements.md",
@@ -223,6 +224,167 @@
       "sourceSha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69",
       "publishedSha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69",
       "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/README.md",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "8b3781dda585115665639d2e9a8d09abfd83a9bda723c34557a03a718f4fb7fc",
+      "publishedSha256": "8b3781dda585115665639d2e9a8d09abfd83a9bda723c34557a03a718f4fb7fc",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/archive-evidence.py",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "5db7e8d77067d1609051326aaed57a01025106a93c7f0c2d4e8cae78bbe42608",
+      "publishedSha256": "5db7e8d77067d1609051326aaed57a01025106a93c7f0c2d4e8cae78bbe42608",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/browser-probe.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "59b69b6c601c4eb30066b027c5e42ffc9d41955b6c2d152ed47bac2c212fe12e",
+      "publishedSha256": "59b69b6c601c4eb30066b027c5e42ffc9d41955b6c2d152ed47bac2c212fe12e",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/browser-storage-probe.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "ab465a8c06eccd84345e8c5074a773680f282fb70a8c19905b4e856e40a78306",
+      "publishedSha256": "ab465a8c06eccd84345e8c5074a773680f282fb70a8c19905b4e856e40a78306",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/bundle.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "32bd8d3d9dc8cdba1567290139e0e3e1b409d4d7dfb06dfa6f3c3b4360f45d73",
+      "publishedSha256": "32bd8d3d9dc8cdba1567290139e0e3e1b409d4d7dfb06dfa6f3c3b4360f45d73",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/capture-manifest.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "d50b50769220082b36fea88ddce1944049d14c3129a614ba913810a701ddfa86",
+      "publishedSha256": "d50b50769220082b36fea88ddce1944049d14c3129a614ba913810a701ddfa86",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/graph.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "b8d1e90be97090c43646be8c8a2bd65014eb7e57580f2bab60b7d8334992b257",
+      "publishedSha256": "b8d1e90be97090c43646be8c8a2bd65014eb7e57580f2bab60b7d8334992b257",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/node-probe.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "6d5ff34471d8e5f6a51c8468b8d003b1c86a2120247632f85eb351d940696f09",
+      "publishedSha256": "6d5ff34471d8e5f6a51c8468b8d003b1c86a2120247632f85eb351d940696f09",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/source-capture.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "c6a695e6c1a3a844c0f0035f2e58ded4720f66ad212de5d78def012bea4ea73f",
+      "publishedSha256": "c6a695e6c1a3a844c0f0035f2e58ded4720f66ad212de5d78def012bea4ea73f",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/oauth-closure/validate-evidence.mjs",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "89fcb6d8294c3aab3b55bd547d9768f40de09befe629cd48b5837b9a4f5c611c",
+      "publishedSha256": "89fcb6d8294c3aab3b55bd547d9768f40de09befe629cd48b5837b9a4f5c611c",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/archive-info.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "0750b0e71a58e6c680e2897884e9228491f2e137db2f446c4471933a155f0f8c",
+      "publishedSha256": "0750b0e71a58e6c680e2897884e9228491f2e137db2f446c4471933a155f0f8c",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/browser-seams.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "9b4522ff7e78cd42b2824434e81e817801168ce899b809a10ae7f89dc81b0ed8",
+      "publishedSha256": "9b4522ff7e78cd42b2824434e81e817801168ce899b809a10ae7f89dc81b0ed8",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/browser-storage.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "f8740ce3cd9882532e53268a03f363bab925b4b5407f54b25a29766c3990b878",
+      "publishedSha256": "f8740ce3cd9882532e53268a03f363bab925b4b5407f54b25a29766c3990b878",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/capture-manifest.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "5e9da1e1708dbbb1471354dd1fa1125778c425696e214580a68567fb2c4f47d7",
+      "publishedSha256": "5e9da1e1708dbbb1471354dd1fa1125778c425696e214580a68567fb2c4f47d7",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/comparison-summary.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "2a4fb13bdc623f11b737d59658cd02c25bf3497e6b245398c459862f366c57f1",
+      "publishedSha256": "2a4fb13bdc623f11b737d59658cd02c25bf3497e6b245398c459862f366c57f1",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/evidence-validation.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "9969a5921465f8481a448b41a7cd5e53eab6380dc11850b384a0c0543f3e56dd",
+      "publishedSha256": "9969a5921465f8481a448b41a7cd5e53eab6380dc11850b384a0c0543f3e56dd",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/foundation-basis.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "d8abaa0b4eec5987db867abad70bc9c0af3d39e1c92cc22dbc8896c1876e90dc",
+      "publishedSha256": "d8abaa0b4eec5987db867abad70bc9c0af3d39e1c92cc22dbc8896c1876e90dc",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/node-current.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "5995ffa44aef8edcaf0725416e30da15ff74d2c6446b12f9eb1b38dc93f3cf2b",
+      "publishedSha256": "5995ffa44aef8edcaf0725416e30da15ff74d2c6446b12f9eb1b38dc93f3cf2b",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/node-floor.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "823977792c15254a623303bb9c96dffc2e7866f4288636818e5126be2f6950ad",
+      "publishedSha256": "823977792c15254a623303bb9c96dffc2e7866f4288636818e5126be2f6950ad",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/published-sources.json",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "5275148a031174d357686354d0bc00feeebb52a1226bfca4e2fa6e631a3af832",
+      "publishedSha256": "5275148a031174d357686354d0bc00feeebb52a1226bfca4e2fa6e631a3af832",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-closure/raw-captures.tar.gz",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "f3b28746cfa32424c14f7e278af77c880f891cbd9b379f1b9faf1c30881ac706",
+      "publishedSha256": "f3b28746cfa32424c14f7e278af77c880f891cbd9b379f1b9faf1c30881ac706",
+      "byteIdentical": true
+    },
+    {
+      "path": "notes/2026-10-01-atseq-oauth-client-comparison.md",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "917edbe02fc20cb40838f44f01dac9976f0d6d1babd6363fc72af78b390349b7",
+      "publishedSha256": "917edbe02fc20cb40838f44f01dac9976f0d6d1babd6363fc72af78b390349b7",
+      "byteIdentical": true
+    },
+    {
+      "path": "notes/2026-10-01-atseq-oauth-client-review-disposition.md",
+      "sourceHead": "0419358d71a8764749b91626e2777426ae90712e",
+      "sourceSha256": "48cef63578ffc9b1e26c5af99d98acf31ecb52d73b562876e82c452770eb4e0c",
+      "publishedSha256": "cee585a18baffd31ebadcacb296a1963244c70f4ef51c7a94344d7dc9f9992c0",
+      "byteIdentical": false
     }
   ]
 }

@@ -1,0 +1,160 @@
+{
+  "capturedAt": "2026-10-01T19:19:45.549Z",
+  "method": "Credential-free exact version registry metadata and published tarballs; SHA-512 SRI verified before capture. Installed file SHA-256 manifests are in graphs.json. Archive source includes package licenses and declarations.",
+  "results": [
+    {
+      "variant": "official",
+      "name": "@atproto/oauth-client-node",
+      "version": "0.5.8",
+      "metadataUrl": "https://registry.npmjs.org/%40atproto%2Foauth-client-node/0.5.8",
+      "tarballUrl": "https://registry.npmjs.org/@atproto/oauth-client-node/-/oauth-client-node-0.5.8.tgz",
+      "integrity": "sha512-Mhs0JlEiZC3iu0RB1XXjmbFodk8rTtyM+27tNm/2dHkTPdBZTbl7smwOoAXdNpa3rjgR4DlCEBLkTqS9XLsjcQ==",
+      "archive": "published/atproto-oauth-client-node-0.5.8.tgz",
+      "bytes": 16041,
+      "sha256": "60ef3ea87ef404553fb518cf0bb2224c7f6a5bd4b5798829eb7c4ca4e78a092e"
+    },
+    {
+      "variant": "official",
+      "name": "@atproto/oauth-client-browser",
+      "version": "0.5.8",
+      "metadataUrl": "https://registry.npmjs.org/%40atproto%2Foauth-client-browser/0.5.8",
+      "tarballUrl": "https://registry.npmjs.org/@atproto/oauth-client-browser/-/oauth-client-browser-0.5.8.tgz",
+      "integrity": "sha512-bAJ/OtpdKHwtMuro6ZAmKQnD8dzV0wv+DydL04lvtMe828xcZmce9gylMZfpG7wF3Br5OaSsqCAVk4m8rEpuSg==",
+      "archive": "published/atproto-oauth-client-browser-0.5.8.tgz",
+      "bytes": 43658,
+      "sha256": "89d16ec615d7cc7b2f055cb6858b35fdbe1c79dbe43c1e11deb0660684fc21bc"
+    },
+    {
+      "variant": "official",
+      "name": "@atproto/oauth-client",
+      "version": "0.8.8",
+      "metadataUrl": "https://registry.npmjs.org/%40atproto%2Foauth-client/0.8.8",
+      "tarballUrl": "https://registry.npmjs.org/@atproto/oauth-client/-/oauth-client-0.8.8.tgz",
+      "integrity": "sha512-W2T44dtFRBiHlq21JAnailcR7pjkTIlVoYTSxkXTAiycac97KhiXqKPOOfAu2sjkA3FTnKlMMjdjv4UrtDui+w==",
+      "archive": "published/atproto-oauth-client-0.8.8.tgz",
+      "bytes": 89819,
+      "sha256": "807d0495d84de761d4e5b42d122d46c815db253c687b80113ec9caf123bca2cd"
+    },
+    {
+      "variant": "official",
+      "name": "@atproto/oauth-types",
+      "version": "0.7.7",
+      "metadataUrl": "https://registry.npmjs.org/%40atproto%2Foauth-types/0.7.7",
+      "tarballUrl": "https://registry.npmjs.org/@atproto/oauth-types/-/oauth-types-0.7.7.tgz",
+      "integrity": "sha512-HhY0n6BJtFlxHJTOwT34uf7BiMaEluuwiZqHkamWoFvl+Gk7bPgWhPslr4kX2J/7ryFxhdsKVj1tjWjy0AhjTw==",
+      "archive": "published/atproto-oauth-types-0.7.7.tgz",
+      "bytes": 67019,
+      "sha256": "fa83e08be23eaff601fac5adf4ce88be04a289c908b79ec8260ab817c8ee241c"
+    },
+    {
+      "variant": "official",
+      "name": "@atproto/jwk-webcrypto",
+      "version": "0.3.4",
+      "metadataUrl": "https://registry.npmjs.org/%40atproto%2Fjwk-webcrypto/0.3.4",
+      "tarballUrl": "https://registry.npmjs.org/@atproto/jwk-webcrypto/-/jwk-webcrypto-0.3.4.tgz",
+      "integrity": "sha512-UsFIUozqnRecXPo6HgKV4PW4FqYHxX1V3iAe0rRV6Q2RSfYD8V2mZ89pv8NpvJynnaqJArBQ7HZlcg0F4tRYhA==",
+      "archive": "published/atproto-jwk-webcrypto-0.3.4.tgz",
+      "bytes": 6910,
+      "sha256": "2096d481bb3e6a0f2706384ecb15a1cd7b5cf05455b13ff7e89be835903feefd"
+    },
+    {
+      "variant": "official",
+      "name": "@atproto/jwk-jose",
+      "version": "0.2.4",
+      "metadataUrl": "https://registry.npmjs.org/%40atproto%2Fjwk-jose/0.2.4",
+      "tarballUrl": "https://registry.npmjs.org/@atproto/jwk-jose/-/jwk-jose-0.2.4.tgz",
+      "integrity": "sha512-gzDoA0JTwnc0ZJOBLM7WX9xFxtynRS2K1Bofb8epzoMWDQvyvfbPcfkdPrKFM7NXCFUVpGpBnsCB8KFPTf1rCg==",
+      "archive": "published/atproto-jwk-jose-0.2.4.tgz",
+      "bytes": 8843,
+      "sha256": "0f90653bbc06f7fd51b68a5073c39c41b226b2821484d4d6019c3a387b0cc85f"
+    },
+    {
+      "variant": "official",
+      "name": "@atproto-labs/identity-resolver",
+      "version": "0.4.10",
+      "metadataUrl": "https://registry.npmjs.org/%40atproto-labs%2Fidentity-resolver/0.4.10",
+      "tarballUrl": "https://registry.npmjs.org/@atproto-labs/identity-resolver/-/identity-resolver-0.4.10.tgz",
+      "integrity": "sha512-deKu7csOsM8lnIRnLa97te6ODIUx0Lm3Srxid/Ix+UYQqFKA0sIpfYmHZduAK7B+aTqiPcHjoA9Y/qpJyzgnMw==",
+      "archive": "published/atproto-labs-identity-resolver-0.4.10.tgz",
+      "bytes": 9592,
+      "sha256": "321c45da74f2c9829c864c2d42b552c5f6e80fbd6349d7d9e3a1e6a2f8b4779e"
+    },
+    {
+      "variant": "official",
+      "name": "jose",
+      "version": "5.10.0",
+      "metadataUrl": "https://registry.npmjs.org/jose/5.10.0",
+      "tarballUrl": "https://registry.npmjs.org/jose/-/jose-5.10.0.tgz",
+      "integrity": "sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==",
+      "archive": "published/jose-5.10.0.tgz",
+      "bytes": 72963,
+      "sha256": "fc569215dfb7214d7d4a35fe7367377e071269fe9700bde5d6a8aa7213234691"
+    },
+    {
+      "variant": "atcute",
+      "name": "@atcute/oauth-node-client",
+      "version": "2.0.1",
+      "metadataUrl": "https://registry.npmjs.org/%40atcute%2Foauth-node-client/2.0.1",
+      "tarballUrl": "https://registry.npmjs.org/@atcute/oauth-node-client/-/oauth-node-client-2.0.1.tgz",
+      "integrity": "sha512-MgqN9Rnt5nuUH5zriETtbQrwcx/tWaELKaFVQtqggMtRI4k4IP5+ZbnG40tiJjbZfSclapA2kwOnT14kO0nAxg==",
+      "archive": "published/atcute-oauth-node-client-2.0.1.tgz",
+      "bytes": 26362,
+      "sha256": "851fde4607dd8d770a244e72ae2ce38df73a2561e3bb0b01b9d2fe49496936b1"
+    },
+    {
+      "variant": "atcute",
+      "name": "@atcute/oauth-browser-client",
+      "version": "5.1.0",
+      "metadataUrl": "https://registry.npmjs.org/%40atcute%2Foauth-browser-client/5.1.0",
+      "tarballUrl": "https://registry.npmjs.org/@atcute/oauth-browser-client/-/oauth-browser-client-5.1.0.tgz",
+      "integrity": "sha512-pcRhAeNQ36Gutear6jJobumoIK1KUJAyirhXcZYhN8rzDrhP+nuBYpxl7TIgAy99Q6+2B0aouzZ8bRjlwGbZBQ==",
+      "archive": "published/atcute-oauth-browser-client-5.1.0.tgz",
+      "bytes": 18777,
+      "sha256": "2d39ceae84985ce25daf02fb5888b5b6e1f4b29d5ccea20f9ada42dfbef47abd"
+    },
+    {
+      "variant": "atcute",
+      "name": "@atcute/oauth-crypto",
+      "version": "1.0.1",
+      "metadataUrl": "https://registry.npmjs.org/%40atcute%2Foauth-crypto/1.0.1",
+      "tarballUrl": "https://registry.npmjs.org/@atcute/oauth-crypto/-/oauth-crypto-1.0.1.tgz",
+      "integrity": "sha512-ghC8ceFx0r6pi5X3dNoET1K6PNg8afeAOZLD4PKLhrpVYdRtRrgY4uqAe3ojtSIjoS6GXmVm063CoJ2xtg/MoQ==",
+      "archive": "published/atcute-oauth-crypto-1.0.1.tgz",
+      "bytes": 11115,
+      "sha256": "29800ebe250327b5e8aeec9f3a5ef5e2aadec1150edb1dafce5a6c6629fdb195"
+    },
+    {
+      "variant": "atcute",
+      "name": "@atcute/oauth-types",
+      "version": "1.0.1",
+      "metadataUrl": "https://registry.npmjs.org/%40atcute%2Foauth-types/1.0.1",
+      "tarballUrl": "https://registry.npmjs.org/@atcute/oauth-types/-/oauth-types-1.0.1.tgz",
+      "integrity": "sha512-9uFP/nK0PgPDsaNbLArzrCHvTZO1k04cSEX5jZ75W2Jh7Jxbh/CSTenSrad3CZXuX6y6hDquEtl6H/IqLtTmHw==",
+      "archive": "published/atcute-oauth-types-1.0.1.tgz",
+      "bytes": 30615,
+      "sha256": "9876edacaf2946ff03c40026f9b9c8f00720161fe0318c97c921dd921343a6f8"
+    },
+    {
+      "variant": "atcute",
+      "name": "@atcute/identity-resolver",
+      "version": "2.0.2",
+      "metadataUrl": "https://registry.npmjs.org/%40atcute%2Fidentity-resolver/2.0.2",
+      "tarballUrl": "https://registry.npmjs.org/@atcute/identity-resolver/-/identity-resolver-2.0.2.tgz",
+      "integrity": "sha512-NPavjKNRfunkMD99HjjKhEtyG76873V/N9IwwC1n+ePUW8wqTHSXstPLtGCelGBE1pA0T6RITzvbfDnMfOaCrw==",
+      "archive": "published/atcute-identity-resolver-2.0.2.tgz",
+      "bytes": 8130,
+      "sha256": "0bfc9e90929858ca91455fcf6dd375af29b3dfab1f5272bd86d9dc3ceed2e484"
+    },
+    {
+      "variant": "atcute",
+      "name": "@atcute/util-fetch",
+      "version": "2.0.2",
+      "metadataUrl": "https://registry.npmjs.org/%40atcute%2Futil-fetch/2.0.2",
+      "tarballUrl": "https://registry.npmjs.org/@atcute/util-fetch/-/util-fetch-2.0.2.tgz",
+      "integrity": "sha512-I0oenHlJjwRpWPyAJojox5H0z9NthhdMFaEjtkxyjo85VPPxk1vMJk/1ZjMJsrs1SgHhB3spazEWzV5DW8w70A==",
+      "archive": "published/atcute-util-fetch-2.0.2.tgz",
+      "bytes": 4544,
+      "sha256": "44439b47dbf1564a5591dd92b75f6c8e786387b4da884b8093d226f9b5155707"
+    }
+  ]
+}

@@ -1,0 +1,807 @@
+{
+  "capturedAt": "2026-10-01T19:30:38.367Z",
+  "worktreeBase": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "projectedFoundation": "fb5acd9ac3876de93917348e3ac12e080a885ef0",
+  "node": "v26.10.0",
+  "commands": {
+    "basis": "git show fb5acd9ac3876de93917348e3ac12e080a885ef0:<package.json|npm-shrinkwrap.json|dependency and file approvals>",
+    "tools": "npm ci --no-audit --ignore-scripts (worktree tools only; root manifest/lock unchanged)",
+    "candidateFoundation": "npm ci --omit=dev --ignore-scripts --no-audit --no-fund (each of six isolated manifest/shrinkwrap copies)",
+    "candidateInstall": "npm install --save-exact --omit=dev --ignore-scripts --no-audit --no-fund <exact pins in retained candidate manifest>; foundation has no install additions",
+    "graph": "node experiments/oauth-closure/graph.mjs",
+    "bundles": "node experiments/oauth-closure/bundle.mjs",
+    "nodeCurrent": "node experiments/oauth-closure/node-probe.mjs current",
+    "nodeFloor": "npm exec --yes --package=node@22.19.0 -- node experiments/oauth-closure/node-probe.mjs floor",
+    "browserDiscovery": "node experiments/oauth-closure/browser-probe.mjs",
+    "browserStorage": "node experiments/oauth-closure/browser-storage-probe.mjs",
+    "publishedSources": "node experiments/oauth-closure/source-capture.mjs",
+    "evidenceAssertions": "node experiments/oauth-closure/validate-evidence.mjs"
+  },
+  "successfulFinalExitCodes": {
+    "candidateCI": 0,
+    "candidateInstalls": 0,
+    "graph": 0,
+    "bundles": 0,
+    "nodeCurrent": 0,
+    "nodeFloor": 0,
+    "browserDiscovery": 0,
+    "browserStorage": 0,
+    "publishedSources": 0,
+    "evidenceAssertions": 0
+  },
+  "failures": [
+    {
+      "logs": [
+        "logs/atseq-oauth-browser-probe.log"
+      ],
+      "kind": "Harness assertion failed before sufficient outcome logging; retained original stderr"
+    },
+    {
+      "logs": [
+        "logs/atseq-oauth-browser-probe-attempt2.log"
+      ],
+      "kind": "Harness omitted official required identityResolver/handleResolver option; corrected resolver stub in final public construction"
+    },
+    {
+      "logs": [
+        "browser-storage-attempt1.log"
+      ],
+      "kind": "Harness observed databases before asynchronous open completed; public dispose waits for opens in corrected probe"
+    },
+    {
+      "logs": [
+        "browser-storage-attempt2.log"
+      ],
+      "kind": "Harness diagnostic referenced result before initialization; corrected"
+    },
+    {
+      "logs": [
+        "logs/atseq-oauth-node-probe-final.log"
+      ],
+      "kind": "Harness invocation omitted required current/floor argument; both final explicit-argument commands succeeded"
+    }
+  ],
+  "sources": [
+    {
+      "path": "experiments/oauth-closure/archive-evidence.py",
+      "sha256": "5db7e8d77067d1609051326aaed57a01025106a93c7f0c2d4e8cae78bbe42608"
+    },
+    {
+      "path": "experiments/oauth-closure/browser-probe.mjs",
+      "sha256": "59b69b6c601c4eb30066b027c5e42ffc9d41955b6c2d152ed47bac2c212fe12e"
+    },
+    {
+      "path": "experiments/oauth-closure/browser-storage-probe.mjs",
+      "sha256": "ab465a8c06eccd84345e8c5074a773680f282fb70a8c19905b4e856e40a78306"
+    },
+    {
+      "path": "experiments/oauth-closure/bundle.mjs",
+      "sha256": "32bd8d3d9dc8cdba1567290139e0e3e1b409d4d7dfb06dfa6f3c3b4360f45d73"
+    },
+    {
+      "path": "experiments/oauth-closure/capture-manifest.mjs",
+      "sha256": "d50b50769220082b36fea88ddce1944049d14c3129a614ba913810a701ddfa86"
+    },
+    {
+      "path": "experiments/oauth-closure/graph.mjs",
+      "sha256": "b8d1e90be97090c43646be8c8a2bd65014eb7e57580f2bab60b7d8334992b257"
+    },
+    {
+      "path": "experiments/oauth-closure/node-probe.mjs",
+      "sha256": "6d5ff34471d8e5f6a51c8468b8d003b1c86a2120247632f85eb351d940696f09"
+    },
+    {
+      "path": "experiments/oauth-closure/source-capture.mjs",
+      "sha256": "c6a695e6c1a3a844c0f0035f2e58ded4720f66ad212de5d78def012bea4ea73f"
+    },
+    {
+      "path": "experiments/oauth-closure/validate-evidence.mjs",
+      "sha256": "89fcb6d8294c3aab3b55bd547d9768f40de09befe629cd48b5837b9a4f5c611c"
+    }
+  ],
+  "report": {
+    "path": "notes/2026-10-01-atseq-oauth-client-comparison.md",
+    "sha256": "917edbe02fc20cb40838f44f01dac9976f0d6d1babd6363fc72af78b390349b7"
+  },
+  "instructions": {
+    "path": "experiments/oauth-closure/README.md",
+    "sha256": "8b3781dda585115665639d2e9a8d09abfd83a9bda723c34557a03a718f4fb7fc"
+  },
+  "files": [
+    {
+      "path": "atcute-browser-bundle.js",
+      "bytes": 18789,
+      "sha256": "2113f21b4675f45d600d464907ac3c028efe8d68b01a58cb3401fa2dacdbee5f"
+    },
+    {
+      "path": "atcute-browser-metafile.json",
+      "bytes": 36432,
+      "sha256": "cf594089b47749c61849379c1051b29cbda2ef7a30aee549cc5c05b3f43208e9"
+    },
+    {
+      "path": "atcute-browser-minimal-bundle.js",
+      "bytes": 18613,
+      "sha256": "9784f6ccd8889a974a2b4d1a478bfaa8d29e49b623277af50d4a2e0948c7d297"
+    },
+    {
+      "path": "atcute-browser-minimal-metafile.json",
+      "bytes": 36249,
+      "sha256": "52b42c013b732232de65bcf57e7b8c566a27723e1528bfd931e39c47ddc74749"
+    },
+    {
+      "path": "atcute-browser-registry.json",
+      "bytes": 4730,
+      "sha256": "69c4ff90979f07886544ce308877841ce088bf95902df4ac69937cdd99010ada"
+    },
+    {
+      "path": "atcute-node-bundle.js",
+      "bytes": 51233,
+      "sha256": "d1c838e9264fe787d2675865919f2162a5296f9ba2fac18605351785b132d7d9"
+    },
+    {
+      "path": "atcute-node-metafile.json",
+      "bytes": 87220,
+      "sha256": "286e42faee161d0c25d9e8509b28657fb93bad9bc4f8246c15feae26b5ff2460"
+    },
+    {
+      "path": "atcute-node-minimal-bundle.js",
+      "bytes": 48380,
+      "sha256": "620dc748b84d8e4b6d86cb270de62915198e9d86ff7b63cf062c8012e7b248d5"
+    },
+    {
+      "path": "atcute-node-minimal-metafile.json",
+      "bytes": 86221,
+      "sha256": "739a027a236ea614cc0fd74e418cde0557f7bc48b94e96d0ab5bdcfdb891c2e2"
+    },
+    {
+      "path": "atcute-node-registry.json",
+      "bytes": 2793,
+      "sha256": "81c874d377b2b53ab7b175ce31ce75319a54be28e736a304f7908c3796fda0c3"
+    },
+    {
+      "path": "atcute-package.json",
+      "bytes": 4733,
+      "sha256": "3ffa981f2522a66c2a6419a9c0bd639f5c0a635fcf16580d4f892a4a66c4155e"
+    },
+    {
+      "path": "atcute-shrinkwrap.json",
+      "bytes": 127567,
+      "sha256": "a044067f36251f171e39bb55cdd4ccfe4c5abb0ba6bddc2eb770b0e17aa99357"
+    },
+    {
+      "path": "browser-seams.json",
+      "bytes": 1576,
+      "sha256": "9b4522ff7e78cd42b2824434e81e817801168ce899b809a10ae7f89dc81b0ed8"
+    },
+    {
+      "path": "browser-storage-attempt1.log",
+      "bytes": 509,
+      "sha256": "3b9b861500a4193565fd64a2c28f2f12c7da4cb2c3018aa4970400c37bb90657"
+    },
+    {
+      "path": "browser-storage-attempt2.log",
+      "bytes": 387,
+      "sha256": "7448c656d5404723d9ab9550dcf283eb92d790b8f91eb30348d1dfed0efb40b0"
+    },
+    {
+      "path": "browser-storage.json",
+      "bytes": 1312,
+      "sha256": "f8740ce3cd9882532e53268a03f363bab925b4b5407f54b25a29766c3990b878"
+    },
+    {
+      "path": "bundles.json",
+      "bytes": 7401005,
+      "sha256": "5837a790498e58e994ca8a88b99659e399f582b83dc2f90ad59f84ba05ef7410"
+    },
+    {
+      "path": "evidence-validation.json",
+      "bytes": 546,
+      "sha256": "9969a5921465f8481a448b41a7cd5e53eab6380dc11850b384a0c0543f3e56dd"
+    },
+    {
+      "path": "foundation-basis.json",
+      "bytes": 649,
+      "sha256": "d8abaa0b4eec5987db867abad70bc9c0af3d39e1c92cc22dbc8896c1876e90dc"
+    },
+    {
+      "path": "foundation-dependencies-approved.json",
+      "bytes": 43395,
+      "sha256": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a"
+    },
+    {
+      "path": "foundation-files-approved.json",
+      "bytes": 1160851,
+      "sha256": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+    },
+    {
+      "path": "foundation-npm-shrinkwrap.json",
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    },
+    {
+      "path": "foundation-package.json",
+      "bytes": 4267,
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a"
+    },
+    {
+      "path": "foundation-shrinkwrap.json",
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    },
+    {
+      "path": "graphs.json",
+      "bytes": 17149873,
+      "sha256": "d0dfeab252b18e06c639345f270cb9ac1f92d8a7ebd0bf8f6bff9769d79c0adf"
+    },
+    {
+      "path": "hybrid-browser-bundle.js",
+      "bytes": 254729,
+      "sha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b"
+    },
+    {
+      "path": "hybrid-browser-metafile.json",
+      "bytes": 324104,
+      "sha256": "1dd0ad0f4c4ce3b72cf2f01710f02f41f7c53e01f5175437bdbab06ebe15ec81"
+    },
+    {
+      "path": "hybrid-browser-minimal-bundle.js",
+      "bytes": 242104,
+      "sha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3"
+    },
+    {
+      "path": "hybrid-browser-minimal-metafile.json",
+      "bytes": 315740,
+      "sha256": "90b9dc4e420ecf3827c079134785702d7d98b47ab8076a9725cbd41bfbd1d8f0"
+    },
+    {
+      "path": "hybrid-node-bundle.js",
+      "bytes": 51233,
+      "sha256": "d1c838e9264fe787d2675865919f2162a5296f9ba2fac18605351785b132d7d9"
+    },
+    {
+      "path": "hybrid-node-metafile.json",
+      "bytes": 87220,
+      "sha256": "ef2719328eddbc0fb5d8cebc930d36d42492e0d5bcf7fe7efac299e8d0832366"
+    },
+    {
+      "path": "hybrid-node-minimal-bundle.js",
+      "bytes": 48380,
+      "sha256": "620dc748b84d8e4b6d86cb270de62915198e9d86ff7b63cf062c8012e7b248d5"
+    },
+    {
+      "path": "hybrid-node-minimal-metafile.json",
+      "bytes": 86221,
+      "sha256": "56badbd4bd53e98d700b0e82ea24dbfb045098745555b4122f62944efbf16273"
+    },
+    {
+      "path": "hybrid-package.json",
+      "bytes": 4734,
+      "sha256": "fcdac9e0c4d27fcdf5d73112ef91fc6e1ed7a5f61cfefacb724152bd3bb3f575"
+    },
+    {
+      "path": "hybrid-preserved-browser-bundle.js",
+      "bytes": 254729,
+      "sha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b"
+    },
+    {
+      "path": "hybrid-preserved-browser-metafile.json",
+      "bytes": 340764,
+      "sha256": "43fe73b12d99b3005ac77cc55580f12d126768438bce9d7882dfb13d54705207"
+    },
+    {
+      "path": "hybrid-preserved-browser-minimal-bundle.js",
+      "bytes": 242104,
+      "sha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3"
+    },
+    {
+      "path": "hybrid-preserved-browser-minimal-metafile.json",
+      "bytes": 332300,
+      "sha256": "846be3b91a6a36c7c6316630c2e3b896ccbde2b16c9927b220379c417ca10c39"
+    },
+    {
+      "path": "hybrid-preserved-node-bundle.js",
+      "bytes": 51233,
+      "sha256": "d1c838e9264fe787d2675865919f2162a5296f9ba2fac18605351785b132d7d9"
+    },
+    {
+      "path": "hybrid-preserved-node-metafile.json",
+      "bytes": 91800,
+      "sha256": "c8f2d901d2308a523701af17de4e167041de54d886ece576582c4a67fc023a0a"
+    },
+    {
+      "path": "hybrid-preserved-node-minimal-bundle.js",
+      "bytes": 48380,
+      "sha256": "620dc748b84d8e4b6d86cb270de62915198e9d86ff7b63cf062c8012e7b248d5"
+    },
+    {
+      "path": "hybrid-preserved-node-minimal-metafile.json",
+      "bytes": 90761,
+      "sha256": "50d63af84ce0cf8b497abd3ce95994b5e4c4304c66a9b68ae4558e136015e441"
+    },
+    {
+      "path": "hybrid-preserved-package.json",
+      "bytes": 4803,
+      "sha256": "f138a2a05a35a4f646f9eafbfaa52c02901537cd4a54c9fce9d5b3e8c69aa340"
+    },
+    {
+      "path": "hybrid-preserved-shrinkwrap.json",
+      "bytes": 145128,
+      "sha256": "3770b65cec3fd1bb96de63b35fd1b060eb9778f3af8f98e8ae6a29fa9fbe0037"
+    },
+    {
+      "path": "hybrid-shrinkwrap.json",
+      "bytes": 144013,
+      "sha256": "6e1c948676bc0c02caa7c7a370427fa5d194f24d7d635243fd33e1a5e47d0eb8"
+    },
+    {
+      "path": "logs/atseq-oauth-atcute-ci.log",
+      "bytes": 26,
+      "sha256": "1cdc760bdb3c4342b0c48dc244bd09b85ed5d95f16be701853eca4bf79601724"
+    },
+    {
+      "path": "logs/atseq-oauth-atcute-install.log",
+      "bytes": 28,
+      "sha256": "c888d9a392077a55ee285bdcf595a214fddf75c6e234868e41df018fae9ee763"
+    },
+    {
+      "path": "logs/atseq-oauth-browser-probe-attempt2.log",
+      "bytes": 682,
+      "sha256": "0670fc467a544ed4ac93dd32c033710d703e5e5c60180ec2e09d5528ae428044"
+    },
+    {
+      "path": "logs/atseq-oauth-browser-probe-final.log",
+      "bytes": 1365,
+      "sha256": "33cc7aacd8753a67aedb7b9d2eed44739c4a619992ab886f8961ea43d583c0de"
+    },
+    {
+      "path": "logs/atseq-oauth-browser-probe.log",
+      "bytes": 454,
+      "sha256": "bafdaf3898782ce20e747a58faeb4e9de1fc28cb98cb92da986ed5fb62bcff37"
+    },
+    {
+      "path": "logs/atseq-oauth-browser-storage-final.log",
+      "bytes": 762,
+      "sha256": "8644320ae887c66292cbc1defb47b9a5c2ac5dfe4623609e54c8c77999739811"
+    },
+    {
+      "path": "logs/atseq-oauth-browser-storage-probe-final.log",
+      "bytes": 762,
+      "sha256": "8644320ae887c66292cbc1defb47b9a5c2ac5dfe4623609e54c8c77999739811"
+    },
+    {
+      "path": "logs/atseq-oauth-browser-storage.log",
+      "bytes": 509,
+      "sha256": "3b9b861500a4193565fd64a2c28f2f12c7da4cb2c3018aa4970400c37bb90657"
+    },
+    {
+      "path": "logs/atseq-oauth-bundle-final.log",
+      "bytes": 2474,
+      "sha256": "09c655cd2f289aa30c366de35623ff3f68185959c20f6031b1634bd58c207ef5"
+    },
+    {
+      "path": "logs/atseq-oauth-bundle.log",
+      "bytes": 2474,
+      "sha256": "09c655cd2f289aa30c366de35623ff3f68185959c20f6031b1634bd58c207ef5"
+    },
+    {
+      "path": "logs/atseq-oauth-final-format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "logs/atseq-oauth-final-format.log",
+      "bytes": 117,
+      "sha256": "7fe7ac85806deca464c4bbe627d68d8ee3061426c3b30b782ef620209b09af3e"
+    },
+    {
+      "path": "logs/atseq-oauth-format.log",
+      "bytes": 316,
+      "sha256": "3e6f5c7e0ed6d571e9d9c08db64420b2bbde92089437d9d732faf3b7b6e52269"
+    },
+    {
+      "path": "logs/atseq-oauth-foundation-ci.log",
+      "bytes": 26,
+      "sha256": "1cdc760bdb3c4342b0c48dc244bd09b85ed5d95f16be701853eca4bf79601724"
+    },
+    {
+      "path": "logs/atseq-oauth-graph-final.log",
+      "bytes": 12739,
+      "sha256": "a25e9e4c9760f1474684aeb7c449af3b22f56d1f63170b2442cf8056725f792c"
+    },
+    {
+      "path": "logs/atseq-oauth-graph.log",
+      "bytes": 12739,
+      "sha256": "a25e9e4c9760f1474684aeb7c449af3b22f56d1f63170b2442cf8056725f792c"
+    },
+    {
+      "path": "logs/atseq-oauth-hybrid-ci.log",
+      "bytes": 26,
+      "sha256": "1cdc760bdb3c4342b0c48dc244bd09b85ed5d95f16be701853eca4bf79601724"
+    },
+    {
+      "path": "logs/atseq-oauth-hybrid-install.log",
+      "bytes": 49,
+      "sha256": "8f038d6c6761309088f54f7a55833d0b73e608b040c954d82856ce9e138c8829"
+    },
+    {
+      "path": "logs/atseq-oauth-hybrid-preserved-ci.log",
+      "bytes": 26,
+      "sha256": "1cdc760bdb3c4342b0c48dc244bd09b85ed5d95f16be701853eca4bf79601724"
+    },
+    {
+      "path": "logs/atseq-oauth-hybrid-preserved-install.log",
+      "bytes": 25,
+      "sha256": "95f6e6dea316ca05833964f1b295ccc8730ffc75f00369541ccfce4dfb17fc22"
+    },
+    {
+      "path": "logs/atseq-oauth-manifest-format.log",
+      "bytes": 52,
+      "sha256": "8ad0fd63e916a7e0fd6a1ba14f9806c27ed301db26769b2c7d9a8163c4e4fc4f"
+    },
+    {
+      "path": "logs/atseq-oauth-manifest.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/atseq-oauth-node-current-final.log",
+      "bytes": 748,
+      "sha256": "2dd933b37487d51bfe2bf6912b6e5df2548beb6470111b334dbcfe1b12e387da"
+    },
+    {
+      "path": "logs/atseq-oauth-node-current.log",
+      "bytes": 748,
+      "sha256": "2dd933b37487d51bfe2bf6912b6e5df2548beb6470111b334dbcfe1b12e387da"
+    },
+    {
+      "path": "logs/atseq-oauth-node-floor-final.log",
+      "bytes": 748,
+      "sha256": "1847b8a788d6f7af56be732b707866cb51c09ec4cc0494cc2508b10a05a33e3e"
+    },
+    {
+      "path": "logs/atseq-oauth-node-floor.log",
+      "bytes": 748,
+      "sha256": "1847b8a788d6f7af56be732b707866cb51c09ec4cc0494cc2508b10a05a33e3e"
+    },
+    {
+      "path": "logs/atseq-oauth-node-probe-final.log",
+      "bytes": 454,
+      "sha256": "c2bde8def8e01a5ee08377a55bf18303cc3aace9aa5163cc1e9f5864830da1d1"
+    },
+    {
+      "path": "logs/atseq-oauth-node22-version.log",
+      "bytes": 9,
+      "sha256": "c2c2fa5216720772107a091a7bdc2b12a2ea492d41f94568aa56074f981625c5"
+    },
+    {
+      "path": "logs/atseq-oauth-note-format.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/atseq-oauth-official-ci.log",
+      "bytes": 26,
+      "sha256": "1cdc760bdb3c4342b0c48dc244bd09b85ed5d95f16be701853eca4bf79601724"
+    },
+    {
+      "path": "logs/atseq-oauth-official-install.log",
+      "bytes": 49,
+      "sha256": "4ecf89eecd8d0eb4ca9b69a48d28c4959f0cfe2b690ac31e5243b2adcd152ae1"
+    },
+    {
+      "path": "logs/atseq-oauth-official-preserved-ci.log",
+      "bytes": 26,
+      "sha256": "1cdc760bdb3c4342b0c48dc244bd09b85ed5d95f16be701853eca4bf79601724"
+    },
+    {
+      "path": "logs/atseq-oauth-official-preserved-install.log",
+      "bytes": 25,
+      "sha256": "81b77ac18354646f4e35764bf083ef52c6b5fc1b2f7d6a7863ae25631859d208"
+    },
+    {
+      "path": "logs/atseq-oauth-readme-format.log",
+      "bytes": 53,
+      "sha256": "acbab73c3d422e458ad99b7eba1ecf3b5c85b025c3390b38ff5be0b024ee2c35"
+    },
+    {
+      "path": "logs/atseq-oauth-source-capture.log",
+      "bytes": 920,
+      "sha256": "bb90e2d8e56c43efe4c374371e063bda53d8a0da2eb0491684c7e5369e63eeac"
+    },
+    {
+      "path": "logs/atseq-oauth-tools-ci.log",
+      "bytes": 95,
+      "sha256": "2929e7e836e0c7d160b00b5ee979409b0b83eb63b40db5d114abae16fdd2bb15"
+    },
+    {
+      "path": "logs/atseq-oauth-validation-final.log",
+      "bytes": 27,
+      "sha256": "507256797bc3f83b7888404dbaa6e7675acc213b02df4ff1297c1c0cc9c758e2"
+    },
+    {
+      "path": "logs/atseq-oauth-validation-format.log",
+      "bytes": 53,
+      "sha256": "0c72579204bf8f4e9f30f8a486938f5b5123b977d1dfcb0ffd4d3f55fc0cd9b3"
+    },
+    {
+      "path": "logs/atseq-oauth-validation.log",
+      "bytes": 27,
+      "sha256": "507256797bc3f83b7888404dbaa6e7675acc213b02df4ff1297c1c0cc9c758e2"
+    },
+    {
+      "path": "node-current.json",
+      "bytes": 1511,
+      "sha256": "5995ffa44aef8edcaf0725416e30da15ff74d2c6446b12f9eb1b38dc93f3cf2b"
+    },
+    {
+      "path": "node-engines.json",
+      "bytes": 77099,
+      "sha256": "7b54f5e19ec84f83ef44d1dab4e8cbca682ab8035c5f1d675d6f5f50b3955dc3"
+    },
+    {
+      "path": "node-floor.json",
+      "bytes": 1511,
+      "sha256": "823977792c15254a623303bb9c96dffc2e7866f4288636818e5126be2f6950ad"
+    },
+    {
+      "path": "official-browser-bundle.js",
+      "bytes": 254729,
+      "sha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b"
+    },
+    {
+      "path": "official-browser-metafile.json",
+      "bytes": 327436,
+      "sha256": "6a213d338b065f332cce392c337405c20e54c932cf470e7197fd6eaad253f224"
+    },
+    {
+      "path": "official-browser-minimal-bundle.js",
+      "bytes": 242104,
+      "sha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3"
+    },
+    {
+      "path": "official-browser-minimal-metafile.json",
+      "bytes": 319052,
+      "sha256": "d5d1c835be6f621e7fa2360b026da65193e65ae969f8ebf37b6e8bdce7c4a43a"
+    },
+    {
+      "path": "official-browser-registry.json",
+      "bytes": 8190,
+      "sha256": "fb510e8ff594b663a06ffe16f46d17d4abbea35b519dd7915ff8cb047ee8b58a"
+    },
+    {
+      "path": "official-node-bundle.js",
+      "bytes": 1767579,
+      "sha256": "7caa013214b5db3657e6c5f8f01fb4a93f361b961c2b3362799bd9491bc79c40"
+    },
+    {
+      "path": "official-node-metafile.json",
+      "bytes": 739774,
+      "sha256": "932e098b4c4d5fc09ed0a3943b4c93f3a809caee0d81bd0b399562e700785fca"
+    },
+    {
+      "path": "official-node-minimal-bundle.js",
+      "bytes": 1754142,
+      "sha256": "23ffd7e452abe20912873594450b5f35c6e8e31fe0613976ef94f590a701bf38"
+    },
+    {
+      "path": "official-node-minimal-metafile.json",
+      "bytes": 731369,
+      "sha256": "2a80a11c8ba85c4b5063233b4bb1f79d8e6d6fb763f183d36d26bc70f4f73af9"
+    },
+    {
+      "path": "official-node-registry.json",
+      "bytes": 8135,
+      "sha256": "91bc0f0783d506eceed062b4a17f1661e2bdf923f15f95a4075b56f3fead9f89"
+    },
+    {
+      "path": "official-package.json",
+      "bytes": 4735,
+      "sha256": "fad242b90a59a4dc68fc3525b08330a0c525b776d007881dc2751501742dee15"
+    },
+    {
+      "path": "official-preserved-browser-bundle.js",
+      "bytes": 254729,
+      "sha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b"
+    },
+    {
+      "path": "official-preserved-browser-metafile.json",
+      "bytes": 344096,
+      "sha256": "556852aed6229caa56eeceed8e85961e00323c3c05bb3a44b3cdfb89a09d62a8"
+    },
+    {
+      "path": "official-preserved-browser-minimal-bundle.js",
+      "bytes": 242104,
+      "sha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3"
+    },
+    {
+      "path": "official-preserved-browser-minimal-metafile.json",
+      "bytes": 335612,
+      "sha256": "fcf0858f34818322ab651ddf5261ea6325911231c26111c009105db319cd3d07"
+    },
+    {
+      "path": "official-preserved-node-bundle.js",
+      "bytes": 1767579,
+      "sha256": "7caa013214b5db3657e6c5f8f01fb4a93f361b961c2b3362799bd9491bc79c40"
+    },
+    {
+      "path": "official-preserved-node-metafile.json",
+      "bytes": 774914,
+      "sha256": "d0dd1ee044b80229a5873f9bef906cd0b023f9094b13ce09aa3285028b70d741"
+    },
+    {
+      "path": "official-preserved-node-minimal-bundle.js",
+      "bytes": 1754142,
+      "sha256": "23ffd7e452abe20912873594450b5f35c6e8e31fe0613976ef94f590a701bf38"
+    },
+    {
+      "path": "official-preserved-node-minimal-metafile.json",
+      "bytes": 766399,
+      "sha256": "11094e41e396fe18fe679ed8e1c0f6b476b9887d1548586177fff9df858e1060"
+    },
+    {
+      "path": "official-preserved-package.json",
+      "bytes": 4804,
+      "sha256": "1a1451dfd44a3829d0ceef30b7f9b6d7643e3e12157e0da64cd80a6fdaf5b61e"
+    },
+    {
+      "path": "official-preserved-shrinkwrap.json",
+      "bytes": 145494,
+      "sha256": "6cb44231fc8007012e24622851957ed1a889c1a0e25f794479dad0ddcff73bb4"
+    },
+    {
+      "path": "official-shrinkwrap.json",
+      "bytes": 144379,
+      "sha256": "1f4357aaa26e64fea64c8dc2ca21594a64feb46eed7b0b6edc1a382f46115786"
+    },
+    {
+      "path": "published-sources.json",
+      "bytes": 8349,
+      "sha256": "5275148a031174d357686354d0bc00feeebb52a1226bfca4e2fa6e631a3af832"
+    },
+    {
+      "path": "published/atcute-identity-resolver-2.0.2-registry.json",
+      "bytes": 2135,
+      "sha256": "9f20b2250973ab9b658a46c27368a7737d22beefd9eafd29ae1597bc98365196"
+    },
+    {
+      "path": "published/atcute-identity-resolver-2.0.2.tgz",
+      "bytes": 8130,
+      "sha256": "0bfc9e90929858ca91455fcf6dd375af29b3dfab1f5272bd86d9dc3ceed2e484"
+    },
+    {
+      "path": "published/atcute-oauth-browser-client-5.1.0-registry.json",
+      "bytes": 2083,
+      "sha256": "b4f29c48dbbe25f1834c56915443e5d3f8e75fc257212abf20ce592b3eff669a"
+    },
+    {
+      "path": "published/atcute-oauth-browser-client-5.1.0.tgz",
+      "bytes": 18777,
+      "sha256": "2d39ceae84985ce25daf02fb5888b5b6e1f4b29d5ccea20f9ada42dfbef47abd"
+    },
+    {
+      "path": "published/atcute-oauth-crypto-1.0.1-registry.json",
+      "bytes": 1702,
+      "sha256": "926aa885d8303340ad34976a66725dd1ce322035499406c220f447a08e822830"
+    },
+    {
+      "path": "published/atcute-oauth-crypto-1.0.1.tgz",
+      "bytes": 11115,
+      "sha256": "29800ebe250327b5e8aeec9f3a5ef5e2aadec1150edb1dafce5a6c6629fdb195"
+    },
+    {
+      "path": "published/atcute-oauth-node-client-2.0.1-registry.json",
+      "bytes": 2111,
+      "sha256": "d99536ea66959c9ce98e6b713b22a5e60f3a0ae4b7feb6cbaaa4284d4e96be0f"
+    },
+    {
+      "path": "published/atcute-oauth-node-client-2.0.1.tgz",
+      "bytes": 26362,
+      "sha256": "851fde4607dd8d770a244e72ae2ce38df73a2561e3bb0b01b9d2fe49496936b1"
+    },
+    {
+      "path": "published/atcute-oauth-types-1.0.1-registry.json",
+      "bytes": 1710,
+      "sha256": "22b352a83c2242de238fb8fb3ee8c8c39162980ec039efd0b5baf738aa90027d"
+    },
+    {
+      "path": "published/atcute-oauth-types-1.0.1.tgz",
+      "bytes": 30615,
+      "sha256": "9876edacaf2946ff03c40026f9b9c8f00720161fe0318c97c921dd921343a6f8"
+    },
+    {
+      "path": "published/atcute-util-fetch-2.0.2-registry.json",
+      "bytes": 1559,
+      "sha256": "6e80858a0363c1658d0200c0564ea1b8be61c33956e297c45ae52df2d1658f78"
+    },
+    {
+      "path": "published/atcute-util-fetch-2.0.2.tgz",
+      "bytes": 4544,
+      "sha256": "44439b47dbf1564a5591dd92b75f6c8e786387b4da884b8093d226f9b5155707"
+    },
+    {
+      "path": "published/atproto-jwk-jose-0.2.4-registry.json",
+      "bytes": 2347,
+      "sha256": "e477f5ec996dd6170c799023901b03b903e3734846fac3248e418f74d8840706"
+    },
+    {
+      "path": "published/atproto-jwk-jose-0.2.4.tgz",
+      "bytes": 8843,
+      "sha256": "0f90653bbc06f7fd51b68a5073c39c41b226b2821484d4d6019c3a387b0cc85f"
+    },
+    {
+      "path": "published/atproto-jwk-webcrypto-0.3.4-registry.json",
+      "bytes": 2426,
+      "sha256": "630ea2b07a098479471d1adfd0fcc442f33e8dbe9d21f0829fa95de1b7044c1e"
+    },
+    {
+      "path": "published/atproto-jwk-webcrypto-0.3.4.tgz",
+      "bytes": 6910,
+      "sha256": "2096d481bb3e6a0f2706384ecb15a1cd7b5cf05455b13ff7e89be835903feefd"
+    },
+    {
+      "path": "published/atproto-labs-identity-resolver-0.4.10-registry.json",
+      "bytes": 2613,
+      "sha256": "2c4434295368983caf75390c84729393b6881f708ca0c78377b2b6e4c3841080"
+    },
+    {
+      "path": "published/atproto-labs-identity-resolver-0.4.10.tgz",
+      "bytes": 9592,
+      "sha256": "321c45da74f2c9829c864c2d42b552c5f6e80fbd6349d7d9e3a1e6a2f8b4779e"
+    },
+    {
+      "path": "published/atproto-oauth-client-0.8.8-registry.json",
+      "bytes": 3195,
+      "sha256": "8c41f99afb0666b62761101559ed3e288cf0fa2f187dc47eed2081b0a3444755"
+    },
+    {
+      "path": "published/atproto-oauth-client-0.8.8.tgz",
+      "bytes": 89819,
+      "sha256": "807d0495d84de761d4e5b42d122d46c815db253c687b80113ec9caf123bca2cd"
+    },
+    {
+      "path": "published/atproto-oauth-client-browser-0.5.8-registry.json",
+      "bytes": 3000,
+      "sha256": "7fa82ea2a6250317c03de0b338d9c52728beea62425864d985ec3e06a83062ec"
+    },
+    {
+      "path": "published/atproto-oauth-client-browser-0.5.8.tgz",
+      "bytes": 43658,
+      "sha256": "89d16ec615d7cc7b2f055cb6858b35fdbe1c79dbe43c1e11deb0660684fc21bc"
+    },
+    {
+      "path": "published/atproto-oauth-client-node-0.5.8-registry.json",
+      "bytes": 2911,
+      "sha256": "95b9ff0940c65f16111bdd0ebd1e614f0f080bee1e6e6af6745d4471b94fe5cb"
+    },
+    {
+      "path": "published/atproto-oauth-client-node-0.5.8.tgz",
+      "bytes": 16041,
+      "sha256": "60ef3ea87ef404553fb518cf0bb2224c7f6a5bd4b5798829eb7c4ca4e78a092e"
+    },
+    {
+      "path": "published/atproto-oauth-types-0.7.7-registry.json",
+      "bytes": 2599,
+      "sha256": "4feed6e74950bdb06cdd3f51908e98cf18d11f56fac32615618c9b79415cd98a"
+    },
+    {
+      "path": "published/atproto-oauth-types-0.7.7.tgz",
+      "bytes": 67019,
+      "sha256": "fa83e08be23eaff601fac5adf4ce88be04a289c908b79ec8260ab817c8ee241c"
+    },
+    {
+      "path": "published/jose-5.10.0-registry.json",
+      "bytes": 16428,
+      "sha256": "e543b9ec7685d5a09cb741aabadb8535f55cd38ffa905f521cfc585f30f2445c"
+    },
+    {
+      "path": "published/jose-5.10.0.tgz",
+      "bytes": 72963,
+      "sha256": "fc569215dfb7214d7d4a35fe7367377e071269fe9700bde5d6a8aa7213234691"
+    }
+  ],
+  "limits": [
+    "Public registry downloads and loopback synthetic browser probes only; no live credentials or provider communication",
+    "A global fetch sentinel is an isolated observation tool, not an adopted production seam",
+    "No production implementation, family decision, build/full-suite/provider acceptance or performance measurement"
+  ]
+}

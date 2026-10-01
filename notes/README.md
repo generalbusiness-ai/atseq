@@ -51,6 +51,8 @@ and discussion summaries. Frontmatter "status" should be maintained.
 | [Checkpoint bytes](2026-10-01-atseq-checkpoint-policy-bytes.md) | Reviewed simplifications adopted; joint schemas/vectors open | Native-publication assertions, local reader mode, fixed-target audit and directed restore equivalence |
 | [Selective captures](2026-10-01-atseq-selective-captures-results.md) | Independently reviewed and shipped | Compact owned query/status/receipt reads and remaining full persistence costs |
 | [Account enrolment](2026-10-01-atseq-account-enrolment-design.md)          | Corrected design adopted; client costs/provider trials pending      | Atomic first epoch/grant, scoped OAuth and distinct device/account/control keys                         |
+| [OAuth client comparison](2026-10-01-atseq-oauth-client-comparison.md) | Historical measured recommendation; subsequent decision adopted | Actual installed closures, import bundles, guarded network hooks and credential storage |
+| [OAuth review disposition](2026-10-01-atseq-oauth-client-review-disposition.md) | Both official clients adopted with C1–C6; implementation open | Separate credential custody origin, callback/lock requirements and lazy adapter import |
 | [State/effects options](2026-10-01-atseq-effects-transaction-options.md)   | Complete state remains default; effects decision conditional        | Supported cap, evidence-led alternatives and concurrent compact read improvements                      |
 
 The architecture and spike plan are companions. Read the architecture for the

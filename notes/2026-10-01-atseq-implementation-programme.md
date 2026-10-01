@@ -182,6 +182,14 @@ reviewed outer-shape simplifications: local reader mode, version-implied native
 publication, derived pending history and no duplicated constant claims. Joint
 closed row schemas and literal native payload vectors remain gates. These designs are not shipped native ordering or persistence.
 
+The [OAuth comparison](2026-10-01-atseq-oauth-client-comparison.md) measures
+installed closure, standalone bundles and actual browser transport/storage hooks.
+The [review disposition](2026-10-01-atseq-oauth-client-review-disposition.md) adopts
+both official clients as one family, with isolated credential custody, guarded
+network edges, unconditional callback issuer/expected DID, bounded single-use
+transactions, shared locks and lazy enrolment/session imports. Neither lazy-load
+startup benefit nor provider success has been established.
+
 P2/P3/P4, R1, A1/A2, E1 and T1 remain open. Account reuse needs pair-scoped state,
 collection-scoped OAuth publication and demonstrated provider behavior; dedicated
 accounts are recommended for production or busy repositories. Native ordering
