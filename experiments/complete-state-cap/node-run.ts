@@ -31,6 +31,7 @@ const files = [
   'experiments/complete-state-cap/node-run.ts',
   'experiments/complete-state-cap/browser.ts',
   'experiments/complete-state-cap/browser-run.mjs',
+  'experiments/complete-state-cap/functional-run.ts',
   'src/core/values.ts',
   'src/core/profile.ts',
   'src/definition/load.ts',

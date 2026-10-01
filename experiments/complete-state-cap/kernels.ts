@@ -38,6 +38,8 @@ export async function admitFixture(fixture: CapFixture) {
   const bounded = definition.manifest.actions.find((x) => x.ref === fixture.boundedAction.ref)!;
   const query = definition.manifest.queries.find((x) => x.name === 'summary')!;
   if (!grow || !bounded || !query) throw new Error('Missing fixture bindings');
+  definition.schemas.validate(grow.ref, fixture.growingAction.payload);
+  definition.schemas.validate(bounded.ref, fixture.boundedAction.payload);
   const meta = { app: 'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', position: 1, actorKey: '', definition: definition.cid };
   const growInput = { meta, act: fixture.growingAction.payload, state: fixture.predecessor };
   const boundedInput = { meta, act: fixture.boundedAction.payload, state: fixture.state };
