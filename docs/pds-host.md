@@ -116,6 +116,27 @@ unmodified upstream packages remain pinned so results can be reproduced.
 `@atcute/car` 6.0.2, added to the root package for standard CAR reading, uses
 the BSD Zero Clause license.
 
+The disposable PDS child receives an explicit environment allowlist containing
+only OS executable/temp paths, fixed `TZ=UTC`, disabled logging and
+`OTEL_SDK_DISABLED=true`. It inherits no `OTEL_*` exporter settings, Jaeger
+settings, `NODE_OPTIONS`, account/service configuration or caller credentials.
+This controls fixture configuration; it does not sandbox network access.
+
+The pinned mock PLC runs in the test/development runner. Its library entry and
+bundled dependencies do not start a telemetry SDK; the helper never mutates the
+runner's global environment. Use an ordinary Node runner with no externally
+preloaded telemetry instrumentation. If a caller preloads its own SDK or
+instrumentation through `NODE_OPTIONS`, `--import`, `--require` or application
+code, that caller must control its exporters before starting this runner. The
+helper cannot disable an SDK already installed in the parent process.
+
+`npm run dev:app` uses this same reference fixture. Keep both services on loopback
+and use only synthetic accounts and test data. Never expose this demo fixture
+publicly or use real accounts: it disables SSRF protection and rate limits and
+retains local test state. This is separate from provisioning a production PDS.
+The [telemetry results](../notes/2026-10-01-atseq-fixture-telemetry-results.md)
+record the inherited-exporter regression and the precise runner boundary.
+
 Only a PDS `RecordNotFound` response is classified as missing source. Other
 PDS failures report `content_unavailable`; missing physical blobs are not
 proof that a source retention record is absent. Hashes are checked before size
