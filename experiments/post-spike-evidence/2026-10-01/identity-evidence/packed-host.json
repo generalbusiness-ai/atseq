@@ -1,0 +1,9 @@
+{
+  "node": "v26.10.0",
+  "builtinUndici": "8.10.2",
+  "selectedAgentAlias": "undici_v8",
+  "selectedInstalledVersion": "8.11.2",
+  "selectedEntry": "/Users/hughpyle/play/atseq-worktrees/identity-evidence/.atseq-local/i1-packed-host/node_modules/atseq/node_modules/undici_v8/index.js",
+  "compiledPrivateEndpointCases": 6,
+  "standaloneTypescriptInstalled": false
+}

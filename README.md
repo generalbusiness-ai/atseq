@@ -113,7 +113,7 @@ boundaries, including the participant identity limit noted above.
 
 ## Try an application
 
-Use Node 22.13 or later; the retained acceptance run used Node 26.10.0.
+Use Node 22.19 or later; the retained acceptance run used Node 26.10.0.
 From this checkout:
 
 ```sh

@@ -7,6 +7,8 @@ import { execFileSync } from 'node:child_process';
 import approved from '../core/dependencies-approved.json' with { type: 'json' };
 import files from './files-approved.json' with { type: 'json' };
 import { InterpretationError } from '../core/errors.ts';
+import { isNonExecutedPeer } from '../core/dependency-peers.ts';
+import { assertNoTypePeerRuntimeEdge } from './type-peer.ts';
 
 export const packageRoot = resolve(
   dirname(fileURLToPath(import.meta.url)),
@@ -135,6 +137,12 @@ function checkInstalledDependencies(force = false, installationRoot = root): voi
       ...Object.keys(actual.optionalDependencies ?? {}),
       ...Object.keys(actual.peerDependencies ?? {}),
     ]) {
+      if (isNonExecutedPeer(actual, name)) {
+        for (const file of Object.keys(tree))
+          if (/\.[cm]?js$/.test(file))
+            assertNoTypePeerRuntimeEdge(readFileSync(resolve(installationRoot, path, file), 'utf8'), file);
+        continue;
+      }
       const target = resolvedPackage(path, name, installationRoot);
       if (target && !packages.has(target)) fail(`Unapproved resolved optional/peer dependency: ${path} -> ${name}`);
       if (target) edges.push({ parent: path, name, target });

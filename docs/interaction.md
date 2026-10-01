@@ -88,7 +88,7 @@ complete archive import are S6 work; a service worker is not claimed here.
 
 ## JSON CLI adapter
 
-Use Node 22.13 or later. An existing agent harness writes source files and invokes
+Use Node 22.19 or later. An existing agent harness writes source files and invokes
 one JSON request on stdin. The CLI prints one JSON `{ok,result}` or `{ok:false,
 error}` response and uses a nonzero exit for errors. It hosts no model or chat.
 Keep key and intent files outside the source folder and out of version control.

@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-01",
+  "runtimeSourceHead": "1106015a6217a5321608278f061fad8d5faac296",
+  "originalCandidate": "412b0c9b83c921c86f95d847dabbba381767d783",
+  "originalRuntimeSource": "fb5acd9ac3876de93917348e3ac12e080a885ef0",
+  "originalSuiteBaseline": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "reviewedMainIntegrated": [
+    "2a6870cadecbd89bb12d8a38c088282cf3202ef4",
+    "781732f47f02d26332942147bfbe8f4e95526231"
+  ],
+  "request": "de0005d38cad97ebb2fef942da7b561d761a8c00",
+  "promise": "ed59da3dc3e1a0f5c09d85030141264341191601",
+  "independentRejection": "d1d1d9a9ca7d82b15a5befccd9c9163ceba5eab2",
+  "regressions": [
+    {
+      "head": "5e7d84463371e4d64e68228c3759086b6bc003d6",
+      "command": "node scripts/source-run.mjs --test tests/identity-fetch.test.ts tests/identity-evidence.test.ts",
+      "passed": 2,
+      "failed": 3,
+      "log": "regression-red.log",
+      "actualHttpTruncation": {
+        "receivedBytes": 1000,
+        "error": "TypeError: terminated",
+        "causeCode": "UND_ERR_SOCKET"
+      }
+    },
+    {
+      "head": "f19c37ce8b86efca727630fad07b0a3f01f49fee",
+      "command": "node scripts/source-run.mjs --test --test-name-pattern='known mid-body' tests/identity-fetch.test.ts",
+      "passed": 0,
+      "failed": 1,
+      "log": "response-length-red.log"
+    }
+  ],
+  "sourceHashes": {
+    "src/host/identity-fetch.ts": "262a7e2c4512359a6757b362bce0d8a847e02dbbc9e7b95345632a7feee3a416",
+    "src/protocol/identity-binding.ts": "f485f06544cbb17ec5fc7a2cc11ac5f2d1bd574020386d67e4e50363bf9db806",
+    "tests/identity-fetch.test.ts": "83e0a76e59d6bf6d1f09235906a2ecd1969b4b33caca4ba1da33fa0cbf8e1abe",
+    "tests/support/identity-corpus.ts": "9d0e40b8b376ca827143250fbfb7a6eb1d8f4d6b0ee503845f494de8c1afc8c6",
+    "tests/package.test.ts": "1c05298b406957a73b6c303d38ae1153ae0337ed1cf0f167a4bc0d862cae70af",
+    "src/integrity/type-peer.ts": "ae4f26a70b2be354abedb2045bb55f80acfe3c5dc07c07fa1fcd6e3c3e96ddfb",
+    "src/core/dependency-peers.ts": "6b308d8fdca98081f6f40248789871046f08a55d2af5b61591508b75109f9d92",
+    "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "src/core/dependencies.ts": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4",
+    "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "src/integrity/files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149",
+    "src/core/contracts.ts": "376d27a2dfcb2cd902f4181642c983f94cc33d76d6c38fc64170cc1768e9613e"
+  },
+  "retainedHashes": {
+    "regression-red.log": "a0df85ecde5bd70459270c7321663466866c4e9a45479e55a2fdd30d098be751",
+    "response-length-red.log": "b7e8a50d67e78e0cc90f14756041bc9d3676a8be63963d9b257344a1146c35a8",
+    "node26-focused.log": "d0ceef859d312bfd24664035df8a84b2b9626c1c7a55e5d8ae14fb3e2e35d771",
+    "chromium.log": "5825a296d1aa1d8b36a844364553db9660b1d9a4af230ade2e53c542b79a9ecb",
+    "runtime.log": "49b0541b0d804582ad7d54fce9f156839d8424e0a139dfc010a323b7eda8327b",
+    "package.log": "b460c9abfe5665855de10025340c74e41073a37a2d2eddb6577ca398baebb701",
+    "build.log": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+    "check.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "notices.log": "58df9d08115e0915a3d23ad7f32d451422ec0c1e9db5aa70505012349216fb91",
+    "pds-install.log": "7e4b4cf6946de35e0367b5fd62d457f5de097efe5d2d84f3a38e4edbe9f11df1",
+    "semantic-profiles.json": "64d4a992b00d27835071d4cc0d2bdd40c42f9ac37b9b691644cd8ddb003c31fc",
+    "chromium-corpus.json": "a7a6eaf827f718047cbd7c8262f44dfea944b688de6981a5ddc1c153518144f8",
+    "runtime-results.json": "6bccd4c0e6a8f320902a3286690cc44bb7608f8d30f63e1017907f936d70e135",
+    "compiled-package-conformance.json": "0dbff3576a76d87b221c773775f7ca769d548886e15b1db75c8cc2773a152a18",
+    "build-provenance.json": "1b239ee259a2aaf78db025252e3883ae75eb7034762d49e6b9480f9f14f25c75"
+  },
+  "maintainedSourceBasis": {
+    "node_modules/undici_v8/lib/web/fetch/index.js": "8269824463f434e3e15c5aad090e03f19aefe9d27b40efad9d8ef7ed308d1d27",
+    "node_modules/undici_v8/lib/core/errors.js": "47c1e438402a802f5132da4a2084e1294ad3fd1496f8f7b47117292165c17fd9",
+    "node_modules/undici_v8/lib/dispatcher/client-h1.js": "e8eb930546e7f7755471c75069878e3584b50f2c9ec8468fc8f2a1d236dab9a4",
+    "node_modules/undici_v8/lib/dispatcher/client-h2.js": "2f848e5316242e9babf3f9fa81657e0b2b3f58b081b6c41585b19f536c3a9435",
+    "node_modules/@atproto/common-web/dist/did-doc.js": "623535cb315205e1abf5a24c5f04ac58400d3a59cc92bac1e55c96e6bc414ad1"
+  },
+  "unchangedFromOriginalCandidate": [
+    "package.json",
+    "npm-shrinkwrap.json",
+    "tests/support/pds/package-lock.json",
+    "src/core/dependencies.ts",
+    "src/core/dependencies-approved.json",
+    "src/integrity/files-approved.json",
+    "src/core/contracts.ts",
+    "src/core/profile.ts"
+  ],
+  "runtimePaths": 147,
+  "semanticContracts": [
+    {
+      "name": "atseq-log-v2",
+      "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+      "role": "log"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+      "role": "evaluator"
+    },
+    {
+      "name": "atseq-app-v2",
+      "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+      "role": "application"
+    }
+  ],
+  "gates": [
+    {
+      "command": "node scripts/source-run.mjs --test tests/identity-fetch.test.ts tests/identity-evidence.test.ts tests/type-peer.test.ts",
+      "passed": 7,
+      "failed": 0,
+      "log": "node26-focused.log",
+      "identityCases": 60,
+      "mockKnownTransportCases": 4,
+      "preservedOriginalFaultCases": 5,
+      "consumedFailedBodyBytes": 27,
+      "realTruncatedHttpBytes": 1000
+    },
+    {
+      "command": "node scripts/source-run.mjs --test tests/identity-evidence-browser.test.ts",
+      "passed": 1,
+      "failed": 0,
+      "log": "chromium.log",
+      "identityCases": 60,
+      "publicSharedFixtures": 2,
+      "chromium": "153.0.8010.12",
+      "bundleBytes": 570484,
+      "bundleSha256": "351305d439d0c615c5e1b17d348e294eff6a086c1b641da8a6012f4b67c94d5f",
+      "hostRuntimeModules": []
+    },
+    {
+      "command": "node scripts/source-run.mjs --test tests/runtime.test.ts",
+      "passed": 73,
+      "failed": 0,
+      "log": "runtime.log",
+      "nodeCases": 72,
+      "chromiumWorkerCases": 72
+    },
+    {
+      "command": "node scripts/source-run.mjs --test tests/package.test.ts",
+      "passed": 1,
+      "failed": 0,
+      "log": "package.log",
+      "compiledCases": 219,
+      "identityCases": 60,
+      "allCompiledPassed": true,
+      "packageSha256": "3ba7dbc9ff90cc38bf4824536762b8f5c80c92796ae291cfce1704809bc70f33"
+    },
+    {
+      "command": "npm run build",
+      "exit": 0,
+      "log": "build.log"
+    },
+    {
+      "command": "npm run check",
+      "exit": 0,
+      "log": "check.log"
+    },
+    {
+      "command": "node scripts/source-run.mjs scripts/notices.ts --check",
+      "exit": 0,
+      "log": "notices.log",
+      "verifiedPackages": 127
+    }
+  ],
+  "limits": "No full-suite rerun, new Node22/24 run, successful real-provider/TLS observation or Windows claim. Original 380/380 capture remains at its original source/baseline. Mock responses and injected loopback HTTP do not claim positive production-policy provider compatibility."
+}
