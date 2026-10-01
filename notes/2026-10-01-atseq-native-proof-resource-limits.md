@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: proposed; independent API and identity review pending
+status: adopted direction; implementation validation pending
 category: native proof resource policy
 request: d22a606dcd584df143acda4523c2dcae0e03b1bc
 examined_head: 3cdf0b0747336b201fbecb2f414a25957b3a8dda
@@ -22,7 +22,11 @@ This proposal addresses the nonblocking finding in the independently approved
 P1 assessment `58fb6809fdf153b12973afab0309868b87ec1a80`, before P2 or I1
 classifies native proof failures. The
 [native proof results](2026-10-01-atseq-native-proof-results.md) document the
-landed foundation. This note proposes an API decision; it does not implement it.
+landed foundation. The independent assessment `fc59503e173c3cb26c960afcdf6416acd513aef4`
+accepted this direction with the protocol-before-policy correction below.
+The parent ratified that assessment and authorized implementation. The note
+records the adopted API decision; exact-head implementation review remains
+required.
 
 ## Evidence in the landed code
 
@@ -91,14 +95,19 @@ values and accounting unchanged.
 | `nodeEntries` | An otherwise shaped MST node has more entries than allowed |
 | `pathLoads` | Lookup node-load accounting or the current walker-depth guard exceeds its selected bound |
 | `treeLoads` | Full-tree validation exceeds its node-load budget |
-| `pathCharacters` | A string lookup path exceeds the selected local character budget |
+| `pathCharacters` | A protocol-valid lookup path exceeds a stricter selected local character budget |
 | `depth` | Native CAR-header or native-block framing inspection reaches beyond the configured nesting budget |
 | Cache `bytes`, `blocks` | One authenticated CAR cannot be admitted within the retained cache policy |
 
 Split guards that currently combine malformed input and policy exhaustion:
 wrong CAR byte type is input; unsafe, zero or truncated CAR header lengths are
-input; wrong MST node shape is input; wrong lookup path type is input. Only the
-separate resource comparison produces `native_proof_limit`.
+input; wrong MST node shape is input; wrong lookup path type or syntax is input.
+Check protocol syntax and maxima before a stricter local policy. The locked
+MST reader rejects keys longer than 1,024 characters: a 1,025-character key is
+invalid input under the default policy, whereas a valid key exceeding a
+stricter `pathCharacters` option produces `native_proof_limit`. Apply this
+ordering anywhere else a local default coincides with a normative maximum.
+Only the separate resource comparison produces `native_proof_limit`.
 
 Check a declared header against the available bytes before classifying its
 local size budget. A truncated oversized declaration must remain a malformed
@@ -179,6 +188,13 @@ existing profile CID vectors are unchanged. Run the native corpus in Node and
 real Chromium, required repository checks and the appropriate broader tests;
 retain dated raw results and record the exact validated source head.
 
-Independent review of this API/identity decision must precede implementation.
-An adopted direction will then receive a separate exact-head implementation
-review under PB1 before the parent merges or pushes it.
+P2 should expose a distinct stall reason naming the exhausted native budget.
+I1 should treat it as no admission under the selected policy. Hostile peers
+can deliberately exhaust a budget just as they can withhold evidence; this
+does not change the trust boundary. Browser-specific wording for a queued
+submission remains a later consumer task. It must preserve the queued work
+and explain that the host cannot verify within its configured limits.
+
+The API/identity direction has independent approval as described above. Its
+implementation will receive a separate exact-head review under PB1 before
+the parent merges or pushes it.
