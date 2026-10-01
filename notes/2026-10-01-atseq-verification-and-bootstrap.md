@@ -19,6 +19,16 @@ trust assumptions from which an application can select a suitable configuration.
 Prior compatibility is not a goal. A change in authority or semantics needs a
 clearly identified new contract, but does not need a migration for spike data.
 
+## Implementation direction update
+
+The user subsequently preferred native app-PDS ordering unless significant
+concrete evidence argues against it. The [native authority decision](2026-10-01-atseq-native-authority-decision.md)
+supersedes the separate-sequencer custody default below and records the changed
+recovery, observation, certification and proof-delivery boundaries. The
+[implementation programme](2026-10-01-atseq-implementation-programme.md) tracks
+reviewed decisions and deliveries. The alternatives and limits in this original
+design-space assessment remain evidence; they are not simultaneous runtime modes.
+
 ## Chosen backbone and decision order
 
 Keep an explicitly authorized sequencer separate from the app PDS. Retain local

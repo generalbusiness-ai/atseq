@@ -19,6 +19,16 @@ settling the wire contract. Backward compatibility with the spike is not a goal.
 Runtime implementation and migration of existing applications are outside this
 investigation. All roles are in scope, including app ownership and sequencing.
 
+## Implementation direction update
+
+The user subsequently preferred native app-PDS ordering unless significant
+concrete evidence argues against it. The [native authority decision](2026-10-01-atseq-native-authority-decision.md)
+supersedes the separate-sequencer custody default below and records the changed
+recovery, observation, certification and proof-delivery boundaries. The
+[implementation programme](2026-10-01-atseq-implementation-programme.md) tracks
+reviewed decisions and deliveries. The alternatives and limits in this original
+design-space assessment remain evidence; they are not simultaneous runtime modes.
+
 ## Chosen backbone
 
 Use account DIDs (`did:plc` and hostname `did:web`) as principals, with immutable
