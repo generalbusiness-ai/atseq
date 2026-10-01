@@ -207,7 +207,8 @@ test('two browser identities and the JSON CLI use generic participation flows', 
       await b.screenshot({ path: 'experiments/generated/participation-evidence/mobile.png', fullPage: true });
     });
     await check('lost submit reply reconciles the retained intent without a second append', async () => {
-      let lost = false;
+      let lost = false,
+        handled = false;
       await a.route('**/xrpc/ai.generalbusiness.atseq.submit', async (route) => {
         if (lost) {
           await route.continue();
@@ -217,12 +218,15 @@ test('two browser identities and the JSON CLI use generic participation flows', 
         const response = await route.fetch();
         assert.equal(response.status(), 200);
         await route.abort();
+        handled = true;
       });
       await a.getByRole('button', { name: 'candidate', exact: true }).click();
       await a.getByRole('textbox', { name: 'id', exact: true }).fill('three');
       await a.getByRole('textbox', { name: 'title', exact: true }).fill('Lost response');
       await a.getByRole('spinbutton', { name: 'pricePence', exact: true }).fill('35000');
       await a.getByRole('button', { name: 'Save action', exact: true }).click();
+      await expect.poll(() => handled).toBe(true);
+      await expect(a.getByRole('status')).toContainText('Verified through entry 4');
       await expect(a.getByText('Applied', { exact: true })).toBeVisible();
       assert.equal(lost, true);
       await a.unroute('**/xrpc/ai.generalbusiness.atseq.submit');

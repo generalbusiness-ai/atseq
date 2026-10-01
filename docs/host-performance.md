@@ -8,7 +8,7 @@ The host keeps projections in memory. It rebuilds from signed history on restart
 
 ## Measured before and after
 
-These runs use the same machine, Node 26.10.0, Chromium and a disposable official PDS with real SQLite and loopback HTTP. The before run uses browser revision `c77bdfe`; the after run includes the reviewed browser correction, the host changes described here and the review fixes for concurrent refresh and durable confirmed heads. The first after captures from `8dc7056` remain beside the replacement captures with that revision in their filenames. Raw results include timestamps, hardware, samples and source hashes:
+These runs use the same machine, Node 26.10.0, Chromium and a disposable official PDS with real SQLite and loopback HTTP. The before run uses browser revision `c77bdfe`; the after run includes the reviewed browser correction, the host changes described here and the review fixes for concurrent refresh and durable confirmed heads. The first after captures from `8dc7056` remain beside the replacement captures with that revision in their filenames. The measurement revision is `e37fee8`; later test synchronization fixes do not change its runtime or benchmark code. Raw results include timestamps, hardware, samples and source hashes:
 
 - [Node before](../experiments/adoption-f/node-before.json) and [after](../experiments/adoption-f/node-after.json).
 - [Browser before](../experiments/adoption-f/browser-before.json) and [after](../experiments/adoption-f/browser-after.json).

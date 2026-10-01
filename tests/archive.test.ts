@@ -237,6 +237,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       // Updates leave open tabs alone. The first installation controls the next navigation.
       await page.reload();
       await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
+      await context.route('**/xrpc/**', (route) => route.abort());
       await context.setOffline(true);
       await page.reload();
       await expect(page.getByRole('heading', { name: 'Your applications', exact: true })).toBeVisible();
@@ -347,6 +348,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       // Keep this context disconnected so its intentionally queued act cannot
       // change the retained four-entry archive used by the earlier assertions.
       await context.close();
+      assert.equal((await api.call('sync', target)).head.position, 4, 'the offline queued action must stay unrecorded');
     });
     await check('small imported data produces a zero-based chart and static source-tagged exports', async () => {
       const chartContext = await browser.newContext(),
