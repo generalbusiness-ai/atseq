@@ -1,6 +1,6 @@
 /** Native-format foundation. Content checks do not authenticate repository publication. */
 import { fromBytes, type Bytes, type CidLink } from '@atcute/cbor';
-import { fromString, toString, create, CODEC_RAW } from '@atcute/cid';
+import { fromString, toString, create, CODEC_RAW, CID_VERSION, HASH_SHA256 } from '@atcute/cid';
 import { parseDidKey, verifySigWithDidKey, type PrivateKey } from '@atcute/crypto';
 import { fromBase32, toBase32 } from '@atcute/multibase';
 import { deepFreeze } from '../core/freeze.ts';
@@ -108,10 +108,8 @@ function action(value: string): void {
 function rawCid(value: string): void {
   let parsed;
   try { parsed = fromString(value); } catch { fail('envelope', 'Expected canonical raw CID'); }
-  if (parsed.codec !== CODEC_RAW || toString(parsed) !== value || parsed.digest.contents.length !== 32)
+  if (parsed.codec !== CODEC_RAW || toString(parsed) !== value || parsed.digest.contents.length !== 32 || parsed.version !== CID_VERSION || parsed.digest.codec !== HASH_SHA256)
     fail('envelope', 'Expected canonical raw SHA-256 CIDv1');
-  // create() is always CIDv1 SHA-256; compare its fixed codec/hash prefix shape.
-  if (!value.startsWith('bafkrei')) fail('envelope', 'Unsupported raw CID hash/version');
 }
 function origin(value: string): void {
   let url;
@@ -144,7 +142,10 @@ export async function validateNativeDeviceKey(value: string): Promise<void> {
 }
 async function repoKey(value: string): Promise<void> {
   let parsed;
-  try { parsed = parseDidKey(value); } catch { fail('key', 'Expected repository signing key'); }
+  try { parsed = parseDidKey(value); } catch (error) {
+    if (error instanceof SyntaxError || (error instanceof TypeError && /^unsupported key type /.test(error.message))) fail('key', 'Expected repository signing key');
+    throw error;
+  }
   if (parsed.publicKeyBytes.length !== 33) fail('key', 'Repository key must be compressed');
   if ((await normalizeRepoSigningKey(parsed)) !== value) fail('key', 'Noncanonical repository key');
 }

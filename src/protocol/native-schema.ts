@@ -12,7 +12,7 @@ export const NATIVE_NSID = deepFreeze({
   grant: `${prefix}.grant`, revoke: `${prefix}.revoke`, file: `${prefix}.file`, content: `${prefix}.content`,
   defs: `${prefix}.defs`,
 });
-export const nativeRef = (name: string) => `${NATIVE_NSID.defs}#${name}`;
+export const nativeRef = <T extends string>(name: T): `ai.generalbusiness.atseq.defs#${T}` => `ai.generalbusiness.atseq.defs#${name}`;
 type Shape = Record<string, any>;
 const str = (maxLength: number, format?: string): Shape => ({ type: 'string', maxLength, ...(format ? { format } : {}) });
 const integer = (maximum: number, minimum = 0): Shape => ({ type: 'integer', minimum, maximum });
