@@ -1,7 +1,7 @@
 import { P256PrivateKeyExportable, P256PublicKey, Secp256k1PrivateKeyExportable } from '@atcute/crypto';
 import { encode as encodeCbor, fromBytes } from '@atcute/cbor';
 import { Lexicons, jsonToLex } from '@atproto/lexicon';
-import vectors from '../vectors/protocol-v1.json';
+import vectors from '../vectors/protocol-v2.json';
 import { applicationRuntimeCid } from '../../src/protocol/identity.ts';
 import {
   Anchor,

@@ -2,9 +2,17 @@
 
 Date: 2026-10-01
 
-Status: proposal for independent decision review; implementation has not begun.
+Status: decision independently reviewed; implementation complete in the B0
+candidate, with exact-head review and landing pending. The discovery schema's
+profile advance is independently approved.
 
 Workroom task: B0, request `29bfbe650def15a33faec19ac33e64ed9c876762`.
+
+The independent assessment `75465898` approved this direction with four
+conditions: full source is requested explicitly, discovery has a validated
+versioned schema, the retained file table names exactly the supplied paths,
+and an omitted authoring profile is filled from the installed runtime. These
+conditions are incorporated below.
 
 ## Problem and recommendation
 
@@ -54,10 +62,16 @@ serialization convention.
 The envelope and each source item are closed objects. Unknown fields and
 unsupported format versions are refused. The manifest has the existing closed
 definition shape, except that a newly authored document may omit `files`.
+It may also omit `profile`; conversion fills the current installed application
+profile CID. A supplied profile must be supported by the installed runtime.
+Export includes the complete profile and never replaces it silently.
 Conversion derives that table, sorted by ASCII path, using the existing raw CID
 algorithm. Export always includes the complete retained manifest, including its
 `files` table. If an imported document supplies `files`, every listed path and
 CID must match the supplied bytes exactly, and that table's order is preserved.
+Its path set must equal the supplied source path set; neither extras nor missing
+paths are accepted. When the table is omitted, every supplied source item is
+retained, including files not referenced by an action, query or view binding.
 Supplying a stale CID is an error, never a request to replace it silently.
 
 Preserving a supplied table is necessary: the current loader admits a unique
@@ -94,8 +108,9 @@ use a JSON document to bypass ordinary definition admission. No network lookup
 or filesystem access occurs in the portable helpers.
 
 The definition root CID and every named raw-file CID must survive
-document → CAR → document → CAR. The emitted CAR has one root, sorted unique
-raw blocks, followed by the root block. Importing a CAR with a different block
+document → CAR → document → CAR. The emitted CAR has one root, unique
+raw blocks in first sorted-path occurrence order, followed by the root block.
+Importing a CAR with a different block
 order preserves its identities and bytes but canonicalizes CAR framing/order;
 its original whole-CAR byte string is not the source identity. The document's
 own JSON spacing and object-member order are likewise not source identity.
@@ -114,19 +129,28 @@ document. Reuse the existing output protection rules: no overwrite by default,
 no symlinks, and protection for explicitly named key, intent and token files.
 The operations write one file; they do not extract untrusted paths to disk.
 
-`describeDefinition` returns versioned discovery:
-`{ version: 1, cid, manifest, lexicons, source }`. `source` is the complete
-source document for that same loaded definition. Retain the existing manifest
+`describeDefinition` normally returns lean versioned discovery:
+`{ version: 1, cid, manifest, lexicons }`. `describe` accepts the optional
+`includeSource` boolean parameter; only `true` adds the complete source document
+for that same loaded definition. The CLI exposes the same explicit option.
+Worker synchronization, validation and comparison stay lean. Retain the existing manifest
 and parsed Lexicon convenience fields because forms already consume them;
 derive all three from one loaded source closure. This deliberately duplicates
 some schema bytes but avoids a new fetch protocol or a second schema authority.
 The document can be reconstructed and its root compared with `cid` by a fresh
 client. Versions other than 1 are unsupported until an explicit extension.
 
-The existing `describe` Lexicon's `definition` field is `unknown`; its validation
-schema need not change for this representation. This work does not alter the
-semantic contract descriptors, the application profile CID or signed log wire.
-Host and worker discovery use the same helper. Discovery remains a source
+The `describe` Lexicon validates the versioned discovery fields instead of
+leaving the whole definition as `unknown`. The current log contract includes
+that Lexicon in its semantic identity, so changing it also changes the log and
+application profile CIDs. Independent decision `3528d227` approved explicit
+`atseq-log-v2` and `atseq-app-v2` descriptors and CIDs, while retaining the
+unchanged `atseq-jsonata-v1` evaluator CID. No identity inputs are omitted and
+no historical schemas are duplicated. Application opening and source loading
+refuse historical v1 profiles with `unsupported_runtime`. The prior captures
+remain unchanged and require their retained original interpreter. Host and
+worker discovery use the same helper.
+Discovery remains a source
 description: its host-supplied head, source and frontier become authoritative
 only through the verification and replay path. A matching source CID proves
 bytes; it does not prove that a host selected the correct active definition.
@@ -152,9 +176,10 @@ decision or implement C1 capability discovery.
 
 ## Review and verification gates
 
-The decision review should confirm the representation, optional/retained file
-table rule, transport bounds and discovery shape before runtime implementation.
-Then retain evidence for exact bytes, aliases, reordered retained file tables,
+The decision reviews confirmed the representation, optional/retained file
+table rule, transport bounds, lean/opt-in discovery shape and explicit profile
+advance before the affected implementation. Retain evidence for exact bytes,
+aliases, reordered retained file tables,
 canonical base64, duplicate/traversal paths, unsupported versions, stale CIDs,
 size/count limits and source identity preservation. Add a browser execution
 case for portable conversion; a successful browser build alone is insufficient.
@@ -165,6 +190,10 @@ No source/network authority, capability metadata, encryption, compiled action
 language or arbitrary directory extraction is added by this task.
 
 ## Existing implementation evidence
+
+The [implementation result](2026-10-01-atseq-authoring-bundle-results.md) reports
+the real PDS, CLI, Chromium and packaged-consumer checks and retains exact source
+inputs and hashes. The final full suite passes 364 tests.
 
 - [`SourceBundle`](../src/definition/source.ts) packs raw bytes, verifies CAR
   blocks and enforces transport limits.

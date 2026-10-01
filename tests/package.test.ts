@@ -7,6 +7,7 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { chartFixture } from '../testdata/apps/fixtures.ts';
+import { sourceDocumentFromBundle, serializeSourceDocument } from '../src/definition/document.ts';
 import { supportedProfiles } from '../src/protocol/identity.ts';
 import { startEnvironment, resetDisposable } from './support/pds/environment.mjs';
 import { preparePackageConformance } from './helpers/package-conformance.ts';
@@ -60,6 +61,13 @@ test(
         'Inlay auto-submit property refused',
         'malformed schema and view shapes cannot freeze activation',
         'an available query-less view with missing bindings is invalid rather than a permanent stall',
+        'source document taskboard round trip and viewless preview',
+        'source document guitar round trip and viewless preview',
+        'source document ledger round trip and viewless preview',
+        'source document taskboard completes a retained task',
+        'source documents refuse the historical application v1 profile',
+        'source document retains exact bytes, aliases, unused files and manifest order',
+        'source document refuses path, version, byte and retained-table ambiguity',
       ])
         assert.ok(
           cases.some((entry: { name: string; passed: boolean }) => entry.name === name && entry.passed),
@@ -88,6 +96,10 @@ test(
       const fixture = await chartFixture();
       await writeFile(join(directory, 'fixture.car'), await fixture.bundle.write());
       await writeFile(
+        join(directory, 'fixture.atseq.json'),
+        serializeSourceDocument(await sourceDocumentFromBundle(fixture.bundle)),
+      );
+      await writeFile(
         join(directory, 'expected.json'),
         JSON.stringify({
           profiles: await supportedProfiles(),
@@ -114,6 +126,8 @@ assert.equal(exportArchive, archive.exportArchive);
 assert.equal(typeof SnapshotReader, 'function');
 const source = await application.SourceBundle.read(new Uint8Array(await readFile('fixture.car')));
 assert.equal(source.root, expected.definition);
+const document = await application.sourceDocumentFromBundle(source);
+assert.equal((await application.sourceDocumentToBundle(application.serializeSourceDocument(document))).root, source.root);
 const definition = await application.LoadedDefinition.load(source.root, source);
 assert.ok(await definition.view('main', { count: 0, total: 0 }));
 const api = new client.AtseqClient(process.argv[2], await readFile(process.argv[3], 'utf8').then(x => x.trim()));
@@ -134,13 +148,13 @@ console.log('native consumer passed');
 import { protocol, runtime, application, client, archive } from 'atseq';
 import { evaluate, type Evaluation } from 'atseq/runtime';
 import { type Head } from 'atseq/protocol';
-import { type Projection } from 'atseq/application';
+import { type Projection, type SourceDocument } from 'atseq/application';
 import { type Identity } from 'atseq/client';
 import { type RetainedInput } from 'atseq/archive';
 import { SnapshotReader } from 'atseq/host';
 const result: Promise<Evaluation> = evaluate('1', {});
 const apis = [protocol, runtime, application, client, archive, SnapshotReader];
-export type ConsumerTypes = [Head, Projection, Identity, RetainedInput];
+export type ConsumerTypes = [Head, Projection, Identity, RetainedInput, SourceDocument];
 void result; void apis;
 `,
       );
@@ -182,6 +196,33 @@ void result; void apis;
         0,
       );
       assert.equal(JSON.parse(cliOutput).result.name, 'Native CLI');
+      for (const input of [
+        {
+          operation: 'packDocument',
+          source: join(directory, 'fixture.atseq.json'),
+          output: join(directory, 'native.car'),
+        },
+        {
+          operation: 'unpackDocument',
+          source: join(directory, 'native.car'),
+          output: join(directory, 'native.atseq.json'),
+        },
+      ]) {
+        const child = spawn(cli, [], { cwd: directory, env: nativeEnv, stdio: ['pipe', 'pipe', 'pipe'] });
+        let output = '';
+        child.stdout.on('data', (chunk) => {
+          output += chunk;
+        });
+        child.stdin.end(JSON.stringify(input));
+        assert.equal(
+          await new Promise((resolve, reject) => {
+            child.once('error', reject);
+            child.once('close', resolve);
+          }),
+          0,
+        );
+        assert.equal(JSON.parse(output).result.definition, fixture.bundle.root);
+      }
       environment = await startEnvironment();
       host = spawn(
         join(directory, 'node_modules/.bin/atseq-host'),

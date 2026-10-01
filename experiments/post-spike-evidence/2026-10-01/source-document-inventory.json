@@ -1,0 +1,156 @@
+{
+  "format": "atseq-source-document-inventory",
+  "version": 1,
+  "generatedAt": "2026-10-01T14:58:34.834Z",
+  "profiles": [
+    {
+      "name": "atseq-log-v2",
+      "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+      "role": "log"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+      "role": "evaluator"
+    },
+    {
+      "name": "atseq-app-v2",
+      "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+      "role": "application"
+    }
+  ],
+  "examples": [
+    {
+      "name": "taskboard",
+      "path": "testdata/source-documents/taskboard.atseq.json",
+      "inputSha256": "bf2c631de02840922a58d61f921e6c3d3ddd7367ed05f21ec05c85651c03df20",
+      "definition": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "carBytes": 4314,
+      "documentBytes": 5483,
+      "leanDiscoveryJsonBytes": 2478,
+      "fullDiscoveryJsonBytes": 7970,
+      "files": [
+        {
+          "cid": "bafkreifmc3akakf7rrvz3bmbddno57ptzrd6oforjvpgxaecjh3mj5hhv4",
+          "path": "add.jsonata",
+          "bytes": 200,
+          "sha256": "ac16c0a028bf8c6b9d858118daeefdf3cc47e715d14d5e6b808249f6c4f4e7af"
+        },
+        {
+          "cid": "bafkreiauohitaor77q47inyuykccsf5cbv3f3h5cehxk5n37dveg4emc2i",
+          "path": "complete.jsonata",
+          "bytes": 302,
+          "sha256": "1471d1303a3ffc39f43714c2842917a20d765d9fa221eeaeb77f1d486e1182d2"
+        },
+        {
+          "cid": "bafkreiepqrs7vjoy74z4dwq3pujl7wkxuaqxh642jd3is4yweyau2eptpq",
+          "path": "initial.json",
+          "bytes": 37,
+          "sha256": "8f8465faa5d8ff33c1da1b7d12bfd957a02173fb9a48f689731626014d11f37c"
+        },
+        {
+          "cid": "bafkreiggvwdnvylzccqrmme3k4sge2whi25nyt3372vfkaxdaotg5zundu",
+          "path": "schemas/data.json",
+          "bytes": 1577,
+          "sha256": "c6ad86dae17910a116309b5724626ac746badc4f7bfeaa5502e303a66ee68d1d"
+        },
+        {
+          "cid": "bafkreid2wxptgnzx5fhgcyjma2phhjvcl2nkuljbqzz36t2kk4tpdqew4m",
+          "path": "schemas/summary.json",
+          "bytes": 735,
+          "sha256": "7ab5df333737e94e61612c069e73a6a25e9aaa2d218673bf4f4a5726f1c096e3"
+        },
+        {
+          "cid": "bafkreihkyrhtumilojxlexozykabanqqpryw2ewgr6yber6hc3lnphozwi",
+          "path": "summary.jsonata",
+          "bytes": 66,
+          "sha256": "eac44f3a310b726eb25dd9c2801036107c716d12c68fb01247c716d6d79dd9b2"
+        }
+      ]
+    },
+    {
+      "name": "guitar",
+      "path": "testdata/source-documents/guitar.atseq.json",
+      "inputSha256": "4ef268e1cb51880d6d8422c47f55f9a011cb7ddc25998f6b4e19c6936b548555",
+      "definition": "bafyreick6s6iszgzswwpy3axa76muza4ibfdlzvk24kgj4dxqtu7nqx4hi",
+      "carBytes": 3680,
+      "documentBytes": 4680,
+      "leanDiscoveryJsonBytes": 2206,
+      "fullDiscoveryJsonBytes": 6895,
+      "files": [
+        {
+          "cid": "bafkreic7pyrpfijnmfyw2ttprqfe6eyfpypnd7g66pe3ktfttxeffrw3jq",
+          "path": "add.jsonata",
+          "bytes": 188,
+          "sha256": "5f7e22f2a12d61716d4e6f8c0a4f13057e1ed1fcdef3c9b54cb39dc852c6db4c"
+        },
+        {
+          "cid": "bafkreifneenifxf2i6a7v2hojrz4bfklfntkfhnzrqxxbha36ap4f34yua",
+          "path": "initial.json",
+          "bytes": 23,
+          "sha256": "ad211a82dcba4781fae8ee4c73c0954b2b66a29db98c2f709c1bf01fc2ef98a0"
+        },
+        {
+          "cid": "bafkreib3z4hh6qgy2rsncprj64kh34mbxgieojmpygepjdcfistscijjdu",
+          "path": "schemas/data.json",
+          "bytes": 1439,
+          "sha256": "3bcf0e7f40d8d464d13e29f7147df181b99047258fc188f48c4544a72121291d"
+        },
+        {
+          "cid": "bafkreiehlcz42oi7tiunnhfepvqsorpkf7saxwyddff3ue6yrkiorcxbxy",
+          "path": "schemas/summary.json",
+          "bytes": 734,
+          "sha256": "8758b3cd391f9a28d69ca47d612745ea2fe40bdb03194bba13d88a90e88ae1be"
+        },
+        {
+          "cid": "bafkreib7las2xjksorf4irno53fguokn7yvzooxu3ghxldfxy2vhnvkdqi",
+          "path": "summary.jsonata",
+          "bytes": 119,
+          "sha256": "3f5825aba552744bc445aeeeca6a394dfe2b973af4d98f758cb7c6aa76d54382"
+        }
+      ]
+    },
+    {
+      "name": "ledger",
+      "path": "testdata/source-documents/ledger.atseq.json",
+      "inputSha256": "f0b35532e77430223b076a1b33b9cffebdab09ea02971f4275d12154ac615f82",
+      "definition": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "carBytes": 4263,
+      "documentBytes": 5458,
+      "leanDiscoveryJsonBytes": 2462,
+      "fullDiscoveryJsonBytes": 7929,
+      "files": [
+        {
+          "cid": "bafkreihsfwse7fgj6sx335yfw6hpyni7nr3qgajm3wfeidkw552benaqna",
+          "path": "initial.json",
+          "bytes": 62,
+          "sha256": "f22da44f94c9f4afbdf705b78efc351f6c7703012cdd8a440d56ef7412341068"
+        },
+        {
+          "cid": "bafkreidox4qvc5v3f6dg2yoo4fg6xwv2moj5jmmte6d7rnss67jkby2dmy",
+          "path": "record.jsonata",
+          "bytes": 259,
+          "sha256": "6ebf215176bb2f866d61cee14debdaba6393d4b1932787f8b652f7d2a0e34366"
+        },
+        {
+          "cid": "bafkreibjd6qxn7g2yaw2bzecmxh26g37rolxbda2fbfg7abncilxgzsk24",
+          "path": "schemas/data.json",
+          "bytes": 1759,
+          "sha256": "291fa176fcdac02da0e48265cfaf1b7f8b97708c1a284a6f802d121773664ad7"
+        },
+        {
+          "cid": "bafkreicgj6cfjhvivncrtealzwoostxvezambgzitd5yjodulf2deghcbq",
+          "path": "schemas/summary.json",
+          "bytes": 904,
+          "sha256": "464f84549ea8ab4519900bcd9ce94ef52640c09b2898fb84b87459743218e20c"
+        },
+        {
+          "cid": "bafkreid7o6slw35ktcjjjbemtsgll7kl2wu7e6csmgbbcefzh2lab4xk4m",
+          "path": "summary.jsonata",
+          "bytes": 92,
+          "sha256": "7f77a4bb6faa989294848c9c8cb5fd4bd5a9f2785261821110b93e9600f2eae3"
+        }
+      ]
+    }
+  ]
+}

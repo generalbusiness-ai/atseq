@@ -1,0 +1,60 @@
+{
+  "format": "atseq-source",
+  "version": 1,
+  "manifest": {
+    "$type": "ai.generalbusiness.atseq.definition",
+    "version": 1,
+    "title": "Guitar shortlist",
+    "lexicons": ["schemas/data.json", "schemas/summary.json"],
+    "state": {
+      "ref": "ai.generalbusiness.atseq.examples.guitar.data#state",
+      "initial": "initial.json"
+    },
+    "actions": [
+      {
+        "ref": "ai.generalbusiness.atseq.examples.guitar.data#add",
+        "fold": "add.jsonata"
+      }
+    ],
+    "queries": [
+      {
+        "name": "summary",
+        "ref": "ai.generalbusiness.atseq.examples.guitar.summary",
+        "program": "summary.jsonata"
+      }
+    ],
+    "views": []
+  },
+  "sources": [
+    {
+      "path": "add.jsonata",
+      "content": {
+        "$bytes": "KCRpZCA6PSBhY3QuaWQ7ICRleGlzdHMoc3RhdGUuY2FuZGlkYXRlc1tpZCA9ICRpZF0pID8geyJkZWNpc2lvbiI6ImluZWZmZWN0aXZlIiwicmVhc29uIjoiYWxyZWFkeV9saXN0ZWQifSA6IHsiZGVjaXNpb24iOiJlZmZlY3RpdmUiLCJzdGF0ZSI6eyJjYW5kaWRhdGVzIjokYXBwZW5kKHN0YXRlLmNhbmRpZGF0ZXMsYWN0KX19KQo"
+      }
+    },
+    {
+      "path": "initial.json",
+      "content": {
+        "$bytes": "ewogICJjYW5kaWRhdGVzIjogW10KfQo"
+      }
+    },
+    {
+      "path": "schemas/data.json",
+      "content": {
+        "$bytes": "ewogICJsZXhpY29uIjogMSwKICAiaWQiOiAiYWkuZ2VuZXJhbGJ1c2luZXNzLmF0c2VxLmV4YW1wbGVzLmd1aXRhci5kYXRhIiwKICAiZGVmcyI6IHsKICAgICJzdGF0ZSI6IHsKICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgInJlcXVpcmVkIjogWwogICAgICAgICJjYW5kaWRhdGVzIgogICAgICBdLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAiY2FuZGlkYXRlcyI6IHsKICAgICAgICAgICJ0eXBlIjogImFycmF5IiwKICAgICAgICAgICJtYXhMZW5ndGgiOiAxMDAwLAogICAgICAgICAgIml0ZW1zIjogewogICAgICAgICAgICAidHlwZSI6ICJvYmplY3QiLAogICAgICAgICAgICAicmVxdWlyZWQiOiBbCiAgICAgICAgICAgICAgImlkIiwKICAgICAgICAgICAgICAidGl0bGUiLAogICAgICAgICAgICAgICJwcmljZVBlbmNlIgogICAgICAgICAgICBdLAogICAgICAgICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAgICAgICAiaWQiOiB7CiAgICAgICAgICAgICAgICAidHlwZSI6ICJzdHJpbmciLAogICAgICAgICAgICAgICAgIm1pbkxlbmd0aCI6IDEsCiAgICAgICAgICAgICAgICAibWF4TGVuZ3RoIjogMTIwCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAidGl0bGUiOiB7CiAgICAgICAgICAgICAgICAidHlwZSI6ICJzdHJpbmciLAogICAgICAgICAgICAgICAgIm1pbkxlbmd0aCI6IDEsCiAgICAgICAgICAgICAgICAibWF4TGVuZ3RoIjogMTIwCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAicHJpY2VQZW5jZSI6IHsKICAgICAgICAgICAgICAgICJ0eXBlIjogImludGVnZXIiLAogICAgICAgICAgICAgICAgIm1pbmltdW0iOiAwLAogICAgICAgICAgICAgICAgIm1heGltdW0iOiAxMDAwMDAwCiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgfQogICAgICB9CiAgICB9LAogICAgImFkZCI6IHsKICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgInJlcXVpcmVkIjogWwogICAgICAgICJpZCIsCiAgICAgICAgInRpdGxlIiwKICAgICAgICAicHJpY2VQZW5jZSIKICAgICAgXSwKICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgImlkIjogewogICAgICAgICAgInR5cGUiOiAic3RyaW5nIiwKICAgICAgICAgICJtaW5MZW5ndGgiOiAxLAogICAgICAgICAgIm1heExlbmd0aCI6IDEyMAogICAgICAgIH0sCiAgICAgICAgInRpdGxlIjogewogICAgICAgICAgInR5cGUiOiAic3RyaW5nIiwKICAgICAgICAgICJtaW5MZW5ndGgiOiAxLAogICAgICAgICAgIm1heExlbmd0aCI6IDEyMAogICAgICAgIH0sCiAgICAgICAgInByaWNlUGVuY2UiOiB7CiAgICAgICAgICAidHlwZSI6ICJpbnRlZ2VyIiwKICAgICAgICAgICJtaW5pbXVtIjogMCwKICAgICAgICAgICJtYXhpbXVtIjogMTAwMDAwMAogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo"
+      }
+    },
+    {
+      "path": "schemas/summary.json",
+      "content": {
+        "$bytes": "ewogICJsZXhpY29uIjogMSwKICAiaWQiOiAiYWkuZ2VuZXJhbGJ1c2luZXNzLmF0c2VxLmV4YW1wbGVzLmd1aXRhci5zdW1tYXJ5IiwKICAiZGVmcyI6IHsKICAgICJtYWluIjogewogICAgICAidHlwZSI6ICJxdWVyeSIsCiAgICAgICJwYXJhbWV0ZXJzIjogewogICAgICAgICJ0eXBlIjogInBhcmFtcyIsCiAgICAgICAgInByb3BlcnRpZXMiOiB7fQogICAgICB9LAogICAgICAib3V0cHV0IjogewogICAgICAgICJlbmNvZGluZyI6ICJhcHBsaWNhdGlvbi9qc29uIiwKICAgICAgICAic2NoZW1hIjogewogICAgICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgICAgICJyZXF1aXJlZCI6IFsKICAgICAgICAgICAgImNvdW50IiwKICAgICAgICAgICAgInRvdGFsUGVuY2UiCiAgICAgICAgICBdLAogICAgICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgICAgICJjb3VudCI6IHsKICAgICAgICAgICAgICAidHlwZSI6ICJpbnRlZ2VyIiwKICAgICAgICAgICAgICAibWluaW11bSI6IDAsCiAgICAgICAgICAgICAgIm1heGltdW0iOiAxMDAwMDAwCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJ0b3RhbFBlbmNlIjogewogICAgICAgICAgICAgICJ0eXBlIjogImludGVnZXIiLAogICAgICAgICAgICAgICJtaW5pbXVtIjogMCwKICAgICAgICAgICAgICAibWF4aW11bSI6IDEwMDAwMDAKICAgICAgICAgICAgfQogICAgICAgICAgfQogICAgICAgIH0KICAgICAgfQogICAgfQogIH0KfQo"
+      }
+    },
+    {
+      "path": "summary.jsonata",
+      "content": {
+        "$bytes": "eyJjb3VudCI6JGNvdW50KHN0YXRlLmNhbmRpZGF0ZXMpLCJ0b3RhbFBlbmNlIjooJGNvdW50KHN0YXRlLmNhbmRpZGF0ZXMpID0gMCA/IDAgOiAkc3VtKHN0YXRlLmNhbmRpZGF0ZXMucHJpY2VQZW5jZSkpfQo"
+      }
+    }
+  ]
+}

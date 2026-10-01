@@ -5,7 +5,7 @@ import { contentCid } from './wire.ts';
 export const applicationRuntimeDescriptor = deepFreeze(applicationDescriptor);
 export const applicationRuntimeCid = () => contentCid(applicationRuntimeDescriptor);
 
-/** This installed interpreter deliberately supports only the v1 semantic contract. */
+/** This interpreter supports only log/application v2 and the unchanged JSONata v1 contract. */
 export async function supportedProfiles() {
   return deepFreeze([
     { name: logDescriptor.name, cid: await contentCid(logDescriptor), role: 'log' },

@@ -34,8 +34,8 @@ function semantic(value: any): any {
   return value;
 }
 export const logDescriptor = deepFreeze({
-  name: 'atseq-log-v1',
-  version: 1,
+  name: 'atseq-log-v2',
+  version: 2,
   namespace: NSID_PREFIX,
   wire: {
     model: 'AT Protocol data model',
@@ -142,8 +142,8 @@ export const engineDescriptor = deepFreeze({
   errors: interpretationErrorTags,
 });
 export const applicationDescriptor = deepFreeze({
-  name: 'atseq-app-v1',
-  version: 1,
+  name: 'atseq-app-v2',
+  version: 2,
   log: logDescriptor,
   evaluator: engineDescriptor,
   definition: [

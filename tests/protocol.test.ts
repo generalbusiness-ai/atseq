@@ -49,7 +49,7 @@ test('protocol vectors and rejection corpus agree in Node and Chromium', async (
       'package.json',
       'npm-shrinkwrap.json',
       'tests/protocol.test.ts',
-      'tests/vectors/protocol-v1.json',
+      'tests/vectors/protocol-v2.json',
       'scripts/vectors/generate.mjs',
       'tests/support/protocol-corpus.ts',
     ];

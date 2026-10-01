@@ -239,13 +239,13 @@ export class ApplicationHost {
       title: a.folder.activeDefinition().manifest.title,
     }));
   }
-  async describe(app: string, genesis: string) {
+  async describe(app: string, genesis: string, includeSource = false) {
     const found = this.get(app, genesis);
     await this.refresh(found);
     const { head, projection } = found.folder.snapshot();
     return {
       genesis: found.anchor.genesis,
-      definition: await describeDefinition(found.folder.activeDefinition()),
+      definition: await describeDefinition(found.folder.activeDefinition(), includeSource),
       head,
       frontier: projection.frontier,
     };

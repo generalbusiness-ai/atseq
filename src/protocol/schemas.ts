@@ -6,6 +6,7 @@ import entry from '../../lexicons/ai/generalbusiness/atseq/entry.json' with { ty
 import head from '../../lexicons/ai/generalbusiness/atseq/head.json' with { type: 'json' };
 import create from '../../lexicons/ai/generalbusiness/atseq/create.json' with { type: 'json' };
 import describe from '../../lexicons/ai/generalbusiness/atseq/describe.json' with { type: 'json' };
+import definition from '../../lexicons/ai/generalbusiness/atseq/definition.json' with { type: 'json' };
 import submit from '../../lexicons/ai/generalbusiness/atseq/submit.json' with { type: 'json' };
 import query from '../../lexicons/ai/generalbusiness/atseq/query.json' with { type: 'json' };
 import receipt from '../../lexicons/ai/generalbusiness/atseq/receipt.json' with { type: 'json' };
@@ -20,6 +21,7 @@ export const frameworkLexicons = deepFreeze([
   head,
   create,
   describe,
+  definition,
   submit,
   query,
   receipt,

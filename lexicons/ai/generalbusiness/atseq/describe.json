@@ -17,6 +17,10 @@
           "genesis": {
             "type": "string",
             "format": "cid"
+          },
+          "includeSource": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -31,7 +35,8 @@
               "ref": "ai.generalbusiness.atseq.genesis#value"
             },
             "definition": {
-              "type": "unknown"
+              "type": "ref",
+              "ref": "#definition"
             },
             "head": {
               "type": "ref",
@@ -56,6 +61,76 @@
           "name": "VerificationFailed"
         }
       ]
+    },
+    "definition": {
+      "type": "object",
+      "required": ["version", "cid", "manifest", "lexicons"],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "cid": {
+          "type": "string",
+          "format": "cid"
+        },
+        "manifest": {
+          "type": "ref",
+          "ref": "ai.generalbusiness.atseq.definition"
+        },
+        "lexicons": {
+          "type": "array",
+          "maxLength": 63,
+          "items": {
+            "type": "unknown"
+          }
+        },
+        "source": {
+          "type": "ref",
+          "ref": "#sourceDocument"
+        }
+      }
+    },
+    "sourceDocument": {
+      "type": "object",
+      "required": ["format", "version", "manifest", "sources"],
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "atseq-source"
+        },
+        "version": {
+          "type": "integer",
+          "const": 1
+        },
+        "manifest": {
+          "type": "ref",
+          "ref": "ai.generalbusiness.atseq.definition"
+        },
+        "sources": {
+          "type": "array",
+          "maxLength": 63,
+          "items": {
+            "type": "ref",
+            "ref": "#sourceFile"
+          }
+        }
+      }
+    },
+    "sourceFile": {
+      "type": "object",
+      "required": ["path", "content"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "content": {
+          "type": "bytes",
+          "maxLength": 524288
+        }
+      }
     }
   }
 }

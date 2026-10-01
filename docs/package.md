@@ -50,7 +50,7 @@ Browser applications should use a bundler and portable entry points. `DeviceStor
 
 ## Executables
 
-`atseq` reads one JSON request on stdin and prints one JSON result. Use `atseq --help`, then [the interaction guide](interaction.md#json-cli-adapter) for identity, source packing, preview, creation, submit, queries and archive replay. Source checkout commands can still use `npm run atseq --`; an installed CLI uses ordinary Node and does not require `tsx`.
+`atseq` reads one JSON request on stdin and prints one JSON result. Use `atseq --help`, then [the interaction guide](interaction.md#json-cli-adapter) for identity, source packing, preview, creation, submit, queries and archive replay. `packDocument` and `unpackDocument` convert complete single-document definitions to and from standard source CARs. The portable `atseq/application` subpath also exports the document conversion APIs. Source checkout commands can still use `npm run atseq --`; an installed CLI uses ordinary Node and does not require `tsx`.
 
 `atseq-host` connects to a PDS that permits local account provisioning:
 

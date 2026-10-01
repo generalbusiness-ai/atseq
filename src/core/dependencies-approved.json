@@ -1,5 +1,5 @@
 {
-  "profile": "atseq-app-v1",
+  "profile": "atseq-app-v2",
   "approval": "M0 brace-expansion security patch; semantic equivalence and file closure require independent exact-head review",
   "direct": {
     "@atcute/car": "6.1.0",

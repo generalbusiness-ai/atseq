@@ -31,7 +31,7 @@ const manifestSchemas = new Lexicons([manifestLexicon as LexiconDoc]);
 function fail(code: ErrorCode, message: string): never {
   throw new InterpretationError(code, message);
 }
-function manifestShape(value: unknown): asserts value is DefinitionManifest {
+export function validateDefinitionManifest(value: unknown): asserts value is DefinitionManifest {
   if (!value || typeof value !== 'object' || Array.isArray(value))
     fail('definition_manifest', 'Manifest must be an object');
   // Only the profile is Lexicon CID data. Never run arbitrary unvalidated
@@ -104,6 +104,11 @@ export class LoadedDefinition {
     readonly initialState: Json,
     private readonly files: Map<string, Uint8Array>,
   ) {}
+  bytes(path: string): Uint8Array {
+    const raw = this.files.get(path);
+    if (!raw) fail('definition_path', `Undeclared source path: ${path}`);
+    return new Uint8Array(raw);
+  }
   text(path: string): string {
     return sourceText(this.files, path);
   }
@@ -119,7 +124,7 @@ export class LoadedDefinition {
     const rootBytes = await readSource(reader, cid);
     if (fromString(cid).codec !== CODEC_DCBOR) fail('definition_manifest', 'Definition root must use canonical CBOR');
     const manifest = decodeBlock(rootBytes);
-    manifestShape(manifest);
+    validateDefinitionManifest(manifest);
     if (manifest.profile.$link !== (await applicationRuntimeCid()))
       fail('unsupported_runtime', 'Definition requires a different runtime profile');
     unique(

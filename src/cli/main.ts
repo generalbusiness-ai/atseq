@@ -10,6 +10,14 @@ import { createIdentity, prepareIntent, type Identity } from '../client/identity
 import { ACTIVATE, activationPayload } from '../definition/control.ts';
 import { Folder } from '../application/folder.ts';
 import { SourceBundle, SourcePool } from '../definition/source.ts';
+import {
+  sourceDocumentToBundle,
+  sourceDocumentFromBundle,
+  serializeSourceDocument,
+  SOURCE_DOCUMENT_BYTES,
+} from '../definition/document.ts';
+import { PROFILE } from '../core/profile.ts';
+import { createReadStream } from 'node:fs';
 import { LoadedDefinition } from '../definition/load.ts';
 import { Anchor, verifyIntent } from '../protocol/log.ts';
 import { bytes, contentCid, decodeBlock } from '../protocol/wire.ts';
@@ -23,6 +31,24 @@ function outputPolicy(input: any): OutputPolicy {
       (path): path is string => typeof path === 'string',
     ),
   };
+}
+async function boundedFile(path: string, limit: number): Promise<Uint8Array> {
+  const stat = await lstat(path);
+  if (!stat.isFile() || stat.size > limit) throw new Error('Source must be a bounded regular file');
+  const chunks: Uint8Array[] = [];
+  let length = 0;
+  for await (const chunk of createReadStream(path)) {
+    length += chunk.length;
+    if (length > limit) throw new Error('Source exceeds its byte bound');
+    chunks.push(chunk);
+  }
+  const result = new Uint8Array(length);
+  let offset = 0;
+  for (const chunk of chunks) {
+    result.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return result;
 }
 
 async function privateJson(path: string) {
@@ -108,6 +134,19 @@ export async function execute(input: any): Promise<unknown> {
     await writeOutput(output, await source.write(), policy);
     return { definition: source.root, output };
   }
+  if (input.operation === 'packDocument' || input.operation === 'unpackDocument') {
+    const base = outputPolicy(input);
+    const policy = { ...base, protectedFiles: [...(base.protectedFiles ?? []), input.source] };
+    const output = await checkOutput(input.output, policy);
+    const importing = input.operation === 'packDocument';
+    const raw = await boundedFile(input.source, importing ? SOURCE_DOCUMENT_BYTES : PROFILE.definitionBytes);
+    const source = importing
+      ? await sourceDocumentToBundle(new TextDecoder('utf-8', { fatal: true }).decode(raw))
+      : await SourceBundle.read(raw);
+    const encoded = importing ? await source.write() : serializeSourceDocument(await sourceDocumentFromBundle(source));
+    await writeOutput(output, encoded, policy);
+    return { definition: source.root, output };
+  }
   if (input.operation === 'replay') {
     if ((input.app !== undefined) !== (input.genesis !== undefined))
       throw new ProtocolError('anchor', 'Replay requires both app and genesis pins, or neither');
@@ -155,7 +194,10 @@ export async function execute(input: any): Promise<unknown> {
     case 'list':
       return api.call('list');
     case 'describe':
-      return api.call('describe', target);
+      return api.call('describe', {
+        ...target,
+        ...(input.includeSource === undefined ? {} : { includeSource: input.includeSource }),
+      });
     case 'validate':
       return api.call('validateDraft', { source: bytes(await readFile(input.source)) });
     case 'compare':
@@ -265,7 +307,7 @@ export async function execute(input: any): Promise<unknown> {
 }
 if (process.argv.includes('--help')) {
   console.log(
-    'Atseq JSON CLI. Send one request on stdin. See docs/interaction.md for identity, pack, preview, create, submit, query, export and replay.',
+    'Atseq JSON CLI. Send one request on stdin. See docs/interaction.md for identity, pack, packDocument, unpackDocument, describe, preview, create, submit, query, export and replay.',
   );
   process.exit(0);
 }

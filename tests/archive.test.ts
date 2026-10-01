@@ -136,7 +136,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       extra.password = 'Not allowed';
       await assert.rejects(() => importArchive(encodeArchive(extra)), /Unknown archive field/);
       const runtime = structuredClone(archive);
-      runtime.runtime.application.version = 2;
+      runtime.runtime.application.version += 1;
       await assert.rejects(() => importArchive(encodeArchive(runtime)), /runtime/);
       await assert.rejects(
         () => importArchive(encodeArchive(archive), { ...target, app: 'did:plc:other' }),
