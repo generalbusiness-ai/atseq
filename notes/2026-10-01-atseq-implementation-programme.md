@@ -50,6 +50,9 @@ Request hashes below use the same repository prefix
 | M0      | `9e6a9894` | Resolve the bundled brace-expansion advisory narrowly             | Independent dependency equivalence review |
 | M1      | `3b0bab47` | Classify disposable PDS test dependency advisories                | Independent decision review               |
 | F0      | `1c3db0c1` | Initial programme/probe/gap/stage-harness delivery                | Decision assessment and exact-head review |
+| MF1     | `5f0517cc` | Patch compatible disposable-PDS dependencies in place            | M1 assessment and exact-head review       |
+| MF2     | `b5106f06` | Isolate fixture telemetry and document local demo boundaries      | M1 assessment and exact-head review       |
+| F1      | `c873691d` | Publish adopted continuation decisions and audit evidence         | Exact-head review                         |
 
 ## Completion and reports
 
@@ -99,3 +102,43 @@ owe proven-absence versus transient-unavailability classification; A2 owes real
 provider recovery-key permission evidence. These refinements remain required.
 The exact public stage inputs are retained in gitseq evidence `1fa0ddc4`, whose
 compressed attachment contains the fixtures and results JSON.
+
+## Continuation decisions and work
+
+C0 is satisfied as a decision: adopt independently reviewed
+[per-action execution contracts](2026-10-01-atseq-activation-compatibility.md).
+An unrelated feature addition preserves unchanged actions and their contract-scoped
+grants. Each contract includes the exact fold, reachable input/state schemas and
+semantic profile; ordinary fold metadata exposes that action contract. N1/I2
+still owe the concrete wire, implementation and conformance cases. Review
+`3dcab9c1` and final report `55d74888` record this decision.
+
+M1 is satisfied as an assessment. The
+[PDS dependency report](2026-10-01-atseq-pds-dependency-assessment.md) distinguishes
+the disposable fixture from the shipped graph and identifies narrow compatible
+patches. Update one fixture in place; retain old captures with their old lock
+hashes. MF1 implements the patches and MF2 isolates inherited telemetry. Their
+implementation and exact-head delivery gates remain separate from the assessment.
+Review `e23495f5` and final report `e94181a5` record the accepted recommendation.
+
+Q0 is satisfied as a direction: the
+[public/confidentiality scope](2026-10-01-atseq-confidentiality-direction.md) remains
+explicitly public. A confidential mode needs a concrete requirement and separate
+reviewed contract; no speculative encryption mode is added. A1/A2/T1 own first-run,
+README and device-local storage disclosures. Review `a54acf1c` and final report
+`e5c4ce11` record the decision.
+
+P1 native proof primitives and B0 source-document conversion are in implementation
+after independent boundary assessments `06110ff6` and `75465898`. P1 must validate
+visited MST structure, distinguish absence from missing blocks, return exact raw
+record bytes, support bounded eviction and preserve semantic bytes across its
+dependency updates. B0 routine discovery stays lean; complete source is opt-in.
+Its service schema currently participates in the app profile, so review `3528d227`
+requires an explicit v2 profile advance with regenerated conformance evidence.
+N1's later native profile must review a separate service-contract identity so
+routine API evolution does not require a new app genesis.
+
+P0 measurement preparation continues independently. Full native ordering, account
+adoption, durable materialization, portable checkpoints and final end-to-end
+characterization remain open. The adopted decisions above are not completion of
+their downstream implementation.

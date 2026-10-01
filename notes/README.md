@@ -22,6 +22,9 @@ and discussion summaries. Frontmatter "status" should be maintained.
 | [Native authority decision](2026-10-01-atseq-native-authority-decision.md)   | Adopted backbone; implementation pending                              | Preferred native PDS ordering, DID recovery, proofs and custody                                        |
 | [Plan-review gaps](2026-10-01-atseq-plan-review-gaps.md)                     | Independently assessed; followups tracked                          | F1–F10 disposition and concurrent work                                                                 |
 | [Initial implementation results](2026-10-01-atseq-implementation-results.md) | Initial evidence; full programme open                              | Native proof probe, stage baseline and recommendations                                                 |
+| [Activation compatibility](2026-10-01-atseq-activation-compatibility.md) | Independently assessed; adopted direction; wire pending | Per-action execution contracts, queued consent, grants and activation |
+| [PDS dependency assessment](2026-10-01-atseq-pds-dependency-assessment.md) | Independently assessed; maintenance tracked | Disposable fixture advisories, bounded patches and telemetry isolation |
+| [Confidentiality direction](2026-10-01-atseq-confidentiality-direction.md) | Independently reviewed; public scope adopted | Public evidence, private-mode requirements, key/replay/checkpoint limits |
 
 The architecture and spike plan are companions. Read the architecture for the
 design basis and the plan for execution. New experiment results get their own
