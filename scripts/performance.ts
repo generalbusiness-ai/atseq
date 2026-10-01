@@ -1,3 +1,9 @@
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
+import { observeCrypto } from './performance-observer.ts';
+import { observeHttp } from './performance-network-observer.ts';
+import { observeInterpretation } from './performance-interpretation-observer.ts';
 import { randomBytes } from 'node:crypto';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -30,7 +36,7 @@ try {
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       handle: `bench${randomBytes(5).toString('hex')}.test`,
-      email: 'bench@example.test',
+      email: `bench${randomBytes(5).toString('hex')}@example.test`,
       password: randomBytes(24).toString('hex'),
     }),
   });
@@ -108,23 +114,33 @@ try {
     for (let n = 0; n < samples; n++) {
       const signed = await intent(head.position + 1),
         start = performance.now();
-      const response = await sequencer.submit(encodeBlock(signed)),
+      const observed = await observeHttp(() => observeCrypto(() => sequencer!.submit(encodeBlock(signed)))),
+        response = observed.result.result,
         elapsedMs = performance.now() - start;
       head = response.head;
-      acknowledgment.push({ position: response.receipt.position, elapsedMs });
+      acknowledgment.push({
+        position: response.receipt.position,
+        elapsedMs,
+        http: observed.http,
+        crypto: observed.result.crypto,
+      });
       console.log(`Confirmed #${head.position}: ${elapsedMs.toFixed(1)} ms`);
     }
     await sequencer.close();
     sequencer = undefined;
     let started = performance.now();
-    const snapshot = await readSnapshot(pds, anchor);
+    const observedRead = await observeHttp(() => observeCrypto(() => readSnapshot(pds, anchor)));
+    const snapshot = observedRead.result.result;
+    assert.equal(observedRead.result.crypto.verify.calls, 2 * size);
     const readVerifyMs = performance.now() - started;
     all = [...snapshot.history.entries];
     started = performance.now();
     const folder = await Folder.open(anchor, source);
     const loadedMs = performance.now() - started;
     started = performance.now();
-    const result = await folder.catchUp(head, all);
+    const observedReplay = await observeCrypto(() => observeInterpretation(folder, () => folder.catchUp(head, all)));
+    const result = observedReplay.result.result;
+    assert.equal(observedReplay.crypto.verify.calls, 2 * size);
     const replayMs = performance.now() - started;
     assert.equal(result.stalled, undefined);
     assert.equal((result.projection.state as any).selected, String(size));
@@ -132,7 +148,9 @@ try {
     const warm = await Folder.open(anchor, source);
     await warm.catchUp(headAt(anchor, size - 1, await contentCid(all[size - 2])), all.slice(0, -1));
     const before = performance.now();
-    await warm.catchUp(head, all);
+    const observedWarm = await observeCrypto(() => observeInterpretation(warm, () => warm.catchUp(head, all)));
+    assert.deepEqual(observedWarm.result.result.projection, result.projection);
+    assert.equal(observedWarm.crypto.verify.calls, 2 * size);
     const catchUpOneMs = performance.now() - before;
     const raw = {
       size,
@@ -146,9 +164,16 @@ try {
         0.95,
       ),
       readVerifyMs,
+      readHttp: observedRead.http,
+      readCrypto: observedRead.result.crypto,
       runtimeLoadMs: loadedMs,
       fullReplayMs: replayMs,
+      replayCrypto: observedReplay.crypto,
+      replayInterpretation: observedReplay.result.stages,
       catchUpOneMs,
+      catchUpOneCrypto: observedWarm.crypto,
+      catchUpOneInterpretation: observedWarm.result.stages,
+      processMemoryBoundary: process.memoryUsage(),
       boundedStateBytes: encodeBlock(result.projection.state).length,
     };
     measurements.push(raw);
@@ -180,6 +205,18 @@ try {
     measurements.map((m) => ({ name: `history ${m.size}`, passed, elapsedMs: m.fullReplayMs })),
     {
       expectedCases: 3,
+      exactHead: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
+      runtime: process.version,
+      harnessSha256: createHash('sha256')
+        .update(await readFile(new URL(import.meta.url)))
+        .digest('hex'),
+      fixtureLockSha256: createHash('sha256')
+        .update(await readFile('tests/support/pds/package-lock.json'))
+        .digest('hex'),
+      byteMethod:
+        'Decoded HTTP request/response body bytes observed in fetch, excluding headers, compression and transport framing. Setup and account credentials are outside observed scopes. Methods/paths only, no query strings or headers retained. TransformStream adds observer overhead.',
+      timingLimits:
+        'Crypto spans overlap under concurrency; interpretation spans include nested schema validators. RSS is a boundary sample. All measured appends use baseline full-prefix checks, not native optimized ordering.',
       topology:
         'Official PDS 0.5.31, loopback HTTP, real SQLite and file blobs; official mock PLC. One sequencer, no rate limits; signed setup batched separately from timed confirmed single appends.',
       hardware: {
