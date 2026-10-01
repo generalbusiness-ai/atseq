@@ -5,22 +5,23 @@ import { assertDependencies } from '../core/dependencies.ts';
 /** One bounded observation attempt. No credentials, redirects or local exception. */
 export class IdentityFetch {
   private readonly deadline = AbortSignal.timeout(30_000);
-  private readonly fetch = safeFetchWrap({
-    ssrfProtection: true,
-    allowHttp: false,
-    allowPrivateIps: false,
-    allowData: false,
-    allowCustomPort: true,
-    allowIpHost: true,
-    allowImplicitRedirect: false,
-    timeout: 30_000,
-    responseMaxSize: 32 * 1024 * 1024,
-  });
+  private readonly fetch: ReturnType<typeof safeFetchWrap>;
   private requests = 0;
   private bytes = 0;
   private active = false;
   constructor() {
     assertDependencies();
+    this.fetch = safeFetchWrap({
+      ssrfProtection: true,
+      allowHttp: false,
+      allowPrivateIps: false,
+      allowData: false,
+      allowCustomPort: true,
+      allowIpHost: true,
+      allowImplicitRedirect: false,
+      timeout: 30_000,
+      responseMaxSize: 32 * 1024 * 1024,
+    });
   }
   async bytesFrom(url: string | URL, maximumBytes: number, signal?: AbortSignal): Promise<Uint8Array> {
     if (!Number.isSafeInteger(maximumBytes) || maximumBytes < 1 || maximumBytes > 32 * 1024 * 1024)

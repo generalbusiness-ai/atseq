@@ -1,8 +1,11 @@
 import { visit } from 'jsonc-parser';
-import { ProtocolError } from '../core/errors.ts';
+import { AtseqError, ProtocolError } from '../core/errors.ts';
 
 export function identityInput(message: string): never {
   throw new ProtocolError('input', message);
+}
+export function identityResourceLimit(message: string): never {
+  throw new AtseqError('content_unavailable', message);
 }
 export function identityObject(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -10,7 +13,8 @@ export function identityObject(value: unknown): value is Record<string, unknown>
 /** One strict interpretation of the exact retained bytes, shared online/offline. */
 export function parseIdentityJson(raw: Uint8Array, maximumBytes: number): unknown {
   if (!Number.isSafeInteger(maximumBytes) || maximumBytes < 1) identityInput('Invalid identity response budget');
-  if (!(raw instanceof Uint8Array) || raw.length > maximumBytes) identityInput('Identity response exceeds budget');
+  if (!(raw instanceof Uint8Array)) identityInput('Expected retained identity bytes');
+  if (raw.length > maximumBytes) identityResourceLimit('Identity response exceeds budget');
   if (raw[0] === 0xef && raw[1] === 0xbb && raw[2] === 0xbf) identityInput('Identity JSON must not begin with a BOM');
   let text: string;
   try {
@@ -21,7 +25,7 @@ export function parseIdentityJson(raw: Uint8Array, maximumBytes: number): unknow
   }
   const frames: (Set<string> | null)[] = [];
   function begin(names: Set<string> | null) {
-    if (frames.length >= 32) identityInput('Identity JSON nesting exceeds 32');
+    if (frames.length >= 32) identityResourceLimit('Identity JSON nesting exceeds 32');
     frames.push(names);
   }
   visit(

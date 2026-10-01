@@ -6,7 +6,13 @@ import { resolve } from 'node:path';
 test('production identity transport rejects literal/private addresses and connect-time DNS rebinding', () => {
   const probe = `import assert from 'node:assert/strict';
     import {createRequire,syncBuiltinESMExports} from 'node:module';
+    import {readFileSync} from 'node:fs';
     import {createServer} from 'node:net';import {once} from 'node:events';
+    const require=createRequire(import.meta.url),builtinUndici=process.versions.undici;
+    const alias='undici_v'+builtinUndici.split('.')[0],selectedEntry=require.resolve(alias);
+    const selectedPackage=JSON.parse(readFileSync('node_modules/'+alias+'/package.json','utf8'));
+    const originalFetch=globalThis.fetch;let dispatchedCalls=0;
+    globalThis.fetch=(input,init)=>{assert.equal(typeof init.dispatcher.dispatch,'function');dispatchedCalls++;return originalFetch(input,init);};
     const dns=createRequire(import.meta.url)('node:dns');let calls=0;const original=dns.lookup;
     dns.lookup=(host,options,callback)=>{if(host!=='rebind.atseq-probe.net')return original(host,options,callback);calls++;const answer=calls===1?'93.184.216.34':'127.0.0.1';
       if(options.all)callback(null,[{address:answer,family:4}]);else callback(null,answer,4);};
@@ -24,7 +30,7 @@ test('production identity transport rejects literal/private addresses and connec
       for(const host of ['127.0.0.1','10.0.0.1','192.168.1.1','169.254.169.254','[::1]','[::ffff:127.0.0.1]'])
         await assert.rejects(()=>new IdentityFetch().bytesFrom('https://'+host+':'+port+'/audit',100),{code:'content_unavailable'});
       assert.equal(connections,0);
-      process.stdout.write(JSON.stringify({node:process.version,undici:process.versions.undici,connectTimeDnsCalls:calls,privateConnections:connections,literalCases:6}));
+      process.stdout.write(JSON.stringify({node:process.version,builtinUndici,selectedAgentAlias:alias,selectedInstalledVersion:selectedPackage.version,selectedEntry,dispatchedCalls,connectTimeDnsCalls:calls,privateConnections:connections,literalCases:6}));
     }finally{await new Promise(ok=>server.close(ok));}`;
   const output = execFileSync(
     process.execPath,
@@ -42,4 +48,34 @@ test('production identity transport rejects literal/private addresses and connec
   assert.equal(evidence.privateConnections, 0);
   assert.equal(evidence.literalCases, 6);
   console.log(JSON.stringify(evidence));
+});
+
+test('identity transport applies credential/cache/redirect and failed-body total budgets (mock HTTP responses)', () => {
+  const probe = `import assert from 'node:assert/strict';let calls=0;let bodyBytes=1;
+    globalThis.fetch=async(input,init)=>{calls++;const request=new Request(input,init);
+      assert.equal(request.redirect,'error');assert.equal(request.cache,'no-store');assert.equal(request.credentials,'omit');
+      assert.equal(request.headers.get('authorization'),null);assert.equal(request.headers.get('cookie'),null);
+      return new Response(new Uint8Array(bodyBytes));};
+    const {IdentityFetch}=await import(${JSON.stringify(resolve('src/host/identity-fetch.ts'))});
+    const limit=new IdentityFetch();for(let n=0;n<64;n++)assert.equal((await limit.bytesFrom('https://pds.atseq-probe.net/a',10)).length,1);
+    await assert.rejects(()=>limit.bytesFrom('https://pds.atseq-probe.net/a',10),{code:'content_unavailable'});assert.equal(calls,64);
+    bodyBytes=17*1024*1024;calls=0;const total=new IdentityFetch();
+    for(let n=0;n<2;n++)await assert.rejects(()=>total.bytesFrom('https://pds.atseq-probe.net/a',16*1024*1024),{code:'content_unavailable'});
+    await assert.rejects(()=>total.bytesFrom('https://pds.atseq-probe.net/a',16*1024*1024),{code:'content_unavailable'});assert.equal(calls,2);
+    process.stdout.write('mock request/body policy passed');`;
+  assert.equal(
+    execFileSync(
+      process.execPath,
+      [
+        '--conditions=atseq-source',
+        '--import',
+        resolve('node_modules/tsx/dist/loader.mjs'),
+        '--input-type=module',
+        '-e',
+        probe,
+      ],
+      { encoding: 'utf8', timeout: 20_000 },
+    ),
+    'mock request/body policy passed',
+  );
 });

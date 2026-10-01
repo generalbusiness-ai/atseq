@@ -11,7 +11,7 @@ import {
 } from '@atcute/did-plc';
 import { fromBase64Url, toBase64Url, toBase58Btc } from '@atcute/multibase';
 import { Point } from '@noble/secp256k1';
-import { ProtocolError } from '../../src/core/errors.ts';
+import { AtseqError } from '../../src/core/errors.ts';
 import { deriveIdentityBinding, sameIdentityObservation } from '../../src/protocol/identity-binding.ts';
 import { parseIdentityJson } from '../../src/protocol/identity-json.ts';
 
@@ -20,17 +20,14 @@ const cid = (value: unknown) => CID.toString(CID.createSync(CID.CODEC_DCBOR, CBO
 function check(value: unknown, message: string): asserts value {
   if (!value) throw new Error(message);
 }
-async function rejects(operation: () => unknown | Promise<unknown>, name: string) {
+async function rejects(operation: () => unknown | Promise<unknown>, name: string, code = 'input') {
   let caught: unknown;
   try {
     await operation();
   } catch (error) {
     caught = error;
   }
-  check(
-    caught instanceof ProtocolError && caught.code === 'input',
-    `${name}: expected invalid-input error, got ${String(caught)}`,
-  );
+  check(caught instanceof AtseqError && caught.code === code, `${name}: expected ${code} error, got ${String(caught)}`);
 }
 export async function plcIdentityFixture(type: 'p256' | 'secp256k1' = 'p256') {
   const key = await (type === 'p256' ? P256PrivateKeyExportable : Secp256k1PrivateKeyExportable).createKeypair();
@@ -77,14 +74,18 @@ export async function identityCorpus() {
     ['empty JSON', ''],
     ['deep JSON', '['.repeat(33) + '0' + ']'.repeat(33)],
   ]) {
-    await rejects(() => parseIdentityJson(new TextEncoder().encode(raw), 1000), name!);
+    await rejects(
+      () => parseIdentityJson(new TextEncoder().encode(raw), 1000),
+      name!,
+      name === 'deep JSON' ? 'content_unavailable' : 'input',
+    );
     passed(name!);
   }
   await rejects(() => parseIdentityJson(new Uint8Array([0xef, 0xbb, 0xbf, 0x7b, 0x7d]), 100), 'BOM');
   passed('UTF-8 BOM rejected');
   await rejects(() => parseIdentityJson(new Uint8Array([0x22, 0xc3, 0x22]), 100), 'invalid UTF8');
   passed('fatal UTF-8');
-  await rejects(() => parseIdentityJson(encode({}), 1), 'byte budget');
+  await rejects(() => parseIdentityJson(encode({}), 1), 'byte budget', 'content_unavailable');
   passed('response budget before parsing');
   check(
     Array.isArray(parseIdentityJson(new TextEncoder().encode('['.repeat(32) + '0' + ']'.repeat(32)), 100)),
@@ -291,6 +292,7 @@ export async function identityCorpus() {
           selectedTipCid: fixture.selectedTipCid,
         }),
       name,
+      'content_unavailable',
     );
     passed(name);
   }
@@ -387,6 +389,7 @@ export async function identityCorpus() {
   await rejects(
     () => web({ ...document, service: Array.from({ length: 65 }, () => document.service[0]) }),
     'array budget',
+    'content_unavailable',
   );
   passed('web service array budget');
   await rejects(
@@ -396,6 +399,7 @@ export async function identityCorpus() {
         documentBytes: new Uint8Array(32 * 1024 + 1),
       }),
     'web response budget',
+    'content_unavailable',
   );
   passed('web response byte budget');
   for (const [index, type] of (['p256', 'secp256k1'] as const).entries()) {

@@ -13,7 +13,7 @@ import * as v from 'valibot';
 import { ProtocolError } from '../core/errors.ts';
 import { assertDependencies } from '../core/dependencies.ts';
 import { link } from './wire.ts';
-import { identityInput, identityObject, parseIdentityJson } from './identity-json.ts';
+import { identityInput, identityObject, identityResourceLimit, parseIdentityJson } from './identity-json.ts';
 import { identityPdsOrigin, normalizeIdentityDidKey } from './identity-key.ts';
 
 export const PLC_EVIDENCE_LIMITS = Object.freeze({ bytes: 1024 * 1024, rows: 512, operationBytes: 7500, entries: 64 });
@@ -28,11 +28,11 @@ function strictFields(value: unknown, allowed: readonly string[]) {
 }
 function boundedContainers(value: unknown): void {
   if (Array.isArray(value)) {
-    if (value.length > PLC_EVIDENCE_LIMITS.entries) identityInput('PLC operation array exceeds budget');
+    if (value.length > PLC_EVIDENCE_LIMITS.entries) identityResourceLimit('PLC operation array exceeds budget');
     for (const child of value) boundedContainers(child);
   } else if (identityObject(value)) {
     const values = Object.values(value);
-    if (values.length > PLC_EVIDENCE_LIMITS.entries) identityInput('PLC operation map exceeds budget');
+    if (values.length > PLC_EVIDENCE_LIMITS.entries) identityResourceLimit('PLC operation map exceeds budget');
     for (const child of values) boundedContainers(child);
   }
 }
@@ -62,8 +62,8 @@ export async function verifyPlcAudit(principal: string, raw: Uint8Array, selecte
   if (!isDidPlc(principal)) identityInput('Expected PLC principal');
   plcCid(selectedTipCid);
   const parsed = parseIdentityJson(raw, PLC_EVIDENCE_LIMITS.bytes);
-  if (!Array.isArray(parsed) || parsed.length < 1 || parsed.length > PLC_EVIDENCE_LIMITS.rows)
-    identityInput('PLC audit row budget exceeded');
+  if (!Array.isArray(parsed) || parsed.length < 1) identityInput('Expected a nonempty PLC audit');
+  if (parsed.length > PLC_EVIDENCE_LIMITS.rows) identityResourceLimit('PLC audit row budget exceeded');
   for (const row of parsed) {
     if (!identityObject(row) || !identityObject(row.operation)) identityInput('Invalid PLC audit row');
     const op = row.operation;
@@ -95,7 +95,7 @@ export async function verifyPlcAudit(principal: string, raw: Uint8Array, selecte
     plcCid(row.cid);
     if (row.operation.prev !== null) plcCid(row.operation.prev);
     if (CBOR.encode(row.operation).length > PLC_EVIDENCE_LIMITS.operationBytes)
-      identityInput('PLC operation exceeds byte budget');
+      identityResourceLimit('PLC operation exceeds byte budget');
     signature(row.operation.sig);
     const date = timestamp(row.createdAt);
     if (date < previousDate) identityInput('PLC audit timestamps are unordered');

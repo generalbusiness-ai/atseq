@@ -47,7 +47,7 @@ export async function preparePackageConformance(root: string, installed: string)
     return destination;
   }
   const modules = await Promise.all(
-    ['corpus', 'runtime-corpus', 'evolution-corpus', 'source-document-corpus'].map((name) =>
+    ['corpus', 'runtime-corpus', 'evolution-corpus', 'source-document-corpus', 'identity-corpus'].map((name) =>
       compile(join(root, 'tests/support', name + '.ts')),
     ),
   );
@@ -60,7 +60,9 @@ import {runCorpus} from ${JSON.stringify(pathToFileURL(modules[0]!).href)};
 import {runRuntimeCorpus} from ${JSON.stringify(pathToFileURL(modules[1]!).href)};
 import {runEvolutionCorpus} from ${JSON.stringify(pathToFileURL(modules[2]!).href)};
 import {runSourceDocumentCorpus} from ${JSON.stringify(pathToFileURL(modules[3]!).href)};
+import {identityCorpus} from ${JSON.stringify(pathToFileURL(modules[4]!).href)};
 const cases = [...await runCorpus(), ...await runRuntimeCorpus(), ...await runSourceDocumentCorpus()];
+for (const name of await identityCorpus()) cases.push({name:'retained identity: '+name,passed:true});
 await runEvolutionCorpus(async (name, run) => {
   try { await run(); cases.push({name, passed:true}); }
   catch(error) { cases.push({name, passed:false, detail:error.message}); }

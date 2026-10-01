@@ -1,6 +1,6 @@
 import { isAtprotoDid } from '@atproto/did';
 import { assertDependencies } from '../core/dependencies.ts';
-import { identityInput, identityObject, parseIdentityJson } from './identity-json.ts';
+import { identityInput, identityObject, identityResourceLimit, parseIdentityJson } from './identity-json.ts';
 import { identityPdsOrigin, normalizeIdentityController } from './identity-key.ts';
 import { verifyPlcAudit } from './identity-plc.ts';
 
@@ -15,8 +15,8 @@ function ownFragment(value: unknown, principal: string, fragment: string) {
 function documentArray(doc: Record<string, unknown>, name: string): unknown[] {
   const value = doc[name];
   if (value === undefined) return [];
-  if (!Array.isArray(value) || value.length > WEB_EVIDENCE_LIMITS.arrayEntries)
-    identityInput('Web identity array exceeds budget or has invalid type');
+  if (!Array.isArray(value)) identityInput('Web identity array has invalid type');
+  if (value.length > WEB_EVIDENCE_LIMITS.arrayEntries) identityResourceLimit('Web identity array exceeds budget');
   return value;
 }
 async function deriveWeb(principal: string, raw: Uint8Array) {

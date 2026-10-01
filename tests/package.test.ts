@@ -6,6 +6,7 @@ import { createHash } from 'node:crypto';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 import { chartFixture } from '../testdata/apps/fixtures.ts';
 import { sourceDocumentFromBundle, serializeSourceDocument } from '../src/definition/document.ts';
 import { supportedProfiles } from '../src/protocol/identity.ts';
@@ -44,6 +45,16 @@ test(
         { cwd: directory, env: nativeEnv },
       );
       const installed = join(directory, 'node_modules/atseq');
+      assert.equal(
+        existsSync(join(installed, 'node_modules/typescript')),
+        false,
+        'The optional valibot typechecking peer must not become a bundled runtime',
+      );
+      assert.equal(
+        existsSync(join(directory, 'node_modules/typescript')),
+        false,
+        'The fresh consumer must not install the optional typechecking peer',
+      );
       // Also reproduce the reviewer's missing-native-binding consumer explicitly.
       for (const name of ['vite', 'rolldown', '@rolldown', 'lightningcss', 'fsevents'])
         await rm(join(installed, 'node_modules', name), { recursive: true, force: true });
@@ -70,6 +81,8 @@ test(
         'source documents refuse the historical application v1 profile',
         'source document retains exact bytes, aliases, unused files and manifest order',
         'source document refuses path, version, byte and retained-table ambiguity',
+        'retained identity: p256 whole-log canonical tip, earlier selection rejected',
+        'retained identity: secp256k1 whole-log canonical tip, earlier selection rejected',
       ])
         assert.ok(
           cases.some((entry: { name: string; passed: boolean }) => entry.name === name && entry.passed),
