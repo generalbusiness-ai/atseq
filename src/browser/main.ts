@@ -586,6 +586,9 @@ async function drawApp() {
   }
   if (!pending.length && !snapshot.projection.outcomes.length)
     activity.append(element('p', 'No actions yet. Reading this app creates no signature or commitment.', 'muted'));
+  // Keep the reader's keyboard target while moving this same live draft into
+  // the refreshed display. A normal DOM reparent otherwise blurs its input.
+  const focusedEditor = formArea.contains(document.activeElement) ? (document.activeElement as HTMLElement) : undefined;
   workspace.append(formArea);
   content.replaceChildren(
     title,
@@ -620,6 +623,8 @@ async function drawApp() {
     inspect('Verified state and frontier', snapshot.projection),
     inspect('Inspect definition', definition),
   );
+  if (visible() && focusedEditor?.isConnected && formArea.contains(focusedEditor))
+    focusedEditor.focus({ preventScroll: true });
   try {
     const selectedView = definition.manifest.views[0];
     if (selectedView) {

@@ -1,0 +1,20 @@
+▶ two browser identities and the JSON CLI use generic participation flows
+  ✔ CLI preview opens the same source in the browser without publication (477.369667ms)
+  ✔ explicit identity and publication create an app once (1267.427542ms)
+  ✔ another browser can read before creating a distinct signing identity (213.6145ms)
+  ✔ offline double click retains one signed intent across reload and reconnect (286.873416ms)
+  ✔ a competing browser action is recorded with an honest ineffective outcome (146.003542ms)
+  ✔ CLI uses a third private key and keeps exact retry bytes in a file (2243.513583ms)
+  ✔ narrow layout remains usable with keyboard focus and no script errors (198.239125ms)
+  ✔ lost submit reply reconciles the retained intent without a second append (254.165375ms)
+  ✔ transport refusal retains the original signed work and invents no entry (509.828875ms)
+  ✔ hostile template text stays text and rendering cannot sign or fetch external resources (1650.06425ms)
+✔ two browser identities and the JSON CLI use generic participation flows (8834.813458ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9509.768917

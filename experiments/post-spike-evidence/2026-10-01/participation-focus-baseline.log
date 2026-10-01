@@ -1,0 +1,71 @@
+▶ two browser identities and the JSON CLI use generic participation flows
+  ✔ CLI preview opens the same source in the browser without publication (561.140958ms)
+  ✔ explicit identity and publication create an app once (1271.015625ms)
+  ✔ another browser can read before creating a distinct signing identity (215.0535ms)
+  ✔ offline double click retains one signed intent across reload and reconnect (302.145458ms)
+  ✔ a competing browser action is recorded with an honest ineffective outcome (145.847542ms)
+  ✔ CLI uses a third private key and keeps exact retry bytes in a file (2388.190792ms)
+  ✔ narrow layout remains usable with keyboard focus and no script errors (186.642833ms)
+  ✔ lost submit reply reconciles the retained intent without a second append (252.01875ms)
+  ✖ transport refusal retains the original signed work and invents no entry (5176.231333ms)
+✖ two browser identities and the JSON CLI use generic participation flows (12825.167334ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13628.919917
+
+✖ failing tests:
+
+test at tests/participation.test.ts:1:1127
+✖ transport refusal retains the original signed work and invents no entry (5176.231333ms)
+  Error: expect(locator).toBeFocused() failed
+  
+  Locator:  getByRole('textbox', { name: 'title', exact: true })
+  Expected: focused
+  Received: inactive
+  Timeout:  5000ms
+  
+  Call log:
+    - Expect "toBeFocused" getByRole('textbox', { name: 'title', exact: true }) with timeout 5000ms
+    - waiting for getByRole('textbox', { name: 'title', exact: true })
+      14 × locator resolved to <input type="text" required="" name="title" minlength="1" maxlength="120" aria-label="title"/>
+         - unexpected value "inactive"
+  
+      at captureRawStack (/Users/hughpyle/play/atseq-worktrees/participation-ci/node_modules/playwright-core/lib/coreBundle.js:8588:17)
+      at callMatcherAsStep (/Users/hughpyle/play/atseq-worktrees/participation-ci/node_modules/playwright/lib/matchers/expect.js:13310:57)
+      at Object.toBeFocused (/Users/hughpyle/play/atseq-worktrees/participation-ci/node_modules/playwright/lib/matchers/expect.js:13302:23)
+      at <anonymous> (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:320:76)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:28:9)
+      at async check (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:24:5)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:264:5) {
+    matcherResult: { message: `expect(locator).toBeFocused() failed\n\nLocator:  getByRole('textbox', { name: 'title', exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n  - Expect "toBeFocused" getByRole('textbox', { name: 'title', exact: true }) with timeout 5000ms\n  - waiting for getByRole('textbox', { name: 'title', exact: true })\n    14 × locator resolved to <input type="text" required="" name="title" minlength="1" maxlength="120" aria-label="title"/>\n       - unexpected value "inactive"\n`, pass: false, actual: 'inactive', name: 'toBeFocused', expected: 'focused', log: [ `  - Expect "toBeFocused" getByRole('textbox', { name: 'title', exact: true }) with timeout 5000ms`, "  - waiting for getByRole('textbox', { name: 'title', exact: true })", '    14 × locator resolved to <input type="text" required="" name="title" minlength="1" maxlength="120" aria-label="title"/>', '       - unexpected value "inactive"' ], timeout: 5000, ariaSnapshot: '- textbox "title": Refused transport' }
+  }
+
+test at tests/participation.test.ts:1:966
+✖ two browser identities and the JSON CLI use generic participation flows (12825.167334ms)
+  Error: expect(locator).toBeFocused() failed
+  
+  Locator:  getByRole('textbox', { name: 'title', exact: true })
+  Expected: focused
+  Received: inactive
+  Timeout:  5000ms
+  
+  Call log:
+    - Expect "toBeFocused" getByRole('textbox', { name: 'title', exact: true }) with timeout 5000ms
+    - waiting for getByRole('textbox', { name: 'title', exact: true })
+      14 × locator resolved to <input type="text" required="" name="title" minlength="1" maxlength="120" aria-label="title"/>
+         - unexpected value "inactive"
+  
+      at captureRawStack (/Users/hughpyle/play/atseq-worktrees/participation-ci/node_modules/playwright-core/lib/coreBundle.js:8588:17)
+      at callMatcherAsStep (/Users/hughpyle/play/atseq-worktrees/participation-ci/node_modules/playwright/lib/matchers/expect.js:13310:57)
+      at Object.toBeFocused (/Users/hughpyle/play/atseq-worktrees/participation-ci/node_modules/playwright/lib/matchers/expect.js:13302:23)
+      at <anonymous> (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:320:76)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:28:9)
+      at async check (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:24:5)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/participation-ci/tests/participation.test.ts:264:5) {
+    matcherResult: { message: `expect(locator).toBeFocused() failed\n\nLocator:  getByRole('textbox', { name: 'title', exact: true })\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n  - Expect "toBeFocused" getByRole('textbox', { name: 'title', exact: true }) with timeout 5000ms\n  - waiting for getByRole('textbox', { name: 'title', exact: true })\n    14 × locator resolved to <input type="text" required="" name="title" minlength="1" maxlength="120" aria-label="title"/>\n       - unexpected value "inactive"\n`, pass: false, actual: 'inactive', name: 'toBeFocused', expected: 'focused', log: [ `  - Expect "toBeFocused" getByRole('textbox', { name: 'title', exact: true }) with timeout 5000ms`, "  - waiting for getByRole('textbox', { name: 'title', exact: true })", '    14 × locator resolved to <input type="text" required="" name="title" minlength="1" maxlength="120" aria-label="title"/>', '       - unexpected value "inactive"' ], timeout: 5000, ariaSnapshot: '- textbox "title": Refused transport' }
+  }
