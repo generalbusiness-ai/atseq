@@ -1,0 +1,94 @@
+{
+  "fixtureLockSha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+  "probeSourceSha256": "7acfbba4d0a757e7b3b7e62c5526a287cb58de98532183b8f78b07161ca39a5f",
+  "probeLockSha256": "51f31cd1a02874458e590085e0c1065ef89d69a3329890ce048849244dec0530",
+  "probePackages": [
+    {
+      "path": "node_modules/@atcute/car",
+      "version": "6.1.0",
+      "integrity": "sha512-Dp7MlyI3YT7NiIUK6bm2ZyA95Pdun+DuFlcr40ZsGdqhOkKrctZT7wMZXSs6IYd7RorjSnddEJDh51hqrkNSPQ=="
+    },
+    {
+      "path": "node_modules/@atcute/cbor",
+      "version": "2.3.8",
+      "integrity": "sha512-gazXBcNTr2U3cRaCjfRbq2GKHJnWapUUA3mgehL+0tbVXEty2wf/LIwF9z46gjqjX2DYGGwkybF8lTI3dzHaNQ=="
+    },
+    {
+      "path": "node_modules/@atcute/cid",
+      "version": "2.5.0",
+      "integrity": "sha512-CAZyzUdaQhuC+S7tGjoC7vgyDI2X4JU+CPO/7WjEU7HlNsAGXjSkD++5TlfnSWGDqUeqpjMZjUfFBZYHKzPHew=="
+    },
+    {
+      "path": "node_modules/@atcute/crypto",
+      "version": "2.4.4",
+      "integrity": "sha512-Yc7lXz4ndDjbs+/WrKeGS+sVEr+sx8xi5zSVInKNl0FAEY6KbvcT+bjaU9A3erUVviFp9yEcu/1aSg/f+GPpBg=="
+    },
+    {
+      "path": "node_modules/@atcute/lexicons",
+      "version": "2.1.1",
+      "integrity": "sha512-kHyqUW8g/Fq9LTctGh0TVBx0AmtecV6VSrRprrSbqKqHe9q8C6y+YPL3EMNq2l93XA1iDHkkvYwLdTcKL/lNbA=="
+    },
+    {
+      "path": "node_modules/@atcute/mst",
+      "version": "1.1.1",
+      "integrity": "sha512-QWoW69Pg5RWrc0B98Cp5K4UjeXI+2vzBrWmoBUW4nSR51LsamOnG9HsWovcOoCRhnj1ZYAMlnAc5Eh8+gJFoSA=="
+    },
+    {
+      "path": "node_modules/@atcute/multibase",
+      "version": "1.2.5",
+      "integrity": "sha512-cReTONgYpQo/VHD3ZmzPNoyBKJgSk1J4h//cvvdVVJBMar+SjlQ/sUXeTjQfuyfmDKv+TLKhmutLcvbMcQ9Rvw=="
+    },
+    {
+      "path": "node_modules/@atcute/repo",
+      "version": "1.1.0",
+      "integrity": "sha512-WXOh05E/NT39oqkNm3xIit4ysJIZxmkQ1GWOkwDNvTYIDW0CYqwThQ+837r72/Tr490E1Zvz09xOOjtx/XmlhA=="
+    },
+    {
+      "path": "node_modules/@atcute/uint8array",
+      "version": "1.2.0",
+      "integrity": "sha512-KoBGTbV4lS8zXNu91osM3FecrH3NUnxNPsBAkaNtn6uf/p240245qoLn7keFpRM0npX522X8R+XBBb2rvtE7Rg=="
+    },
+    {
+      "path": "node_modules/@atcute/util-text",
+      "version": "1.3.4",
+      "integrity": "sha512-u2UAM7iSM09sQaSG9jtxWFSPgB8boVj50/BoyMvYnhVgGBu+nXIuAcdDUQCsZA44YZgTPPhN/b86JX+jH7SPzQ=="
+    },
+    {
+      "path": "node_modules/@atcute/varint",
+      "version": "2.0.2",
+      "integrity": "sha512-/+hS1juMgnmf6eL6lICUkTw7wcGTo3I+Q0L1PI521mUz77rGSC6nXAUNKtvm2wYJpuWdEGq+GILGoYkOArn0TQ=="
+    },
+    {
+      "path": "node_modules/@noble/secp256k1",
+      "version": "3.2.0",
+      "integrity": "sha512-Z3ZAWOTxJ0EuTuZTi7Y69iK7GgrLHh8sgm45lVDhg/b3Nk1TpAiKhick2KkZisHuupeepSkyIydN/J459SdX1w=="
+    },
+    {
+      "path": "node_modules/@oomfware/eval",
+      "version": "0.1.0",
+      "integrity": "sha512-EIkukTd3zDQEHUjcfFRDq79Jgm4OEyUrEUvp/SwgjfoH2POaE5cvaswIonFwdt8fSzJF5xtAdgcgIoKD8sPpjg=="
+    },
+    {
+      "path": "node_modules/@standard-schema/spec",
+      "version": "1.1.0",
+      "integrity": "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="
+    },
+    {
+      "path": "node_modules/esm-env",
+      "version": "1.2.2",
+      "integrity": "sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA=="
+    },
+    {
+      "path": "node_modules/unicode-segmenter",
+      "version": "0.17.3",
+      "integrity": "sha512-hKZwqBjJDmqNrq1+LjDxck1qLzJFcLLJM2Xq92ORRHOuau6GSHeELmn+uyk6zNH1CK9mogrUJGP9WJCJUQXMAw=="
+    }
+  ],
+  "nativeCasesPassed": 9,
+  "limitations": [
+    "Not a complete Atseq native-ordering implementation",
+    "No live provider identity/currentness test",
+    "Browser bundling only, not browser execution",
+    "Whole-tree canonical validation and shared-root reuse require P1 wrapper"
+  ]
+}
