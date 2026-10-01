@@ -1,0 +1,10 @@
+{
+  "capturedAt": "2026-10-01T14:31:56.442Z",
+  "command": "npm audit --json",
+  "exitStatus": 1,
+  "node": "v26.10.0",
+  "npm": "11.19.1",
+  "fixtureLockSha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+  "auditSha256": "f47f3330d26fe1e0f05549105681eff264ff9ee4a851947fc453f36851a0f69e",
+  "unaffectedExistingPathToRegexp": "0.1.13"
+}

@@ -1,0 +1,67 @@
+{
+  "node": "v26.10.0",
+  "fixtureLockSha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+  "timingClaim": "No performance claim; correctness checks may overlap other agents",
+  "results": [
+    {
+      "name": "targeted",
+      "command": "node scripts/source-run.mjs --test tests/pds.test.ts tests/browser-sessions.test.ts tests/archive.test.ts",
+      "startedAt": "2026-10-01T14:33:37.432Z",
+      "endedAt": "2026-10-01T14:33:46.456Z",
+      "exitStatus": 0,
+      "signal": null,
+      "logSha256": "ab6c562c2aaf506ad6b4a63424f1e58aec3d1bc410f62500baf5d726df60f800",
+      "summary": {
+        "tests": 50,
+        "pass": 50,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "check",
+      "command": "npm run check",
+      "startedAt": "2026-10-01T14:33:46.456Z",
+      "endedAt": "2026-10-01T14:33:48.934Z",
+      "exitStatus": 0,
+      "signal": null,
+      "logSha256": "6f4b12986a351de8272b55de0aadb77eebd5e3d71680b8676b73c577c131e3ee"
+    },
+    {
+      "name": "full-suite",
+      "command": "npm test",
+      "startedAt": "2026-10-01T14:33:48.934Z",
+      "endedAt": "2026-10-01T14:35:03.232Z",
+      "exitStatus": 0,
+      "signal": null,
+      "logSha256": "5ba9dd9706dcb6ed141c28c23c7866a59a81e890c6b1a3d2690e381fae492cbb",
+      "summary": {
+        "tests": 352,
+        "pass": 352,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      }
+    },
+    {
+      "name": "native-since",
+      "command": "node experiments/native-authority-probe.mjs",
+      "startedAt": "2026-10-01T14:35:03.232Z",
+      "endedAt": "2026-10-01T14:35:04.154Z",
+      "exitStatus": 0,
+      "signal": null,
+      "logSha256": "d80198c994976cf919b967919bf1130a0387d581981aeb1ef24c72b93b3477f7"
+    }
+  ],
+  "setup": {
+    "rootNpmCi": 0,
+    "fixtureNpmCi": 0,
+    "build": 0,
+    "sqliteNativeBindingSmoke": 0
+  },
+  "sourceGitHead": "cb3fd8472ccec1208b72e8adc81884ccfb1860d4",
+  "scope": "Fixture-lock-only patch; no performance claims, exploit reachability certification or residual-finding remediation"
+}
