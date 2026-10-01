@@ -54,7 +54,10 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
       results.push({ name, passed: false, detail: `${(error as any).code ?? 'error'}: ${(error as Error).message}` });
     }
   };
-  const anchor = await Anchor.from(vectors.genesis.value, vectors.genesis.cid);
+  const anchor = await Anchor.from(vectors.genesis.value, {
+    app: vectors.genesis.value.app,
+    genesis: vectors.genesis.cid,
+  });
   const signed = vectors.signed.value as SignedIntent;
   const first = vectors.entry.value as Entry;
   for (const name of ['profile', 'definition', 'genesis', 'intent', 'signed', 'entry', 'head'] as const) {
@@ -164,11 +167,18 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
     rejects(() => verifyIntent({ ...signed, ignored: true }, anchor), 'envelope'),
   );
   await check('genesis anchor cannot be replaced', () =>
-    rejects(() => Anchor.from({ ...anchor.genesis, definition: anchor.genesis.profile }, anchor.cid), 'anchor'),
+    rejects(
+      () =>
+        Anchor.from(
+          { ...anchor.genesis, definition: anchor.genesis.profile },
+          { app: anchor.genesis.app, genesis: anchor.cid },
+        ),
+      'anchor',
+    ),
   );
   await check('duplicate genesis activation keys rejected', async () => {
     const bad = { ...anchor.genesis, activationKeys: [signed.intent.actorKey, signed.intent.actorKey] };
-    await rejects(async () => Anchor.from(bad, await contentCid(bad)), 'anchor');
+    await rejects(async () => Anchor.from(bad, { app: anchor.genesis.app, genesis: await contentCid(bad) }), 'anchor');
   });
   await check('signature bit flip rejected', () => {
     const bad = clone(signed);

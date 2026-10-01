@@ -103,7 +103,11 @@ async function proof(keyId: string, signature: Bytes, data: unknown): Promise<vo
     fail('signature', 'Invalid P-256 low-S signature');
 }
 
-/** An invitation pins this CID. PDS/DID discovery cannot replace it. */
+export interface Invitation {
+  app: string;
+  genesis: string;
+}
+/** An invitation pins both the application DID and genesis CID. */
 export class Anchor {
   private constructor(
     readonly genesis: Genesis,
@@ -115,16 +119,19 @@ export class Anchor {
     Object.freeze(genesis);
     Object.freeze(this);
   }
-  static async from(value: unknown, expectedCid: string): Promise<Anchor> {
+  static async from(value: unknown, expected: Invitation): Promise<Anchor> {
+    if (typeof expected?.app !== 'string' || !expected.app || typeof expected.genesis !== 'string' || !expected.genesis)
+      fail('anchor', 'Invitation requires both app and genesis pins');
+    const pinned = { app: expected.app, genesis: expected.genesis };
     validateFramework(NSID.genesis, value);
     const genesis = copy(value) as Genesis;
-    if ((await contentCid(genesis)) !== link(expectedCid).$link)
+    if (genesis.app !== pinned.app || (await contentCid(genesis)) !== link(pinned.genesis).$link)
       fail('anchor', 'Genesis differs from the pinned invitation');
     await key(genesis.sequencerKey);
     for (const actor of genesis.activationKeys) await key(actor);
     if (new Set(genesis.activationKeys).size !== genesis.activationKeys.length)
       fail('anchor', 'Duplicate initial activation key');
-    return new Anchor(genesis, expectedCid);
+    return new Anchor(genesis, pinned.genesis);
   }
 }
 function intentShape(value: unknown): asserts value is Intent {

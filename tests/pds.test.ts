@@ -77,7 +77,7 @@ test('real disposable PDS persistence and recovery', async (t) => {
       sequencerKey: await writer.exportPublicKey('did'),
       activationKeys: [await actor.exportPublicKey('did')],
     };
-    const anchor = await Anchor.from(genesis, await contentCid(genesis));
+    const anchor = await Anchor.from(genesis, { app: genesis.app, genesis: await contentCid(genesis) });
     await provisionLog(pds, anchor);
     await check('genesis and initial head are a verified empty prefix', async () => {
       const snapshot = await readSnapshot(pds, anchor);

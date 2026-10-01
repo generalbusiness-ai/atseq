@@ -61,6 +61,16 @@ export const INTERPRETATION_ERRORS = Object.freeze({
   wire_value: 'invalid_input',
 } as const);
 export const HOST_ERRORS = Object.freeze({
+  archive: 'invalid_input',
+  archive_incomplete: 'invalid_input',
+  archive_inventory: 'invalid_input',
+  archive_pin: 'invalid_input',
+  archive_runtime: 'invalid_input',
+  archive_size: 'invalid_input',
+  file_exists: 'invalid_input',
+  protected_file: 'invalid_input',
+  source_output: 'invalid_input',
+
   already_provisioned: 'invalid_input',
   anchor: 'invalid_input',
   content: 'invalid_input',

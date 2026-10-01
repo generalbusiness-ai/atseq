@@ -1,4 +1,4 @@
-import { Anchor } from '../protocol/log.ts';
+import { Anchor, type Invitation } from '../protocol/log.ts';
 import { ProtocolError } from '../protocol/wire.ts';
 import type { SourceReader } from '../definition/source.ts';
 import { Folder, type PersistProjection } from './folder.ts';
@@ -8,11 +8,11 @@ export class Applications {
   private readonly apps = new Map<string, { anchor: string; pending: Promise<Folder>; folder?: Folder }>();
   async open(
     genesis: unknown,
-    expectedCid: string,
+    expected: Invitation,
     source: SourceReader,
     persist?: PersistProjection,
   ): Promise<Folder> {
-    const anchor = await Anchor.from(genesis, expectedCid);
+    const anchor = await Anchor.from(genesis, expected);
     const existing = this.apps.get(anchor.genesis.app);
     if (existing) {
       if (existing.anchor !== anchor.cid)

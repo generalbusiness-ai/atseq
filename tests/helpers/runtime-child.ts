@@ -8,7 +8,9 @@ process.on('message', async (message: any) => {
     let result: unknown;
     if (message.operation === 'open') {
       const source = await SourceBundle.read(new Uint8Array(message.car));
-      result = (await apps.open(message.genesis, message.anchor, source)).snapshot();
+      result = (
+        await apps.open(message.genesis, { app: message.genesis.app, genesis: message.anchor }, source)
+      ).snapshot();
     } else if (message.operation === 'catchUp') {
       result = await apps.get(message.app, message.anchor).catchUp(message.head, message.entries);
     } else if (message.operation === 'query') {

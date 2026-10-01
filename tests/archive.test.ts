@@ -92,7 +92,10 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
     await send(fixture.bundle.root, 'ai.generalbusiness.atseq.examples.guitar.data#select', { id: 'one' });
     input = await api.call('sync', target);
     await check('complete evolved archive retains source history, profiles and exact outcomes', async () => {
-      archive = await exportArchive({ ...input, privateKey: 'MUST_NOT_EXPORT', password: 'MUST_NOT_EXPORT' });
+      archive = await exportArchive(
+        { ...input, privateKey: 'MUST_NOT_EXPORT', password: 'MUST_NOT_EXPORT' } as typeof input,
+        target,
+      );
       assert.equal(archive.input.head.position, 4);
       assert.equal(JSON.stringify(archive).includes('MUST_NOT_EXPORT'), false);
       assert.ok(archive.licenses.length > 0);
@@ -104,7 +107,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       await writeFile(archivePath, encodeArchive(archive));
     });
     await check('chosen older prefix uses its original definition and no future candidate', async () => {
-      const old = await exportArchive(input, 1),
+      const old = await exportArchive(input, target, 1),
         replay = await importArchive(encodeArchive(old));
       assert.equal(old.input.candidates!.length, 0);
       assert.equal(replay.snapshot.projection.definition, fixture.old.bundle.root);
@@ -112,9 +115,9 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
     });
     await check('missing activation source permits only the last complete prefix', async () => {
       const missing = { ...input, candidates: [] };
-      const partial = await exportArchive(missing);
+      const partial = await exportArchive(missing, target);
       assert.equal(partial.input.head.position, 1);
-      await assert.rejects(() => exportArchive(missing, 4), /through 1/);
+      await assert.rejects(() => exportArchive(missing, target, 4), /through 1/);
       const broken = structuredClone(archive);
       broken.input.candidates = [];
       await assert.rejects(() => importArchive(encodeArchive(broken)), /incomplete/);
@@ -219,7 +222,10 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
           }),
         /invitation/,
       );
-      await assert.rejects(() => cli({ operation: 'replay', source: archivePath, outputDirectory: output }), /EEXIST/);
+      await assert.rejects(
+        () => cli({ operation: 'replay', source: archivePath, outputDirectory: output }),
+        /Output exists/,
+      );
     });
     await check('installed shell bootstraps offline and rebuilds solely from an imported archive', async () => {
       await page.goto(service.url);
@@ -254,15 +260,18 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       const attacker = await createIdentity('Forged archive key'),
         genesis = { ...input.genesis, sequencerKey: attacker.publicKey, activationKeys: [attacker.publicKey] };
       const genesisCid = await contentCid(genesis),
-        anchor = await Anchor.from(genesis, genesisCid);
-      const forged = await exportArchive({
-        ...input,
-        genesis,
-        genesisCid,
-        head: headAt(anchor),
-        entries: [],
-        candidates: [],
-      });
+        anchor = await Anchor.from(genesis, { app: target.app, genesis: genesisCid });
+      const forged = await exportArchive(
+        {
+          ...input,
+          genesis,
+          genesisCid,
+          head: headAt(anchor),
+          entries: [],
+          candidates: [],
+        },
+        { app: target.app, genesis: genesisCid },
+      );
       await importArchive(encodeArchive(forged));
       await assert.rejects(() => importArchive(encodeArchive(forged), [target]), /pinned invitation/);
       const path = join(env.dir, 'conflicting-genesis.atseq.json');
@@ -402,7 +411,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       await writeFile('experiments/generated/archive-evidence/chart.svg', text);
       await writeFile('experiments/generated/archive-evidence/chart.html', await readFile(table));
       await page.screenshot({ path: 'experiments/generated/archive-evidence/chart.png', fullPage: true });
-      const archived = await exportArchive(await api.call('sync', invitation));
+      const archived = await exportArchive(await api.call('sync', invitation), invitation);
       await writeFile('experiments/generated/archive-evidence/chart.atseq.json', encodeArchive(archived));
       const escaped = chartExport([{ label: '<script>bad()</script>', value: -4 }], 'label', 'value', {
         ...invitation,
@@ -425,7 +434,7 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
         });
       await send(fixture.bundle.root, ACTIVATE, { expected: fixture.bundle.root, definition: first.root, closure });
       await send(fixture.bundle.root, fixture.action, { id: 'one' });
-      const retained = await exportArchive(await api.call('sync', target)),
+      const retained = await exportArchive(await api.call('sync', target), target),
         copy = await importArchive(encodeArchive(retained), target);
       assert.equal(copy.snapshot.stalled, undefined);
       assert.equal(copy.snapshot.projection.frontier.position, 6);

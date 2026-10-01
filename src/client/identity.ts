@@ -1,6 +1,6 @@
 import { NSID } from '../core/nsids.ts';
 import { P256PrivateKeyExportable } from '@atcute/crypto';
-import { randomNonce, signIntent, type Intent } from '../protocol/log.ts';
+import { randomNonce, signIntent, type Intent, type Invitation } from '../protocol/log.ts';
 import { contentCid, encodeBlock, link } from '../protocol/wire.ts';
 import type { Json } from '../core/values.ts';
 
@@ -18,10 +18,7 @@ export async function createIdentity(name: string): Promise<Identity> {
     privateKey: [...(await key.exportPrivateKey('raw'))],
   };
 }
-export interface Invitation {
-  app: string;
-  genesis: string;
-}
+export type { Invitation } from '../protocol/log.ts';
 export async function prepareIntent(
   identity: Identity,
   invitation: Invitation,
