@@ -53,3 +53,10 @@ Dependency versions, file bytes, resolution edges and build output are separate 
 ## Inlay license evidence
 
 The pinned `@inlay/core` 0.0.13 package declares MIT. `@inlay/render` 0.3.1 omits a license field. Neither published package contains standalone license text. The retained notice quotes the MIT declaration from the [pinned upstream README](https://tangled.org/danabra.mov/inlay/blob/f6d4f5808e5a822ae98d330ee8efff866bab0346/README.md); that is the available evidence, not confirmation from its author. Atseq preserves that declaration and does not invent a copyright notice. The missing package license text and lack of direct author confirmation remain a distribution risk to resolve before treating those notices as complete. See `src/archive/notices.json`.
+
+When a dependency or package version changes, regenerate attribution with
+`node scripts/source-run.mjs scripts/notices.ts` and review the notice delta.
+CI checks the installed runtime closure with
+`node scripts/source-run.mjs scripts/notices.ts --check`; this command reports
+stale notices without changing them. The generator's existing license and
+notice-retention policy applies to both modes.
