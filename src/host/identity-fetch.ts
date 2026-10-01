@@ -52,12 +52,16 @@ export class IdentityFetch {
       try {
         if (reader)
           for (;;) {
-            const { done, value } = await reader.read().catch((error: unknown) => {
+            let result;
+            try {
+              result = await reader.read();
+            } catch (error) {
               // Headers have arrived. An unreadable remote body is unavailable
               // evidence; our validation and budget checks stay outside this phase.
               if (error instanceof AtseqError) throw error;
               throw new AtseqError('content_unavailable', 'Identity evidence body is unavailable');
-            });
+            }
+            const { done, value } = result;
             if (done) break;
             size += value.length;
             this.bytes += value.length;
