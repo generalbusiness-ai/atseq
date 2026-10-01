@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: proposed direction; independent decision review pending
+status: independently reviewed; adopted public-scope direction
 examined_at: cb3fd8472ccec1208b72e8adc81884ccfb1860d4
 request: 6f3fd8c5
 ---
@@ -61,6 +61,16 @@ outside retained public evidence. Protecting those credentials prevents some
 unauthorized operations; it does not restrict who can read published records.
 Account identity and app authorization are likewise separate from permission to
 read private data.
+
+Device-local data is another disclosure boundary. `src/client/store.ts` retains
+browser keys, drafts, queued actions and verified history in IndexedDB;
+`src/browser/identity.ts` stores nonextractable browser signing keys, while
+`src/client/identity.ts` and `src/cli/main.ts` support CLI private-key and intent
+files. Atseq supplies no encryption at rest for these stores. A nonextractable
+browser key constrains key export through the API; it does not establish that
+the browser's on-disk storage is encrypted. CLI file permissions and browser/OS
+controls remain separate protections. A1/A2/T1 own clear local-storage and backup
+disclosure, including unpublished drafts and queued work.
 
 ## Three different storage choices
 
@@ -191,6 +201,8 @@ claim independently verified private facts that were only asserted by a host.
 
 1. **Complete the public programme.** A1/A2/T1 should disclose public grants,
    payloads, source and persistent copies before first publication/enrolment.
+   T1 owns a public-scope statement in the README that a fresh reader encounters
+   before app creation or enrolment; A1/A2 own the corresponding setup flow.
    Shared-host admission and operator access stay distinct from data privacy.
    B0 examples and T1 documentation should identify synthetic/public fixtures.
    These are existing owners, not new privacy implementation tasks.
@@ -211,8 +223,10 @@ claim independently verified private facts that were only asserted by a host.
    ecosystem features lost and operator authority accepted. It is not covered by
    the encrypted-content study and does not silently replace native authority.
 
-Q0 can close after independent review of this direction and its explicit public
-scope. It does not require a privacy implementation, select HPKE/MLS, guarantee
+Independent assessment `a54acf1c`, ratified in the workroom, accepted this direction
+and permits Q0 to close. Its two nonblocking refinements are included above:
+explicit device-local storage disclosure and T1 ownership of the README's public
+scope statement. It does not require a privacy implementation, select HPKE/MLS, guarantee
 anonymity, design legal retention policy or endorse the use of real confidential
 records. No runtime, Lexicon, dependency, archive or checkpoint changes accompany
 this note. Validation was a source/document review and primary-specification
