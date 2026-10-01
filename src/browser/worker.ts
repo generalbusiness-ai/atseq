@@ -31,7 +31,7 @@ async function handle(data: any) {
         if (input.genesis.app !== data.invitation.app || input.genesisCid !== data.invitation.genesis)
           throw new Error('Host response differs from the pinned invitation');
         const source = await SourceBundle.read(fromBytes(input.source));
-        const anchor = await Anchor.from(input.genesis, data.invitation.genesis);
+        const anchor = await Anchor.from(input.genesis, data.invitation);
         if (source.root !== anchor.genesis.definition.$link) throw new Error('Initial CAR differs from genesis');
         await LoadedDefinition.load(source.root, source);
         const key = `${anchor.genesis.app}:${anchor.cid}`,
@@ -43,7 +43,7 @@ async function handle(data: any) {
           await pool.add(retained);
         }
         sources.set(key, pool);
-        folder = await apps.open(anchor.genesis, anchor.cid, pool);
+        folder = await apps.open(anchor.genesis, { app: anchor.genesis.app, genesis: anchor.cid }, pool);
         const snapshot = await folder.catchUp(input.head, input.entries);
         definition = folder.activeDefinition();
         lastInput = input;
@@ -52,7 +52,11 @@ async function handle(data: any) {
       }
       case 'exportArchive': {
         if (!lastInput) throw new Error('Open verified history first');
-        const archive = await exportArchive(lastInput, data.position);
+        const archive = await exportArchive(
+          lastInput,
+          { app: folder!.snapshot().projection.app, genesis: folder!.snapshot().projection.genesis },
+          data.position,
+        );
         result = { bytes: encodeArchive(archive), head: archive.input.head };
         break;
       }
@@ -68,7 +72,7 @@ async function handle(data: any) {
           candidate = await LoadedDefinition.load(source.root, source);
         const projection = folder.snapshot().projection;
         compatibleDefinition(definition, candidate, projection.state);
-        const anchor = await Anchor.from(lastInput.genesis, lastInput.genesisCid),
+        const anchor = await Anchor.from(lastInput.genesis, { app: projection.app, genesis: projection.genesis }),
           pool = sources.get(`${anchor.genesis.app}:${anchor.cid}`)!;
         const replay = await Folder.open(anchor, pool);
         await replay.catchUp(lastInput.head, lastInput.entries);

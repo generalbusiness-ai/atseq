@@ -12,7 +12,14 @@ import { SourceBundle, SourcePool } from '../definition/source.ts';
 import { LoadedDefinition } from '../definition/load.ts';
 import { Anchor, verifyIntent } from '../protocol/log.ts';
 import { bytes, contentCid, decodeBlock } from '../protocol/wire.ts';
-import { atomicFile } from '../storage/files.ts';
+import { checkOutput, writeOutput, type OutputPolicy } from './output.ts';
+import { ProtocolError } from '../protocol/wire.ts';
+function outputPolicy(input: any): OutputPolicy {
+  return {
+    overwrite: input.overwrite === true,
+    protectedFiles: [input.keyFile, input.intentFile].filter((path): path is string => typeof path === 'string'),
+  };
+}
 
 async function privateJson(path: string) {
   const stat = await lstat(path);
@@ -90,24 +97,28 @@ export async function execute(input: any): Promise<unknown> {
     return { name: identity.name, publicKey: identity.publicKey };
   }
   if (input.operation === 'pack') {
+    const policy = { ...outputPolicy(input), sourceDirectory: input.directory };
+    const output = await checkOutput(input.output, policy);
     const source = await pack(input.directory);
     await LoadedDefinition.load(source.root, source);
-    const output = resolve(input.output),
-      root = resolve(input.directory);
-    if (output.startsWith(root + '/')) throw new Error('Write the CAR outside its source folder');
-    await atomicFile(output, await source.write());
+    await writeOutput(output, await source.write(), policy);
     return { definition: source.root, output };
   }
   if (input.operation === 'replay') {
+    if ((input.app !== undefined) !== (input.genesis !== undefined))
+      throw new ProtocolError('anchor', 'Replay requires both app and genesis pins, or neither');
     const rebuilt = await importArchive(
       await readFile(input.source),
       input.app && input.genesis ? { app: input.app, genesis: input.genesis } : undefined,
     );
-    const output = resolve(input.outputDirectory);
+    const policy = outputPolicy(input);
+    const output = await checkOutput(input.outputDirectory, { ...policy, overwrite: false });
+    for (const name of ['projection.json', 'retry-index.json', 'archive.atseq.json'])
+      await checkOutput(join(output, name), policy);
     await mkdir(output, { mode: 0o700 }); // Must be a new directory; never clear existing data.
-    await atomicFile(join(output, 'projection.json'), JSON.stringify(rebuilt.snapshot.projection));
-    await atomicFile(join(output, 'retry-index.json'), JSON.stringify(rebuilt.retries));
-    await atomicFile(join(output, 'archive.atseq.json'), encodeArchive(rebuilt.archive));
+    await writeOutput(join(output, 'projection.json'), JSON.stringify(rebuilt.snapshot.projection), policy);
+    await writeOutput(join(output, 'retry-index.json'), JSON.stringify(rebuilt.retries), policy);
+    await writeOutput(join(output, 'archive.atseq.json'), encodeArchive(rebuilt.archive), policy);
     return {
       outputDirectory: output,
       head: rebuilt.snapshot.head,
@@ -119,9 +130,10 @@ export async function execute(input: any): Promise<unknown> {
   const target = { app: input.app, genesis: input.genesis };
   switch (input.operation) {
     case 'export': {
-      const archive = await exportArchive(await api.call('sync', target), input.position);
-      const output = resolve(input.output);
-      await atomicFile(output, encodeArchive(archive));
+      const policy = outputPolicy(input);
+      const output = await checkOutput(input.output, policy);
+      const archive = await exportArchive(await api.call('sync', target), target, input.position);
+      await writeOutput(output, encodeArchive(archive), policy);
       return {
         output,
         head: archive.input.head,
@@ -180,7 +192,7 @@ export async function execute(input: any): Promise<unknown> {
       if (!pending) {
         const retained = await api.call('sync', target),
           source = await SourceBundle.read(fromBytes(retained.source));
-        const anchor = await Anchor.from(retained.genesis, target.genesis);
+        const anchor = await Anchor.from(retained.genesis, target);
         if (anchor.genesis.app !== target.app || source.root !== anchor.genesis.definition.$link)
           throw new Error('Source differs from the pinned invitation');
         await LoadedDefinition.load(source.root, source);
@@ -209,7 +221,7 @@ export async function execute(input: any): Promise<unknown> {
         const prepared = await prepareIntent(identity, target, input.definition, input.action, input.payload);
         pending = await createOnce(path, { requested, ...prepared });
       }
-      if (JSON.stringify(pending.requested) !== JSON.stringify(requested))
+      if ((await contentCid(pending.requested)) !== (await contentCid(requested)))
         throw new Error(
           'Intent file already names different work; retain it and use a new file for a reviewed replacement',
         );
@@ -217,7 +229,7 @@ export async function execute(input: any): Promise<unknown> {
       const described = await api.call('describe', target);
       const verified = await verifyIntent(
         decodeBlock(new Uint8Array(pending.block)),
-        await Anchor.from(described.genesis, target.genesis),
+        await Anchor.from(described.genesis, target),
       );
       const intent = verified.signed.intent;
       if (

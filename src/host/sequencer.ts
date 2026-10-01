@@ -33,7 +33,7 @@ export async function readSnapshot(pds: PdsClient, anchor: Anchor, knownHead?: H
     if (before.cid !== after.cid) continue;
     if (genesis.cid !== anchor.cid)
       throw new ProtocolError('anchor', 'Published genesis differs from the pinned anchor');
-    await Anchor.from(genesis.value, anchor.cid);
+    await Anchor.from(genesis.value, { app: anchor.genesis.app, genesis: anchor.cid });
     validateHead(head.value, anchor);
     if ((await contentCid(head.value)) !== head.cid)
       throw new ProtocolError('content', 'Head value differs from its PDS CID');

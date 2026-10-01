@@ -83,10 +83,10 @@ export class ApplicationHost {
         } as Genesis;
         record.genesis = genesis;
         record.anchor = await contentCid(genesis);
-        await Anchor.from(genesis, record.anchor);
+        await Anchor.from(genesis, { app: pds.did, genesis: record.anchor });
         await atomicFile(path, JSON.stringify(record));
       }
-      const anchor = await Anchor.from(record.genesis, record.anchor!);
+      const anchor = await Anchor.from(record.genesis, { app: pds.did, genesis: record.anchor! });
       const store = new SourceStore(pds);
       for (const cid of source.identities()) await store.put(cid, await source.get(cid));
       await store.put(await applicationRuntimeCid(), encodeBlock(applicationRuntimeDescriptor));
@@ -127,7 +127,7 @@ export class ApplicationHost {
       const record = await readJson<Creation>(join(this.directory, id, 'creation-secret.json'));
       if (!record?.published || !record.genesis || !record.anchor) continue;
       const pds = await this.accounts.open(id),
-        anchor = await Anchor.from(record.genesis, record.anchor);
+        anchor = await Anchor.from(record.genesis, { app: pds.did, genesis: record.anchor });
       const source = await SourceBundle.read(await readFile(join(this.directory, id, 'source.car')));
       const definition = await LoadedDefinition.load(source.root, new SourceStore(pds));
       await this.attach(

@@ -346,7 +346,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
       await pool.add(await SourceBundle.read(fromBytes(retained.source)));
       for (const candidate of retained.candidates)
         await pool.add(await SourceBundle.readClosure(fromBytes(candidate.source)));
-      const replay = await Folder.open(await Anchor.from(retained.genesis, retained.genesisCid), pool);
+      const replay = await Folder.open(await Anchor.from(retained.genesis, invitation), pool);
       const snapshot = await replay.catchUp(retained.head, retained.entries);
       assert.equal(snapshot.stalled, undefined);
       assert.deepEqual(

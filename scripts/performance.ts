@@ -59,7 +59,7 @@ try {
     sequencerKey: await writer.exportPublicKey('did'),
     activationKeys: [actorKey],
   };
-  const anchor = await Anchor.from(genesis, await contentCid(genesis));
+  const anchor = await Anchor.from(genesis, { app: genesis.app, genesis: await contentCid(genesis) });
   await provisionLog(pds, anchor);
   let head = headAt(anchor),
     all: any[] = [];

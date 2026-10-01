@@ -7,7 +7,7 @@ import { startSequencerService } from '../../src/host/service.ts';
 
 try {
   const config = JSON.parse(await readFile(process.argv[2]!, 'utf8'));
-  const anchor = await Anchor.from(config.genesis, config.genesisCid);
+  const anchor = await Anchor.from(config.genesis, { app: config.genesis.app, genesis: config.genesisCid });
   const writer = await P256PrivateKeyExportable.importRaw(Buffer.from(config.writerHex, 'hex'));
   const sequencer = new Sequencer(
     new PdsClient(config.pds, anchor.genesis.app, config.token),

@@ -47,7 +47,7 @@ export async function fixtureApp(bundle: SourceBundle, app = 'did:plc:cccccccccc
     sequencerKey: await writer.exportPublicKey('did'),
     activationKeys: [await actor.exportPublicKey('did')],
   };
-  const anchor = await Anchor.from(genesis, await contentCid(genesis));
+  const anchor = await Anchor.from(genesis, { app: genesis.app, genesis: await contentCid(genesis) });
   return { actor, writer, anchor, bundle };
 }
 export async function fixtureHistory(
@@ -608,7 +608,7 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
   });
   await check('unsupported genesis runtime is refused even with a valid definition', async () => {
     const genesis = { ...app.anchor.genesis, profile: link(app.anchor.cid) };
-    const anchor = await Anchor.from(genesis, await contentCid(genesis));
+    const anchor = await Anchor.from(genesis, { app: genesis.app, genesis: await contentCid(genesis) });
     await rejects(() => Folder.open(anchor, chart.bundle), 'unsupported_runtime');
   });
   for (const [label, change, code] of [
@@ -719,9 +719,12 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
   });
   await check('application registry refuses anchor replacement', async () => {
     const apps = new Applications();
-    await apps.open(app.anchor.genesis, app.anchor.cid, chart.bundle);
+    await apps.open(app.anchor.genesis, { app: app.anchor.genesis.app, genesis: app.anchor.cid }, chart.bundle);
     const genesis = { ...app.anchor.genesis, definition: link(guitar.bundle.root) };
-    await rejects(async () => apps.open(genesis, await contentCid(genesis), guitar.bundle), 'anchor');
+    await rejects(
+      async () => apps.open(genesis, { app: genesis.app, genesis: await contentCid(genesis) }, guitar.bundle),
+      'anchor',
+    );
     equal(apps.get(app.anchor.genesis.app, app.anchor.cid).snapshot().projection.state, { readings: [] });
   });
   await check('concurrent anchor replacement cannot persist a conflicting initial state', async () => {
@@ -742,15 +745,20 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
         return chart.bundle.get(cid);
       },
     };
-    const first = apps.open(app.anchor.genesis, app.anchor.cid, reader, async () => {
-      writes++;
-    });
+    const first = apps.open(
+      app.anchor.genesis,
+      { app: app.anchor.genesis.app, genesis: app.anchor.cid },
+      reader,
+      async () => {
+        writes++;
+      },
+    );
     try {
       await fetching;
       const foreign = { ...app.anchor.genesis, definition: link(guitar.bundle.root) };
       await rejects(
         async () =>
-          apps.open(foreign, await contentCid(foreign), guitar.bundle, async () => {
+          apps.open(foreign, { app: foreign.app, genesis: await contentCid(foreign) }, guitar.bundle, async () => {
             writes++;
           }),
         'anchor',
