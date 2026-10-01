@@ -1,0 +1,63 @@
+{
+  "packages": {
+    "repo": "1.1.0",
+    "mst": "1.1.1"
+  },
+  "pds": "0.5.31",
+  "mockPlc": true,
+  "results": [
+    {
+      "case": "official PDS record membership and current mock-PLC key",
+      "passed": true,
+      "root": "bafyreidlkgpohpwhsedi7fd2akw7es6eehhh6uh4cccdzdvztpqxrgv2ka",
+      "recordCid": "bafyreiavzge5ovoxhjlllfc4p6iul5mjevse2mvjsdkibbzgvweccuwqdu",
+      "proofBytes": 566,
+      "proofSha256": "80ecce2eaaba0cb6172cf646cb5f1e4ae0b5fcda8189a035b8c4e47ccac329da"
+    },
+    {
+      "case": "wrong DID",
+      "passed": true
+    },
+    {
+      "case": "wrong path",
+      "passed": true
+    },
+    {
+      "case": "wrong key",
+      "passed": true
+    },
+    {
+      "case": "truncated CAR",
+      "passed": true
+    },
+    {
+      "case": "tampered referenced block",
+      "passed": true
+    },
+    {
+      "case": "full CAR structural reader agrees with sparse membership",
+      "passed": true,
+      "repoBytes": 566
+    },
+    {
+      "case": "native since diff proves new entry and head under one root",
+      "passed": true,
+      "diffRoot": "bafyreicwzlcpuvgfw6uijas4xgu3bxeaiozhtxtauxw2hk5r5kvj4rxwle",
+      "sinceRev": "3mwsy2lb4wc25",
+      "diffBytes": 916,
+      "diffSha256": "5ce89157e5f1a076b3ba626f7c2dd8665058932b62549c98f9650c3a77d79b9d"
+    },
+    {
+      "case": "browser production bundle compiles without node imports",
+      "passed": true,
+      "jsBytes": 37632,
+      "executionTested": false
+    }
+  ],
+  "limitations": [
+    "Not a complete Atseq native-ordering implementation",
+    "No live provider identity/currentness test",
+    "Browser bundling only, not browser execution",
+    "Whole-tree canonical validation and shared-root reuse require P1 wrapper"
+  ]
+}
