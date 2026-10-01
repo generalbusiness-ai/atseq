@@ -1,0 +1,100 @@
+{
+  "baseline": "fd7dab4b8437437315df750e791ceba8b75610f1",
+  "oldRuntimePaths": 135,
+  "newRuntimePaths": 147,
+  "allPriorPackageFilesIdentical": true,
+  "added": [
+    {
+      "path": "node_modules/@atcute/did-plc",
+      "version": "1.0.2",
+      "files": 19,
+      "installedFileBytes": 41349
+    },
+    {
+      "path": "node_modules/@atcute/identity",
+      "version": "2.0.2",
+      "files": 17,
+      "installedFileBytes": 28894
+    },
+    {
+      "path": "node_modules/@atcute/util-fetch",
+      "version": "2.0.2",
+      "files": 15,
+      "installedFileBytes": 14773
+    },
+    {
+      "path": "node_modules/@atproto-labs/fetch-node",
+      "version": "0.4.0",
+      "files": 23,
+      "installedFileBytes": 69119
+    },
+    {
+      "path": "node_modules/@atproto-labs/fetch-node/node_modules/@atproto-labs/fetch",
+      "version": "0.3.6",
+      "files": 35,
+      "installedFileBytes": 106590
+    },
+    {
+      "path": "node_modules/@atproto-labs/fetch-node/node_modules/@atproto-labs/pipe",
+      "version": "0.2.4",
+      "files": 21,
+      "installedFileBytes": 58047
+    },
+    {
+      "path": "node_modules/ipaddr.js",
+      "version": "2.5.0",
+      "files": 5,
+      "installedFileBytes": 64424
+    },
+    {
+      "path": "node_modules/jsonc-parser",
+      "version": "3.3.1",
+      "files": 19,
+      "installedFileBytes": 212821
+    },
+    {
+      "path": "node_modules/undici_v6",
+      "version": "6.29.0",
+      "files": 176,
+      "installedFileBytes": 1200906
+    },
+    {
+      "path": "node_modules/undici_v7",
+      "version": "7.30.0",
+      "files": 210,
+      "installedFileBytes": 1658921
+    },
+    {
+      "path": "node_modules/undici_v8",
+      "version": "8.11.2",
+      "files": 214,
+      "installedFileBytes": 1927456
+    },
+    {
+      "path": "node_modules/valibot",
+      "version": "1.5.0",
+      "files": 9,
+      "installedFileBytes": 1865457
+    }
+  ],
+  "newInstalledFileBytes": 7248757,
+  "installedTransportFileBytes": 5085463,
+  "provenanceSourceBytes": {
+    "src/core/dependencies-approved.json": {
+      "baseline": 39338,
+      "candidate": 43395
+    },
+    "src/core/dependencies.ts": {
+      "baseline": 24177,
+      "candidate": 26219
+    },
+    "src/integrity/files-approved.json": {
+      "baseline": 1084590,
+      "candidate": 1160851
+    },
+    "npm-shrinkwrap.json": {
+      "baseline": 113270,
+      "candidate": 118358
+    }
+  }
+}

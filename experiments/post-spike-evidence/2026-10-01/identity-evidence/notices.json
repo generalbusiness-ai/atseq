@@ -1,0 +1,10 @@
+{
+  "baseline": "fd7dab4b8437437315df750e791ceba8b75610f1",
+  "baselineNoticeBytesSha256": "41d01d27b593a014ae2d962fd79d0b30469359296f02dbce1e1647d6090f7130",
+  "baselinePackages": 115,
+  "defaultSortEqualsExplicitEnglish": true,
+  "oldOrderEqualsExplicitEnglish": true,
+  "currentPackages": 127,
+  "checkCommand": "node scripts/source-run.mjs scripts/notices.ts --check",
+  "checkOutput": "Verified 127 installed runtime package notices.\n"
+}

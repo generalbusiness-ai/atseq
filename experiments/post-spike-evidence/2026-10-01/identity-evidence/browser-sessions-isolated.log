@@ -1,0 +1,28 @@
+▶ browser sessions retain trust and device work across switches and restarts
+  ✔ CryptoKeys survive IndexedDB reload and private export is refused (75.218291ms)
+  ✔ every app operation rejects mismatched app, genesis and definition (46.689917ms)
+  ✔ a restarted worker replays saved history before a rollback from the host (92.164125ms)
+  ✔ a failed or cancelled first worker load preserves the saved prefix against host rollback (433.889042ms)
+  ✔ an older archive cannot replace saved history for the same genesis (279.4735ms)
+  ✔ a first visit with an invalid host signature does not blame saved device history (273.441167ms)
+  ✔ corrupt saved history has explicit recovery without losing its pin, key or signed work (381.640375ms)
+  ✔ an online event during the saved-prefix decision cannot load a fork before fresh restore (168.726959ms)
+  ✔ a slow A refresh cannot replace offline B or label its query and archive as A (423.385ms)
+  ✔ a new save during a flush is sent, and only definite refusals require explicit resend (6.389167ms)
+  ✔ an invalid invitation cannot poison the pin and verified pins can be forgotten (246.901292ms)
+  ✔ startup submits retained signed work without a Retry click (69.272541ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+  ✔ a shell update waits and keeps an open tab’s worker assets available offline (487.008292ms)
+✔ browser sessions retain trust and device work across switches and restarts (6207.334625ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7100.427792
