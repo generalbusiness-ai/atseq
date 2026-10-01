@@ -7,28 +7,55 @@ import { encodeBlock, ProtocolError, sameBytes } from './wire.ts';
 
 const prefix = 'ai.generalbusiness.atseq';
 export const NATIVE_NSID = deepFreeze({
-  genesis: `${prefix}.genesis`, head: `${prefix}.head`, entry: `${prefix}.entry`,
-  definition: `${prefix}.definition`, epoch: `${prefix}.epoch`, epochCurrent: `${prefix}.epochCurrent`,
-  grant: `${prefix}.grant`, revoke: `${prefix}.revoke`, file: `${prefix}.file`, content: `${prefix}.content`,
+  genesis: `${prefix}.genesis`,
+  head: `${prefix}.head`,
+  entry: `${prefix}.entry`,
+  definition: `${prefix}.definition`,
+  epoch: `${prefix}.epoch`,
+  epochCurrent: `${prefix}.epochCurrent`,
+  grant: `${prefix}.grant`,
+  revoke: `${prefix}.revoke`,
+  file: `${prefix}.file`,
+  content: `${prefix}.content`,
   defs: `${prefix}.defs`,
 });
-export const nativeRef = <T extends string>(name: T): `ai.generalbusiness.atseq.defs#${T}` => `ai.generalbusiness.atseq.defs#${name}`;
+export const nativeRef = <T extends string>(name: T): `ai.generalbusiness.atseq.defs#${T}` =>
+  `ai.generalbusiness.atseq.defs#${name}`;
 type Shape = Record<string, any>;
-const str = (maxLength: number, format?: string): Shape => ({ type: 'string', maxLength, ...(format ? { format } : {}) });
+const str = (maxLength: number, format?: string): Shape => ({
+  type: 'string',
+  maxLength,
+  ...(format ? { format } : {}),
+});
 const integer = (maximum: number, minimum = 0): Shape => ({ type: 'integer', minimum, maximum });
 const cid: Shape = { type: 'cid-link' };
-const did = str(2048, 'did'), key = str(128, 'did'), bool: Shape = { type: 'boolean' };
+const did = str(2048, 'did'),
+  key = str(128, 'did'),
+  bool: Shape = { type: 'boolean' };
 const binary = (length: number, minimum = length): Shape => ({ type: 'bytes', minLength: minimum, maxLength: length });
 const ref = (name: string): Shape => ({ type: 'ref', ref: nativeRef(name) });
-const array = (items: Shape, maxLength: number, minLength = 0): Shape => ({ type: 'array', items, maxLength, minLength });
+const array = (items: Shape, maxLength: number, minLength = 0): Shape => ({
+  type: 'array',
+  items,
+  maxLength,
+  minLength,
+});
 const object = (properties: Record<string, Shape>, nullable: string[] = []): Shape => ({
-  type: 'object', required: Object.keys(properties), ...(nullable.length ? { nullable } : {}), properties,
+  type: 'object',
+  required: Object.keys(properties),
+  ...(nullable.length ? { nullable } : {}),
+  properties,
 });
 const union = (...names: string[]): Shape => ({ type: 'union', closed: true, refs: names.map(nativeRef) });
 const pair = object({ principal: did, actorKey: key });
-const grantId = str(26), role = str(64), scope = object({ action: str(300), execution: cid });
-const appointment = object({ principal: did, actorKey: key,
-  powers: array({ type: 'string', enum: ['certify', 'govern', 'recover'] }, 3, 1) });
+const grantId = str(26),
+  role = str(64),
+  scope = object({ action: str(300), execution: cid });
+const appointment = object({
+  principal: did,
+  actorKey: key,
+  powers: array({ type: 'string', enum: ['certify', 'govern', 'recover'] }, 3, 1),
+});
 const context = { position: integer(Number.MAX_SAFE_INTEGER, 1), prev: cid, controlTip: cid };
 const grantContext = { grant: object({ id: grantId, cid }), epoch: cid };
 const evidence = union('plcAudit', 'webDocument');
@@ -36,48 +63,109 @@ const binding = object({ signingKeyDid: key, pdsOrigin: str(2048, 'uri') });
 const definitions: Record<string, Shape> = {
   path: object({ collection: str(317, 'nsid'), rkey: str(512, 'record-key') }),
   act: object({ ...grantContext, action: str(300), execution: cid, payload: { type: 'unknown' } }),
-  assignRole: object({ ...grantContext, target: did, role, enabled: bool, expectedAssignment: cid }, ['expectedAssignment']),
+  assignRole: object({ ...grantContext, target: did, role, enabled: bool, expectedAssignment: cid }, [
+    'expectedAssignment',
+  ]),
   setControl: object({ ...context, control: array(appointment, 16) }),
   // Shape preparation only. Power transitions remain gated on corrected D5 disposition.
   setRecovery: object({ ...context, recovery: array(pair, 16, 1) }),
   setOwner: object({ ...context, owner: did }, ['owner']),
   setRole: object({ ...context, target: did, role, enabled: bool, expectedAssignment: cid }, ['expectedAssignment']),
   activate: object({ ...context, expected: cid, definition: cid, closure: array(str(128, 'cid'), 64, 1) }),
-  recoverParticipant: object({ ...context, target: did, expectedEpoch: cid, expectedObservation: cid,
-    epoch: cid, observation: cid }, ['expectedEpoch', 'expectedObservation']),
+  recoverParticipant: object(
+    { ...context, target: did, expectedEpoch: cid, expectedObservation: cid, epoch: cid, observation: cid },
+    ['expectedEpoch', 'expectedObservation'],
+  ),
   recoverGovernance: object({ ...context, governance: array(pair, 16) }),
-  intent: object({ version: { type: 'integer', const: 2 }, app: did, genesis: cid, principal: did,
-    actorKey: key, nonce: binary(16), operation: union('act', 'assignRole', 'setControl', 'setRecovery',
-      'setOwner', 'setRole', 'activate', 'recoverParticipant', 'recoverGovernance') }),
+  intent: object({
+    version: { type: 'integer', const: 2 },
+    app: did,
+    genesis: cid,
+    principal: did,
+    actorKey: key,
+    nonce: binary(16),
+    operation: union(
+      'act',
+      'assignRole',
+      'setControl',
+      'setRecovery',
+      'setOwner',
+      'setRole',
+      'activate',
+      'recoverParticipant',
+      'recoverGovernance',
+    ),
+  }),
   signedRequest: object({ intent: ref('intent'), sig: binary(64) }),
   admitGrant: object({ grant: object({ id: grantId, cid }) }),
   advanceEpoch: object({ epoch: cid }),
   revokeGrant: object({ revoke: object({ id: grantId, cid }) }),
-  accountOperation: object({ app: did, genesis: cid, position: integer(Number.MAX_SAFE_INTEGER, 1), prev: cid,
-    principal: did, expectedEpoch: cid, expectedObservation: cid,
-    operation: union('admitGrant', 'advanceEpoch', 'revokeGrant'), observation: cid }, ['expectedEpoch', 'expectedObservation']),
+  accountOperation: object(
+    {
+      app: did,
+      genesis: cid,
+      position: integer(Number.MAX_SAFE_INTEGER, 1),
+      prev: cid,
+      principal: did,
+      expectedEpoch: cid,
+      expectedObservation: cid,
+      operation: union('admitGrant', 'advanceEpoch', 'revokeGrant'),
+      observation: cid,
+    },
+    ['expectedEpoch', 'expectedObservation'],
+  ),
   byteChunk: object({ bytes: binary(32 * 1024, 1) }),
   byteManifest: object({ byteLength: integer(32 * 1024 * 1024), chunks: array(cid, 1024) }),
-  observationPolicy: object({ algorithm: { type: 'string', const: 'atseq-account-observation-v1' },
-    plcDirectory: str(2048, 'uri'), allowWeb: bool, checkpoint: { type: 'string', const: 'native-publication-v1' } }),
+  observationPolicy: object({
+    algorithm: { type: 'string', const: 'atseq-account-observation-v1' },
+    plcDirectory: str(2048, 'uri'),
+    allowWeb: bool,
+    checkpoint: { type: 'string', const: 'native-publication-v1' },
+  }),
   plcAudit: object({ bytes: cid, source: str(2048, 'uri'), selectedTip: cid }),
   webDocument: object({ bytes: cid, source: str(2048, 'uri') }),
-  observation: object({ policy: cid, principal: did,
+  observation: object({
+    policy: cid,
+    principal: did,
     context: object({ app: did, genesis: cid, position: integer(Number.MAX_SAFE_INTEGER, 1), prev: cid, subject: cid }),
-    binding, before: evidence, after: evidence, repositoryRoot: cid,
-    records: array(object({ path: str(1024), cid }), 16, 1), proofs: array(cid, 16, 1),
-    observedAt: str(24, 'datetime') }),
-  appBinding: object({ policy: cid, principal: did, binding, before: evidence, after: evidence,
-    repositoryRoot: cid }),
+    binding,
+    before: evidence,
+    after: evidence,
+    repositoryRoot: cid,
+    records: array(object({ path: str(1024), cid }), 16, 1),
+    proofs: array(cid, 16, 1),
+    observedAt: str(24, 'datetime'),
+  }),
+  appBinding: object({ policy: cid, principal: did, binding, before: evidence, after: evidence, repositoryRoot: cid }),
   openParticipation: object({}),
   requiredRole: object({ role }),
-  actionContract: object({ semantics: cid, schemas: object({ stateRoot: str(300), actionRoot: str(300), closure: cid }),
-    fold: str(128, 'cid'), authorization: union('openParticipation', 'requiredRole') }),
+  actionContract: object({
+    semantics: cid,
+    schemas: object({ stateRoot: str(300), actionRoot: str(300), closure: cid }),
+    fold: str(128, 'cid'),
+    authorization: union('openParticipation', 'requiredRole'),
+  }),
 };
-const record = (name: string, properties: Record<string, Shape>, nullable: string[] = [], literal?: string): LexiconDoc => ({
-  lexicon: 1, id: `${prefix}.${name}`, defs: { main: { type: 'record', key: literal ? `literal:${literal}` : 'any',
-    record: object({ version: { type: 'integer', const: ['genesis', 'head', 'entry'].includes(name) ? 2 : 1 }, ...properties }, nullable) } },
-}) as unknown as LexiconDoc;
+const record = (
+  name: string,
+  properties: Record<string, Shape>,
+  nullable: string[] = [],
+  literal?: string,
+): LexiconDoc =>
+  ({
+    lexicon: 1,
+    id: `${prefix}.${name}`,
+    defs: {
+      main: {
+        type: 'record',
+        key: literal ? `literal:${literal}` : 'any',
+        record: object(
+          { version: { type: 'integer', const: ['genesis', 'head', 'entry'].includes(name) ? 2 : 1 }, ...properties },
+          nullable,
+        ),
+      },
+    },
+  }) as unknown as LexiconDoc;
 const appScope = { app: did, genesis: cid };
 const nativeDefinition: any = structuredClone(definition);
 nativeDefinition.defs.main = { type: 'record', key: 'any', record: nativeDefinition.defs.main };
@@ -86,18 +174,43 @@ nativeDefinition.defs.action.required.push('authorization');
 nativeDefinition.defs.action.properties.authorization = union('openParticipation', 'requiredRole');
 export const nativeLexicons = deepFreeze([
   { lexicon: 1, id: NATIVE_NSID.defs, defs: definitions } as LexiconDoc,
-  record('genesis', { app: did, creation: binary(16), semantics: cid, definition: cid, observationPolicy: cid,
-    control: array(appointment, 16), recoverGovernance: bool, owner: did,
-    roles: array(object({ principal: did, role }), 63) }, ['owner']),
+  record(
+    'genesis',
+    {
+      app: did,
+      creation: binary(16),
+      semantics: cid,
+      definition: cid,
+      observationPolicy: cid,
+      control: array(appointment, 16),
+      recoverGovernance: bool,
+      owner: did,
+      roles: array(object({ principal: did, role }), 63),
+    },
+    ['owner'],
+  ),
   record('head', { ...appScope, position: integer(Number.MAX_SAFE_INTEGER), entry: cid }),
-  record('entry', { ...appScope, position: integer(Number.MAX_SAFE_INTEGER, 1), prev: cid,
-    request: union('signedRequest', 'accountOperation') }),
+  record('entry', {
+    ...appScope,
+    position: integer(Number.MAX_SAFE_INTEGER, 1),
+    prev: cid,
+    request: union('signedRequest', 'accountOperation'),
+  }),
   record('epoch', { id: binary(16), previous: cid }, ['previous']),
   record('epochCurrent', { epoch: cid, id: binary(16) }, [], 'self'),
-  record('grant', { id: grantId, ...appScope, epoch: cid, actorKey: key, actions: array(scope, 63), assignRoles: array(role, 63) }),
+  record('grant', {
+    id: grantId,
+    ...appScope,
+    epoch: cid,
+    actorKey: key,
+    actions: array(scope, 63),
+    assignRoles: array(role, 63),
+  }),
   record('revoke', { id: grantId, ...appScope }),
   record('file', { cid: str(128, 'cid'), bytes: cid }),
-  record('content', { body: union('byteChunk', 'byteManifest', 'observationPolicy', 'observation', 'appBinding', 'actionContract') }),
+  record('content', {
+    body: union('byteChunk', 'byteManifest', 'observationPolicy', 'observation', 'appBinding', 'actionContract'),
+  }),
   nativeDefinition as LexiconDoc,
 ]);
 const registry = new Lexicons(structuredClone([...nativeLexicons]));
@@ -115,15 +228,18 @@ export function validateNativeShape(ref: string, value: unknown): void {
       return close(registry.getDef(schema.ref), data, expectedType ?? (typed.has(target) ? target : undefined));
     }
     if (schema.type === 'union') {
-      if (!data || !schema.refs.map(withoutLex).includes(data.$type)) throw new ProtocolError('envelope', 'Unknown native union member');
+      if (!data || !schema.refs.map(withoutLex).includes(data.$type))
+        throw new ProtocolError('envelope', 'Unknown native union member');
       return close(registry.getDef(data.$type), data, data.$type);
     }
     if (schema.type === 'object') {
-      if (!data || typeof data !== 'object' || Array.isArray(data)) throw new ProtocolError('envelope', 'Expected native object');
+      if (!data || typeof data !== 'object' || Array.isArray(data))
+        throw new ProtocolError('envelope', 'Expected native object');
       if (expectedType && data.$type !== expectedType) throw new ProtocolError('envelope', `Expected ${expectedType}`);
       for (const [field, child] of Object.entries(data)) {
         if (field === '$type' && expectedType) continue;
-        if (!Object.hasOwn(schema.properties, field)) throw new ProtocolError('envelope', `Unknown native field ${field}`);
+        if (!Object.hasOwn(schema.properties, field))
+          throw new ProtocolError('envelope', `Unknown native field ${field}`);
         if (child === null && schema.nullable?.includes(field)) continue;
         close(schema.properties[field], child);
       }
