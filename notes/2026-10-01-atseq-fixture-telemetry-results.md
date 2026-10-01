@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: implemented and tested; exact-head independent review pending
+status: fix implemented; preload-sensitive regression validation pending
 examined_at: cb3fd8472ccec1208b72e8adc81884ccfb1860d4
 delivery_base: 853f671bd0acafe4619ad486b17967f602c9fc3f
 request: b5106f06
@@ -10,9 +10,12 @@ request: b5106f06
 
 The disposable PDS child now receives an explicit environment allowlist and
 `OTEL_SDK_DISABLED=true`. Inherited OTLP, Jaeger, Node preload, service configuration
-and credential variables do not reach it. A real synthetic account and repository
-test passed with deliberately inherited exporter settings: **29 successful
-operations, 12 records, a PDS restart, and zero HTTP/UDP telemetry requests**.
+and credential variables do not reach it. The effective inheritance vector is a
+Node preload that loads the pinned `@atproto/pds/telemetry` entry; OTLP/Jaeger
+variables alone do not start an SDK on the ordinary library launch path.
+Independent review `8508b62a` found that the earlier collector regression passed
+even with the old environment spread, so its zero-export results are retained
+below as pre-correction evidence, not proof of this boundary.
 
 Keep the existing in-process mock PLC. Its pinned library entry does not start a
 telemetry SDK; an extra PLC subprocess would add lifecycle complexity without
@@ -61,9 +64,10 @@ PLC library found no OpenTelemetry/Jaeger SDK import or telemetry startup call.
 import its separately exported `@atproto/pds/telemetry` startup module. Its
 OpenTelemetry API event calls do not themselves install a provider. The separate
 startup module calls the ATproto wrapper's `setup`, whose endpoint/disabled gate
-would consult inherited environment if invoked. The child allowlist therefore
-also keeps that separately activated path disabled if a future fixture explicitly
-imports it; it does not promise that arbitrary future upstream changes are safe.
+consults inherited environment. An inherited `NODE_OPTIONS` preload can load this
+entry even though `pds-server.mjs` does not import it. The child allowlist drops
+that preload and forces the disable flag. It does not promise that arbitrary
+future upstream changes are safe.
 
 Inspected installed file SHA-256 values, tied to the unchanged fixture lock:
 
@@ -87,7 +91,18 @@ service, exporter and preload settings, and verifies that its input is unchanged
 Its integration test launches a separate probe runner with `OTEL_SDK_DISABLED=false`,
 Jaeger propagation, OTLP HTTP exporters for traces/metrics/logs, short exporter
 intervals and HTTP/UDP collectors on dynamically selected loopback ports. It does
-not modify the test runner's global environment.
+not modify the test runner's global environment. The runner receives only a
+harmless `NODE_OPTIONS=--no-warnings` sentinel, never the SDK preload.
+
+Inside this isolated test probe only, a fork wrapper maps any retained sentinel
+to the absolute pinned telemetry entry's `--import` file URL when launching the
+PDS child. The allowlist path still uses the production helper's selected child
+environment; the legacy positive path uses the original spread map. Both execute
+the same account/repository work and restart. Imported builtin fork bindings are
+restored in `finally`. This is test instrumentation, not a fixture API change or
+an SDK installed in the runner. The regression requires legacy HTTP exports and
+zero exports through the allowlist. Configured Jaeger propagation and a reachable
+UDP collector do not themselves prove a Jaeger UDP exporter was activated.
 
 The collectors each receive a positive control before the probe starts. The test
 then counts requests/datagrams throughout actual account/repository work and
@@ -102,15 +117,17 @@ idle service. The contaminated probe runner:
 6. Confirms its inherited exporter/preload variables are unchanged and the child
    helper emits only the forced disable flag from those variable families.
 
-The 29 operations above succeeded; collectors observed **0 HTTP requests and
-0 UDP datagrams** after their positive controls under both locks. Node was
+Before the preload correction, the 29 operations above succeeded; collectors
+observed **0 HTTP requests and 0 UDP datagrams** after their positive controls
+under both locks. These configurations were inert and did not distinguish the
+old spread from the allowlist. Node was
 26.10.0. The original result was copied byte-for-byte to a dated evidence path
 before rebasing or rerunning; the refreshed result is separately retained.
 
 | Capture | Fixture lock SHA-256 | Raw result SHA-256 |
 | --- | --- | --- |
-| Original MF2, 14:45:14 UTC | `227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41` | `60746382a40f1d5265b0e42b63140d8e8c758c8beaa3f3ba8458d4f59967936c` |
-| Refreshed MF1 lock, 14:56:58 UTC | `762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd` | `72a92e57ba617b139a13bbfd4b0e851bb15592ac2646322bc1a7dcd767669bda` |
+| Original MF2, pre-correction, 14:45:14 UTC | `227b88499a22dffc15fcdc4aed0f6ee81fcfc11531ee2e2c8de49c991175ee41` | `60746382a40f1d5265b0e42b63140d8e8c758c8beaa3f3ba8458d4f59967936c` |
+| Refreshed MF1 lock, pre-correction, 14:56:58 UTC | `762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd` | `72a92e57ba617b139a13bbfd4b0e851bb15592ac2646322bc1a7dcd767669bda` |
 
 The exact public results, including source hashes, are
 [original](../experiments/post-spike-evidence/2026-10-01/pds-telemetry-original-results.json)
@@ -143,7 +160,10 @@ SDK startup. A subprocess would then be a concrete option rather than speculativ
 infrastructure now.
 
 The regression covers the actual pinned startup paths with inherited synthetic
-exporter settings. It does not prove absence of all outbound network activity,
+exporter settings and the corrected test adds the actual PDS child preload
+vector. Corrected positive/negative counts and bounded legacy-spread mutation
+validation remain pending the reserved correctness window. It does not prove
+absence of all outbound network activity,
 test an externally preinstalled parent SDK, remediate residual dependency
 advisories, or certify the fixture for production. Exact-head independent review
 and the tracked merge remain pending.

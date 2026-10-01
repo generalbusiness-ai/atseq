@@ -32,8 +32,8 @@ test('PDS child keeps only OS paths and forced telemetry disable without mutatin
 });
 
 test(
-  'inherited OTLP and Jaeger settings emit no fixture telemetry during real account/repo operations',
-  { timeout: 60_000 },
+  'inherited telemetry preload exports with legacy spread and is blocked by the fixture allowlist',
+  { timeout: 90_000 },
   async () => {
     let httpTelemetry = 0,
       udpTelemetry = 0;
@@ -60,47 +60,59 @@ test(
       assert.equal(httpTelemetry, 1);
       assert.equal(udpTelemetry, 1);
       httpTelemetry = udpTelemetry = 0;
-      child = fork(fileURLToPath(new URL('./support/pds/telemetry-probe.mjs', import.meta.url)), [], {
-        execArgv: [],
-        env: {
-          ...fixtureChildEnvironment(),
-          OTEL_SDK_DISABLED: 'false',
-          OTEL_PROPAGATORS: 'jaeger',
-          OTEL_EXPORTER_OTLP_ENDPOINT: endpoint,
-          OTEL_EXPORTER_OTLP_PROTOCOL: 'http/json',
-          OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: `${endpoint}/v1/traces`,
-          OTEL_EXPORTER_OTLP_METRICS_ENDPOINT: `${endpoint}/v1/metrics`,
-          OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: `${endpoint}/v1/logs`,
-          OTEL_TRACES_EXPORTER: 'otlp',
-          OTEL_METRICS_EXPORTER: 'otlp',
-          OTEL_LOGS_EXPORTER: 'otlp',
-          OTEL_BSP_SCHEDULE_DELAY: '1',
-          OTEL_BLRP_SCHEDULE_DELAY: '1',
-          OTEL_METRIC_EXPORT_INTERVAL: '10',
-          OTEL_SERVICE_NAME: 'atseq-synthetic-telemetry-test',
-          JAEGER_ENDPOINT: `${endpoint}/api/traces`,
-          JAEGER_AGENT_HOST: '127.0.0.1',
-          JAEGER_AGENT_PORT: String(udp.address().port),
-          NODE_OPTIONS: '--no-warnings',
-        },
-        stdio: ['ignore', 'ignore', 'pipe', 'ipc'],
-      });
-      let stderr = '',
-        result: any;
-      deadline = setTimeout(() => child?.kill('SIGKILL'), 45_000);
-      child.stderr!.on('data', (data: Buffer) => (stderr = (stderr + data).slice(-4000)));
-      child.on('message', (message) => (result = message));
-      const [code] = await once(child, 'exit');
-      assert.equal(code, 0, stderr);
-      assert.deepEqual(result, {
-        passed: true,
-        operations: 29,
-        records: 12,
-        restartVerified: true,
-        runnerEnvironmentUnchanged: true,
-      });
-      assert.equal(httpTelemetry, 0, 'No HTTP collector export');
-      assert.equal(udpTelemetry, 0, 'No Jaeger agent export');
+      const paths: unknown[] = [];
+      for (const mode of ['allowlist', 'legacy']) {
+        httpTelemetry = udpTelemetry = 0;
+        child = fork(fileURLToPath(new URL('./support/pds/telemetry-probe.mjs', import.meta.url)), [mode], {
+          execArgv: [],
+          env: {
+            ...fixtureChildEnvironment(),
+            OTEL_SDK_DISABLED: 'false',
+            OTEL_PROPAGATORS: 'jaeger',
+            OTEL_EXPORTER_OTLP_ENDPOINT: endpoint,
+            OTEL_EXPORTER_OTLP_PROTOCOL: 'http/json',
+            OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: `${endpoint}/v1/traces`,
+            OTEL_EXPORTER_OTLP_METRICS_ENDPOINT: `${endpoint}/v1/metrics`,
+            OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: `${endpoint}/v1/logs`,
+            OTEL_TRACES_EXPORTER: 'otlp',
+            OTEL_METRICS_EXPORTER: 'otlp',
+            OTEL_LOGS_EXPORTER: 'otlp',
+            OTEL_BSP_SCHEDULE_DELAY: '1',
+            OTEL_BLRP_SCHEDULE_DELAY: '1',
+            OTEL_METRIC_EXPORT_INTERVAL: '10',
+            OTEL_SERVICE_NAME: 'atseq-synthetic-telemetry-test',
+            JAEGER_ENDPOINT: `${endpoint}/api/traces`,
+            JAEGER_AGENT_HOST: '127.0.0.1',
+            JAEGER_AGENT_PORT: String(udp.address().port),
+            NODE_OPTIONS: '--no-warnings',
+          },
+          stdio: ['ignore', 'ignore', 'pipe', 'ipc'],
+        });
+        let stderr = '',
+          result: any;
+        deadline = setTimeout(() => child?.kill('SIGKILL'), 45_000);
+        child.stderr!.on('data', (data: Buffer) => (stderr = (stderr + data).slice(-4000)));
+        child.on('message', (message) => (result = message));
+        const [code] = await once(child, 'exit');
+        assert.equal(code, 0, stderr);
+        if (mode === 'legacy')
+          assert.ok(httpTelemetry > 0, 'Legacy inherited preload must actually export HTTP telemetry');
+        else {
+          assert.equal(httpTelemetry, 0, 'Allowlist must block HTTP exports');
+          assert.equal(udpTelemetry, 0, 'Allowlist must block UDP exports');
+        }
+        assert.deepEqual(result, {
+          mode,
+          passed: true,
+          operations: 29,
+          records: 12,
+          restartVerified: true,
+          runnerEnvironmentUnchanged: true,
+          preloadedPdsChildren: mode === 'legacy' ? 2 : 0,
+        });
+        paths.push({ ...result, httpTelemetry, udpTelemetry });
+        clearTimeout(deadline);
+      }
       const sourcePaths = [
         'tests/support/pds/package-lock.json',
         'tests/support/pds/environment.mjs',
@@ -125,9 +137,8 @@ test(
           {
             measuredAt: new Date().toISOString(),
             nodeVersion: process.version,
-            ...result,
-            httpTelemetry,
-            udpTelemetry,
+            paths,
+            vector: 'Inherited NODE_OPTIONS telemetry preload in PDS child only; runner receives harmless sentinel',
             collectorPositiveControls: { http: 1, udp: 1 },
             sourceHashes,
           },

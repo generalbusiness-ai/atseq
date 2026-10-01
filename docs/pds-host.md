@@ -121,6 +121,10 @@ only OS executable/temp paths, fixed `TZ=UTC`, disabled logging and
 `OTEL_SDK_DISABLED=true`. It inherits no `OTEL_*` exporter settings, Jaeger
 settings, `NODE_OPTIONS`, account/service configuration or caller credentials.
 This controls fixture configuration; it does not sandbox network access.
+For the pinned PDS library launch path, inherited OTLP/Jaeger settings alone do
+not start a telemetry SDK. An inherited Node preload, such as `NODE_OPTIONS`
+loading `@atproto/pds/telemetry`, can start it. The allowlist removes that preload
+as well as exporter configuration; it does not rely on exporters being idle.
 
 The pinned mock PLC runs in the test/development runner. Its library entry and
 bundled dependencies do not start a telemetry SDK; the helper never mutates the
