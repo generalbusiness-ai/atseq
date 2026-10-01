@@ -1,0 +1,144 @@
+{
+  "basis": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "implementationSourceHead": "8743d44e61211945047428b3efe78361dcf6e1f7",
+  "archive": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-capture.tar.gz",
+  "sha256": "153273f8df2fca29211b59b1787dd5eda5d8162c4fdb3a59719fded55c2b97ee",
+  "members": [
+    {
+      "path": "experiments/acceptance.json",
+      "sha256": "666d67a3f98f9c8131504c22b2f8c406e126418935548b48a25180c98603e374",
+      "bytes": 2606648
+    },
+    {
+      "path": "experiments/acceptance-logs/01.log",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "bytes": 689
+    },
+    {
+      "path": "experiments/acceptance-logs/02.log",
+      "sha256": "7551829f097f43a5f7dbe58911db526e3188d4511083368ce3f9b796f13e1fa8",
+      "bytes": 32151
+    },
+    {
+      "path": "experiments/acceptance-logs/03.log",
+      "sha256": "1e2dee740a9efa1543c2b96923d6438dc856f796dea82ebd9aa9cc5f04beab6f",
+      "bytes": 201
+    },
+    {
+      "path": "experiments/acceptance-logs/04.log",
+      "sha256": "4693a6b89b83a12d5c2e897c7619e4f1fa4edd103a7cc0f0ee2a1ead83404335",
+      "bytes": 5639
+    },
+    {
+      "path": "experiments/acceptance-logs/05.log",
+      "sha256": "16b7d5620141c9a506843b377ff681d8a1c28b6214a440e12bf2376a63bfb1de",
+      "bytes": 2258
+    },
+    {
+      "path": "experiments/acceptance-logs/06.log",
+      "sha256": "9f81053bdb91b232dd93afa34f23d297d2c5f2491c1b8a62f51111ab29122e7d",
+      "bytes": 5512
+    },
+    {
+      "path": "experiments/acceptance-logs/07.log",
+      "sha256": "52453181ee49d69d8bb608f333ccef74972821b69dc7ec73ca036d7b70443491",
+      "bytes": 310
+    },
+    {
+      "path": "experiments/acceptance-logs/08.log",
+      "sha256": "9d77cf6b23f1e4034e717514f9eefb9016fe83b3ab841b9d2daa0b2ee991d714",
+      "bytes": 2178
+    },
+    {
+      "path": "experiments/acceptance-logs/09.log",
+      "sha256": "b517ec75b3f415d65097e09b23ac909303a0d4c75acbbc19820017128fea6929",
+      "bytes": 2760
+    },
+    {
+      "path": "experiments/acceptance-logs/10.log",
+      "sha256": "4a34dad248efb7c9979fda9083e2a878b44bea2122556cf8b0239885b5576723",
+      "bytes": 1672
+    },
+    {
+      "path": "experiments/acceptance-logs/11.log",
+      "sha256": "80fd3bf6c4a61880832519088c3bc0e59f5f3d775cc94b52a77ec526173829ae",
+      "bytes": 234455
+    },
+    {
+      "path": "experiments/acceptance-logs/12.log",
+      "sha256": "18f69227d7eb508f9c36ee3c60dfb6568f0cc6bff1aad927e6592b51dbade01d",
+      "bytes": 3395
+    },
+    {
+      "path": "experiments/acceptance-logs/13.log",
+      "sha256": "055125651dfe2cb92cc84a75299d493977d753ba8309c857e5c96519bbfa33b3",
+      "bytes": 150
+    },
+    {
+      "path": "experiments/protocol.json",
+      "sha256": "053358df45fd0a55f3080d21617cb9d3900b501a094e7ca37f438d7603e4200e",
+      "bytes": 19243
+    },
+    {
+      "path": "experiments/pds.json",
+      "sha256": "30f300a258be60428fc466ff1074ef639e34dc5776d8e3dd5645f87f4ed3aa9d",
+      "bytes": 6892
+    },
+    {
+      "path": "experiments/runtime.json",
+      "sha256": "5a170aca4db593f36c2f60e08800c81d4238585f0469b0ee8ac148bebfbd843f",
+      "bytes": 16728
+    },
+    {
+      "path": "experiments/dynamic.json",
+      "sha256": "49941eb578c5d9d9d57d65bcda89332ed76f72709d294718810b1a714391404c",
+      "bytes": 3251
+    },
+    {
+      "path": "experiments/host-flows.json",
+      "sha256": "10be0c56e3050f5cf82c8a99922f1c2e32933a981f379fd0d1f23ae3b0cd06a8",
+      "bytes": 2600273
+    },
+    {
+      "path": "experiments/participation.json",
+      "sha256": "76b0de469d86e0fad5f15036faf9d522ae1182aa01a7e863b54f358dd9de51e9",
+      "bytes": 2600675
+    },
+    {
+      "path": "experiments/evolution-runtime.json",
+      "sha256": "7b044366fc81222dee8c4e9b71ce81ab6d2de6d148b092b9b86ca7084440356a",
+      "bytes": 2600874
+    },
+    {
+      "path": "experiments/evolution.json",
+      "sha256": "c75d38f1e51bef7864ad9ec2bd7be0963d3110f83e4e7b60e1ea7b343b515940",
+      "bytes": 2601017
+    },
+    {
+      "path": "experiments/archive.json",
+      "sha256": "da67e2e9fe75974f27a6d9454717955f1abb2853dd7a2e58c7587f34fca9fec0",
+      "bytes": 2600989
+    },
+    {
+      "path": "experiments/performance.json",
+      "sha256": "071172b4c06da2233aa9ee389715776dbb0dad72ae8b3138cd0d926af5ed2038",
+      "bytes": 3020609
+    },
+    {
+      "path": "experiments/browser-performance.json",
+      "sha256": "4062e98faa39f0f32749f058fc8542393e97ff5f1220103a01ece22e6e8866b8",
+      "bytes": 2605573
+    },
+    {
+      "path": "experiments/feasibility.json",
+      "sha256": "f13e01eb2ec35f7d219fea4fcfb09999718f349166f35a1a90012c97f342ddff",
+      "bytes": 106822
+    },
+    {
+      "path": "experiments/agent-authored/verification.json",
+      "sha256": "735ab687a6a3dc74c4cce1e03f32c7222c2c40dc7dd4a96520c7bfb12c43516f",
+      "bytes": 2896
+    }
+  ],
+  "summaryMethod": "Original result/reports/logs are untouched in the archive; standalone summary log links point to retained dated copies."
+}
