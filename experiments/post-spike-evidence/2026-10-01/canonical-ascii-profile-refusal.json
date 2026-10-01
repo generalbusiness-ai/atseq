@@ -1,0 +1,17 @@
+{
+  "capturedAt": "2026-10-01T18:24:50.525Z",
+  "basis": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "sourceCid": "bafyreif7ktby246kcxgh4vasrxfeyzvxruzvn7jjk6znsnctumuiey42ea",
+  "input": {
+    "path": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-1-1000.json.gz",
+    "compressedSha256": "859cd8d9ab6cf476cc24ad5757163d41f20718279593364e2e0e6cf662fedfa7",
+    "rawSha256": "8a90d9916fd9be52327b251b199d9a3aeb31014eb3b65eaaf950c7cf4dd72a54"
+  },
+  "outcome": {
+    "accepted": false,
+    "name": "InterpretationError",
+    "code": "unsupported_runtime",
+    "kind": "invalid_input",
+    "message": "Definition requires a different runtime profile"
+  }
+}

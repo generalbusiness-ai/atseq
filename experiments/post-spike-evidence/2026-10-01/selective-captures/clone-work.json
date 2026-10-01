@@ -1,0 +1,113 @@
+{
+  "format": "atseq-selective-clone-work",
+  "version": 1,
+  "scope": "UTF-8 JSON serialization of actual structuredClone arguments; not heap allocation or latency",
+  "node": {
+    "count": 1000,
+    "state": {
+      "readings": []
+    },
+    "full": {
+      "calls": 1,
+      "bytes": 248570,
+      "outcomeRows": 1000,
+      "stateCopies": 1
+    },
+    "query": {
+      "calls": 1,
+      "bytes": 461,
+      "outcomeRows": 0,
+      "stateCopies": 1
+    },
+    "status": {
+      "calls": 1,
+      "bytes": 437,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    },
+    "outcome": {
+      "calls": 1,
+      "bytes": 527,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    },
+    "emptyDelta": {
+      "calls": 2,
+      "bytes": 709,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    }
+  },
+  "chromium": {
+    "count": 1000,
+    "state": {
+      "readings": []
+    },
+    "full": {
+      "calls": 1,
+      "bytes": 248570,
+      "outcomeRows": 1000,
+      "stateCopies": 1
+    },
+    "query": {
+      "calls": 1,
+      "bytes": 461,
+      "outcomeRows": 0,
+      "stateCopies": 1
+    },
+    "status": {
+      "calls": 1,
+      "bytes": 437,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    },
+    "outcome": {
+      "calls": 1,
+      "bytes": 527,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    },
+    "emptyDelta": {
+      "calls": 2,
+      "bytes": 709,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    }
+  },
+  "compiledPackage": {
+    "count": 1000,
+    "state": {
+      "readings": []
+    },
+    "full": {
+      "calls": 1,
+      "bytes": 248570,
+      "outcomeRows": 1000,
+      "stateCopies": 1
+    },
+    "query": {
+      "calls": 1,
+      "bytes": 461,
+      "outcomeRows": 0,
+      "stateCopies": 1
+    },
+    "status": {
+      "calls": 1,
+      "bytes": 437,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    },
+    "outcome": {
+      "calls": 1,
+      "bytes": 527,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    },
+    "emptyDelta": {
+      "calls": 2,
+      "bytes": 709,
+      "outcomeRows": 0,
+      "stateCopies": 0
+    }
+  }
+}

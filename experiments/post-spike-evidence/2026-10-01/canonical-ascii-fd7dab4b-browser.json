@@ -1,0 +1,3415 @@
+{
+  "capturedAt": "2026-10-01T18:13:29.749Z",
+  "basis": "fd7dab4b8437437315df750e791ceba8b75610f1",
+  "browser": "Chromium",
+  "version": "153.0.8010.12",
+  "method": "Baseline Vite bundle substitutes only pre-change values.ts; actual bundle uses unchanged on-disk implementation without substitution. Both execute hostile differentials, current shared protocol/runtime assertions and controlled real schema/xrpc wrappers in Chromium. Node-only evolution assertions remain covered separately.",
+  "captures": [
+    {
+      "variant": "baseline",
+      "bundleBytes": 1911666,
+      "bundleSha256": "ab7517b196a1f86c3561bc013abc3e9acd504616e980f90be8241f950e38e59f",
+      "differences": {
+        "seed": "0x5eedc0de",
+        "comparisons": {
+          "actual": {
+            "cases": 1054,
+            "mismatches": []
+          },
+          "compiledActual": {
+            "cases": 1054,
+            "mismatches": []
+          }
+        },
+        "hostileOutcomes": [
+          {
+            "name": "sorted keys and Unicode",
+            "baseline": {
+              "text": "{\"a\":\"é\\u0000\\\\\\\"\",\"z\":\"🦉\",\"中\":1}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                14,
+                1,
+                3,
+                1,
+                6,
+                1,
+                5,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "null prototype",
+            "baseline": {
+              "text": "{\"a\":true}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                4,
+                1
+              ]
+            }
+          },
+          {
+            "name": "safe integer limits",
+            "baseline": {
+              "text": "[-9007199254740991,9007199254740991]",
+              "fault": null,
+              "charges": [
+                1,
+                17,
+                1,
+                16,
+                1
+              ]
+            }
+          },
+          {
+            "name": "unsafe integer",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$/0: expected safe integer, excluding negative zero"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "negative zero",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$/a: expected safe integer, excluding negative zero"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "intermediate negative zero",
+            "baseline": {
+              "text": "{\"a\":0}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "NaN",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$: expected safe integer, excluding negative zero"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "infinity",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$: expected safe integer, excluding negative zero"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "undefined",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "bigint",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "function",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "symbol",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "unpaired high surrogate",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "unicode",
+                "kind": "invalid_input",
+                "message": "$: unpaired surrogate"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "unpaired low surrogate",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "unicode",
+                "kind": "invalid_input",
+                "message": "$: unpaired surrogate"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "bad Unicode key",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "unicode",
+                "kind": "invalid_input",
+                "message": "$: invalid Unicode key"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "reserved key",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "reserved_key",
+                "kind": "invalid_input",
+                "message": "$/constructor: reserved in this profile"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "reserved JSONata key",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "reserved_key",
+                "kind": "invalid_input",
+                "message": "$/_jsonata_x: reserved in this profile"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "enumerable accessor",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/a: accessor"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "nonenumerable accessor",
+            "baseline": {
+              "text": "{\"a\":1}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "nonenumerable toJSON",
+            "baseline": {
+              "text": "{\"a\":1}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "object symbol",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: symbol property"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "custom prototype",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: expected plain object"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "array custom prototype",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: expected plain array"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "array extra property",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: extra array property extra"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "engine array accepted annotation",
+            "baseline": {
+              "text": "[1]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "engine array bad annotation",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: extra array property nope"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "array hole",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: sparse array"
+              },
+              "charges": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "array accessor",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/0: accessor"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "cycle",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/child: cycle"
+              },
+              "charges": [
+                1,
+                7,
+                1
+              ]
+            }
+          },
+          {
+            "name": "shared noncyclic reference",
+            "baseline": {
+              "text": "[{\"x\":1},{\"x\":1}]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "slash error path",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/a/b/~c: unsupported value"
+              },
+              "charges": [
+                1,
+                5,
+                1,
+                1,
+                4,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge mutates upcoming property",
+            "baseline": {
+              "text": "{\"a\":1,\"b\":3}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "descriptor proxy values vary",
+            "baseline": {
+              "text": "{\"a\":2}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "proxy descriptor host fault",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "Error",
+                "code": null,
+                "kind": null,
+                "message": "test descriptor fault"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 0",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 0 UTF-8 bytes"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 1",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 1 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 2",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 2 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 3",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 3 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 4",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 4 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 5",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 5 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 7",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 7 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 8",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 8 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 9",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 9 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 10",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 10 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "depth 0",
+            "baseline": {
+              "text": "0",
+              "fault": null,
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 1",
+            "baseline": {
+              "text": "[0]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 31",
+            "baseline": {
+              "text": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 32",
+            "baseline": {
+              "text": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 33",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_depth",
+                "kind": "invalid_input",
+                "message": "$/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0: container depth exceeds 32"
+              },
+              "charges": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 1",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 2",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "charge failure 3",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 4",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 5",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "shared": {
+        "profiles": [
+          {
+            "name": "atseq-log-v2",
+            "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+            "role": "log"
+          },
+          {
+            "name": "atseq-jsonata-v1",
+            "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+            "role": "evaluator"
+          },
+          {
+            "name": "atseq-app-v2",
+            "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+            "role": "application"
+          }
+        ],
+        "cases": [
+          {
+            "name": "effective state fold",
+            "passed": true
+          },
+          {
+            "name": "ineffective leaves input state unchanged",
+            "passed": true
+          },
+          {
+            "name": "pure query",
+            "passed": true
+          },
+          {
+            "name": "array append and multiplication",
+            "passed": true
+          },
+          {
+            "name": "malformed fold output",
+            "passed": true
+          },
+          {
+            "name": "ineffective cannot carry state",
+            "passed": true
+          },
+          {
+            "name": "no floating output",
+            "passed": true
+          },
+          {
+            "name": "invalid syntax",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $now()",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $millis()",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $random()",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $shuffle([1,2])",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $eval(\"1\")",
+            "passed": true
+          },
+          {
+            "name": "forbidden: function($x){$x}(1)",
+            "passed": true
+          },
+          {
+            "name": "forbidden: ($v_f := $now; $v_f())",
+            "passed": true
+          },
+          {
+            "name": "forbidden: [1..100000000]",
+            "passed": true
+          },
+          {
+            "name": "forbidden: /(a+)+$/",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $pad(\"a\",100000000)",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $map([1],function($x){$x})",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $lookup({},\"constructor\")()",
+            "passed": true
+          },
+          {
+            "name": "literal ambient-function text is data",
+            "passed": true
+          },
+          {
+            "name": "deterministic work exhaustion",
+            "passed": true
+          },
+          {
+            "name": "program bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "action bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "complete input bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "query output bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "source complexity rejected before evaluation",
+            "passed": true
+          },
+          {
+            "name": "intermediate growth is bounded",
+            "passed": true
+          },
+          {
+            "name": "ordinary JSONata locals need no custom naming",
+            "passed": true
+          },
+          {
+            "name": "built-in callable cannot be replaced",
+            "passed": true
+          },
+          {
+            "name": "state bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "input depth exact cap",
+            "passed": true
+          },
+          {
+            "name": "safe integer boundaries",
+            "passed": true
+          },
+          {
+            "name": "null, absent, extras, array order preserved",
+            "passed": true
+          },
+          {
+            "name": "prototype and invalid Unicode refused",
+            "passed": true
+          },
+          {
+            "name": "runtime-loaded state schema",
+            "passed": true
+          },
+          {
+            "name": "runtime-loaded query contract",
+            "passed": true
+          },
+          {
+            "name": "domain type validation does not coerce",
+            "passed": true
+          },
+          {
+            "name": "query output validated",
+            "passed": true
+          },
+          {
+            "name": "second bundle: nested refs, arrays and closed union",
+            "passed": true
+          },
+          {
+            "name": "closed union rejects unknown member",
+            "passed": true
+          },
+          {
+            "name": "optional does not mean nullable",
+            "passed": true
+          },
+          {
+            "name": "missing ref fails before data use",
+            "passed": true
+          },
+          {
+            "name": "defaulting rejected at source admission",
+            "passed": true
+          },
+          {
+            "name": "schema closure bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "schema file count exact cap",
+            "passed": true
+          },
+          {
+            "name": "Inlay local template and query binding",
+            "passed": true
+          },
+          {
+            "name": "Inlay absent component fails explicitly",
+            "passed": true
+          },
+          {
+            "name": "Inlay external body refused without I/O",
+            "passed": true
+          },
+          {
+            "name": "Inlay missing caller property fails",
+            "passed": true
+          },
+          {
+            "name": "Inlay auto-submit property refused",
+            "passed": true
+          },
+          {
+            "name": "engine evaluation nesting exact boundary",
+            "passed": true
+          },
+          {
+            "name": "engine sequence exact boundary",
+            "passed": true
+          },
+          {
+            "name": "AST container count exact boundary in unevaluated branch",
+            "passed": true
+          },
+          {
+            "name": "AST container depth exact boundary",
+            "passed": true
+          },
+          {
+            "name": "encoded-byte work budget exact boundary",
+            "passed": true
+          },
+          {
+            "name": "large repeated intermediate strings exhaust byte budget",
+            "passed": true
+          },
+          {
+            "name": "generated range rejected with stable code",
+            "passed": true
+          },
+          {
+            "name": "regex rejected with stable code",
+            "passed": true
+          },
+          {
+            "name": "Unicode casing is outside the portable profile",
+            "passed": true
+          },
+          {
+            "name": "absent expression result is explicit",
+            "passed": true
+          },
+          {
+            "name": "negative zero input is not a wire integer",
+            "passed": true
+          },
+          {
+            "name": "malformed Unicode object key is rejected",
+            "passed": true
+          },
+          {
+            "name": "fold input state exact byte cap",
+            "passed": true
+          },
+          {
+            "name": "fold successor state exact byte cap",
+            "passed": true
+          },
+          {
+            "name": "ineffective reason length and syntax",
+            "passed": true
+          },
+          {
+            "name": "ineffective message must be a string",
+            "passed": true
+          },
+          {
+            "name": "duplicate schema IDs rejected before validation",
+            "passed": true
+          },
+          {
+            "name": "open union rejected at admission",
+            "passed": true
+          },
+          {
+            "name": "inherited type names are ordinary unsupported schemas",
+            "passed": true
+          },
+          {
+            "name": "native grapheme constraints rejected at admission",
+            "passed": true
+          },
+          {
+            "name": "Inlay source bytes exact boundary",
+            "passed": true
+          },
+          {
+            "name": "Inlay source record count exact boundary",
+            "passed": true
+          },
+          {
+            "name": "Inlay expanded node count exact boundary",
+            "passed": true
+          },
+          {
+            "name": "Inlay expansion depth exact boundary",
+            "passed": true
+          },
+          {
+            "name": "CAR round trip owns exact source bytes",
+            "passed": true
+          },
+          {
+            "name": "two unrelated definitions resolve schemas and retained views",
+            "passed": true
+          },
+          {
+            "name": "initial state comes only from the pinned definition",
+            "passed": true
+          },
+          {
+            "name": "fold and query match independently specified values",
+            "passed": true
+          },
+          {
+            "name": "rainfall summary covers the maximum valid aggregate",
+            "passed": true
+          },
+          {
+            "name": "malformed domain input is retained ineffective",
+            "passed": true
+          },
+          {
+            "name": "unknown action is retained ineffective",
+            "passed": true
+          },
+          {
+            "name": "old definition intent is retained ineffective",
+            "passed": true
+          },
+          {
+            "name": "domain refusal preserves complete prior state",
+            "passed": true
+          },
+          {
+            "name": "restarting and replaying reproduces state outcomes and frontier",
+            "passed": true
+          },
+          {
+            "name": "failed persistence advances neither state outcomes nor frontier",
+            "passed": true
+          },
+          {
+            "name": "runtime faults pause without producing a replicated outcome and can resume",
+            "passed": true
+          },
+          {
+            "name": "activation validation host faults pause and resume to the healthy replica",
+            "passed": true
+          },
+          {
+            "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+            "passed": true
+          },
+          {
+            "name": "malformed schema and view shapes cannot freeze activation",
+            "passed": true
+          },
+          {
+            "name": "malformed UTF-8 source has a deterministic loader code",
+            "passed": true
+          },
+          {
+            "name": "reader size claims require independently verified bytes",
+            "passed": true
+          },
+          {
+            "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+            "passed": true
+          },
+          {
+            "name": "query captures its prefix before concurrent catch-up",
+            "passed": true
+          },
+          {
+            "name": "malformed fold result records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "invalid successor schema records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "ineffective successor state records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "noninteger computed state records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "the 1001st reading is ineffective and a later valid action clears state",
+            "passed": true
+          },
+          {
+            "name": "copied extra payload bytes cannot freeze interpretation",
+            "passed": true
+          },
+          {
+            "name": "overlong ineffective message cannot block a later valid entry",
+            "passed": true
+          },
+          {
+            "name": "invalid query output is unavailable at its exact unchanged prefix",
+            "passed": true
+          },
+          {
+            "name": "caller snapshot mutation cannot change the projection",
+            "passed": true
+          },
+          {
+            "name": "unavailable source pauses definition loading",
+            "passed": true
+          },
+          {
+            "name": "tampered source fails its pinned CID",
+            "passed": true
+          },
+          {
+            "name": "unsupported definition runtime is refused",
+            "passed": true
+          },
+          {
+            "name": "unsupported genesis runtime is refused even with a valid definition",
+            "passed": true
+          },
+          {
+            "name": "definition refuses unknown binding field",
+            "passed": true
+          },
+          {
+            "name": "definition refuses duplicate action binding",
+            "passed": true
+          },
+          {
+            "name": "definition refuses missing binding schema",
+            "passed": true
+          },
+          {
+            "name": "definition refuses missing program file",
+            "passed": true
+          },
+          {
+            "name": "definition refuses escaping source path",
+            "passed": true
+          },
+          {
+            "name": "definition refuses ambient program",
+            "passed": true
+          },
+          {
+            "name": "definition refuses invalid program syntax",
+            "passed": true
+          },
+          {
+            "name": "definition refuses noninteger program literal",
+            "passed": true
+          },
+          {
+            "name": "definition refuses null initial state",
+            "passed": true
+          },
+          {
+            "name": "definition refuses negative zero initial data",
+            "passed": true
+          },
+          {
+            "name": "source closure and initial state byte limits are enforced",
+            "passed": true
+          },
+          {
+            "name": "exact state and program limits pass and the next byte fails",
+            "passed": true
+          },
+          {
+            "name": "definition counts the manifest within the 64-file limit",
+            "passed": true
+          },
+          {
+            "name": "CAR blocks outside the declared closure are refused",
+            "passed": true
+          },
+          {
+            "name": "work exhaustion records a framework refusal and preserves prior state",
+            "passed": true
+          },
+          {
+            "name": "oversized action is refused before interpretation",
+            "passed": true
+          },
+          {
+            "name": "unsupported schema constructs fail while loading the definition",
+            "passed": true
+          },
+          {
+            "name": "application registry refuses anchor replacement",
+            "passed": true
+          },
+          {
+            "name": "concurrent anchor replacement cannot persist a conflicting initial state",
+            "passed": true
+          },
+          {
+            "name": "64 sibling object values do not consume nesting depth",
+            "passed": true
+          },
+          {
+            "name": "100 grouped values do not consume nesting depth",
+            "passed": true
+          },
+          {
+            "name": "intermediate negative zero can be consumed as integer zero",
+            "passed": true
+          },
+          {
+            "name": "negative zero remains invalid at input and output boundaries",
+            "passed": true
+          },
+          {
+            "name": "sum checks exact intermediate integers before cancellation",
+            "passed": true
+          },
+          {
+            "name": "ineffective messages count Unicode code points and stop at 1024",
+            "passed": true
+          },
+          {
+            "name": "conditional integrity adapter matches the running environment",
+            "passed": true
+          },
+          {
+            "name": "unmatched dependency closure fails closed in either environment",
+            "passed": true
+          }
+        ],
+        "wrapperOutcomes": [
+          {
+            "route": "validate",
+            "name": "mutates input and returns alias",
+            "accepted": true
+          },
+          {
+            "route": "validate",
+            "name": "mutates input and returns equal distinct object",
+            "accepted": true
+          },
+          {
+            "route": "validate",
+            "name": "distinct coercion",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Schema validation changed supplied data"
+          },
+          {
+            "route": "validate",
+            "name": "mutates alias to negative zero",
+            "accepted": false,
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/n: expected safe integer, excluding negative zero"
+          },
+          {
+            "route": "validate",
+            "name": "ValidationError maps to schema_value",
+            "accepted": false,
+            "code": "schema_value",
+            "kind": "invalid_input",
+            "message": "controlled invalid value"
+          },
+          {
+            "route": "validate",
+            "name": "host fault remains host fault",
+            "accepted": false,
+            "code": null,
+            "kind": null,
+            "message": "controlled host fault"
+          },
+          {
+            "route": "validate",
+            "name": "descriptor proxy across successive walks",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Schema validation changed supplied data"
+          },
+          {
+            "route": "queryParams",
+            "name": "mutates input and returns alias",
+            "accepted": true
+          },
+          {
+            "route": "queryParams",
+            "name": "mutates input and returns equal distinct object",
+            "accepted": true
+          },
+          {
+            "route": "queryParams",
+            "name": "distinct coercion",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          },
+          {
+            "route": "queryParams",
+            "name": "mutates alias to negative zero",
+            "accepted": false,
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/n: expected safe integer, excluding negative zero"
+          },
+          {
+            "route": "queryParams",
+            "name": "ValidationError maps to schema_value",
+            "accepted": false,
+            "code": "schema_value",
+            "kind": "invalid_input",
+            "message": "controlled invalid value"
+          },
+          {
+            "route": "queryParams",
+            "name": "host fault remains host fault",
+            "accepted": false,
+            "code": null,
+            "kind": null,
+            "message": "controlled host fault"
+          },
+          {
+            "route": "queryParams",
+            "name": "descriptor proxy across successive walks",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          },
+          {
+            "route": "queryResult",
+            "name": "mutates input and returns alias",
+            "accepted": true
+          },
+          {
+            "route": "queryResult",
+            "name": "mutates input and returns equal distinct object",
+            "accepted": true
+          },
+          {
+            "route": "queryResult",
+            "name": "distinct coercion",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          },
+          {
+            "route": "queryResult",
+            "name": "mutates alias to negative zero",
+            "accepted": false,
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/n: expected safe integer, excluding negative zero"
+          },
+          {
+            "route": "queryResult",
+            "name": "ValidationError maps to schema_value",
+            "accepted": false,
+            "code": "schema_value",
+            "kind": "invalid_input",
+            "message": "controlled invalid value"
+          },
+          {
+            "route": "queryResult",
+            "name": "host fault remains host fault",
+            "accepted": false,
+            "code": null,
+            "kind": null,
+            "message": "controlled host fault"
+          },
+          {
+            "route": "queryResult",
+            "name": "descriptor proxy across successive walks",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          }
+        ]
+      }
+    },
+    {
+      "variant": "actual",
+      "bundleBytes": 1911757,
+      "bundleSha256": "0aa176bcc3fbe947ee9468011fad43295667fa9ab32da7cf3bbed7374b6908ca",
+      "differences": {
+        "seed": "0x5eedc0de",
+        "comparisons": {
+          "actual": {
+            "cases": 1054,
+            "mismatches": []
+          },
+          "compiledActual": {
+            "cases": 1054,
+            "mismatches": []
+          }
+        },
+        "hostileOutcomes": [
+          {
+            "name": "sorted keys and Unicode",
+            "baseline": {
+              "text": "{\"a\":\"é\\u0000\\\\\\\"\",\"z\":\"🦉\",\"中\":1}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                14,
+                1,
+                3,
+                1,
+                6,
+                1,
+                5,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "null prototype",
+            "baseline": {
+              "text": "{\"a\":true}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                4,
+                1
+              ]
+            }
+          },
+          {
+            "name": "safe integer limits",
+            "baseline": {
+              "text": "[-9007199254740991,9007199254740991]",
+              "fault": null,
+              "charges": [
+                1,
+                17,
+                1,
+                16,
+                1
+              ]
+            }
+          },
+          {
+            "name": "unsafe integer",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$/0: expected safe integer, excluding negative zero"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "negative zero",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$/a: expected safe integer, excluding negative zero"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "intermediate negative zero",
+            "baseline": {
+              "text": "{\"a\":0}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "NaN",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$: expected safe integer, excluding negative zero"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "infinity",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_number",
+                "kind": "invalid_input",
+                "message": "$: expected safe integer, excluding negative zero"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "undefined",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "bigint",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "function",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "symbol",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: unsupported value"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "unpaired high surrogate",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "unicode",
+                "kind": "invalid_input",
+                "message": "$: unpaired surrogate"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "unpaired low surrogate",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "unicode",
+                "kind": "invalid_input",
+                "message": "$: unpaired surrogate"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "bad Unicode key",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "unicode",
+                "kind": "invalid_input",
+                "message": "$: invalid Unicode key"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "reserved key",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "reserved_key",
+                "kind": "invalid_input",
+                "message": "$/constructor: reserved in this profile"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "reserved JSONata key",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "reserved_key",
+                "kind": "invalid_input",
+                "message": "$/_jsonata_x: reserved in this profile"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "enumerable accessor",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/a: accessor"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "nonenumerable accessor",
+            "baseline": {
+              "text": "{\"a\":1}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "nonenumerable toJSON",
+            "baseline": {
+              "text": "{\"a\":1}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "object symbol",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: symbol property"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "custom prototype",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: expected plain object"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "array custom prototype",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: expected plain array"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "array extra property",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: extra array property extra"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "engine array accepted annotation",
+            "baseline": {
+              "text": "[1]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "engine array bad annotation",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: extra array property nope"
+              },
+              "charges": []
+            }
+          },
+          {
+            "name": "array hole",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$: sparse array"
+              },
+              "charges": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "array accessor",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/0: accessor"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "cycle",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/child: cycle"
+              },
+              "charges": [
+                1,
+                7,
+                1
+              ]
+            }
+          },
+          {
+            "name": "shared noncyclic reference",
+            "baseline": {
+              "text": "[{\"x\":1},{\"x\":1}]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "slash error path",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "wire_value",
+                "kind": "invalid_input",
+                "message": "$/a/b/~c: unsupported value"
+              },
+              "charges": [
+                1,
+                5,
+                1,
+                1,
+                4,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge mutates upcoming property",
+            "baseline": {
+              "text": "{\"a\":1,\"b\":3}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "descriptor proxy values vary",
+            "baseline": {
+              "text": "{\"a\":2}",
+              "fault": null,
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "proxy descriptor host fault",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "Error",
+                "code": null,
+                "kind": null,
+                "message": "test descriptor fault"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 0",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 0 UTF-8 bytes"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 1",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 1 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 2",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 2 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 3",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 3 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 4",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 4 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 5",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 5 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 7",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 7 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 8",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 8 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 9",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 9 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "UTF-8 limit 10",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_bytes",
+                "kind": "invalid_input",
+                "message": "Value exceeds 10 UTF-8 bytes"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                6
+              ]
+            }
+          },
+          {
+            "name": "depth 0",
+            "baseline": {
+              "text": "0",
+              "fault": null,
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 1",
+            "baseline": {
+              "text": "[0]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 31",
+            "baseline": {
+              "text": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 32",
+            "baseline": {
+              "text": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]",
+              "fault": null,
+              "charges": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "depth 33",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "value_depth",
+                "kind": "invalid_input",
+                "message": "$/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0: container depth exceeds 32"
+              },
+              "charges": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 1",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 2",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3
+              ]
+            }
+          },
+          {
+            "name": "charge failure 3",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 4",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                1
+              ]
+            }
+          },
+          {
+            "name": "charge failure 5",
+            "baseline": {
+              "text": null,
+              "fault": {
+                "name": "InterpretationError",
+                "code": "inspection_budget",
+                "kind": "invalid_input",
+                "message": "test charge exhausted"
+              },
+              "charges": [
+                1,
+                3,
+                1,
+                1,
+                1
+              ]
+            }
+          }
+        ]
+      },
+      "shared": {
+        "profiles": [
+          {
+            "name": "atseq-log-v2",
+            "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+            "role": "log"
+          },
+          {
+            "name": "atseq-jsonata-v1",
+            "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+            "role": "evaluator"
+          },
+          {
+            "name": "atseq-app-v2",
+            "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+            "role": "application"
+          }
+        ],
+        "cases": [
+          {
+            "name": "effective state fold",
+            "passed": true
+          },
+          {
+            "name": "ineffective leaves input state unchanged",
+            "passed": true
+          },
+          {
+            "name": "pure query",
+            "passed": true
+          },
+          {
+            "name": "array append and multiplication",
+            "passed": true
+          },
+          {
+            "name": "malformed fold output",
+            "passed": true
+          },
+          {
+            "name": "ineffective cannot carry state",
+            "passed": true
+          },
+          {
+            "name": "no floating output",
+            "passed": true
+          },
+          {
+            "name": "invalid syntax",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $now()",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $millis()",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $random()",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $shuffle([1,2])",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $eval(\"1\")",
+            "passed": true
+          },
+          {
+            "name": "forbidden: function($x){$x}(1)",
+            "passed": true
+          },
+          {
+            "name": "forbidden: ($v_f := $now; $v_f())",
+            "passed": true
+          },
+          {
+            "name": "forbidden: [1..100000000]",
+            "passed": true
+          },
+          {
+            "name": "forbidden: /(a+)+$/",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $pad(\"a\",100000000)",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $map([1],function($x){$x})",
+            "passed": true
+          },
+          {
+            "name": "forbidden: $lookup({},\"constructor\")()",
+            "passed": true
+          },
+          {
+            "name": "literal ambient-function text is data",
+            "passed": true
+          },
+          {
+            "name": "deterministic work exhaustion",
+            "passed": true
+          },
+          {
+            "name": "program bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "action bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "complete input bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "query output bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "source complexity rejected before evaluation",
+            "passed": true
+          },
+          {
+            "name": "intermediate growth is bounded",
+            "passed": true
+          },
+          {
+            "name": "ordinary JSONata locals need no custom naming",
+            "passed": true
+          },
+          {
+            "name": "built-in callable cannot be replaced",
+            "passed": true
+          },
+          {
+            "name": "state bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "input depth exact cap",
+            "passed": true
+          },
+          {
+            "name": "safe integer boundaries",
+            "passed": true
+          },
+          {
+            "name": "null, absent, extras, array order preserved",
+            "passed": true
+          },
+          {
+            "name": "prototype and invalid Unicode refused",
+            "passed": true
+          },
+          {
+            "name": "runtime-loaded state schema",
+            "passed": true
+          },
+          {
+            "name": "runtime-loaded query contract",
+            "passed": true
+          },
+          {
+            "name": "domain type validation does not coerce",
+            "passed": true
+          },
+          {
+            "name": "query output validated",
+            "passed": true
+          },
+          {
+            "name": "second bundle: nested refs, arrays and closed union",
+            "passed": true
+          },
+          {
+            "name": "closed union rejects unknown member",
+            "passed": true
+          },
+          {
+            "name": "optional does not mean nullable",
+            "passed": true
+          },
+          {
+            "name": "missing ref fails before data use",
+            "passed": true
+          },
+          {
+            "name": "defaulting rejected at source admission",
+            "passed": true
+          },
+          {
+            "name": "schema closure bytes exact cap",
+            "passed": true
+          },
+          {
+            "name": "schema file count exact cap",
+            "passed": true
+          },
+          {
+            "name": "Inlay local template and query binding",
+            "passed": true
+          },
+          {
+            "name": "Inlay absent component fails explicitly",
+            "passed": true
+          },
+          {
+            "name": "Inlay external body refused without I/O",
+            "passed": true
+          },
+          {
+            "name": "Inlay missing caller property fails",
+            "passed": true
+          },
+          {
+            "name": "Inlay auto-submit property refused",
+            "passed": true
+          },
+          {
+            "name": "engine evaluation nesting exact boundary",
+            "passed": true
+          },
+          {
+            "name": "engine sequence exact boundary",
+            "passed": true
+          },
+          {
+            "name": "AST container count exact boundary in unevaluated branch",
+            "passed": true
+          },
+          {
+            "name": "AST container depth exact boundary",
+            "passed": true
+          },
+          {
+            "name": "encoded-byte work budget exact boundary",
+            "passed": true
+          },
+          {
+            "name": "large repeated intermediate strings exhaust byte budget",
+            "passed": true
+          },
+          {
+            "name": "generated range rejected with stable code",
+            "passed": true
+          },
+          {
+            "name": "regex rejected with stable code",
+            "passed": true
+          },
+          {
+            "name": "Unicode casing is outside the portable profile",
+            "passed": true
+          },
+          {
+            "name": "absent expression result is explicit",
+            "passed": true
+          },
+          {
+            "name": "negative zero input is not a wire integer",
+            "passed": true
+          },
+          {
+            "name": "malformed Unicode object key is rejected",
+            "passed": true
+          },
+          {
+            "name": "fold input state exact byte cap",
+            "passed": true
+          },
+          {
+            "name": "fold successor state exact byte cap",
+            "passed": true
+          },
+          {
+            "name": "ineffective reason length and syntax",
+            "passed": true
+          },
+          {
+            "name": "ineffective message must be a string",
+            "passed": true
+          },
+          {
+            "name": "duplicate schema IDs rejected before validation",
+            "passed": true
+          },
+          {
+            "name": "open union rejected at admission",
+            "passed": true
+          },
+          {
+            "name": "inherited type names are ordinary unsupported schemas",
+            "passed": true
+          },
+          {
+            "name": "native grapheme constraints rejected at admission",
+            "passed": true
+          },
+          {
+            "name": "Inlay source bytes exact boundary",
+            "passed": true
+          },
+          {
+            "name": "Inlay source record count exact boundary",
+            "passed": true
+          },
+          {
+            "name": "Inlay expanded node count exact boundary",
+            "passed": true
+          },
+          {
+            "name": "Inlay expansion depth exact boundary",
+            "passed": true
+          },
+          {
+            "name": "CAR round trip owns exact source bytes",
+            "passed": true
+          },
+          {
+            "name": "two unrelated definitions resolve schemas and retained views",
+            "passed": true
+          },
+          {
+            "name": "initial state comes only from the pinned definition",
+            "passed": true
+          },
+          {
+            "name": "fold and query match independently specified values",
+            "passed": true
+          },
+          {
+            "name": "rainfall summary covers the maximum valid aggregate",
+            "passed": true
+          },
+          {
+            "name": "malformed domain input is retained ineffective",
+            "passed": true
+          },
+          {
+            "name": "unknown action is retained ineffective",
+            "passed": true
+          },
+          {
+            "name": "old definition intent is retained ineffective",
+            "passed": true
+          },
+          {
+            "name": "domain refusal preserves complete prior state",
+            "passed": true
+          },
+          {
+            "name": "restarting and replaying reproduces state outcomes and frontier",
+            "passed": true
+          },
+          {
+            "name": "failed persistence advances neither state outcomes nor frontier",
+            "passed": true
+          },
+          {
+            "name": "runtime faults pause without producing a replicated outcome and can resume",
+            "passed": true
+          },
+          {
+            "name": "activation validation host faults pause and resume to the healthy replica",
+            "passed": true
+          },
+          {
+            "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+            "passed": true
+          },
+          {
+            "name": "malformed schema and view shapes cannot freeze activation",
+            "passed": true
+          },
+          {
+            "name": "malformed UTF-8 source has a deterministic loader code",
+            "passed": true
+          },
+          {
+            "name": "reader size claims require independently verified bytes",
+            "passed": true
+          },
+          {
+            "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+            "passed": true
+          },
+          {
+            "name": "query captures its prefix before concurrent catch-up",
+            "passed": true
+          },
+          {
+            "name": "malformed fold result records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "invalid successor schema records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "ineffective successor state records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "noninteger computed state records framework failure and continues",
+            "passed": true
+          },
+          {
+            "name": "the 1001st reading is ineffective and a later valid action clears state",
+            "passed": true
+          },
+          {
+            "name": "copied extra payload bytes cannot freeze interpretation",
+            "passed": true
+          },
+          {
+            "name": "overlong ineffective message cannot block a later valid entry",
+            "passed": true
+          },
+          {
+            "name": "invalid query output is unavailable at its exact unchanged prefix",
+            "passed": true
+          },
+          {
+            "name": "caller snapshot mutation cannot change the projection",
+            "passed": true
+          },
+          {
+            "name": "unavailable source pauses definition loading",
+            "passed": true
+          },
+          {
+            "name": "tampered source fails its pinned CID",
+            "passed": true
+          },
+          {
+            "name": "unsupported definition runtime is refused",
+            "passed": true
+          },
+          {
+            "name": "unsupported genesis runtime is refused even with a valid definition",
+            "passed": true
+          },
+          {
+            "name": "definition refuses unknown binding field",
+            "passed": true
+          },
+          {
+            "name": "definition refuses duplicate action binding",
+            "passed": true
+          },
+          {
+            "name": "definition refuses missing binding schema",
+            "passed": true
+          },
+          {
+            "name": "definition refuses missing program file",
+            "passed": true
+          },
+          {
+            "name": "definition refuses escaping source path",
+            "passed": true
+          },
+          {
+            "name": "definition refuses ambient program",
+            "passed": true
+          },
+          {
+            "name": "definition refuses invalid program syntax",
+            "passed": true
+          },
+          {
+            "name": "definition refuses noninteger program literal",
+            "passed": true
+          },
+          {
+            "name": "definition refuses null initial state",
+            "passed": true
+          },
+          {
+            "name": "definition refuses negative zero initial data",
+            "passed": true
+          },
+          {
+            "name": "source closure and initial state byte limits are enforced",
+            "passed": true
+          },
+          {
+            "name": "exact state and program limits pass and the next byte fails",
+            "passed": true
+          },
+          {
+            "name": "definition counts the manifest within the 64-file limit",
+            "passed": true
+          },
+          {
+            "name": "CAR blocks outside the declared closure are refused",
+            "passed": true
+          },
+          {
+            "name": "work exhaustion records a framework refusal and preserves prior state",
+            "passed": true
+          },
+          {
+            "name": "oversized action is refused before interpretation",
+            "passed": true
+          },
+          {
+            "name": "unsupported schema constructs fail while loading the definition",
+            "passed": true
+          },
+          {
+            "name": "application registry refuses anchor replacement",
+            "passed": true
+          },
+          {
+            "name": "concurrent anchor replacement cannot persist a conflicting initial state",
+            "passed": true
+          },
+          {
+            "name": "64 sibling object values do not consume nesting depth",
+            "passed": true
+          },
+          {
+            "name": "100 grouped values do not consume nesting depth",
+            "passed": true
+          },
+          {
+            "name": "intermediate negative zero can be consumed as integer zero",
+            "passed": true
+          },
+          {
+            "name": "negative zero remains invalid at input and output boundaries",
+            "passed": true
+          },
+          {
+            "name": "sum checks exact intermediate integers before cancellation",
+            "passed": true
+          },
+          {
+            "name": "ineffective messages count Unicode code points and stop at 1024",
+            "passed": true
+          },
+          {
+            "name": "conditional integrity adapter matches the running environment",
+            "passed": true
+          },
+          {
+            "name": "unmatched dependency closure fails closed in either environment",
+            "passed": true
+          }
+        ],
+        "wrapperOutcomes": [
+          {
+            "route": "validate",
+            "name": "mutates input and returns alias",
+            "accepted": true
+          },
+          {
+            "route": "validate",
+            "name": "mutates input and returns equal distinct object",
+            "accepted": true
+          },
+          {
+            "route": "validate",
+            "name": "distinct coercion",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Schema validation changed supplied data"
+          },
+          {
+            "route": "validate",
+            "name": "mutates alias to negative zero",
+            "accepted": false,
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/n: expected safe integer, excluding negative zero"
+          },
+          {
+            "route": "validate",
+            "name": "ValidationError maps to schema_value",
+            "accepted": false,
+            "code": "schema_value",
+            "kind": "invalid_input",
+            "message": "controlled invalid value"
+          },
+          {
+            "route": "validate",
+            "name": "host fault remains host fault",
+            "accepted": false,
+            "code": null,
+            "kind": null,
+            "message": "controlled host fault"
+          },
+          {
+            "route": "validate",
+            "name": "descriptor proxy across successive walks",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Schema validation changed supplied data"
+          },
+          {
+            "route": "queryParams",
+            "name": "mutates input and returns alias",
+            "accepted": true
+          },
+          {
+            "route": "queryParams",
+            "name": "mutates input and returns equal distinct object",
+            "accepted": true
+          },
+          {
+            "route": "queryParams",
+            "name": "distinct coercion",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          },
+          {
+            "route": "queryParams",
+            "name": "mutates alias to negative zero",
+            "accepted": false,
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/n: expected safe integer, excluding negative zero"
+          },
+          {
+            "route": "queryParams",
+            "name": "ValidationError maps to schema_value",
+            "accepted": false,
+            "code": "schema_value",
+            "kind": "invalid_input",
+            "message": "controlled invalid value"
+          },
+          {
+            "route": "queryParams",
+            "name": "host fault remains host fault",
+            "accepted": false,
+            "code": null,
+            "kind": null,
+            "message": "controlled host fault"
+          },
+          {
+            "route": "queryParams",
+            "name": "descriptor proxy across successive walks",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          },
+          {
+            "route": "queryResult",
+            "name": "mutates input and returns alias",
+            "accepted": true
+          },
+          {
+            "route": "queryResult",
+            "name": "mutates input and returns equal distinct object",
+            "accepted": true
+          },
+          {
+            "route": "queryResult",
+            "name": "distinct coercion",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          },
+          {
+            "route": "queryResult",
+            "name": "mutates alias to negative zero",
+            "accepted": false,
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/n: expected safe integer, excluding negative zero"
+          },
+          {
+            "route": "queryResult",
+            "name": "ValidationError maps to schema_value",
+            "accepted": false,
+            "code": "schema_value",
+            "kind": "invalid_input",
+            "message": "controlled invalid value"
+          },
+          {
+            "route": "queryResult",
+            "name": "host fault remains host fault",
+            "accepted": false,
+            "code": null,
+            "kind": null,
+            "message": "controlled host fault"
+          },
+          {
+            "route": "queryResult",
+            "name": "descriptor proxy across successive walks",
+            "accepted": false,
+            "code": "schema_coercion",
+            "kind": "invalid_input",
+            "message": "Validation changed supplied data"
+          }
+        ]
+      }
+    }
+  ]
+}

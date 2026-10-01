@@ -70,6 +70,9 @@ test(
         'source documents refuse the historical application v1 profile',
         'source document retains exact bytes, aliases, unused files and manifest order',
         'source document refuses path, version, byte and retained-table ambiguity',
+        'selective status and exact-position outcomes stay owned across stall and resume',
+        'selective query retains its active definition across concurrent activation',
+        'bounded many-outcome reads avoid full projection clone work',
       ])
         assert.ok(
           cases.some((entry: { name: string; passed: boolean }) => entry.name === name && entry.passed),

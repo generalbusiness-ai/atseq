@@ -1,0 +1,16 @@
+{
+  "sourceHead": "497fb45f9ffc0c929607900d498c63ba6c287760",
+  "command": [
+    "node",
+    "scripts/source-run.mjs",
+    "--input-type=module",
+    "-e",
+    "import { runSourceDocumentCorpus } from \"./tests/support/source-document-corpus.ts\"; const results = await runSourceDocumentCorpus(); console.log(JSON.stringify({source: \"pre-fix\", results}, null, 2)); process.exitCode = results.every(result => result.passed) ? 0 : 1;"
+  ],
+  "exitCode": 1,
+  "sourceHashes": {
+    "src/definition/document.ts": "2ad5c2efd40d59b3de7bdcb1058fbfe94ebc2df75a6141b16f6cf3b2773cd51d",
+    "tests/support/source-document-corpus.ts": "f0222d765c4f5207c6eba86e8d869604aa5f223548cb2d2738926662184a4fc3"
+  },
+  "stderr": ""
+}
