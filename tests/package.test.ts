@@ -83,6 +83,9 @@ test(
         'source document refuses path, version, byte and retained-table ambiguity',
         'retained identity: p256 whole-log canonical tip, earlier selection rejected',
         'retained identity: secp256k1 whole-log canonical tip, earlier selection rejected',
+        'selective status and exact-position outcomes stay owned across stall and resume',
+        'selective query retains its active definition across concurrent activation',
+        'bounded many-outcome reads avoid full projection clone work',
       ])
         assert.ok(
           cases.some((entry: { name: string; passed: boolean }) => entry.name === name && entry.passed),
