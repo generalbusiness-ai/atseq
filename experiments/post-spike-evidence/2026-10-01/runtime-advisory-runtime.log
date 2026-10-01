@@ -1,0 +1,73 @@
+
+> atseq@0.1.0 test:runtime
+> node scripts/source-run.mjs --test tests/runtime.test.ts tests/projection.test.ts
+
+✔ host snapshot stays coherent during writes and rebuilds after cache deletion (970.190167ms)
+▶ application interpretation agrees in Node and a Chromium worker
+  ✔ CAR round trip owns exact source bytes (0.426292ms)
+  ✔ two unrelated definitions resolve schemas and retained views (0.0735ms)
+  ✔ initial state comes only from the pinned definition (0.039916ms)
+  ✔ fold and query match independently specified values (0.034833ms)
+  ✔ malformed domain input is retained ineffective (0.030958ms)
+  ✔ unknown action is retained ineffective (0.029875ms)
+  ✔ old definition intent is retained ineffective (0.047333ms)
+  ✔ domain refusal preserves complete prior state (0.030875ms)
+  ✔ restarting and replaying reproduces state outcomes and frontier (0.041416ms)
+  ✔ failed persistence advances neither state outcomes nor frontier (0.048917ms)
+  ✔ runtime faults pause without producing a replicated outcome and can resume (0.026375ms)
+  ✔ activation validation host faults pause and resume to the healthy replica (0.042083ms)
+  ✔ parser TypeError and RangeError faults pause folds and activations, then resume identically (0.030625ms)
+  ✔ malformed schema and view shapes cannot freeze activation (0.026167ms)
+  ✔ malformed UTF-8 source has a deterministic loader code (0.022583ms)
+  ✔ reader size claims require independently verified bytes (0.018084ms)
+  ✔ hash-valid oversized activation is ineffective; corrupt bytes pause until restored (0.019459ms)
+  ✔ query captures its prefix before concurrent catch-up (0.018625ms)
+  ✔ malformed fold result records framework failure and continues (0.036833ms)
+  ✔ invalid successor schema records framework failure and continues (0.026458ms)
+  ✔ ineffective successor state records framework failure and continues (0.021459ms)
+  ✔ noninteger computed state records framework failure and continues (0.022208ms)
+  ✔ the 1001st reading is ineffective and a later valid action clears state (0.022125ms)
+  ✔ copied extra payload bytes cannot freeze interpretation (0.030125ms)
+  ✔ overlong ineffective message cannot block a later valid entry (0.021708ms)
+  ✔ invalid query output is unavailable at its exact unchanged prefix (0.020417ms)
+  ✔ caller snapshot mutation cannot change the projection (0.020166ms)
+  ✔ unavailable source pauses definition loading (0.022ms)
+  ✔ tampered source fails its pinned CID (0.020916ms)
+  ✔ unsupported definition runtime is refused (0.023291ms)
+  ✔ unsupported genesis runtime is refused even with a valid definition (0.031958ms)
+  ✔ definition refuses unknown binding field (0.018708ms)
+  ✔ definition refuses duplicate action binding (0.014959ms)
+  ✔ definition refuses missing binding schema (0.016042ms)
+  ✔ definition refuses missing program file (0.0145ms)
+  ✔ definition refuses escaping source path (0.014333ms)
+  ✔ definition refuses ambient program (0.013292ms)
+  ✔ definition refuses invalid program syntax (0.012667ms)
+  ✔ definition refuses noninteger program literal (0.018958ms)
+  ✔ definition refuses null initial state (0.016375ms)
+  ✔ definition refuses negative zero initial data (0.013291ms)
+  ✔ source closure and initial state byte limits are enforced (0.014667ms)
+  ✔ exact state and program limits pass and the next byte fails (0.012916ms)
+  ✔ definition counts the manifest within the 64-file limit (0.016334ms)
+  ✔ CAR blocks outside the declared closure are refused (0.012834ms)
+  ✔ work exhaustion records a framework refusal and preserves prior state (0.013417ms)
+  ✔ oversized action is refused before interpretation (0.012625ms)
+  ✔ unsupported schema constructs fail while loading the definition (0.012166ms)
+  ✔ application registry refuses anchor replacement (0.012625ms)
+  ✔ concurrent anchor replacement cannot persist a conflicting initial state (0.013584ms)
+  ✔ 64 sibling object values do not consume nesting depth (0.012542ms)
+  ✔ 100 grouped values do not consume nesting depth (0.013208ms)
+  ✔ intermediate negative zero can be consumed as integer zero (0.012916ms)
+  ✔ negative zero remains invalid at input and output boundaries (0.012584ms)
+  ✔ sum checks exact intermediate integers before cancellation (0.013583ms)
+  ✔ ineffective messages count Unicode code points and stop at 1024 (0.012584ms)
+  ✔ conditional integrity adapter matches the running environment (0.01125ms)
+  ✔ unmatched dependency closure fails closed in either environment (0.011708ms)
+✔ application interpretation agrees in Node and a Chromium worker (3438.68675ms)
+ℹ tests 60
+ℹ suites 0
+ℹ pass 60
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4025.788084

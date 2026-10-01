@@ -1,0 +1,38 @@
+{
+  "capturedAt": "2026-10-01T17:02:15.450Z",
+  "node": "v26.10.0",
+  "package": "brace-expansion@5.0.12",
+  "installedEsmSha256": "eea9a18920e1cde68f0068c36c040541ad6e93b0bb89eaab38c8ab49925b90a8",
+  "method": "Each input executes in a separate Node subprocess with a three-second timeout and four-MiB output budget. Tests successful return for representative advisory shapes, and exact output for an ordinary expansion. No old-version execution, Atseq exploit-reachability or performance claim.",
+  "sources": [
+    "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+    "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+    "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr"
+  ],
+  "cases": [
+    {
+      "name": "ordinary brace alternatives",
+      "inputBytes": 15,
+      "resultCount": 4,
+      "passed": true
+    },
+    {
+      "name": "comma parsing recursion advisory shape",
+      "inputBytes": 28003,
+      "resultCount": 7001,
+      "passed": true
+    },
+    {
+      "name": "nested expansion recursion advisory shape",
+      "inputBytes": 6403,
+      "resultCount": 1,
+      "passed": true
+    },
+    {
+      "name": "repeated rewrite advisory shape",
+      "inputBytes": 16006,
+      "resultCount": 1,
+      "passed": true
+    }
+  ]
+}
