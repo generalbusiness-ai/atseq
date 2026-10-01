@@ -25,23 +25,13 @@ async function deriveWeb(principal: string, raw: Uint8Array) {
     identityInput('Web document DID differs from principal');
   const methods = documentArray(doc, 'verificationMethod'),
     services = documentArray(doc, 'service');
-  const key = methods.find(
-    (value) =>
-      identityObject(value) &&
-      ownFragment(value.id, principal, 'atproto') &&
-      value.controller === principal &&
-      typeof value.type === 'string' &&
-      ['Multikey', 'EcdsaSecp256r1VerificationKey2019', 'EcdsaSecp256k1VerificationKey2019'].includes(value.type),
-  );
-  if (!key) identityInput('Web document lacks usable ATproto signing key');
+  const key = methods.find((value) => identityObject(value) && ownFragment(value.id, principal, 'atproto'));
+  if (!identityObject(key) || key.controller !== principal)
+    identityInput('Web document lacks usable ATproto signing key');
   const signingKeyDid = await normalizeIdentityController(key);
-  const service = services.find(
-    (value) =>
-      identityObject(value) &&
-      ownFragment(value.id, principal, 'atproto_pds') &&
-      value.type === 'AtprotoPersonalDataServer',
-  );
-  if (!identityObject(service)) identityInput('Web document lacks ATproto PDS service');
+  const service = services.find((value) => identityObject(value) && ownFragment(value.id, principal, 'atproto_pds'));
+  if (!identityObject(service) || service.type !== 'AtprotoPersonalDataServer')
+    identityInput('Web document lacks ATproto PDS service');
   return { signingKeyDid, pdsOrigin: identityPdsOrigin(service.serviceEndpoint) };
 }
 /** Same pure extraction for online observation and retained offline interpretation. */

@@ -76,6 +76,10 @@ export class IdentityFetch {
     } catch (error) {
       if (
         (error instanceof TypeError && error.message === 'fetch failed') ||
+        (error instanceof TypeError &&
+          error.message === 'terminated' &&
+          error.cause instanceof Error &&
+          ['UND_ERR_SOCKET', 'UND_ERR_BODY_TIMEOUT'].includes((error.cause as Error & { code?: string }).code ?? '')) ||
         (error instanceof Error &&
           ['FetchRequestError', 'FetchResponseError'].includes(error.constructor.name) &&
           Number.isSafeInteger((error as Error & { statusCode?: number }).statusCode)) ||
