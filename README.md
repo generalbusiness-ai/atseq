@@ -150,7 +150,7 @@ They also measured the costs before committing to a larger implementation.
 | [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md)               | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions.                                      |
 | [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md)  | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries.                          |
 
-The completed acceptance run passed all 13 gates, including 308 full-suite
+The completed acceptance run passed all 13 gates, including 310 full-suite
 tests. The [completion record](notes/2026-09-06-atseq-spike-completion.md)
 records the pre-v1 review and landing; the [results](notes/2026-09-06-atseq-spike-results.md)
 and [acceptance report](experiments/acceptance.json) retain the measurements
@@ -187,8 +187,8 @@ refuse historical spike profiles. See the [runtime profile](docs/runtime-profile
 bounds.
 
 The current host repeatedly serves and verifies the full history. At 10,000
-entries, the retained local run measured a median confirmed append of 15.34
-seconds and browser replay plus transfer of 14.54 seconds. Efficient verified
+entries, the retained local run measured a median confirmed append of 16.31
+seconds and browser replay plus transfer of 14.68 seconds. Efficient verified
 catch-up is needed before using this host for long-lived, growing histories.
 These measurements describe one machine, rather than production capacity.
 

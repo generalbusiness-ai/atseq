@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:27:49.299Z",
+  "measuredAt": "2026-10-01T02:38:06.817Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 12,
   "cases": [
@@ -12,12 +12,12 @@
     {
       "name": "a full replay uses each definition at its original boundary",
       "passed": true,
-      "elapsedMs": 14
+      "elapsedMs": 15
     },
     {
       "name": "unavailable candidate pauses at N and resumes the same entry after repair",
       "passed": true,
-      "elapsedMs": 16
+      "elapsedMs": 17
     },
     {
       "name": "corrupt candidate content cannot fabricate an invalid-activation verdict",
@@ -27,37 +27,37 @@
     {
       "name": "failed persistence leaves both definition and state before activation",
       "passed": true,
-      "elapsedMs": 19
+      "elapsedMs": 21
     },
     {
       "name": "another actor cannot activate or force a missing-content fetch",
       "passed": true,
-      "elapsedMs": 5
+      "elapsedMs": 6
     },
     {
       "name": "available invalid candidate code is retained ineffective",
       "passed": true,
-      "elapsedMs": 7
+      "elapsedMs": 8
     },
     {
       "name": "an incomplete or extra signed closure has the same outcome with full and closure-only readers",
       "passed": true,
-      "elapsedMs": 38
+      "elapsedMs": 43
     },
     {
       "name": "a closure over 512 KiB is transported and invalid on both full and closure-only readers",
       "passed": true,
-      "elapsedMs": 20
+      "elapsedMs": 22
     },
     {
       "name": "an available query-less view with missing bindings is invalid rather than a permanent stall",
       "passed": true,
-      "elapsedMs": 7
+      "elapsedMs": 8
     },
     {
       "name": "state compatibility includes transitive schemas and ignores unrelated additions",
       "passed": true,
-      "elapsedMs": 17
+      "elapsedMs": 18
     },
     {
       "name": "malformed closure and control-action rebinding are refused",
@@ -154,7 +154,7 @@
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/protocol/wire.ts": "b79280470c43c723c9897f2f4580e13beb78526f41d40932597f450b2dd5259e",
     "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",

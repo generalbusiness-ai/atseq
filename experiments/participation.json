@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:27:47.981Z",
+  "measuredAt": "2026-10-01T02:38:05.416Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 10,
   "browserVersion": "153.0.8010.12",
@@ -10,7 +10,7 @@
     {
       "name": "CLI preview opens the same source in the browser without publication",
       "passed": true,
-      "elapsedMs": 441
+      "elapsedMs": 494
     },
     {
       "name": "explicit identity and publication create an app once",
@@ -20,42 +20,42 @@
     {
       "name": "another browser can read before creating a distinct signing identity",
       "passed": true,
-      "elapsedMs": 234
+      "elapsedMs": 236
     },
     {
       "name": "offline double click retains one signed intent across reload and reconnect",
       "passed": true,
-      "elapsedMs": 438
+      "elapsedMs": 426
     },
     {
       "name": "a competing browser action is recorded with an honest ineffective outcome",
       "passed": true,
-      "elapsedMs": 248
+      "elapsedMs": 262
     },
     {
       "name": "CLI uses a third private key and keeps exact retry bytes in a file",
       "passed": true,
-      "elapsedMs": 2425
+      "elapsedMs": 2529
     },
     {
       "name": "narrow layout remains usable with keyboard focus and no script errors",
       "passed": true,
-      "elapsedMs": 186
+      "elapsedMs": 194
     },
     {
       "name": "lost submit reply reconciles the retained intent without a second append",
       "passed": true,
-      "elapsedMs": 306
+      "elapsedMs": 310
     },
     {
       "name": "transport refusal retains the original signed work and invents no entry",
       "passed": true,
-      "elapsedMs": 297
+      "elapsedMs": 303
     },
     {
       "name": "hostile template text stays text and rendering cannot sign or fetch external resources",
       "passed": true,
-      "elapsedMs": 1673
+      "elapsedMs": 1757
     }
   ],
   "sourceHashes": {
@@ -147,7 +147,7 @@
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/protocol/wire.ts": "b79280470c43c723c9897f2f4580e13beb78526f41d40932597f450b2dd5259e",
     "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",

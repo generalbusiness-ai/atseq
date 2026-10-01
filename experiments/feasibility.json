@@ -1,7 +1,7 @@
 {
   "stage": "S0",
   "passed": true,
-  "measuredAt": "2026-10-01T02:27:23.895Z",
+  "measuredAt": "2026-10-01T02:37:40.435Z",
   "environment": {
     "node": "v26.10.0",
     "os": "darwin",
@@ -81,7 +81,7 @@
         ],
         "errors": [],
         "exit": 0,
-        "ms": 169.5,
+        "ms": 178.20000000298023,
         "done": true,
         "bytes": 20926848,
         "browser": "153.0.8010.12"
@@ -423,7 +423,7 @@
       "passed": true
     }
   ],
-  "nodeCorpusMs": 782.0955000000001,
+  "nodeCorpusMs": 816.6710420000002,
   "browserBundles": [
     {
       "path": "browser/assets/index-BFrm3I99.js",
@@ -754,7 +754,7 @@
   ],
   "browser": {
     "version": "153.0.8010.12",
-    "loadMs": 32.20000000298023
+    "loadMs": 33.5
   },
   "browserControls": {
     "keyboardSubmit": true,
@@ -2344,7 +2344,7 @@
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/protocol/wire.ts": "b79280470c43c723c9897f2f4580e13beb78526f41d40932597f450b2dd5259e",
     "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",
@@ -2380,20 +2380,20 @@
   "screenshots": {
     "experiments/evidence/desktop.png": "dead117f78fc13df601d22b21a730064878fe93da7d9f1073695b094dcd338e0",
     "experiments/evidence/mobile.png": "077b8c165505f98d12f568d8c1ed1891353175b0353697eba1f33a945cd2d495",
-    "experiments/evidence/s3/guitar.car": "af13043db8a7896704990ad461ff290e80c3e6ff5630f962f6433d1e56194158",
-    "experiments/evidence/s3/guitar.json": "66236ba653ce081e1b70daad42b89ef5447abf4ff072c5e53fc9a7ef0d6a13c1",
-    "experiments/evidence/s3/rainfall.car": "e236105b7788d85a1b1079b9281fde10e3f9dc8dec8d95d6ef871bfc3227a947",
-    "experiments/evidence/s3/rainfall.json": "b8313bb5f31b9799506b7f6a85e97c931409d9dcbd5599a940d7a5c2c6d7729b",
+    "experiments/evidence/s3/guitar.car": "35660a6a3094e67686edb665f90c322ecc9e3ce0f00ba6e2e09a8d7d0eba989c",
+    "experiments/evidence/s3/guitar.json": "81fb757cb5171f2cf1adde45b89555fc1fb93f0f2a322f360873da543f038567",
+    "experiments/evidence/s3/rainfall.car": "e80f635aa482a39ad0748982d50d3038bcb1343ff7720d87a2ac730a95fa70ff",
+    "experiments/evidence/s3/rainfall.json": "329eb13965bf853418078484b8d419413294cd851b0bf83c22f096d1bcfec6a1",
     "experiments/evidence/s4/desktop.png": "580e2f90ab34398bcbfb00fbc1e8c7d1882e1c92bb7489e79c76c9a989a31732",
     "experiments/evidence/s4/mobile.png": "27d07ae996917a6e92be17d8989833280daa98aac00be7ae0b0281802f3fc209",
     "experiments/evidence/s5/reviewed.png": "7560916727b70e8408b56e427328538a2a1a044b3a941759c3a11b9583eec01c",
     "experiments/evidence/s5/updated.png": "165ab99a14c4c8fbc83db406af8721325f08205c5ee1390d6fe15dbab9d48f27",
-    "experiments/evidence/s6/chart.atseq.json": "93c74d00fc66769e514e21107b716b2d7e820ce4d1c4d788696f1e697dd79a4a",
-    "experiments/evidence/s6/chart.html": "1d1175b4d81b6aff7f546ab8feb6aba8cf9e1c6920b9673b2c694a8b6dd63197",
+    "experiments/evidence/s6/chart.atseq.json": "3a3c9a1d55b4567e04f7eb4d3d05182dba85d38824a9768dc454cde771f46ef3",
+    "experiments/evidence/s6/chart.html": "1c1f966b62ceb5f897cbd5125ed9e602c45fc32b5bbed4607ee6a1abe8a7c4cd",
     "experiments/evidence/s6/chart.png": "657c296114045e2d4bc11345fdc62944d8712b0917591d5700ce1a92272602d7",
-    "experiments/evidence/s6/chart.svg": "7e7f92930bc79d50d69f16685816086bb41395e78a64dc6b11211909a43ef2a2",
-    "experiments/evidence/s6/evolved.atseq.json": "e329a101603af909076a1b14c2ed9fc13576e3b7f32740a6b060b080dc6fabca",
+    "experiments/evidence/s6/chart.svg": "2713472fadd230bd9828e0c69295dc9e04faffa1e8acdeab410f931dabaaf945",
+    "experiments/evidence/s6/evolved.atseq.json": "584d96fd9da876eef0259c63b9698f5d2b3be86c70d27b0949f38238082019de",
     "experiments/evidence/s6/offline.png": "38d331362419d8273e8086df90c11544b92bfd80379d12a9d9358c40516db5e7",
-    "experiments/evidence/s6/oversized-closure.atseq.json": "bf4e5a57c496a3302daaafd85eceba8efaa6a1a2c39e90d68d78ad9701a5a51d"
+    "experiments/evidence/s6/oversized-closure.atseq.json": "b364cdb6f1dd0c38eb86c76409f2503bdc35187db6cc31dcb4ed9fc24b5fcfbe"
   }
 }

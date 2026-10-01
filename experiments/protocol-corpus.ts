@@ -232,6 +232,17 @@ export async function runProtocolCorpus(): Promise<FixtureResult[]> {
     for (const data of ['61ff', 'a1616164c3284141', 'a164c328414101', '64f0808080', '63eda080', '64f4908080'])
       await rejects(() => decodeBlock(unhex(data)), 'noncanonical');
   });
+  await check('nested CID tags are refused without recursion in every engine', async () => {
+    for (const count of [2, 100, 5000, 10000])
+      await rejects(() => decodeBlock(unhex('d82a'.repeat(count) + '40')), 'noncanonical');
+    for (const invalid of ['f801', 'f90000', 'fa00000000'])
+      await rejects(() => decodeBlock(unhex(invalid)), 'noncanonical');
+  });
+  await check('array nesting accepts the depth limit and refuses the next level', async () => {
+    const raw = unhex('81'.repeat(32) + '01');
+    equal(hex(encodeBlock(decodeBlock(raw))), hex(raw));
+    await rejects(() => decodeBlock(unhex('81'.repeat(33) + '01')), 'wire_depth');
+  });
   await check('incomplete base64 has a deterministic input code', () =>
     rejects(() => encodeBlock({ $bytes: 'A' }), 'wire_bytes'),
   );

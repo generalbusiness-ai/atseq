@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:28:06.493Z",
+  "measuredAt": "2026-10-01T02:38:25.426Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 11,
   "browserVersion": "153.0.8010.12",
@@ -9,57 +9,57 @@
     {
       "name": "complete evolved archive retains source history, profiles and exact outcomes",
       "passed": true,
-      "elapsedMs": 55.30345800000032
+      "elapsedMs": 59.101166999999805
     },
     {
       "name": "chosen older prefix uses its original definition and no future candidate",
       "passed": true,
-      "elapsedMs": 32.16724999999997
+      "elapsedMs": 41.96658400000024
     },
     {
       "name": "missing activation source permits only the last complete prefix",
       "passed": true,
-      "elapsedMs": 46.429499999999734
+      "elapsedMs": 51.13441700000021
     },
     {
       "name": "changed history, inventory, runtime and invitation cannot be accepted",
       "passed": true,
-      "elapsedMs": 45.19833299999982
+      "elapsedMs": 47.62562500000013
     },
     {
       "name": "archive bounds, byte decoding and source identity guards reject malformed copies",
       "passed": true,
-      "elapsedMs": 26.912125000000287
+      "elapsedMs": 28.623583999999937
     },
     {
       "name": "CLI rebuild uses a new directory after removing only its marked projection cache",
       "passed": true,
-      "elapsedMs": 1819.9669169999997
+      "elapsedMs": 1889.527583
     },
     {
       "name": "installed shell bootstraps offline and rebuilds solely from an imported archive",
       "passed": true,
-      "elapsedMs": 507.6577499999994
+      "elapsedMs": 506.29975000000013
     },
     {
       "name": "an archive cannot replace this device’s genesis pin for an existing app DID",
       "passed": true,
-      "elapsedMs": 154.2907920000007
+      "elapsedMs": 156.3628750000007
     },
     {
       "name": "cancelling a held worker export keeps verified inputs and an offline signed action",
       "passed": true,
-      "elapsedMs": 346.33608300000014
+      "elapsedMs": 361.44124999999985
     },
     {
       "name": "small imported data produces a zero-based chart and static source-tagged exports",
       "passed": true,
-      "elapsedMs": 1137.6741669999992
+      "elapsedMs": 1180.7475000000004
     },
     {
       "name": "archives retain oversized invalid activation evidence and replay its following action",
       "passed": true,
-      "elapsedMs": 387.93983300000036
+      "elapsedMs": 432.0002080000004
     }
   ],
   "sourceHashes": {
@@ -151,7 +151,7 @@
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/protocol/wire.ts": "b79280470c43c723c9897f2f4580e13beb78526f41d40932597f450b2dd5259e",
     "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",

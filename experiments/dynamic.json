@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:27:38.350Z",
+  "measuredAt": "2026-10-01T02:37:55.383Z",
   "nodeVersion": "v26.10.0",
   "fixtureGeneration": true,
   "autonomousAgentGeneration": false,
@@ -15,12 +15,12 @@
     {
       "event": "application-interpreted",
       "title": "Garden rainfall",
-      "schema": "test.generatedd62076870d.rainfall.data#record"
+      "schema": "test.generated861bbc90a2.rainfall.data#record"
     },
     {
       "event": "application-interpreted",
       "title": "Weekend guitar search",
-      "schema": "test.generatedd62076870d.guitar.data#candidate"
+      "schema": "test.generated861bbc90a2.guitar.data#candidate"
     }
   ],
   "before": {

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:31:24.049Z",
+  "measuredAt": "2026-10-01T02:41:59.337Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 3,
   "topology": "Official PDS 0.5.31, loopback HTTP, real SQLite and file blobs; official mock PLC. One sequencer, no rate limits; signed setup batched separately from timed confirmed single appends.",
@@ -18,47 +18,47 @@
       "acknowledgment": [
         {
           "position": 92,
-          "elapsedMs": 155.05204200000003
+          "elapsedMs": 167.198042
         },
         {
           "position": 93,
-          "elapsedMs": 157.36670900000013
+          "elapsedMs": 166.02808400000004
         },
         {
           "position": 94,
-          "elapsedMs": 153.07837500000005
+          "elapsedMs": 163.97279200000003
         },
         {
           "position": 95,
-          "elapsedMs": 147.40912500000013
+          "elapsedMs": 155.65287500000022
         },
         {
           "position": 96,
-          "elapsedMs": 150.03258300000016
+          "elapsedMs": 158.3147909999998
         },
         {
           "position": 97,
-          "elapsedMs": 148.5001659999998
+          "elapsedMs": 160.39137500000015
         },
         {
           "position": 98,
-          "elapsedMs": 150.5327500000003
+          "elapsedMs": 165.6333749999999
         },
         {
           "position": 99,
-          "elapsedMs": 152.23520800000006
+          "elapsedMs": 162.3794170000001
         },
         {
           "position": 100,
-          "elapsedMs": 162.12579099999994
+          "elapsedMs": 163.77820900000006
         }
       ],
-      "acknowledgmentP50Ms": 152.23520800000006,
-      "acknowledgmentP95Ms": 162.12579099999994,
-      "readVerifyMs": 74.1066249999999,
-      "runtimeLoadMs": 6.669499999999971,
-      "fullReplayMs": 82.40179199999966,
-      "catchUpOneMs": 63.69879200000014,
+      "acknowledgmentP50Ms": 163.77820900000006,
+      "acknowledgmentP95Ms": 167.198042,
+      "readVerifyMs": 76.9467080000004,
+      "runtimeLoadMs": 6.074583000000075,
+      "fullReplayMs": 88.88516700000037,
+      "catchUpOneMs": 68.02954100000034,
       "boundedStateBytes": 26
     },
     {
@@ -66,47 +66,47 @@
       "acknowledgment": [
         {
           "position": 992,
-          "elapsedMs": 1395.0199579999999
+          "elapsedMs": 1480.4812919999995
         },
         {
           "position": 993,
-          "elapsedMs": 1400.218833
+          "elapsedMs": 1489.471208
         },
         {
           "position": 994,
-          "elapsedMs": 1412.0368749999998
+          "elapsedMs": 1501.0246669999988
         },
         {
           "position": 995,
-          "elapsedMs": 1414.4979170000006
+          "elapsedMs": 1484.4646249999987
         },
         {
           "position": 996,
-          "elapsedMs": 1416.4561249999988
+          "elapsedMs": 1482.9651670000003
         },
         {
           "position": 997,
-          "elapsedMs": 1400.4189999999999
+          "elapsedMs": 1493.810875000001
         },
         {
           "position": 998,
-          "elapsedMs": 1409.0779160000002
+          "elapsedMs": 1498.4067920000016
         },
         {
           "position": 999,
-          "elapsedMs": 1409.295959000001
+          "elapsedMs": 1547.0314579999995
         },
         {
           "position": 1000,
-          "elapsedMs": 1414.8555830000005
+          "elapsedMs": 1702.3026250000003
         }
       ],
-      "acknowledgmentP50Ms": 1409.295959000001,
-      "acknowledgmentP95Ms": 1416.4561249999988,
-      "readVerifyMs": 703.6571659999972,
-      "runtimeLoadMs": 3.909708999999566,
-      "fullReplayMs": 785.4149170000019,
-      "catchUpOneMs": 622.7924999999996,
+      "acknowledgmentP50Ms": 1493.810875000001,
+      "acknowledgmentP95Ms": 1702.3026250000003,
+      "readVerifyMs": 764.7257499999978,
+      "runtimeLoadMs": 3.5350409999991825,
+      "fullReplayMs": 937.8564590000024,
+      "catchUpOneMs": 673.6140000000014,
       "boundedStateBytes": 27
     },
     {
@@ -114,47 +114,47 @@
       "acknowledgment": [
         {
           "position": 9992,
-          "elapsedMs": 15333.563417000001
+          "elapsedMs": 16120.451292000002
         },
         {
           "position": 9993,
-          "elapsedMs": 15327.737000000001
+          "elapsedMs": 16129.004999999997
         },
         {
           "position": 9994,
-          "elapsedMs": 15346.787167000002
+          "elapsedMs": 16311.195583000008
         },
         {
           "position": 9995,
-          "elapsedMs": 15341.235167000006
+          "elapsedMs": 16314.041209000003
         },
         {
           "position": 9996,
-          "elapsedMs": 15334.472167
+          "elapsedMs": 16459.350458
         },
         {
           "position": 9997,
-          "elapsedMs": 15335.389291
+          "elapsedMs": 16635.85895800001
         },
         {
           "position": 9998,
-          "elapsedMs": 15313.782332999981
+          "elapsedMs": 23438.857374999992
         },
         {
           "position": 9999,
-          "elapsedMs": 15357.849874999985
+          "elapsedMs": 15738.433250000002
         },
         {
           "position": 10000,
-          "elapsedMs": 15350.140167000005
+          "elapsedMs": 15411.56700000001
         }
       ],
-      "acknowledgmentP50Ms": 15335.389291,
-      "acknowledgmentP95Ms": 15357.849874999985,
-      "readVerifyMs": 7694.743791999994,
-      "runtimeLoadMs": 3.8353750000242144,
-      "fullReplayMs": 7714.666250000009,
-      "catchUpOneMs": 6224.117999999988,
+      "acknowledgmentP50Ms": 16311.195583000008,
+      "acknowledgmentP95Ms": 23438.857374999992,
+      "readVerifyMs": 7798.729458000016,
+      "runtimeLoadMs": 3.522333000000799,
+      "fullReplayMs": 7742.871833000012,
+      "catchUpOneMs": 6230.31475000002,
       "boundedStateBytes": 28
     }
   ],
@@ -163,17 +163,17 @@
     {
       "name": "history 100",
       "passed": true,
-      "elapsedMs": 82.40179199999966
+      "elapsedMs": 88.88516700000037
     },
     {
       "name": "history 1000",
       "passed": true,
-      "elapsedMs": 785.4149170000019
+      "elapsedMs": 937.8564590000024
     },
     {
       "name": "history 10000",
       "passed": true,
-      "elapsedMs": 7714.666250000009
+      "elapsedMs": 7742.871833000012
     }
   ],
   "sourceHashes": {
@@ -265,7 +265,7 @@
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/protocol/wire.ts": "b79280470c43c723c9897f2f4580e13beb78526f41d40932597f450b2dd5259e",
     "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",

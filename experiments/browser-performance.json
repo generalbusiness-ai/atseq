@@ -1,45 +1,45 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:31:42.414Z",
+  "measuredAt": "2026-10-01T02:42:17.843Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 3,
   "browserVersion": "153.0.8010.12",
   "measurements": [
     {
       "size": 100,
-      "workerLoadMs": 38.79999999701977,
-      "fullReplayAndTransferMs": 155.59999999403954,
+      "workerLoadMs": 38.70000000298023,
+      "fullReplayAndTransferMs": 155.5,
       "animationFrames": 11,
-      "maxAnimationGapMs": 17.799999997019768,
+      "maxAnimationGapMs": 18.100000008940697,
       "responsivenessClickObserved": true,
-      "browserRssBefore": 269664256,
-      "browserRssAfter": 488800256
+      "browserRssBefore": 269680640,
+      "browserRssAfter": 489406464
     },
     {
       "size": 1000,
-      "workerLoadMs": 21.100000008940697,
-      "fullReplayAndTransferMs": 1310,
-      "animationFrames": 80,
-      "maxAnimationGapMs": 17.100000008940697,
+      "workerLoadMs": 20.700000002980232,
+      "fullReplayAndTransferMs": 1311.2000000029802,
+      "animationFrames": 79,
+      "maxAnimationGapMs": 18.299999997019768,
       "responsivenessClickObserved": true,
-      "browserRssBefore": 488882176,
-      "browserRssAfter": 631390208
+      "browserRssBefore": 489472000,
+      "browserRssAfter": 625360896
     },
     {
       "size": 10000,
-      "workerLoadMs": 21.200000002980232,
-      "fullReplayAndTransferMs": 14537.40000000596,
-      "animationFrames": 869,
-      "maxAnimationGapMs": 70.09999999403954,
+      "workerLoadMs": 21,
+      "fullReplayAndTransferMs": 14683.59999999404,
+      "animationFrames": 878,
+      "maxAnimationGapMs": 69.8999999910593,
       "responsivenessClickObserved": true,
-      "browserRssBefore": 630259712,
-      "browserRssAfter": 1489059840
+      "browserRssBefore": 624214016,
+      "browserRssAfter": 1365704704
     }
   ],
   "shellAssets": [
+    "/assets/index-DYIEMCNl.js",
     "/assets/index-hi_6fonS.css",
-    "/assets/index-vZqRwB24.js",
-    "/assets/worker-BcPsgdV_.js",
+    "/assets/worker-DyCUgk0X.js",
     "/index.html"
   ],
   "memoryMethod": "Sum of RSS for the isolated Chromium process IDs returned by SystemInfo.getProcessInfo, from ps. Includes shared pages counted by each process; not retained JavaScript heap and not additive per application.",
@@ -48,17 +48,17 @@
     {
       "name": "browser history 100",
       "passed": true,
-      "elapsedMs": 155.59999999403954
+      "elapsedMs": 155.5
     },
     {
       "name": "browser history 1000",
       "passed": true,
-      "elapsedMs": 1310
+      "elapsedMs": 1311.2000000029802
     },
     {
       "name": "browser history 10000",
       "passed": true,
-      "elapsedMs": 14537.40000000596
+      "elapsedMs": 14683.59999999404
     }
   ],
   "sourceHashes": {
@@ -150,7 +150,7 @@
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/protocol/wire.ts": "b79280470c43c723c9897f2f4580e13beb78526f41d40932597f450b2dd5259e",
     "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",

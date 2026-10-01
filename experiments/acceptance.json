@@ -1,10 +1,10 @@
 {
   "passed": true,
-  "measuredAt": "2026-10-01T02:31:43.817Z",
+  "measuredAt": "2026-10-01T02:42:19.304Z",
   "nodeVersion": "v26.10.0",
   "expectedCases": 13,
   "status": "complete",
-  "startedAt": "2026-10-01T02:27:06.815Z",
+  "startedAt": "2026-10-01T02:37:22.192Z",
   "commands": [
     {
       "command": [
@@ -14,7 +14,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 2155.441458,
+      "elapsedMs": 2277.623667,
       "log": "experiments/acceptance-logs/01.log",
       "logSha256": "d84fe60fa192d4a21576a8de950d145cf4ef0afca6138f7006336e0eba2b7143"
     },
@@ -25,9 +25,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 14262.388167000001,
+      "elapsedMs": 15303.224500000002,
       "log": "experiments/acceptance-logs/02.log",
-      "logSha256": "917975fa0434d37cfca377bf53a850600c8f13af22929108b997a7925f770697"
+      "logSha256": "13d43cb7ae095f9779ed368096afbf87f416661de2743c4c7ace102f935ab5c3"
     },
     {
       "command": [
@@ -37,7 +37,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 3945.6665410000023,
+      "elapsedMs": 3928.1772079999973,
       "log": "experiments/acceptance-logs/03.log",
       "logSha256": "4c1b6be0b74882bf6720bd2b4d335a481ae70641f513c0e43b1749d033dd7a39"
     },
@@ -49,9 +49,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 1389.7131670000017,
+      "elapsedMs": 1434.2108750000007,
       "log": "experiments/acceptance-logs/04.log",
-      "logSha256": "dcdc35dc54dce15713f5608987eceea189d9bd77d3342cd06836961d073d908f"
+      "logSha256": "ab64e72b29779020db23308907c37f9a43624694ef4a8a841be0a6ae387d097d"
     },
     {
       "command": [
@@ -61,9 +61,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 5467.697458000002,
+      "elapsedMs": 5766.695667,
       "log": "experiments/acceptance-logs/05.log",
-      "logSha256": "8684fa7115c6ae71fb74c4b7e9062713bb13f34514f3d43998470a57cf9e1638"
+      "logSha256": "d38d145261085d7f4dfddce8ae7825fd2b1031e53c6452bcd1ebc792e35b05a2"
     },
     {
       "command": [
@@ -73,9 +73,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 2913.1705,
+      "elapsedMs": 3029.4817079999993,
       "log": "experiments/acceptance-logs/06.log",
-      "logSha256": "07e3abf5d23747762a5fab25fc52f93e0ba1d51d072225eab03c3de9121e3d74"
+      "logSha256": "8e8916f71cf748260afad5ec0e3f8a6721f26dfe8038ed49beac50f47c56b3cc"
     },
     {
       "command": [
@@ -85,9 +85,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 1412.211459000002,
+      "elapsedMs": 1466.4305840000015,
       "log": "experiments/acceptance-logs/07.log",
-      "logSha256": "994437ca7d45e166523c25c0764c0a8c4f0ccd2429fff292b57d3570275b1908"
+      "logSha256": "75067f1359804977f0ab0fb04ec5b83faa4a13926c1127c51259291dfb15d949"
     },
     {
       "command": [
@@ -100,9 +100,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 9785.339666,
+      "elapsedMs": 10172.043542,
       "log": "experiments/acceptance-logs/08.log",
-      "logSha256": "3e367a417d56b1c01b3770f4a61f6ff2b3f519bbefd3d38c7452912c1bf3ac08"
+      "logSha256": "eec6139b6464c7104804487ceaa050f006c251bbb6b352cc93bbee7db78aa55a"
     },
     {
       "command": [
@@ -115,9 +115,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 11011.529958,
+      "elapsedMs": 12258.949874999998,
       "log": "experiments/acceptance-logs/09.log",
-      "logSha256": "01bbd5b5c1f78f82405521220179b6ffbf8f808d25bf3eab75a02f47840dd635"
+      "logSha256": "52311da4d3d5a6f1b72667318fd5f13fe16d6de42830ae88f1defe95685c1f81"
     },
     {
       "command": [
@@ -129,9 +129,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 7495.6605409999975,
+      "elapsedMs": 7684.842792000003,
       "log": "experiments/acceptance-logs/10.log",
-      "logSha256": "c32b92aa31eb249c203a67c9e2e3264d7981fc570af3cdd31207cb816198e9ad"
+      "logSha256": "992736e0c83943c8276f16ccabaac9109f8ecf8e12d5081cab4e611d645c6d6c"
     },
     {
       "command": [
@@ -142,9 +142,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 197405.8765,
+      "elapsedMs": 213835.276417,
       "log": "experiments/acceptance-logs/11.log",
-      "logSha256": "663e9fa3aefe88d1d8beea5af1b7903ebf89c47ff299e5640c8431b0919fb940"
+      "logSha256": "0baa6ae3b6575c54b9ce2d38e3338e69cb2677839696da566e7467fb54b71090"
     },
     {
       "command": [
@@ -155,9 +155,9 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 18389.903083000012,
+      "elapsedMs": 18531.48104100005,
       "log": "experiments/acceptance-logs/12.log",
-      "logSha256": "83abbd1b06059fdbcbe4e95817de36810f95329b8804502eefdcac7b9392f9ef"
+      "logSha256": "19e75231e78298161169937a58533ebb8081fef59f48f212efe70918198ad77f"
     },
     {
       "command": [
@@ -168,7 +168,7 @@
       ],
       "exitCode": 0,
       "passed": true,
-      "elapsedMs": 1356.2101249999832,
+      "elapsedMs": 1411.2882079999545,
       "log": "experiments/acceptance-logs/13.log",
       "logSha256": "055125651dfe2cb92cc84a75299d493977d753ba8309c857e5c96519bbfa33b3"
     }
@@ -179,67 +179,67 @@
     {
       "name": "npm run check",
       "passed": true,
-      "elapsedMs": 2155.441458
+      "elapsedMs": 2277.623667
     },
     {
       "name": "npm test",
       "passed": true,
-      "elapsedMs": 14262.388167000001
+      "elapsedMs": 15303.224500000002
     },
     {
       "name": "npm run spike:feasibility",
       "passed": true,
-      "elapsedMs": 3945.6665410000023
+      "elapsedMs": 3928.1772079999973
     },
     {
       "name": "npm run test:protocol",
       "passed": true,
-      "elapsedMs": 1389.7131670000017
+      "elapsedMs": 1434.2108750000007
     },
     {
       "name": "npm run test:pds",
       "passed": true,
-      "elapsedMs": 5467.697458000002
+      "elapsedMs": 5766.695667
     },
     {
       "name": "npm run test:runtime",
       "passed": true,
-      "elapsedMs": 2913.1705
+      "elapsedMs": 3029.4817079999993
     },
     {
       "name": "npm run test:dynamic-apps",
       "passed": true,
-      "elapsedMs": 1412.211459000002
+      "elapsedMs": 1466.4305840000015
     },
     {
       "name": "npm run test:flows -- --group participation",
       "passed": true,
-      "elapsedMs": 9785.339666
+      "elapsedMs": 10172.043542
     },
     {
       "name": "npm run test:flows -- --group evolution",
       "passed": true,
-      "elapsedMs": 11011.529958
+      "elapsedMs": 12258.949874999998
     },
     {
       "name": "node --import tsx --test tests/archive.test.ts",
       "passed": true,
-      "elapsedMs": 7495.6605409999975
+      "elapsedMs": 7684.842792000003
     },
     {
       "name": "node --import tsx scripts/performance.ts",
       "passed": true,
-      "elapsedMs": 197405.8765
+      "elapsedMs": 213835.276417
     },
     {
       "name": "node --import tsx scripts/browser-performance.ts",
       "passed": true,
-      "elapsedMs": 18389.903083000012
+      "elapsedMs": 18531.48104100005
     },
     {
       "name": "node --import tsx scripts/check-author.ts",
       "passed": true,
-      "elapsedMs": 1356.2101249999832
+      "elapsedMs": 1411.2882079999545
     }
   ],
   "sourceHashes": {
@@ -331,7 +331,7 @@
     "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
     "src/protocol/log.ts": "06c821b9e685cf88c93b5bc1825fee38dc0fe590555159093b37d16c0250755a",
     "src/protocol/schemas.ts": "c98c96bf7746df0909851d0f25ddbe41c96aa460cb3f8523fbff0b9bbaa95f00",
-    "src/protocol/wire.ts": "af53fde219795cd61a3c43e7d4c64d0dd68999fb0af1bb5a076eaafe59f2fc85",
+    "src/protocol/wire.ts": "b79280470c43c723c9897f2f4580e13beb78526f41d40932597f450b2dd5259e",
     "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
     "src/storage/files.ts": "4be4a43f7c441053e2a643193f202d36d52dad80d2092fb08371420a93990ed1",
     "src/transport/api.ts": "40896f6d9fdb86e24c93461e6e7d7e3f6e1ee17be2b6d8a15fca316c6372ed32",
@@ -367,18 +367,18 @@
     "tests/vectors/protocol-v1.json": "e463fc076dcc65448521ab96a9e01c36ff5d1e296ca11280452aeed687e0ef22"
   },
   "retainedHashes": {
-    "experiments/protocol.json": "2747f0064be6893e8c8f955c4d7d81c30a39269b7509649ff514f8c52092f3fa",
-    "experiments/pds.json": "cb5a4445bed9da650f01b4c9a903ff0d4d95c72b7f5a3ada94dcc79a96f013f6",
-    "experiments/runtime.json": "6045709b7408e84af9e9d1a30a698fa98f50d6c113248bf838d5c9d6419cf211",
-    "experiments/dynamic.json": "059a0a7448dad72349e96060a8c356b374ccaa3d16e460ce2c156110a6f857b3",
-    "experiments/host-flows.json": "3edcffb0c7e6099696a70a0d94b5edd1b27305be344dbc6ed2619bc5a4bdfc21",
-    "experiments/participation.json": "28fc1ba219c756b5bf1e50f6ba449288f4f805992ac012821fa70b5d82d36e33",
-    "experiments/evolution-runtime.json": "65950d6408eeddefaa616ebcde5b9db1dc225425b850de3f2057db0c6371d7c6",
-    "experiments/evolution.json": "2a836a198f987458390acdc6effba6ce6bedb103fc0534a0f90b150ee7a30ca0",
-    "experiments/archive.json": "1f7b61109ae58eab50d0df246250504c03b529b6c75107630c14b70044983065",
-    "experiments/performance.json": "fdd0352b1d39a23aabfaa858a0fc0911cde605eb2548ffb667f1bd270e685db9",
-    "experiments/browser-performance.json": "39f3681994c52a8aa9d290f21f35099254d180030e5960a13debeb209ff57528",
-    "experiments/feasibility.json": "ced194ef9fe8fe02828d24b0a4d03ea7b218dc3851b96df293b6171217064a07",
+    "experiments/protocol.json": "1dcc59895f6441ad3add16fe5227dea904998a2ce12f1441a0f9d74db05eaea9",
+    "experiments/pds.json": "1e40704c6fefb8c211cbb90c69ae39d3857ed7e0c5c5bad5808005d78e24d450",
+    "experiments/runtime.json": "92b3c8f12e7aa7b82e43afe4864ec01e7e0963ff7da374cbdc28df4aaac4f631",
+    "experiments/dynamic.json": "32ea245ef909f7f2e41d637d0670c3726c51c83dea668559870b2519d96d1c95",
+    "experiments/host-flows.json": "18df9c66f02555852906d4582dc81edf66ca5028b78259bea8a79c8e6553ca5d",
+    "experiments/participation.json": "36d18de9a2973c210e5350dc7b3a0cc6ca31861301017d274b3c589baa6556da",
+    "experiments/evolution-runtime.json": "35809f064fd5b7f70ecccc76f466213070c665bd6ecbee97f0b6f428e5d06986",
+    "experiments/evolution.json": "22a2c95a1d65ed67a07684207ddb0dacdd7fdf0c9df30a85ed426e17f53013f7",
+    "experiments/archive.json": "9f7378000566a59a7ff79dd601ec58b91ca1f392ffc6b398be2b7e0db858e836",
+    "experiments/performance.json": "b6fee621e83896bf15f4042aa602ff162e78efb6a9cecf3e4b73c771a0011d55",
+    "experiments/browser-performance.json": "63cb845ca2f9e5096099d7ddef131bcbbf484a31414dface9810c64717667b00",
+    "experiments/feasibility.json": "edd2f90cffef28f9c0854c7698543287f6bb73d176d72633bb8dafe28cf2d316",
     "experiments/agent-authored/verification.json": "735ab687a6a3dc74c4cce1e03f32c7222c2c40dc7dd4a96520c7bfb12c43516f"
   }
 }

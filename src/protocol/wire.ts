@@ -96,16 +96,7 @@ function validateTextBytes(raw: Uint8Array): void {
     offset += count;
     return result;
   }
-  function item(depth: number): void {
-    if (depth > WIRE.depth) throw new ProtocolError('wire_depth', 'Block nesting exceeds the profile');
-    const first = take(1)[0]!,
-      type = first >> 5,
-      info = first & 31;
-    if (type === 7) {
-      if (info === 27) take(8);
-      // Unsupported simple values are refused by the pinned decoder.
-      return;
-    }
+  function argument(info: number): number {
     let argument = info;
     if (info >= 24) {
       if (info > 27) fail();
@@ -113,14 +104,34 @@ function validateTextBytes(raw: Uint8Array): void {
       for (const byte of take(2 ** (info - 24))) argument = argument * 256 + byte;
       if (!Number.isSafeInteger(argument)) fail();
     }
+    return argument;
+  }
+  function item(depth: number): void {
+    if (depth > WIRE.depth) throw new ProtocolError('wire_depth', 'Block nesting exceeds the profile');
+    const first = take(1)[0]!,
+      type = first >> 5,
+      info = first & 31;
+    if (type === 7) {
+      if (info === 27) take(8);
+      else if (![20, 21, 22].includes(info)) fail();
+      return;
+    }
+    const arg = argument(info);
     if (type === 2 || type === 3) {
-      const value = take(argument);
+      const value = take(arg);
       if (type === 3 && !isUtf8(value)) fail();
     } else if (type === 4 || type === 5) {
-      const count = argument * (type === 5 ? 2 : 1);
+      const count = arg * (type === 5 ? 2 : 1);
       if (count > raw.length - offset) fail();
       for (let i = 0; i < count; i++) item(depth + 1);
-    } else if (type === 6) item(depth); // A CID wrapper does not add value depth.
+    } else if (type === 6) {
+      // DAG-CBOR has one tag: a CID directly wrapping bytes. Never recurse
+      // through tags; malformed chains must not consume the engine stack.
+      if (arg !== 42) fail();
+      const payload = take(1)[0]!;
+      if (payload >> 5 !== 2) fail();
+      take(argument(payload & 31));
+    }
   }
   item(0);
   if (offset !== raw.length) fail();
