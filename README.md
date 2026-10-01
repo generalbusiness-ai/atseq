@@ -60,16 +60,16 @@ account authentication and delegation remain future work.
   replay them without the PDS using the installed runtime, and export query
   results as static charts and tables.
 
-For example, the [mending-circle tool desk](experiments/agent-authored/mending-circle-tool-desk/README.md)
-tracks shared sewing tools. Two people can attempt to borrow the same shears:
-the first borrow takes effect, the second is recorded as `tool_in_use`, and only
-the borrower's signing key can return them. Its schemas, rules and view are
+The completed pre-v1 spike included the [mending-circle tool desk](experiments/agent-authored/mending-circle-tool-desk/README.md)
+for shared sewing tools. In that retained historical app, two people could attempt to borrow the same shears:
+the first borrow took effect, the second was recorded as `tool_in_use`, and only
+the borrower's signing key could return them. Its schemas, rules and view were
 application content loaded through the generic host. An agent authored the app
 and used the JSON CLI without changing the host; its retained
 [transcript](experiments/agent-authored/mending-circle-tool-desk/transcript.json)
-records 22 adapter calls, and the S6 authoring gate verifies its source and
-replays its signed history. Other examples track garden rainfall and a guitar
-search.
+records 22 adapter calls. The S6 authoring gate verifies its original source and
+replays its signed history with the retained pre-v1 interpreter. The v1 runtime
+refuses that historical profile. Current examples track garden rainfall and a guitar search.
 
 ## How the design fits into AT Protocol
 
@@ -80,15 +80,15 @@ actions and explicit log records.
 
 An application definition combines three parts:
 
-| Part | Role |
-|---|---|
-| Lexicon schemas | Describe state, action inputs and query interfaces; validate them at runtime. |
-| [JSONata](https://github.com/jsonata-js/jsonata) programs | Decide an action's effect, compute successor state and answer queries. |
-| Retained view templates | Bind query results and action controls to a small set of local UI primitives. |
+| Part                                                      | Role                                                                          |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Lexicon schemas                                           | Describe state, action inputs and query interfaces; validate them at runtime. |
+| [JSONata](https://github.com/jsonata-js/jsonata) programs | Decide an action's effect, compute successor state and answer queries.        |
+| Retained view templates                                   | Bind query results and action controls to a small set of local UI primitives. |
 
 The execution model is a **fold over a log**: start with the declared initial
 state and apply each recorded action's rules in order. The code calls this
-interpreter the *folder*. The server and browser use the same bounded execution
+interpreter the _folder_. The server and browser use the same bounded execution
 profile, so either can derive state from the same verified inputs.
 
 1. A participant signs an action bound to an app and definition.
@@ -113,7 +113,7 @@ boundaries, including the participant identity limit noted above.
 
 ## Try an application
 
-Use Node 22.13 or later; the retained acceptance run used Node 26.8.1.
+Use Node 22.13 or later; the retained acceptance run used Node 26.10.0.
 From this checkout:
 
 ```sh
@@ -140,21 +140,25 @@ bounded experiments: could declarative apps run consistently in a browser and
 host, use a real PDS as their retained substrate, evolve, and remain recoverable?
 They also measured the costs before committing to a larger implementation.
 
-| Spike | What it established |
-|---|---|
+| Spike                                                                     | What it established                                                                                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [S0 — runtime feasibility](notes/2026-09-06-atseq-runtime-feasibility.md) | One bounded evaluator in Node and a browser worker, runtime Lexicon validation and local view rendering; comparison with the alternative Go core. |
-| [S1 — protocol](notes/2026-09-06-atseq-protocol-spike.md) | Canonical signed bytes, verifiable order and exact retry identity, checked against independent vectors. |
-| [S2 — persistence](notes/2026-09-06-atseq-pds-spike.md) | Atomic appends, crash recovery and source retention through the official PDS's real HTTP and SQLite implementation. |
-| [S3 — definitions and state](notes/2026-09-06-atseq-runtime-spike.md) | Retained source bundles, deterministic interpretation and queries, and unrelated apps loaded after host startup. |
-| [S4 — participation](notes/2026-09-06-atseq-interaction-spike.md) | A generic browser and JSON CLI sharing contracts, independent signing identities and recoverable publication. |
-| [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md) | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions. |
-| [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md) | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries. |
+| [S1 — protocol](notes/2026-09-06-atseq-protocol-spike.md)                 | Canonical signed bytes, verifiable order and exact retry identity, checked against independent vectors.                                           |
+| [S2 — persistence](notes/2026-09-06-atseq-pds-spike.md)                   | Atomic appends, crash recovery and source retention through the official PDS's real HTTP and SQLite implementation.                               |
+| [S3 — definitions and state](notes/2026-09-06-atseq-runtime-spike.md)     | Retained source bundles, deterministic interpretation and queries, and unrelated apps loaded after host startup.                                  |
+| [S4 — participation](notes/2026-09-06-atseq-interaction-spike.md)         | A generic browser and JSON CLI sharing contracts, independent signing identities and recoverable publication.                                     |
+| [S5 — evolution](notes/2026-09-06-atseq-evolution-spike.md)               | Compatible definition activation, historical rule boundaries and explicit handling of stale offline actions.                                      |
+| [S6 — retention and acceptance](notes/2026-09-06-atseq-spike-results.md)  | Complete archives, offline rebuild, static exports, agent authoring and performance measurements through 10,000 entries.                          |
 
-The completed acceptance run passed all 13 gates, including 283 full-suite
+The completed acceptance run passed all 13 gates, including 310 full-suite
 tests. The [completion record](notes/2026-09-06-atseq-spike-completion.md)
-records review and landing; the [results](notes/2026-09-06-atseq-spike-results.md)
+records the pre-v1 review and landing; the [results](notes/2026-09-06-atseq-spike-results.md)
 and [acceptance report](experiments/acceptance.json) retain the measurements
-and evidence.
+and evidence. The current reports and most screenshots and archives were
+regenerated under v1; the spike notes describe the original measurements at
+[26d1528](https://github.com/generalbusiness-ai/atseq/tree/26d15287f3955eebd543f2c519c8506378c63d60).
+The agent-authored mending-circle example is a retained pre-v1 capture, replayed
+with its original interpreter.
 
 To reproduce the complete acceptance run, install the dependencies above,
 Chromium and Go 1.26.7 or later (Go is used only for the S0 core comparison):
@@ -175,18 +179,21 @@ and their setup. Use `npm run test:archive` for the archive gate alone, or
 
 The prototype uses one bounded state document per app, an integer-only
 evaluation profile, a restricted expression language and three local UI
-primitives. Unsupported execution or missing required content pauses
-interpretation. See the [runtime profile](docs/runtime-profile.md) for exact
+primitives. Deterministic execution failures record an ineffective outcome and preserve
+state; later entries continue. Missing required content, failed storage or runtime faults pause
+interpretation until repaired. The v1 contracts use the owned `ai.generalbusiness.atseq.*` namespace and semantic
+CIDs, with source and dependency provenance recorded separately. They deliberately
+refuse historical spike profiles. See the [runtime profile](docs/runtime-profile.md) for exact
 bounds.
 
 The current host repeatedly serves and verifies the full history. At 10,000
-entries, the retained local run measured a median confirmed append of 18.66
-seconds and browser replay plus transfer of 15.42 seconds. Efficient verified
+entries, the retained local run measured a median confirmed append of 16.31
+seconds and browser replay plus transfer of 14.68 seconds. Efficient verified
 catch-up is needed before using this host for long-lived, growing histories.
 These measurements describe one machine, rather than production capacity.
 
 Private application data, production deployment and authentication,
-state-transforming migrations, runtime upgrades, sequencer failover and external
+state-transforming migrations, creation of successor apps under new profiles, sequencer failover and external
 side effects remain outside the completed spikes.
 
 ## Related projects and design material

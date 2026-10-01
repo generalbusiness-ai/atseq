@@ -1,16 +1,36 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-const read=async(path:string)=>JSON.parse(await readFile(path,'utf8'));
-const acceptance=await read('experiments/acceptance.json');
-if(!acceptance.passed)throw new Error('Acceptance is incomplete; report cannot claim success');
-for(const[path,hash]of Object.entries(acceptance.sourceHashes))if(createHash('sha256').update(await readFile(path)).digest('hex')!==hash)throw new Error(`Acceptance evidence is stale: ${path}`);
-for(const[path,hash]of Object.entries(acceptance.retainedHashes ?? {}))if(createHash('sha256').update(await readFile(path)).digest('hex')!==hash)throw new Error(`Retained result changed after acceptance: ${path}`);
-const perf=await read('experiments/performance.json'),browser=await read('experiments/browser-performance.json'),author=await read('experiments/agent-authored/verification.json');
-if(!perf.passed||!browser.passed||!author.passed)throw new Error('Required measured evidence is not complete');
-const ms=(n:number)=>n<1000?`${n.toFixed(1)} ms`:`${(n/1000).toFixed(2)} s`;
-const rows=perf.measurements.map((m:any)=>{const b=browser.measurements.find((b:any)=>b.size===m.size);return `| ${m.size.toLocaleString('en-GB')} | ${ms(m.acknowledgmentP50Ms)} | ${ms(m.acknowledgmentP95Ms)} | ${ms(m.fullReplayMs)} | ${ms(m.catchUpOneMs)} | ${ms(b.fullReplayAndTransferMs)} |`;}).join('\n');
-const day=new Date().toISOString().slice(0,10),path=`notes/${day}-atseq-spike-results.md`;
-const text=`---
+const read = async (path: string) => JSON.parse(await readFile(path, 'utf8'));
+const acceptance = await read('experiments/acceptance.json');
+if (!acceptance.passed) throw new Error('Acceptance is incomplete; report cannot claim success');
+for (const [path, hash] of Object.entries(acceptance.sourceHashes))
+  if (
+    createHash('sha256')
+      .update(await readFile(path))
+      .digest('hex') !== hash
+  )
+    throw new Error(`Acceptance evidence is stale: ${path}`);
+for (const [path, hash] of Object.entries(acceptance.retainedHashes ?? {}))
+  if (
+    createHash('sha256')
+      .update(await readFile(path))
+      .digest('hex') !== hash
+  )
+    throw new Error(`Retained result changed after acceptance: ${path}`);
+const perf = await read('experiments/performance.json'),
+  browser = await read('experiments/browser-performance.json'),
+  author = await read('experiments/agent-authored/verification.json');
+if (!perf.passed || !browser.passed || !author.passed) throw new Error('Required measured evidence is not complete');
+const ms = (n: number) => (n < 1000 ? `${n.toFixed(1)} ms` : `${(n / 1000).toFixed(2)} s`);
+const rows = perf.measurements
+  .map((m: any) => {
+    const b = browser.measurements.find((b: any) => b.size === m.size);
+    return `| ${m.size.toLocaleString('en-GB')} | ${ms(m.acknowledgmentP50Ms)} | ${ms(m.acknowledgmentP95Ms)} | ${ms(m.fullReplayMs)} | ${ms(m.catchUpOneMs)} | ${ms(b.fullReplayAndTransferMs)} |`;
+  })
+  .join('\n');
+const day = new Date().toISOString().slice(0, 10),
+  path = `notes/${day}-atseq-spike-results.md`;
+const text = `---
 date: ${day}
 status: S6 acceptance passes; awaiting independent review
 companion: notes/2026-09-06-atseq-initial-spike.md
@@ -39,7 +59,7 @@ must address. It does not establish production hosting or unbounded scale.
 ${rows}
 
 Measurements were taken on ${perf.hardware.cpu}, ${perf.hardware.arch},
-${perf.hardware.logicalCpus} logical CPUs, ${(perf.hardware.totalMemory/1024**3).toFixed(0)} GiB RAM,
+${perf.hardware.logicalCpus} logical CPUs, ${(perf.hardware.totalMemory / 1024 ** 3).toFixed(0)} GiB RAM,
 ${perf.hardware.platform} ${perf.hardware.release}, Node ${perf.nodeVersion}.
 The official PDS 0.5.31 runs HTTP/SQLite/file blobs on loopback with its mock PLC.
 Nine individually confirmed sequencer appends near each size supply the raw
@@ -50,9 +70,9 @@ run, not load targets or capacity estimates.
 
 Chromium ${browser.browserVersion} kept a button and animation frames active
 while workers replayed each prefix. Worker startup was
-${browser.measurements.map((m:any)=>ms(m.workerLoadMs)).join(', ')} respectively.
+${browser.measurements.map((m: any) => ms(m.workerLoadMs)).join(', ')} respectively.
 The isolated Chromium processes' summed RSS after each run was
-${browser.measurements.map((m:any)=>(m.browserRssAfter/1024**2).toFixed(0)+' MiB').join(', ')}.
+${browser.measurements.map((m: any) => (m.browserRssAfter / 1024 ** 2).toFixed(0) + ' MiB').join(', ')}.
 RSS includes shared pages counted by multiple processes and the test shell;
 it is not per-application retained heap. Full inputs, duplicate verification,
 projection copies and retained outcomes explain substantial avoidable work.
@@ -132,4 +152,5 @@ Independent review of
 the exact S6 candidate and workroom landing are still required before marking
 the series complete.
 `;
-await writeFile(path,text);console.log(path);
+await writeFile(path, text);
+console.log(path);

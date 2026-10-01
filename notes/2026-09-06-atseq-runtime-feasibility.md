@@ -8,6 +8,11 @@ rests_on:
 
 # Atseq runtime feasibility
 
+This note records the completed pre-v1 spike. Its original figures and runtime
+versions refer to the historical evidence linked below; the current v1 reports
+are separate measurements.
+
+
 The S0 composition works: a single bounded JSONata profile runs in Node and a
 browser worker, two unrelated Lexicon bundles validate at runtime, and an Inlay
 template produces a local query display and an explicit action control. This
@@ -25,10 +30,10 @@ fixtures include the exact cap and a value over it. Dynamic references, nested
 arrays, closed unions and optional/nullable values are exercised without
 per-app code generation.
 
-Raw evidence is [experiments/feasibility.json](../experiments/feasibility.json).
+Raw evidence is [experiments/feasibility.json](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/feasibility.json).
 The script regenerates it rather than presenting proposed tests as results.
-Representative [desktop](../experiments/evidence/desktop.png) and
-[mobile](../experiments/evidence/mobile.png) screenshots are retained in Git.
+Representative [desktop](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/evidence/desktop.png) and
+[mobile](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/evidence/mobile.png) screenshots are retained in Git.
 The same command regenerates them and records their hashes with the bundles.
 
 Measured on an Apple M5 Max, macOS arm64, Node 26.8.1, Go 1.27.0 and Chromium

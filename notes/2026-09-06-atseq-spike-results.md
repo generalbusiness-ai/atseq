@@ -8,6 +8,11 @@ rests_on:
 
 # Atseq spike results
 
+This note records the completed pre-v1 spike. Its original figures and runtime
+versions refer to the historical evidence linked below; the current v1 reports
+are separate measurements.
+
+
 Review annotation: the acceptance candidate `e60e603ce2f57fd0a3a85ef39c024f18533513a9`
 was independently approved and landed at `a68466608bc1f269d7296a5ed7d6d613d6cbd303`.
 The [completion record](2026-09-06-atseq-spike-completion.md) retains the exact
@@ -60,9 +65,9 @@ All 13 recorded commands completed successfully.
 Dependency installation is a setup prerequisite, outside these 13 commands.
 The plan's checks are composed with four explicit S6 commands: archive flows,
 Node measurements, browser measurements and retained authoring verification.
-[Machine-readable acceptance](../experiments/acceptance.json) lists command
+[Machine-readable acceptance](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/acceptance.json) lists command
 arguments, exit codes, elapsed times and log hashes. The retained command logs
-are in [acceptance-logs](../experiments/acceptance-logs/). Individual stage
+are in [acceptance-logs](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/acceptance-logs/). Individual stage
 reports were rerun and refreshed against the tested source; independent S1
 expected vectors were not regenerated.
 Each run replaces the retained acceptance status before executing a command.
@@ -78,7 +83,7 @@ are also compared with the live sequencer's lookup results; the host does not
 persist a separate retry-index file. Chromium
 bootstraps its installed shell offline, imports the archive without a signing
 identity, and exports the same verified projection again. Retained
-[archives, chart and screenshots](../experiments/evidence/s6/) demonstrate this
+[archives, chart and screenshots](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/evidence/s6/) demonstrate this
 flow and a small CSV import with static SVG/table source-head metadata.
 The importer reads the CSV and submits its four rows as signed actions; the fold
 derives chart state from those actions. The retained CSV documents that input.
@@ -102,7 +107,7 @@ The parent captured host source and built shell hashes before and after that
 exercise. The retained build bytes and current source are checked against them;
 this is inspectable capture evidence, not an independent observer of the process.
 Source, the sanitized tool transcript, archive and independent replay
-verification are in [agent-authored](../experiments/agent-authored/).
+verification are in [agent-authored](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/agent-authored/).
 This is separate from the automated fixture-generation gate.
 
 One useful authoring gap surfaced: sample preview uses an empty actor key,

@@ -47,7 +47,13 @@ to reproduce the invalid outcome and continue with the following entries.
 ## CLI copy and offline replay
 
 ```json
-{"operation":"export","host":"http://127.0.0.1:PORT","app":"APP_DID","genesis":"GENESIS_CID","output":"/absolute/application.atseq.json"}
+{
+  "operation": "export",
+  "host": "http://127.0.0.1:PORT",
+  "app": "APP_DID",
+  "genesis": "GENESIS_CID",
+  "output": "/absolute/application.atseq.json"
+}
 ```
 
 An optional `position` chooses an earlier complete prefix. The reply names the
@@ -55,7 +61,11 @@ exported head. `export` verifies and replays public `sync` data locally before
 writing. Rebuild needs no host or private key:
 
 ```json
-{"operation":"replay","source":"/absolute/application.atseq.json","outputDirectory":"/absolute/new-rebuild-directory"}
+{
+  "operation": "replay",
+  "source": "/absolute/application.atseq.json",
+  "outputDirectory": "/absolute/new-rebuild-directory"
+}
 ```
 
 The output directory must not exist. It receives `projection.json`,
@@ -78,7 +88,9 @@ entries, which must pass the same pinned verification rules.
 Evaluation stays in a worker. Long local replay/export has a visible working
 message and can be cancelled; cancellation terminates the worker and retains
 stored inputs and queued intent bytes. Refresh rebuilds from those inputs.
-A new action cannot be saved while interpretation is stalled by required source.
+A new action cannot be saved while interpretation is paused by missing/corrupt
+required source or failed persistence. Deterministic application failures record
+ineffective outcomes and allow later entries to proceed.
 Replay, import, export and comparison use a 120-second operational watchdog;
 ordinary preview uses 15 seconds. The cancellation fixture holds a worker
 message before dispatch to test the UI and outbox boundary; it does not measure

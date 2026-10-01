@@ -15,5 +15,10 @@ self.onmessage = async ({ data }) => {
     } else if (data.kind === 'query') result = await evaluate(data.source, data.input);
     else throw new Error('Unknown experiment operation');
     self.postMessage({ id: data.id, result });
-  } catch (error) { self.postMessage({ id: data.id, error: { code: (error as any).code ?? 'worker_error', message: (error as Error).message } }); }
+  } catch (error) {
+    self.postMessage({
+      id: data.id,
+      error: { code: (error as any).code ?? 'worker_error', message: (error as Error).message },
+    });
+  }
 };

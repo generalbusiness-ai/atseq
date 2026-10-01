@@ -1,4 +1,4 @@
-import { Applications } from '../../src/runtime/apps.ts';
+import { Applications } from '../../src/application/apps.ts';
 import { SourceBundle } from '../../src/definition/source.ts';
 
 // Generic host runtime starts before any domain definition arrives.
@@ -15,7 +15,9 @@ process.on('message', async (message: any) => {
       result = await apps.get(message.app, message.anchor).query(message.name, message.params);
     } else throw new Error('Unknown runtime method');
     process.send?.({ id: message.id, result });
-  } catch (error) { process.send?.({ id: message.id, error: String(error) }); }
+  } catch (error) {
+    process.send?.({ id: message.id, error: String(error) });
+  }
 });
 process.once('disconnect', () => process.exit(0));
 process.send?.({ ready: true, pid: process.pid });

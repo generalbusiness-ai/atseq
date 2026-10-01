@@ -8,6 +8,11 @@ rests_on:
 
 # Atseq protocol spike
 
+This note records the completed pre-v1 spike. Its original figures and runtime
+versions refer to the historical evidence linked below; the current v1 reports
+are separate measurements.
+
+
 S1 defines and implements the local v0 protocol: canonical atproto CBOR and
 CIDs, a pinned genesis, P-256 actor and sequencer proofs, explicit order, and
 content-based retry identity. The [protocol contract](../docs/protocol.md)
@@ -23,7 +28,7 @@ independent approval. It landed on main as
 `npm run check`, `npm test`, and `npm run test:protocol` pass. The combined test
 run has 157 passing tests: the existing S0 corpus and the new protocol corpus.
 The protocol gate runs 80 fixtures identically in Node 26.8.1 and Chromium
-153.0.8010.12. [Raw retained results](../experiments/protocol.json) include
+153.0.8010.12. [Raw retained results](https://github.com/generalbusiness-ai/atseq/blob/26d15287f3955eebd543f2c519c8506378c63d60/experiments/protocol.json) include
 source hashes. A rerun writes `experiments/generated/protocol-results.json`.
 
 The fixtures verify independently encoded CBOR/CID blocks and independently

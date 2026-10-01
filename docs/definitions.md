@@ -8,7 +8,7 @@ The examples in `testdata/apps/` are test authors, outside the host runtime.
 ## One retained source closure
 
 A standard CAR carries one root: the canonical DAG-CBOR
-[`test.atseq.definition`](../lexicons/test/atseq/definition.json) manifest.
+[`ai.generalbusiness.atseq.definition`](../lexicons/ai/generalbusiness/atseq/definition.json) manifest.
 The manifest lists relative file paths and raw-byte CIDs. Each named file must
 be present and match its CID before the definition can load. The CAR may not
 contain undeclared blocks. Identical file contents can share one block.
@@ -35,15 +35,17 @@ supplies the actual profile CID:
 
 ```json
 {
-  "$type": "test.atseq.definition",
-  "version": 0,
-  "profile": {"$link": "<application runtime CID>"},
+  "$type": "ai.generalbusiness.atseq.definition",
+  "version": 1,
+  "profile": { "$link": "<application runtime CID>" },
   "title": "Garden rainfall",
   "lexicons": ["schemas/rainfall.json"],
-  "state": {"ref": "test.rainfall#state", "initial": "state.json"},
-  "actions": [{"ref": "test.rainfall#record", "fold": "record.jsonata"}],
-  "queries": [{"name": "summary", "ref": "test.rainfall#summary", "program": "summary.jsonata"}],
-  "views": [{"name": "main", "source": "main.json", "query": "summary"}]
+  "state": { "ref": "ai.generalbusiness.atseq.examples.rainfall#state", "initial": "state.json" },
+  "actions": [{ "ref": "ai.generalbusiness.atseq.examples.rainfall#record", "fold": "record.jsonata" }],
+  "queries": [
+    { "name": "summary", "ref": "ai.generalbusiness.atseq.examples.rainfall#summary", "program": "summary.jsonata" }
+  ],
+  "views": [{ "name": "main", "source": "main.json", "query": "summary" }]
 }
 ```
 
@@ -67,15 +69,20 @@ returns either `{decision:"effective", state:...}` or
 match its pinned Lexicon. Lexicon objects are open: undeclared payload fields
 pass through validation and can enter state if a fold copies them. Authors
 should construct intended state fields explicitly; copying arbitrary payloads
-can consume the state cap and stall interpretation. An ineffective action
+can exceed the state cap and produce a framework refusal. An ineffective action
 preserves the prior state.
 
 Unknown actions, invalid action inputs and intents naming an old definition
 produce explicit ineffective outcomes. Malformed program output, invalid
-successor state, resource exhaustion or failed projection persistence stalls
-interpretation before that entry. These failures never become domain no-ops.
-The snapshot retains the complete prior state, outcomes and frontier, plus the
-observed head and a separate stalled reason. Retrying can resume the same entry.
+successor state and resource exhaustion produce `fold_failed/<code>`, retain
+prior state and advance the interpretation frontier. These are framework
+refusals, separate from a program's own domain reason. The next entry can still
+apply or activate a compatible repaired definition.
+
+Only restorable missing/corrupt source and projection persistence failure pause
+before an entry. The snapshot retains the complete prior state, outcomes and
+frontier, plus the observed head and a tagged stalled reason. Restore content or
+repair storage, then retry the same prefix. Queries do not change this frontier.
 
 Queries evaluate `{params, state}` after Lexicon parameter validation, then
 validate the result against the declared output. An available or unavailable
@@ -113,20 +120,13 @@ controller and tests its hostile-view boundary.
 
 ## Runtime identity
 
-S1's descriptor remains the immutable S0 engine identity used by its independent
-protocol vectors. S3's
-[`application-profile.json`](../src/runtime/application-profile.json) links that
-engine and pins the additional manifest, source loader, wire/schema verification
-and folder code plus exact ecosystem library versions. Real interpreted apps
-pin this complete application runtime CID in both genesis and definition.
-Tests check the source hashes; semantic changes require a new descriptor/CID.
-The descriptor excludes itself to avoid a self-hash and excludes disposable
-host storage, which cannot change a successful fold's meaning.
-
-The simple implementation verifies the whole prefix and copies a growing
-outcome list. Repeated catch-up is not yet an incremental performance design.
-S6 must measure it at the planned history sizes before a long-lived application
-claim can be made.
+The [v1 semantic contracts](../src/core/contracts.ts) specify log verification,
+evaluation, definition admission and application behavior. Their canonical CIDs
+are independent of source layout and formatting. The installed
+[profile registry](../src/protocol/identity.ts) supports only v1; historical spike
+profiles are deliberately refused after the pre-adoption wire break. The
+[runtime profile](runtime-profile.md#identity-and-compatibility) explains how future
+versions retain replay support and how dependency equivalence is reviewed.
 
 ## Reproduce
 
@@ -160,13 +160,19 @@ A minimal retained view can be written directly as JSON:
   "root": "test.example.Summary",
   "imports": ["did:plc:localview"],
   "records": {
-    "at://did:plc:localview/at.inlay.component/test.atseq.ui.Text": {"$type":"at.inlay.component"},
+    "at://did:plc:localview/at.inlay.component/ai.generalbusiness.atseq.ui.Text": { "$type": "at.inlay.component" },
     "at://did:plc:localview/at.inlay.component/test.example.Summary": {
-      "$type":"at.inlay.component",
-      "imports":["did:plc:localview"],
+      "$type": "at.inlay.component",
+      "imports": ["did:plc:localview"],
       "body": {
-        "$type":"at.inlay.component#bodyTemplate",
-        "node":{"$":"$","type":"test.atseq.ui.Text","props":{"children":["Total: ",{"$":"$","type":"at.inlay.Binding","props":{"path":["props","total"]}}]}}
+        "$type": "at.inlay.component#bodyTemplate",
+        "node": {
+          "$": "$",
+          "type": "ai.generalbusiness.atseq.ui.Text",
+          "props": {
+            "children": ["Total: ", { "$": "$", "type": "at.inlay.Binding", "props": { "path": ["props", "total"] } }]
+          }
+        }
       }
     }
   }
@@ -174,8 +180,8 @@ A minimal retained view can be written directly as JSON:
 ```
 
 These AT URIs are retained local record keys, never a request to resolve that
-example DID. Use `test.atseq.ui.Panel` to contain children, `test.atseq.ui.Text`
-for text, or `test.atseq.ui.Action` with `action` and `label` properties to open a
+example DID. Use `ai.generalbusiness.atseq.ui.Panel` to contain children, `ai.generalbusiness.atseq.ui.Text`
+for text, or `ai.generalbusiness.atseq.ui.Action` with `action` and `label` properties to open a
 form. Declare a local record for each primitive used. Binding paths read the
 selected query's object result. There are no scripts, event handlers or remote
 resources. The generic query inspector can chart and export an object result's

@@ -1,7 +1,7 @@
 {
   "passed": true,
-  "measuredAt": "2026-09-06T18:07:51.677Z",
-  "nodeVersion": "v26.8.1",
+  "measuredAt": "2026-10-01T02:37:53.900Z",
+  "nodeVersion": "v26.10.0",
   "browserVersion": "153.0.8010.12",
   "browserWorker": true,
   "node": [
@@ -46,23 +46,63 @@
       "passed": true
     },
     {
+      "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+      "passed": true
+    },
+    {
+      "name": "malformed schema and view shapes cannot freeze activation",
+      "passed": true
+    },
+    {
+      "name": "malformed UTF-8 source has a deterministic loader code",
+      "passed": true
+    },
+    {
+      "name": "reader size claims require independently verified bytes",
+      "passed": true
+    },
+    {
+      "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+      "passed": true
+    },
+    {
       "name": "query captures its prefix before concurrent catch-up",
       "passed": true
     },
     {
-      "name": "malformed fold result stalls without an invented outcome",
+      "name": "malformed fold result records framework failure and continues",
       "passed": true
     },
     {
-      "name": "invalid successor schema stalls without an invented outcome",
+      "name": "invalid successor schema records framework failure and continues",
       "passed": true
     },
     {
-      "name": "ineffective successor state stalls without an invented outcome",
+      "name": "ineffective successor state records framework failure and continues",
       "passed": true
     },
     {
-      "name": "noninteger computed state stalls without an invented outcome",
+      "name": "noninteger computed state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "the 1001st reading is ineffective and a later valid action clears state",
+      "passed": true
+    },
+    {
+      "name": "copied extra payload bytes cannot freeze interpretation",
+      "passed": true
+    },
+    {
+      "name": "overlong ineffective message cannot block a later valid entry",
       "passed": true
     },
     {
@@ -146,7 +186,7 @@
       "passed": true
     },
     {
-      "name": "work exhaustion preserves the prior projection and produces no domain verdict",
+      "name": "work exhaustion records a framework refusal and preserves prior state",
       "passed": true
     },
     {
@@ -163,6 +203,38 @@
     },
     {
       "name": "concurrent anchor replacement cannot persist a conflicting initial state",
+      "passed": true
+    },
+    {
+      "name": "64 sibling object values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "100 grouped values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "intermediate negative zero can be consumed as integer zero",
+      "passed": true
+    },
+    {
+      "name": "negative zero remains invalid at input and output boundaries",
+      "passed": true
+    },
+    {
+      "name": "sum checks exact intermediate integers before cancellation",
+      "passed": true
+    },
+    {
+      "name": "ineffective messages count Unicode code points and stop at 1024",
+      "passed": true
+    },
+    {
+      "name": "conditional integrity adapter matches the running environment",
+      "passed": true
+    },
+    {
+      "name": "unmatched dependency closure fails closed in either environment",
       "passed": true
     }
   ],
@@ -208,23 +280,63 @@
       "passed": true
     },
     {
+      "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+      "passed": true
+    },
+    {
+      "name": "malformed schema and view shapes cannot freeze activation",
+      "passed": true
+    },
+    {
+      "name": "malformed UTF-8 source has a deterministic loader code",
+      "passed": true
+    },
+    {
+      "name": "reader size claims require independently verified bytes",
+      "passed": true
+    },
+    {
+      "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+      "passed": true
+    },
+    {
       "name": "query captures its prefix before concurrent catch-up",
       "passed": true
     },
     {
-      "name": "malformed fold result stalls without an invented outcome",
+      "name": "malformed fold result records framework failure and continues",
       "passed": true
     },
     {
-      "name": "invalid successor schema stalls without an invented outcome",
+      "name": "invalid successor schema records framework failure and continues",
       "passed": true
     },
     {
-      "name": "ineffective successor state stalls without an invented outcome",
+      "name": "ineffective successor state records framework failure and continues",
       "passed": true
     },
     {
-      "name": "noninteger computed state stalls without an invented outcome",
+      "name": "noninteger computed state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "the 1001st reading is ineffective and a later valid action clears state",
+      "passed": true
+    },
+    {
+      "name": "copied extra payload bytes cannot freeze interpretation",
+      "passed": true
+    },
+    {
+      "name": "overlong ineffective message cannot block a later valid entry",
       "passed": true
     },
     {
@@ -308,7 +420,7 @@
       "passed": true
     },
     {
-      "name": "work exhaustion preserves the prior projection and produces no domain verdict",
+      "name": "work exhaustion records a framework refusal and preserves prior state",
       "passed": true
     },
     {
@@ -326,38 +438,55 @@
     {
       "name": "concurrent anchor replacement cannot persist a conflicting initial state",
       "passed": true
+    },
+    {
+      "name": "64 sibling object values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "100 grouped values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "intermediate negative zero can be consumed as integer zero",
+      "passed": true
+    },
+    {
+      "name": "negative zero remains invalid at input and output boundaries",
+      "passed": true
+    },
+    {
+      "name": "sum checks exact intermediate integers before cancellation",
+      "passed": true
+    },
+    {
+      "name": "ineffective messages count Unicode code points and stop at 1024",
+      "passed": true
+    },
+    {
+      "name": "conditional integrity adapter matches the running environment",
+      "passed": true
+    },
+    {
+      "name": "unmatched dependency closure fails closed in either environment",
+      "passed": true
     }
   ],
   "sourceHashes": {
-    "lexicons/test/atseq/activate.json": "1b58f204e70fed5317d699e6fbcebc967d5b0a3c47b64ac8adbbc3aa37124bca",
-    "lexicons/test/atseq/create.json": "7330be0dbdb764a133061be715c4cf88fd21994d92197e2659b7f93eca43690a",
-    "lexicons/test/atseq/definition.json": "0a481070bb9f796342af07e81635f84873695e3680f7b77dc6527472ab015310",
-    "lexicons/test/atseq/defs.json": "47eef9c63820daa5d5968af9de30d23b2256aef549fa98392a5facfe06310e36",
-    "lexicons/test/atseq/describe.json": "027e63d410d80af27a709733aa7dabbc548145ff3b04cfbd949241b1d7a7dcbc",
-    "lexicons/test/atseq/entry.json": "3f62adf0ef715eb456d890b9ddbb85173a98b73a4fe6b3c0451d05553de8b40e",
-    "lexicons/test/atseq/genesis.json": "cf7971d53796155b6cd1db31ca3195c12f80b704146b7a02d979557e2a3d2357",
-    "lexicons/test/atseq/head.json": "eac851adb419ac28f5bb89ab057743b2f6611d5aa041ea3bdbda6dad09f7d296",
-    "lexicons/test/atseq/query.json": "aebebe5cb18bbf4abcb3d132aa83884c621e6c8932dfdb92f795c34f33a7a7c6",
-    "lexicons/test/atseq/receipt.json": "f4cd044e05340ca40b4cb8077c5c24181037b656361dda4bd4fe3920a4e7bc4f",
-    "lexicons/test/atseq/submit.json": "37abaa9b5a0b2fe8e63d6c32413d8096fd451f7cb4bb41f14f342545c269e18a",
-    "src/definition/activation.ts": "fb09f15d41453aed218e4da4b4f88155593cef46b854cfa2e13e5cb98182177e",
-    "src/definition/control.ts": "b239f34fe7d13d96adfc9cd9b2dbf77f220508094276010037daa6fd1e6052d5",
-    "src/definition/load.ts": "f588371b68b3b885612cf4b37b1be40b811b466a2c7a0e61c8a1b8011d669cd2",
-    "src/definition/source.ts": "2ef5b1eaaf7caa64be7e929977d2ddc5d51a4fcf7198ffa35312238617363aee",
-    "src/protocol/log.ts": "7a31a72f9d64704912cb92a401eae56c12bcde1eff161bb963276fe083273e48",
-    "src/protocol/schemas.ts": "db1d18e37d4c8ff9beeae34b823c756fafad0124e81a2e7e8aee9165ee59e6b0",
-    "src/protocol/wire.ts": "93d6b0f4b68e33810e88a6cdd56796bcf5546f624371d92a6acac7a16f478f0c",
-    "src/runtime/apps.ts": "798e3d52199cc2ebd9847826b2a1586f5ec223133f832e6f8c01f61de8a75482",
-    "src/runtime/folder.ts": "7a11f3555649aa96dab0f271a764e9210123c53dce2bf1c45f0588a8e7717899",
-    "src/runtime/identity.ts": "74ceee995dd7e73ca51ce1c9790e7dbbf936cee54c722ee9be67f21e35e3e5d9",
-    "src/runtime/application-profile.json": "e37792bc74d7e41f47af2fd432e24c5cbad1dcaa7eab685aedf6e31c6c9394fc",
-    "tests/runtime.test.ts": "49c49836eaa3bfd50862d038f09337ab81d69746754c464c333b17c2f5297d8a",
-    "experiments/runtime-corpus.ts": "b40138cff9ff265ace73bf3694fa0df6eceb15c377e1fd11700e9a9421fe91fa",
-    "testdata/apps/fixtures.ts": "ed91af6c8615a56b6791de75014a64f38fe0f122c100b93f8b51ef336b524730",
-    "experiments/runtime-browser/main.ts": "3d9843cbd8f9859172c94e8869f30f71fade8a188164593a285c4113e654724b",
-    "experiments/runtime-browser/worker.ts": "6714f9b59f0b3d213def14fd1230202191ad0e08437f17b0eaabde061641f1f5",
-    "experiments/runtime-browser/index.html": "10edc32e502253079e30b4283b1b5ae4afd2b82ea97f7039e1973d7f921df08c",
-    "package.json": "fe6ba39f68f768f84f950330da93be6703301ed41d791f1338c0b9252f4c9fbc",
-    "package-lock.json": "861b06c1f0e15c14e6b31927f0e441bd608f6215dcd392f89f71de1ac928f111"
+    "src/core/contracts.ts": "0487b59aaf79f923b260f4fd38ad40211008ac5a7eff5f4810f5baeeaaa76b15",
+    "src/core/dependencies-approved.json": "e8d60b92a922ed028cb8b580e669b845e3403ed019fa526a076dbad75df769cd",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+    "src/application/folder.ts": "697abcbac082aaada268798f6f28027e33dfcc6c2209ce74bcca2a6babc1acc5",
+    "src/protocol/identity.ts": "96111338bbc80bd96b8691ad5024e9e19568988c381808d1858a9f01d5ae825d",
+    "tests/runtime.test.ts": "27e3bb10be05284b4da0f9192f53548a7c6a14f44d4c6ee7d3a97fafe3b8e36b",
+    "experiments/runtime-corpus.ts": "a39c0b9c416dcb07789b8412a41d2d17a2775878829b278d742a38cf8d51ef48",
+    "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
+    "experiments/runtime-browser/main.ts": "8bed9735f980e208ea30ae572588a3b6983c743425b8754dd0b5c468e4a515b9",
+    "experiments/runtime-browser/worker.ts": "f6da841f2c5c1c97e40e7eb63c1af5d4e875606a131ddb28f62e8b4820c54e20",
+    "experiments/runtime-browser/index.html": "45c356ee06af6857fa735d71ee89360723ee2215741a3dd7c83cfff9ca5faba8",
+    "package.json": "8810b830da8add8ef8319f7ee0f08b9c6d32d09e55507ca93a6bc66de0af2bd3",
+    "package-lock.json": "c08be1e453181d5cb06cac6d546dfd403d34b8c2292f350b8473c22f8fce8171"
   }
 }

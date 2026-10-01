@@ -48,12 +48,12 @@ the complete signed block in IndexedDB before sending it. Duplicate clicks are
 disabled while that operation is in progress. A retry resends those bytes and
 nonce; rendering and reconnection never sign replacement content.
 
-| Label | Evidence |
-|---|---|
-| Queued on device | The original signed intent is durably in the device outbox |
-| Saved, awaiting interpretation | The sequencer returned a confirmed receipt; the folder may be behind |
-| Applied / Not applied | The browser verified and interpreted the entry's prefix |
-| Transport refused · retained on device | The request was refused and its original signed work is retained |
+| Label                                  | Evidence                                                             |
+| -------------------------------------- | -------------------------------------------------------------------- |
+| Queued on device                       | The original signed intent is durably in the device outbox           |
+| Saved, awaiting interpretation         | The sequencer returned a confirmed receipt; the folder may be behind |
+| Applied / Not applied                  | The browser verified and interpreted the entry's prefix              |
+| Transport refused · retained on device | The request was refused and its original signed work is retained     |
 
 A failed or lost response stays uncertain until a verified prefix establishes
 what happened. The browser can derive the receipt from that verified entry even
@@ -102,21 +102,21 @@ files. `pack` derives their raw CIDs and the CAR root. It refuses symlinks and
 writes the resulting CAR outside that source folder.
 
 ```json
-{"operation":"pack","directory":"/absolute/source","output":"/absolute/draft.car"}
+{ "operation": "pack", "directory": "/absolute/source", "output": "/absolute/draft.car" }
 ```
 
 The remaining requests include `host`, the printed Atseq origin:
 
-| Operation | Additional input | Result |
-|---|---|---|
-| `validate` | `source`: CAR path | Validated manifest and Lexicons |
-| `preview` | `source`; optional `action`, `payload`, `state` | Sandbox state/outcome, views and a `previewUrl` to open |
-| `create` | `source`, `keyFile`, stable `creationId` UUID v4 | Pinned genesis, head and interpretation frontier |
-| `list` | None | Available local app invitations |
-| `describe` | `app`, `genesis` | Current definition and progress |
-| `submit` | `app`, `genesis`, `definition`, `action`, `payload`, `keyFile`, `intentFile` | Intent CID and canonical receipt |
-| `query` | `app`, `genesis`, `name`, `params` | Available/unavailable result at its exact frontier |
-| `outcome` | `app`, `genesis`, `intent` | Receipt and pending/effective/ineffective result |
+| Operation  | Additional input                                                             | Result                                                  |
+| ---------- | ---------------------------------------------------------------------------- | ------------------------------------------------------- |
+| `validate` | `source`: CAR path                                                           | Validated manifest and Lexicons                         |
+| `preview`  | `source`; optional `action`, `payload`, `state`                              | Sandbox state/outcome, views and a `previewUrl` to open |
+| `create`   | `source`, `keyFile`, stable `creationId` UUID v4                             | Pinned genesis, head and interpretation frontier        |
+| `list`     | None                                                                         | Available local app invitations                         |
+| `describe` | `app`, `genesis`                                                             | Current definition and progress                         |
+| `submit`   | `app`, `genesis`, `definition`, `action`, `payload`, `keyFile`, `intentFile` | Intent CID and canonical receipt                        |
+| `query`    | `app`, `genesis`, `name`, `params`                                           | Available/unavailable result at its exact frontier      |
+| `outcome`  | `app`, `genesis`, `intent`                                                   | Receipt and pending/effective/ineffective result        |
 
 `genesis` and `definition` in CLI input are plain CID strings. Preserve the
 creation ID across an uncertain create. Preserve `intentFile` across a submit

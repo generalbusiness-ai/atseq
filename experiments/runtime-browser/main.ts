@@ -5,4 +5,7 @@ worker.onmessage = ({ data }) => {
   document.querySelector('#status')!.textContent = data.results ? 'Runtime checks finished.' : 'Runtime checks failed.';
   worker.terminate();
 };
-worker.onerror = event => { (window as any).runtimeFailure = event.message; worker.terminate(); };
+worker.onerror = (event) => {
+  (window as any).runtimeFailure = event.message;
+  worker.terminate();
+};

@@ -19,10 +19,13 @@ window.probe.ms=performance.now()-started;window.probe.done=true;})();
 </script>`;
 const server = createServer((req, res) => {
   const body = req.url === '/probe.wasm' ? wasm : req.url === '/wasm_exec.js' ? shim : html;
-  res.setHeader('Content-Type', req.url === '/probe.wasm' ? 'application/wasm' : req.url === '/wasm_exec.js' ? 'text/javascript' : 'text/html');
+  res.setHeader(
+    'Content-Type',
+    req.url === '/probe.wasm' ? 'application/wasm' : req.url === '/wasm_exec.js' ? 'text/javascript' : 'text/html',
+  );
   res.end(body);
 });
-await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage();
@@ -34,4 +37,7 @@ try {
   result.browser = browser.version();
   console.log(JSON.stringify(result, null, 2));
   await writeFile('experiments/generated/go-browser.json', JSON.stringify(result, null, 2) + '\n');
-} finally { await browser.close(); server.close(); }
+} finally {
+  await browser.close();
+  server.close();
+}
