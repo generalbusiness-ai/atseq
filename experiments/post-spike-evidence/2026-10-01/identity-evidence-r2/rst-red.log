@@ -1,0 +1,86 @@
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ undefined
+- 'content_unavailable'
+
+    at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:12:14
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: 'content_unavailable',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.10.0
+✖ identity body reader classifies a real resetAndDestroy HTTP socket (injected loopback transport) (1930.009041ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2135.016458
+
+✖ failing tests:
+
+test at tests/identity-fetch.test.ts:62:544
+✖ identity body reader classifies a real resetAndDestroy HTTP socket (injected loopback transport) (1930.009041ms)
+  Error: Command failed: /opt/homebrew/Cellar/node/26.10.0_1/bin/node --conditions=atseq-source --import /Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/node_modules/tsx/dist/loader.mjs --input-type=module -e import assert from 'node:assert/strict';import {createServer} from 'node:http';import {once} from 'node:events';
+      import {IdentityFetch} from "/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/src/host/identity-fetch.ts";
+      const server=createServer((request,response)=>{
+        response.writeHead(200,{'content-length':100000});response.flushHeaders();response.write(new Uint8Array(1000));
+        setTimeout(()=>response.socket.resetAndDestroy(),20);
+      });server.listen(0,'127.0.0.1');await once(server,'listening');
+      const transport=new IdentityFetch();
+      // Only the body-read boundary is under test. Production SSRF policy is not bypassed in source.
+      transport.fetch=globalThis.fetch;
+      try{let caught;try{await transport.bytesFrom('http://127.0.0.1:'+server.address().port+'/body',100000);}catch(error){caught=error;}
+        process.stdout.write(JSON.stringify({actualHttpTruncation:true,termination:"resetAndDestroy",code:caught?.code,name:caught?.name,message:caught?.message,causeCode:caught?.cause?.code,receivedBytes:transport.bytes}));
+        assert.equal(caught?.code,'content_unavailable');assert.equal(transport.bytes,1000);
+      }finally{server.closeAllConnections();await new Promise(ok=>server.close(ok));}
+  node:internal/modules/run_main:111
+      triggerUncaughtException(
+      ^
+  
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'content_unavailable'
+  
+      at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:12:14
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'content_unavailable',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+  
+  Node.js v26.10.0
+  
+      at genericNodeError (node:internal/errors:999:15)
+      at wrappedFn (node:internal/errors:544:14)
+      at checkExecSyncError (node:child_process:943:11)
+      at execFileSync (node:child_process:979:15)
+      at TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/tests/identity-fetch.test.ts:143:7)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '{"actualHttpTruncation":true,"termination":"resetAndDestroy","name":"TypeError","message":"terminated","causeCode":"ECONNRESET","receivedBytes":1000}', "node:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- 'content_unavailable'\n\n    at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:12:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: undefined,\n  expected: 'content_unavailable',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.10.0\n" ],
+    pid: 83185,
+    stdout: '{"actualHttpTruncation":true,"termination":"resetAndDestroy","name":"TypeError","message":"terminated","causeCode":"ECONNRESET","receivedBytes":1000}',
+    stderr: "node:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ undefined\n- 'content_unavailable'\n\n    at file:///Users/hughpyle/play/atseq-worktrees/identity-evidence-r1/[eval1]:12:14\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: undefined,\n  expected: 'content_unavailable',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.10.0\n"
+  }
