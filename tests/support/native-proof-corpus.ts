@@ -418,6 +418,37 @@ export async function nativeProofCorpus() {
   await rejectsInput(() => overlapRoot.lookup(zero[0]!), 'overlap path');
   await rejectsInput(() => overlapRoot.validateTree(), 'overlap full tree');
   passed('overlapping child interval');
+  // PB1-R1: every node has a locally valid height, but the walked left
+  // child lies outside its inherited interval. Its own child is withheld.
+  const k2 = heights
+    .get(2)
+    ?.find((candidate) => zero.some((key) => key < candidate) && one.some((key) => key > candidate));
+  check(k2, 'signed interval/missing fixture needs a height-two root');
+  const k1 = one.find((key) => key > k2)!,
+    k0 = zero.find((key) => key < k2)!,
+    withheldLeaf = node([entry(k0)]),
+    outsideChild = node([entry(k1)], withheldLeaf.cid),
+    intervalRoot = node([entry(k2)], outsideChild.cid);
+  const intervalBlocks = new Map([
+    [recordCid.$link, blocks.get(recordCid.$link)!],
+    [outsideChild.cid, outsideChild.raw],
+    [intervalRoot.cid, intervalRoot.raw],
+  ]);
+  const intervalCommit = await commit(key, intervalRoot.cid, intervalBlocks);
+  const intervalOptions = {
+    ...options,
+    expectedRoot: intervalCommit,
+    carBytes: await car(intervalCommit, intervalBlocks),
+  };
+  for (const [name, limits] of [
+    ['withheld child', undefined],
+    ['node-load limit before withheld child', { pathLoads: 2, treeLoads: 2 }],
+  ] as const) {
+    const repo = await authenticateRepo({ ...intervalOptions, limits });
+    await rejectsInput(() => repo.lookup(k0), `${name}: walked interval fault lookup`);
+    await rejectsInput(() => repo.validateTree(), `${name}: walked interval fault full tree`);
+    passed(`signed walked interval fault overrides ${name} for lookup and full tree`);
+  }
   const extraRaw = CBOR.encode({ ...CBOR.decode(blocks.get(data)!), unexpected: true }),
     extraCid = CID.toString(CID.createSync(CID.CODEC_DCBOR, extraRaw));
   const unknown = await hostile({ raw: extraRaw, cid: extraCid }, blocks);
@@ -521,12 +552,7 @@ export async function nativeProofCorpus() {
           caught = error;
         }
         if (primary instanceof MissingBlockError) check(caught === undefined, 'cleanup replaced missing evidence');
-        else if (primary instanceof ProtocolError && primary.code === 'input')
-          check(
-            caught instanceof ProtocolError && caught.code === 'input' && caught.message === primary.message,
-            'cleanup replaced observed malformed input',
-          );
-        else check(caught === primary, 'cleanup replaced the original runtime/resource error');
+        else check(caught === primary, 'cleanup replaced the original runtime/resource/input error');
       }
     }
   } finally {

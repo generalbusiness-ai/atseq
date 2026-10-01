@@ -46,7 +46,7 @@ function limit(message: string): never {
 /** Structural input failures are permanent; local resource limits are not. */
 function rethrowNativeInput(error: unknown): never {
   if (error instanceof AtseqError) {
-    if (error instanceof ProtocolError && error.kind === 'invalid_input') fail(error.message);
+    if (error instanceof ProtocolError && error.kind === 'invalid_input' && error.code !== 'input') fail(error.message);
     throw error;
   }
   if (
@@ -304,11 +304,14 @@ export class VerifiedRepoBlocks {
           return super.get(cid);
         }
       }
-      function ranges(walker: NodeWalker) {
-        if (walker.stack.size > limits.pathLoads) limit('MST path depth exceeds budget');
+      function intervals(walker: NodeWalker) {
         for (const frame of walker.stack)
           for (const path of frame.node.keys)
             if (path <= frame.lpath || path >= frame.rpath) fail('MST child overlaps its key interval');
+      }
+      function ranges(walker: NodeWalker) {
+        intervals(walker);
+        if (walker.stack.size > limits.pathLoads) limit('MST path depth exceeds budget');
       }
       const capability: AuthenticatedRepo = {
         [brand]: true,
@@ -335,8 +338,14 @@ export class VerifiedRepoBlocks {
             const bytes = cache.#get(cid);
             return bytes ? { kind: 'found', cid, bytes: new Uint8Array(bytes) } : { kind: 'missing', cid };
           } catch (error) {
-            // Preserve the observed failure; cleanup must not overwrite it
-            // with a second range/depth failure on an incomplete walk.
+            // Already walked structural evidence outranks missing/limited
+            // evidence. Never run the depth policy during failed-walk cleanup.
+            if (
+              walker &&
+              (error instanceof MissingBlockError ||
+                (error instanceof AtseqError && error.code === 'native_proof_limit'))
+            )
+              intervals(walker);
             if (error instanceof MissingBlockError) return { kind: 'missing', cid: error.cid };
             rethrowNativeInput(error);
           }
@@ -356,8 +365,14 @@ export class VerifiedRepoBlocks {
             }
             return { kind: 'complete', records, nodeLoads: nodes.loads };
           } catch (error) {
-            // Preserve the observed failure; cleanup must not overwrite it
-            // with a second range/depth failure on an incomplete walk.
+            // Already walked structural evidence outranks missing/limited
+            // evidence. Never run the depth policy during failed-walk cleanup.
+            if (
+              walker &&
+              (error instanceof MissingBlockError ||
+                (error instanceof AtseqError && error.code === 'native_proof_limit'))
+            )
+              intervals(walker);
             if (error instanceof MissingBlockError) return { kind: 'missing', cid: error.cid };
             rethrowNativeInput(error);
           }

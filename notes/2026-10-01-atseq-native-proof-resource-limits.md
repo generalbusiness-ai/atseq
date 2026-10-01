@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: adopted; implementation candidate validated; exact-head review pending
+status: adopted; PB1-R1 successor validation pending
 category: native proof resource policy
 request: d22a606dcd584df143acda4523c2dcae0e03b1bc
 examined_head: 3cdf0b0747336b201fbecb2f414a25957b3a8dda
@@ -31,8 +31,12 @@ required.
 ## Evidence in the landed code
 
 The original proposal inspected source at the revision above without running
-tests. The adopted implementation and its exact validation are recorded in
-[the results](2026-10-01-atseq-native-proof-resource-limit-results.md).
+tests. The predecessor implementation and its validation are recorded in
+[the original results](2026-10-01-atseq-native-proof-resource-limit-results.md).
+Assessment `ea227dc086432172ac781955dea09376694fdb13` found that removing all
+failed-walk range checks hid an already walked structural fault as missing.
+Its required PB1-R1 correction is included below; the successor results are
+recorded separately.
 
 | Source | Current behavior |
 |---|---|
@@ -128,7 +132,11 @@ unbounded preflight should try to prove every structural property before
 honoring a budget. Structural faults already observed within the permitted
 work remain invalid input. Avoid letting catch cleanup replace an already
 observed failure with a second resource failure when preserving the original
-error is possible.
+error is possible. On caught missing evidence or `native_proof_limit`, inspect
+only the already walked key intervals before reporting availability. An
+observed interval violation is the stronger invalid-input verdict. Do not run
+the depth policy during cleanup. Existing input errors and genuine runtime
+faults retain their original identity, without a second structural inspection.
 
 ## Boundaries that remain distinct
 

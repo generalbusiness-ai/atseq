@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: implemented candidate; independent exact-head review pending
+status: predecessor candidate; PB1-R1 changes requested
 category: native proof evidence
 request: d22a606dcd584df143acda4523c2dcae0e03b1bc
 validated_source_head: 50bdce3f7bea7ef8353a7d02ab41793bc2fbf0ad
@@ -8,6 +8,13 @@ base_main: 2c759838
 ---
 
 # Native proof resource-limit results
+
+This report describes predecessor `83a78701`. Independent assessment
+`ea227dc086432172ac781955dea09376694fdb13` requested PB1-R1: the removal of
+failed-walk range checks hid an already walked interval fault as missing. The
+old captures below remain immutable historical evidence. See the
+[successor results](2026-10-01-atseq-native-proof-resource-limit-r1-results.md)
+for the correction and current candidate.
 
 Native proof readers now distinguish local policy exhaustion from invalid input.
 A reader that reaches its configured budget throws
