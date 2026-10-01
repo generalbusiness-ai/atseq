@@ -1,0 +1,30 @@
+
+> atseq@0.1.0 spike:acceptance
+> node scripts/source-run.mjs scripts/acceptance.ts
+
+Acceptance 1/13: npm run check
+PASS npm run check
+Acceptance 2/13: npm test
+PASS npm test
+Acceptance 3/13: npm run spike:feasibility
+PASS npm run spike:feasibility
+Acceptance 4/13: npm run test:protocol
+PASS npm run test:protocol
+Acceptance 5/13: npm run test:pds
+PASS npm run test:pds
+Acceptance 6/13: npm run test:runtime
+PASS npm run test:runtime
+Acceptance 7/13: npm run test:dynamic-apps
+PASS npm run test:dynamic-apps
+Acceptance 8/13: npm run test:flows -- --group participation
+PASS npm run test:flows -- --group participation
+Acceptance 9/13: npm run test:flows -- --group evolution
+PASS npm run test:flows -- --group evolution
+Acceptance 10/13: node --import tsx --test tests/archive.test.ts
+PASS node --import tsx --test tests/archive.test.ts
+Acceptance 11/13: node --import tsx scripts/performance.ts
+PASS node --import tsx scripts/performance.ts
+Acceptance 12/13: node --import tsx scripts/browser-performance.ts
+PASS node --import tsx scripts/browser-performance.ts
+Acceptance 13/13: node --import tsx scripts/check-author.ts
+PASS node --import tsx scripts/check-author.ts

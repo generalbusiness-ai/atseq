@@ -1,0 +1,999 @@
+{
+  "capturedAt": "2026-10-01T18:19:15.028Z",
+  "basis": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "node": "v26.10.0",
+  "sourceHashes": {
+    "baseline": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+    "actual": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f"
+  },
+  "method": "Compiled pre-change guard compared with compiled implementation and actual imported production guard; text, error and complete charge sequence.",
+  "differences": {
+    "seed": "0x5eedc0de",
+    "comparisons": {
+      "actual": {
+        "cases": 1054,
+        "mismatches": []
+      },
+      "compiledActual": {
+        "cases": 1054,
+        "mismatches": []
+      }
+    },
+    "hostileOutcomes": [
+      {
+        "name": "sorted keys and Unicode",
+        "baseline": {
+          "text": "{\"a\":\"é\\u0000\\\\\\\"\",\"z\":\"🦉\",\"中\":1}",
+          "fault": null,
+          "charges": [
+            1,
+            3,
+            1,
+            14,
+            1,
+            3,
+            1,
+            6,
+            1,
+            5,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "null prototype",
+        "baseline": {
+          "text": "{\"a\":true}",
+          "fault": null,
+          "charges": [
+            1,
+            3,
+            1,
+            4,
+            1
+          ]
+        }
+      },
+      {
+        "name": "safe integer limits",
+        "baseline": {
+          "text": "[-9007199254740991,9007199254740991]",
+          "fault": null,
+          "charges": [
+            1,
+            17,
+            1,
+            16,
+            1
+          ]
+        }
+      },
+      {
+        "name": "unsafe integer",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/0: expected safe integer, excluding negative zero"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "negative zero",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$/a: expected safe integer, excluding negative zero"
+          },
+          "charges": [
+            1,
+            3,
+            1
+          ]
+        }
+      },
+      {
+        "name": "intermediate negative zero",
+        "baseline": {
+          "text": "{\"a\":0}",
+          "fault": null,
+          "charges": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "NaN",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$: expected safe integer, excluding negative zero"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "infinity",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_number",
+            "kind": "invalid_input",
+            "message": "$: expected safe integer, excluding negative zero"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "undefined",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: unsupported value"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "bigint",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: unsupported value"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "function",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: unsupported value"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "symbol",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: unsupported value"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "unpaired high surrogate",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "unicode",
+            "kind": "invalid_input",
+            "message": "$: unpaired surrogate"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "unpaired low surrogate",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "unicode",
+            "kind": "invalid_input",
+            "message": "$: unpaired surrogate"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "bad Unicode key",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "unicode",
+            "kind": "invalid_input",
+            "message": "$: invalid Unicode key"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "reserved key",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "reserved_key",
+            "kind": "invalid_input",
+            "message": "$/constructor: reserved in this profile"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "reserved JSONata key",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "reserved_key",
+            "kind": "invalid_input",
+            "message": "$/_jsonata_x: reserved in this profile"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "enumerable accessor",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$/a: accessor"
+          },
+          "charges": [
+            1,
+            3,
+            1
+          ]
+        }
+      },
+      {
+        "name": "nonenumerable accessor",
+        "baseline": {
+          "text": "{\"a\":1}",
+          "fault": null,
+          "charges": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "nonenumerable toJSON",
+        "baseline": {
+          "text": "{\"a\":1}",
+          "fault": null,
+          "charges": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "object symbol",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: symbol property"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "custom prototype",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: expected plain object"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "array custom prototype",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: expected plain array"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "array extra property",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: extra array property extra"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "engine array accepted annotation",
+        "baseline": {
+          "text": "[1]",
+          "fault": null,
+          "charges": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "engine array bad annotation",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: extra array property nope"
+          },
+          "charges": []
+        }
+      },
+      {
+        "name": "array hole",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$: sparse array"
+          },
+          "charges": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "array accessor",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$/0: accessor"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "cycle",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$/child: cycle"
+          },
+          "charges": [
+            1,
+            7,
+            1
+          ]
+        }
+      },
+      {
+        "name": "shared noncyclic reference",
+        "baseline": {
+          "text": "[{\"x\":1},{\"x\":1}]",
+          "fault": null,
+          "charges": [
+            1,
+            1,
+            3,
+            1,
+            1,
+            1,
+            1,
+            1,
+            3,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "slash error path",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "wire_value",
+            "kind": "invalid_input",
+            "message": "$/a/b/~c: unsupported value"
+          },
+          "charges": [
+            1,
+            5,
+            1,
+            1,
+            4,
+            1
+          ]
+        }
+      },
+      {
+        "name": "charge mutates upcoming property",
+        "baseline": {
+          "text": "{\"a\":1,\"b\":3}",
+          "fault": null,
+          "charges": [
+            1,
+            3,
+            1,
+            1,
+            1,
+            3,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "descriptor proxy values vary",
+        "baseline": {
+          "text": "{\"a\":2}",
+          "fault": null,
+          "charges": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "proxy descriptor host fault",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "Error",
+            "code": null,
+            "kind": null,
+            "message": "test descriptor fault"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 0",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 0 UTF-8 bytes"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 1",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 1 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 2",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 2 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 3",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 3 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 4",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 4 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3,
+            1
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 5",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 5 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3,
+            1,
+            6
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 7",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 7 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3,
+            1,
+            6
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 8",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 8 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3,
+            1,
+            6
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 9",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 9 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3,
+            1,
+            6
+          ]
+        }
+      },
+      {
+        "name": "UTF-8 limit 10",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_bytes",
+            "kind": "invalid_input",
+            "message": "Value exceeds 10 UTF-8 bytes"
+          },
+          "charges": [
+            1,
+            3,
+            1,
+            6
+          ]
+        }
+      },
+      {
+        "name": "depth 0",
+        "baseline": {
+          "text": "0",
+          "fault": null,
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "depth 1",
+        "baseline": {
+          "text": "[0]",
+          "fault": null,
+          "charges": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "depth 31",
+        "baseline": {
+          "text": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]",
+          "fault": null,
+          "charges": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "depth 32",
+        "baseline": {
+          "text": "[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[0]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]",
+          "fault": null,
+          "charges": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "depth 33",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "value_depth",
+            "kind": "invalid_input",
+            "message": "$/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0/0: container depth exceeds 32"
+          },
+          "charges": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "charge failure 1",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "inspection_budget",
+            "kind": "invalid_input",
+            "message": "test charge exhausted"
+          },
+          "charges": [
+            1
+          ]
+        }
+      },
+      {
+        "name": "charge failure 2",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "inspection_budget",
+            "kind": "invalid_input",
+            "message": "test charge exhausted"
+          },
+          "charges": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "name": "charge failure 3",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "inspection_budget",
+            "kind": "invalid_input",
+            "message": "test charge exhausted"
+          },
+          "charges": [
+            1,
+            3,
+            1
+          ]
+        }
+      },
+      {
+        "name": "charge failure 4",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "inspection_budget",
+            "kind": "invalid_input",
+            "message": "test charge exhausted"
+          },
+          "charges": [
+            1,
+            3,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "name": "charge failure 5",
+        "baseline": {
+          "text": null,
+          "fault": {
+            "name": "InterpretationError",
+            "code": "inspection_budget",
+            "kind": "invalid_input",
+            "message": "test charge exhausted"
+          },
+          "charges": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ]
+        }
+      }
+    ]
+  }
+}
