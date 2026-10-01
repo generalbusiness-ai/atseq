@@ -110,7 +110,7 @@ test('single documents support generic CLI, host discovery and viewless browser 
             intentFile: join(environment.dir, 'guitar-second.intent.json'),
           });
           assert.equal(second.receipt.position, 2);
-          const secondOutcome = await api.call('outcome', { ...invitation, intent: second.intent });
+          const secondOutcome = await api.call('receipt', { ...invitation, intent: second.intent });
           assert.equal(secondOutcome.outcome.$type, 'ai.generalbusiness.atseq.defs#effective');
           const aggregate = await cli({
             operation: 'query',
