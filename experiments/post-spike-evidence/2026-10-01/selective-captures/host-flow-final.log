@@ -1,0 +1,20 @@
+▶ human and agent participation on a real PDS
+  ✔ source validation and preview publish nothing (36.844125ms)
+  ✔ creation retry returns one app and binds its content (7.025416ms)
+  ✔ shared service exposes recorded and then interpreted progress (35.488ms)
+  ✔ routine host metadata and receipts do not export a full Folder projection (10.771125ms)
+  ✔ reads after confirmation pass an older held interpretation refresh (22.29075ms)
+  ✔ reads do not chase appends arriving during every interpretation refresh (18.296875ms)
+  ✔ host restart restores the same app and interpreted history (416.500208ms)
+  ✔ concurrent reads and submissions report coherent heads and frontiers (115.690333ms)
+  ✔ documented CLI packs, validates and creates the same immutable source (2128.236083ms)
+✔ human and agent participation on a real PDS (4760.200709ms)
+✔ HTTP receipts retain crash recovery and externally confirmed heads across rollback (3237.855334ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8432.279417

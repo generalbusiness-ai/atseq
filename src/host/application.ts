@@ -210,7 +210,7 @@ export class ApplicationHost {
       if (!app.refreshInFlight) {
         const run = (async () => {
           const snapshot = await app.snapshots.read();
-          await app.folder.catchUpVerified(snapshot.history);
+          await app.folder.catchUpVerifiedStatus(snapshot.history);
           return snapshot.history;
         })();
         app.refreshInFlight = run;
@@ -229,8 +229,8 @@ export class ApplicationHost {
     }
   }
   private created(app: Running) {
-    const { head, projection } = app.folder.snapshot();
-    return { genesis: app.anchor.genesis, genesisCid: link(app.anchor.cid), head, frontier: projection.frontier };
+    const { head, frontier } = app.folder.status();
+    return { genesis: app.anchor.genesis, genesisCid: link(app.anchor.cid), head, frontier };
   }
   list() {
     return [...this.apps.values()].map((a) => ({
@@ -242,12 +242,13 @@ export class ApplicationHost {
   async describe(app: string, genesis: string, includeSource = false) {
     const found = this.get(app, genesis);
     await this.refresh(found);
-    const { head, projection } = found.folder.snapshot();
+    const { head, frontier } = found.folder.status();
+    const definition = found.folder.activeDefinition();
     return {
       genesis: found.anchor.genesis,
-      definition: await describeDefinition(found.folder.activeDefinition(), includeSource),
+      definition: await describeDefinition(definition, includeSource),
       head,
-      frontier: projection.frontier,
+      frontier,
     };
   }
   async sync(app: string, genesis: string) {
@@ -332,11 +333,11 @@ export class ApplicationHost {
       app = this.get(signed?.intent?.app, signed?.intent?.genesis?.$link);
     const result = await app.sequencer.submit(block);
     // A confirmed append can return while interpretation is still behind.
-    const snapshot = app.folder.snapshot();
+    const status = app.folder.status();
     return {
       ...result,
-      head: snapshot.head.position > result.head.position ? snapshot.head : result.head,
-      frontier: snapshot.projection.frontier,
+      head: status.head.position > result.head.position ? status.head : result.head,
+      frontier: status.frontier,
     };
   }
   async query(app: string, genesis: string, name: string, params: unknown) {
@@ -350,9 +351,8 @@ export class ApplicationHost {
     if (!recorded) return undefined;
     await this.refresh(found);
     const receipt = recorded.receipt;
-    const { head, projection } = found.folder.snapshot();
-    const outcome = projection.outcomes.find((o) => o.intent === intent)?.outcome ?? { $type: NSID.defsPending };
-    return { receipt, head, frontier: projection.frontier, outcome };
+    const { head, frontier, outcome = { $type: NSID.defsPending } } = found.folder.outcomeAt(receipt.position, intent);
+    return { receipt, head, frontier, outcome };
   }
   async close() {
     await this.queue.idle();

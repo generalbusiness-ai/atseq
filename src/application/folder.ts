@@ -37,6 +37,11 @@ export interface Stalled {
   code: string;
   message: string;
 }
+export interface FolderStatus {
+  head: Head;
+  frontier: Projection['frontier'];
+  stalled?: Stalled;
+}
 export type PersistProjection = (projection: Projection) => Promise<void>;
 const ineffective = (reason: string): Outcome => ({ $type: NSID.defsIneffective, reason });
 
@@ -82,16 +87,48 @@ export class Folder {
       ...(this.stalled ? { stalled: this.stalled } : {}),
     });
   }
+  private statusValue(): FolderStatus {
+    return { head: this.head, frontier: this.projection.frontier, ...(this.stalled ? { stalled: this.stalled } : {}) };
+  }
+  /** Owned metadata at one frontier, without state or outcome history. */
+  status(): FolderStatus {
+    return structuredClone(this.statusValue());
+  }
+  /** An exact-position observation, bound to the requested intent and its frontier. */
+  outcomeAt(position: number, intent: string): FolderStatus & { outcome?: Outcome } {
+    const observed =
+      Number.isSafeInteger(position) && position > 0 ? this.projection.outcomes[position - 1] : undefined;
+    return structuredClone({
+      ...this.statusValue(),
+      ...(observed && observed.position === position && observed.intent === intent
+        ? { outcome: observed.outcome }
+        : {}),
+    });
+  }
   catchUp(head: Head, records: unknown[]): Promise<ReturnType<Folder['snapshot']>> {
     const ownedHead = structuredClone(head),
       ownedRecords = structuredClone(records);
-    return this.queue.run(async () => this.advanceVerified(await verifyHistory(this.anchor, ownedHead, ownedRecords)));
+    return this.queue.run(async () => {
+      await this.advanceVerified(await verifyHistory(this.anchor, ownedHead, ownedRecords));
+      return this.snapshot();
+    });
   }
   catchUpVerified(history: VerifiedHistory): Promise<ReturnType<Folder['snapshot']>> {
     assertVerifiedHistory(history, this.anchor);
-    return this.queue.run(() => this.advanceVerified(history));
+    return this.queue.run(async () => {
+      await this.advanceVerified(history);
+      return this.snapshot();
+    });
   }
-  private async advanceVerified(verified: VerifiedHistory): Promise<ReturnType<Folder['snapshot']>> {
+  /** Catch up without constructing a complete exported projection. */
+  catchUpVerifiedStatus(history: VerifiedHistory): Promise<FolderStatus> {
+    assertVerifiedHistory(history, this.anchor);
+    return this.queue.run(async () => {
+      await this.advanceVerified(history);
+      return this.status();
+    });
+  }
+  private async advanceVerified(verified: VerifiedHistory): Promise<void> {
     assertVerifiedHistory(verified, this.anchor);
     const head = verified.head;
     const frontier = this.projection.frontier;
@@ -157,7 +194,6 @@ export class Folder {
         break;
       }
     }
-    return this.snapshot();
   }
   private async interpret(entry: Entry): Promise<{ state: Json; outcome: Outcome; definition?: LoadedDefinition }> {
     const intent = entry.signedIntent.intent,
@@ -213,22 +249,26 @@ export class Folder {
     return { state: result.state, outcome: { $type: NSID.defsEffective } };
   }
   async query(name: string, params: unknown) {
-    // Capture one complete projection before awaiting evaluation. A concurrent
+    // Capture only the owned query input before awaiting evaluation. A concurrent
     // catch-up cannot relabel this result with a later frontier.
-    const { head, projection } = this.snapshot();
     const definition = this.definition;
+    const { head, frontier, state } = structuredClone({
+      head: this.head,
+      frontier: this.projection.frontier,
+      state: this.projection.state,
+    });
     try {
       const query = definition.manifest.queries.find((q) => q.name === name);
       if (!query) throw new InterpretationError('unknown_query', `Unknown query: ${name}`);
       const owned = jsonCopy(params);
       definition.schemas.queryParams(query.ref, owned);
-      const { value } = await evaluate(definition.text(query.program), { params: owned, state: projection.state });
+      const { value } = await evaluate(definition.text(query.program), { params: owned, state });
       definition.schemas.queryResult(query.ref, value);
-      return { head, frontier: projection.frontier, result: { $type: NSID.defsQueryAvailable, value } };
+      return { head, frontier, result: { $type: NSID.defsQueryAvailable, value } };
     } catch (error) {
       return {
         head,
-        frontier: projection.frontier,
+        frontier,
         result: {
           $type: NSID.defsQueryUnavailable,
           code: typeof (error as any)?.code === 'string' ? (error as any).code : 'query_failed',

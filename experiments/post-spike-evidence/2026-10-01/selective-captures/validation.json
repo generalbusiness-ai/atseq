@@ -1,0 +1,46 @@
+{
+  "format": "atseq-selective-captures-validation",
+  "version": 1,
+  "date": "2026-10-01",
+  "baseline": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "testedRuntimeSourceHead": "fda7686355bd301cd9d59b243d906a09d2cc9216",
+  "testedHostFlowHead": "3405510088279517bde80828d45bb808faaad458",
+  "sourceHashes": {
+    "src/application/folder.ts": "de87ce34a4062417c933ce8b7b7eb273f992a37ac3c8afc3bbe3be664b2111f0",
+    "src/application/index.ts": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2",
+    "src/host/application.ts": "5b24a6f83ccb7ad3fcc7b254fd5fecb770741b4aaaffa6bce13fda268f967953",
+    "tests/support/runtime-corpus.ts": "b551f0602a19ac7143a2f1912f9f5687776b182876e2d33eb8208d3cfc4ea249",
+    "tests/flows.test.ts": "3477eaab40ce58094177bc8d9858123b53fca5e9641fdcbb8032cac1d7fb3325",
+    "tests/package.test.ts": "43d06a32b45f6b2fdd75ae14128c1c51bfee34604eaf5f225d308d2df14c5272"
+  },
+  "checks": {
+    "check": true,
+    "initialScopedTests": 78,
+    "finalRuntimeCasesNode": 70,
+    "finalRuntimeCasesChromium": 70,
+    "finalRuntimeRunnerTests": 71,
+    "finalRealPdsFlowCases": 9,
+    "finalFlowRunnerTests": 11,
+    "compiledPackageConformanceCases": 157,
+    "finalPackageRunnerTests": 1
+  },
+  "initialCorrection": "At d4111434 a second flow race probe still intercepted catchUpVerified rather than catchUpVerifiedStatus; its unchanged refresh-count assertion failed. The hook was corrected, then scoped affected checks passed on frozen runtime source. Final evidence collection corrected expected host case count from 8 to 9 and reran the host flow; runtime source did not change.",
+  "unrun": [
+    "full npm test suite",
+    "new latency/throughput benchmark",
+    "native P2/P3 end-to-end matrix"
+  ],
+  "sha256": {
+    "runtime-results.json": "0a4d70893068455435301b53818b99430abcb0d97b1665b0db47b7029b976266",
+    "package-conformance.json": "3f830cbdfa18676f39421d200edd5d4c8915b538de1f3cb40e6cc36c2a9e0470",
+    "host-flows-results.json": "1fa62ca24abf018d30809832f99ef92b4a213d43bbca7c4ea4c9746579bceca7",
+    "build-provenance.json": "012e8183942b1dc76d3110a98025308c5c5fb2892a965ac83e14863e9c683588",
+    "scoped-initial-tests.log": "ddccae225655e98734b8ec98dfc511ea6336c2bda310e951b379b5dc1b202615",
+    "host-flow-initial-failure.log": "82cbfd7fc1c18df15d07889fc81d8de6a0469c7d1bb0075877a9bfec760122a9",
+    "runtime-final.log": "d7f4a5d9388949008f9eb396c673c757c1b621fce4421202c76b6396db81d8e8",
+    "host-flow-final.log": "f834f39e6b73da714c2be6259269ad44a10ea9c07d4b13fc329b1c577ee08c26",
+    "package-final.log": "4c1fd327469cb0a70837bebd1edd0cd2df967061c20e2b4ff29ab14df232865c",
+    "check-final.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "clone-work.json": "d8a57a0a8e1bf9e73c71a526d2279475869271e44fb0c9ce2b61c82a1ca51414"
+  }
+}
