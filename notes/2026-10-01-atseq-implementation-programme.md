@@ -142,8 +142,10 @@ foundations from accepted designs and unfinished integration.
   an explicit Node minimum change from 22.13 to 22.19, together with support docs,
   CI and real host private-address/DNS-rebinding checks.
   Original internal foundation candidate `412b0c9b` received required corrections
-  in review `d1d1d9a9`. Successor `2b9e255c` is submitted for replacement review
-  under the narrower I1-F1 request; no approval or landing is assumed. It retains a completed serial 380-test suite, 57 shared
+  in review `d1d1d9a9`. Successor `2b9e255c` resolved first-ID selection, but review `b3ec610b` found
+  a remaining TCP-reset body failure. The host-only phase-boundary correction
+  and prescribed Node support-line checks are underway under I1-F1. No approval
+  or landing is assumed. It retains a completed serial 380-test suite, 57 shared
   Node/Chromium/installed-consumer identity cases and actual guarded-dispatch
   network checks. Its interrupted parallel attempt is retained separately.
   Observer orchestration, descriptor/native record linkage, admission floors,

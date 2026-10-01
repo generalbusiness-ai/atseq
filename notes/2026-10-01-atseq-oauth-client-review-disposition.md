@@ -1,12 +1,12 @@
-# OAuth client review and proposed disposition
+# OAuth client review and adopted disposition
 
 Date: 2026-10-01. Report-only successor for A1 request `13d42e4adec8f8d9570e48306846dad046a0036f` and promise `676577467fa4e57c61e0191cf1864da781d0f4b3`.
 
-## Current proposed choice
+## Adopted choice
 
-Use both official clients, `@atproto/oauth-client-node@0.5.8` and `@atproto/oauth-client-browser@0.5.8`, as one maintained OAuth family, subject to the six conditions below. This is the disposition proposed after independent assessment `f3c65906b134740f3e4e17ce7d5fb2c48b9955bf`. Requester ratification is pending; A1 remains open. This successor implements no client, dependency, profile or custody change.
+Use both official clients, `@atproto/oauth-client-node@0.5.8` and `@atproto/oauth-client-browser@0.5.8`, as one maintained OAuth family, subject to the six conditions below. This is the disposition proposed after independent assessment `f3c65906b134740f3e4e17ce7d5fb2c48b9955bf`. The requester ratified this assessment on 2026-10-01; A1 remains open. This successor implements no client, dependency, profile or custody change.
 
-The [original comparison](2026-10-01-atseq-oauth-client-comparison.md) at source head `3347c3a33a31c2199ce09b8441ebb0e9995f1c45` remains unchanged, including its conditional mixed-family recommendation. Its measurements, source archives, failed probe attempts and capture hashes are preserved. This note records the received assessment and the current proposed disposition; it does not rewrite the earlier evidence as if it had selected both official clients.
+The [original comparison](2026-10-01-atseq-oauth-client-comparison.md) at source head `3347c3a33a31c2199ce09b8441ebb0e9995f1c45` remains unchanged, including its conditional mixed-family recommendation. Its measurements, source archives, failed probe attempts and capture hashes are preserved. This note records the received assessment and the adopted disposition; it does not rewrite the earlier evidence as if it had selected both official clients.
 
 The reviewer read the note and evidence index, extracted the retained published source archives, and checked key custody and URL-validation claims directly. They did not reinstall candidates, rerun bundles or repeat Chromium probes. The workroom assessment is event `git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f3c65906b134740f3e4e17ce7d5fb2c48b9955bf`, sequence 7542. It recommends both official clients and explicitly keeps A1 open.
 
@@ -39,7 +39,7 @@ An enrolment/session shell may render its own trusted consent and session contro
 
 ## What remains open
 
-Requester ratification and implementation tracking follow the workroom process. Afterwards, implement the thin official-family adapters and the corrected A1 account-publication contract: first-account epoch(previous null), `epochCurrent/self` and grant create/CAS; losing concurrent initialization reads the winner; routine grant creation and management epoch changes retain distinct scopes. OAuth credentials authorize scoped account operations and do not replace Atseq admission, entitlement, actor/control signatures or accepted-action checks.
+Implementation tracking follows the workroom process. Implement the thin official-family adapters and the corrected A1 account-publication contract: first-account epoch(previous null), `epochCurrent/self` and grant create/CAS; losing concurrent initialization reads the winner; routine grant creation and management epoch changes retain distinct scopes. OAuth credentials authorize scoped account operations and do not replace Atseq admission, entitlement, actor/control signatures or accepted-action checks.
 
 Executable all-network refusal tests remain necessary for token, refresh, revocation and resource edges; these were source-traced in the comparison. Duplicate callback, restart, state bounds, refresh rotation, revoke, storage/origin isolation and output exclusion tests remain open. So do actual lazy-loading measurements, real-provider trials, package consumers, real Chromium session behavior and normal build/integrity/acceptance gates. Maintained packages, an effective review event and successful stopped discovery probes do not establish those results.
 
