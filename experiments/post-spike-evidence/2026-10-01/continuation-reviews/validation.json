@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-01",
+  "publicationSourceHead": "5281aa4dd8b500b20b841cb4d1a282c1827dd2b0",
+  "runtimeBasis": "781732f47f02d26332942147bfbe8f4e95526231",
+  "sourceHashPairs": 53,
+  "byteIdenticalFiles": 50,
+  "changedNoteLocalLinksChecked": 133,
+  "rawOAuthCaptureHashes": 138,
+  "includedCaptureManifestExact": true,
+  "logs": {
+    "check.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "check-with-oauth.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  "checks": {
+    "npmCi": "passed in isolated worktree",
+    "npmSetupBuild": "passed on runtime781732f4",
+    "npmCheckBeforeOAuth": "passed on a36e3b85",
+    "npmCheckWithOAuth": "passed on abea84a0",
+    "sourcePublicationHashes": "passed",
+    "localLinks": "passed",
+    "noteAndHarnessDiffCheck": "passed"
+  },
+  "limits": [
+    "No production source, graph, semantic profile or public API changed.",
+    "No full test suite or performance/provider trials rerun for this publication.",
+    "Historical source/captures retain their original source/graph/baseline.",
+    "Internal identity foundation remains under revision; full native ordering, authority, source admission and checkpoints remain open."
+  ]
+}

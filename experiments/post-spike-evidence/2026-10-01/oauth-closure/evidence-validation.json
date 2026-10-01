@@ -1,0 +1,19 @@
+{
+  "capturedAt": "2026-10-01T19:27:39.174Z",
+  "node": "v26.10.0",
+  "passed": true,
+  "checked": {
+    "foundationPaths": 147,
+    "preservedVariants": 2,
+    "bundleRows": 20,
+    "minimumNode": "22.19.0",
+    "nodeDiscoveryClients": 2,
+    "browserDiscoveryClients": 2,
+    "browserStorageClients": 2,
+    "publishedArchives": 14
+  },
+  "limits": [
+    "Source/isolated-candidate evidence only; no production implementation or provider success",
+    "All-network source trace still needs adapter edge tests before enrolment acceptance"
+  ]
+}

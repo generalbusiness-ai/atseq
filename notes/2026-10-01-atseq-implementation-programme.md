@@ -1,7 +1,7 @@
 ---
 date: 2026-10-01
 status: implementation started; full programme open
-examined_at: 824527132a6cfc6099d57685d37320e37f99ee4e
+examined_at: 781732f47f02d26332942147bfbe8f4e95526231
 request: cbafc791
 ---
 
@@ -59,6 +59,14 @@ Request hashes below use the same repository prefix
 | PB1     | `d22a606d` | Distinguish native resource exhaustion from invalid history       | Adopted API decision; implementation review  |
 | V0      | `592e7c33` | Characterize and simplify canonical validation overhead           | Differential semantics and measured evidence |
 | F2      | `f9abfb7e` | Publish continuation designs and current status                   | Exact-head documentation review              |
+| NW0     | `6213c7bf` | Freeze native wire and authority operation contracts              | Adopted recovery decision; exact vectors open |
+| N0      | `d62b5a88` | Check generated attribution without writing                       | Shipped; exact-head review                    |
+| N2      | `1acd7587` | Pin attribution ordering during the identity graph refresh        | Identity foundation review and landing        |
+| B1      | `05ba889d` | Preserve typed malformed source-document byte errors              | Shipped; exact-head review                    |
+| S1      | `d91eddf6` | Avoid full outcome-history copies in routine reads                | Shipped; exact-head review                    |
+| F3      | `4851a077` | Publish continuation assessments and corrected notes              | Exact-head documentation review              |
+| N1-F1   | `1012e4e2` | Deliver isolated native wire framing and conformance preparation  | Exact-head review; parent N1 remains open      |
+| I1-F1   | `de0005d3` | Deliver internal retained identity/network verification foundations | Exact-head review; parent I1 remains open   |
 
 ## Completion and reports
 
@@ -68,10 +76,10 @@ and remaining cases. Design decisions are reviewed before the affected contract
 is implemented. Changes are independently reviewed at an exact head, merged
 through gitseq and pushed under the user's authorization.
 
-D0 selected the independently reviewed authority backbone; N1 still owes concrete Lexicons/wire details.
-R0 must decide retry semantics before N1/R1 freezes them. Activation compatibility
-and discoverable capabilities from the gap assessment must likewise be settled
-before the final envelope/discovery shape is fixed. An unresolved choice cannot
+D0 selected the independently reviewed authority backbone. NW0 and R0 now settle
+the logical wire and retry contracts; N1/R1 still owe their complete implementation.
+C0 adopted per-action execution compatibility, while C1 still owes its enforced
+role and capability interfaces. An unresolved choice cannot
 be smuggled in as a performance refactor.
 
 Optional alternatives have explicit decision gates: a lazy retry tree only if
@@ -99,13 +107,18 @@ foundations from accepted designs and unfinished integration.
   and [dimension results](2026-10-01-atseq-performance-dimensions-results.md)
   include 10,000-action bounded/growing state, warm deltas, real-PDS request costs,
   activation failure recovery and Chromium transfer. Early checkpoint readiness
-  remains distinct from independent audit. V0 measures canonical guard overhead
-  before S0 decides whether a new state/effects contract is warranted.
+  remains distinct from independent audit. V0's independently approved local
+  optimization preserves all schema passes and semantic identities. Its actual
+  validation kernel changed from about 8.34 ms to 2.47 ms at 9,999 items; this
+  is not an integrated catch-up measurement.
 - **P1 is shipped.** The [native proof foundation](2026-10-01-atseq-native-proof-results.md)
   verifies exact roots/record bytes, sparse versus missing/absent evidence,
   visited/full-tree structure, bounded retained blocks and actual large-tree
   diffs in Node and Chromium. PB1 adds the adopted host-only resource-limit
-  distinction before I1/P2 consumer classification; that implementation is open.
+  distinction before I1/P2 consumer classification. The corrected
+  [PB1-R1 result](2026-10-01-atseq-native-proof-resource-limit-r1-results.md)
+  is shipped: observed invalid tree intervals still take precedence over missing
+  prerequisites and local capacity limits.
 - **MF1, MF2, CI1 and CI2 are shipped.** Their
   [PDS patch](2026-10-01-atseq-pds-patch-results.md),
   [telemetry isolation](2026-10-01-atseq-fixture-telemetry-results.md),
@@ -113,6 +126,10 @@ foundations from accepted designs and unfinished integration.
   [focus](2026-10-01-atseq-participation-focus-ci.md) reports retain actual tests
   and limits. P1 passed Linux Node 22.13/24/26 at `3cdf0b07`, run `36893763670`.
   CI3 passed the later full Node 22.13/24/26 matrix after both CI fixes at `2c759838`, [run `36897498460`](https://github.com/generalbusiness-ai/atseq/actions/runs/36897498460). Subsequent deliveries still need their own checks.
+  The B1 fix and combined V0 implementation passed their pushed-main Linux
+  matrices at `ab309023` ([run `36909739355`](https://github.com/generalbusiness-ai/atseq/actions/runs/36909739355))
+  and `2a6870ca` ([run `36910654142`](https://github.com/generalbusiness-ai/atseq/actions/runs/36910654142)).
+  S1 passed the pushed-main matrix at `781732f4` ([run `36914299375`](https://github.com/generalbusiness-ai/atseq/actions/runs/36914299375)).
 - **I1, I2, N1, R0 and C1 have reviewed directions.** Their
   [admission](2026-10-01-atseq-account-admission-design.md),
   [authority](2026-10-01-atseq-account-authority-design.md),
@@ -124,12 +141,56 @@ foundations from accepted designs and unfinished integration.
   provider permissions remain gates. I1's planned maintained transport requires
   an explicit Node minimum change from 22.13 to 22.19, together with support docs,
   CI and real host private-address/DNS-rebinding checks.
-- **B0 is in implementation; S0 is requirements work.** The reviewed authoring
-  contract needs its explicit v2 profile, final dependency provenance and packed
-  conformance. Guitar/rainfall aggregate-bound correction `77e604a5` is prepared
-  with real-query and cheap maximum-state regressions. The
-  [state requirements](2026-10-01-atseq-state-requirements.md) remain proposed;
-  no keyed effects contract is selected. **M0 is shipped.** Its [runtime patch report](2026-10-01-atseq-runtime-advisory-results.md) records the single-node brace-expansion patch, separately identified current-closure attribution refresh, unchanged profile CIDs, 355 passing tests and 13 passing acceptance stages. B0's dependency integration now follows that landed graph.
+  Original internal foundation candidate `412b0c9b` received required corrections
+  in review `d1d1d9a9`. Successor `2b9e255c` resolved first-ID selection, but review `b3ec610b` found
+  a remaining TCP-reset body failure. The host-only phase-boundary correction
+  and prescribed Node support-line checks are underway under I1-F1. No approval
+  or landing is assumed. It retains a completed serial 380-test suite, 57 shared
+  Node/Chromium/installed-consumer identity cases and actual guarded-dispatch
+  network checks. Its interrupted parallel attempt is retained separately.
+  Observer orchestration, descriptor/native record linkage, admission floors,
+  retention, assurance display/export and provider trials remain parent I1 work.
+- **B0 and B1 are shipped.** The [authoring result](2026-10-01-atseq-authoring-bundle-results.md)
+  retains the explicit v2 log/application profile, source-document/CAR identities,
+  opt-in complete source, actual CLI/host/viewless-browser flows and installed
+  consumer checks. Guitar/rainfall aggregate correction `77e604a5` has real-query
+  and maximum-state regressions. The [B1 correction](2026-10-01-atseq-authoring-byte-error-results.md)
+  preserves typed invalid-input classification for malformed Base64 trailing bits.
+- **S0 keeps complete state as the default.** The independently reviewed
+  [options note](2026-10-01-atseq-effects-transaction-options.md) prefers the
+  present 128 KiB state contract with V0 and checkpoints. A new effects contract
+  waits for a concrete application need beyond that bound and measured at-cap
+  Node/Chromium costs. S1 is shipped at `781732f4`: its [selective-capture result](2026-10-01-atseq-selective-captures-results.md)
+  records owned query/status/receipt captures without changing that contract.
+  On 1,000 retained outcomes, query/status captures avoid all historical outcome
+  rows; full persistence and export still retain their complete-projection costs.
+- **M0 and N0 are shipped.** The [runtime patch report](2026-10-01-atseq-runtime-advisory-results.md)
+  records the narrow brace patch, separately identified attribution refresh,
+  unchanged profile CIDs and actual acceptance. The [notice check](2026-10-01-atseq-notice-check-results.md)
+  validates generated output in CI without writing. N2 pins the comparator's
+  locale in the upcoming identity attribution refresh.
+
+The [native wire note](2026-10-01-atseq-native-wire-contract.md) records accepted
+encoding/source decisions and the corrected recovery hierarchy. Corrected
+recovery and map-pressure decisions are adopted; literal implementation vectors
+remain gates. The
+[incremental reader requirements](2026-10-01-atseq-incremental-reader-requirements.md)
+treat account revisions as advisory cursors, preserve every known app floor and
+reuse a current boundary without claiming an interior audit. The
+[materialization/checkpoint note](2026-10-01-atseq-materialized-checkpoints.md)
+separates trusted local atomic restore, native publication assertions and
+independent genesis replay. The [checkpoint byte note](2026-10-01-atseq-checkpoint-policy-bytes.md) adopts
+reviewed outer-shape simplifications: local reader mode, version-implied native
+publication, derived pending history and no duplicated constant claims. Joint
+closed row schemas and literal native payload vectors remain gates. These designs are not shipped native ordering or persistence.
+
+The [OAuth comparison](2026-10-01-atseq-oauth-client-comparison.md) measures
+installed closure, standalone bundles and actual browser transport/storage hooks.
+The [review disposition](2026-10-01-atseq-oauth-client-review-disposition.md) adopts
+both official clients as one family, with isolated credential custody, guarded
+network edges, unconditional callback issuer/expected DID, bounded single-use
+transactions, shared locks and lazy enrolment/session imports. Neither lazy-load
+startup benefit nor provider success has been established.
 
 P2/P3/P4, R1, A1/A2, E1 and T1 remain open. Account reuse needs pair-scoped state,
 collection-scoped OAuth publication and demonstrated provider behavior; dedicated
@@ -157,8 +218,8 @@ M1 is satisfied as an assessment. The
 [PDS dependency report](2026-10-01-atseq-pds-dependency-assessment.md) distinguishes
 the disposable fixture from the shipped graph and identifies narrow compatible
 patches. Update one fixture in place; retain old captures with their old lock
-hashes. MF1 implements the patches and MF2 isolates inherited telemetry. Their
-implementation and exact-head delivery gates remain separate from the assessment.
+hashes. MF1 shipped the patches and MF2 shipped telemetry isolation, each through its own
+independent exact-head review.
 Review `e23495f5` and final report `e94181a5` record the accepted recommendation.
 
 Q0 is satisfied as a direction: the
@@ -168,13 +229,16 @@ reviewed contract; no speculative encryption mode is added. A1/A2/T1 own first-r
 README and device-local storage disclosures. Review `a54acf1c` and final report
 `e5c4ce11` record the decision.
 
-P1 native proof primitives are shipped; B0 source-document conversion remains in implementation after independent boundary assessments `06110ff6` and `75465898`. P1 preserves semantic bytes while supplying bounded native evidence; PB1 refines local resource classification. B0 routine discovery stays lean; complete source is opt-in.
-Its service schema currently participates in the app profile, so review `3528d227`
-requires an explicit v2 profile advance with regenerated conformance evidence.
+P1 native proof primitives and B0 source-document conversion are shipped after
+their independent boundary reviews. P1 preserves semantic bytes while supplying
+bounded native evidence; shipped PB1-R1 refines local resource classification.
+B0 routine discovery stays lean; complete source is opt-in. Its service schema
+currently participates in the app profile, so review `3528d227` required the
+explicit v2 profile advance that B0 now ships with regenerated conformance evidence.
 N1's later native profile must review a separate service-contract identity so
 routine API evolution does not require a new app genesis.
 
-P0 baseline characterization is shipped; V0 and E1 continue the measured performance work. Full native ordering, account
+P0 baseline characterization and V0 canonical optimization are shipped; E1 continues the measured performance work. Full native ordering, account
 adoption, durable materialization, portable checkpoints and final end-to-end
 characterization remain open. The adopted decisions above are not completion of
 their downstream implementation.

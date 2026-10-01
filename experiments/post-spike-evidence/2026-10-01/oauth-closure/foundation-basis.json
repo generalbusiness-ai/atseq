@@ -1,0 +1,14 @@
+{
+  "mainBasis": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "projectedI1Head": "fb5acd9ac3876de93917348e3ac12e080a885ef0",
+  "nodeFloor": {
+    "node": ">=22.19"
+  },
+  "runtimePathsExpected": 147,
+  "basisHashes": {
+    "foundation-npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "foundation-package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "foundation-dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "foundation-files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "capturedAt": "2026-10-01T19:20:20.147Z",
+  "node": "v22.19.0",
+  "method": "Actual installed Node entry imports and public-client construction at Node version shown. Service discovery reaches injected sentinel fetch; ambient fetch is a failing sentinel in this isolated process. No provider network call, code/token or login.",
+  "outcomes": [
+    {
+      "variant": "official",
+      "package": "@atproto/oauth-client-node",
+      "calls": {
+        "injected": [
+          "https://pds.example/.well-known/oauth-protected-resource",
+          "https://pds.example/.well-known/oauth-authorization-server"
+        ],
+        "ambient": []
+      },
+      "outcome": {
+        "completed": false,
+        "name": "Error",
+        "message": "Failed to resolve OAuth server metadata for resource: https://pds.example"
+      }
+    },
+    {
+      "variant": "atcute",
+      "package": "@atcute/oauth-node-client",
+      "calls": {
+        "injected": [
+          "https://pds.example/.well-known/oauth-protected-resource",
+          "https://pds.example/.well-known/oauth-authorization-server"
+        ],
+        "ambient": []
+      },
+      "outcome": {
+        "completed": false,
+        "name": "OAuthResolverError",
+        "message": "failed to resolve protected resource metadata: https://pds.example"
+      }
+    }
+  ],
+  "limits": [
+    "Discovery seam only, not exhaustive fetch coverage or all minimum-version APIs",
+    "No token exchange, refresh, grant publication or real provider success"
+  ]
+}

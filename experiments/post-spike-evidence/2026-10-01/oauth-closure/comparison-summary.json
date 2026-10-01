@@ -1,0 +1,535 @@
+{
+  "basis": {
+    "mainBasis": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+    "projectedI1Head": "fb5acd9ac3876de93917348e3ac12e080a885ef0",
+    "nodeFloor": {
+      "node": ">=22.19"
+    },
+    "runtimePathsExpected": 147,
+    "basisHashes": {
+      "foundation-npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+      "foundation-package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+      "foundation-dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+      "foundation-files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+    }
+  },
+  "graphMethod": "Exact installed runtime closure follows all direct, required, installed optional and installed peer edges. Only I1 named optional non-executed Valibot TypeScript peer is excluded. Bytes include actual files/docs/maps/declarations, excluding separately counted nested node_modules.",
+  "graphs": {
+    "foundation": {
+      "runtimePaths": 147,
+      "bytes": 62527035,
+      "nodeFloor": {
+        "node": ">=22.19"
+      }
+    },
+    "official": {
+      "runtimePaths": 192,
+      "bytes": 69042634,
+      "nodeFloor": {
+        "node": ">=22.19"
+      },
+      "delta": {
+        "added": [
+          "node_modules/@atproto-labs/handle-resolver",
+          "node_modules/@atproto-labs/handle-resolver-node",
+          "node_modules/@atproto-labs/handle-resolver-node/node_modules/@atproto/did",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto-labs/identity-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto/jwk",
+          "node_modules/@atproto/jwk-jose",
+          "node_modules/@atproto/jwk-webcrypto",
+          "node_modules/@atproto/jwk/node_modules/multiformats",
+          "node_modules/@atproto/oauth-client",
+          "node_modules/@atproto/oauth-client-browser",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client-node",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/multiformats",
+          "node_modules/@atproto/oauth-types",
+          "node_modules/@atproto/oauth-types/node_modules/@atproto/did",
+          "node_modules/@atproto/xrpc",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/lexicon",
+          "node_modules/@atproto/xrpc/node_modules/multiformats",
+          "node_modules/jose"
+        ],
+        "removed": [],
+        "changed": [
+          "node_modules/@atproto/common-web",
+          "node_modules/@atproto/syntax"
+        ],
+        "runtimePaths": 45,
+        "bytes": 6515599
+      }
+    },
+    "atcute": {
+      "runtimePaths": 157,
+      "bytes": 63258937,
+      "nodeFloor": {
+        "node": ">=22.19"
+      },
+      "delta": {
+        "added": [
+          "node_modules/@atcute/client",
+          "node_modules/@atcute/identity-resolver",
+          "node_modules/@atcute/oauth-browser-client",
+          "node_modules/@atcute/oauth-browser-client/node_modules/nanoid",
+          "node_modules/@atcute/oauth-crypto",
+          "node_modules/@atcute/oauth-crypto/node_modules/nanoid",
+          "node_modules/@atcute/oauth-keyset",
+          "node_modules/@atcute/oauth-node-client",
+          "node_modules/@atcute/oauth-node-client/node_modules/nanoid",
+          "node_modules/@atcute/oauth-types"
+        ],
+        "removed": [],
+        "changed": [],
+        "runtimePaths": 10,
+        "bytes": 731902
+      }
+    },
+    "hybrid": {
+      "runtimePaths": 191,
+      "bytes": 69065506,
+      "nodeFloor": {
+        "node": ">=22.19"
+      },
+      "delta": {
+        "added": [
+          "node_modules/@atcute/client",
+          "node_modules/@atcute/identity-resolver",
+          "node_modules/@atcute/oauth-crypto",
+          "node_modules/@atcute/oauth-crypto/node_modules/nanoid",
+          "node_modules/@atcute/oauth-keyset",
+          "node_modules/@atcute/oauth-node-client",
+          "node_modules/@atcute/oauth-node-client/node_modules/nanoid",
+          "node_modules/@atcute/oauth-types",
+          "node_modules/@atproto-labs/handle-resolver",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto-labs/identity-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto/jwk",
+          "node_modules/@atproto/jwk-jose",
+          "node_modules/@atproto/jwk-webcrypto",
+          "node_modules/@atproto/jwk/node_modules/multiformats",
+          "node_modules/@atproto/oauth-client",
+          "node_modules/@atproto/oauth-client-browser",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/multiformats",
+          "node_modules/@atproto/oauth-types",
+          "node_modules/@atproto/oauth-types/node_modules/@atproto/did",
+          "node_modules/@atproto/xrpc",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/lexicon",
+          "node_modules/@atproto/xrpc/node_modules/multiformats",
+          "node_modules/jose"
+        ],
+        "removed": [],
+        "changed": [
+          "node_modules/@atproto/common-web",
+          "node_modules/@atproto/syntax"
+        ],
+        "runtimePaths": 44,
+        "bytes": 6538471
+      }
+    },
+    "official-preserved": {
+      "runtimePaths": 194,
+      "bytes": 69350103,
+      "nodeFloor": {
+        "node": ">=22.19"
+      },
+      "delta": {
+        "added": [
+          "node_modules/@atproto-labs/handle-resolver",
+          "node_modules/@atproto-labs/handle-resolver-node",
+          "node_modules/@atproto-labs/handle-resolver-node/node_modules/@atproto/did",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto-labs/identity-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto/jwk",
+          "node_modules/@atproto/jwk-jose",
+          "node_modules/@atproto/jwk-webcrypto",
+          "node_modules/@atproto/jwk/node_modules/multiformats",
+          "node_modules/@atproto/oauth-client",
+          "node_modules/@atproto/oauth-client-browser",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client-node",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client-node/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/multiformats",
+          "node_modules/@atproto/oauth-types",
+          "node_modules/@atproto/oauth-types/node_modules/@atproto/did",
+          "node_modules/@atproto/xrpc",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/common-web",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/lexicon",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/syntax",
+          "node_modules/@atproto/xrpc/node_modules/multiformats",
+          "node_modules/jose"
+        ],
+        "removed": [],
+        "changed": [],
+        "runtimePaths": 47,
+        "bytes": 6823068
+      }
+    },
+    "hybrid-preserved": {
+      "runtimePaths": 193,
+      "bytes": 69372975,
+      "nodeFloor": {
+        "node": ">=22.19"
+      },
+      "delta": {
+        "added": [
+          "node_modules/@atcute/client",
+          "node_modules/@atcute/identity-resolver",
+          "node_modules/@atcute/oauth-crypto",
+          "node_modules/@atcute/oauth-crypto/node_modules/nanoid",
+          "node_modules/@atcute/oauth-keyset",
+          "node_modules/@atcute/oauth-node-client",
+          "node_modules/@atcute/oauth-node-client/node_modules/nanoid",
+          "node_modules/@atcute/oauth-types",
+          "node_modules/@atproto-labs/handle-resolver",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto-labs/identity-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto/did",
+          "node_modules/@atproto/jwk",
+          "node_modules/@atproto/jwk-jose",
+          "node_modules/@atproto/jwk-webcrypto",
+          "node_modules/@atproto/jwk/node_modules/multiformats",
+          "node_modules/@atproto/oauth-client",
+          "node_modules/@atproto/oauth-client-browser",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client-browser/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/did-resolver",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/fetch",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/pipe",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store-memory",
+          "node_modules/@atproto/oauth-client/node_modules/@atproto/did",
+          "node_modules/@atproto/oauth-client/node_modules/multiformats",
+          "node_modules/@atproto/oauth-types",
+          "node_modules/@atproto/oauth-types/node_modules/@atproto/did",
+          "node_modules/@atproto/xrpc",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/common-web",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/lexicon",
+          "node_modules/@atproto/xrpc/node_modules/@atproto/syntax",
+          "node_modules/@atproto/xrpc/node_modules/multiformats",
+          "node_modules/jose"
+        ],
+        "removed": [],
+        "changed": [],
+        "runtimePaths": 46,
+        "bytes": 6845940
+      }
+    }
+  },
+  "bundler": {
+    "name": "esbuild",
+    "version": "0.28.2"
+  },
+  "bundleMethod": "Full exported package API and selected minimal enrolment API; exact installed candidate dependency tree; ESM bundle, ES2022 target, minified, level-9 gzip. Metafile gives static import closure, including side-effect polyfills; dynamic imports/external Node builtins stay identified.",
+  "bundleLimits": [
+    "Standalone library footprint, not implemented Atseq shell or incremental integrated bundle",
+    "Static import analysis does not prove runtime execution or provider behavior"
+  ],
+  "bundles": [
+    {
+      "variant": "official",
+      "platform": "node",
+      "mode": "full",
+      "package": "@atproto/oauth-client-node",
+      "bundleBytes": 1767579,
+      "gzipBytes": 545760,
+      "bundleSha256": "7caa013214b5db3657e6c5f8f01fb4a93f361b961c2b3362799bd9491bc79c40",
+      "importedFiles": 713,
+      "contributingFiles": 614
+    },
+    {
+      "variant": "official",
+      "platform": "node",
+      "mode": "minimal",
+      "package": "@atproto/oauth-client-node",
+      "bundleBytes": 1754142,
+      "gzipBytes": 541569,
+      "bundleSha256": "23ffd7e452abe20912873594450b5f35c6e8e31fe0613976ef94f590a701bf38",
+      "importedFiles": 713,
+      "contributingFiles": 603
+    },
+    {
+      "variant": "official",
+      "platform": "browser",
+      "mode": "full",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 254729,
+      "gzipBytes": 69390,
+      "bundleSha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b",
+      "importedFiles": 384,
+      "contributingFiles": 289
+    },
+    {
+      "variant": "official",
+      "platform": "browser",
+      "mode": "minimal",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 242104,
+      "gzipBytes": 64096,
+      "bundleSha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3",
+      "importedFiles": 384,
+      "contributingFiles": 279
+    },
+    {
+      "variant": "atcute",
+      "platform": "node",
+      "mode": "full",
+      "package": "@atcute/oauth-node-client",
+      "bundleBytes": 51233,
+      "gzipBytes": 15919,
+      "bundleSha256": "d1c838e9264fe787d2675865919f2162a5296f9ba2fac18605351785b132d7d9",
+      "importedFiles": 111,
+      "contributingFiles": 65
+    },
+    {
+      "variant": "atcute",
+      "platform": "node",
+      "mode": "minimal",
+      "package": "@atcute/oauth-node-client",
+      "bundleBytes": 48380,
+      "gzipBytes": 14903,
+      "bundleSha256": "620dc748b84d8e4b6d86cb270de62915198e9d86ff7b63cf062c8012e7b248d5",
+      "importedFiles": 111,
+      "contributingFiles": 61
+    },
+    {
+      "variant": "atcute",
+      "platform": "browser",
+      "mode": "full",
+      "package": "@atcute/oauth-browser-client",
+      "bundleBytes": 18789,
+      "gzipBytes": 7193,
+      "bundleSha256": "2113f21b4675f45d600d464907ac3c028efe8d68b01a58cb3401fa2dacdbee5f",
+      "importedFiles": 53,
+      "contributingFiles": 30
+    },
+    {
+      "variant": "atcute",
+      "platform": "browser",
+      "mode": "minimal",
+      "package": "@atcute/oauth-browser-client",
+      "bundleBytes": 18613,
+      "gzipBytes": 7140,
+      "bundleSha256": "9784f6ccd8889a974a2b4d1a478bfaa8d29e49b623277af50d4a2e0948c7d297",
+      "importedFiles": 53,
+      "contributingFiles": 30
+    },
+    {
+      "variant": "hybrid",
+      "platform": "node",
+      "mode": "full",
+      "package": "@atcute/oauth-node-client",
+      "bundleBytes": 51233,
+      "gzipBytes": 15919,
+      "bundleSha256": "d1c838e9264fe787d2675865919f2162a5296f9ba2fac18605351785b132d7d9",
+      "importedFiles": 111,
+      "contributingFiles": 65
+    },
+    {
+      "variant": "hybrid",
+      "platform": "node",
+      "mode": "minimal",
+      "package": "@atcute/oauth-node-client",
+      "bundleBytes": 48380,
+      "gzipBytes": 14903,
+      "bundleSha256": "620dc748b84d8e4b6d86cb270de62915198e9d86ff7b63cf062c8012e7b248d5",
+      "importedFiles": 111,
+      "contributingFiles": 61
+    },
+    {
+      "variant": "hybrid",
+      "platform": "browser",
+      "mode": "full",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 254729,
+      "gzipBytes": 69390,
+      "bundleSha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b",
+      "importedFiles": 384,
+      "contributingFiles": 289
+    },
+    {
+      "variant": "hybrid",
+      "platform": "browser",
+      "mode": "minimal",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 242104,
+      "gzipBytes": 64096,
+      "bundleSha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3",
+      "importedFiles": 384,
+      "contributingFiles": 279
+    },
+    {
+      "variant": "official-preserved",
+      "platform": "node",
+      "mode": "full",
+      "package": "@atproto/oauth-client-node",
+      "bundleBytes": 1767579,
+      "gzipBytes": 545760,
+      "bundleSha256": "7caa013214b5db3657e6c5f8f01fb4a93f361b961c2b3362799bd9491bc79c40",
+      "importedFiles": 713,
+      "contributingFiles": 614
+    },
+    {
+      "variant": "official-preserved",
+      "platform": "node",
+      "mode": "minimal",
+      "package": "@atproto/oauth-client-node",
+      "bundleBytes": 1754142,
+      "gzipBytes": 541569,
+      "bundleSha256": "23ffd7e452abe20912873594450b5f35c6e8e31fe0613976ef94f590a701bf38",
+      "importedFiles": 713,
+      "contributingFiles": 603
+    },
+    {
+      "variant": "official-preserved",
+      "platform": "browser",
+      "mode": "full",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 254729,
+      "gzipBytes": 69390,
+      "bundleSha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b",
+      "importedFiles": 384,
+      "contributingFiles": 289
+    },
+    {
+      "variant": "official-preserved",
+      "platform": "browser",
+      "mode": "minimal",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 242104,
+      "gzipBytes": 64096,
+      "bundleSha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3",
+      "importedFiles": 384,
+      "contributingFiles": 279
+    },
+    {
+      "variant": "hybrid-preserved",
+      "platform": "node",
+      "mode": "full",
+      "package": "@atcute/oauth-node-client",
+      "bundleBytes": 51233,
+      "gzipBytes": 15919,
+      "bundleSha256": "d1c838e9264fe787d2675865919f2162a5296f9ba2fac18605351785b132d7d9",
+      "importedFiles": 111,
+      "contributingFiles": 65
+    },
+    {
+      "variant": "hybrid-preserved",
+      "platform": "node",
+      "mode": "minimal",
+      "package": "@atcute/oauth-node-client",
+      "bundleBytes": 48380,
+      "gzipBytes": 14903,
+      "bundleSha256": "620dc748b84d8e4b6d86cb270de62915198e9d86ff7b63cf062c8012e7b248d5",
+      "importedFiles": 111,
+      "contributingFiles": 61
+    },
+    {
+      "variant": "hybrid-preserved",
+      "platform": "browser",
+      "mode": "full",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 254729,
+      "gzipBytes": 69390,
+      "bundleSha256": "990e60605f753e8f8c6ed93b1ad38ff828b5385889307319f96f4f9f2a79bc4b",
+      "importedFiles": 384,
+      "contributingFiles": 289
+    },
+    {
+      "variant": "hybrid-preserved",
+      "platform": "browser",
+      "mode": "minimal",
+      "package": "@atproto/oauth-client-browser",
+      "bundleBytes": 242104,
+      "gzipBytes": 64096,
+      "bundleSha256": "f1bf47db7f86fad96eedf88caf68ce1eab3ec7996e677b1d41ce91b51956e3b3",
+      "importedFiles": 384,
+      "contributingFiles": 279
+    }
+  ],
+  "limits": [
+    "No production client family decision or implementation",
+    "No real provider/login/publication, integrated bundle or performance claim",
+    "Full exact graph/source/metafiles/raw logs are losslessly archived"
+  ]
+}
