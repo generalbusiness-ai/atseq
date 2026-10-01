@@ -1,0 +1,366 @@
+{
+  "request": "592e7c3327a8740f7a701b64e32a454cc7213aaa",
+  "ratifiedDecision": "e28c0d229bea433a450bc9d183939f04da466f39",
+  "proposalHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+  "basis": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "implementationSourceHead": "8743d44e61211945047428b3efe78361dcf6e1f7",
+  "productionChanges": [
+    "src/core/values.ts"
+  ],
+  "unchangedSourceAndLocks": {
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/protocol/identity.ts": "4d9edb717b6d98e051a229f3d507012de2739659f231b82b558add4b177ddb49",
+    "src/core/contracts.ts": "376d27a2dfcb2cd902f4181642c983f94cc33d76d6c38fc64170cc1768e9613e",
+    "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+    "src/core/dependencies-approved.json": "8c16a3609bcc15b339b9351adf97ee45150b9b2010db924d8364eaa05b68d747",
+    "src/archive/notices.json": "41d01d27b593a014ae2d962fd79d0b30469359296f02dbce1e1647d6090f7130",
+    "src/integrity/files-approved.json": "b93ba3e37afb6e6fd8da563ad78015e5b4ce80e2b76219587a81a1ddc5331621"
+  },
+  "harnesses": {
+    "experiments/canonical-ascii/browser-run.mjs": "2d7f5825e5ffb6eb900becf959fd591f54fa698075156d7aa3da6b02d9259978",
+    "experiments/canonical-ascii/browser.ts": "de366fe93731df2df46b9761ff63dcb2477f69986ddd0d712e082a90b9f9bb72",
+    "experiments/canonical-ascii/differential.mjs": "5fc67c111429f1367c640f10ffe777ea8fa42099c83f09896dc818f4ad32fcb7",
+    "experiments/canonical-ascii/guards.d.mts": "ed273d4c588096046eef0012b6fb0692e2e2114b9c3ec71c7e072b1ee490eb47",
+    "experiments/canonical-ascii/guards.mjs": "8a989955b729b793c60d89c8e31e5fa67f993b20e2e7ecd4484315123a88019f",
+    "experiments/canonical-ascii/probe.ts": "5cb0dd7449cea9591a3c4be779e06101a557e10d66d4a0143332e9028af2c5a0",
+    "experiments/canonical-ascii/profile-refusal.mjs": "b0451cbe99634dcced39f734eb65f9e34684d876ab976af1c57adc74b123c1f1",
+    "experiments/canonical-ascii/schema-probe.ts": "a9c7986ccd77505af8473542ee94531a295af8cf5fc4a59ea74e4e9f79770cba",
+    "experiments/canonical-ascii/shared.mjs": "a916e42e6f402af4f125a163420a1dc815a3f16fa5d374c961f18fb0d9f37f60",
+    "experiments/canonical-ascii/sources.mjs": "69f7d8893c9e4df7a090692709f521c4f3f942369c1e0b80292203a5b5f1d496",
+    "experiments/canonical-ascii/timing.mjs": "fcd3354c84eb84c801fa4f800d704218e36188ec522fe892b689539bf25254f8"
+  },
+  "sourcesSha256": "5f952c2e333589467340b2b2331a85fc0df53b0c86eb4378a1e819b00456932d",
+  "checks": [
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-build.log",
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-check.log",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-tests.log",
+      "sha256": "06ada18237a16516aa3519af3f9b7f156054ad39d9611cf14d4eaf6d36677ba1"
+    },
+    {
+      "command": "node scripts/source-run.mjs scripts/notices.ts --check",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-notices.log",
+      "sha256": "31b0cdd3ea1af5fe6737f71b6b86d1c8453a07d994ce7f55493975fd8bbe4a9d"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-ascii/differential.mjs",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-differential.log",
+      "sha256": "014f134ea8e0b4b8a002e1f7237e8c46e4626f0547185283a62679b575efeb6e"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-ascii/shared.mjs baseline",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-shared-baseline.log",
+      "sha256": "5a06813e6c36d04add128283bdafc027d15945dbbca1e363f16f3c997366895c"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-ascii/shared.mjs actual",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-shared-actual.log",
+      "sha256": "2ae386ff9f58f1f0d19a00737e8a27e99a71c64729a5547243e8b7aeb2d4f721"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-ascii/browser-run.mjs",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-browser.log",
+      "sha256": "a3b52b5f76ac8387576ac47b3f2974e19a091dd96d5fdd5cae52464b2d70fab9"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-ascii/profile-refusal.mjs",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-profile-refusal.log",
+      "sha256": "91deac019859a27063537d4776842a6fefa10af7d93c3f37d83118614499efd6"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-ascii/timing.mjs",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-timing.log",
+      "sha256": "67dcebff243ad00509434e04a31585795ae21f49f746244e92f2579fb63578e5"
+    },
+    {
+      "command": "npm run spike:acceptance",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance.log",
+      "sha256": "2c331a3712c22a73ca4f1a1f25b610cf9b740a6eefaef4c7430ad22e43c87e4e"
+    }
+  ],
+  "assertions": {
+    "nodeShared": 146,
+    "chromiumShared": [
+      134,
+      134
+    ],
+    "wrapperCases": 21,
+    "hostileCasesPerComparison": 1054,
+    "fullSuite": {
+      "passed": 374,
+      "failed": 0,
+      "skipped": 0
+    },
+    "packedConsumer": 154,
+    "nativeChromium": 51,
+    "acceptanceStages": 13,
+    "actualMethodTimingSamples": 104
+  },
+  "captures": {
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-capture.json": {
+      "sha256": "ce220d7fd3a145632f48b38889711b2feb471abb728da0ac33ddf8fc76be6347",
+      "bytes": 4985
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-capture.tar.gz": {
+      "sha256": "153273f8df2fca29211b59b1787dd5eda5d8162c4fdb3a59719fded55c2b97ee",
+      "bytes": 4124249
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/01.log": {
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "bytes": 689
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/02.log": {
+      "sha256": "7551829f097f43a5f7dbe58911db526e3188d4511083368ce3f9b796f13e1fa8",
+      "bytes": 32151
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/03.log": {
+      "sha256": "1e2dee740a9efa1543c2b96923d6438dc856f796dea82ebd9aa9cc5f04beab6f",
+      "bytes": 201
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/04.log": {
+      "sha256": "4693a6b89b83a12d5c2e897c7619e4f1fa4edd103a7cc0f0ee2a1ead83404335",
+      "bytes": 5639
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/05.log": {
+      "sha256": "16b7d5620141c9a506843b377ff681d8a1c28b6214a440e12bf2376a63bfb1de",
+      "bytes": 2258
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/06.log": {
+      "sha256": "9f81053bdb91b232dd93afa34f23d297d2c5f2491c1b8a62f51111ab29122e7d",
+      "bytes": 5512
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/07.log": {
+      "sha256": "52453181ee49d69d8bb608f333ccef74972821b69dc7ec73ca036d7b70443491",
+      "bytes": 310
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/08.log": {
+      "sha256": "9d77cf6b23f1e4034e717514f9eefb9016fe83b3ab841b9d2daa0b2ee991d714",
+      "bytes": 2178
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/09.log": {
+      "sha256": "b517ec75b3f415d65097e09b23ac909303a0d4c75acbbc19820017128fea6929",
+      "bytes": 2760
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/10.log": {
+      "sha256": "4a34dad248efb7c9979fda9083e2a878b44bea2122556cf8b0239885b5576723",
+      "bytes": 1672
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/11.log": {
+      "sha256": "80fd3bf6c4a61880832519088c3bc0e59f5f3d775cc94b52a77ec526173829ae",
+      "bytes": 234455
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/12.log": {
+      "sha256": "18f69227d7eb508f9c36ee3c60dfb6568f0cc6bff1aad927e6592b51dbade01d",
+      "bytes": 3395
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance-logs/13.log": {
+      "sha256": "055125651dfe2cb92cc84a75299d493977d753ba8309c857e5c96519bbfa33b3",
+      "bytes": 150
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance.json": {
+      "sha256": "6f11e3d454b6b6f1cf7126c427af4eb3e6d8dcacf58e71f40222f181a55ee55b",
+      "bytes": 2608026
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-acceptance.log": {
+      "sha256": "2c331a3712c22a73ca4f1a1f25b610cf9b740a6eefaef4c7430ad22e43c87e4e",
+      "bytes": 1171
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-browser.json": {
+      "sha256": "9db0ae9cb49db35cbcc487c1e28995368600f99b6467b19d0e0eb78476bf3388",
+      "bytes": 94021
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-browser.log": {
+      "sha256": "a3b52b5f76ac8387576ac47b3f2974e19a091dd96d5fdd5cae52464b2d70fab9",
+      "bytes": 65
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-build-provenance.json": {
+      "sha256": "84e4d8a21ac6fe9e70cfcd5f5fcbdfca728dc7252c6277e21a42e8633937624f",
+      "bytes": 46415
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-build.log": {
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "bytes": 494
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-check.log": {
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "bytes": 689
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-differential.json": {
+      "sha256": "ab6bdea51ea577b54f0400ac40c3d52f91e63879e5233239ce35277d9230c802",
+      "bytes": 21543
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-differential.log": {
+      "sha256": "014f134ea8e0b4b8a002e1f7237e8c46e4626f0547185283a62679b575efeb6e",
+      "bytes": 120
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-acceptance-capture.json": {
+      "sha256": "862cd082748ebc86e6c0c5a49f3d02df491c74dcd373990f53d1b74bebe533d4",
+      "bytes": 2641389
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-acceptance-capture.tar.gz": {
+      "sha256": "e837ae5851ce698aa427d7d46024704171bdb8eab6f9a09c7d4dfbd05fd97f70",
+      "bytes": 4122719
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-acceptance.log": {
+      "sha256": "2c331a3712c22a73ca4f1a1f25b610cf9b740a6eefaef4c7430ad22e43c87e4e",
+      "bytes": 1171
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-browser.json": {
+      "sha256": "a709add20af4339d03098c027aab844a297d79470c267ce985998cf4e77bee45",
+      "bytes": 94021
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-browser.log": {
+      "sha256": "a3b52b5f76ac8387576ac47b3f2974e19a091dd96d5fdd5cae52464b2d70fab9",
+      "bytes": 65
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-build-provenance.json": {
+      "sha256": "c32aa7301977b0fe0909b8890056532944be0c3ca3cbef44cbe1eeb9c7eb4f52",
+      "bytes": 46415
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-build.log": {
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "bytes": 494
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-check.log": {
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "bytes": 689
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-differential.json": {
+      "sha256": "d412dcfc1fca7bbf74a1e6cd8c4a65b8286c56ed9b9b8adb8ddce47298f3c4d2",
+      "bytes": 21543
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-differential.log": {
+      "sha256": "014f134ea8e0b4b8a002e1f7237e8c46e4626f0547185283a62679b575efeb6e",
+      "bytes": 120
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-install.log": {
+      "sha256": "41d76079668a0692d19975475855ba9b972a6e065fdf4e54b19e8cc242827124",
+      "bytes": 473
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-native-browser.json": {
+      "sha256": "5d0a2b3bf5f55202c8676628fbaef230a1e8d7a4831f3f6cf134f91089e67b01",
+      "bytes": 1868
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-package-conformance.json": {
+      "sha256": "8a762fe2187559fc5d39529ae3b6208e45358355f9b11638bf44dabb96007f9d",
+      "bytes": 16774
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-pds-install.log": {
+      "sha256": "a19fda18864c4c1152e7d1e55ce44183d3f924731e6b1687c032121593e55a19",
+      "bytes": 1140
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-shared-actual.json": {
+      "sha256": "2235feda1117d7bda343b629fd6b783b1db9e71ef903e3749aadf6d4bae2328c",
+      "bytes": 19097
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-shared-actual.log": {
+      "sha256": "2ae386ff9f58f1f0d19a00737e8a27e99a71c64729a5547243e8b7aeb2d4f721",
+      "bytes": 47
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-shared-baseline.json": {
+      "sha256": "6a3117f7230b0bff9bd4bd8e56a8425a1f4c9671a43c6f22b0de126b98b5060b",
+      "bytes": 19149
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-shared-baseline.log": {
+      "sha256": "5a06813e6c36d04add128283bdafc027d15945dbbca1e363f16f3c997366895c",
+      "bytes": 49
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-sources.json": {
+      "sha256": "eb7e5e78f2689d60c3b1ecb99268f0b19d16d5f9807d7b798b0de3ad326f7e49",
+      "bytes": 18687
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-tests.log": {
+      "sha256": "d0f4a248d6f89989ec1bcc80a186b0d805772a2d4ecc20127ad8500d217a1694",
+      "bytes": 30906
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-fd7dab4b-timing-prepare.log": {
+      "sha256": "8c1153f95c2aa9bb5d4de7da0f5a92f7ac36b538c05b5ddbcb2859d8ef47c5f6",
+      "bytes": 161
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-native-browser.json": {
+      "sha256": "c53193fd7ea90ab6d2e72467d88c283565924f3b9e32da2736fba329568d2657",
+      "bytes": 3069
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-notices.log": {
+      "sha256": "31b0cdd3ea1af5fe6737f71b6b86d1c8453a07d994ce7f55493975fd8bbe4a9d",
+      "bytes": 48
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-package-conformance.json": {
+      "sha256": "bb9a6ebcc303e7af56c56c1a5b23effa538623f7d44ee0402df037f59911a7c2",
+      "bytes": 16774
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-profile-refusal.json": {
+      "sha256": "f1ab296aeec629e25b09bd8a0d9ed15348f260d25f1a56950e50c8b0e715ca0e",
+      "bytes": 681
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-profile-refusal.log": {
+      "sha256": "91deac019859a27063537d4776842a6fefa10af7d93c3f37d83118614499efd6",
+      "bytes": 160
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-shared-actual.json": {
+      "sha256": "4ca667a20a9e5b7a61db04a24dc87fd005465d1055d56b472e17a21707ed4515",
+      "bytes": 19097
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-shared-actual.log": {
+      "sha256": "2ae386ff9f58f1f0d19a00737e8a27e99a71c64729a5547243e8b7aeb2d4f721",
+      "bytes": 47
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-shared-baseline.json": {
+      "sha256": "37750341c1765e3bc35ec4e815780b6f7c0491bc377c272f168d338361072322",
+      "bytes": 19149
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-shared-baseline.log": {
+      "sha256": "5a06813e6c36d04add128283bdafc027d15945dbbca1e363f16f3c997366895c",
+      "bytes": 49
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-sources.json": {
+      "sha256": "5f952c2e333589467340b2b2331a85fc0df53b0c86eb4378a1e819b00456932d",
+      "bytes": 18687
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-tests.log": {
+      "sha256": "06ada18237a16516aa3519af3f9b7f156054ad39d9611cf14d4eaf6d36677ba1",
+      "bytes": 32142
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-timing.json": {
+      "sha256": "0f386be23610de13afd00a28c29ddd4fceac44e0e7ef33fc33d0091c9468039d",
+      "bytes": 17421
+    },
+    "experiments/post-spike-evidence/2026-10-01/canonical-ascii-timing.log": {
+      "sha256": "67dcebff243ad00509434e04a31585795ae21f49f746244e92f2579fb63578e5",
+      "bytes": 64
+    }
+  },
+  "notes": [
+    "Original proposal at 8034b247 remains frozen in its separate worktree.",
+    "fd7dab4b-prefixed captures are the distinct first-run basis; final unprefixed captures cover current combined 4b6ebab5 production basis.",
+    "Initial clean installs used the same root/PDS locks as final basis; final build/dependency checks revalidated the installed graph.",
+    "Timing window excluded our heavy work and coordinated I1/B1 build/test work; unrelated host/reviewer activity, JIT and GC remain possible.",
+    "Performance capture is bounded actual Schemas.validate on reconstructed P0 state shapes, not integrated catch-up.",
+    "Historical P0 app-v1 bytes remain immutable and are refused by current application loading; exact Lexicons are reused independently by current Schemas.",
+    "Original acceptance outputs/logs are captured in two 27-member archives; tracked historical outputs are restored.",
+    "Raw logs retain original bytes, including Vite whitespace. No dependency, descriptor, notice or install-policy changes."
+  ]
+}

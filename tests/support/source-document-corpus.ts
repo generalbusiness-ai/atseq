@@ -155,6 +155,16 @@ export async function runSourceDocumentCorpus(): Promise<FixtureResult[]> {
       exported.manifest.files!.map((file) => file.path),
     );
   });
+  for (const encoded of ['AB', 'AAB']) {
+    await check(
+      `source document rejects nonzero base64 trailing bits (${encoded.length}-character remainder) as wire_bytes`,
+      async () => {
+        const source = structuredClone(taskboard);
+        source.sources[0]!.content.$bytes = encoded;
+        await rejects(() => sourceDocumentToBundle(source), 'wire_bytes');
+      },
+    );
+  }
   await check('source document refuses path, version, byte and retained-table ambiguity', async () => {
     const valid = await sourceDocumentFromBundle(await sourceDocumentToBundle(taskboard));
     const mutations: ((copy: any) => void)[] = [

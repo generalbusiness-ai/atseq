@@ -71,7 +71,12 @@ export async function sourceDocumentToBundle(input: unknown): Promise<SourceBund
     size += Math.floor((encoded.length * 3) / 4);
     if (size > PROFILE.definitionBytes)
       throw new InterpretationError('definition_size', 'Decoded source files exceed 512 KiB');
-    const raw = fromBytes(item.content);
+    let raw: Uint8Array;
+    try {
+      raw = fromBytes(item.content);
+    } catch {
+      throw new InterpretationError('wire_bytes', 'Expected canonical unpadded base64');
+    }
     if (bytes(raw).$bytes !== encoded)
       throw new InterpretationError('wire_bytes', 'Expected canonical unpadded base64');
     files.set(item.path, new Uint8Array(raw));

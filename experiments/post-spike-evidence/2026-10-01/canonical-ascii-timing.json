@@ -1,0 +1,751 @@
+{
+  "capturedAt": "2026-10-01T18:22:26.923Z",
+  "basis": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "codeHead": "8743d44e61211945047428b3efe78361dcf6e1f7",
+  "node": "v26.10.0",
+  "platform": "darwin 27.0.0 arm64",
+  "cpu": "Apple M5 Max",
+  "sourceHashes": {
+    "baseline": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+    "actual": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f"
+  },
+  "schemasSha256": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+  "baselineSchemasCompiledSha256": "be09603563f920fb7f353cb5f80da93364580bc1157484d694a8f041f6b53f8f",
+  "lockSha256": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b",
+  "harnessSha256": "fcd3354c84eb84c801fa4f800d704218e36188ec522fe892b689539bf25254f8",
+  "input": {
+    "path": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-1-1000.json.gz",
+    "compressedSha256": "859cd8d9ab6cf476cc24ad5757163d41f20718279593364e2e0e6cf662fedfa7",
+    "rawSha256": "8a90d9916fd9be52327b251b199d9a3aeb31014eb3b65eaaf950c7cf4dd72a54",
+    "sourceCid": "bafyreif7ktby246kcxgh4vasrxfeyzvxruzvn7jjk6znsnctumuiey42ea",
+    "entries": 1000,
+    "historicalApplicationProfile": {
+      "$link": "bafyreicardamj74b7q4apgpugclazy3tu2vzafneiva6lwenurb724kruu"
+    },
+    "lexiconDocumentsSha256": "0e4ea333a388e5a1ef788a44b065905d5986d989991010c67463f24225b6a228"
+  },
+  "method": {
+    "samples": 13,
+    "iterationsPerSample": 5,
+    "warmupSamples": 5,
+    "order": "alternating per sample",
+    "timing": "Actual unchanged Schemas.validate methods, with separate equivalent official Lexicon instances. Baseline class uses only pre-change guard via a process-local import substitution; actual class imports production source normally.",
+    "counting": "Outside timing: compile exact before/after guard sources and inject a counting TextEncoder, preserving all charged bytes."
+  },
+  "limits": [
+    "Bounded reconstructed P0 shapes, no growing-history replay or end-to-end speedup claim",
+    "Retained P0 application has the historical v1 profile; only its exact Lexicon documents and state shapes are reused for this isolated Schemas kernel, not admitted as a current application",
+    "Own heavy processes stopped and programme quiet window requested; unrelated host activity, JIT and GC remain possible noise",
+    "Baseline class is compiled by the locked ts-morph TypeScript API; actual class uses the normal source runner"
+  ],
+  "inputs": [
+    {
+      "length": 0,
+      "jsonBytes": 32,
+      "canonicalSha256": "9b9fb90a53c95801095019064272f5d1fabf75d5c17ef05ac12b2186f05a4bd3"
+    },
+    {
+      "length": 99,
+      "jsonBytes": 320,
+      "canonicalSha256": "feaec5b5582d2686f9bea3b7c3992c5ee1c04f3be97113344a8889421bcba02e"
+    },
+    {
+      "length": 999,
+      "jsonBytes": 3921,
+      "canonicalSha256": "7e521d4efb8d845240ddcf8d69a529bd31f4b30f46c0697f3292af53a25fc632"
+    },
+    {
+      "length": 9999,
+      "jsonBytes": 48922,
+      "canonicalSha256": "b1342a009d234a01d1aae203655e1e85611868f8c8fc510869facd4f39db969d"
+    }
+  ],
+  "rows": [
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 0,
+      "elapsedMsPerCall": 0.004791599999998652
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 0,
+      "elapsedMsPerCall": 0.006725000000005821
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 1,
+      "elapsedMsPerCall": 0.006191599999988284
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 1,
+      "elapsedMsPerCall": 0.004991799999993418
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 2,
+      "elapsedMsPerCall": 0.00464999999999236
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 2,
+      "elapsedMsPerCall": 0.005983400000013716
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 3,
+      "elapsedMsPerCall": 0.00625
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 3,
+      "elapsedMsPerCall": 0.005799999999999273
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 4,
+      "elapsedMsPerCall": 0.004641600000013568
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 4,
+      "elapsedMsPerCall": 0.006000000000017281
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 5,
+      "elapsedMsPerCall": 0.006016599999998107
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 5,
+      "elapsedMsPerCall": 0.0049250000000029106
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 6,
+      "elapsedMsPerCall": 0.006108400000016445
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 6,
+      "elapsedMsPerCall": 0.006816600000001926
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 7,
+      "elapsedMsPerCall": 0.007166600000005019
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 7,
+      "elapsedMsPerCall": 0.005408400000010261
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 8,
+      "elapsedMsPerCall": 0.004916600000001381
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 8,
+      "elapsedMsPerCall": 0.006441599999993742
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 9,
+      "elapsedMsPerCall": 0.006366600000001199
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 9,
+      "elapsedMsPerCall": 0.0049250000000029106
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 10,
+      "elapsedMsPerCall": 0.005008399999996982
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 10,
+      "elapsedMsPerCall": 0.0060749999999870855
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 11,
+      "elapsedMsPerCall": 0.0061249999999972715
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 11,
+      "elapsedMsPerCall": 0.0057333999999855225
+    },
+    {
+      "length": 0,
+      "variant": "actual",
+      "sample": 12,
+      "elapsedMsPerCall": 0.005566799999996874
+    },
+    {
+      "length": 0,
+      "variant": "baseline",
+      "sample": 12,
+      "elapsedMsPerCall": 0.006141800000000331
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 0,
+      "elapsedMsPerCall": 0.0324083999999857
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 0,
+      "elapsedMsPerCall": 0.08933320000001004
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 1,
+      "elapsedMsPerCall": 0.09232499999998253
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 1,
+      "elapsedMsPerCall": 0.047983399999998254
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 2,
+      "elapsedMsPerCall": 0.038733400000000986
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 2,
+      "elapsedMsPerCall": 0.10296660000001338
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 3,
+      "elapsedMsPerCall": 0.10586679999998978
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 3,
+      "elapsedMsPerCall": 0.04049159999999574
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 4,
+      "elapsedMsPerCall": 0.03842499999998381
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 4,
+      "elapsedMsPerCall": 0.10265819999999622
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 5,
+      "elapsedMsPerCall": 0.09740819999999531
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 5,
+      "elapsedMsPerCall": 0.03833320000001095
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 6,
+      "elapsedMsPerCall": 0.038516600000002656
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 6,
+      "elapsedMsPerCall": 0.10048320000000785
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 7,
+      "elapsedMsPerCall": 0.10253320000001623
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 7,
+      "elapsedMsPerCall": 0.039483400000017356
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 8,
+      "elapsedMsPerCall": 0.038266599999997195
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 8,
+      "elapsedMsPerCall": 0.09980000000000473
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 9,
+      "elapsedMsPerCall": 0.09864179999999578
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 9,
+      "elapsedMsPerCall": 0.03949999999999818
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 10,
+      "elapsedMsPerCall": 0.04255839999998443
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 10,
+      "elapsedMsPerCall": 0.1066665999999941
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 11,
+      "elapsedMsPerCall": 0.1617999999999938
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 11,
+      "elapsedMsPerCall": 0.0317833999999948
+    },
+    {
+      "length": 99,
+      "variant": "actual",
+      "sample": 12,
+      "elapsedMsPerCall": 0.030683399999998074
+    },
+    {
+      "length": 99,
+      "variant": "baseline",
+      "sample": 12,
+      "elapsedMsPerCall": 0.13150839999998426
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 0,
+      "elapsedMsPerCall": 0.22220839999999953
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 0,
+      "elapsedMsPerCall": 0.913658200000009
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 1,
+      "elapsedMsPerCall": 0.7980499999999893
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 1,
+      "elapsedMsPerCall": 0.22775839999999334
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 2,
+      "elapsedMsPerCall": 0.22127499999999145
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 2,
+      "elapsedMsPerCall": 0.7553666000000021
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 3,
+      "elapsedMsPerCall": 0.8975999999999885
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 3,
+      "elapsedMsPerCall": 0.22854999999999565
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 4,
+      "elapsedMsPerCall": 0.2199832000000015
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 4,
+      "elapsedMsPerCall": 0.7539667999999893
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 5,
+      "elapsedMsPerCall": 1.0181334000000106
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 5,
+      "elapsedMsPerCall": 0.21874179999999796
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 6,
+      "elapsedMsPerCall": 0.21916680000001634
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 6,
+      "elapsedMsPerCall": 0.7586581999999907
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 7,
+      "elapsedMsPerCall": 0.9674749999999903
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 7,
+      "elapsedMsPerCall": 0.2183165999999801
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 8,
+      "elapsedMsPerCall": 0.217450000000008
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 8,
+      "elapsedMsPerCall": 0.6989665999999943
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 9,
+      "elapsedMsPerCall": 0.8720500000000129
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 9,
+      "elapsedMsPerCall": 0.22748340000000553
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 10,
+      "elapsedMsPerCall": 0.22168340000000625
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 10,
+      "elapsedMsPerCall": 0.7058750000000146
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 11,
+      "elapsedMsPerCall": 0.7218417999999929
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 11,
+      "elapsedMsPerCall": 0.2226666000000023
+    },
+    {
+      "length": 999,
+      "variant": "actual",
+      "sample": 12,
+      "elapsedMsPerCall": 0.22200000000000272
+    },
+    {
+      "length": 999,
+      "variant": "baseline",
+      "sample": 12,
+      "elapsedMsPerCall": 0.798824999999988
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 0,
+      "elapsedMsPerCall": 2.3525666000000003
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 0,
+      "elapsedMsPerCall": 8.37460000000001
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 1,
+      "elapsedMsPerCall": 8.65710839999997
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 1,
+      "elapsedMsPerCall": 2.3922583999999913
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 2,
+      "elapsedMsPerCall": 2.472925000000032
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 2,
+      "elapsedMsPerCall": 8.2082582
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 3,
+      "elapsedMsPerCall": 8.639758200000006
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 3,
+      "elapsedMsPerCall": 2.446416799999997
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 4,
+      "elapsedMsPerCall": 2.72060819999997
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 4,
+      "elapsedMsPerCall": 8.305683399999998
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 5,
+      "elapsedMsPerCall": 8.335674999999991
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 5,
+      "elapsedMsPerCall": 2.544933400000036
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 6,
+      "elapsedMsPerCall": 2.4132084000000305
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 6,
+      "elapsedMsPerCall": 8.07538340000001
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 7,
+      "elapsedMsPerCall": 8.205850000000009
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 7,
+      "elapsedMsPerCall": 2.575108399999999
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 8,
+      "elapsedMsPerCall": 2.6298667999999905
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 8,
+      "elapsedMsPerCall": 8.653433399999994
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 9,
+      "elapsedMsPerCall": 8.62869999999998
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 9,
+      "elapsedMsPerCall": 2.5748000000000046
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 10,
+      "elapsedMsPerCall": 2.4718082000000323
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 10,
+      "elapsedMsPerCall": 8.189391599999999
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 11,
+      "elapsedMsPerCall": 8.68603320000002
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 11,
+      "elapsedMsPerCall": 2.3392665999999736
+    },
+    {
+      "length": 9999,
+      "variant": "actual",
+      "sample": 12,
+      "elapsedMsPerCall": 2.408725000000004
+    },
+    {
+      "length": 9999,
+      "variant": "baseline",
+      "sample": 12,
+      "elapsedMsPerCall": 8.293216600000004
+    }
+  ],
+  "encodings": [
+    {
+      "length": 0,
+      "counts": {
+        "baseline": {
+          "calls": 10,
+          "encodedBytes": 32,
+          "chargedBytes": 32
+        },
+        "actual": {
+          "calls": 3,
+          "encodedBytes": 25,
+          "chargedBytes": 32
+        }
+      }
+    },
+    {
+      "length": 99,
+      "counts": {
+        "baseline": {
+          "calls": 207,
+          "encodedBytes": 320,
+          "chargedBytes": 320
+        },
+        "actual": {
+          "calls": 3,
+          "encodedBytes": 26,
+          "chargedBytes": 320
+        }
+      }
+    },
+    {
+      "length": 999,
+      "counts": {
+        "baseline": {
+          "calls": 2007,
+          "encodedBytes": 3921,
+          "chargedBytes": 3921
+        },
+        "actual": {
+          "calls": 3,
+          "encodedBytes": 27,
+          "chargedBytes": 3921
+        }
+      }
+    },
+    {
+      "length": 9999,
+      "counts": {
+        "baseline": {
+          "calls": 20007,
+          "encodedBytes": 48922,
+          "chargedBytes": 48922
+        },
+        "actual": {
+          "calls": 3,
+          "encodedBytes": 28,
+          "chargedBytes": 48922
+        }
+      }
+    }
+  ]
+}
