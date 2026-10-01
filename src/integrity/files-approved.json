@@ -5288,18 +5288,18 @@
     "README.md": "057ef3ae4f4b4c9d3dcd257d3b2f38632de3c3a2ff068e5be14cb56a61d6daba"
   },
   "node_modules/brace-expansion": {
-    "dist/commonjs/index.d.ts": "0b4d0e7e8998ac3219939db9646bbcb4757f134d62a3226e5686b1e19a1fec3e",
-    "dist/commonjs/index.d.ts.map": "b3be0847ad40bba64997b91b4d4542d7a2d8365cfb4e74eaa572b90c1276c342",
-    "dist/commonjs/index.js": "8d1ea713e1dd03f52783bbceea9d85815a3587134d1936ea16257dea83884f15",
-    "dist/commonjs/index.js.map": "8c37d1ed63deea88fe6dd44dafd68cf1dc3eb007d60108edc5db68958ca9ecdc",
+    "dist/commonjs/index.d.ts": "b74929b2e5433150c0c7f6a3e7bcd1aadff6b82305584b25754ab38273ea731d",
+    "dist/commonjs/index.d.ts.map": "4081276536fa8a61b8ecf72c1b3cb65d354aa9f42b9952aa7c7aa3df69b76224",
+    "dist/commonjs/index.js": "e0ede97c712339a70bae2c96c675b1ffd30052bdf57f37f5a97b5945c40a9ae6",
+    "dist/commonjs/index.js.map": "030adad11afc034a17f6c008f25a3779e3988f56d067016cee00948725b00d24",
     "dist/commonjs/package.json": "8005a3491db7d92f36ac66369861589f9c47123d3a7c71e643fc2c06168cd45a",
-    "dist/esm/index.d.ts": "0b4d0e7e8998ac3219939db9646bbcb4757f134d62a3226e5686b1e19a1fec3e",
-    "dist/esm/index.d.ts.map": "b3be0847ad40bba64997b91b4d4542d7a2d8365cfb4e74eaa572b90c1276c342",
-    "dist/esm/index.js": "af0e6438163b5ef866c52680ec58756bcf00cff330729c0d6a3a44ee57bde9d1",
-    "dist/esm/index.js.map": "8acbba04cfba8e5ef1db9bd6fd182d9fccd4f53eb1e9be784f36584251a4701a",
+    "dist/esm/index.d.ts": "b74929b2e5433150c0c7f6a3e7bcd1aadff6b82305584b25754ab38273ea731d",
+    "dist/esm/index.d.ts.map": "4081276536fa8a61b8ecf72c1b3cb65d354aa9f42b9952aa7c7aa3df69b76224",
+    "dist/esm/index.js": "eea9a18920e1cde68f0068c36c040541ad6e93b0bb89eaab38c8ab49925b90a8",
+    "dist/esm/index.js.map": "181bf3ff0deaaedfcf28b02c260ab5316cb2a012d89070ad44d298dcfd7166dc",
     "dist/esm/package.json": "3ca9d4afd21425087cf31893b8f9f63c81b0b8408db5e343ca76e5f8aa26ab9a",
     "LICENSE": "9c63a23124d68cd30cd316a94a1a0bca34f032786df6df69fc4b5f136bac8d2e",
-    "package.json": "f8a0e0d0a6cbb58106ce6832205e0939a00b9583637011bf8ef4167f4a52fbda",
+    "package.json": "8af7dc0916002266f3b01459ef691d9f834d8ecdb0e021263280a50b913d85fa",
     "README.md": "e93dbbc034d09eb64681e11304d21551467a391d29241538953b6d57859788db"
   },
   "node_modules/buffer": {
