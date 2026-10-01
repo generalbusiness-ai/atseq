@@ -1,0 +1,87 @@
+{
+  "capturedAt": "2026-10-01T17:47:47.396Z",
+  "basis": "c5048df5060125a079196dadbb6bffdf23b50b13",
+  "scope": "V0 proposal only; production source, dependencies, approvals and semantic descriptors unchanged. Experimental source transformations are held in the source capture and process/bundle-local only.",
+  "hashes": {
+    "experiments/canonical-guard/browser-run.mjs": "93e707e9cd9bb58d3d9b16ea89c4802b00ed29c823ca640a9661b658ef820ba6",
+    "experiments/canonical-guard/browser.ts": "de366fe93731df2df46b9761ff63dcb2477f69986ddd0d712e082a90b9f9bb72",
+    "experiments/canonical-guard/candidates.d.mts": "708d55065c94f31210785d32a95aef6c0048bbd6ec5f67ad3bce6544cccc5526",
+    "experiments/canonical-guard/candidates.mjs": "a3488ad8a2708019e000a31958b87854f616cc20f54a0ec160f2172f042d0f43",
+    "experiments/canonical-guard/probe.ts": "405871d7b434148d953acd31073339cf510d3968ede0e939e486138dde136ed8",
+    "experiments/canonical-guard/run.mjs": "4e4dcc96171cd504d1226363a0655429493ed1398d6e0bfa74691af36839c8ac",
+    "experiments/canonical-guard/schema-probe.ts": "a9c7986ccd77505af8473542ee94531a295af8cf5fc4a59ea74e4e9f79770cba",
+    "experiments/canonical-guard/shared.mjs": "a6e4aae4b10e6766b199b90b717a8309a818510fb941171100188e1fcf73697b",
+    "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+    "src/core/contracts.ts": "03013fd0d1229dd010f95cdc0656a0bef0338d88c85d94e47b1ba1fd783d98fc",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "ad408a2ce81f63bbeaf4a0800b37c5306870f4400729325a073e67f885f10502",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+    "node_modules/@atproto/lexicon/dist/validators/complex.js": "69e9472e891a46865006247bf41742e1deaafeffc7f126f603ac77c86604dc69",
+    "node_modules/@atproto/lexicon/dist/validators/xrpc.js": "69bf4dbb551f5871d3ab2fa5a52a024f890b312d1330f01ba9404d4c2d289970",
+    "experiments/post-spike-evidence/2026-10-01/canonical-guard-node.json": "371e210c8eae5f9cef5b39b7b8f4657e8f1e6d076572a8d1069c030c9bcef0d9",
+    "experiments/post-spike-evidence/2026-10-01/canonical-guard-sources.json": "82a2d7c860de7681a117d85b72d9a912ca7a9d24da686965129ecccd97677c98",
+    "experiments/post-spike-evidence/2026-10-01/canonical-guard-shared-baseline.json": "9a1391383e70b0a835fdbe9a311ce03c11b6a736099ecff4b53c794316211657",
+    "experiments/post-spike-evidence/2026-10-01/canonical-guard-shared-ascii.json": "b6b850e1f3d862110c1ea724742e492b09a6671f4704e3dd4594976e159c4fe6",
+    "experiments/post-spike-evidence/2026-10-01/canonical-guard-browser.json": "4600645c74f370218043983aa92bb7a21860f6bfaf91f5585481b9d25dd80c67"
+  },
+  "validation": [
+    {
+      "command": "npm ci --no-audit",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-01.log",
+      "logSha256": "41d76079668a0692d19975475855ba9b972a6e065fdf4e54b19e8cc242827124"
+    },
+    {
+      "command": "npm ci --prefix tests/support/pds --no-audit",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-02.log",
+      "logSha256": "6d8efeee75c08b46bc5f3c6310176db195e0c2e90f7cc5537022ca075419b3f8"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-03.log",
+      "logSha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-04.log",
+      "logSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-guard/run.mjs",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-05.log",
+      "logSha256": "fe5ef0008c8de5160a2bce5edf42438d71689ada75f08f7653b17f4a2daf0ad0"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-guard/shared.mjs baseline",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-06.log",
+      "logSha256": "ecf2465eeeb7632c45dc9bda4a992c7dfc031997912e342557c0bc1a0b552e4d"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-guard/shared.mjs ascii",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-07.log",
+      "logSha256": "e7394bd1551d43f39fca4aeeb6609f7f6ecd57e75b1ecac5cd1cf12773cab391"
+    },
+    {
+      "command": "node scripts/source-run.mjs experiments/canonical-guard/browser-run.mjs",
+      "exitCode": 0,
+      "log": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-08.log",
+      "logSha256": "08919bd7ebfa006b3cae3e782494c1c15d526073f9b2184eb285eb6a5cb083ce"
+    }
+  ],
+  "unrun": [
+    "No product implementation",
+    "No post-change installed consumer/full suite/acceptance",
+    "No end-to-end Folder speedup or growing 10k replay",
+    "No Chromium port of the 12 Node-assert evolution cases",
+    "No heap/RSS allocation measurement",
+    "No claim of external host isolation or universal optimality"
+  ]
+}

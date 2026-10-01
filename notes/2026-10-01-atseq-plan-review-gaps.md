@@ -132,8 +132,13 @@ The finding map above describes the examined revision. The
 [current programme](2026-10-01-atseq-implementation-programme.md) now records
 landed P0/P1 and fixture/CI work separately from design and runtime gates.
 
-F2 has measured growing-state evidence, but the state contract remains undecided;
-V0 tests cheaper canonical guards before an effects prototype. F3 has an adopted
+F2 has measured growing-state evidence and an independently reviewed
+[options note](2026-10-01-atseq-effects-transaction-options.md). Keep the current
+128 KiB complete-state contract with V0 and checkpoints as the default. The
+186-second growing replay is the total for 10,000 actions, not one-action latency.
+A new effects contract waits for a concrete beyond-cap application requirement
+and at-cap Node/Chromium measurements. S1 concurrently removes full outcome-history
+copies from routine reads without changing the state contract. F3 has an adopted
 [actor-discovery direction](2026-10-01-atseq-actor-discovery.md), with I2's final
 enforced role interface and implementation still open. F4 has adopted
 [per-action compatibility](2026-10-01-atseq-activation-compatibility.md), with N1/I2
@@ -142,8 +147,22 @@ wire and runtime work open. F5's reviewed
 [authority](2026-10-01-atseq-account-authority-design.md) notes now specify retained
 PLC history and weaker web observation, grants/reset/revocation and appointed
 control. F8 still needs native incremental reads, materialization and checkpoints;
-P1's shipped proofs are their foundation. F9 authoring is in final integration,
-including reviewed sample aggregate bounds. F10 adopts the existing
+P1's shipped proofs and corrected PB1-R1 capacity classification are foundations.
+The reviewed [reader requirements](2026-10-01-atseq-incremental-reader-requirements.md)
+and [checkpoint design](2026-10-01-atseq-materialized-checkpoints.md) distinguish
+rapid trusted restore and native publication from independent replay audit.
+F9 authoring is shipped, including the v2 source-document contract, actual
+viewless/browser/CLI flows, reviewed sample aggregate bounds and the B1 typed
+malformed-byte correction. F10 adopts the existing
 [public scope](2026-10-01-atseq-confidentiality-direction.md); no speculative
 confidential mode is implemented. The listed concurrent tasks remain distinct
 from their downstream implementation completion.
+
+The [native wire](2026-10-01-atseq-native-wire-contract.md) and
+[enrolment design](2026-10-01-atseq-account-enrolment-design.md) make the remaining
+identity interfaces concrete. Corrected recovery authority, exact byte vectors,
+installed OAuth costs and real provider trials remain explicit gates. Internal
+PLC/web/network verification is a foundation; it does not complete authenticated
+participation or native app ordering. M0's narrow shipped patch and N0's generated
+attribution check replace the initial advisory observation above for current
+maintenance status; N2's explicit locale comparator is part of identity review.

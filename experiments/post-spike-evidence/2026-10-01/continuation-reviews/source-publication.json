@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-01",
+  "request": "4851a0775d6a5b554a0fbb36d0d391b8d4f01045",
+  "decisions": [
+    "f48d15409da9b841892d54362677499c8fb76804",
+    "a5f46ba7bd8148b1c432f89f2c4fef44141e4c36",
+    "4d4f6f8d18506ba126e700d08b8d4adc38da4d32",
+    "83cd03d42f287d4016e21132dc367c2f7fa30d28",
+    "0412eb82bd82f1b0aad682dfe73acc108bb87d47",
+    "01253121bfaaf66b40df849e8f89d9dffde2fd6b",
+    "a03c7402ab2e946608ae8e6fb007fc7b70954acb",
+    "e28c0d229bea433a450bc9d183939f04da466f39"
+  ],
+  "publicationChanges": "Native-wire adds ratified NW0-3 role-revision/map-pressure clarification and adopted status; materialization updates subsequent NW0 acceptance. Original source hashes retained. Other copied sources and raw captures byte identical. Programme/index/gap snapshots updated separately.",
+  "files": [
+    {
+      "path": "notes/2026-10-01-atseq-incremental-reader-requirements.md",
+      "sourceHead": "2d831d0a69278161894a58c91186a84a4bad8b75",
+      "sourceSha256": "38578365ac6e16e5ed90f5556b2a5ecb78f6644ae43f299e7d5c09ba93e5b091",
+      "publishedSha256": "38578365ac6e16e5ed90f5556b2a5ecb78f6644ae43f299e7d5c09ba93e5b091",
+      "byteIdentical": true
+    },
+    {
+      "path": "notes/2026-10-01-atseq-native-wire-contract.md",
+      "sourceHead": "10e656b3594e41cfa096c03e390cc721776cf57e",
+      "sourceSha256": "283b45c507618aba147d8c29d7df500cea62d192ac63a751d2cf1d71dbcde4eb",
+      "publishedSha256": "b5aa4cc662f98940519daba2dafa882694da08f01bf0dbf2ac9f339f3e8c255b",
+      "byteIdentical": false
+    },
+    {
+      "path": "notes/2026-10-01-atseq-effects-transaction-options.md",
+      "sourceHead": "562e8ed9129b39d5d48e53da2e9b26167116a952",
+      "sourceSha256": "ed4e38a6b1af9ac3b9414a5d828be37f4831c130d590089a30b6745b07d9424f",
+      "publishedSha256": "ed4e38a6b1af9ac3b9414a5d828be37f4831c130d590089a30b6745b07d9424f",
+      "byteIdentical": true
+    },
+    {
+      "path": "notes/2026-10-01-atseq-materialized-checkpoints.md",
+      "sourceHead": "b27ed603e39e8a5247632f88c337fa331a44b695",
+      "sourceSha256": "562ad94f435dc50d6618269b32ece1f03cf675a4fa955a749f94c892b664fa89",
+      "publishedSha256": "bc5c08ef502074c09c7c0a2382b3f15ec1d56efd1c36f6a9931215e84917985b",
+      "byteIdentical": false
+    },
+    {
+      "path": "notes/2026-10-01-atseq-account-enrolment-design.md",
+      "sourceHead": "ad260f00ab61f76e64db05ed1d975801a41f9ae4",
+      "sourceSha256": "13cd7c5008198a30ad06452961bb4eb75a16fce64d47270bb880c86d67fbe712",
+      "publishedSha256": "13cd7c5008198a30ad06452961bb4eb75a16fce64d47270bb880c86d67fbe712",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/account-enrolment/source-inspection.json",
+      "sourceHead": "ad260f00ab61f76e64db05ed1d975801a41f9ae4",
+      "sourceSha256": "213939a6918fd599740582502715d3538d620596d8384a667859d17cf39fb05c",
+      "publishedSha256": "213939a6918fd599740582502715d3538d620596d8384a667859d17cf39fb05c",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/browser-run.mjs",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "93e707e9cd9bb58d3d9b16ea89c4802b00ed29c823ca640a9661b658ef820ba6",
+      "publishedSha256": "93e707e9cd9bb58d3d9b16ea89c4802b00ed29c823ca640a9661b658ef820ba6",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/browser.ts",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "de366fe93731df2df46b9761ff63dcb2477f69986ddd0d712e082a90b9f9bb72",
+      "publishedSha256": "de366fe93731df2df46b9761ff63dcb2477f69986ddd0d712e082a90b9f9bb72",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/candidates.d.mts",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "708d55065c94f31210785d32a95aef6c0048bbd6ec5f67ad3bce6544cccc5526",
+      "publishedSha256": "708d55065c94f31210785d32a95aef6c0048bbd6ec5f67ad3bce6544cccc5526",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/candidates.mjs",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "a3488ad8a2708019e000a31958b87854f616cc20f54a0ec160f2172f042d0f43",
+      "publishedSha256": "a3488ad8a2708019e000a31958b87854f616cc20f54a0ec160f2172f042d0f43",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/probe.ts",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "405871d7b434148d953acd31073339cf510d3968ede0e939e486138dde136ed8",
+      "publishedSha256": "405871d7b434148d953acd31073339cf510d3968ede0e939e486138dde136ed8",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/run.mjs",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "4e4dcc96171cd504d1226363a0655429493ed1398d6e0bfa74691af36839c8ac",
+      "publishedSha256": "4e4dcc96171cd504d1226363a0655429493ed1398d6e0bfa74691af36839c8ac",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/schema-probe.ts",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "a9c7986ccd77505af8473542ee94531a295af8cf5fc4a59ea74e4e9f79770cba",
+      "publishedSha256": "a9c7986ccd77505af8473542ee94531a295af8cf5fc4a59ea74e4e9f79770cba",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/canonical-guard/shared.mjs",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "a6e4aae4b10e6766b199b90b717a8309a818510fb941171100188e1fcf73697b",
+      "publishedSha256": "a6e4aae4b10e6766b199b90b717a8309a818510fb941171100188e1fcf73697b",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-browser.json",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "4600645c74f370218043983aa92bb7a21860f6bfaf91f5585481b9d25dd80c67",
+      "publishedSha256": "4600645c74f370218043983aa92bb7a21860f6bfaf91f5585481b9d25dd80c67",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-manifest.json",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "76f873c05fb7cc8327d778c97cc1f596471d47e7226e4b7b6c7f22e13d6f21c5",
+      "publishedSha256": "76f873c05fb7cc8327d778c97cc1f596471d47e7226e4b7b6c7f22e13d6f21c5",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-node.json",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "371e210c8eae5f9cef5b39b7b8f4657e8f1e6d076572a8d1069c030c9bcef0d9",
+      "publishedSha256": "371e210c8eae5f9cef5b39b7b8f4657e8f1e6d076572a8d1069c030c9bcef0d9",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-shared-ascii.json",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "b6b850e1f3d862110c1ea724742e492b09a6671f4704e3dd4594976e159c4fe6",
+      "publishedSha256": "b6b850e1f3d862110c1ea724742e492b09a6671f4704e3dd4594976e159c4fe6",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-shared-baseline.json",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "9a1391383e70b0a835fdbe9a311ce03c11b6a736099ecff4b53c794316211657",
+      "publishedSha256": "9a1391383e70b0a835fdbe9a311ce03c11b6a736099ecff4b53c794316211657",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-sources.json",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "82a2d7c860de7681a117d85b72d9a912ca7a9d24da686965129ecccd97677c98",
+      "publishedSha256": "82a2d7c860de7681a117d85b72d9a912ca7a9d24da686965129ecccd97677c98",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-01.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "41d76079668a0692d19975475855ba9b972a6e065fdf4e54b19e8cc242827124",
+      "publishedSha256": "41d76079668a0692d19975475855ba9b972a6e065fdf4e54b19e8cc242827124",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-02.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "6d8efeee75c08b46bc5f3c6310176db195e0c2e90f7cc5537022ca075419b3f8",
+      "publishedSha256": "6d8efeee75c08b46bc5f3c6310176db195e0c2e90f7cc5537022ca075419b3f8",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-03.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "publishedSha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-04.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "publishedSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-05.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "fe5ef0008c8de5160a2bce5edf42438d71689ada75f08f7653b17f4a2daf0ad0",
+      "publishedSha256": "fe5ef0008c8de5160a2bce5edf42438d71689ada75f08f7653b17f4a2daf0ad0",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-06.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "ecf2465eeeb7632c45dc9bda4a992c7dfc031997912e342557c0bc1a0b552e4d",
+      "publishedSha256": "ecf2465eeeb7632c45dc9bda4a992c7dfc031997912e342557c0bc1a0b552e4d",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-07.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "e7394bd1551d43f39fca4aeeb6609f7f6ecd57e75b1ecac5cd1cf12773cab391",
+      "publishedSha256": "e7394bd1551d43f39fca4aeeb6609f7f6ecd57e75b1ecac5cd1cf12773cab391",
+      "byteIdentical": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/canonical-guard-validation-08.log",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "08919bd7ebfa006b3cae3e782494c1c15d526073f9b2184eb285eb6a5cb083ce",
+      "publishedSha256": "08919bd7ebfa006b3cae3e782494c1c15d526073f9b2184eb285eb6a5cb083ce",
+      "byteIdentical": true
+    },
+    {
+      "path": "notes/2026-10-01-atseq-canonical-guard-proposal.md",
+      "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
+      "sourceSha256": "13c4178db0a4c3879a1086bc386fc854ea010b6b6a5cfe873f75d17e8b6dfb99",
+      "publishedSha256": "13c4178db0a4c3879a1086bc386fc854ea010b6b6a5cfe873f75d17e8b6dfb99",
+      "byteIdentical": true
+    }
+  ]
+}
