@@ -101,7 +101,7 @@ export const nativeLexicons = deepFreeze([
   nativeDefinition as LexiconDoc,
 ]);
 const registry = new Lexicons(structuredClone([...nativeLexicons]));
-const typed = new Set(Object.keys(definitions).map(nativeRef));
+const typed = new Set<string>(Object.keys(definitions).map(nativeRef));
 const withoutLex = (value: string) => value.replace(/^lex:/, '');
 
 /** Strict owned shape. This does not establish native publication or interpret authority. */
