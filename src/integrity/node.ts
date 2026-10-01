@@ -4,11 +4,15 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { builtinModules } from 'node:module';
 import { execFileSync } from 'node:child_process';
-import approved from '../core/dependencies-approved.json';
-import files from './files-approved.json';
+import approved from '../core/dependencies-approved.json' with { type: 'json' };
+import files from './files-approved.json' with { type: 'json' };
 import { InterpretationError } from '../core/errors.ts';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+export const packageRoot = resolve(
+  dirname(fileURLToPath(import.meta.url)),
+  import.meta.url.endsWith('/dist/src/integrity/node.js') ? '../../..' : '../..',
+);
+const root = packageRoot;
 export const integrityEnvironment = 'node';
 let verified = false;
 function fail(message: string): never {

@@ -6,7 +6,7 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { cli } from './helpers/cli.ts';
 import { join, dirname } from 'node:path';
-import { startEnvironment, resetDisposable } from '../experiments/pds/environment.mjs';
+import { startEnvironment, resetDisposable } from '../tests/support/pds/environment.mjs';
 import { P256PrivateKeyExportable } from '@atcute/crypto';
 import { Sequencer } from '../src/host/sequencer.ts';
 import { acquireWriterLease } from '../src/host/lease.ts';

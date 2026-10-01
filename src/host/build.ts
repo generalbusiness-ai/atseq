@@ -1,15 +1,43 @@
-import { build } from 'vite';
-import { readFile, readdir, writeFile } from 'node:fs/promises';
+import { readFile, readdir, writeFile, mkdir } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
-import { verifyInstalledDependencies } from '../integrity/node.ts';
-import dependencies from '../core/dependencies-approved.json';
-import packageFiles from '../integrity/files-approved.json';
+import { packageRoot, verifyInstalledDependencies } from '../integrity/node.ts';
+import dependencies from '../core/dependencies-approved.json' with { type: 'json' };
+import packageFiles from '../integrity/files-approved.json' with { type: 'json' };
 import { createHash } from 'node:crypto';
 /** Cache only this installed shell; never XRPC replies, credentials or archives. */
 export async function buildShell(outDir: string) {
   verifyInstalledDependencies();
   const root = resolve(outDir);
-  await build({ root: resolve('src/browser'), logLevel: 'warn', build: { outDir: root, emptyOutDir: true } });
+  if (import.meta.url.endsWith('/dist/src/host/build.js')) {
+    const installed = resolve(packageRoot, 'dist/shell'),
+      manifest = JSON.parse(await readFile(join(installed, 'shell-manifest.json'), 'utf8')) as {
+        cache: string;
+        files: string[];
+        hashes: Record<string, string>;
+        provenance: unknown;
+      };
+    // Verify the complete shell before replacing any files in the serving directory.
+    const content = await Promise.all(
+      Object.entries(manifest.hashes).map(async ([path, hash]) => {
+        if (!/^\/(?:[a-zA-Z0-9_.-]+\/)*[a-zA-Z0-9_.-]+$/.test(path) || path.split('/').includes('..'))
+          throw new Error('Invalid installed shell path');
+        const data = await readFile(installed + path);
+        if (createHash('sha256').update(data).digest('hex') !== hash) throw new Error('Installed shell build drift');
+        return { path, data };
+      }),
+    );
+    for (const { path, data } of content) {
+      await mkdir(resolve(root, '.' + path, '..'), { recursive: true });
+      await writeFile(root + path, data);
+    }
+    return { root, cache: manifest.cache, files: manifest.files, provenance: manifest.provenance };
+  }
+  const { build } = await import('vite');
+  await build({
+    root: resolve(packageRoot, 'src/browser'),
+    logLevel: 'warn',
+    build: { outDir: root, emptyOutDir: true },
+  });
   const files: string[] = [];
   async function walk(path = '') {
     for (const entry of await readdir(join(root, path), { withFileTypes: true })) {
@@ -53,5 +81,14 @@ self.addEventListener('fetch',event=>{
  if(FILES.includes(url.pathname)){event.respondWith(caches.open(NAME).then(async cache=>(await cache.match(url.pathname))||fetch(event.request)));}
 });\n`;
   await writeFile(join(root, 'sw.js'), script);
+  const hashes = { ...bundles };
+  for (const path of ['/sw.js', '/build-provenance.json'])
+    hashes[path] = createHash('sha256')
+      .update(await readFile(root + path))
+      .digest('hex');
+  await writeFile(
+    join(root, 'shell-manifest.json'),
+    JSON.stringify({ cache, files, hashes, provenance }, null, 2) + '\n',
+  );
   return { root, cache, files, provenance };
 }

@@ -1,0 +1,600 @@
+{
+  "format": "atseq-package-conformance",
+  "version": 1,
+  "node": "v22.13.0",
+  "cases": [
+    {
+      "name": "effective state fold",
+      "passed": true
+    },
+    {
+      "name": "ineffective leaves input state unchanged",
+      "passed": true
+    },
+    {
+      "name": "pure query",
+      "passed": true
+    },
+    {
+      "name": "array append and multiplication",
+      "passed": true
+    },
+    {
+      "name": "malformed fold output",
+      "passed": true
+    },
+    {
+      "name": "ineffective cannot carry state",
+      "passed": true
+    },
+    {
+      "name": "no floating output",
+      "passed": true
+    },
+    {
+      "name": "invalid syntax",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $now()",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $millis()",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $random()",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $shuffle([1,2])",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $eval(\"1\")",
+      "passed": true
+    },
+    {
+      "name": "forbidden: function($x){$x}(1)",
+      "passed": true
+    },
+    {
+      "name": "forbidden: ($v_f := $now; $v_f())",
+      "passed": true
+    },
+    {
+      "name": "forbidden: [1..100000000]",
+      "passed": true
+    },
+    {
+      "name": "forbidden: /(a+)+$/",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $pad(\"a\",100000000)",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $map([1],function($x){$x})",
+      "passed": true
+    },
+    {
+      "name": "forbidden: $lookup({},\"constructor\")()",
+      "passed": true
+    },
+    {
+      "name": "literal ambient-function text is data",
+      "passed": true
+    },
+    {
+      "name": "deterministic work exhaustion",
+      "passed": true
+    },
+    {
+      "name": "program bytes exact cap",
+      "passed": true
+    },
+    {
+      "name": "action bytes exact cap",
+      "passed": true
+    },
+    {
+      "name": "complete input bytes exact cap",
+      "passed": true
+    },
+    {
+      "name": "query output bytes exact cap",
+      "passed": true
+    },
+    {
+      "name": "source complexity rejected before evaluation",
+      "passed": true
+    },
+    {
+      "name": "intermediate growth is bounded",
+      "passed": true
+    },
+    {
+      "name": "ordinary JSONata locals need no custom naming",
+      "passed": true
+    },
+    {
+      "name": "built-in callable cannot be replaced",
+      "passed": true
+    },
+    {
+      "name": "state bytes exact cap",
+      "passed": true
+    },
+    {
+      "name": "input depth exact cap",
+      "passed": true
+    },
+    {
+      "name": "safe integer boundaries",
+      "passed": true
+    },
+    {
+      "name": "null, absent, extras, array order preserved",
+      "passed": true
+    },
+    {
+      "name": "prototype and invalid Unicode refused",
+      "passed": true
+    },
+    {
+      "name": "runtime-loaded state schema",
+      "passed": true
+    },
+    {
+      "name": "runtime-loaded query contract",
+      "passed": true
+    },
+    {
+      "name": "domain type validation does not coerce",
+      "passed": true
+    },
+    {
+      "name": "query output validated",
+      "passed": true
+    },
+    {
+      "name": "second bundle: nested refs, arrays and closed union",
+      "passed": true
+    },
+    {
+      "name": "closed union rejects unknown member",
+      "passed": true
+    },
+    {
+      "name": "optional does not mean nullable",
+      "passed": true
+    },
+    {
+      "name": "missing ref fails before data use",
+      "passed": true
+    },
+    {
+      "name": "defaulting rejected at source admission",
+      "passed": true
+    },
+    {
+      "name": "schema closure bytes exact cap",
+      "passed": true
+    },
+    {
+      "name": "schema file count exact cap",
+      "passed": true
+    },
+    {
+      "name": "Inlay local template and query binding",
+      "passed": true
+    },
+    {
+      "name": "Inlay absent component fails explicitly",
+      "passed": true
+    },
+    {
+      "name": "Inlay external body refused without I/O",
+      "passed": true
+    },
+    {
+      "name": "Inlay missing caller property fails",
+      "passed": true
+    },
+    {
+      "name": "Inlay auto-submit property refused",
+      "passed": true
+    },
+    {
+      "name": "engine evaluation nesting exact boundary",
+      "passed": true
+    },
+    {
+      "name": "engine sequence exact boundary",
+      "passed": true
+    },
+    {
+      "name": "AST container count exact boundary in unevaluated branch",
+      "passed": true
+    },
+    {
+      "name": "AST container depth exact boundary",
+      "passed": true
+    },
+    {
+      "name": "encoded-byte work budget exact boundary",
+      "passed": true
+    },
+    {
+      "name": "large repeated intermediate strings exhaust byte budget",
+      "passed": true
+    },
+    {
+      "name": "generated range rejected with stable code",
+      "passed": true
+    },
+    {
+      "name": "regex rejected with stable code",
+      "passed": true
+    },
+    {
+      "name": "Unicode casing is outside the portable profile",
+      "passed": true
+    },
+    {
+      "name": "absent expression result is explicit",
+      "passed": true
+    },
+    {
+      "name": "negative zero input is not a wire integer",
+      "passed": true
+    },
+    {
+      "name": "malformed Unicode object key is rejected",
+      "passed": true
+    },
+    {
+      "name": "fold input state exact byte cap",
+      "passed": true
+    },
+    {
+      "name": "fold successor state exact byte cap",
+      "passed": true
+    },
+    {
+      "name": "ineffective reason length and syntax",
+      "passed": true
+    },
+    {
+      "name": "ineffective message must be a string",
+      "passed": true
+    },
+    {
+      "name": "duplicate schema IDs rejected before validation",
+      "passed": true
+    },
+    {
+      "name": "open union rejected at admission",
+      "passed": true
+    },
+    {
+      "name": "inherited type names are ordinary unsupported schemas",
+      "passed": true
+    },
+    {
+      "name": "native grapheme constraints rejected at admission",
+      "passed": true
+    },
+    {
+      "name": "Inlay source bytes exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay source record count exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay expanded node count exact boundary",
+      "passed": true
+    },
+    {
+      "name": "Inlay expansion depth exact boundary",
+      "passed": true
+    },
+    {
+      "name": "CAR round trip owns exact source bytes",
+      "passed": true
+    },
+    {
+      "name": "two unrelated definitions resolve schemas and retained views",
+      "passed": true
+    },
+    {
+      "name": "initial state comes only from the pinned definition",
+      "passed": true
+    },
+    {
+      "name": "fold and query match independently specified values",
+      "passed": true
+    },
+    {
+      "name": "malformed domain input is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "unknown action is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "old definition intent is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "domain refusal preserves complete prior state",
+      "passed": true
+    },
+    {
+      "name": "restarting and replaying reproduces state outcomes and frontier",
+      "passed": true
+    },
+    {
+      "name": "failed persistence advances neither state outcomes nor frontier",
+      "passed": true
+    },
+    {
+      "name": "runtime faults pause without producing a replicated outcome and can resume",
+      "passed": true
+    },
+    {
+      "name": "activation validation host faults pause and resume to the healthy replica",
+      "passed": true
+    },
+    {
+      "name": "parser TypeError and RangeError faults pause folds and activations, then resume identically",
+      "passed": true
+    },
+    {
+      "name": "malformed schema and view shapes cannot freeze activation",
+      "passed": true
+    },
+    {
+      "name": "malformed UTF-8 source has a deterministic loader code",
+      "passed": true
+    },
+    {
+      "name": "reader size claims require independently verified bytes",
+      "passed": true
+    },
+    {
+      "name": "hash-valid oversized activation is ineffective; corrupt bytes pause until restored",
+      "passed": true
+    },
+    {
+      "name": "query captures its prefix before concurrent catch-up",
+      "passed": true
+    },
+    {
+      "name": "malformed fold result records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "invalid successor schema records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "ineffective successor state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "noninteger computed state records framework failure and continues",
+      "passed": true
+    },
+    {
+      "name": "the 1001st reading is ineffective and a later valid action clears state",
+      "passed": true
+    },
+    {
+      "name": "copied extra payload bytes cannot freeze interpretation",
+      "passed": true
+    },
+    {
+      "name": "overlong ineffective message cannot block a later valid entry",
+      "passed": true
+    },
+    {
+      "name": "invalid query output is unavailable at its exact unchanged prefix",
+      "passed": true
+    },
+    {
+      "name": "caller snapshot mutation cannot change the projection",
+      "passed": true
+    },
+    {
+      "name": "unavailable source pauses definition loading",
+      "passed": true
+    },
+    {
+      "name": "tampered source fails its pinned CID",
+      "passed": true
+    },
+    {
+      "name": "unsupported definition runtime is refused",
+      "passed": true
+    },
+    {
+      "name": "unsupported genesis runtime is refused even with a valid definition",
+      "passed": true
+    },
+    {
+      "name": "definition refuses unknown binding field",
+      "passed": true
+    },
+    {
+      "name": "definition refuses duplicate action binding",
+      "passed": true
+    },
+    {
+      "name": "definition refuses missing binding schema",
+      "passed": true
+    },
+    {
+      "name": "definition refuses missing program file",
+      "passed": true
+    },
+    {
+      "name": "definition refuses escaping source path",
+      "passed": true
+    },
+    {
+      "name": "definition refuses ambient program",
+      "passed": true
+    },
+    {
+      "name": "definition refuses invalid program syntax",
+      "passed": true
+    },
+    {
+      "name": "definition refuses noninteger program literal",
+      "passed": true
+    },
+    {
+      "name": "definition refuses null initial state",
+      "passed": true
+    },
+    {
+      "name": "definition refuses negative zero initial data",
+      "passed": true
+    },
+    {
+      "name": "source closure and initial state byte limits are enforced",
+      "passed": true
+    },
+    {
+      "name": "exact state and program limits pass and the next byte fails",
+      "passed": true
+    },
+    {
+      "name": "definition counts the manifest within the 64-file limit",
+      "passed": true
+    },
+    {
+      "name": "CAR blocks outside the declared closure are refused",
+      "passed": true
+    },
+    {
+      "name": "work exhaustion records a framework refusal and preserves prior state",
+      "passed": true
+    },
+    {
+      "name": "oversized action is refused before interpretation",
+      "passed": true
+    },
+    {
+      "name": "unsupported schema constructs fail while loading the definition",
+      "passed": true
+    },
+    {
+      "name": "application registry refuses anchor replacement",
+      "passed": true
+    },
+    {
+      "name": "concurrent anchor replacement cannot persist a conflicting initial state",
+      "passed": true
+    },
+    {
+      "name": "64 sibling object values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "100 grouped values do not consume nesting depth",
+      "passed": true
+    },
+    {
+      "name": "intermediate negative zero can be consumed as integer zero",
+      "passed": true
+    },
+    {
+      "name": "negative zero remains invalid at input and output boundaries",
+      "passed": true
+    },
+    {
+      "name": "sum checks exact intermediate integers before cancellation",
+      "passed": true
+    },
+    {
+      "name": "ineffective messages count Unicode code points and stop at 1024",
+      "passed": true
+    },
+    {
+      "name": "conditional integrity adapter matches the running environment",
+      "passed": true
+    },
+    {
+      "name": "unmatched dependency closure fails closed in either environment",
+      "passed": true
+    },
+    {
+      "name": "activation at N preserves state and N+1 uses the new interface",
+      "passed": true
+    },
+    {
+      "name": "a full replay uses each definition at its original boundary",
+      "passed": true
+    },
+    {
+      "name": "unavailable candidate pauses at N and resumes the same entry after repair",
+      "passed": true
+    },
+    {
+      "name": "corrupt candidate content cannot fabricate an invalid-activation verdict",
+      "passed": true
+    },
+    {
+      "name": "failed persistence leaves both definition and state before activation",
+      "passed": true
+    },
+    {
+      "name": "another actor cannot activate or force a missing-content fetch",
+      "passed": true
+    },
+    {
+      "name": "available invalid candidate code is retained ineffective",
+      "passed": true
+    },
+    {
+      "name": "an incomplete or extra signed closure has the same outcome with full and closure-only readers",
+      "passed": true
+    },
+    {
+      "name": "a closure over 512 KiB is transported and invalid on both full and closure-only readers",
+      "passed": true
+    },
+    {
+      "name": "an available query-less view with missing bindings is invalid rather than a permanent stall",
+      "passed": true
+    },
+    {
+      "name": "state compatibility includes transitive schemas and ignores unrelated additions",
+      "passed": true
+    },
+    {
+      "name": "malformed closure and control-action rebinding are refused",
+      "passed": true
+    }
+  ],
+  "sourceHashes": {
+    "tests/support/corpus.ts": "430a183263f04e37cc1a2457d52f00785c267b9677528842201c064df5e959e7",
+    "tests/support/runtime-corpus.ts": "559be56e92e04fef0cd90083d611f97b29532544646b6168be8b4a31189a12bf",
+    "tests/support/evolution-corpus.ts": "62a64fe75e8f7b9bfda79d58ed589f9dde8c50a51e4c68c1ca6cc597c53f4f16",
+    "tests/support/fixtures.ts": "512d797612c7a702e225368ad5dcd275b7963d18c46fb94caf5c88c056e626f9",
+    "testdata/apps/evolution.ts": "71031d4e35808dff51ae25bf390ca0da053d3ff4497c0bb104a92b3453744adc",
+    "testdata/apps/fixtures.ts": "bce1588eab7cd5eae1a71cfe755abc95d7835f66f675963d649412111a2bb76e",
+    "tests/support/boundaries.ts": "476844e1bdec8f01c44a4acb2fafed4fd3ce51967e9878f1fb8c565d4f5bc75c",
+    "tests/support/profile-corpus.ts": "2cb0ec6ce2595ee2f030a1cfc827bdeb5f55d1b586abe9793b0d39098838fdff"
+  },
+  "adapterSha256": "9eabf2cf208adce9a657e0388c80fd73c584a67365d4bc10434c21fece48aeec",
+  "packageSha256": "f504e8ee5227fd0e4c1096e28408d1798604ec4bcafcb0ccf94f009aa878be73",
+  "revision": "a031d7746aaeba57a9b88261ee43ad79354526c8"
+}

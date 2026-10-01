@@ -9,7 +9,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { build } from 'vite';
 import { chromium, expect } from '@playwright/test';
-import { startEnvironment, resetDisposable } from '../experiments/pds/environment.mjs';
+import { startEnvironment, resetDisposable } from '../tests/support/pds/environment.mjs';
 import { ApplicationHost } from '../src/host/application.ts';
 import { LocalAccounts } from '../src/host/accounts.ts';
 import { startApplicationService } from '../src/host/http.ts';

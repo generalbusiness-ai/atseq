@@ -1,8 +1,8 @@
 import { P256PrivateKeyExportable, P256PublicKey, Secp256k1PrivateKeyExportable } from '@atcute/crypto';
 import { encode as encodeCbor, fromBytes } from '@atcute/cbor';
 import { Lexicons, jsonToLex } from '@atproto/lexicon';
-import vectors from '../tests/vectors/protocol-v1.json';
-import { applicationRuntimeCid } from '../src/protocol/identity.ts';
+import vectors from '../vectors/protocol-v1.json';
+import { applicationRuntimeCid } from '../../src/protocol/identity.ts';
 import {
   Anchor,
   headAt,
@@ -19,9 +19,9 @@ import {
   type Genesis,
   type Intent,
   type SignedIntent,
-} from '../src/protocol/log.ts';
-import { bytes, contentCid, decodeBlock, encodeBlock, link } from '../src/protocol/wire.ts';
-import { frameworkLexicons, validateFramework } from '../src/protocol/schemas.ts';
+} from '../../src/protocol/log.ts';
+import { bytes, contentCid, decodeBlock, encodeBlock, link } from '../../src/protocol/wire.ts';
+import { frameworkLexicons, validateFramework } from '../../src/protocol/schemas.ts';
 import type { FixtureResult } from './corpus.ts';
 
 const clone = <T>(v: T): T => structuredClone(v);

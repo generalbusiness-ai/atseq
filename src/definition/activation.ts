@@ -39,7 +39,7 @@ export function compatibleDefinition(current: LoadedDefinition, next: LoadedDefi
   if (current.manifest.profile.$link !== next.manifest.profile.$link || stateContract(current) !== stateContract(next))
     throw new InterpretationError(
       'incompatible_definition',
-      'This spike requires the same runtime and complete state schema',
+      'This profile requires the same runtime and complete state schema',
     );
   next.schemas.validate(next.manifest.state.ref, state);
 }

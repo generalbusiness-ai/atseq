@@ -1,5 +1,5 @@
 import { $, serializeTree } from '@inlay/core';
-import { PRIMITIVES, type LocalView } from '../src/view/inlay.ts';
+import { PRIMITIVES, type LocalView } from '../../src/view/inlay.ts';
 
 export const totalsSchemas = [
   {

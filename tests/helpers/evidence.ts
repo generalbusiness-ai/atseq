@@ -9,11 +9,11 @@ export interface MeasuredCase {
 export async function recordFlowEvidence(name: string, results: MeasuredCase[], extra: Record<string, unknown> = {}) {
   const paths = [
     'package.json',
-    'package-lock.json',
-    'experiments/pds/environment.mjs',
-    'experiments/pds/pds-server.mjs',
-    'experiments/pds/package.json',
-    'experiments/pds/package-lock.json',
+    'npm-shrinkwrap.json',
+    'tests/support/pds/environment.mjs',
+    'tests/support/pds/pds-server.mjs',
+    'tests/support/pds/package.json',
+    'tests/support/pds/package-lock.json',
   ];
   async function walk(root: string) {
     for (const entry of await readdir(root, { withFileTypes: true })) {

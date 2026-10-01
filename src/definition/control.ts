@@ -2,7 +2,7 @@ import { AtseqError } from '../core/errors.ts';
 import { NSID } from '../core/nsids.ts';
 import { Lexicons, ValidationError, type LexiconDoc } from '@atproto/lexicon';
 import { fromString, toString, CODEC_DCBOR, CODEC_RAW } from '@atcute/cid';
-import schema from '../../lexicons/ai/generalbusiness/atseq/activate.json';
+import schema from '../../lexicons/ai/generalbusiness/atseq/activate.json' with { type: 'json' };
 import { InterpretationError } from '../core/profile.ts';
 import { isCidInputError, link } from '../protocol/wire.ts';
 export const ACTIVATE = NSID.activate;

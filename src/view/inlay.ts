@@ -1,7 +1,14 @@
 import { lexiconDoc } from '@atproto/lexicon';
 import { NSID } from '../core/nsids.ts';
-import { $, deserializeTree, isValidElement, type Element } from '@inlay/core';
-import { render, type Resolver, type RenderContext } from '@inlay/render';
+import {
+  $,
+  deserializeTree,
+  isValidElement,
+  render,
+  type Element,
+  type Resolver,
+  type RenderContext,
+} from './render-adapter.ts';
 import { canonicalJson, type Json } from '../core/values.ts';
 import { InterpretationError, PROFILE } from '../core/profile.ts';
 

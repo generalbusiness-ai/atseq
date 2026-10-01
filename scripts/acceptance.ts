@@ -35,7 +35,7 @@ for (const [index, command] of commands.entries()) {
   child.stderr.on('data', (b) => chunks.push(b));
   const code = await new Promise<number | null>((resolve, reject) => {
     child.once('error', reject);
-    child.once('exit', resolve);
+    child.once('close', resolve);
   });
   const name = `${String(index + 1).padStart(2, '0')}.log`,
     log = `experiments/acceptance-logs/${name}`,

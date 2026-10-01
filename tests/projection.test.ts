@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdir, mkdtemp, readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { chartFixture } from '../testdata/apps/fixtures.ts';
-import { fixtureApp, fixtureHistory } from '../experiments/runtime-corpus.ts';
+import { fixtureApp, fixtureHistory } from '../tests/support/runtime-corpus.ts';
 import { Folder, type Projection } from '../src/application/folder.ts';
 import { projectionFile } from './support/projection-file.ts';
 

@@ -21,15 +21,15 @@ test('a failed acceptance run replaces a prior pass and retains its exact comman
       child.once('close', (code) => done({ code, output }));
     });
   try {
-    for (const dir of ['bin', 'src', 'lexicons', 'testdata', 'tests', 'scripts', 'experiments/pds'])
+    for (const dir of ['bin', 'src', 'lexicons', 'testdata', 'tests', 'scripts', 'experiments', 'tests/support/pds'])
       await mkdir(join(root, dir), { recursive: true });
     for (const path of [
       'package.json',
-      'package-lock.json',
-      'experiments/pds/environment.mjs',
-      'experiments/pds/pds-server.mjs',
-      'experiments/pds/package.json',
-      'experiments/pds/package-lock.json',
+      'npm-shrinkwrap.json',
+      'tests/support/pds/environment.mjs',
+      'tests/support/pds/pds-server.mjs',
+      'tests/support/pds/package.json',
+      'tests/support/pds/package-lock.json',
     ])
       await writeFile(join(root, path), '{}');
     for (const name of ['npm', 'node'])

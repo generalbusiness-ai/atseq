@@ -1,8 +1,8 @@
-import { evaluate, fold } from '../src/runtime/evaluator.ts';
-import { canonicalJson } from '../src/core/values.ts';
-import { PROFILE } from '../src/core/profile.ts';
-import { Schemas } from '../src/definition/schemas.ts';
-import { resolveView } from '../src/view/inlay.ts';
+import { evaluate, fold } from '../../src/runtime/evaluator.ts';
+import { canonicalJson } from '../../src/core/values.ts';
+import { PROFILE } from '../../src/core/profile.ts';
+import { Schemas } from '../../src/definition/schemas.ts';
+import { resolveView } from '../../src/view/inlay.ts';
 import { totalsSchemas, offersSchemas, totalFold, summaryQuery, baseInput, localView } from './fixtures.ts';
 import { boundaryCases } from './boundaries.ts';
 

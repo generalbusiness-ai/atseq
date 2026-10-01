@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { dirname } from 'node:path';
 import { existsSync } from 'node:fs';
 import approved from '../src/core/dependencies-approved.json';
-import lock from '../package-lock.json';
+import lock from '../npm-shrinkwrap.json';
 import { assertDependencies } from '../src/core/dependencies.ts';
 assertDependencies();
 const packages = lock.packages as Record<

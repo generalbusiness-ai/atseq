@@ -933,8 +933,12 @@
   },
   "imports": {
     "#atseq-integrity": {
-      "node": "./src/integrity/node.ts",
-      "default": "./src/integrity/browser.ts"
+      "atseq-source": {
+        "node": "./src/integrity/node.ts",
+        "default": "./src/integrity/browser.ts"
+      },
+      "node": "./dist/src/integrity/node.js",
+      "default": "./dist/src/integrity/browser.js"
     }
   }
 }

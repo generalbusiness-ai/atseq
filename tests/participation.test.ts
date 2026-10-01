@@ -9,7 +9,7 @@ import { bytes } from '../src/protocol/wire.ts';
 import { SourceBundle } from '../src/definition/source.ts';
 import { chromium, expect } from '@playwright/test';
 import { build } from 'vite';
-import { startEnvironment, resetDisposable } from '../experiments/pds/environment.mjs';
+import { startEnvironment, resetDisposable } from '../tests/support/pds/environment.mjs';
 import { ApplicationHost } from '../src/host/application.ts';
 import { LocalAccounts } from '../src/host/accounts.ts';
 import { startApplicationService } from '../src/host/http.ts';

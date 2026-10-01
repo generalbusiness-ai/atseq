@@ -11,7 +11,7 @@ test('package file patches and unlisted nested resolution fail before interpreta
   const root = await mkdtemp(join(tmpdir(), 'atseq-integrity-'));
   try {
     await cp(resolve('package.json'), join(root, 'package.json'));
-    await cp(resolve('package-lock.json'), join(root, 'package-lock.json'));
+    await cp(resolve('npm-shrinkwrap.json'), join(root, 'npm-shrinkwrap.json'));
     await cp(resolve('src'), join(root, 'src'), { recursive: true });
     await cp(resolve('lexicons'), join(root, 'lexicons'), { recursive: true });
     for (const path of Object.keys(approved.packages)) {

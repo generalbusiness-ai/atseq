@@ -18,7 +18,7 @@ import { LoadedDefinition } from '../definition/load.ts';
 import { Folder } from '../application/folder.ts';
 import { applicationRuntimeDescriptor, applicationRuntimeCid } from '../protocol/identity.ts';
 import { activationPayload, ACTIVATE } from '../definition/control.ts';
-import notices from './notices.json';
+import notices from './notices.json' with { type: 'json' };
 
 import { AtseqError } from '../core/errors.ts';
 import { ARCHIVE_LIMIT } from './limits.ts';

@@ -4,7 +4,7 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { chartFixture } from '../testdata/apps/fixtures.ts';
-import { fixtureApp, fixtureHistory } from '../experiments/runtime-corpus.ts';
+import { fixtureApp, fixtureHistory } from '../tests/support/runtime-corpus.ts';
 import { Folder } from '../src/application/folder.ts';
 import { PdsClient, PdsError } from '../src/host/pds.ts';
 import { Sequencer, SnapshotReader } from '../src/host/sequencer.ts';

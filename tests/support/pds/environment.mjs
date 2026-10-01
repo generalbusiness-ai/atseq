@@ -9,7 +9,7 @@ import { Secp256k1Keypair } from '@atproto/crypto';
 import plc from '@did-plc/server';
 
 const packageDir = dirname(fileURLToPath(import.meta.url));
-const repo = resolve(packageDir, '../..');
+const repo = resolve(packageDir, '../../..');
 const parent = join(repo, '.atseq-local');
 const markerName = 'ATSEQ_DISPOSABLE_PDS.json';
 async function freePort() {

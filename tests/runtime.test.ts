@@ -5,7 +5,7 @@ import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { build, preview } from 'vite';
 import { chromium } from '@playwright/test';
-import { runRuntimeCorpus } from '../experiments/runtime-corpus.ts';
+import { runRuntimeCorpus } from '../tests/support/runtime-corpus.ts';
 import { runtimeCid } from '../src/protocol/log.ts';
 import { applicationRuntimeDescriptor } from '../src/protocol/identity.ts';
 
@@ -13,7 +13,7 @@ test('application interpretation agrees in Node and a Chromium worker', async (t
   const node = await runRuntimeCorpus();
   for (const result of node)
     await t.test(result.name, () => assert.equal(result.passed, true, result.detail ?? result.name));
-  const root = resolve('experiments/runtime-browser'),
+  const root = resolve('tests/support/runtime-browser'),
     outDir = resolve('experiments/generated/runtime-browser');
   await build({ root, logLevel: 'warn', build: { outDir, emptyOutDir: true } });
   const server = await preview({ root, logLevel: 'warn', build: { outDir }, preview: { host: '127.0.0.1', port: 0 } });
@@ -44,13 +44,13 @@ test('application interpretation agrees in Node and a Chromium worker', async (t
       'src/application/folder.ts',
       'src/protocol/identity.ts',
       'tests/runtime.test.ts',
-      'experiments/runtime-corpus.ts',
+      'tests/support/runtime-corpus.ts',
       'testdata/apps/fixtures.ts',
-      'experiments/runtime-browser/main.ts',
-      'experiments/runtime-browser/worker.ts',
-      'experiments/runtime-browser/index.html',
+      'tests/support/runtime-browser/main.ts',
+      'tests/support/runtime-browser/worker.ts',
+      'tests/support/runtime-browser/index.html',
       'package.json',
-      'package-lock.json',
+      'npm-shrinkwrap.json',
     ];
     const sourceHashes = Object.fromEntries(
       await Promise.all(

@@ -5,7 +5,7 @@ import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { build, preview } from 'vite';
 import { chromium } from '@playwright/test';
-import { runProtocolCorpus } from '../experiments/protocol-corpus.ts';
+import { runProtocolCorpus } from '../tests/support/protocol-corpus.ts';
 import { runtimeDescriptor } from '../src/protocol/log.ts';
 import { frameworkLexicons } from '../src/protocol/schemas.ts';
 
@@ -22,7 +22,7 @@ test('protocol vectors and rejection corpus agree in Node and Chromium', async (
   const node = await runProtocolCorpus();
   for (const result of node)
     await t.test(result.name, () => assert.equal(result.passed, true, result.detail ?? result.name));
-  const root = resolve('experiments/protocol-browser'),
+  const root = resolve('tests/support/protocol-browser'),
     outDir = resolve('experiments/generated/protocol-browser');
   await build({ root, logLevel: 'warn', build: { outDir, emptyOutDir: true } });
   const server = await preview({ root, logLevel: 'warn', build: { outDir }, preview: { host: '127.0.0.1', port: 0 } });
@@ -47,13 +47,13 @@ test('protocol vectors and rejection corpus agree in Node and Chromium', async (
     await mkdir('experiments/generated', { recursive: true });
     const paths = [
       'package.json',
-      'package-lock.json',
+      'npm-shrinkwrap.json',
       'tests/protocol.test.ts',
       'tests/vectors/protocol-v1.json',
       'scripts/vectors/generate.mjs',
-      'experiments/protocol-corpus.ts',
+      'tests/support/protocol-corpus.ts',
     ];
-    for (const dir of ['src/protocol', 'lexicons/ai/generalbusiness/atseq', 'experiments/protocol-browser'])
+    for (const dir of ['src/protocol', 'lexicons/ai/generalbusiness/atseq', 'tests/support/protocol-browser'])
       for (const name of await readdir(dir)) paths.push(`${dir}/${name}`);
     const sourceHashes = Object.fromEntries(
       await Promise.all(

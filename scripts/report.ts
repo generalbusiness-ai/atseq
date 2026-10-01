@@ -18,7 +18,7 @@ for (const [path, hash] of Object.entries(acceptance.retainedHashes ?? {}))
   )
     throw new Error(`Retained result changed after acceptance: ${path}`);
 const perf = await read('experiments/performance.json'),
-  browser = await read('experiments/browser-performance.json'),
+  browser = await read('tests/support/browser-performance.json'),
   author = await read('experiments/agent-authored/verification.json');
 if (!perf.passed || !browser.passed || !author.passed) throw new Error('Required measured evidence is not complete');
 const ms = (n: number) => (n < 1000 ? `${n.toFixed(1)} ms` : `${(n / 1000).toFixed(2)} s`);
