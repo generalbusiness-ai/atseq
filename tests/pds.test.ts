@@ -377,7 +377,7 @@ test('real disposable PDS persistence and recovery', async (t) => {
           rkey: programCid,
         },
       ]);
-      await assert.rejects(() => sources.get(programCid), { code: 'RecordNotFound' });
+      await assert.rejects(() => sources.get(programCid), { code: 'content_missing' });
       try {
         const other = (await pds.get('ai.generalbusiness.atseq.source', definitionCid)).value as any;
         await pds.apply([
@@ -414,7 +414,7 @@ test('real disposable PDS persistence and recovery', async (t) => {
         await writeFile(path, new Uint8Array(program.length).fill(33));
         await assert.rejects(() => sources.get(programCid), { code: 'content' });
         await rm(path);
-        await assert.rejects(() => sources.get(programCid), { code: 'ContentUnavailable' });
+        await assert.rejects(() => sources.get(programCid), { code: 'content_unavailable' });
       } finally {
         await writeFile(path, retained);
       }

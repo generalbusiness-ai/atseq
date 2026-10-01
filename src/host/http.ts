@@ -1,38 +1,26 @@
+import { readInput } from './input.ts';
 import { NSID } from '../core/nsids.ts';
-import { createServer, type IncomingMessage } from 'node:http';
+import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { jsonToLex, lexToJson } from '@atproto/lexicon';
 import { fromBytes } from '@atcute/cbor';
-import { atomicFile } from './files.ts';
+import { DraftStore } from './drafts.ts';
 import { link } from '../protocol/wire.ts';
 import { bytes, ProtocolError } from '../protocol/wire.ts';
 import { serviceSchemas } from '../transport/api.ts';
 import { previewSource } from '../application/definition.ts';
-import { InterpretationError } from '../core/profile.ts';
 import { ApplicationHost } from './application.ts';
-import { PdsError } from './pds.ts';
+import { hostFailure } from './errors.ts';
+import { HostError } from './errors.ts';
+import { hostToken, acceptsHostToken } from './token.ts';
 
-async function readInput(req: IncomingMessage): Promise<any> {
-  if (req.headers['content-type']?.split(';')[0] !== 'application/json')
-    throw new ProtocolError('input', 'Expected JSON');
-  const chunks: Buffer[] = [];
-  let size = 0;
-  for await (const chunk of req) {
-    size += chunk.length;
-    if (size > 768 * 1024) throw new ProtocolError('input', 'Request exceeds 768 KiB');
-    chunks.push(chunk);
-  }
-  try {
-    return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(Buffer.concat(chunks)));
-  } catch {
-    throw new ProtocolError('input', 'Expected valid JSON');
-  }
-}
 export async function startApplicationService(
   host: ApplicationHost,
   options: { port?: number; staticRoot?: string } = {},
 ) {
+  const credential = await hostToken(host.directory),
+    drafts = new DraftStore(host.directory);
   let origin = '';
   const server = createServer(async (req, res) => {
     const send = (status: number, value: unknown) => {
@@ -78,7 +66,10 @@ export async function startApplicationService(
         send(404, { error: 'InvalidRequest', message: 'Unknown method' });
         return;
       }
-      const input = schema.type === 'procedure' ? await readInput(req) : Object.fromEntries(url.searchParams);
+      if (schema.type === 'procedure' && !acceptsHostToken(req.headers.authorization, credential.token))
+        throw new HostError('host_token', 401, 'This procedure requires the host token');
+      const input: any =
+        schema.type === 'procedure' ? await readInput(req, 768 * 1024) : Object.fromEntries(url.searchParams);
       try {
         if (schema.type === 'procedure') serviceSchemas.assertValidXrpcInput(method, jsonToLex(input));
         else serviceSchemas.assertValidXrpcParams(method, input);
@@ -95,8 +86,11 @@ export async function startApplicationService(
           break;
         case NSID.preview: {
           const preview = await previewSource(fromBytes(input.source), input.action, input.payload, input.state);
-          await atomicFile(resolve(host.directory, 'drafts', preview.definition.cid + '.car'), fromBytes(input.source));
-          output = { ...preview, previewUrl: `${origin}/?preview=${preview.definition.cid}` };
+          await drafts.put(preview.definition.cid, fromBytes(input.source));
+          output = {
+            ...preview,
+            previewUrl: `${origin}/?preview=${preview.definition.cid}#host-token=${credential.token}`,
+          };
           break;
         }
         case NSID.readDraft:
@@ -153,12 +147,8 @@ export async function startApplicationService(
       }
       send(200, lexToJson(serviceSchemas.assertValidXrpcOutput(method, jsonToLex(output))));
     } catch (error) {
-      if (error instanceof ProtocolError || error instanceof InterpretationError)
-        send(400, { error: 'InvalidRequest', message: `${error.code}: ${error.message}` });
-      else if (error instanceof PdsError) send(503, { error: 'Unavailable', message: error.code });
-      else if ((error as any).code === 'ENOENT')
-        send(404, { error: 'Unavailable', message: 'Local content is missing' });
-      else send(503, { error: 'Unavailable', message: 'Could not establish a valid result' });
+      const failure = hostFailure(error);
+      send(failure.status, failure.body);
     }
   });
   server.requestTimeout = 30_000;
@@ -172,6 +162,7 @@ export async function startApplicationService(
   origin = `http://127.0.0.1:${address.port}`;
   return {
     url: origin,
+    tokenFile: credential.path,
     async close() {
       server.closeIdleConnections();
       await new Promise<void>((done, reject) => server.close((e) => (e ? reject(e) : done())));

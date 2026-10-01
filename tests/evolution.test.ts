@@ -1,3 +1,4 @@
+import { readHostToken } from '../src/host/token.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
@@ -47,10 +48,13 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
   const accounts = new LocalAccounts(env.url, directory),
     host = new ApplicationHost(directory, accounts);
   let service = await startApplicationService(host, { staticRoot: root }),
-    api = new AtseqClient(service.url);
+    api = new AtseqClient(service.url, await readHostToken(service.tokenFile));
   const browser = await chromium.launch(),
     ownerContext = await browser.newContext(),
     guestContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const testHostToken = await readHostToken(service.tokenFile);
+  await ownerContext.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
+  await guestContext.addInitScript((token) => sessionStorage.setItem('atseq.host-token', token), testHostToken);
   const owner = await ownerContext.newPage(),
     guest = await guestContext.newPage();
   owner.setDefaultTimeout(5000);
@@ -85,7 +89,11 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
           };
         }),
     );
-    const cliIdentity = await cli({ operation: 'identity', keyFile, name: 'Update agent' });
+    const cliIdentity = await cli({
+      operation: 'identity',
+      keyFile,
+      name: 'Update agent',
+    });
     assert.notEqual(cliIdentity.publicKey, browserKey);
     // Two explicit initial grants; neither actor obtains authority merely by creating an account.
     const creationId = randomUUID();
@@ -159,6 +167,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
     const submitOld = {
       operation: 'submit',
       host: service.url,
+      hostTokenFile: service.tokenFile,
       ...invitation,
       definition: fixture.old.bundle.root,
       keyFile,
@@ -170,6 +179,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
       const staged = await cli({
         operation: 'stage',
         host: service.url,
+        hostTokenFile: service.tokenFile,
         ...invitation,
         expected: fixture.old.bundle.root,
         source: nextPath,
@@ -310,6 +320,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
         await cli({
           operation: 'stage',
           host: service.url,
+          hostTokenFile: service.tokenFile,
           ...invitation,
           expected: fixture.bundle.root,
           source: path,
@@ -318,6 +329,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
       const bad = await cli({
         operation: 'activate',
         host: service.url,
+        hostTokenFile: service.tokenFile,
         ...invitation,
         definition: fixture.bundle.root,
         candidate: first.root,
@@ -332,6 +344,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
       const good = await cli({
         operation: 'submit',
         host: service.url,
+        hostTokenFile: service.tokenFile,
         ...invitation,
         definition: fixture.bundle.root,
         action: fixture.action,
@@ -378,7 +391,7 @@ test('evolve a real app and explicitly replace its stale pending work', async (t
       const restored = new ApplicationHost(directory, accounts);
       await restored.restore();
       service = await startApplicationService(restored, { staticRoot: root });
-      api = new AtseqClient(service.url);
+      api = new AtseqClient(service.url, await readHostToken(service.tokenFile));
       const description = await api.call('describe', invitation);
       assert.equal(description.definition.cid, fixture.bundle.root);
       assert.equal(description.frontier.position, 11);

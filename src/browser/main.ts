@@ -33,7 +33,18 @@ interface ChangeDraft {
 }
 let changeDraft: ChangeDraft | undefined,
   applying = false;
-const api = new AtseqClient(location.origin),
+const accessFragment = new URLSearchParams(location.hash.slice(1)),
+  access = accessFragment.get('host-token');
+if (access) {
+  sessionStorage.setItem('atseq.host-token', access);
+  accessFragment.delete('host-token');
+  history.replaceState(
+    null,
+    '',
+    location.pathname + location.search + (accessFragment.size ? '#' + accessFragment : ''),
+  );
+}
+const api = new AtseqClient(location.origin, access ?? sessionStorage.getItem('atseq.host-token') ?? undefined),
   store = await DeviceStore.open(),
   evaluator = new Evaluator();
 const content = document.querySelector<HTMLDivElement>('#content')!,
@@ -396,7 +407,7 @@ async function flush() {
             : { ...(previous ?? pending), status: 'recorded', receipt: recorded.receipt, error: undefined },
         );
       } catch (error) {
-        const refused = error instanceof ApiError && error.status >= 400 && error.status < 500;
+        const refused = error instanceof ApiError && error.permanent;
         await store.update<Pending>(`outbox:${pending.app}:${pending.cid}`, (previous) =>
           previous && ['recorded', 'applied', 'not-applied'].includes(previous.status)
             ? previous

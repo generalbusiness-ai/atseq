@@ -1,3 +1,4 @@
+import { SerialQueue } from '../core/queue.ts';
 import { NSID } from '../core/nsids.ts';
 import type { PrivateKey } from '@atcute/crypto';
 import {
@@ -83,7 +84,7 @@ export async function provisionLog(pds: PdsClient, anchor: Anchor): Promise<void
   );
 }
 export class Sequencer {
-  private tail: Promise<unknown> = Promise.resolve();
+  private readonly queue = new SerialQueue();
   private knownHead?: Head;
   private closed = false;
   private readonly lease: WriterLease;
@@ -120,14 +121,12 @@ export class Sequencer {
   submit(block: Uint8Array): Promise<{ receipt: Receipt; head: Head }> {
     if (this.closed) return Promise.reject(new Error('Sequencer is closed'));
     const owned = new Uint8Array(block);
-    const result = this.tail.then(() => this.append(owned));
-    this.tail = result.catch(() => {});
-    return result;
+    return this.queue.run(() => this.append(owned));
   }
   async lookup(intentCid: string): Promise<{ receipt: Receipt; head: Head } | undefined> {
     if (this.closed) throw new Error('Sequencer is closed');
     link(intentCid);
-    const result = this.tail.then(async () => {
+    return this.queue.run(async () => {
       const snapshot = await readSnapshot(this.pds, this.anchor, this.knownHead);
       this.knownHead = structuredClone(snapshot.history.head);
       this.lease.saveHead(this.knownHead);
@@ -140,8 +139,6 @@ export class Sequencer {
       }
       return undefined;
     });
-    this.tail = result.catch(() => {});
-    return result;
   }
   private async append(block: Uint8Array): Promise<{ receipt: Receipt; head: Head }> {
     const { signed } = await verifyIntent(decodeBlock(block), this.anchor);
@@ -177,7 +174,7 @@ export class Sequencer {
   }
   async close(): Promise<void> {
     this.closed = true;
-    await this.tail;
+    await this.queue.idle();
     this.lease.close();
   }
 }

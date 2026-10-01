@@ -60,14 +60,15 @@ Retrying the same unsigned content returns its original receipt, including
 when a different valid signature represents that content. Reusing its nonce
 for different content fails.
 
-`startSequencerService` exposes loopback `ai.generalbusiness.atseq.submit` and
+The test-only [`startSequencerService`](../tests/support/sequencer-service.ts) fixture
+exposes loopback `ai.generalbusiness.atseq.submit` and
 `ai.generalbusiness.atseq.receipt`, using the S1 Lexicons for inputs and outputs. It verifies
 the app and genesis on receipt queries. S2 always reports `frontier: null` and
 receipt lookup reports a pending outcome: ordering does not establish domain
 effect. Unknown receipts return `Unavailable` with HTTP 404. Service and
 transport uncertainty return HTTP 503; callers must retain the original signed
-intent. Cross-origin access is not enabled. S4 will provide the shared UI and
-agent transport and its explicit signing flow.
+intent. Cross-origin access is not enabled. The application host provides the shared UI and agent transport with its
+explicit signing flow. See [host access and limits](interaction.md#json-cli-adapter).
 
 `readSnapshot` brackets reads with repository commit checks, verifies record
 CIDs and the full position/predecessor chain, and rejects rollback or a changed
@@ -117,3 +118,9 @@ This is a disposable integration environment, not a deployment recipe. Its
 unmodified upstream packages remain pinned so results can be reproduced.
 `@atcute/car` 6.0.2, added to the root package for standard CAR reading, uses
 the BSD Zero Clause license.
+
+Only a PDS `RecordNotFound` response is classified as missing source. Other
+PDS failures report `content_unavailable`; missing physical blobs are not
+proof that a source retention record is absent. Hashes are checked before size
+limits. SQLite writer leases report contention only for `SQLITE_BUSY`; corrupt
+databases, permission failures and disk errors keep their original diagnostics.

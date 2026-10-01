@@ -1,3 +1,4 @@
+import { InterpretationError } from '../core/errors.ts';
 import { SourceSizeError } from '../definition/source.ts';
 import { NSID } from '../core/nsids.ts';
 import { create, fromString, toString, CODEC_DCBOR, CODEC_RAW } from '@atcute/cid';
@@ -28,7 +29,7 @@ export class SourceStore {
       await this.get(cid);
       return;
     } catch (error) {
-      if (!(error instanceof PdsError) || error.code !== 'RecordNotFound') throw error;
+      if (!(error instanceof InterpretationError) || error.code !== 'content_missing') throw error;
     }
     const blob = await this.pds.upload(content);
     const rawCid = toString(await create(CODEC_RAW, content));
@@ -44,6 +45,16 @@ export class SourceStore {
     ]);
   }
   async get(cid: string): Promise<Uint8Array> {
+    try {
+      return await this.read(cid);
+    } catch (error) {
+      if (!(error instanceof PdsError)) throw error;
+      if (error.code === 'RecordNotFound')
+        throw new InterpretationError('content_missing', 'PDS source record is absent');
+      throw new InterpretationError('content_unavailable', `PDS could not supply verified source: ${error.code}`);
+    }
+  }
+  private async read(cid: string): Promise<Uint8Array> {
     const record = await this.pds.get(NSID.source, cid);
     const value = record.value as any;
     const valid = schema.validate(NSID.source, jsonToLex(value));

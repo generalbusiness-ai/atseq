@@ -395,7 +395,7 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
           },
           cid,
         ),
-      'content_missing',
+      'content_unavailable',
     );
     await rejects(
       () =>
@@ -583,7 +583,7 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     (snapshot.projection.state as any).readings.push({ day: 'forged', millimetres: 100 });
     equal(folder.snapshot().projection.state, { readings: [] });
   });
-  await check('missing source pauses definition loading', async () => {
+  await check('unavailable source pauses definition loading', async () => {
     const manifest = await load(chart.bundle),
       missing = manifest.manifest.files[0]!.cid;
     const reader: SourceReader = {
@@ -592,7 +592,7 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
         return chart.bundle.get(cid);
       },
     };
-    await rejects(() => LoadedDefinition.load(chart.bundle.root, reader), 'content_missing');
+    await rejects(() => LoadedDefinition.load(chart.bundle.root, reader), 'content_unavailable');
   });
   await check('tampered source fails its pinned CID', async () => {
     const manifest = await load(chart.bundle),

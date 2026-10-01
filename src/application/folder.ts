@@ -1,3 +1,4 @@
+import { SerialQueue } from '../core/queue.ts';
 import { NSID } from '../core/nsids.ts';
 import { ACTIVATE, activationPayload } from '../definition/control.ts';
 import { activationCandidate } from '../definition/activation.ts';
@@ -32,7 +33,7 @@ const ineffective = (reason: string): Outcome => ({ $type: NSID.defsIneffective,
 
 /** Pure interpretation of a verified prefix; persistence replaces one snapshot. */
 export class Folder {
-  private tail: Promise<unknown> = Promise.resolve();
+  private readonly queue = new SerialQueue();
   private head: Head;
   private projection: Projection;
   private stalled?: Stalled;
@@ -75,9 +76,7 @@ export class Folder {
   catchUp(head: Head, records: unknown[]): Promise<ReturnType<Folder['snapshot']>> {
     const ownedHead = structuredClone(head),
       ownedRecords = structuredClone(records);
-    const result = this.tail.then(() => this.advance(ownedHead, ownedRecords));
-    this.tail = result.catch(() => {});
-    return result;
+    return this.queue.run(() => this.advance(ownedHead, ownedRecords));
   }
   private async advance(head: Head, records: unknown[]): Promise<ReturnType<Folder['snapshot']>> {
     const verified = await verifyHistory(this.anchor, head, records);

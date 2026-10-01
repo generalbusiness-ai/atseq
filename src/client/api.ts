@@ -7,13 +7,17 @@ export class ApiError extends Error {
     readonly status: number,
     readonly code: string,
     message: string,
+    readonly permanent = false,
   ) {
     super(message);
   }
 }
 export class AtseqClient {
   readonly origin: string;
-  constructor(origin: string) {
+  constructor(
+    origin: string,
+    private readonly hostToken?: string,
+  ) {
     const url = new URL(origin);
     if (
       !['http:', 'https:'].includes(url.protocol) ||
@@ -43,6 +47,7 @@ export class AtseqClient {
       method: write ? 'POST' : 'GET',
       headers: {
         ...(write ? { 'content-type': 'application/json' } : {}),
+        ...(write && this.hostToken ? { authorization: `Bearer ${this.hostToken}` } : {}),
         ...(creationId ? { 'idempotency-key': creationId } : {}),
       },
       ...(write ? { body: JSON.stringify(input) } : {}),
@@ -60,7 +65,12 @@ export class AtseqClient {
       throw new ApiError(response.status, 'InvalidResponse', (e as Error).message);
     }
     if (!response.ok)
-      throw new ApiError(response.status, value.error ?? 'Unavailable', value.message ?? 'Host request failed');
+      throw new ApiError(
+        response.status,
+        value.code ?? value.error ?? 'Unavailable',
+        value.message ?? 'Host request failed',
+        value.permanent === true,
+      );
     return lexToJson(serviceSchemas.assertValidXrpcOutput(method, jsonToLex(value)));
   }
 }

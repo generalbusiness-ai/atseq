@@ -24,8 +24,9 @@ export async function readSource(reader: SourceReader, cid: string): Promise<Uin
     else if (['content', 'content_corrupt'].includes((error as any)?.code))
       throw new InterpretationError('content_corrupt', `Source reader reported corruption: ${cid}`);
     else {
-      if (error instanceof InterpretationError && error.kind === 'runtime_fault') throw error;
-      throw new InterpretationError('content_missing', `Required source is unavailable: ${cid}`);
+      if (error instanceof AtseqError && (error.kind !== 'invalid_input' || error.code === 'content_missing'))
+        throw error;
+      throw new InterpretationError('content_unavailable', `Source reader could not establish availability: ${cid}`);
     }
   }
   try {

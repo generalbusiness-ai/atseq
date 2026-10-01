@@ -1,3 +1,4 @@
+import { SerialQueue } from '../core/queue.ts';
 import { NSID } from '../core/nsids.ts';
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -18,6 +19,7 @@ import { provisionLog, readSnapshot, Sequencer } from './sequencer.ts';
 import { PdsError, type PdsClient } from './pds.ts';
 import { atomicFile, readJson } from './files.ts';
 import type { AccountProvider } from './accounts.ts';
+import { HostError, hostFailure } from './errors.ts';
 
 interface Creation {
   request: string;
@@ -27,7 +29,7 @@ interface Creation {
   published: boolean;
 }
 interface Running {
-  refreshTail: Promise<unknown>;
+  refreshQueue: SerialQueue;
   anchor: Anchor;
   pds: PdsClient;
   sequencer: Sequencer;
@@ -37,20 +39,20 @@ interface Running {
 }
 export class ApplicationHost {
   private readonly apps = new Map<string, Running>();
-  private tail: Promise<unknown> = Promise.resolve();
+  private readonly failedRestores = new Map<string, { code: string; message: string }>();
+  private readonly queue = new SerialQueue();
   constructor(
     readonly directory: string,
     private readonly accounts: AccountProvider,
-  ) {}
-  private serial<T>(run: () => Promise<T>): Promise<T> {
-    const next = this.tail.then(run);
-    this.tail = next.catch(() => {});
-    return next;
+    private readonly limits = { applications: 32 },
+  ) {
+    if (!Number.isSafeInteger(limits.applications) || limits.applications < 1)
+      throw new Error('Application limit must be a positive integer');
   }
   create(id: string, car: Uint8Array, activationKeys: string[]) {
     const owned = new Uint8Array(car),
       keys = [...activationKeys];
-    return this.serial(async () => {
+    return this.queue.run(async () => {
       if (!/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(id))
         throw new ProtocolError('creation_id', 'Expected a stable UUID v4 creation ID');
       const source = await SourceBundle.read(owned),
@@ -62,6 +64,15 @@ export class ApplicationHost {
       if (record && record.request !== request)
         throw new ProtocolError('creation_conflict', 'Creation ID already names different source or grants');
       if (!record) {
+        let existing: string[];
+        try {
+          existing = await readdir(this.directory);
+        } catch (error) {
+          if ((error as { code?: string }).code !== 'ENOENT') throw error;
+          existing = [];
+        }
+        if (existing.filter((name) => /^[a-f0-9-]{36}$/.test(name)).length >= this.limits.applications)
+          throw new HostError('application_limit', 429, 'Host application limit reached');
         const writer = await P256PrivateKeyExportable.createKeypair();
         record = { request, writer: [...(await writer.exportPrivateKey('raw'))], published: false };
         await atomicFile(join(dir, 'source.car'), owned);
@@ -123,22 +134,43 @@ export class ApplicationHost {
       if ((e as any).code === 'ENOENT') return;
       throw e;
     }
+    this.failedRestores.clear();
     for (const id of names.filter((n) => /^[a-f0-9-]{36}$/.test(n))) {
-      const record = await readJson<Creation>(join(this.directory, id, 'creation-secret.json'));
-      if (!record?.published || !record.genesis || !record.anchor) continue;
-      const pds = await this.accounts.open(id),
-        anchor = await Anchor.from(record.genesis, { app: pds.did, genesis: record.anchor });
-      const source = await SourceBundle.read(await readFile(join(this.directory, id, 'source.car')));
-      const definition = await LoadedDefinition.load(source.root, new SourceStore(pds));
-      await this.attach(
-        id,
-        pds,
-        anchor,
-        await P256PrivateKeyExportable.importRaw(new Uint8Array(record.writer)),
-        source,
-        definition,
-      );
+      try {
+        await this.restoreOne(id);
+      } catch (error) {
+        const { code, message } = hostFailure(error).body;
+        this.failedRestores.set(id, { code, message });
+      }
     }
+    await atomicFile(join(this.directory, 'restore-errors.json'), JSON.stringify(this.restorationFailures()));
+  }
+  restorationFailures() {
+    return structuredClone(Object.fromEntries(this.failedRestores));
+  }
+  private async restoreOne(id: string): Promise<void> {
+    const record = await readJson<Creation>(join(this.directory, id, 'creation-secret.json'));
+    if (!record?.published) return;
+    if (!record.genesis || !record.anchor)
+      throw new HostError('creation_record', 503, 'Published application has incomplete local metadata');
+    const running = this.apps.get(record.genesis.app);
+    if (running) {
+      if (running.anchor.cid !== record.anchor)
+        throw new ProtocolError('anchor', 'Restored application anchor conflicts with the running app');
+      return;
+    }
+    const pds = await this.accounts.open(id),
+      anchor = await Anchor.from(record.genesis, { app: pds.did, genesis: record.anchor });
+    const source = await SourceBundle.read(await readFile(join(this.directory, id, 'source.car')));
+    const definition = await LoadedDefinition.load(source.root, new SourceStore(pds));
+    await this.attach(
+      id,
+      pds,
+      anchor,
+      await P256PrivateKeyExportable.importRaw(new Uint8Array(record.writer)),
+      source,
+      definition,
+    );
   }
   private async attach(
     id: string,
@@ -155,7 +187,7 @@ export class ApplicationHost {
         new SourceStore(pds),
         projectionFile(join(this.directory, id, 'projection.json')),
       );
-      const app = { anchor, pds, sequencer, folder, source, definition, refreshTail: Promise.resolve() };
+      const app = { anchor, pds, sequencer, folder, source, definition, refreshQueue: new SerialQueue() };
       await this.refresh(app);
       this.apps.set(pds.did, app);
       return app;
@@ -171,13 +203,11 @@ export class ApplicationHost {
     return found;
   }
   private refresh(app: Running) {
-    const next = app.refreshTail.then(async () => {
+    return app.refreshQueue.run(async () => {
       const snapshot = await readSnapshot(app.pds, app.anchor, app.folder.snapshot().head);
       await app.folder.catchUp(snapshot.history.head, snapshot.history.entries);
       return snapshot.history;
     });
-    app.refreshTail = next.catch(() => {});
-    return next;
   }
   private created(app: Running) {
     const { head, projection } = app.folder.snapshot();
@@ -305,9 +335,9 @@ export class ApplicationHost {
     return { ...receipt, head, frontier: projection.frontier, outcome };
   }
   async close() {
-    await this.tail;
+    await this.queue.idle();
     for (const app of this.apps.values()) {
-      await app.refreshTail;
+      await app.refreshQueue.idle();
       await app.sequencer.close();
     }
     this.apps.clear();
