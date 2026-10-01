@@ -1,5 +1,5 @@
-import { cp, mkdir } from 'node:fs/promises';
-import { constants } from 'node:fs';
+import { cp, copyFile, mkdir } from 'node:fs/promises';
+import { constants, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 /** Build from owned copies so parallel browser tests keep their checkout's dist. */
@@ -26,5 +26,11 @@ export async function preparePackageBuild(root: string, directory: string) {
       verbatimSymlinks: true,
       mode: constants.COPYFILE_FICLONE,
     });
+  // npm's hidden installation lock is valid only when newer than package
+  // directories. Copy its unchanged bytes last, matching the source install;
+  // otherwise npm pack rereads upstream file lists and can omit bundled files.
+  const installationLock = join('node_modules', '.package-lock.json');
+  if (existsSync(join(root, installationLock)))
+    await copyFile(join(root, installationLock), join(directory, installationLock), constants.COPYFILE_FICLONE);
   return directory;
 }

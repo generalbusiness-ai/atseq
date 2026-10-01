@@ -136,6 +136,8 @@ test(
             node: process.version,
             stagingCopyMs,
             sharedDistPreserved: true,
+            sharedIntegrityAdapterSha256: createHash('sha256').update(originalAdapter).digest('hex'),
+            buildProvenance: provenance,
             buildSourceFilesVerified: Object.keys(provenance.sourceHashes).length,
             installedOutputFilesVerified: Object.keys(provenance.outputHashes).length,
             cases,
