@@ -1,0 +1,143 @@
+{
+  "format": "atseq-local-generations-evidence",
+  "version": 1,
+  "retainedAt": "2026-10-01T20:00:13.874628+00:00",
+  "basis": "2a6870cadecbd89bb12d8a38c088282cf3202ef4",
+  "sourceHead": "558f396183904c01450bb2b7eb939a36f56f3a24",
+  "platform": {
+    "system": "Darwin",
+    "release": "27.0.0",
+    "machine": "arm64"
+  },
+  "commands": [
+    {
+      "command": "/Users/hughpyle/.npm/_npx/1bd81ab945294a66/node_modules/node/bin/node --import tsx --test tests/local-generations.test.ts",
+      "exitCode": 0,
+      "log": "focused-node22.13.log",
+      "completedAt": "2026-10-01T19:55:12.844787+00:00"
+    },
+    {
+      "command": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node --import tsx --test tests/local-generations.test.ts tests/local-generations-browser.test.ts",
+      "exitCode": 0,
+      "log": "focused-node22.19-chromium.log",
+      "completedAt": "2026-10-01T19:55:02.573759+00:00"
+    },
+    {
+      "command": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node --import tsx --test tests/local-generations.test.ts",
+      "exitCode": 0,
+      "log": "focused-node24.21.log",
+      "completedAt": "2026-10-01T19:55:12.684784+00:00"
+    },
+    {
+      "command": "node --import tsx --test tests/local-generations.test.ts",
+      "exitCode": 0,
+      "log": "focused-node26.10.log",
+      "completedAt": "2026-10-01T19:55:12.865405+00:00"
+    },
+    {
+      "command": "node --import tsx --test tests/local-generations.test.ts tests/local-generations-browser.test.ts",
+      "exitCode": 0,
+      "log": "focused-node26.10-chromium.log",
+      "completedAt": "2026-10-01T19:57:14.738353+00:00"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "log": "build.log",
+      "completedAt": "2026-10-01T19:57:57.766296+00:00"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "log": "check.log",
+      "completedAt": "2026-10-01T19:58:01.092926+00:00"
+    },
+    {
+      "command": "node scripts/source-run.mjs --test --test-skip-pattern='^entry 20000 is accepted' tests/*.test.ts",
+      "exitCode": 1,
+      "log": "ordinary-suite.log",
+      "completedAt": "2026-10-01T19:56:15.204831+00:00",
+      "tests": 295,
+      "pass": 285,
+      "fail": 10,
+      "reason": "PDS fixture native better-sqlite3 addon unavailable after isolated --ignore-scripts install; all10 failed at PDS startup. No20k boundary run."
+    }
+  ],
+  "sourceSha256": {
+    "src/core/local-generations.ts": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a",
+    "src/host/local-generations.ts": "48ecb1041024c1fe149f78c709d067426b91aa9424e329d13f498624628931a5",
+    "src/browser/local-generations.ts": "1751d51257c6268b8b53fb46c3f72d9fde5bc0b43ba06b8b4f811243099c1088",
+    "tests/local-generations.test.ts": "42d32fab6374b2a2df53bfe374c9f50834931969e0c4a63a6f5b885ded18cf53",
+    "tests/local-generations-browser.test.ts": "a270403c2d66270485a62ede0cf8dabd64430067d342baaae1b80a1e2396a5f4",
+    "tests/support/local-generations-corpus.ts": "957e62c7d00c7bae2fea62ed86730c45be16c171662575a101b575484967b8ae",
+    "tests/support/local-generation-crash.ts": "b820ecc763cea184cf913798d5342a039c487c62bb201d5d61de7808b3cfd78e",
+    "tests/support/local-generations-browser.ts": "f786be0ce23d498bb6c0b936304056e67a034380a59271b78cddb6c30af5bad0"
+  },
+  "artifacts": {
+    "build.log": {
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    "check.log": {
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "chromium-ordinary-suite.json": {
+      "bytes": 3073,
+      "sha256": "f8b4c36c370d7caab196ffc7d567b9988212722e34d3477ed23d0f5d2d91b54c"
+    },
+    "chromium.json": {
+      "bytes": 3073,
+      "sha256": "161509668ac3eadca36cb2252ccc5e74104e245571816a52b0f84e0d1c211b17"
+    },
+    "focused-node22.13.log": {
+      "bytes": 816,
+      "sha256": "2c50c97ea81c4db77c3a4e81aa93993d1b5635854b13aea0b5d25cea1a1d22a4"
+    },
+    "focused-node22.19-chromium.log": {
+      "bytes": 1933,
+      "sha256": "2ada53d1963859fa16694484aff91c22172d856553178ccb5736b70ef6921cde"
+    },
+    "focused-node24.21.log": {
+      "bytes": 518,
+      "sha256": "413ca8844c75c4a2493828658423b19d10f863ab6786c5ea9d6c67a249dca6d0"
+    },
+    "focused-node26.10-chromium.log": {
+      "bytes": 1479,
+      "sha256": "06e94d49509be165081867c202ff63d69ad0ec07f593acdd9b15d994cdb9e8b0"
+    },
+    "focused-node26.10.log": {
+      "bytes": 518,
+      "sha256": "5a8b6c7878f9d3f8b85a03228aacda138bf5e9a4b4d3666d72e005940c0b0dd8"
+    },
+    "node-v22.13.0.json": {
+      "bytes": 2390,
+      "sha256": "1348f6f72c98121b0ae36a5be81ec9c7181f96d10cb426fe3c9eb0dc14ce3aae"
+    },
+    "node-v22.19.0.json": {
+      "bytes": 2390,
+      "sha256": "3a7219f6454e8cc2ef54eaca3e5f5b739fca452f429c538e62923b28778ba7af"
+    },
+    "node-v24.21.0.json": {
+      "bytes": 2390,
+      "sha256": "7362efc7741cc98fb449d6588892af254a1190893a1f011ae3ffc68956b6033e"
+    },
+    "node-v26.10.0-ordinary-suite.json": {
+      "bytes": 2390,
+      "sha256": "b965275f11f2404f941485f93431426a00876c31a6cd2dcf53b5bf633c6bb0d5"
+    },
+    "node-v26.10.0.json": {
+      "bytes": 2390,
+      "sha256": "b965275f11f2404f941485f93431426a00876c31a6cd2dcf53b5bf633c6bb0d5"
+    },
+    "ordinary-suite.log": {
+      "bytes": 70817,
+      "sha256": "cc42e9fea12634a6a98fd77348a61a10f205c6e4c16a8274959b034713331d52"
+    },
+    "pre-correction-quota-observations.json": {
+      "bytes": 708,
+      "sha256": "8745257f4d73d6c1d76aa2c641e5aa86069fc044be04fa341f4279f3cfeb90b5"
+    }
+  },
+  "scope": "Opaque unwired storage foundation only; no trusted restore, native proof, audit, timing, power-loss or fullP3 completion claim."
+}

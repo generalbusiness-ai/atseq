@@ -1,0 +1,62 @@
+{
+  "node": "v26.10.0",
+  "quota": {
+    "attemptedBytes": 4194304,
+    "maxPages": 8,
+    "observed": {
+      "code": "quota",
+      "causeCode": "ERR_SQLITE_ERROR",
+      "causeErrcode": 13
+    },
+    "generation": 1
+  },
+  "incremental": {
+    "historyRows": 500,
+    "precedingChangedKeys": 1,
+    "actualRetirementKeys": 1,
+    "storedVersions": 501,
+    "sqlPlan": [
+      {
+        "id": 3,
+        "parent": 0,
+        "notused": 61,
+        "detail": "SEARCH local_rows USING INDEX local_rows_generation (generation=?)"
+      }
+    ],
+    "logicalUsage": {
+      "bytes": 137794,
+      "rows": 501
+    }
+  },
+  "cases": [
+    "owned inputs and reads",
+    "owned bounded pages",
+    "exact generation and deletion visibility",
+    "CAS conflict preserves generation",
+    "invalid caller inputs",
+    "durable reopen",
+    "scope isolation",
+    "bounded predecessor GC preserves baseline rows",
+    "pin and generation quota abort coherent transaction",
+    "pins survive reopen",
+    "pin release permits retirement",
+    "byte and row quotas roll back pointer and rows",
+    "two connections serialize compare and commit",
+    "nonadjacent pinned generations preserve exact updates and tombstones through retirement",
+    "page byte budget separates continuation from a single oversized row",
+    "closed store rejects subsequent operations",
+    "invalid limits are caller errors",
+    "actual SQLite COMMIT failure preserves original error and rolls back all changes",
+    "actual SQLite FULL engine failure preserves prior generation and typed quota cause",
+    "SIGKILL before real SQLite COMMIT restores coherent old generation",
+    "SIGKILL after real SQLite COMMIT restores coherent new generation",
+    "500-row history one-key retirement uses generation index and exact incremental accounting"
+  ],
+  "sources": {
+    "src/core/local-generations.ts": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a",
+    "src/host/local-generations.ts": "48ecb1041024c1fe149f78c709d067426b91aa9424e329d13f498624628931a5",
+    "tests/support/local-generations-corpus.ts": "957e62c7d00c7bae2fea62ed86730c45be16c171662575a101b575484967b8ae",
+    "tests/support/local-generation-crash.ts": "b820ecc763cea184cf913798d5342a039c487c62bb201d5d61de7808b3cfd78e",
+    "tests/local-generations.test.ts": "42d32fab6374b2a2df53bfe374c9f50834931969e0c4a63a6f5b885ded18cf53"
+  }
+}

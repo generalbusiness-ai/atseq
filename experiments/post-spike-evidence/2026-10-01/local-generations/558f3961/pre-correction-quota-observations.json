@@ -1,0 +1,16 @@
+{
+  "type": "reconstruction from observed test outcomes, not retained raw stdout",
+  "attempts": [
+    {
+      "setup": "quota override after existing same-origin IndexedDB use and seed generation",
+      "attemptedBytes": 262144,
+      "result": "commit unexpectedly succeeded; probe failed Expected physical quota failure"
+    },
+    {
+      "setup": "same warmed-origin setup",
+      "attemptedBytes": 4194304,
+      "result": "commit unexpectedly succeeded; probe failed Expected physical quota failure"
+    }
+  ],
+  "correction": "Use a fresh origin and apply/assert active 1MiB quota before first IDB access; actual4MiB failure passed. No conclusion that production adapter bypassed physical quota."
+}
