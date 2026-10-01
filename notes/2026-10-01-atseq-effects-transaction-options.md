@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: source-based options; measurement and independent contract review gates remain open
+status: reviewed complete-state default adopted; effects comparison conditional
 examined_at: bcc9c92cf194b27f23f0b347ef67e6c707b8a978
 request: fe6f8e1263f22e6b3d81070d1f58f0e3cd819016
 promise: 053e043c3b5b482dbb6e703d2eb7cba816dd50cb
@@ -14,6 +14,12 @@ application needs larger state or more rows than it supports, the most promising
 next comparison is a bounded set of declared
 point reads followed by a pure program returning typed local writes. This note
 defines that candidate's obligations; it does not select or implement it.
+
+Publication status: ratified assessment `a03c7402` adopts complete state with V0
+and checkpoints as the default. V0 has since shipped at `2a6870ca`, and S1
+selective reads at `781732f4`. Historical source analysis below retains its original
+basis; integrated native E1 and a concrete beyond-cap application need remain gates
+before an effects prototype.
 
 The [S0 requirements](2026-10-01-atseq-state-requirements.md) require P0/E1 stage
 evidence before choosing effects or starting a prototype. P0 now demonstrates
@@ -64,10 +70,10 @@ measurements. Ranked by relevance to growing-state writes:
 
 | Rank | Source | Work and cost | Smallest comparison and risk |
 | --- | --- | --- | --- |
-| 1 | [Schema validation](../src/definition/schemas.ts:152) and [successor admission](../src/application/folder.ts:212) | Successful validation makes three complete canonical walks around the official validator. Each canonical walk visits the value and sorts object keys: O(B + sum(k log k)); the validator adds its schema traversal. | V0's token byte-count change preserves traversal and checks. Skipping a walk needs a separately proved ownership/validator boundary. |
-| 2 | [Evaluator input](../src/runtime/evaluator.ts:101), [intermediate guards](../src/runtime/evaluator.ts:171) and [fold](../src/runtime/evaluator.ts:193) | Input and output copying and canonical inspection include complete state; each evaluated data result is charged. A small AST can repeatedly inspect large values. | Bounded inputs and outputs could remove total-state work, but change the fold contract and its observable budgets. |
+| 1 | [Schema validation](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/definition/schemas.ts#L152) and [successor admission](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/application/folder.ts#L212) | Successful validation makes three complete canonical walks around the official validator. Each canonical walk visits the value and sorts object keys: O(B + sum(k log k)); the validator adds its schema traversal. | V0's token byte-count change preserves traversal and checks. Skipping a walk needs a separately proved ownership/validator boundary. |
+| 2 | [Evaluator input](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/runtime/evaluator.ts#L101), [intermediate guards](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/runtime/evaluator.ts#L171) and [fold](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/runtime/evaluator.ts#L193) | Input and output copying and canonical inspection include complete state; each evaluated data result is charged. A small AST can repeatedly inspect large values. | Bounded inputs and outputs could remove total-state work, but change the fold contract and its observable budgets. |
 | 3 | B0's decoded `add.jsonata`, `complete.jsonata`, `record.jsonata` | Array filters scan for duplicate/missing IDs and appends construct complete successor arrays. O(R) lookup and at least O(R) materialization are independent of the runtime guards. | A keyed row store must preserve uniqueness, absence and ordered iteration; replacing a filter with an index alone leaves complete successor costs. |
-| 4 | [Snapshots](../src/application/folder.ts:78), [optional persistence](../src/application/folder.ts:147) and [queries](../src/application/folder.ts:218) | Owned complete projections include state and accumulated outcomes. Even a small query first clones that projection. If optional persistence is used per action, complete history copies can accumulate O(N squared) work. | Coherent selective reads and transactional roots could avoid routine complete copies. Actual host persistence is currently the small writer lease/head, not this optional callback. |
+| 4 | [Snapshots](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/application/folder.ts#L78), [optional persistence](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/application/folder.ts#L147) and [queries](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/application/folder.ts#L218) | Owned complete projections include state and accumulated outcomes. Even a small query first clones that projection. If optional persistence is used per action, complete history copies can accumulate O(N squared) work. | Coherent selective reads and transactional roots could avoid routine complete copies. Actual host persistence is currently the small writer lease/head, not this optional callback. |
 
 P0's 10,000-action growing primitive-array case had approximately 185–186
 seconds of median interpretation versus approximately 1.4 seconds for bounded
@@ -141,7 +147,7 @@ native authority model. Repository authentication does not prove execution.
 Changing the fold result from complete `state` to writes requires new semantic
 identity. Read selectors, logical state schemas, effect rules, budgets and the
 program must be covered by the applicable execution contract. The current
-[engine descriptor](../src/core/contracts.ts:137) itself specifies the complete
+[engine descriptor](https://github.com/generalbusiness-ai/atseq/blob/bcc9c92cf194b27f23f0b347ef67e6c707b8a978/src/core/contracts.ts#L137) itself specifies the complete
 state result, so unchanged JSONata evaluation alone does not justify retaining
 its existing descriptor/CID. Profile names, per-action identity coverage and
 activation admission require their own review before implementation.

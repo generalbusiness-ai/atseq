@@ -9,9 +9,10 @@
     "0412eb82bd82f1b0aad682dfe73acc108bb87d47",
     "01253121bfaaf66b40df849e8f89d9dffde2fd6b",
     "a03c7402ab2e946608ae8e6fb007fc7b70954acb",
-    "e28c0d229bea433a450bc9d183939f04da466f39"
+    "e28c0d229bea433a450bc9d183939f04da466f39",
+    "3f022792302ccc8a52fca4ef1d693bb961335017"
   ],
-  "publicationChanges": "Native-wire adds ratified NW0-3 role-revision/map-pressure clarification and adopted status; materialization updates subsequent NW0 acceptance. Original source hashes retained. Other copied sources and raw captures byte identical. Programme/index/gap snapshots updated separately.",
+  "publicationChanges": "Native wire adds ratified NW0-3 role-revision/map-pressure clarification and adopted status. Its original source hash is retained. Materialization and checkpoint-byte notes use corrected source2fec4532, adopting ratified P4-A..D and S1 selective outcome limits. Other copied sources and raw captures are byte identical. Programme/index/gap snapshots are updated separately. State/effects adds current adopted/shipped status and pinned GitHub code-line links; historical analysis/captures retain their basis.",
   "files": [
     {
       "path": "notes/2026-10-01-atseq-incremental-reader-requirements.md",
@@ -31,14 +32,7 @@
       "path": "notes/2026-10-01-atseq-effects-transaction-options.md",
       "sourceHead": "562e8ed9129b39d5d48e53da2e9b26167116a952",
       "sourceSha256": "ed4e38a6b1af9ac3b9414a5d828be37f4831c130d590089a30b6745b07d9424f",
-      "publishedSha256": "ed4e38a6b1af9ac3b9414a5d828be37f4831c130d590089a30b6745b07d9424f",
-      "byteIdentical": true
-    },
-    {
-      "path": "notes/2026-10-01-atseq-materialized-checkpoints.md",
-      "sourceHead": "b27ed603e39e8a5247632f88c337fa331a44b695",
-      "sourceSha256": "562ad94f435dc50d6618269b32ece1f03cf675a4fa955a749f94c892b664fa89",
-      "publishedSha256": "bc5c08ef502074c09c7c0a2382b3f15ec1d56efd1c36f6a9931215e84917985b",
+      "publishedSha256": "d178b17d94ffa546260724e7ef9aace008494c32df7a17041f850f49204b9633",
       "byteIdentical": false
     },
     {
@@ -214,6 +208,20 @@
       "sourceHead": "8034b247093a10b4a027ea6af9234e3820fca29d",
       "sourceSha256": "13c4178db0a4c3879a1086bc386fc854ea010b6b6a5cfe873f75d17e8b6dfb99",
       "publishedSha256": "13c4178db0a4c3879a1086bc386fc854ea010b6b6a5cfe873f75d17e8b6dfb99",
+      "byteIdentical": true
+    },
+    {
+      "path": "notes/2026-10-01-atseq-materialized-checkpoints.md",
+      "sourceHead": "2fec4532bb316906c2c6e183cb2179546a9628a8",
+      "sourceSha256": "5832c7ea6b9e1c1599d7694b8ce228721076205ffa31ea394af7c9bb3f41edd6",
+      "publishedSha256": "5832c7ea6b9e1c1599d7694b8ce228721076205ffa31ea394af7c9bb3f41edd6",
+      "byteIdentical": true
+    },
+    {
+      "path": "notes/2026-10-01-atseq-checkpoint-policy-bytes.md",
+      "sourceHead": "2fec4532bb316906c2c6e183cb2179546a9628a8",
+      "sourceSha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69",
+      "publishedSha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69",
       "byteIdentical": true
     }
   ]

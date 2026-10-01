@@ -1,7 +1,7 @@
 ---
 date: 2026-10-01
 status: implementation started; full programme open
-examined_at: ab309023f43bd402c6cba25d06edeeee636ee9bd
+examined_at: 781732f47f02d26332942147bfbe8f4e95526231
 request: cbafc791
 ---
 
@@ -59,12 +59,13 @@ Request hashes below use the same repository prefix
 | PB1     | `d22a606d` | Distinguish native resource exhaustion from invalid history       | Adopted API decision; implementation review  |
 | V0      | `592e7c33` | Characterize and simplify canonical validation overhead           | Differential semantics and measured evidence |
 | F2      | `f9abfb7e` | Publish continuation designs and current status                   | Exact-head documentation review              |
-| NW0     | `6213c7bf` | Freeze native wire and authority operation contracts              | Corrected recovery decision and exact vectors |
+| NW0     | `6213c7bf` | Freeze native wire and authority operation contracts              | Adopted recovery decision; exact vectors open |
 | N0      | `d62b5a88` | Check generated attribution without writing                       | Shipped; exact-head review                    |
 | N2      | `1acd7587` | Pin attribution ordering during the identity graph refresh        | Identity foundation review and landing        |
 | B1      | `05ba889d` | Preserve typed malformed source-document byte errors              | Shipped; exact-head review                    |
-| S1      | `d91eddf6` | Avoid full outcome-history copies in routine reads                | Ownership/frontier tests and exact-head review |
+| S1      | `d91eddf6` | Avoid full outcome-history copies in routine reads                | Shipped; exact-head review                    |
 | F3      | `4851a077` | Publish continuation assessments and corrected notes              | Exact-head documentation review              |
+| N1-F1   | `1012e4e2` | Deliver isolated native wire framing and conformance preparation  | Exact-head review; parent N1 remains open      |
 | I1-F1   | `de0005d3` | Deliver internal retained identity/network verification foundations | Exact-head review; parent I1 remains open   |
 
 ## Completion and reports
@@ -75,10 +76,10 @@ and remaining cases. Design decisions are reviewed before the affected contract
 is implemented. Changes are independently reviewed at an exact head, merged
 through gitseq and pushed under the user's authorization.
 
-D0 selected the independently reviewed authority backbone; N1 still owes concrete Lexicons/wire details.
-R0 must decide retry semantics before N1/R1 freezes them. Activation compatibility
-and discoverable capabilities from the gap assessment must likewise be settled
-before the final envelope/discovery shape is fixed. An unresolved choice cannot
+D0 selected the independently reviewed authority backbone. NW0 and R0 now settle
+the logical wire and retry contracts; N1/R1 still owe their complete implementation.
+C0 adopted per-action execution compatibility, while C1 still owes its enforced
+role and capability interfaces. An unresolved choice cannot
 be smuggled in as a performance refactor.
 
 Optional alternatives have explicit decision gates: a lazy retry tree only if
@@ -128,6 +129,7 @@ foundations from accepted designs and unfinished integration.
   The B1 fix and combined V0 implementation passed their pushed-main Linux
   matrices at `ab309023` ([run `36909739355`](https://github.com/generalbusiness-ai/atseq/actions/runs/36909739355))
   and `2a6870ca` ([run `36910654142`](https://github.com/generalbusiness-ai/atseq/actions/runs/36910654142)).
+  S1 passed the pushed-main matrix at `781732f4` ([run `36914299375`](https://github.com/generalbusiness-ai/atseq/actions/runs/36914299375)).
 - **I1, I2, N1, R0 and C1 have reviewed directions.** Their
   [admission](2026-10-01-atseq-account-admission-design.md),
   [authority](2026-10-01-atseq-account-authority-design.md),
@@ -139,8 +141,9 @@ foundations from accepted designs and unfinished integration.
   provider permissions remain gates. I1's planned maintained transport requires
   an explicit Node minimum change from 22.13 to 22.19, together with support docs,
   CI and real host private-address/DNS-rebinding checks.
-  Internal foundation candidate `412b0c9b` is in independent review under the
-  narrower I1-F1 request. It retains a completed serial 380-test suite, 57 shared
+  Original internal foundation candidate `412b0c9b` received required corrections
+  in review `d1d1d9a9`. Successor `2b9e255c` is submitted for replacement review
+  under the narrower I1-F1 request; no approval or landing is assumed. It retains a completed serial 380-test suite, 57 shared
   Node/Chromium/installed-consumer identity cases and actual guarded-dispatch
   network checks. Its interrupted parallel attempt is retained separately.
   Observer orchestration, descriptor/native record linkage, admission floors,
@@ -155,8 +158,10 @@ foundations from accepted designs and unfinished integration.
   [options note](2026-10-01-atseq-effects-transaction-options.md) prefers the
   present 128 KiB state contract with V0 and checkpoints. A new effects contract
   waits for a concrete application need beyond that bound and measured at-cap
-  Node/Chromium costs. S1 implements compact owned query/status/receipt captures
-  without changing that contract.
+  Node/Chromium costs. S1 is shipped at `781732f4`: its [selective-capture result](2026-10-01-atseq-selective-captures-results.md)
+  records owned query/status/receipt captures without changing that contract.
+  On 1,000 retained outcomes, query/status captures avoid all historical outcome
+  rows; full persistence and export still retain their complete-projection costs.
 - **M0 and N0 are shipped.** The [runtime patch report](2026-10-01-atseq-runtime-advisory-results.md)
   records the narrow brace patch, separately identified attribution refresh,
   unchanged profile CIDs and actual acceptance. The [notice check](2026-10-01-atseq-notice-check-results.md)
@@ -172,8 +177,10 @@ treat account revisions as advisory cursors, preserve every known app floor and
 reuse a current boundary without claiming an interior audit. The
 [materialization/checkpoint note](2026-10-01-atseq-materialized-checkpoints.md)
 separates trusted local atomic restore, native publication assertions and
-independent genesis replay. Its exact portable byte policy is still in review
-preparation. These designs are not shipped native ordering or persistence.
+independent genesis replay. The [checkpoint byte note](2026-10-01-atseq-checkpoint-policy-bytes.md) adopts
+reviewed outer-shape simplifications: local reader mode, version-implied native
+publication, derived pending history and no duplicated constant claims. Joint
+closed row schemas and literal native payload vectors remain gates. These designs are not shipped native ordering or persistence.
 
 P2/P3/P4, R1, A1/A2, E1 and T1 remain open. Account reuse needs pair-scoped state,
 collection-scoped OAuth publication and demonstrated provider behavior; dedicated
@@ -201,8 +208,8 @@ M1 is satisfied as an assessment. The
 [PDS dependency report](2026-10-01-atseq-pds-dependency-assessment.md) distinguishes
 the disposable fixture from the shipped graph and identifies narrow compatible
 patches. Update one fixture in place; retain old captures with their old lock
-hashes. MF1 implements the patches and MF2 isolates inherited telemetry. Their
-implementation and exact-head delivery gates remain separate from the assessment.
+hashes. MF1 shipped the patches and MF2 shipped telemetry isolation, each through its own
+independent exact-head review.
 Review `e23495f5` and final report `e94181a5` record the accepted recommendation.
 
 Q0 is satisfied as a direction: the
@@ -221,7 +228,7 @@ explicit v2 profile advance that B0 now ships with regenerated conformance evide
 N1's later native profile must review a separate service-contract identity so
 routine API evolution does not require a new app genesis.
 
-P0 baseline characterization is shipped; V0 and E1 continue the measured performance work. Full native ordering, account
+P0 baseline characterization and V0 canonical optimization are shipped; E1 continues the measured performance work. Full native ordering, account
 adoption, durable materialization, portable checkpoints and final end-to-end
 characterization remain open. The adopted decisions above are not completion of
 their downstream implementation.

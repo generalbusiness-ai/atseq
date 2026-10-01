@@ -160,7 +160,7 @@ from their downstream implementation completion.
 
 The [native wire](2026-10-01-atseq-native-wire-contract.md) and
 [enrolment design](2026-10-01-atseq-account-enrolment-design.md) make the remaining
-identity interfaces concrete. Corrected recovery authority, exact byte vectors,
+identity interfaces concrete. Recovery authority is adopted; literal byte vectors,
 installed OAuth costs and real provider trials remain explicit gates. Internal
 PLC/web/network verification is a foundation; it does not complete authenticated
 participation or native app ordering. M0's narrow shipped patch and N0's generated

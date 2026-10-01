@@ -45,9 +45,8 @@ The coordinated NW0 proposal is
 `notes/2026-10-01-atseq-native-wire-contract.md` at
 `10e656b3594e41cfa096c03e390cc721776cf57e`, successor to inspected `dff4b617`
 with recovery above governance and the exact five-field fold metadata
-`app/genesis/position/principal/execution`. Subsequent ratified assessments
-`4d4f6f8d` and `83cd03d4` confirm corrected D5, initial role revision G and
-explicit mixed-pair map-pressure limits. Its owner
+`app/genesis/position/principal/execution`. Root has since confirmed that corrected
+D5 and NW0-3 are ratified. Its owner
 confirmed that `certify` is reserved but enables no operation before P4 review.
 Final field names, closed unions and canonical checkpoint bytes require the
 coordinated NW0/P4 review; this note fixes responsibilities and trust choices.
@@ -113,7 +112,7 @@ The transaction retains these logical components:
 | Verified prefix | Exact verified head, chain CID references and all accepted R0 unsigned-intent-CID / canonical-signer-plus-nonce rows, with original position/entry pointers; complete consumed-observation descriptor identities through that head. |
 | Interpreted state | Exact frontier, complete domain state, active definition/source closure and I2 authority at that frontier. |
 | Authority | Control tip and appointed powers, owner and role assignment revisions, current and retired principal epoch anchors, accepted participant observations/floors, immutable admitted grants and terminal tombstones. Retain data, not just an unusable digest. |
-| Interpretation results | Outcomes through the frontier, stored by position for selective retrieval; exact stalled entry/reason and verified but uninterpreted tail. |
+| Interpretation results | Available outcomes keyed by their actual ordered positions, with explicit coverage; exact stalled entry/reason and verified but uninterpreted tail. |
 | Evidence and floors | Exact entry/request/source/observation bytes, necessary native proof and binding evidence, every known app floor, and receipt/outbox references which establish a newer confirmed floor. |
 
 Keep duplicate prevention through the verified head distinct from effective
@@ -142,6 +141,13 @@ without old signature checks or domain folding. It is the simplest complete
 initial writer contract. Selective outcomes avoid copying their whole history
 into routine queries/status. Optimizing index startup through lazy storage is a
 later measured choice, not an implicit completeness shortcut.
+Restore must not assume a dense outcome array beginning at position one. S1's
+approved selective-outcome direction (`93eaeffc`) allows an imported checkpoint
+to omit older outcomes. A missing outcome at/before interpreted frontier is
+explicit unavailable history or an integrity fault when promised coverage was
+violated; it is never permanently pending. Only positions beyond frontier can be
+awaiting interpretation. The raw storage adapter returns indexed bytes/absence;
+the application validator and status adapter own this distinction.
 
 PDS publication and a local database transaction cannot be atomic together.
 After native CAS succeeds but local persistence fails, refuse new writes until
