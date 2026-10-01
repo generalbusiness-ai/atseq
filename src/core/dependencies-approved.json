@@ -1,6 +1,6 @@
 {
   "profile": "atseq-app-v2",
-  "approval": "M0 brace-expansion security patch; semantic equivalence and file closure require independent exact-head review",
+  "approval": "B0 v2 profile on the independently reviewed P1/M0 dependency closure; exact-head conformance required",
   "direct": {
     "@atcute/car": "6.1.0",
     "@atcute/cbor": "2.3.8",
