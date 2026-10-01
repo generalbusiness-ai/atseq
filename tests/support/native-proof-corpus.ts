@@ -4,6 +4,7 @@ import { writeCarStream, fromUint8Array as readCar } from '@atcute/car';
 import {
   NodeStore,
   NodeWalker,
+  MissingBlockError,
   NodeWrangler,
   MemoryBlockStore,
   getKeyHeight,
@@ -43,6 +44,18 @@ async function rejects(run: () => unknown | Promise<unknown>, name: string, inpu
   check(threw, `${name} accepted`);
 }
 const rejectsInput = (run: () => unknown | Promise<unknown>, name: string) => rejects(run, name, true);
+async function rejectsLimit(run: () => unknown | Promise<unknown>, name: string) {
+  let caught: unknown;
+  try {
+    await run();
+  } catch (error) {
+    caught = error;
+  }
+  check(
+    caught instanceof ProtocolError && caught.code === 'native_proof_limit' && caught.kind === 'transient',
+    `${name} did not produce transient native_proof_limit: ${String(caught)}`,
+  );
+}
 export async function car(
   root: string,
   blocks: Map<string, Uint8Array>,
@@ -125,14 +138,47 @@ export async function nativeProofCorpus() {
     ],
     ['wrong root', { expectedRoot: found.cid }],
     ['truncated CAR', { carBytes: options.carBytes.slice(0, -1) }],
-    ['CAR byte budget', { limits: { carBytes: 10 } }],
-    ['block count budget', { limits: { carBlocks: 1 } }],
-    ['block byte budget', { limits: { blockBytes: 10 } }],
-    ['header budget', { limits: { headerBytes: 10 } }],
   ] as const) {
     await rejectsInput(() => authenticateRepo({ ...options, ...change }), name);
     passed(name);
   }
+  for (const [name, limits] of [
+    ['CAR byte budget', { carBytes: 10 }],
+    ['block count budget', { carBlocks: 1 }],
+    ['block byte budget', { blockBytes: 10 }],
+    ['header budget', { headerBytes: 10 }],
+    ['native header depth budget', { depth: 1 }],
+  ] as const) {
+    await rejectsLimit(() => authenticateRepo({ ...options, limits }), name);
+    check(
+      (await (await authenticateRepo(options)).validateTree()).kind === 'complete',
+      'raised budget did not recover',
+    );
+    passed(`${name}: resource limit and sufficient-budget recovery`);
+  }
+  await rejectsInput(
+    () => authenticateRepo({ ...options, carBytes: 'not bytes' as unknown as Uint8Array }),
+    'CAR type',
+  );
+  await rejectsInput(
+    () => authenticateRepo({ ...options, carBytes: new Uint8Array([64, 0xf6]), limits: { headerBytes: 1 } }),
+    'truncated oversized header',
+  );
+  await rejectsInput(() => authenticateRepo({ ...options, carBytes: new Uint8Array([0]) }), 'zero header');
+  passed('CAR type and truncated/zero header are input before local header policy');
+  for (const value of [0, -1, 0.5, Infinity, NaN, Number.MAX_SAFE_INTEGER + 1]) {
+    await rejectsInput(() => authenticateRepo({ ...options, limits: { carBytes: value } }), 'invalid proof budget');
+    await rejectsInput(() => new VerifiedRepoBlocks({ bytes: value }), 'invalid cache budget');
+  }
+  await rejectsInput(
+    () => authenticateRepo({ ...options, limits: { unknown: 1 } as AuthenticateRepoOptions['limits'] }),
+    'unknown proof budget',
+  );
+  await rejectsInput(
+    () => new VerifiedRepoBlocks({ unknown: 1 } as unknown as { bytes: number }),
+    'unknown cache budget',
+  );
+  passed('unknown and nonpositive/fractional/nonfinite/unsafe bounds remain caller input errors');
   const damaged = new Uint8Array(options.carBytes);
   damaged[damaged.length - 1]! ^= 1;
   await rejectsInput(() => authenticateRepo({ ...options, carBytes: damaged }), 'corrupt block');
@@ -140,11 +186,41 @@ export async function nativeProofCorpus() {
   await rejectsInput(() => verified.lookup(path(1), root), 'wrong record CID');
   passed('wrong record CID');
   await rejectsInput(() => verified.lookup('bad/path/extra'), 'invalid path');
-  passed('invalid path');
+  await rejectsInput(() => verified.lookup('a/' + 'x'.repeat(1023)), '1025-character protocol-invalid path');
+  const shortPath = await authenticateRepo({ ...options, limits: { pathCharacters: 1 } });
+  await rejectsInput(() => shortPath.lookup('bad/path/extra'), 'invalid path before stricter character budget');
+  await rejectsInput(() => shortPath.lookup(1 as unknown as string), 'path type before budget');
+  await rejectsLimit(() => shortPath.lookup(path(1)), 'protocol-valid path exceeds stricter character budget');
+  check((await verified.lookup(path(1))).kind === 'found', 'sufficient character policy did not recover');
+  passed('path protocol syntax/1024 maximum precede stricter local character policy');
   const bounded = await authenticateRepo({ ...options, limits: { pathLoads: 1, treeLoads: 1 } });
-  await rejectsInput(() => bounded.lookup(path(1)), 'path node budget');
-  await rejectsInput(() => bounded.validateTree(), 'whole-tree node budget');
-  passed('path and full-tree node budgets');
+  await rejectsLimit(() => bounded.lookup(path(1)), 'path node budget');
+  await rejectsLimit(() => bounded.validateTree(), 'whole-tree node budget');
+  const depthBounded = await authenticateRepo({ ...options, limits: { pathLoads: 1 } });
+  await rejectsLimit(() => depthBounded.validateTree(), 'full-tree walker path-depth budget');
+  check((await verified.validateTree()).kind === 'complete', 'sufficient traversal policy did not recover');
+  passed('path node, full-tree node and walker-depth budgets are resource limits');
+  const limitedEntries = await authenticateRepo({ ...options, limits: { nodeEntries: 1 } });
+  await rejectsLimit(() => limitedEntries.lookup(path(1)), 'lookup node-entry budget');
+  await rejectsLimit(() => limitedEntries.validateTree(), 'full-tree node-entry budget');
+  check((await verified.validateTree()).kind === 'complete', 'sufficient node policy did not recover');
+  passed('node-entry policy yields resource limit and sufficient-budget recovery');
+  const commitOnly = await car(root, new Map([[root, blocks.get(root)!]]));
+  const shallow = await authenticateRepo({ ...options, blocks: cache, carBytes: commitOnly, limits: { depth: 2 } });
+  await rejectsLimit(() => shallow.lookup(path(1)), 'native node framing depth');
+  passed('native cached-node depth is local policy distinct from Atseq wire depth');
+  check(
+    blocks.get(data)!.length > blocks.get(root)!.length,
+    'root node must exceed commit bytes for cached block control',
+  );
+  const smallBlock = await authenticateRepo({
+    ...options,
+    blocks: cache,
+    carBytes: commitOnly,
+    limits: { blockBytes: blocks.get(root)!.length },
+  });
+  await rejectsLimit(() => smallBlock.lookup(path(1)), 'cached native block byte budget');
+  passed('cached native block bytes obey resource policy');
   const mutableOptions = { ...options, carBytes: new Uint8Array(options.carBytes) },
     mutable = await authenticateRepo(mutableOptions);
   mutableOptions.carBytes.fill(0);
@@ -192,11 +268,15 @@ export async function nativeProofCorpus() {
     'failed auth evicted prior blocks',
   );
   passed('failed admission preserves prior evidence');
-  await rejects(
+  await rejectsLimit(
     () => authenticateRepo({ ...options, blocks: new VerifiedRepoBlocks({ bytes: 1 }) }),
     'single-CAR cache budget',
   );
-  passed('single-CAR cache budget');
+  await rejectsLimit(
+    () => authenticateRepo({ ...options, blocks: new VerifiedRepoBlocks({ blocks: 1 }) }),
+    'single-CAR cache block budget',
+  );
+  passed('single-CAR cache byte/count budgets are resource limits');
   const other = await nativeFixture('p256', 'eviction'),
     small = new VerifiedRepoBlocks({
       bytes: Math.max(options.carBytes.length, other.options.carBytes.length),
@@ -215,7 +295,7 @@ export async function nativeProofCorpus() {
   await rejects(() => authenticateRepo({ ...options, carBytes: emptyCar }), 'empty CAR roots');
   passed('exactly one selected CAR root');
   const oversizedFixture = await nativeFixture('p256', 'x'.repeat(2000));
-  await rejects(
+  await rejectsLimit(
     () => authenticateRepo({ ...oversizedFixture.options, blocks: cacheBudget }),
     'oversized cache admission',
   );
@@ -338,6 +418,37 @@ export async function nativeProofCorpus() {
   await rejectsInput(() => overlapRoot.lookup(zero[0]!), 'overlap path');
   await rejectsInput(() => overlapRoot.validateTree(), 'overlap full tree');
   passed('overlapping child interval');
+  // PB1-R1: every node has a locally valid height, but the walked left
+  // child lies outside its inherited interval. Its own child is withheld.
+  const k2 = heights
+    .get(2)
+    ?.find((candidate) => zero.some((key) => key < candidate) && one.some((key) => key > candidate));
+  check(k2, 'signed interval/missing fixture needs a height-two root');
+  const k1 = one.find((key) => key > k2)!,
+    k0 = zero.find((key) => key < k2)!,
+    withheldLeaf = node([entry(k0)]),
+    outsideChild = node([entry(k1)], withheldLeaf.cid),
+    intervalRoot = node([entry(k2)], outsideChild.cid);
+  const intervalBlocks = new Map([
+    [recordCid.$link, blocks.get(recordCid.$link)!],
+    [outsideChild.cid, outsideChild.raw],
+    [intervalRoot.cid, intervalRoot.raw],
+  ]);
+  const intervalCommit = await commit(key, intervalRoot.cid, intervalBlocks);
+  const intervalOptions = {
+    ...options,
+    expectedRoot: intervalCommit,
+    carBytes: await car(intervalCommit, intervalBlocks),
+  };
+  for (const [name, limits] of [
+    ['withheld child', undefined],
+    ['node-load limit before withheld child', { pathLoads: 2, treeLoads: 2 }],
+  ] as const) {
+    const repo = await authenticateRepo({ ...intervalOptions, limits });
+    await rejectsInput(() => repo.lookup(k0), `${name}: walked interval fault lookup`);
+    await rejectsInput(() => repo.validateTree(), `${name}: walked interval fault full tree`);
+    passed(`signed walked interval fault overrides ${name} for lookup and full tree`);
+  }
   const extraRaw = CBOR.encode({ ...CBOR.decode(blocks.get(data)!), unexpected: true }),
     extraCid = CID.toString(CID.createSync(CID.CODEC_DCBOR, extraRaw));
   const unknown = await hostile({ raw: extraRaw, cid: extraCid }, blocks);
@@ -345,6 +456,20 @@ export async function nativeProofCorpus() {
   await rejectsInput(() => unknown.validateTree(), 'unknown full-tree field');
   passed('canonical MST fields');
 
+  const invalidNodeRaw = CBOR.encode({ l: null, e: 'not an entry array' });
+  const invalidNodeBlocks = new Map([[recordCid.$link, blocks.get(recordCid.$link)!]]);
+  const invalidNodeCid = CID.toString(CID.createSync(CID.CODEC_DCBOR, invalidNodeRaw));
+  invalidNodeBlocks.set(invalidNodeCid, invalidNodeRaw);
+  const invalidNodeRoot = await commit(key, invalidNodeCid, invalidNodeBlocks);
+  const invalidNode = await authenticateRepo({
+    ...options,
+    expectedRoot: invalidNodeRoot,
+    carBytes: await car(invalidNodeRoot, invalidNodeBlocks),
+    limits: { nodeEntries: 1 },
+  });
+  await rejectsInput(() => invalidNode.lookup(path(1)), 'wrong node shape before entry budget');
+  await rejectsInput(() => invalidNode.validateTree(), 'wrong full-tree node shape before entry budget');
+  passed('invalid node shape precedes local node-entry policy');
   const empty = node([]),
     emptyRoot = await hostile(empty);
   check((await emptyRoot.lookup(path(1))).kind === 'absent', 'canonical empty root did not prove absence');
@@ -390,6 +515,50 @@ export async function nativeProofCorpus() {
     'noncanonical commit CBOR',
   );
   passed('noncanonical commit CBOR is invalid input');
+  // An incomplete walk used to run ranges() in its catch path, which could
+  // replace the observed failure with a second depth-budget error.
+  const createBeforeCleanupProbe = NodeWalker.create;
+  try {
+    for (const primary of [
+      new Error('primary walker runtime failure'),
+      new ProtocolError('native_proof_limit', 'primary node-load resource limit'),
+      new ProtocolError('input', 'primary malformed node'),
+      new MissingBlockError(data, 'MST node'),
+    ]) {
+      NodeWalker.create = async (...args) => {
+        const walker = await createBeforeCleanupProbe(...args);
+        let failed = false;
+        const originalSize = walker.stack.size;
+        Object.defineProperty(walker.stack, 'size', { get: () => (failed ? 65 : originalSize) });
+        walker.findRpath = async () => {
+          failed = true;
+          throw primary;
+        };
+        walker.entries = async function* () {
+          failed = true;
+          throw primary;
+        };
+        return walker;
+      };
+      for (const run of [() => verified.lookup(path(1)), () => verified.validateTree()]) {
+        let caught: unknown;
+        try {
+          const result = await run();
+          check(
+            primary instanceof MissingBlockError && result.kind === 'missing' && result.cid === data,
+            'cleanup changed missing evidence',
+          );
+        } catch (error) {
+          caught = error;
+        }
+        if (primary instanceof MissingBlockError) check(caught === undefined, 'cleanup replaced missing evidence');
+        else check(caught === primary, 'cleanup replaced the original runtime/resource/input error');
+      }
+    }
+  } finally {
+    NodeWalker.create = createBeforeCleanupProbe;
+  }
+  passed('lookup/tree preserve observed runtime/resource/input/missing failures instead of cleanup depth error');
   const originalCreate = NodeWalker.create,
     sentinel = new Error('unexpected walker runtime failure');
   try {
@@ -413,8 +582,15 @@ export async function nativeProofCorpus() {
   const deepRaw = new Uint8Array([...Array(80).fill(0x81), 0xf6]),
     deepCid = CID.toString(CID.createSync(CID.CODEC_DCBOR, deepRaw));
   const deepCar = await car(deepCid, new Map([[deepCid, deepRaw]]));
-  await rejectsInput(() => authenticateRepo({ ...options, expectedRoot: deepCid, carBytes: deepCar }), 'deep commit');
-  passed('bounded native CBOR framing');
+  await rejectsLimit(
+    () => authenticateRepo({ ...options, expectedRoot: deepCid, carBytes: deepCar }),
+    'deep native framing',
+  );
+  await rejectsInput(
+    () => authenticateRepo({ ...options, expectedRoot: deepCid, carBytes: deepCar, limits: { depth: 81 } }),
+    'deep non-commit within raised native depth policy',
+  );
+  passed('native depth limit does not claim validity; raised policy detects malformed commit');
   const largeRecord = CBOR.encode({ $type: COLLECTION, pad: 'x'.repeat(70 * 1024) }),
     largeCid = CID.toCidLink(CID.createSync(CID.CODEC_DCBOR, largeRecord));
   const largeStore = new MemoryBlockStore();

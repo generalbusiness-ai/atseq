@@ -1,0 +1,21 @@
+✖ native repository proof corpus rejects hostile inputs and separates missing evidence (1390.6595ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1705.692292
+
+✖ failing tests:
+
+test at tests/native-proof.test.ts:1:132
+✖ native repository proof corpus rejects hostile inputs and separates missing evidence (1390.6595ms)
+  Error: withheld child: walked interval fault lookup accepted
+      at check (/Users/hughpyle/play/atseq-worktrees/native-proof-limits/tests/support/native-proof-corpus.ts:30:21)
+      at rejects (/Users/hughpyle/play/atseq-worktrees/native-proof-limits/tests/support/native-proof-corpus.ts:44:3)
+      at async nativeProofCorpus (/Users/hughpyle/play/atseq-worktrees/native-proof-limits/tests/support/native-proof-corpus.ts:448:5)
+      at async TestContext.<anonymous> (/Users/hughpyle/play/atseq-worktrees/native-proof-limits/tests/native-proof.test.ts:5:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
