@@ -1,0 +1,2053 @@
+{
+  "metadata": {
+    "version": 2,
+    "exactHead": "593c3b2bd3bf46ce240771bfb4382504bf88df6d",
+    "harnessSha256": "52e8044b09745e497afa69394c1db67802e83f8d534e5d0fe6ddbe9da92a1180",
+    "runtime": "v26.10.0",
+    "hardware": {
+      "platform": "darwin",
+      "release": "27.0.0",
+      "arch": "arm64",
+      "cpu": "Apple M5 Max",
+      "logicalCpus": 18,
+      "totalMemory": 68719476736
+    },
+    "sizes": [
+      100,
+      1000
+    ],
+    "actorCounts": [
+      1,
+      16
+    ],
+    "repeats": 3,
+    "limitations": [
+      "In-memory baseline; no PDS/network/browser measurements here",
+      "Summed WebCrypto durations overlap under concurrency and include observer overhead",
+      "CBOR/hash timings below measure an explicit separate entry traversal, not internal attribution of verifyHistory",
+      "State transition time includes domain fold, validation, per-entry CIDs and snapshot copy; no inferred split",
+      "Observed fold region spans successful action validation to state validation: includes fold input/output checks, evaluation, source decoding and scheduling",
+      "Lexicon validation is nested within schema validation; spans must not be added as exclusive costs",
+      "RSS/heap are boundary samples, not peak memory",
+      "Unsigned randomness changes fixtures across runs; exact public fixture captures are retained"
+    ]
+  },
+  "captures": [
+    {
+      "fixtureName": "bounded-1-100",
+      "fixtureSha256": "e4a5933b5b77bb7c5e999629efc8acd4229d5a76a493299c68b6fd7e4af5e41e",
+      "size": 100,
+      "actors": 1,
+      "growing": false,
+      "sample": 0,
+      "verificationMs": 68.0179589999999,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.887047999999822,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.3978749999994307,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.82330300000001,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 3.349708000000078,
+      "loadMs": 5.93745899999999,
+      "interpretationMs": 18.55641700000001,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.872412999999483,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 0.719037999999955,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.31261800000072526,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 8.734374000000116,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.08266600000013113,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.05499999999994998,
+      "stateBytes": 34,
+      "historyBytes": 121927,
+      "memoryBefore": {
+        "rss": 148665232,
+        "heapTotal": 66306048,
+        "heapUsed": 41391184,
+        "external": 7836414,
+        "arrayBuffers": 5168115
+      },
+      "memoryAfter": {
+        "rss": 153269496,
+        "heapTotal": 70238208,
+        "heapUsed": 40108984,
+        "external": 7522172,
+        "arrayBuffers": 4791970
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-1-100",
+      "fixtureSha256": "e4a5933b5b77bb7c5e999629efc8acd4229d5a76a493299c68b6fd7e4af5e41e",
+      "size": 100,
+      "actors": 1,
+      "growing": false,
+      "sample": 1,
+      "verificationMs": 67.29725000000008,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.608495000002563,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.3832840000013675,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.926920999999538,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 3.116457999999966,
+      "loadMs": 2.945291999999995,
+      "interpretationMs": 16.284625000000005,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7803269999998292,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 0.9111659999998665,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.2170329999993328,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 7.547371999999882,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.07379200000002584,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.055041999999957625,
+      "stateBytes": 34,
+      "historyBytes": 121927,
+      "memoryBefore": {
+        "rss": 153302264,
+        "heapTotal": 70238208,
+        "heapUsed": 40130760,
+        "external": 7522172,
+        "arrayBuffers": 4791970
+      },
+      "memoryAfter": {
+        "rss": 157431488,
+        "heapTotal": 74432512,
+        "heapUsed": 42659376,
+        "external": 7508812,
+        "arrayBuffers": 4778610
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-1-100",
+      "fixtureSha256": "e4a5933b5b77bb7c5e999629efc8acd4229d5a76a493299c68b6fd7e4af5e41e",
+      "size": 100,
+      "actors": 1,
+      "growing": false,
+      "sample": 2,
+      "verificationMs": 69.67600000000004,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.728002000000743,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.3442899999990914,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 10.630120000001284,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 3.104582999999934,
+      "loadMs": 2.4874999999999545,
+      "interpretationMs": 16.919624999999996,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.8087890000010702,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 0.6693380000002662,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.21762499999840657,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 7.852788999999916,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.0927920000000313,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.05704200000002402,
+      "stateBytes": 34,
+      "historyBytes": 121927,
+      "memoryBefore": {
+        "rss": 157431488,
+        "heapTotal": 74432512,
+        "heapUsed": 42695648,
+        "external": 7574412,
+        "arrayBuffers": 4844210
+      },
+      "memoryAfter": {
+        "rss": 191923888,
+        "heapTotal": 100122624,
+        "heapUsed": 51934272,
+        "external": 7915033,
+        "arrayBuffers": 5184831
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-1-1000",
+      "fixtureSha256": "8c4ebd425ca9c42dd667764e5b2554916148b96cd0ff28b5271cfc4acb24a6fe",
+      "size": 1000,
+      "actors": 1,
+      "growing": false,
+      "sample": 0,
+      "verificationMs": 636.4177499999998,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 82.67719699999407,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.630021999995733,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 95.0130779999979,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 31.101374999999734,
+      "loadMs": 2.8949579999998605,
+      "interpretationMs": 156.2259170000002,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.345674999994117,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 5.8089940000031675,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 1.7149850000141669,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 72.03387400000975,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.7852089999996679,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.5047919999997248,
+      "stateBytes": 35,
+      "historyBytes": 1158731,
+      "memoryBefore": {
+        "rss": 193660688,
+        "heapTotal": 101548032,
+        "heapUsed": 63307672,
+        "external": 10012573,
+        "arrayBuffers": 7279235
+      },
+      "memoryAfter": {
+        "rss": 233216752,
+        "heapTotal": 133152768,
+        "heapUsed": 97389704,
+        "external": 9316918,
+        "arrayBuffers": 6586716
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-1-1000",
+      "fixtureSha256": "8c4ebd425ca9c42dd667764e5b2554916148b96cd0ff28b5271cfc4acb24a6fe",
+      "size": 1000,
+      "actors": 1,
+      "growing": false,
+      "sample": 1,
+      "verificationMs": 638.0310830000003,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 83.21960900000386,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.685548000012659,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 95.76711899999964,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 31.163084000000254,
+      "loadMs": 2.9400000000000546,
+      "interpretationMs": 150.27066699999978,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.167297999998937,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 5.690160999993623,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 1.632423999988987,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 69.05391000000009,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.6977919999999358,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.4605840000003809,
+      "stateBytes": 35,
+      "historyBytes": 1158731,
+      "memoryBefore": {
+        "rss": 233216752,
+        "heapTotal": 133152768,
+        "heapUsed": 97418560,
+        "external": 9316918,
+        "arrayBuffers": 6586716
+      },
+      "memoryAfter": {
+        "rss": 237837544,
+        "heapTotal": 136560640,
+        "heapUsed": 91010280,
+        "external": 9132013,
+        "arrayBuffers": 6401811
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-1-1000",
+      "fixtureSha256": "8c4ebd425ca9c42dd667764e5b2554916148b96cd0ff28b5271cfc4acb24a6fe",
+      "size": 1000,
+      "actors": 1,
+      "growing": false,
+      "sample": 2,
+      "verificationMs": 628.120833,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 82.09313599999632,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.546065999998973,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 95.29661999998416,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 31.128584000000046,
+      "loadMs": 2.3467499999997017,
+      "interpretationMs": 153.13833300000033,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.253053000011278,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 5.992575000003399,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 1.5728570000005675,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 69.29140000000325,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.646375999999691,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.5452500000001237,
+      "stateBytes": 35,
+      "historyBytes": 1158731,
+      "memoryBefore": {
+        "rss": 237837544,
+        "heapTotal": 136560640,
+        "heapUsed": 91043064,
+        "external": 9132013,
+        "arrayBuffers": 6401811
+      },
+      "memoryAfter": {
+        "rss": 278687872,
+        "heapTotal": 173785088,
+        "heapUsed": 106838264,
+        "external": 9484035,
+        "arrayBuffers": 5874372
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-16-100",
+      "fixtureSha256": "1ee932ad1e042d27580a015af432e9887f5470544aa2a2ee0ceb3429e4447e39",
+      "size": 100,
+      "actors": 16,
+      "growing": false,
+      "sample": 0,
+      "verificationMs": 63.1604169999996,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.332634000003964,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.265370999994957,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.681875999992371,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 2.8064580000000205,
+      "loadMs": 2.270792000000256,
+      "interpretationMs": 14.80724999999984,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.966919999997117,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 0.5898369999968054,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.17938700000468089,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 6.714788000002045,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.09183299999949668,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.05629099999987375,
+      "stateBytes": 34,
+      "historyBytes": 121927,
+      "memoryBefore": {
+        "rss": 281833960,
+        "heapTotal": 176144384,
+        "heapUsed": 109700512,
+        "external": 8858164,
+        "arrayBuffers": 6127578
+      },
+      "memoryAfter": {
+        "rss": 283259488,
+        "heapTotal": 177455104,
+        "heapUsed": 126834768,
+        "external": 9221005,
+        "arrayBuffers": 6490803
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-16-100",
+      "fixtureSha256": "1ee932ad1e042d27580a015af432e9887f5470544aa2a2ee0ceb3429e4447e39",
+      "size": 100,
+      "actors": 16,
+      "growing": false,
+      "sample": 1,
+      "verificationMs": 64.40645899999981,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.326332999989063,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.277635000002192,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.94804400000703,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 3.085167000000183,
+      "loadMs": 3.0789169999998194,
+      "interpretationMs": 14.975792000000183,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7370060000002923,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 0.5812429999978121,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.19095699999434146,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 6.643878000001678,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.07337499999994179,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.05275000000074215,
+      "stateBytes": 34,
+      "historyBytes": 121927,
+      "memoryBefore": {
+        "rss": 283275872,
+        "heapTotal": 177455104,
+        "heapUsed": 126892088,
+        "external": 9221005,
+        "arrayBuffers": 6490803
+      },
+      "memoryAfter": {
+        "rss": 287618136,
+        "heapTotal": 181911552,
+        "heapUsed": 114834760,
+        "external": 9936395,
+        "arrayBuffers": 6558964
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-16-100",
+      "fixtureSha256": "1ee932ad1e042d27580a015af432e9887f5470544aa2a2ee0ceb3429e4447e39",
+      "size": 100,
+      "actors": 16,
+      "growing": false,
+      "sample": 2,
+      "verificationMs": 63.81504099999984,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.320498999999472,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.254041000000143,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.736998999999741,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 2.890832999999475,
+      "loadMs": 2.176791000000776,
+      "interpretationMs": 14.806250000000546,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7196209999983694,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 0.5872129999970639,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.17361900000923924,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 6.828542999996898,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.09104200000001583,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.053374999999505235,
+      "stateBytes": 34,
+      "historyBytes": 121927,
+      "memoryBefore": {
+        "rss": 287618136,
+        "heapTotal": 181911552,
+        "heapUsed": 114879808,
+        "external": 9936395,
+        "arrayBuffers": 6325519
+      },
+      "memoryAfter": {
+        "rss": 291386960,
+        "heapTotal": 185057280,
+        "heapUsed": 133141584,
+        "external": 9412074,
+        "arrayBuffers": 6681872
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-16-1000",
+      "fixtureSha256": "2234b5078144072dc4223a7790b430239a5189a8d66d27413610053e0a4cb103",
+      "size": 1000,
+      "actors": 16,
+      "growing": false,
+      "sample": 0,
+      "verificationMs": 627.1181669999996,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 81.6719819999953,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.536542999996527,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 94.68841499999417,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 30.36699999999928,
+      "loadMs": 2.2515830000002097,
+      "interpretationMs": 150.34045799999967,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 8.44470299999466,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 5.669281999988016,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 2.108094999985042,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 65.88984000000619,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.6265839999996388,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.47149999999965075,
+      "stateBytes": 35,
+      "historyBytes": 1158731,
+      "memoryBefore": {
+        "rss": 296155304,
+        "heapTotal": 190676992,
+        "heapUsed": 132127272,
+        "external": 10789446,
+        "arrayBuffers": 8057708
+      },
+      "memoryAfter": {
+        "rss": 332187896,
+        "heapTotal": 221495296,
+        "heapUsed": 158892480,
+        "external": 10205040,
+        "arrayBuffers": 7474838
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-16-1000",
+      "fixtureSha256": "2234b5078144072dc4223a7790b430239a5189a8d66d27413610053e0a4cb103",
+      "size": 1000,
+      "actors": 16,
+      "growing": false,
+      "sample": 1,
+      "verificationMs": 639.0978750000004,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 82.04593599999043,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.603659999981573,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 95.91741500000171,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 31.89075000000048,
+      "loadMs": 2.327541999999994,
+      "interpretationMs": 151.313083,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.21500800001013,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 5.722481999993761,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 1.5427979999885792,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 68.22032900001068,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.1471670000009908,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.4826249999996435,
+      "stateBytes": 35,
+      "historyBytes": 1158731,
+      "memoryBefore": {
+        "rss": 332187896,
+        "heapTotal": 221495296,
+        "heapUsed": 158948568,
+        "external": 10270640,
+        "arrayBuffers": 7540438
+      },
+      "memoryAfter": {
+        "rss": 332384504,
+        "heapTotal": 162512896,
+        "heapUsed": 76730632,
+        "external": 8608154,
+        "arrayBuffers": 5881596
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "bounded-16-1000",
+      "fixtureSha256": "2234b5078144072dc4223a7790b430239a5189a8d66d27413610053e0a4cb103",
+      "size": 1000,
+      "actors": 16,
+      "growing": false,
+      "sample": 2,
+      "verificationMs": 630.5235419999999,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 81.56370300001345,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.494767000018328,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 94.73199400002795,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 31.394792000000052,
+      "loadMs": 2.2518330000002607,
+      "interpretationMs": 141.4300830000002,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 6.9844679999941945,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 6.162936999995509,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 1.4958520000209319,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 63.08941700000469,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.2584160000005795,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.47483399999964604,
+      "stateBytes": 35,
+      "historyBytes": 1158731,
+      "memoryBefore": {
+        "rss": 332384504,
+        "heapTotal": 162512896,
+        "heapUsed": 76790384,
+        "external": 8673754,
+        "arrayBuffers": 5947196
+      },
+      "memoryAfter": {
+        "rss": 332908792,
+        "heapTotal": 171950080,
+        "heapUsed": 133773352,
+        "external": 9409463,
+        "arrayBuffers": 6682905
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-1-100",
+      "fixtureSha256": "7bfe5793e171479eb93974cb70af353e958248f00feb133c63fff2ae2ba883d7",
+      "size": 100,
+      "actors": 1,
+      "growing": true,
+      "sample": 0,
+      "verificationMs": 62.758458999999675,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.238455999996404,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.2509510000045339,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.926416999999674,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 2.799833000000035,
+      "loadMs": 2.1677920000001905,
+      "interpretationMs": 34.008834000000206,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7382120000047507,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 4.613997999995263,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.4640000000008513,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 21.700500999993892,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.1321669999988444,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.05425000000013824,
+      "stateBytes": 325,
+      "historyBytes": 121979,
+      "memoryBefore": {
+        "rss": 332925176,
+        "heapTotal": 176930816,
+        "heapUsed": 109645960,
+        "external": 8962021,
+        "arrayBuffers": 6235079
+      },
+      "memoryAfter": {
+        "rss": 334694648,
+        "heapTotal": 179290112,
+        "heapUsed": 140285224,
+        "external": 9160141,
+        "arrayBuffers": 6433583
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-1-100",
+      "fixtureSha256": "7bfe5793e171479eb93974cb70af353e958248f00feb133c63fff2ae2ba883d7",
+      "size": 100,
+      "actors": 1,
+      "growing": true,
+      "sample": 1,
+      "verificationMs": 61.74566700000014,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.17209300000468,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.2538679999988744,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.635883999992984,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 3.7105830000000424,
+      "loadMs": 2.1172919999999067,
+      "interpretationMs": 34.06962500000009,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7469980000005307,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 4.577243000002454,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.3698660000018208,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 21.567462000001797,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.144083999999566,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.05420799999956216,
+      "stateBytes": 325,
+      "historyBytes": 121979,
+      "memoryBefore": {
+        "rss": 334711032,
+        "heapTotal": 180600832,
+        "heapUsed": 110796848,
+        "external": 9160141,
+        "arrayBuffers": 6432729
+      },
+      "memoryAfter": {
+        "rss": 334989560,
+        "heapTotal": 183746560,
+        "heapUsed": 136155560,
+        "external": 9105158,
+        "arrayBuffers": 6378600
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-1-100",
+      "fixtureSha256": "7bfe5793e171479eb93974cb70af353e958248f00feb133c63fff2ae2ba883d7",
+      "size": 100,
+      "actors": 1,
+      "growing": true,
+      "sample": 2,
+      "verificationMs": 63.98370900000009,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.222289000012097,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.2544179999995322,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.736826000002111,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 3.7330840000004173,
+      "loadMs": 2.3472920000003796,
+      "interpretationMs": 33.93958399999974,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7462059999961639,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 4.567625000000589,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.3642559999962032,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 21.307498999999552,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.14274999999997817,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.052875000000312866,
+      "stateBytes": 325,
+      "historyBytes": 121979,
+      "memoryBefore": {
+        "rss": 334989560,
+        "heapTotal": 183746560,
+        "heapUsed": 136227112,
+        "external": 9105158,
+        "arrayBuffers": 6378600
+      },
+      "memoryAfter": {
+        "rss": 335087864,
+        "heapTotal": 187678720,
+        "heapUsed": 136352096,
+        "external": 9080273,
+        "arrayBuffers": 6353715
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-1-1000",
+      "fixtureSha256": "8a90d9916fd9be52327b251b199d9a3aeb31014eb3b65eaaf950c7cf4dd72a54",
+      "size": 1000,
+      "actors": 1,
+      "growing": true,
+      "sample": 0,
+      "verificationMs": 638.144542,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 81.20192500001212,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.467417000034402,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 94.73630100001355,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 31.52195799999936,
+      "loadMs": 2.240250000000742,
+      "interpretationMs": 1978.3962499999998,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.91825199997038,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 426.89895899995463,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 20.15412900000956,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 1461.1894649999886,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.442957999997816,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.49112500000046566,
+      "stateBytes": 3927,
+      "historyBytes": 1158783,
+      "memoryBefore": {
+        "rss": 335137016,
+        "heapTotal": 191987712,
+        "heapUsed": 134004640,
+        "external": 10812738,
+        "arrayBuffers": 8084580
+      },
+      "memoryAfter": {
+        "rss": 352784288,
+        "heapTotal": 233553920,
+        "heapUsed": 178690168,
+        "external": 13190092,
+        "arrayBuffers": 10463526
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-1-1000",
+      "fixtureSha256": "8a90d9916fd9be52327b251b199d9a3aeb31014eb3b65eaaf950c7cf4dd72a54",
+      "size": 1000,
+      "actors": 1,
+      "growing": true,
+      "sample": 1,
+      "verificationMs": 626.4084999999995,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 80.90349199997581,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.50342099999034,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 98.3605090000292,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 30.274249999998574,
+      "loadMs": 2.2059580000004644,
+      "interpretationMs": 1950.606041000001,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.9233320000039384,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 422.0365230000025,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 19.78719799998362,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 1444.4186210000335,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.2325830000008864,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.5059999999994034,
+      "stateBytes": 3927,
+      "historyBytes": 1158783,
+      "memoryBefore": {
+        "rss": 352784288,
+        "heapTotal": 233553920,
+        "heapUsed": 178779240,
+        "external": 13227156,
+        "arrayBuffers": 10500590
+      },
+      "memoryAfter": {
+        "rss": 269239200,
+        "heapTotal": 153075712,
+        "heapUsed": 58676304,
+        "external": 8930183,
+        "arrayBuffers": 6203617
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-1-1000",
+      "fixtureSha256": "8a90d9916fd9be52327b251b199d9a3aeb31014eb3b65eaaf950c7cf4dd72a54",
+      "size": 1000,
+      "actors": 1,
+      "growing": true,
+      "sample": 2,
+      "verificationMs": 627.2694580000007,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 81.98826500011637,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.611569999933636,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 96.66156700000465,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 29.74079200000051,
+      "loadMs": 2.9015829999989364,
+      "interpretationMs": 1959.1643750000003,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 8.20794300001944,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 426.3354289999679,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 19.76668199996311,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 1447.1179990000073,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.1844589999982418,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.4915419999997539,
+      "stateBytes": 3927,
+      "historyBytes": 1158783,
+      "memoryBefore": {
+        "rss": 269239200,
+        "heapTotal": 153075712,
+        "heapUsed": 58770016,
+        "external": 8969483,
+        "arrayBuffers": 6242917
+      },
+      "memoryAfter": {
+        "rss": 269403040,
+        "heapTotal": 143900672,
+        "heapUsed": 67379808,
+        "external": 8726398,
+        "arrayBuffers": 6001169
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-16-100",
+      "fixtureSha256": "d968b89ffc9108effef3985b50b1ca784676f8a50cb640a6ec2d289d221cea44",
+      "size": 100,
+      "actors": 16,
+      "growing": true,
+      "sample": 0,
+      "verificationMs": 63.34208399999807,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.520500999968135,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.2679929999612796,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.884164000020974,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 2.9388749999998254,
+      "loadMs": 2.205708000001323,
+      "interpretationMs": 33.48216700000194,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7316320000281848,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 4.595083000018349,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.3646249999983411,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 21.368131999999605,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.13695799999914016,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.054499999998370185,
+      "stateBytes": 325,
+      "historyBytes": 121979,
+      "memoryBefore": {
+        "rss": 269403040,
+        "heapTotal": 143900672,
+        "heapUsed": 39481256,
+        "external": 10259915,
+        "arrayBuffers": 7338527
+      },
+      "memoryAfter": {
+        "rss": 269697952,
+        "heapTotal": 143900672,
+        "heapUsed": 74315392,
+        "external": 9143672,
+        "arrayBuffers": 6418443
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-16-100",
+      "fixtureSha256": "d968b89ffc9108effef3985b50b1ca784676f8a50cb640a6ec2d289d221cea44",
+      "size": 100,
+      "actors": 16,
+      "growing": true,
+      "sample": 1,
+      "verificationMs": 68.97400000000198,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.43807199998264,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.2875479999929667,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 10.853994000026432,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 3.103624999999738,
+      "loadMs": 2.283791999998357,
+      "interpretationMs": 35.26412500000151,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7609569999949599,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 5.143329000005906,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.3730349999968894,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 22.42666399998052,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.13358200000220677,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.0532920000005106,
+      "stateBytes": 325,
+      "historyBytes": 121979,
+      "memoryBefore": {
+        "rss": 269697952,
+        "heapTotal": 143900672,
+        "heapUsed": 43541056,
+        "external": 9187435,
+        "arrayBuffers": 6461403
+      },
+      "memoryAfter": {
+        "rss": 269697952,
+        "heapTotal": 111394816,
+        "heapUsed": 47485200,
+        "external": 7584485,
+        "arrayBuffers": 4859256
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-16-100",
+      "fixtureSha256": "d968b89ffc9108effef3985b50b1ca784676f8a50cb640a6ec2d289d221cea44",
+      "size": 100,
+      "actors": 16,
+      "growing": true,
+      "sample": 2,
+      "verificationMs": 61.85941599999933,
+      "crypto": {
+        "importKey": {
+          "calls": 400,
+          "elapsedMs": 8.263053999995464,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 200,
+          "elapsedMs": 1.2583020000165561,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 200,
+          "elapsedMs": 9.583260999999766,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 2.7724170000001322,
+      "loadMs": 2.450124999999389,
+      "interpretationMs": 33.51641599999857,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 100,
+          "elapsedMs": 0.7516670000186423,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 100,
+          "elapsedMs": 4.712295000023005,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 300,
+          "elapsedMs": 0.37471200001164107,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 100,
+          "elapsedMs": 21.475546999983635,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 0.12483300000167219,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.053374999999505235,
+      "stateBytes": 325,
+      "historyBytes": 121979,
+      "memoryBefore": {
+        "rss": 269697952,
+        "heapTotal": 111394816,
+        "heapUsed": 47585976,
+        "external": 7630473,
+        "arrayBuffers": 4905244
+      },
+      "memoryAfter": {
+        "rss": 269697952,
+        "heapTotal": 111394816,
+        "heapUsed": 52768432,
+        "external": 7642043,
+        "arrayBuffers": 4916814
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-16-1000",
+      "fixtureSha256": "867e65852df28dde4d6b796d702822a67c7ade5eafc5dc3f11672e9fd10ea402",
+      "size": 1000,
+      "actors": 16,
+      "growing": true,
+      "sample": 0,
+      "verificationMs": 603.6176660000019,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 81.2599269999555,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.42519199995877,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 93.43520000005083,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 29.623999999999796,
+      "loadMs": 2.64208299999882,
+      "interpretationMs": 1942.6647919999996,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.81574400003592,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 422.66063500002565,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 19.56572899996536,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 1439.2049960000295,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.2330419999998412,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.5169580000001588,
+      "stateBytes": 3927,
+      "historyBytes": 1158783,
+      "memoryBefore": {
+        "rss": 270877648,
+        "heapTotal": 111509504,
+        "heapUsed": 56303584,
+        "external": 9968123,
+        "arrayBuffers": 7239566
+      },
+      "memoryAfter": {
+        "rss": 271008720,
+        "heapTotal": 139968512,
+        "heapUsed": 44822712,
+        "external": 9096642,
+        "arrayBuffers": 6371413
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-16-1000",
+      "fixtureSha256": "867e65852df28dde4d6b796d702822a67c7ade5eafc5dc3f11672e9fd10ea402",
+      "size": 1000,
+      "actors": 16,
+      "growing": true,
+      "sample": 1,
+      "verificationMs": 624.0528329999979,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 82.64096899994547,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.66380999993271,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 96.1469809999544,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 29.906083000001672,
+      "loadMs": 2.321291000000201,
+      "interpretationMs": 1947.6182090000002,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 8.013070999990305,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 421.4891290000196,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 19.66555499997412,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 1444.97173200002,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.2397090000013122,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.48541600000316976,
+      "stateBytes": 3927,
+      "historyBytes": 1158783,
+      "memoryBefore": {
+        "rss": 271008720,
+        "heapTotal": 139968512,
+        "heapUsed": 44938568,
+        "external": 9147093,
+        "arrayBuffers": 6421864
+      },
+      "memoryAfter": {
+        "rss": 271025104,
+        "heapTotal": 142589952,
+        "heapUsed": 46116280,
+        "external": 8724852,
+        "arrayBuffers": 5999623
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    },
+    {
+      "fixtureName": "growing-16-1000",
+      "fixtureSha256": "867e65852df28dde4d6b796d702822a67c7ade5eafc5dc3f11672e9fd10ea402",
+      "size": 1000,
+      "actors": 16,
+      "growing": true,
+      "sample": 2,
+      "verificationMs": 611.8412080000016,
+      "crypto": {
+        "importKey": {
+          "calls": 4000,
+          "elapsedMs": 81.3470800000141,
+          "failed": 0
+        },
+        "exportKey": {
+          "calls": 2000,
+          "elapsedMs": 12.487194999892381,
+          "failed": 0
+        },
+        "verify": {
+          "calls": 2000,
+          "elapsedMs": 93.71236999993926,
+          "failed": 0
+        },
+        "digest": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        }
+      },
+      "explicitEntryCidTraversalMs": 29.691083000001527,
+      "loadMs": 2.5855000000010477,
+      "interpretationMs": 1947.296707999998,
+      "interpretationStages": {
+        "actionValidation": {
+          "calls": 1000,
+          "elapsedMs": 7.830284999967262,
+          "failed": 0
+        },
+        "stateValidation": {
+          "calls": 1000,
+          "elapsedMs": 423.1252090000271,
+          "failed": 0
+        },
+        "otherValidation": {
+          "calls": 0,
+          "elapsedMs": 0,
+          "failed": 0
+        },
+        "lexiconValidation": {
+          "calls": 3000,
+          "elapsedMs": 19.610296000111703,
+          "failed": 0
+        },
+        "foldRegion": {
+          "calls": 1000,
+          "elapsedMs": 1443.1022879999691,
+          "failed": 0
+        },
+        "structuredClone": {
+          "calls": 2,
+          "elapsedMs": 1.3429999999971187,
+          "failed": 0
+        }
+      },
+      "snapshotCopyMs": 0.5190409999995609,
+      "stateBytes": 3927,
+      "historyBytes": 1158783,
+      "memoryBefore": {
+        "rss": 271025104,
+        "heapTotal": 142589952,
+        "heapUsed": 46268424,
+        "external": 8843136,
+        "arrayBuffers": 6117907
+      },
+      "memoryAfter": {
+        "rss": 220017872,
+        "heapTotal": 153337856,
+        "heapUsed": 87187480,
+        "external": 11848933,
+        "arrayBuffers": 9123704
+      },
+      "correctness": "verified full prefix; expected state/frontier; no stall"
+    }
+  ]
+}

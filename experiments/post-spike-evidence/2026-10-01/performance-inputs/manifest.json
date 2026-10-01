@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "policy": "Exact public JSON bytes retained; gzip mtime0 for new archives. Bounded archives reused byte-identically from dimensions. No account credentials/private keys in JSON objects. Original input paths are restored relative to capture checkout.",
+  "inputs": [
+    {
+      "inputPath": "experiments/generated/performance-stages/bounded-1-100.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-dimensions/public-inputs/bounded-1-100.json.gz",
+      "sha256": "e4a5933b5b77bb7c5e999629efc8acd4229d5a76a493299c68b6fd7e4af5e41e",
+      "bytes": 121927,
+      "compressedSha256": "7b16c15ca4c31bf91ae1f4fd4736c6165bd260372030dd5d36bef81eb4f77812",
+      "entries": 100
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/bounded-1-1000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-dimensions/public-inputs/bounded-1-1000.json.gz",
+      "sha256": "8c4ebd425ca9c42dd667764e5b2554916148b96cd0ff28b5271cfc4acb24a6fe",
+      "bytes": 1158731,
+      "compressedSha256": "ab4c93cf77f0ba3acc5a734a0926e2fe3d75732fa3ee549f809e016aac275d94",
+      "entries": 1000
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/bounded-1-10000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-dimensions/public-inputs/bounded-1-10000.json.gz",
+      "sha256": "5d512555f0e307ce954d9167d649630c6bf5ff4a86cb70102dc31d85501852f9",
+      "bytes": 11553735,
+      "compressedSha256": "18585502cacd2f7e3905e9d974a438db639860ca41d0db8eeb79d2a9776aef67",
+      "entries": 10000
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/bounded-16-100.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-dimensions/public-inputs/bounded-16-100.json.gz",
+      "sha256": "1ee932ad1e042d27580a015af432e9887f5470544aa2a2ee0ceb3429e4447e39",
+      "bytes": 121927,
+      "compressedSha256": "e21f4bed7d8bc1acb308abb2d1f4ae5b190a85db2ac5f58a6de5d214352ac9ec",
+      "entries": 100
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/bounded-16-1000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-dimensions/public-inputs/bounded-16-1000.json.gz",
+      "sha256": "2234b5078144072dc4223a7790b430239a5189a8d66d27413610053e0a4cb103",
+      "bytes": 1158731,
+      "compressedSha256": "7cc254eeb592d71eb886dfa56ff85c2acbc4af543e144a4a490ef598d728942f",
+      "entries": 1000
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/bounded-16-10000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-dimensions/public-inputs/bounded-16-10000.json.gz",
+      "sha256": "8af5cf359bf0b13f8bdc415ed7690a92e4887ca53a43e5e001c6f07820143cf1",
+      "bytes": 11553735,
+      "compressedSha256": "3e1e846e940f633327acf561f910eca573908a98efe4a39da0f40dca97cb3c6b",
+      "entries": 10000
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/growing-1-100.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-1-100.json.gz",
+      "sha256": "7bfe5793e171479eb93974cb70af353e958248f00feb133c63fff2ae2ba883d7",
+      "bytes": 121979,
+      "compressedSha256": "ea9f922bba323ab528355e03d98519ca633690e19a86f367859319cfbd614372",
+      "entries": 100
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/growing-1-1000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-1-1000.json.gz",
+      "sha256": "8a90d9916fd9be52327b251b199d9a3aeb31014eb3b65eaaf950c7cf4dd72a54",
+      "bytes": 1158783,
+      "compressedSha256": "859cd8d9ab6cf476cc24ad5757163d41f20718279593364e2e0e6cf662fedfa7",
+      "entries": 1000
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/growing-1-10000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-1-10000.json.gz",
+      "sha256": "7f977244c1541a926775a727ad224ac60c658385c86543176ffce7b17d4e65b9",
+      "bytes": 11553787,
+      "compressedSha256": "50a8bf981c082df811581e27546f1795b4596d0bf3dfd9ecbc34eedbf3f708c7",
+      "entries": 10000
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/growing-16-100.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-16-100.json.gz",
+      "sha256": "d968b89ffc9108effef3985b50b1ca784676f8a50cb640a6ec2d289d221cea44",
+      "bytes": 121979,
+      "compressedSha256": "4cce40b4ee0752b0208af06a6a44b81756a645f1367c00aec6b4516ebd423a9b",
+      "entries": 100
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/growing-16-1000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-16-1000.json.gz",
+      "sha256": "867e65852df28dde4d6b796d702822a67c7ade5eafc5dc3f11672e9fd10ea402",
+      "bytes": 1158783,
+      "compressedSha256": "ccbd647b65428f1cc33d26196b8ea10ba3a4f54f372257692756133b4bb58da2",
+      "entries": 1000
+    },
+    {
+      "inputPath": "experiments/generated/performance-stages/growing-16-10000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/growing-16-10000.json.gz",
+      "sha256": "61f3bab427d027aa9847cd4a869ee264e53f9521eea3938d9e379d1409ce8790",
+      "bytes": 11553787,
+      "compressedSha256": "2b6400a5d1463813c6138e294103759c92af9803a4950ad80826de2128e0cfa7",
+      "entries": 10000
+    },
+    {
+      "inputPath": "experiments/generated/performance/input-100.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/network-input-100.json.gz",
+      "sha256": "5e70bfb21ce1f0dd08fbc8e9db3be438b1410dcd191b7a366353630a124e9b83",
+      "bytes": 121322,
+      "compressedSha256": "55eb3e64b974da14fc437438c4a667d18250c1f3e9f2e65e6a806700fde49915",
+      "entries": 100
+    },
+    {
+      "inputPath": "experiments/generated/performance/input-1000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/network-input-1000.json.gz",
+      "sha256": "8fe7cc03b0e8b1979afd53d279f96982d5cb3ee24d9314eee6d2395ab9a7fc64",
+      "bytes": 1141025,
+      "compressedSha256": "7add320b72707aaba4248f6340eb0247534065071fc571d301555e59da991c33",
+      "entries": 1000
+    },
+    {
+      "inputPath": "experiments/generated/performance/input-10000.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-01/performance-inputs/network-input-10000.json.gz",
+      "sha256": "da95037391d16ec734005c5bae50c369dcbfcc7bd0551b64c719854127cc5711",
+      "bytes": 11356028,
+      "compressedSha256": "e42b9dc7949f312f8327d36af5551065224bd9e6a5434c89e5a1010dcd88efbd",
+      "entries": 10000
+    }
+  ]
+}
