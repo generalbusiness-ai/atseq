@@ -79,7 +79,13 @@ export class IdentityFetch {
         (error instanceof TypeError &&
           error.message === 'terminated' &&
           error.cause instanceof Error &&
-          ['UND_ERR_SOCKET', 'UND_ERR_BODY_TIMEOUT'].includes((error.cause as Error & { code?: string }).code ?? '')) ||
+          // These are remote response-body failures, not request construction errors.
+          [
+            'UND_ERR_SOCKET',
+            'UND_ERR_BODY_TIMEOUT',
+            'UND_ERR_RES_CONTENT_LENGTH_MISMATCH',
+            'UND_ERR_RES_EXCEEDED_MAX_SIZE',
+          ].includes((error.cause as Error & { code?: string }).code ?? '')) ||
         (error instanceof Error &&
           ['FetchRequestError', 'FetchResponseError'].includes(error.constructor.name) &&
           Number.isSafeInteger((error as Error & { statusCode?: number }).statusCode)) ||
