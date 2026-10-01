@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFile, spawn } from 'node:child_process';
 import { promisify } from 'node:util';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -12,6 +12,7 @@ import { sourceDocumentFromBundle, serializeSourceDocument } from '../src/defini
 import { supportedProfiles } from '../src/protocol/identity.ts';
 import { startEnvironment, resetDisposable } from './support/pds/environment.mjs';
 import { preparePackageConformance } from './helpers/package-conformance.ts';
+import { preparePackageBuild } from './helpers/package-build.ts';
 
 const run = promisify(execFile);
 // A consumer must use plain Node, without the source-checkout resolution condition.
@@ -23,13 +24,25 @@ test(
   { timeout: 180000 },
   async () => {
     const directory = await mkdtemp(join(tmpdir(), 'atseq-package-test-'));
-    const root = resolve('.');
+    const root = resolve('.'),
+      sentinel = join(root, 'dist', `package-test-${randomUUID()}.sentinel`),
+      sentinelBytes = Buffer.from('Parallel package builds must preserve this checkout.\n'),
+      integrityAdapter = join(root, 'dist/src/integrity/browser.js');
     let host: ReturnType<typeof spawn> | undefined;
     let environment: Awaited<ReturnType<typeof startEnvironment>> | undefined;
     try {
-      await run('npm', ['run', 'build'], { cwd: root, env: nativeEnv });
+      const originalAdapter = await readFile(integrityAdapter);
+      await writeFile(sentinel, sentinelBytes, { flag: 'wx' });
+      const copyStarted = performance.now(),
+        buildRoot = await preparePackageBuild(root, join(directory, 'build')),
+        stagingCopyMs = performance.now() - copyStarted;
+      await run('npm', ['run', 'build'], { cwd: buildRoot, env: nativeEnv });
+      // The production build removes its entire dist directory. These checks
+      // fail if it ever runs against the shared checkout again.
+      assert.deepEqual(await readFile(sentinel), sentinelBytes);
+      assert.deepEqual(await readFile(integrityAdapter), originalAdapter);
       const packed = await run('npm', ['pack', '--ignore-scripts', '--json', '--pack-destination', directory], {
-        cwd: root,
+        cwd: buildRoot,
         env: nativeEnv,
         maxBuffer: 8 * 1024 * 1024,
       });
@@ -45,6 +58,26 @@ test(
         { cwd: directory, env: nativeEnv },
       );
       const installed = join(directory, 'node_modules/atseq');
+      const provenance = JSON.parse(await readFile(join(installed, 'dist/build-provenance.json'), 'utf8')) as {
+        sourceHashes: Record<string, string>;
+        outputHashes: Record<string, string>;
+      };
+      for (const [path, hash] of Object.entries(provenance.sourceHashes))
+        assert.equal(
+          createHash('sha256')
+            .update(await readFile(join(root, path)))
+            .digest('hex'),
+          hash,
+          path,
+        );
+      for (const [path, hash] of Object.entries(provenance.outputHashes))
+        assert.equal(
+          createHash('sha256')
+            .update(await readFile(join(installed, path)))
+            .digest('hex'),
+          hash,
+          path,
+        );
       assert.equal(
         existsSync(join(installed, 'node_modules/typescript')),
         false,
@@ -101,6 +134,10 @@ test(
             format: 'atseq-package-conformance',
             version: 1,
             node: process.version,
+            stagingCopyMs,
+            sharedDistPreserved: true,
+            buildSourceFilesVerified: Object.keys(provenance.sourceHashes).length,
+            installedOutputFilesVerified: Object.keys(provenance.outputHashes).length,
             cases,
             sourceHashes,
             adapterSha256: createHash('sha256')
@@ -278,9 +315,6 @@ void result; void apis;
         (await run(process.execPath, ['consumer.mjs', url, token], { cwd: directory, env: nativeEnv })).stdout,
         /native consumer passed/,
       );
-      const provenance = JSON.parse(
-        await readFile(join(directory, 'node_modules/atseq/dist/build-provenance.json'), 'utf8'),
-      );
       assert.ok(provenance.outputHashes['dist/vendor/inlay.js']);
       assert.ok(provenance.outputHashes['dist/shell/index.html']);
       const original = await readFile(join(installed, 'dist/shell/index.html'));
@@ -302,6 +336,7 @@ void result; void apis;
       }
       await environment?.close();
       if (environment) await resetDisposable(environment.dir);
+      await rm(sentinel, { force: true });
       await rm(directory, { recursive: true, force: true });
     }
   },
