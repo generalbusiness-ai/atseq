@@ -1,5 +1,6 @@
 import { Lexicons } from '@atproto/lexicon';
-import { fromBytes } from '@atcute/cbor';
+import { fromBytes, encode } from '@atcute/cbor';
+import { create, toString, CODEC_RAW } from '@atcute/cid';
 import { canonicalJson, jsonCopy, type Json } from '../../src/core/values.ts';
 import { PROFILE } from '../../src/core/profile.ts';
 import { SourceBundle } from '../../src/definition/source.ts';
@@ -11,6 +12,18 @@ import { equal, byteLength, type CapFixture } from './fixtures.ts';
 export interface Operation {
   name: string;
   run(): unknown | Promise<unknown>;
+}
+export async function diagnosticCid(value: unknown) {
+  // An output fingerprint, not an admitted DAG-CBOR protocol state block.
+  return toString(await create(CODEC_RAW, new TextEncoder().encode(canonicalJson(value, 2 ** 24))));
+}
+async function wireAttempt(run: () => unknown | Promise<unknown>) {
+  try {
+    return await run();
+  } catch (error) {
+    if ((error as any).code !== 'wire_size') throw error;
+    return { refused: 'wire_size' };
+  }
 }
 export async function admitFixture(fixture: CapFixture) {
   const bundle = await SourceBundle.read(fromBytes(fixture.source));
@@ -32,8 +45,8 @@ export async function admitFixture(fixture: CapFixture) {
     { name: 'canonicalState', run: () => canonicalJson(fixture.state, PROFILE.stateBytes) },
     { name: 'jsonCopyState', run: () => jsonCopy(fixture.state, PROFILE.stateBytes) },
     { name: 'structuredCloneState', run: () => structuredClone(fixture.state) },
-    { name: 'cborEncodeState', run: () => encodeBlock(fixture.state) },
-    { name: 'stateCid', run: () => contentCid(fixture.state) },
+    { name: 'cborEncodeState', run: () => wireAttempt(() => encodeBlock(fixture.state)) },
+    { name: 'stateCid', run: () => wireAttempt(() => contentCid(fixture.state)) },
     { name: 'stateSchema', run: () => definition.schemas.validate(stateRef, fixture.state) },
     { name: 'actionSchema', run: () => definition.schemas.validate(grow.ref, growInput.act) },
     { name: 'evaluateGrowing', run: () => evaluate(definition.text(grow.fold), growInput) },
@@ -158,7 +171,7 @@ async function rejects(run: () => unknown, expected: string) {
 export async function characterize(fixture: CapFixture) {
   const { definition, operations, stateRef, meta } = await admitFixture(fixture);
   const expectedStateText = canonicalJson(fixture.state, PROFILE.stateBytes);
-  const stateCid = await contentCid(fixture.state);
+  const stateFingerprint = await diagnosticCid(fixture.state);
   const captures = [];
   for (const operation of operations) {
     const { value, counts } = await observeStructure(operation);
@@ -168,8 +181,12 @@ export async function characterize(fixture: CapFixture) {
     if (operation.name === 'foldBounded') equal(value, fixture.boundedAction.expected);
     if (operation.name === 'evaluateGrowing') equal((value as any).value, fixture.growingAction.expected);
     if (operation.name.startsWith('query')) equal((value as any).value, fixture.expectedQuery);
-    if (operation.name === 'stateCid') equal(value, stateCid);
-    if (operation.name === 'cborEncodeState') equal([...(value as Uint8Array)], [...encodeBlock(fixture.state)]);
+    if (operation.name === 'stateCid') equal(value, await wireAttempt(() => contentCid(fixture.state)));
+    if (operation.name === 'cborEncodeState') {
+      const encoded = encode(fixture.state);
+      if (encoded.length > 65536) equal(value, { refused: 'wire_size' });
+      else equal([...(value as Uint8Array)], [...encoded]);
+    }
     captures.push({
       name: operation.name,
       counts,
@@ -177,8 +194,9 @@ export async function characterize(fixture: CapFixture) {
         ? { evaluationSteps: (value as any).steps, inspectedBytes: (value as any).inspectedBytes }
         : {}),
       ...(operation.name.startsWith('fold') || operation.name === 'admitSuccessor'
-        ? { result: (value as any).decision, outputCid: await contentCid(value) }
+        ? { result: (value as any).decision, outputCanonicalRawCid: await diagnosticCid(value) }
         : {}),
+      ...(value && typeof value === 'object' && 'refused' in value ? { refused: value.refused } : {}),
     });
   }
   let tokenCharges = 0,
@@ -233,8 +251,8 @@ export async function characterize(fixture: CapFixture) {
     rowCount: fixture.rowCount,
     stateJsonBytes: fixture.canonicalBytes,
     predecessorJsonBytes: byteLength(fixture.predecessor),
-    stateCborBytes: encodeBlock(fixture.state).length,
-    stateCid,
+    diagnosticCborBytes: encode(fixture.state).length,
+    stateCanonicalRawCid: stateFingerprint,
     shape: shapeCounts(fixture.state),
     canonicalTokenCharges: tokenCharges,
     canonicalChargedBytes: chargedBytes,
