@@ -19,12 +19,26 @@ and discussion summaries. Frontmatter "status" should be maintained.
 | [Verification and bootstrap](2026-10-01-atseq-verification-and-bootstrap.md) | Proposed; independently assessed; prototypes pending               | Performance cost space, retained state, verified suffixes and checkpoint trust                         |
 | [ATproto identity](2026-10-01-atseq-identity.md)                             | Proposed; independently assessed; prototypes pending               | Account principals, device/agent authority, web identity adoption and recovery                         |
 | [Implementation programme](2026-10-01-atseq-implementation-programme.md)     | Started; full implementation open                                  | Assigned packages, dependency and independent-review gates                                             |
-| [Native authority decision](2026-10-01-atseq-native-authority-decision.md)   | Adopted backbone; implementation pending                              | Preferred native PDS ordering, DID recovery, proofs and custody                                        |
+| [Native authority decision](2026-10-01-atseq-native-authority-decision.md)   | Adopted backbone; implementation pending                           | Preferred native PDS ordering, DID recovery, proofs and custody                                        |
 | [Plan-review gaps](2026-10-01-atseq-plan-review-gaps.md)                     | Independently assessed; followups tracked                          | F1–F10 disposition and concurrent work                                                                 |
 | [Initial implementation results](2026-10-01-atseq-implementation-results.md) | Initial evidence; full programme open                              | Native proof probe, stage baseline and recommendations                                                 |
-| [Activation compatibility](2026-10-01-atseq-activation-compatibility.md) | Independently assessed; adopted direction; wire pending | Per-action execution contracts, queued consent, grants and activation |
-| [PDS dependency assessment](2026-10-01-atseq-pds-dependency-assessment.md) | Independently assessed; maintenance tracked | Disposable fixture advisories, bounded patches and telemetry isolation |
-| [Confidentiality direction](2026-10-01-atseq-confidentiality-direction.md) | Independently reviewed; public scope adopted | Public evidence, private-mode requirements, key/replay/checkpoint limits |
+| [Activation compatibility](2026-10-01-atseq-activation-compatibility.md)     | Independently assessed; adopted direction; wire pending            | Per-action execution contracts, queued consent, grants and activation                                  |
+| [PDS dependency assessment](2026-10-01-atseq-pds-dependency-assessment.md)   | Independently assessed; maintenance tracked                        | Disposable fixture advisories, bounded patches and telemetry isolation                                 |
+| [Confidentiality direction](2026-10-01-atseq-confidentiality-direction.md)   | Independently reviewed; public scope adopted                       | Public evidence, private-mode requirements, key/replay/checkpoint limits                               |
+| [Performance baseline](2026-10-01-atseq-performance-baseline-results.md)     | Independently reviewed and shipped                                 | 10,000-action stages, growing state, network and browser transfer                                      |
+| [Performance dimensions](2026-10-01-atseq-performance-dimensions-results.md) | Independently reviewed and shipped                                 | Warm deltas, activation closure faults and exact public fixtures                                       |
+| [Native proof foundation](2026-10-01-atseq-native-proof-results.md)          | Independently reviewed and shipped                                 | Native roots, sparse/full-tree proofs, resource bounds and portable conformance                        |
+| [Account admission](2026-10-01-atseq-account-admission-design.md)            | Adopted direction; implementation pending                          | Canonical PLC tip, web observation, retained evidence and Node support change                          |
+| [Account authority](2026-10-01-atseq-account-authority-design.md)            | Adopted logical direction; wire/implementation pending             | Exact grants, roles, resets, revocation and appointed app control                                      |
+| [Native ordering](2026-10-01-atseq-native-ordering-requirements.md)          | Adopted logical direction; wire/implementation pending             | Genesis-scoped paths, custody, CAS and portable receipt assurance                                      |
+| [Retry uniqueness](2026-10-01-atseq-retry-uniqueness.md)                     | Adopted direction; native costs/integration pending                | Signer-key nonce scope, exact-content-first lookup and retained receipts                               |
+| [Actor discovery](2026-10-01-atseq-actor-discovery.md)                       | Adopted direction; role interface/implementation pending           | Subject-specific eligibility and local exact-payload simulation                                        |
+| [State requirements](2026-10-01-atseq-state-requirements.md)                 | Proposed requirements; state contract undecided                    | Task-board, guitar and ledger requirements before effects choice                                       |
+| [PDS patch results](2026-10-01-atseq-pds-patch-results.md)                   | Independently reviewed and shipped                                 | Compatible fixture patches and residual advisory limits                                                |
+| [Fixture telemetry](2026-10-01-atseq-fixture-telemetry-results.md)           | Independently reviewed and shipped                                 | Child environment isolation and sensitive preload regression                                           |
+| [Archive transport fix](2026-10-01-atseq-archive-offline-ci.md)              | Independently reviewed and shipped                                 | Actual offline transport boundary and saved archive evidence                                           |
+| [Participation focus fix](2026-10-01-atseq-participation-focus-ci.md)        | Independently reviewed and shipped                                 | Current form focus through refresh without additional consent/signatures                               |
+| [Runtime dependency patch](2026-10-01-atseq-runtime-advisory-results.md)     | Independently reviewed and shipped                                 | Single-node brace patch, equivalence, attribution and actual acceptance                                |
 
 The architecture and spike plan are companions. Read the architecture for the
 design basis and the plan for execution. New experiment results get their own
@@ -36,7 +50,5 @@ The post-spike notes characterize options without fixed performance targets or a
 backward-compatibility requirement. The subsequent implementation preference is
 native app-PDS ordering with retained state and native proof verification. The
 ordering host and app PDS supply default identity observation and checkpoint
-certification under the documented custody policy. The programme tracks runtime
-implementation still to do; the initial results report records the proof probe
-and measured stage baseline already completed. Historical assessments remain
+certification under the documented custody policy. The programme distinguishes shipped proof/performance foundations from native ordering, identity, materialization and checkpoint work still to do. The initial report is a historical snapshot; later reports retain the larger measurements and conformance results. Historical assessments remain
 linked in their dated notes.

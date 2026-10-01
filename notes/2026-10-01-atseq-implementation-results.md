@@ -12,6 +12,10 @@ report covers the initial native proof probe and benchmark-only stage harness;
 it does not report native Atseq ordering or identity/checkpoints as implemented.
 Runtime source, semantic contracts and dependency pins are unchanged.
 
+## Later results
+
+This is the initial evidence snapshot. The [native proof foundation](2026-10-01-atseq-native-proof-results.md) and [performance baseline](2026-10-01-atseq-performance-baseline-results.md) have since been independently reviewed and landed. Their reports supersede the initial probes for present recommendations and cover the previously missing large-tree, 10,000-action, growing-state and browser cases. Native ordering, account admission, materialization and checkpoints remain implementation work; see the [current programme](2026-10-01-atseq-implementation-programme.md).
+
 ## Native proof results
 
 The isolated probe uses official PDS 0.5.31 with the local official mock PLC,

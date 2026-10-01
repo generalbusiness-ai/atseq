@@ -29,7 +29,9 @@ recovery, observation, certification and proof-delivery boundaries. The
 reviewed decisions and deliveries. The alternatives and limits in this original
 design-space assessment remain evidence; they are not simultaneous runtime modes.
 
-## Chosen backbone
+The later [account admission design](2026-10-01-atseq-account-admission-design.md), [authority design](2026-10-01-atseq-account-authority-design.md), [native ordering requirements](2026-10-01-atseq-native-ordering-requirements.md) and [retry decision](2026-10-01-atseq-retry-uniqueness.md) record the selected continuation. They replace the historical backbone below with native publication, exact action-scoped grants, appointed app control and signer-key retry identity. Implementation remains open; retained PLC history authenticates key succession while web evidence remains an observation policy.
+
+## Historical backbone
 
 Use account DIDs (`did:plc` and hostname `did:web`) as principals, with immutable
 repository grants/revokes for device and agent signers. Keep a separately
@@ -80,14 +82,14 @@ the alternatives below correct its historical-evidence and deletion assumptions.
 
 ## Identity, roles and starting trust
 
-| Role | Proposed subject and authority |
-|---|---|
-| Human or independent agent | ATproto account DID |
-| Device or agent acting for an owner | Distinct signer with an account-issued scope, grant ID and revocation rule |
-| Application | App account DID and pinned genesis CID; genesis names governance and ordering policy |
-| Ordering service | Explicitly delegated sequencer signer; app repository authority is a deferred custody alternative |
-| Definition/governance administrator | Explicit role; neither hosting nor ordering gives activation authority implicitly |
-| Host operator | Account-authenticated management plus local deployment permission, kept separate from app roles |
+| Role                                | Proposed subject and authority                                                                    |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Human or independent agent          | ATproto account DID                                                                               |
+| Device or agent acting for an owner | Distinct signer with an account-issued scope, grant ID and revocation rule                        |
+| Application                         | App account DID and pinned genesis CID; genesis names governance and ordering policy              |
+| Ordering service                    | Explicitly delegated sequencer signer; app repository authority is a deferred custody alternative |
+| Definition/governance administrator | Explicit role; neither hosting nor ordering gives activation authority implicitly                 |
+| Host operator                       | Account-authenticated management plus local deployment permission, kept separate from app roles   |
 
 A DID is an identifier and controller mechanism, not proof of a human, uniqueness,
 good behavior or entitlement to participate. Handles are discovery/display names.
@@ -107,12 +109,12 @@ An account document supplies its repository signing key and PDS service.
 Path-based `did:web` is unsupported; localhost/ports are development exceptions.
 See the [ATproto DID specification](https://atproto.com/specs/did).
 
-| Method / route | Adoption benefit | Functional or trust limit |
-|---|---|---|
-| Existing `did:plc` account | Reuse account, hosted PDS, handle and OAuth tooling | PDS custody and directory ordering/availability; currentness still needs observation |
-| Hostname `did:web` account | Publish a small HTTPS document on a controlled domain/subdomain | DNS/TLS/hosting trust, domain loss, no intrinsic historical proof or portable identifier |
-| `did:web` with WebVH companion | Web hosting with optional verifiable key history | Additional keys/log tooling and trust anchoring; ecosystem still sees a `did:web` account |
-| Native `did:webvh` account DID | Verifiable history as the identifier method | Not an ATproto-supported account method today |
+| Method / route                 | Adoption benefit                                                | Functional or trust limit                                                                 |
+| ------------------------------ | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| Existing `did:plc` account     | Reuse account, hosted PDS, handle and OAuth tooling             | PDS custody and directory ordering/availability; currentness still needs observation      |
+| Hostname `did:web` account     | Publish a small HTTPS document on a controlled domain/subdomain | DNS/TLS/hosting trust, domain loss, no intrinsic historical proof or portable identifier  |
+| `did:web` with WebVH companion | Web hosting with optional verifiable key history                | Additional keys/log tooling and trust anchoring; ecosystem still sees a `did:web` account |
+| Native `did:webvh` account DID | Verifiable history as the identifier method                     | Not an ATproto-supported account method today                                             |
 
 `did:web` support should not mean mandatory domain purchase or self-hosting.
 People who already have an account can use it. A managed subdomain lowers setup
@@ -147,12 +149,12 @@ documented in the adoption comparison.
 
 ## Action-attribution alternatives
 
-| Candidate | Durable attribution | Main trade-off |
-|---|---|---|
-| OAuth login and host receipt | Host says which account submitted an act | Simple, but independent readers trust that assertion |
-| Account publishes each intent in its own repo | Signed commit and MST record proof bind intent to account | Native publication; PDS write/proof needed per action, offline publication unavailable |
-| Account publishes a scoped signing grant | Repo proof authorizes device/agent key; key signs acts | Offline signed participation; explicit grant lifecycle and ordered authority state |
-| Give clients the account repository private key | Direct signature | Broad account signing authority defeats normal PDS/OAuth separation; avoid as default |
+| Candidate                                       | Durable attribution                                       | Main trade-off                                                                         |
+| ----------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| OAuth login and host receipt                    | Host says which account submitted an act                  | Simple, but independent readers trust that assertion                                   |
+| Account publishes each intent in its own repo   | Signed commit and MST record proof bind intent to account | Native publication; PDS write/proof needed per action, offline publication unavailable |
+| Account publishes a scoped signing grant        | Repo proof authorizes device/agent key; key signs acts    | Offline signed participation; explicit grant lifecycle and ordered authority state     |
+| Give clients the account repository private key | Direct signature                                          | Broad account signing authority defeats normal PDS/OAuth separation; avoid as default  |
 
 OAuth authenticates a session and permits PDS operations; it is not a durable
 signature over a particular intent. DPoP does not sign request bodies. Use
