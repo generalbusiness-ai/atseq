@@ -101,6 +101,23 @@ export async function runSourceDocumentCorpus(): Promise<FixtureResult[]> {
       await rejects(() => validateDefinitionInfo({ ...discovered, unrecognized: true }));
     });
   }
+  await check('source document guitar summary covers the maximum valid aggregate', async () => {
+    const bundle = await sourceDocumentToBundle(guitar);
+    const definition = await LoadedDefinition.load(bundle.root, bundle);
+    const state = {
+      candidates: Array.from({ length: 1000 }, (_, index) => ({
+        id: `maximum-${index}`,
+        title: 'Maximum price',
+        pricePence: 1_000_000,
+      })),
+    };
+    definition.schemas.validate(definition.manifest.state.ref, state);
+    const query = definition.manifest.queries.find((binding) => binding.name === 'summary')!;
+    definition.schemas.queryParams(query.ref, {});
+    const { value } = await evaluate(definition.text(query.program), { state, params: {} });
+    definition.schemas.queryResult(query.ref, value);
+    equal(value, { count: 1000, totalPence: 1_000_000_000 });
+  });
   await check('source document taskboard completes a retained task', async () => {
     const bundle = await sourceDocumentToBundle(taskboard),
       car = await bundle.write();

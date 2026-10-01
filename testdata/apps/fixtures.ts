@@ -39,8 +39,10 @@ function view(action: string, label: string) {
 
 /** Fixture generation, deliberately outside host/runtime source. Call after startup. */
 export async function chartFixture(namespace = 'ai.generalbusiness.atseq.examples.rainfall') {
+  const maximumReadings = 1000;
   const record = object({ day: string, millimetres: integer });
-  const state = object({ readings: { type: 'array', maxLength: 1000, items: record } });
+  const state = object({ readings: { type: 'array', maxLength: maximumReadings, items: record } });
+  const aggregate = { ...integer, maximum: maximumReadings * integer.maximum };
   const schema = { lexicon: 1, id: `${namespace}.data`, defs: { state, record } };
   const summary = {
     lexicon: 1,
@@ -49,7 +51,7 @@ export async function chartFixture(namespace = 'ai.generalbusiness.atseq.example
       main: {
         type: 'query',
         parameters: { type: 'params', properties: {} },
-        output: { encoding: 'application/json', schema: object({ count: integer, total: integer }) },
+        output: { encoding: 'application/json', schema: object({ count: integer, total: aggregate }) },
       },
     },
   };

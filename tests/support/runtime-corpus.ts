@@ -16,6 +16,7 @@ import { Folder, type Projection } from '../../src/application/folder.ts';
 import { Applications } from '../../src/application/apps.ts';
 import { canonicalJson, type Json } from '../../src/core/values.ts';
 import { PROFILE } from '../../src/core/profile.ts';
+import { evaluate } from '../../src/runtime/evaluator.ts';
 import { ACTIVATE } from '../../src/definition/control.ts';
 import type { FixtureResult } from './corpus.ts';
 
@@ -132,6 +133,18 @@ export async function runRuntimeCorpus(): Promise<FixtureResult[]> {
     const query = await folder.query('summary', {});
     equal(query.result, { $type: 'ai.generalbusiness.atseq.defs#queryAvailable', value: { count: 2, total: 7 } });
     equal(query.frontier.position, 2);
+  });
+  await check('rainfall summary covers the maximum valid aggregate', async () => {
+    const definition = await load(chart.bundle);
+    const state = {
+      readings: Array.from({ length: 1000 }, (_, index) => ({ day: `Day ${index}`, millimetres: 1_000_000 })),
+    };
+    definition.schemas.validate(definition.manifest.state.ref, state);
+    const query = definition.manifest.queries.find((binding) => binding.name === 'summary')!;
+    definition.schemas.queryParams(query.ref, {});
+    const { value } = await evaluate(definition.text(query.program), { state, params: {} });
+    definition.schemas.queryResult(query.ref, value);
+    equal(value, { count: 1000, total: 1_000_000_000 });
   });
   for (const [label, action, payload, definition, reason] of [
     ['malformed domain input', chart.action, { day: 'Monday', millimetres: 'wet' }, undefined, 'invalid_action'],

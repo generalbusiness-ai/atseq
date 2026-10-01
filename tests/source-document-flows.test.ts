@@ -67,10 +67,12 @@ test('single documents support generic CLI, host discovery and viewless browser 
         const alias = join(environment.dir, example.name + '.alias.json');
         await symlink(documentPath, alias);
         await assert.rejects(() => cli({ operation: 'packDocument', source: alias, output: alias + '.car' }));
+        const payload = example.name === 'guitar' ? { ...example.payload, pricePence: 1_000_000 } : example.payload;
+        const summary = example.name === 'guitar' ? { count: 1, totalPence: 1_000_000 } : example.summary;
         const common = { host: service!.url, hostTokenFile: service!.tokenFile, source: sourcePath };
         assert.equal((await cli({ operation: 'validate', ...common })).definition.cid, bundle.root);
         const action = `ai.generalbusiness.atseq.examples.${example.name}.data#${example.action}`;
-        const preview = await cli({ operation: 'preview', ...common, action, payload: example.payload });
+        const preview = await cli({ operation: 'preview', ...common, action, payload });
         assert.deepEqual(preview.views, []);
         assert.equal(preview.outcome.decision, 'effective');
         const created = await cli({ operation: 'create', ...common, keyFile, creationId: randomUUID() });
@@ -82,7 +84,7 @@ test('single documents support generic CLI, host discovery and viewless browser 
           ...invitation,
           definition: bundle.root,
           action,
-          payload: example.payload,
+          payload,
           keyFile,
           intentFile: join(environment.dir, example.name + '.intent.json'),
         });
@@ -95,7 +97,31 @@ test('single documents support generic CLI, host discovery and viewless browser 
         });
         assert.equal(outcome.outcome.$type, 'ai.generalbusiness.atseq.defs#effective');
         const query = await cli({ operation: 'query', host: service!.url, ...invitation, name: 'summary', params: {} });
-        assert.deepEqual(query.result.value, example.summary);
+        assert.deepEqual(query.result.value, summary);
+        if (example.name === 'guitar') {
+          const second = await cli({
+            operation: 'submit',
+            ...common,
+            ...invitation,
+            definition: bundle.root,
+            action,
+            payload: { id: 'two', title: 'Second maximum-price guitar', pricePence: 1_000_000 },
+            keyFile,
+            intentFile: join(environment.dir, 'guitar-second.intent.json'),
+          });
+          assert.equal(second.receipt.position, 2);
+          const secondOutcome = await api.call('outcome', { ...invitation, intent: second.intent });
+          assert.equal(secondOutcome.outcome.$type, 'ai.generalbusiness.atseq.defs#effective');
+          const aggregate = await cli({
+            operation: 'query',
+            host: service!.url,
+            ...invitation,
+            name: 'summary',
+            params: {},
+          });
+          assert.equal(aggregate.result.$type, 'ai.generalbusiness.atseq.defs#queryAvailable');
+          assert.deepEqual(aggregate.result.value, { count: 2, totalPence: 2_000_000 });
+        }
         const lean = await api.call('describe', invitation);
         assert.equal(lean.definition.version, 1);
         assert.equal(Object.hasOwn(lean.definition, 'source'), false);

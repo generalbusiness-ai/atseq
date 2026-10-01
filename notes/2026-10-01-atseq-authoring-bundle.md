@@ -208,3 +208,22 @@ inputs and hashes. The final full suite passes 364 tests.
 - [Definition guide](../docs/definitions.md) explains the existing retained
   closure; [interaction guide](../docs/interaction.md) explains generic forms
   and the JSON CLI.
+
+## Aggregate query correction
+
+Independent assessment `77e604a5bd7943d090d2b7376052f9dff9d054d1` accepted
+widening the guitar summary output bound to 1,000,000,000. This is the exact
+arithmetic upper bound for 1,000 candidates priced at most 1,000,000 minor
+units. State and action bounds, folds and the runtime profile remain unchanged.
+The rainfall fixture has the same issue: its summary total must permit the
+collection maximum multiplied by the per-reading maximum, rather than reuse
+the per-reading bound. Both totals remain safe integers.
+
+The successor must demonstrate a real summary query after two signed guitar
+additions priced at 1,000,000 each, returning 2,000,000. Cheap maximum-state
+cases validate 1,000 maximum-valued items against each state schema, evaluate
+the retained query and validate the 1,000,000,000 output. They run in Node, the
+Chromium worker and the compiled consumer corpus. Source identities and current
+fixture evidence change; earlier captures remain immutable and are linked to
+their successors. Integration validation waits for the independently reviewed
+maintained dependency correction to land.

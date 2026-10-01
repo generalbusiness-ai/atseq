@@ -63,6 +63,8 @@ test(
         'an available query-less view with missing bindings is invalid rather than a permanent stall',
         'source document taskboard round trip and viewless preview',
         'source document guitar round trip and viewless preview',
+        'source document guitar summary covers the maximum valid aggregate',
+        'rainfall summary covers the maximum valid aggregate',
         'source document ledger round trip and viewless preview',
         'source document taskboard completes a retained task',
         'source documents refuse the historical application v1 profile',
