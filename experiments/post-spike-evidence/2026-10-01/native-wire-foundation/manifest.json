@@ -1,0 +1,39 @@
+{
+  "format": "atseq-native-wire-foundation-evidence",
+  "version": 1,
+  "status": "candidate awaiting independent foundation review; not a supported profile",
+  "sourceCandidate": "cf2dc0952129f24516112a2c2a87fe0f163597f6",
+  "publishedBase": "4b6ebab532d0ae1de5adbbe3326d70e0a80f0136",
+  "identityDependencyBasis": "412b0c9b83c921c86f95d847dabbba381767d783",
+  "identityBasisStatus": "separately reviewed candidate, pending at measurement",
+  "runtimePackageCount": 147,
+  "corpusCases": 53,
+  "nodeVersions": [
+    "v22.19.0",
+    "v26.10.0"
+  ],
+  "browserVersion": "153.0.8010.12",
+  "sourceHashes": {
+    "src/protocol/native-schema.ts": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4",
+    "src/protocol/native-wire.ts": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+    "src/protocol/native-contract.ts": "7265b7be342861db65c90de19e27a6e100b76d40fdf27fbab200c68b3c9e61ae",
+    "scripts/vectors/native-foundation.mjs": "cc7c0bd20d93cdb0a7c51a676571462dd03e70840e85828b37c8bbf7e4f235ea",
+    "tests/vectors/native-foundation.json": "b4dc52281e8b96a07fea5f7d468f8dc25a4b055b4410b813a1d74d14facb5d5c",
+    "tests/native-wire.test.ts": "f5f4f6fbe9221c973144babef6d1ff9fbdd44c241c582e9dc20ba33da71da047",
+    "tests/support/native-wire-corpus.ts": "b3cbe16f8e54da6818bb3d458cf699dd3a1cf9da2e29e6acaeebc74e0b30ab9d",
+    "tests/support/native-wire-browser/index.html": "185f914da5f11c412cb45b29a9e83898800657746d8af85ccb22663420909ea4",
+    "tests/support/native-wire-browser/main.ts": "9f530847119934f02e379c2af3d76491a3ad2719364ea834d5961cbcd39e1159",
+    "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+  },
+  "artifactHashes": {
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/build.log": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/check.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/independent-check.log": "6f79bfa3fe74f1e14bf8eb22b10eb3ef31e968714be88593f8ed66cb18b09170",
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/node22-chromium.json": "c09d8e00e7411b5fcd18a437a751986e009e67163239f9d157d0787eda63946f",
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/node22-chromium.log": "b1d600f09624dce799b69b43005910dd161e96d367b4baf93ccb1247d498fdd1",
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/node26-chromium.json": "7e7761914f1687e91265f9e4baeaa99670488a1678bc38844707fc41fa5c6ea0",
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/node26-chromium.log": "0f0c0c0d6d2a198d54a59b2453649fb2ad26a5136ce8536ce922ed779c273b96",
+    "experiments/post-spike-evidence/2026-10-01/native-wire-foundation/preparation-descriptor.json": "18f6291f00dada6651e0e5f83c8ef2ec8f843b36bf10d1c724e19f4ef7b2e0ec"
+  }
+}
