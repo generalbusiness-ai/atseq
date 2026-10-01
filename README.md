@@ -117,8 +117,7 @@ Use Node 22.13 or later; the retained acceptance run used Node 26.10.0.
 From this checkout:
 
 ```sh
-npm ci
-npm ci --prefix experiments/pds
+npm run setup
 npm run dev:app
 ```
 
@@ -174,6 +173,8 @@ experiment evidence. The [acceptance runner](scripts/acceptance.ts) lists all
 [spike plan](notes/2026-09-06-atseq-initial-spike.md) records the original gates
 and their setup. Use `npm run test:archive` for the archive gate alone, or
 `npm run dev:experiment` for the original S0 browser probe.
+
+For reusable APIs, the compiled CLI and a host connected to your local PDS, see [package usage](docs/package.md). Contributors should start with [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Current limits
 

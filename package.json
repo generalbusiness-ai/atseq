@@ -1,7 +1,6 @@
 {
   "name": "atseq",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "type": "module",
   "license": "Apache-2.0",
   "engines": {
@@ -9,23 +8,26 @@
   },
   "scripts": {
     "check": "tsc --noEmit && npm run format:check && npm run check:layers && npm run check:dependencies",
-    "test": "tsx --test tests/*.test.ts",
-    "spike:feasibility": "tsx scripts/feasibility.ts",
-    "test:protocol": "tsx --test tests/protocol.test.ts",
-    "test:pds": "tsx --test tests/pds.test.ts",
-    "test:runtime": "tsx --test tests/runtime.test.ts tests/projection.test.ts",
-    "test:dynamic-apps": "tsx --test tests/dynamic-apps.test.ts",
-    "test:flows": "tsx scripts/flows.ts",
-    "spike:acceptance": "tsx scripts/acceptance.ts",
-    "spike:report": "tsx scripts/report.ts",
-    "dev:experiment": "vite experiments/browser --host 127.0.0.1",
-    "atseq": "tsx src/cli/main.ts",
-    "dev:app": "tsx scripts/serve.ts",
-    "test:archive": "tsx --test tests/archive.test.ts",
-    "format": "prettier --write src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
-    "format:check": "prettier --check src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json .prettierrc.json .github",
+    "test": "node scripts/source-run.mjs --test tests/*.test.ts",
+    "spike:feasibility": "node scripts/source-run.mjs scripts/feasibility.ts",
+    "test:protocol": "node scripts/source-run.mjs --test tests/protocol.test.ts",
+    "test:pds": "node scripts/source-run.mjs --test tests/pds.test.ts",
+    "test:runtime": "node scripts/source-run.mjs --test tests/runtime.test.ts tests/projection.test.ts",
+    "test:dynamic-apps": "node scripts/source-run.mjs --test tests/dynamic-apps.test.ts",
+    "test:flows": "node scripts/source-run.mjs scripts/flows.ts",
+    "spike:acceptance": "node scripts/source-run.mjs scripts/acceptance.ts",
+    "spike:report": "node scripts/source-run.mjs scripts/report.ts",
+    "dev:experiment": "vite tests/support/browser --host 127.0.0.1",
+    "atseq": "node scripts/source-run.mjs src/cli/main.ts",
+    "dev:app": "node scripts/source-run.mjs scripts/serve.ts",
+    "test:archive": "node scripts/source-run.mjs --test tests/archive.test.ts",
+    "format": "prettier --write src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json tsconfig.build.json CONTRIBUTING.md .prettierrc.json .github",
+    "format:check": "prettier --check src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json tsconfig.build.json CONTRIBUTING.md .prettierrc.json .github",
     "check:layers": "node scripts/check-layers.mjs",
-    "check:dependencies": "tsx scripts/check-dependencies.ts"
+    "check:dependencies": "node scripts/source-run.mjs scripts/check-dependencies.ts",
+    "setup": "node scripts/setup.mjs",
+    "build": "node scripts/build.mjs",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "@atcute/car": "6.0.2",
@@ -50,8 +52,60 @@
   },
   "imports": {
     "#atseq-integrity": {
-      "node": "./src/integrity/node.ts",
-      "default": "./src/integrity/browser.ts"
+      "atseq-source": {
+        "node": "./src/integrity/node.ts",
+        "default": "./src/integrity/browser.ts"
+      },
+      "node": "./dist/src/integrity/node.js",
+      "default": "./dist/src/integrity/browser.js"
     }
-  }
+  },
+  "description": "Signed application logs and reproducible interpretation on AT Protocol",
+  "main": "./dist/src/api/index.js",
+  "types": "./dist/src/api/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/api/index.d.ts",
+      "import": "./dist/src/api/index.js"
+    },
+    "./protocol": {
+      "types": "./dist/src/protocol/index.d.ts",
+      "import": "./dist/src/protocol/index.js"
+    },
+    "./runtime": {
+      "types": "./dist/src/runtime/index.d.ts",
+      "import": "./dist/src/runtime/index.js"
+    },
+    "./application": {
+      "types": "./dist/src/application/index.d.ts",
+      "import": "./dist/src/application/index.js"
+    },
+    "./client": {
+      "types": "./dist/src/client/index.d.ts",
+      "import": "./dist/src/client/index.js"
+    },
+    "./archive": {
+      "types": "./dist/src/archive/index.d.ts",
+      "import": "./dist/src/archive/index.js"
+    },
+    "./host": {
+      "types": "./dist/src/host/index.d.ts",
+      "import": "./dist/src/host/index.js"
+    }
+  },
+  "bin": {
+    "atseq": "./dist/src/cli/main.js",
+    "atseq-host": "./dist/src/host/main.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "lexicons",
+    "docs",
+    "README.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "npm-shrinkwrap.json"
+  ],
+  "bundleDependencies": true
 }

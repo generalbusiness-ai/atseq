@@ -1,7 +1,7 @@
-import { evaluate, fold } from '../src/runtime/evaluator.ts';
-import { canonicalJson } from '../src/core/values.ts';
-import { Schemas } from '../src/definition/schemas.ts';
-import { resolveView, type LocalView } from '../src/view/inlay.ts';
+import { evaluate, fold } from '../../src/runtime/evaluator.ts';
+import { canonicalJson } from '../../src/core/values.ts';
+import { Schemas } from '../../src/definition/schemas.ts';
+import { resolveView, type LocalView } from '../../src/view/inlay.ts';
 import { offersSchemas, totalsSchemas } from './fixtures.ts';
 
 // These fixtures pin observable behavior of the profile and the selected engine.

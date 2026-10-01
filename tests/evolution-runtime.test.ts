@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { P256PrivateKeyExportable } from '@atcute/crypto';
 import { guitarEvolution, oversizedClosure } from '../testdata/apps/evolution.ts';
-import { fixtureApp, fixtureHistory } from '../experiments/runtime-corpus.ts';
+import { fixtureApp, fixtureHistory } from '../tests/support/runtime-corpus.ts';
 import { SourceBundle, SourcePool, type SourceReader } from '../src/definition/source.ts';
 import { Folder } from '../src/application/folder.ts';
 import { ACTIVATE } from '../src/definition/control.ts';

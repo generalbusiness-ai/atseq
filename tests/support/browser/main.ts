@@ -1,6 +1,6 @@
 import './style.css';
 import { localView, totalsSchemas, totalFold, summaryQuery, baseInput } from '../fixtures.ts';
-import { resolveView, type ViewNode } from '../../src/view/inlay.ts';
+import { resolveView, type ViewNode } from '../../../src/view/inlay.ts';
 import type { FixtureResult } from '../corpus.ts';
 
 const started = performance.now();

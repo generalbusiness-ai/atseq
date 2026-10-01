@@ -10,9 +10,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache-dependency-path: npm-shrinkwrap.json
           cache: npm
-      - run: npm ci
-      - run: npm ci --prefix experiments/pds
-      - run: npx playwright install --with-deps chromium
+      - run: npm run setup
       - run: npm run check
       - run: npm test

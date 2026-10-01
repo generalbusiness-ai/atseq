@@ -4,7 +4,7 @@ import { fork } from 'node:child_process';
 import { createHash, randomBytes } from 'node:crypto';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { chartFixture, guitarFixture } from '../testdata/apps/fixtures.ts';
-import { fixtureApp, fixtureHistory } from '../experiments/runtime-corpus.ts';
+import { fixtureApp, fixtureHistory } from '../tests/support/runtime-corpus.ts';
 import { applicationRuntimeDescriptor } from '../src/protocol/identity.ts';
 import type { Json } from '../src/core/values.ts';
 
@@ -139,9 +139,9 @@ test('running host loads and interprets two newly generated unrelated applicatio
       ...paths,
       'tests/dynamic-apps.test.ts',
       'testdata/apps/fixtures.ts',
-      'experiments/runtime-corpus.ts',
+      'tests/support/runtime-corpus.ts',
       'package.json',
-      'package-lock.json',
+      'npm-shrinkwrap.json',
     ];
     const sourceHashes = Object.fromEntries(
       await Promise.all(

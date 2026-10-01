@@ -5,7 +5,7 @@ import { mkdtemp, readFile, writeFile, rm, symlink } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { chartFixture } from '../testdata/apps/fixtures.ts';
-import { fixtureApp } from '../experiments/runtime-corpus.ts';
+import { fixtureApp } from '../tests/support/runtime-corpus.ts';
 import { headAt, Anchor } from '../src/protocol/log.ts';
 import { bytes, link } from '../src/protocol/wire.ts';
 import { exportArchive, importArchive, encodeArchive } from '../src/archive/archive.ts';

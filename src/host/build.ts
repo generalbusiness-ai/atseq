@@ -1,15 +1,19 @@
 import { build } from 'vite';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
-import { verifyInstalledDependencies } from '../integrity/node.ts';
-import dependencies from '../core/dependencies-approved.json';
-import packageFiles from '../integrity/files-approved.json';
+import { packageRoot, verifyInstalledDependencies } from '../integrity/node.ts';
+import dependencies from '../core/dependencies-approved.json' with { type: 'json' };
+import packageFiles from '../integrity/files-approved.json' with { type: 'json' };
 import { createHash } from 'node:crypto';
 /** Cache only this installed shell; never XRPC replies, credentials or archives. */
 export async function buildShell(outDir: string) {
   verifyInstalledDependencies();
   const root = resolve(outDir);
-  await build({ root: resolve('src/browser'), logLevel: 'warn', build: { outDir: root, emptyOutDir: true } });
+  await build({
+    root: resolve(packageRoot, 'src/browser'),
+    logLevel: 'warn',
+    build: { outDir: root, emptyOutDir: true },
+  });
   const files: string[] = [];
   async function walk(path = '') {
     for (const entry of await readdir(join(root, path), { withFileTypes: true })) {

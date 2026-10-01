@@ -12,9 +12,7 @@ experimental flag from 22.13. A native compiler may be needed for the official
 PDS's SQLite package if that platform has no prebuilt binary.
 
 ```sh
-npm ci
-npm ci --prefix experiments/pds
-npx playwright install chromium
+npm run setup
 npm run check
 npm test
 ```
@@ -34,7 +32,7 @@ directory, marked with `ATSEQ_DISPOSABLE_PDS.json`, and a new `atseq-*.test`
 account. Both services bind to loopback. Secrets stay in ignored files with
 mode 0600 and are excluded from evidence. Tests remove the writer key/token file
 on normal cleanup and leave the stopped PDS directory for inspection.
-`resetDisposable` in `experiments/pds/environment.mjs` accepts
+`resetDisposable` in `tests/support/pds/environment.mjs` accepts
 only a marked directory directly under this checkout's `.atseq-local`, refuses
 a running PDS, and accepts no remote URL or account. Close the test host first.
 

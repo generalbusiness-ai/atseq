@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import os from 'node:os';
 import assert from 'node:assert/strict';
 import { P256PrivateKeyExportable } from '@atcute/crypto';
-import { startEnvironment, resetDisposable } from '../experiments/pds/environment.mjs';
+import { startEnvironment, resetDisposable } from '../tests/support/pds/environment.mjs';
 import { Anchor, headAt, positionKey, randomNonce, sequence, signIntent, type Intent } from '../src/protocol/log.ts';
 import { contentCid, encodeBlock, link, bytes } from '../src/protocol/wire.ts';
 import { applicationRuntimeCid } from '../src/protocol/identity.ts';

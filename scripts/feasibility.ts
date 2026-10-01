@@ -7,14 +7,14 @@ import { gzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { build, preview } from 'vite';
 import { chromium } from '@playwright/test';
-import { runCorpus, type FixtureResult } from '../experiments/corpus.ts';
+import { runCorpus, type FixtureResult } from '../tests/support/corpus.ts';
 import { PROFILE } from '../src/core/profile.ts';
 
 const generated = 'experiments/generated';
 await mkdir(generated, { recursive: true });
 const evidence = 'experiments/evidence';
 await mkdir(evidence, { recursive: true });
-const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));
+const lock = JSON.parse(await readFile('npm-shrinkwrap.json', 'utf8'));
 const version = (name: string): string => lock.packages[`node_modules/${name}`].version;
 const report: Record<string, any> = {
   stage: 'S0',
@@ -101,7 +101,7 @@ try {
   report.nodeFixtures = await runCorpus();
   report.nodeCorpusMs = performance.now() - start;
   await build({
-    root: resolve('experiments/browser'),
+    root: resolve('tests/support/browser'),
     logLevel: 'warn',
     build: { outDir: resolve(`${generated}/browser`), emptyOutDir: true },
     worker: { format: 'es' },
@@ -119,7 +119,7 @@ try {
   );
   report.browserBundles = bundles;
   server = await preview({
-    root: resolve('experiments/browser'),
+    root: resolve('tests/support/browser'),
     logLevel: 'warn',
     build: { outDir: resolve(`${generated}/browser`) },
     preview: { host: '127.0.0.1', port: 0 },
@@ -191,13 +191,13 @@ try {
       [
         ...(await files('src')),
         ...(await files('scripts')),
-        ...(await files('experiments/browser')),
+        ...(await files('tests/support/browser')),
         ...(await files('experiments/jsonataddl')),
-        'experiments/corpus.ts',
-        'experiments/fixtures.ts',
-        'experiments/boundaries.ts',
+        'tests/support/corpus.ts',
+        'tests/support/fixtures.ts',
+        'tests/support/boundaries.ts',
         'package.json',
-        'package-lock.json',
+        'npm-shrinkwrap.json',
         'tsconfig.json',
       ].map(async (path) => [
         path,

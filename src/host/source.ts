@@ -6,7 +6,7 @@ import { encode } from '@atcute/cbor';
 import { Lexicons, jsonToLex, type LexiconDoc } from '@atproto/lexicon';
 import { decodeBlock, ProtocolError } from '../protocol/wire.ts';
 import { PdsClient, PdsError } from './pds.ts';
-import sourceLexicon from '../../lexicons/ai/generalbusiness/atseq/source.json';
+import sourceLexicon from '../../lexicons/ai/generalbusiness/atseq/source.json' with { type: 'json' };
 
 const schema = new Lexicons([sourceLexicon as LexiconDoc]);
 

@@ -2,9 +2,21 @@ import { readdir, readFile } from 'node:fs/promises';
 import { builtinModules } from 'node:module';
 import { dirname, join, resolve, relative } from 'node:path';
 import { ts } from 'ts-morph';
-const portable = ['core', 'protocol', 'runtime', 'view', 'definition', 'application', 'transport', 'archive', 'client'];
+const portable = [
+  'api',
+  'core',
+  'protocol',
+  'runtime',
+  'view',
+  'definition',
+  'application',
+  'transport',
+  'archive',
+  'client',
+];
 const lower = ['core', 'protocol', 'runtime', 'view', 'definition', 'application', 'transport'];
 const allowed = {
+  api: [...lower, 'client', 'archive', 'api'],
   core: ['core'],
   protocol: ['core', 'protocol'],
   runtime: ['core', 'runtime'],

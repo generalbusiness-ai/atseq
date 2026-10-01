@@ -5,7 +5,7 @@ import { evaluate, fold } from '../../src/runtime/evaluator.ts';
 import { validateFramework } from '../../src/protocol/schemas.ts';
 import { NSID } from '../../src/core/nsids.ts';
 import { errorCode } from '../../src/core/errors.ts';
-import type { FixtureResult } from '../../experiments/corpus.ts';
+import type { FixtureResult } from '../../tests/support/corpus.ts';
 
 /** Expected values are hand-specified; this same corpus runs in Node and Chromium. */
 export async function runProfileCorpus(): Promise<FixtureResult[]> {

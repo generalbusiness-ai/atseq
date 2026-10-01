@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { applicationRuntimeCid, applicationRuntimeDescriptor } from '../protocol/identity.ts';
 import { exportArchive, importArchive, encodeArchive } from '../archive/archive.ts';
 import { readFile, readdir, lstat, mkdir, open, link as linkFile, rm } from 'node:fs/promises';
@@ -261,6 +262,12 @@ export async function execute(input: any): Promise<unknown> {
     default:
       throw new Error('Unknown operation');
   }
+}
+if (process.argv.includes('--help')) {
+  console.log(
+    'Atseq JSON CLI. Send one request on stdin. See docs/interaction.md for identity, pack, preview, create, submit, query, export and replay.',
+  );
+  process.exit(0);
 }
 // One JSON request on stdin, one JSON result on stdout. Errors never expose keys.
 let raw = '';

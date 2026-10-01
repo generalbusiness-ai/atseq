@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { P256PrivateKeyExportable } from '@atcute/crypto';
 import { create, toString, CODEC_RAW } from '@atcute/cid';
 import { fromUint8Array } from '@atcute/car';
-import { startEnvironment, assertDisposable, resetDisposable } from '../experiments/pds/environment.mjs';
+import { startEnvironment, assertDisposable, resetDisposable } from '../tests/support/pds/environment.mjs';
 import {
   Anchor,
   headAt,
@@ -555,11 +555,11 @@ test('real disposable PDS persistence and recovery', async (t) => {
     await rm(join(env.dir, 'writer-secrets.json'), { force: true });
     const paths = [
       'package.json',
-      'package-lock.json',
+      'npm-shrinkwrap.json',
       'tests/pds.test.ts',
       'lexicons/ai/generalbusiness/atseq/source.json',
     ];
-    for (const directory of ['src/host', 'tests/helpers', 'experiments/pds']) {
+    for (const directory of ['src/host', 'tests/helpers', 'tests/support/pds']) {
       for (const file of await readdir(directory, { withFileTypes: true }))
         if (file.isFile()) paths.push(`${directory}/${file.name}`);
     }

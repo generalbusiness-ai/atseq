@@ -1,6 +1,6 @@
 import { runCorpus } from '../corpus.ts';
-import { evaluate, fold } from '../../src/runtime/evaluator.ts';
-import { Schemas } from '../../src/definition/schemas.ts';
+import { evaluate, fold } from '../../../src/runtime/evaluator.ts';
+import { Schemas } from '../../../src/definition/schemas.ts';
 
 self.onmessage = async ({ data }) => {
   try {
