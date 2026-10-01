@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: correction prepared; focused execution and independent review pending
+status: local correction validated; independent review and Linux CI pending
 examined_at: 66977be7e59527eccf3df91c55285e55914f3add
 request: 0933ee4d
 ---
@@ -15,8 +15,8 @@ cancellation. It preserves the assertion that the host still has exactly four
 entries and every retained device byte is unchanged by cancellation.
 
 Only `tests/archive.test.ts` changes. There is no product, dependency, semantic
-profile or service-worker change. The correction is prepared; execution waits
-until the concurrent performance capture has finished.
+profile or service-worker change. Focused local execution passed after the
+concurrent performance capture finished. Linux CI remains to be checked.
 
 ## Observed CI failure and diagnosis
 
@@ -86,15 +86,45 @@ the application still at entry 0. That is not the archive head-5 failure and is
 not addressed by this change. The authoring/form work owner was notified to
 investigate it separately.
 
-## Verification still required
+## Validation results and remaining evidence
 
 Source and CI-log review, primary Playwright documentation checks and
 `git diff --check` completed. No installs, PDS/browser runs or suite runs were
 performed while the concurrent large-state performance capture was active.
 
-After that capture, run the complete archive test with the real PDS and Chromium,
-checking all eleven subtests, retained flow evidence and the final four-entry
-assertion. Check source formatting and types. Independent exact-head review must
-precede landing. A passing Linux Node 22/24/26 CI run is still needed before
+After that capture, the following commands passed on correction head
+`4679d27c1c0f7e7a50ea4c85b8f33d7ca698116b` with macOS and Node 26.10.0:
+
+| Command | Result |
+| --- | --- |
+| `npm ci` | Exact root shrinkwrap installed; no manifest or lock edits |
+| `npm run build` | Public APIs/executables built and installed runtime closure verified |
+| `node scripts/source-run.mjs --test tests/archive.test.ts` | 12/12 test records passed: all eleven archive subtests plus their parent, with real disposable PDS and Chromium |
+| `npm run check` | Types, source formatting, layers and installed dependency integrity passed |
+
+The cancellation subtest passed with the original exact IndexedDB comparison,
+saved state and queued-work assertions, and head still exactly 4 after restoring
+the host. The later chart/static-export and invalid-activation archive cases also
+passed against the restored service. This tests the new stopped-service lifetime,
+not merely an isolated cancellation function.
+
+The root lock SHA-256 was
+`0116e0f33561ba15e7018d02f7edea2bfc0497ab6a1e594d7c8c8e7905750e9c`;
+the disposable PDS lock was
+`762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd`.
+The PDS dependency installation was shared by a temporary local symlink only
+after its lock hash matched exactly. The symlink is not part of the delivery.
+Generated `experiments/generated/archive-results.json` contains all eleven
+passed cases, Node/browser version, capture time and exact source-file hashes;
+it is correctness evidence, not a performance characterization.
+
+Local command logs are `/tmp/atseq-ci1-build.log`, `/tmp/atseq-ci1-archive.log` and
+`/tmp/atseq-ci1-check.log`, for workroom evidence retention. Their SHA-256 values
+are respectively `375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5`,
+`284537c081d3583fd7801e8d33392c3f1b37d2c306a3979b425b355ca1d712bd` and
+`14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551`.
+
+Independent exact-head review must precede landing. A passing Linux Node 22/24/26
+CI run is still needed before
 claiming the original Linux instability is resolved; a local pass alone is not
 that evidence.
