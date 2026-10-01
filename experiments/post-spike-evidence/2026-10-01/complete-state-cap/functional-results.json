@@ -1,0 +1,134 @@
+{
+  "exactHead": "630c4216e8ceb0b9705fc4ae414e8671da5e9e71",
+  "node": "v26.10.0",
+  "captures": [
+    {
+      "name": "scalar-at-cap",
+      "predecessorDefinitionCid": "bafyreiffrentetvw5dse42xue2tsinfte7ymlb74b7btf57dt3efl2dmse",
+      "derivativeDefinitionCid": "bafyreifruopmg5epfpfvegjhul36p5je4vsm22ddd5gpgee4vi6qdy27xa",
+      "changedSourcePath": "initial.json",
+      "stateBytes": 131072,
+      "frontier": 1,
+      "outcome": {
+        "$type": "ai.generalbusiness.atseq.defs#effective"
+      },
+      "queryValue": {
+        "revision": 0,
+        "value": 1000000
+      },
+      "archiveBytes": 330104,
+      "archiveSha256": "3fb63cdeda4e1572210cbc8f42680bdbfdbbd4751db117e89deb21010cc8572f",
+      "archiveReplayed": true
+    },
+    {
+      "name": "primitive-array-at-cap",
+      "predecessorDefinitionCid": "bafyreib6j3jwngl4olgjzul4435uoqwpogrkzkjqjjorgdlx4jewehhmli",
+      "derivativeDefinitionCid": "bafyreicni7igvnddgxu6aj6xvf5mxcemlt423y5vsl2en2plmbqgur2i4y",
+      "changedSourcePath": "initial.json",
+      "stateBytes": 131072,
+      "frontier": 1,
+      "outcome": {
+        "$type": "ai.generalbusiness.atseq.defs#effective"
+      },
+      "queryValue": {
+        "count": 16376,
+        "total": 16376000000
+      },
+      "archiveBytes": 330210,
+      "archiveSha256": "ddcc8b8203e9a0c98d15d1a76b601ef171e6a565b2522db68b11c44b4aad2aab",
+      "archiveReplayed": true
+    },
+    {
+      "name": "row-array-at-cap",
+      "predecessorDefinitionCid": "bafyreid4tqt572qou76gf26mz4dh7ozli34rxqnyw6nw6tehih5la6j75e",
+      "derivativeDefinitionCid": "bafyreihjzlqcg7klabg2cohjkzfs5maruvswky4oc6yg7lnt6mp343ihou",
+      "changedSourcePath": "initial.json",
+      "stateBytes": 131072,
+      "frontier": 1,
+      "outcome": {
+        "$type": "ai.generalbusiness.atseq.defs#effective"
+      },
+      "queryValue": {
+        "count": 1000,
+        "total": 1000000000
+      },
+      "archiveBytes": 330497,
+      "archiveSha256": "9f2afb58e9da5beb6ea92e270f0d0eb5e3025e072dbfb3494a13912cd5bd6ec0",
+      "archiveReplayed": true
+    },
+    {
+      "name": "wide-object-at-cap",
+      "predecessorDefinitionCid": "bafyreihv7squn4xvf23wpwydw3qwc2czkchj5er57bh7pis7sk2dzqberm",
+      "derivativeDefinitionCid": "bafyreifajzevjgpioeilzruwygnh6f5jar2oi5h2yulq4pef25542mzd5u",
+      "changedSourcePath": "initial.json",
+      "stateBytes": 131072,
+      "frontier": 1,
+      "outcome": {
+        "$type": "ai.generalbusiness.atseq.defs#effective"
+      },
+      "queryValue": {
+        "revision": 0,
+        "value": 1000000
+      },
+      "archiveBytes": 679775,
+      "archiveSha256": "c52cff01309270c073f0c36f04662f4ecde005a3c40b4ed94d388e39bb27483d",
+      "archiveReplayed": true
+    },
+    {
+      "name": "taskboard-at-cap",
+      "predecessorDefinitionCid": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "derivativeDefinitionCid": "bafyreicpkhhhled7f7f7cgbad7v756zjvnkofverrdlq6ydq2tvzrtzhde",
+      "changedSourcePath": "initial.json",
+      "stateBytes": 131072,
+      "frontier": 1,
+      "outcome": {
+        "$type": "ai.generalbusiness.atseq.defs#effective"
+      },
+      "queryValue": {
+        "completed": 0,
+        "count": 1000
+      },
+      "archiveBytes": 332484,
+      "archiveSha256": "29a3dece6f7c6cdb70cda4481421bd8fa77adac89764be6bdf04c53204d0113b",
+      "archiveReplayed": true
+    },
+    {
+      "name": "guitar-at-cap",
+      "predecessorDefinitionCid": "bafyreibd4esaloqg3yfoui4ndueevdrw45vux7cjdw2wmhht53vjist5sm",
+      "derivativeDefinitionCid": "bafyreiglijrnsbamap2aihekddy4rdp5dhp4dwigqx4j6agg4rzdnai4e4",
+      "changedSourcePath": "initial.json",
+      "stateBytes": 131072,
+      "frontier": 1,
+      "outcome": {
+        "$type": "ai.generalbusiness.atseq.defs#effective"
+      },
+      "queryValue": {
+        "count": 1000,
+        "totalPence": 100000
+      },
+      "archiveBytes": 331571,
+      "archiveSha256": "8acd278db7ea3515e65e037dcb1361630b5a738c5ea179e01913e5d0acc42e41",
+      "archiveReplayed": true
+    },
+    {
+      "name": "ledger-at-cap",
+      "predecessorDefinitionCid": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "derivativeDefinitionCid": "bafyreic2a5sexknge2idxfmu36se6mkdkbth65wdu72ib5muoephnvqu6m",
+      "changedSourcePath": "initial.json",
+      "stateBytes": 131072,
+      "frontier": 1,
+      "outcome": {
+        "$type": "ai.generalbusiness.atseq.defs#effective"
+      },
+      "queryValue": {
+        "balanceMinor": 0,
+        "count": 1000,
+        "currency": "GBP"
+      },
+      "archiveBytes": 332292,
+      "archiveSha256": "d67c4d172c9a287f7930f618bb6ee988012113631f9049c5c2e45c870ebc23ad",
+      "archiveReplayed": true
+    }
+  ],
+  "method": "Seven untimed one-action current Folder/query/archive probes. A derivative source replaces only initial-state bytes with each prepared predecessor. Public signed inputs retained without private keys. This does not exercise native vNext proofs/checkpoints, network transport, CLI or browser archive integration."
+}
