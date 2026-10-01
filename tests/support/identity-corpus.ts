@@ -387,6 +387,35 @@ export async function identityCorpus() {
   );
   passed('first matching bad service cannot fall through');
   await rejects(
+    () => web({ ...document, service: [{ ...document.service[0], type: 'OtherService' }, document.service[0]] }),
+    'bad type at first ATproto service ID',
+  );
+  passed('first ATproto service ID with bad type cannot fall through');
+  await rejects(
+    () =>
+      web({
+        ...document,
+        verificationMethod: [
+          { ...document.verificationMethod[0], controller: 'did:web:foreign.example' },
+          document.verificationMethod[0],
+        ],
+      }),
+    'foreign controller at first ATproto key ID',
+  );
+  passed('first ATproto key ID with foreign controller cannot fall through');
+  await rejects(
+    () =>
+      web({
+        ...document,
+        verificationMethod: [
+          { ...document.verificationMethod[0], type: 'JsonWebKey2020' },
+          document.verificationMethod[0],
+        ],
+      }),
+    'unsupported type at first ATproto key ID',
+  );
+  passed('first ATproto key ID with unsupported JsonWebKey2020 cannot fall through');
+  await rejects(
     () => web({ ...document, service: Array.from({ length: 65 }, () => document.service[0]) }),
     'array budget',
     'content_unavailable',

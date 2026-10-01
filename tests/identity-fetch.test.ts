@@ -79,3 +79,78 @@ test('identity transport applies credential/cache/redirect and failed-body total
     'mock request/body policy passed',
   );
 });
+
+test('identity transport classifies known mid-body faults and preserves programming/integrity failures (mock body)', () => {
+  const probe = `import assert from 'node:assert/strict';
+    import {IdentityFetch} from ${JSON.stringify(resolve('src/host/identity-fetch.ts'))};
+    import {AtseqError} from ${JSON.stringify(resolve('src/core/errors.ts'))};
+    const transport=new IdentityFetch();let seen=0;
+    async function attempt(error) {
+      let pulls=0;
+      transport.fetch=async()=>new Response(new ReadableStream({pull(controller){
+        if(pulls++===0){controller.enqueue(new Uint8Array([1,2,3]));seen+=3;}else controller.error(error);
+      }}));
+      let caught;try{await transport.bytesFrom('https://pds.atseq-probe.net/a',100);}catch(fault){caught=fault;}
+      return caught;
+    }
+    for(const code of ['UND_ERR_SOCKET','UND_ERR_BODY_TIMEOUT']){
+      const fault=new TypeError('terminated',{cause:Object.assign(new Error('Body transport failed'),{code})});
+      const caught=await attempt(fault);assert.equal(caught?.code,'content_unavailable');
+    }
+    for(const fault of [new TypeError('Application programming error'),new TypeError('terminated'),
+      new TypeError('terminated',{cause:Object.assign(new Error('Invalid dispatcher use'),{code:'UND_ERR_INVALID_ARG'})}),
+      new AtseqError('dependency_mismatch','Integrity failure')])assert.equal(await attempt(fault),fault);
+    assert.equal(seen,18);assert.equal(transport.bytes,18);
+    transport.fetch=async()=>new Response(new Uint8Array([4]));
+    assert.deepEqual([...await transport.bytesFrom('https://pds.atseq-probe.net/a',100)],[4]);
+    process.stdout.write(JSON.stringify({mockMidBody:true,knownTransportCases:2,preservedFaultCases:4,consumedBeforeFailure:seen,resumed:true}));`;
+  const evidence = JSON.parse(
+    execFileSync(
+      process.execPath,
+      [
+        '--conditions=atseq-source',
+        '--import',
+        resolve('node_modules/tsx/dist/loader.mjs'),
+        '--input-type=module',
+        '-e',
+        probe,
+      ],
+      { encoding: 'utf8', timeout: 20_000 },
+    ),
+  );
+  assert.equal(evidence.knownTransportCases, 2);
+  assert.equal(evidence.preservedFaultCases, 4);
+  console.log(JSON.stringify(evidence));
+});
+
+test('identity body reader classifies a real truncated HTTP socket (injected loopback transport)', () => {
+  const probe = `import assert from 'node:assert/strict';import {createServer} from 'node:http';import {once} from 'node:events';
+    import {IdentityFetch} from ${JSON.stringify(resolve('src/host/identity-fetch.ts'))};
+    const server=createServer((request,response)=>{
+      response.writeHead(200,{'content-length':100000});response.flushHeaders();response.write(new Uint8Array(1000));
+      setTimeout(()=>response.destroy(),20);
+    });server.listen(0,'127.0.0.1');await once(server,'listening');
+    const transport=new IdentityFetch();
+    // Only the body-read boundary is under test. Production SSRF policy is not bypassed in source.
+    transport.fetch=globalThis.fetch;
+    try{let caught;try{await transport.bytesFrom('http://127.0.0.1:'+server.address().port+'/body',100000);}catch(error){caught=error;}
+      process.stdout.write(JSON.stringify({actualHttpTruncation:true,code:caught?.code,name:caught?.name,message:caught?.message,causeCode:caught?.cause?.code,receivedBytes:transport.bytes}));
+      assert.equal(caught?.code,'content_unavailable');assert.equal(transport.bytes,1000);
+    }finally{server.closeAllConnections();await new Promise(ok=>server.close(ok));}`;
+  const evidence = JSON.parse(
+    execFileSync(
+      process.execPath,
+      [
+        '--conditions=atseq-source',
+        '--import',
+        resolve('node_modules/tsx/dist/loader.mjs'),
+        '--input-type=module',
+        '-e',
+        probe,
+      ],
+      { encoding: 'utf8', timeout: 20_000 },
+    ),
+  );
+  assert.equal(evidence.receivedBytes, 1000);
+  console.log(JSON.stringify(evidence));
+});
