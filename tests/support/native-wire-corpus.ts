@@ -1,3 +1,6 @@
+import profiles from '../vectors/profiles-v2.json' with { type: 'json' };
+import { supportedProfiles } from '../../src/protocol/identity.ts';
+import { nativeFoundationDescriptor } from '../../src/protocol/native-contract.ts';
 import fixtures from '../vectors/native-foundation.json' with { type: 'json' };
 import { NATIVE_NSID as N, nativeRef as tag, validateNativeShape } from '../../src/protocol/native-schema.ts';
 import {
@@ -38,7 +41,17 @@ const clone = <T>(value: T): T => structuredClone(value);
 const hex = (bytes: Uint8Array) => [...bytes].map((b) => b.toString(16).padStart(2, '0')).join('');
 const unhex = (value: string) => Uint8Array.from(value.match(/../g)!.map((x) => parseInt(x, 16)));
 const equal = (a: unknown, b: unknown) => {
-  if (JSON.stringify(a) !== JSON.stringify(b)) throw Error('Values differ');
+  const stable = (v: any): any =>
+    Array.isArray(v)
+      ? v.map(stable)
+      : v && typeof v === 'object'
+        ? Object.fromEntries(
+            Object.keys(v)
+              .sort()
+              .map((k) => [k, stable(v[k])]),
+          )
+        : v;
+  if (JSON.stringify(stable(a)) !== JSON.stringify(stable(b))) throw Error('Values differ');
 };
 const okay = (condition: unknown) => {
   if (!condition) throw Error('Assertion failed');
@@ -306,6 +319,108 @@ export async function runNativeWireCorpus(): Promise<NativeCorpusResult[]> {
     stale.position = 1;
     await readNativeValue(tag('setControl'), stale);
     // This foundation cannot decide whether an old control context is effective.
+  });
+  await run('account principals use PLC or hostname web throughout', async () => {
+    const bad = [
+      'did:key:' + F.keys.actor.slice(8),
+      'did:webvh:example.test',
+      'did:plc:short',
+      'did:web:example.test:account',
+      'did:web:example.test%3A8443',
+      'did:web:localhost%3A8000',
+    ];
+    for (const did of bad) {
+      for (const change of [
+        (v: any) => (v.app = did),
+        (v: any) => (v.owner = did),
+        (v: any) => (v.control[0].principal = did),
+        (v: any) => (v.roles[0].principal = did),
+      ]) {
+        const v = clone(genesis);
+        change(v);
+        await rejected(() => readNativeValue(N.genesis, v), 'envelope');
+      }
+      const target = clone(F.blocks.setRole.value);
+      target.target = did;
+      await rejected(() => readNativeValue(tag('setRole'), target), 'envelope');
+    }
+    const web = clone(genesis);
+    web.app = 'did:web:example.test';
+    web.owner = 'did:web:owner.example';
+    await readNativeValue(N.genesis, web);
+  });
+  await run('retained file-table order and unused assets remain exact identity', async () => {
+    const v = F.blocks.definition.value;
+    const owned: any = await readNativeValue(N.definition, v);
+    equal(owned.files, v.files);
+    okay(owned.files.some((f: any) => f.path === 'unused.txt'));
+    const sorted = clone(v);
+    sorted.files.sort((a: any, b: any) => (a.path < b.path ? -1 : 1));
+    await readNativeValue(N.definition, sorted);
+    okay((await contentCid(sorted)) !== F.blocks.definition.cid);
+    const pruned = clone(v);
+    pruned.files = pruned.files.filter((f: any) => f.path !== 'unused.txt');
+    await readNativeValue(N.definition, pruned);
+    okay((await contentCid(pruned)) !== F.blocks.definition.cid);
+    const duplicate = clone(v);
+    duplicate.files.push(duplicate.files[0]);
+    await rejected(() => readNativeValue(N.definition, duplicate), 'envelope');
+    await readNativeRecord(N.definition, F.blocks.definition.cid, unhex(F.blocks.definition.cborHex));
+    const locator = clone(v);
+    locator.files[0].cid = F.blocks.file.cid;
+    await rejected(() => readNativeValue(N.definition, locator), 'envelope');
+  });
+  await run('high-S signatures do not create accepted retry aliases', async () => {
+    const signed = clone(F.blocks.signed.value);
+    const raw = unhex(hex(new Uint8Array(Uint8Array.from(atob(signed.sig.$bytes), (c) => c.charCodeAt(0)))));
+    const order = BigInt('0xffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551');
+    const low = BigInt('0x' + hex(raw.subarray(32)));
+    raw.set(unhex((order - low).toString(16).padStart(64, '0')), 32);
+    signed.sig = bytes(raw);
+    await rejected(() => verifyNativeSigned(signed, anchor), 'signature');
+  });
+  await run('sparse receipt is closed framing, never self-appointed assurance', async () => {
+    const receipt = F.blocks.receipt.value;
+    await readNativeValue(tag('receipt'), receipt);
+    await readNativeValue(tag('receipt'), { ...receipt, publication: { ...receipt.publication, head: null } });
+    await rejected(() => readNativeValue(tag('receipt'), { ...receipt, trusted: true }), 'envelope');
+    await rejected(
+      () => readNativeValue(tag('receipt'), { ...receipt, publication: { ...receipt.publication, proofs: [] } }),
+      'envelope',
+    );
+    await rejected(() => readNativeValue(tag('receipt'), { ...receipt, position: 0 }), 'envelope');
+    // Whether these placeholders prove publication/prefix/state is deliberately undecidable here.
+  });
+  await run('native preparation does not advertise a new supported profile', async () => {
+    const supported = await supportedProfiles();
+    equal(
+      supported.map(({ name, cid }) => ({ name, cid })),
+      profiles.profiles,
+    );
+    okay(!supported.some((p) => p.name === nativeFoundationDescriptor.name));
+    const descriptor = await contentCid(nativeFoundationDescriptor);
+    const changed = clone(nativeFoundationDescriptor) as any;
+    changed.metadata.push('actorKey');
+    okay((await contentCid(changed)) !== descriptor);
+    // No routine service RPC schema is part of this isolated preparation descriptor.
+    okay(
+      !nativeFoundationDescriptor.schemas.some(
+        (s) => (s.defs.main as any)?.type === 'query' || (s.defs.main as any)?.type === 'procedure',
+      ),
+    );
+  });
+  await run('native shape returns owned immutable content and bounds enclosing blocks', async () => {
+    const input = clone(genesis),
+      owned: any = await readNativeValue(N.genesis, input);
+    input.control[0].powers.pop();
+    equal(owned.control[0].powers, ['govern', 'recover']);
+    okay(Object.isFrozen(owned.control[0].powers));
+    const big = clone(F.blocks.intent.value);
+    big.operation.payload = { text: 'x'.repeat(65536) };
+    await rejected(() => readNativeValue(tag('intent'), big));
+    const long = clone(genesis);
+    long.roles = Array.from({ length: 64 }, (_, i) => ({ principal: genesis.app, role: `r${i}` }));
+    await rejected(() => readNativeValue(N.genesis, long), 'envelope');
   });
   return results;
 }

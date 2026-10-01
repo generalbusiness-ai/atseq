@@ -68,7 +68,7 @@ const definitions: Record<string, Shape> = {
     'expectedAssignment',
   ]),
   setControl: object({ ...context, control: array(appointment, 16) }),
-  // Shape preparation only. Power transitions remain gated on corrected D5 disposition.
+  // Shape preparation only. Power transitions belong to the separately reviewed authority reducer.
   setRecovery: object({ ...context, recovery: array(pair, 16, 1) }),
   setOwner: object({ ...context, owner: did }, ['owner']),
   setRole: object({ ...context, target: did, role, enabled: bool, expectedAssignment: cid }, ['expectedAssignment']),
@@ -115,6 +115,15 @@ const definitions: Record<string, Shape> = {
     },
     ['expectedEpoch', 'expectedObservation'],
   ),
+  receipt: object({
+    version: { type: 'integer', const: 2 },
+    app: did,
+    genesis: cid,
+    request: cid,
+    position: integer(Number.MAX_SAFE_INTEGER, 1),
+    entry: cid,
+    publication: object({ root: cid, binding: cid, proofs: array(cid, 16, 1), head: cid }, ['head']),
+  }),
   byteChunk: object({ bytes: binary(32 * 1024, 1) }),
   byteManifest: object({ byteLength: integer(32 * 1024 * 1024), chunks: array(cid, 1024) }),
   observationPolicy: object({

@@ -128,6 +128,17 @@ export interface NativeEntry {
   prev: CidLink;
   request: NativeRequest;
 }
+/** Sparse-publication framing only. Its contents cannot appoint their own binding. */
+export interface NativeReceipt {
+  $type: Tag<'receipt'>;
+  version: 2;
+  app: string;
+  genesis: CidLink;
+  request: CidLink;
+  position: number;
+  entry: CidLink;
+  publication: { root: CidLink; binding: CidLink; proofs: CidLink[]; head: CidLink | null };
+}
 export interface NativeFile {
   $type: string;
   version: 1;

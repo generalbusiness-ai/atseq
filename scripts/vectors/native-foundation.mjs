@@ -61,11 +61,16 @@ const actor = key(1),
 const order = BigInt('0xffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551');
 function signature(value, old) {
   const data = block(value);
-  if (
-    old &&
-    verify('sha256', data, { key: actor.privateKey, dsaEncoding: 'ieee-p1363' }, Buffer.from(old.$bytes, 'base64'))
-  )
-    return old;
+  if (old) {
+    const retained = Buffer.from(old.$bytes, 'base64');
+    const retainedS = retained.length === 64 ? BigInt('0x' + retained.subarray(32).toString('hex')) : 0n;
+    if (
+      retainedS > 0n &&
+      retainedS <= order / 2n &&
+      verify('sha256', data, { key: actor.privateKey, dsaEncoding: 'ieee-p1363' }, retained)
+    )
+      return old;
+  }
   const sig = sign('sha256', data, { key: actor.privateKey, dsaEncoding: 'ieee-p1363' });
   const s = BigInt('0x' + sig.subarray(32).toString('hex'));
   if (s > order / 2n) Buffer.from((order - s).toString(16).padStart(64, '0'), 'hex').copy(sig, 32);
@@ -243,7 +248,59 @@ const controls = {
   advanceEpoch: { $type: type('advanceEpoch'), epoch: link(epochCID) },
   revokeGrant: { $type: type('revokeGrant'), revoke: { id: grantID, cid: link(await cid(revoke)) } },
 };
+const disableRoleIntent = { ...intent, actorKey: control.did, operation: controls.setRole };
+const appBinding = {
+  $type: `${N}.content`,
+  version: 1,
+  body: {
+    $type: type('appBinding'),
+    policy: link(await cid(policy)),
+    principal: app,
+    binding: observation.body.binding,
+    before: evidence,
+    after: evidence,
+    repositoryRoot: placeholder,
+  },
+};
+const receipt = {
+  $type: type('receipt'),
+  version: 2,
+  app,
+  genesis: link(G),
+  request: link(await cid(intent)),
+  position: 1,
+  entry: link(await cid(entry)),
+  publication: {
+    root: placeholder,
+    binding: link(await cid(appBinding)),
+    proofs: [link(await cid(manifest))],
+    head: link(await cid(head)),
+  },
+};
+const definition = {
+  $type: `${N}.definition`,
+  version: 2,
+  profile: placeholder,
+  title: 'Retained assets wire fixture',
+  files: [
+    { path: 'unused.txt', cid: file.cid },
+    { path: 'state.json', cid: file.cid },
+    { path: 'fold.jsonata', cid: file.cid },
+    { path: 'schemas.json', cid: file.cid },
+  ],
+  lexicons: ['schemas.json'],
+  state: { ref: `${N}.totals#state`, initial: 'state.json' },
+  actions: [
+    { ref: `${N}.totals#add`, fold: 'fold.jsonata', authorization: { $type: type('requiredRole'), role: 'member' } },
+  ],
+  queries: [],
+  views: [],
+};
 const values = {
+  disableRoleIntent,
+  appBinding,
+  receipt,
+  definition,
   policy,
   genesis,
   epoch,
@@ -287,6 +344,7 @@ const result = {
   blocks,
   alternateSignature: alternate,
   observationSubject: subject,
+  proposedRoleRevisions: { enabledGenesis: G, neverAssigned: null, disabled: await cid(disableRoleIntent) },
   rawFileHex: Buffer.from(raw).toString('hex'),
 };
 const serialized = JSON.stringify(result, null, 2) + '\n';
