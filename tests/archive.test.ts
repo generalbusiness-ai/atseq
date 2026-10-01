@@ -49,7 +49,9 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
   await buildShell(root);
   const accounts = new LocalAccounts(env.url, directory),
     host = new ApplicationHost(directory, accounts);
-  let service = await startApplicationService(host, { staticRoot: root });
+  let service = await startApplicationService(host, { staticRoot: root }),
+    serviceRunning = true;
+  const servicePort = Number(new URL(service.url).port);
   const api = new AtseqClient(service.url, await readHostToken(service.tokenFile)),
     identity = await createIdentity('Archive owner'),
     fixture = await guitarEvolution(),
@@ -237,7 +239,12 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       // Updates leave open tabs alone. The first installation controls the next navigation.
       await page.reload();
       await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
-      await context.route('**/xrpc/**', (route) => route.abort());
+      // Routing/offline emulation is not a hard boundary for service-worker traffic.
+      // Stop the real transport so no queued write can reach the host, even if a
+      // browser request escapes emulation or its response is lost.
+      await service.close();
+      serviceRunning = false;
+      await assert.rejects(() => api.call('sync', target));
       await context.setOffline(true);
       await page.reload();
       await expect(page.getByRole('heading', { name: 'Your applications', exact: true })).toBeVisible();
@@ -351,6 +358,9 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       // Keep this context disconnected so its intentionally queued act cannot
       // change the retained four-entry archive used by the earlier assertions.
       await context.close();
+      await host.restore();
+      service = await startApplicationService(host, { port: servicePort, staticRoot: root });
+      serviceRunning = true;
       assert.equal((await api.call('sync', target)).head.position, 4, 'the offline queued action must stay unrecorded');
     });
     await check('small imported data produces a zero-based chart and static source-tagged exports', async () => {
@@ -460,7 +470,8 @@ test('retain complete app history and rebuild without the PDS', async (t) => {
       offlineServiceWorker: true,
     });
     await browser.close();
-    await service.close();
+    if (serviceRunning) await service.close();
+    else await host.close();
     await env.close();
     await resetDisposable(env.dir);
   }
