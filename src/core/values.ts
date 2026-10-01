@@ -18,19 +18,19 @@ export function canonicalJson(
 ): string {
   let bytes = 0;
   const active = new Set<object>();
-  function token(text: string): string {
-    const size = encoder.encode(text).length;
+  function token(text: string, ascii = false): string {
+    const size = ascii ? text.length : encoder.encode(text).length;
     charge?.(size);
     bytes += size;
     if (bytes > maxBytes) throw new InterpretationError('value_bytes', `Value exceeds ${maxBytes} UTF-8 bytes`);
     return text;
   }
   function walk(v: unknown, depth: number, path: string): string {
-    if (v === null || typeof v === 'boolean') return token(String(v));
+    if (v === null || typeof v === 'boolean') return token(String(v), true);
     if (typeof v === 'number') {
       if (!Number.isSafeInteger(v) || (!intermediate && Object.is(v, -0)))
         throw new InterpretationError('wire_number', `${path}: expected safe integer, excluding negative zero`);
-      return token(String(v));
+      return token(String(v), true);
     }
     if (typeof v === 'string') {
       if (!v.isWellFormed()) throw new InterpretationError('unicode', `${path}: unpaired surrogate`);
@@ -51,33 +51,33 @@ export function canonicalJson(
           continue;
         throw new InterpretationError('wire_value', `${path}: extra array property ${key}`);
       }
-      token('[');
+      token('[', true);
       const parts: string[] = [];
       for (let i = 0; i < v.length; i++) {
-        if (i) token(',');
+        if (i) token(',', true);
         if (!Object.hasOwn(v, i)) throw new InterpretationError('wire_value', `${path}: sparse array`);
         const desc = Object.getOwnPropertyDescriptor(v, i)!;
         if (!('value' in desc)) throw new InterpretationError('wire_value', `${path}/${i}: accessor`);
         parts.push(walk(desc.value, depth + 1, `${path}/${i}`));
       }
-      token(']');
+      token(']', true);
       result = `[${parts.join(',')}]`;
     } else {
       if (Object.getPrototypeOf(v) !== Object.prototype && Object.getPrototypeOf(v) !== null)
         throw new InterpretationError('wire_value', `${path}: expected plain object`);
-      token('{');
+      token('{', true);
       const parts: string[] = [];
       for (const key of Object.keys(v).sort()) {
         if (!safeName(key)) throw new InterpretationError('reserved_key', `${path}/${key}: reserved in this profile`);
         if (!key.isWellFormed()) throw new InterpretationError('unicode', `${path}: invalid Unicode key`);
-        if (parts.length) token(',');
+        if (parts.length) token(',', true);
         const name = token(JSON.stringify(key));
-        token(':');
+        token(':', true);
         const desc = Object.getOwnPropertyDescriptor(v, key)!;
         if (!('value' in desc)) throw new InterpretationError('wire_value', `${path}/${key}: accessor`);
         parts.push(`${name}:${walk(desc.value, depth + 1, `${path}/${key}`)}`);
       }
-      token('}');
+      token('}', true);
       result = `{${parts.join(',')}}`;
     }
     active.delete(v);
