@@ -43,8 +43,9 @@ export async function buildShell(outDir: string) {
   for (const path of files) hash.update(path).update(await readFile(root + path));
   const cache = 'atseq-shell-v0-' + hash.digest('hex').slice(0, 20);
   const script = `const NAME=${JSON.stringify(cache)}, FILES=${JSON.stringify(files)}, HASHES=${JSON.stringify(bundles)};
-self.addEventListener('install',event=>event.waitUntil(caches.open(NAME).then(async cache=>{for(const path of FILES){const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw new Error('Shell fetch failed');const data=await response.clone().arrayBuffer();const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',data)),n=>n.toString(16).padStart(2,'0')).join('');if(hash!==HASHES[path])throw new Error('Shell build drift');await cache.put(path,response);}}).then(()=>self.skipWaiting())));
-self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('atseq-shell-v0-')&&key!==NAME).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('install',event=>event.waitUntil(caches.open(NAME).then(async cache=>{for(const path of FILES){const response=await fetch(path,{cache:'no-store'});if(!response.ok)throw new Error('Shell fetch failed');const data=await response.clone().arrayBuffer();const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',data)),n=>n.toString(16).padStart(2,'0')).join('');if(hash!==HASHES[path])throw new Error('Shell build drift');await cache.put(path,response);}})));
+// Let open tabs finish with their current worker. Retain older hashed shells for their lazy worker assets.
+// The browser activates this version after every tab using the previous worker closes.
 self.addEventListener('fetch',event=>{
  const url=new URL(event.request.url);
  if(event.request.method!=='GET'||url.origin!==self.location.origin)return;

@@ -1,13 +1,21 @@
+import { retainVerified } from './verified.ts';
+import type { Operations } from './protocol.ts';
 import { installHostAccess, hostMessage } from './host-access.ts';
 import { NSID } from '../core/nsids.ts';
-import { chartExport, type ChartSource } from '../archive/chart.ts';
+import { drawDraft as renderDraft, retainDraft } from './drafts.ts';
+import { archivePanel, queryExport } from './exports.ts';
 import './style.css';
 import { ARCHIVE_LIMIT } from '../archive/limits.ts';
-import { ACTIVATE } from '../definition/control.ts';
+import { changePanel, type ChangeDraft } from './changes.ts';
 import { fromBytes } from '@atcute/cbor';
-import { AtseqClient, ApiError } from '../client/api.ts';
-import { DeviceStore, saveDraft, type Draft } from '../client/store.ts';
-import { createIdentity, prepareIntent, type Identity, type Invitation } from '../client/identity.ts';
+import { AtseqClient } from '../client/api.ts';
+import { DeviceStore, type Draft } from '../client/store.ts';
+import type { Invitation } from '../protocol/log.ts';
+import { createDeviceIdentity, prepareDeviceIntent, deviceIdentity, type DeviceIdentity } from './identity.ts';
+import { Outbox, type Pending } from './outbox.ts';
+import { SessionGeneration, sameSession, type AppSession } from './session.ts';
+import type { AppSnapshot, Preview } from './protocol.ts';
+import type { RetainedInput } from '../archive/archive.ts';
 import { bytes } from '../protocol/wire.ts';
 import type { Json } from '../core/values.ts';
 import { resolveSchema, type DefinitionInfo } from '../client/definition.ts';
@@ -15,22 +23,8 @@ import type { ViewNode } from '../view/inlay.ts';
 import { Evaluator } from './evaluator.ts';
 import { element, button, actionForm, schemaForm } from './forms.ts';
 
-interface Pending {
-  cid: string;
-  block: number[];
-  signed: any;
-  app: string;
-  genesis: string;
-  status: 'queued' | 'recorded' | 'applied' | 'not-applied' | 'refused';
-  receipt?: any;
-  outcome?: any;
-  error?: string;
-  source?: number[];
-}
-interface ChangeDraft {
-  source: number[];
-  expected: string;
-  comparison: any;
+interface AppInvitation extends Invitation {
+  title: string;
 }
 let changeDraft: ChangeDraft | undefined,
   applying = false;
@@ -47,22 +41,30 @@ if (access) {
 }
 const api = new AtseqClient(location.origin, access ?? sessionStorage.getItem('atseq.host-token') ?? undefined),
   store = await DeviceStore.open(),
-  evaluator = new Evaluator();
+  evaluator = new Evaluator((message) => tell(message)),
+  sessions = new SessionGeneration(),
+  outbox = new Outbox(store, api);
 installHostAccess(api);
 const content = document.querySelector<HTMLDivElement>('#content')!,
   status = document.querySelector<HTMLParagraphElement>('#status')!;
 const identityDialog = document.querySelector<HTMLDialogElement>('#identity-dialog')!;
-let identity = await store.get<Identity>('identity'),
+let identity = await deviceIdentity(store),
   current: Invitation | undefined,
-  snapshot: any,
+  snapshot: AppSnapshot | undefined,
   definition: DefinitionInfo | undefined;
 let draft: Draft | undefined,
-  preview: any,
-  flushing = false,
+  preview: Preview | undefined,
   refreshing = false,
   refreshAgain = false;
 let editorArea: HTMLElement | undefined,
-  localWorkGeneration = 0;
+  localWorkGeneration = 0,
+  drawVersion = 0;
+function activeSession(): AppSession | undefined {
+  return current && definition ? { ...current, definition: definition.cid } : undefined;
+}
+function stillCurrent(generation: number, binding?: AppSession) {
+  return sessions.current(generation) && (!binding || sameSession(binding, activeSession()));
+}
 let afterIdentity: (() => void) | undefined;
 function tell(message: string) {
   status.textContent = message;
@@ -97,8 +99,8 @@ document.querySelector<HTMLFormElement>('#identity-form')!.onsubmit = async (eve
   if (submit.disabled) return;
   submit.disabled = true;
   try {
-    const made = await createIdentity(String(new FormData(form).get('name')));
-    identity = await store.update<Identity>('identity', (existing) => existing ?? made);
+    const made = await createDeviceIdentity(String(new FormData(form).get('name')));
+    identity = await store.update<DeviceIdentity>('identity', (existing) => existing ?? made);
     drawIdentity();
     identityDialog.close();
     afterIdentity?.();
@@ -110,13 +112,13 @@ document.querySelector<HTMLFormElement>('#identity-form')!.onsubmit = async (eve
   }
 };
 async function applications() {
-  let apps = (await store.get<any[]>('apps')) ?? [];
+  let apps = (await store.get<AppInvitation[]>('apps')) ?? [];
   try {
-    const incoming = (await api.call('list')).apps;
-    apps = await store.update<any[]>('apps', (previous) => {
+    const incoming: AppInvitation[] = (await api.call('list')).apps;
+    apps = await store.update<AppInvitation[]>('apps', (previous) => {
       const known = new Map((previous ?? []).map((app) => [app.app, app]));
       for (const app of incoming)
-        if (!known.has(app.app) || known.get(app.app).genesis === app.genesis) known.set(app.app, app);
+        if (!known.has(app.app) || known.get(app.app)!.genesis === app.genesis) known.set(app.app, app);
       return [...known.values()];
     });
   } catch {
@@ -128,11 +130,7 @@ async function applications() {
   );
 }
 async function knownInvitations(): Promise<Invitation[]> {
-  return [
-    ...(await store.list<Invitation>('pin:')),
-    ...((await store.get<Invitation[]>('apps')) ?? []),
-    ...(current ? [current] : []),
-  ];
+  return store.list<Invitation>('pin:');
 }
 async function pinInvitation(invitation: Invitation) {
   if ((await knownInvitations()).some((pin) => pin.app === invitation.app && pin.genesis !== invitation.genesis))
@@ -144,14 +142,13 @@ async function pinInvitation(invitation: Invitation) {
   });
 }
 async function importDraft(raw: Uint8Array) {
-  const checked = await evaluator.call('preview', { source: [...raw] });
-  const prior = await store.get<string>(`draft-source:${checked.definition.cid}`);
-  draft = prior ? await store.get<Draft>(`draft:${prior}`) : undefined;
-  if (!draft) {
-    const id = crypto.randomUUID();
-    draft = await saveDraft(store, { id, revision: 0, creationId: crypto.randomUUID(), source: [...raw] }, undefined);
-    await store.set(`draft-source:${checked.definition.cid}`, id);
-  }
+  const generation = sessions.begin();
+  evaluator.select();
+  current = undefined;
+  const retained = await retainDraft(store, evaluator, raw);
+  if (!stillCurrent(generation)) return;
+  const checked = retained.checked;
+  draft = retained.draft;
   if (draft.published) {
     await openApp(draft.published);
     return;
@@ -176,153 +173,69 @@ document.querySelector<HTMLInputElement>('#import')!.onchange = async (event) =>
   }
 };
 function drawDraft() {
-  if (!draft || !preview || !definition) return;
-  const heading = element('div');
-  heading.append(element('span', 'Draft · only here', 'tag'), element('h1', definition.manifest.title));
-  const card = element('section', undefined, 'card');
-  card.append(
-    element('h2', 'Try this app with sample data'),
-    element('p', 'Sample actions stay in this preview. Starting the app uses its declared initial state.', 'muted'),
-  );
-  for (const action of definition.manifest.actions) {
-    card.append(
-      button(action.ref.split('#').at(-1)!, () => {
-        const form = actionForm(definition!, action.ref, 'Try sample action', async (payload) => {
-          tell('Evaluating sample data…');
-          const result = await evaluator.call('preview', {
-            source: draft!.source,
-            action: action.ref,
-            payload,
-            state: preview.state,
-          });
-          preview = result;
-          drawDraft();
-          tell(
-            result.outcome?.decision === 'ineffective'
-              ? `Sample not applied: ${result.outcome.reason}`
-              : 'Sample applied locally. Nothing was published.',
-          );
-        });
-        formArea.replaceChildren(form);
-        form.querySelector('input,textarea,select')?.scrollIntoView({ block: 'nearest' });
-      }),
-    );
-  }
-  const formArea = element('div');
-  const renderPreview = (node: ViewNode): Node => {
-    if (typeof node === 'string') return document.createTextNode(node);
-    if (node.type === NSID.uiAction)
-      return button(String(node.props.label), () => {
-        const ref = String(node.props.action);
-        if (!definition!.manifest.actions.some((a) => a.ref === ref)) {
-          tell('View names an unavailable action');
-          return;
-        }
-        formArea.replaceChildren(
-          actionForm(definition!, ref, 'Try sample action', async (payload) => {
-            preview = await evaluator.call('preview', {
-              source: draft!.source,
-              action: ref,
-              payload,
-              state: preview.state,
-            });
-            drawDraft();
-            tell('Sample evaluated locally. Nothing was published.');
-          }),
-        );
-      });
-    const nodeElement = element(node.type === NSID.uiText ? 'p' : 'div');
-    nodeElement.append(...node.children.map(renderPreview));
-    return nodeElement;
-  };
-  for (const view of preview.views ?? []) {
-    const area = element('div', undefined, 'view');
-    area.append(...(view.tree ?? []).map(renderPreview));
-    if (view.error) area.append(element('p', `View unavailable: ${view.error}`, 'muted'));
-    card.append(area);
-  }
-  card.append(formArea, inspect('Sample state', preview.state));
-  const publication = element('section', undefined, 'card');
-  publication.append(
-    element('h2', 'Start this app'),
-    element('p', 'Destination: Test PDS · public demo data'),
-    element(
-      'p',
-      'The definition and future signed actions will be retained on this test PDS. Use synthetic examples. Your local identity receives the initial app-update grant.',
-      'muted',
-    ),
-  );
-  const start = button(
-    draft.activationKeys ? 'Retry starting this app' : 'Start this app',
-    async () => {
-      if (!identity) {
-        showIdentity(drawDraft);
-        return;
-      }
-      if (start.disabled) return;
-      start.disabled = true;
-      try {
-        // The publication attempt freezes its source, grants and creation ID before
-        // network I/O. A later retry cannot silently choose a different identity.
-        const frozen = await store.update<Draft>(`draft:${draft!.id}`, (previous) => {
-          if (!previous || previous.revision !== draft!.revision)
-            throw new Error('Draft revision changed. Reopen the preview.');
-          return { ...previous, activationKeys: previous.activationKeys ?? [identity!.publicKey] };
-        });
-        draft = frozen;
-        tell('Starting on the test PDS…');
-        const created = await api.call(
-          'create',
-          { source: bytes(new Uint8Array(frozen.source)), activationKeys: frozen.activationKeys },
-          frozen.creationId,
-        );
-        const invitation = { app: created.genesis.app, genesis: created.genesisCid.$link };
-        await store.update<Draft>(`draft:${frozen.id}`, (previous) => ({ ...previous!, published: invitation }));
-        await applications();
-        await openApp(invitation);
-        tell('App started. Sample actions were kept in the preview.');
-      } catch (error) {
-        tell(
-          `Draft retained. ${error instanceof ApiError && error.code === 'host_token' ? hostMessage(error) : error instanceof ApiError && error.status >= 400 && error.status < 500 ? `Starting was refused: ${error.message}` : navigator.onLine ? 'Starting could not be confirmed; retry this same draft.' : 'Offline — start when this device reconnects.'}`,
-        );
-      } finally {
-        start.disabled = false;
-      }
+  if (!draft || !preview) return;
+  const generation = sessions.capture();
+  renderDraft({
+    draft,
+    preview,
+    content,
+    evaluator,
+    store,
+    api,
+    identity: () => identity,
+    visible: () => stillCurrent(generation),
+    setDraft: (value) => {
+      draft = value;
     },
-    'primary',
-  );
-  publication.append(start);
-  content.replaceChildren(
-    heading,
-    card,
-    publication,
-    inspect('Inspect definition', definition),
-    button('Cancel local preview work', () => {
-      evaluator.cancel();
-      tell('Preview cancelled. Source remains saved on this device.');
-    }),
-  );
+    setPreview: (value) => {
+      preview = value;
+    },
+    redraw: drawDraft,
+    tell,
+    inspect,
+    showIdentity,
+    applications,
+    openApp,
+  });
 }
 async function openApp(invitation: Invitation) {
-  await pinInvitation(invitation);
-  current = invitation;
+  const generation = sessions.begin();
+  evaluator.select();
+  current = { ...invitation };
   draft = undefined;
   editorArea = undefined;
   snapshot = undefined;
   definition = undefined;
+  content.replaceChildren(element('p', 'Verifying this invitation…'));
   history.replaceState(null, '', `/#${new URLSearchParams({ ...invitation })}`);
   changeDraft = await store.get<ChangeDraft>(`change:${invitation.app}`);
-  const retained = await store.get<any>(`verified:${invitation.app}:${invitation.genesis}`);
+  if (!stillCurrent(generation)) return;
+  const retained = await store.get<RetainedInput>(`verified:${invitation.app}:${invitation.genesis}`);
+  if (!stillCurrent(generation)) return;
   if (retained)
     try {
-      snapshot = await evaluator.call('sync', { invitation, input: retained }, 120_000);
-      definition = snapshot.definition;
+      const checked = await evaluator.restore(
+        { ...invitation, definition: retained.genesis.definition.$link },
+        retained,
+      );
+      if (!stillCurrent(generation)) return;
+      await pinInvitation(invitation);
+      if (!stillCurrent(generation)) return;
+      snapshot = checked;
+      definition = checked.definition;
       await drawApp();
-      tell('Saved state on this device. Checking for newer entries…');
-    } catch {
-      tell('Saved inputs failed verification. Fetching a verified prefix…');
+      if (stillCurrent(generation)) tell('Saved state on this device. Checking for newer entries…');
+    } catch (error) {
+      if (!stillCurrent(generation)) return;
+      content.replaceChildren(
+        element('h1', 'Saved state unavailable'),
+        element('p', 'Saved history is retained. Retry to rebuild it before checking the host.'),
+        button('Retry', () => refresh()),
+      );
+      failure(error);
+      return;
     }
-  await refresh();
+  if (stillCurrent(generation)) await refresh();
 }
 async function refresh() {
   if (!current) return;
@@ -335,29 +248,41 @@ async function refresh() {
     button.disabled = true;
   });
   const invitation = { ...current },
-    generation = localWorkGeneration;
+    generation = sessions.capture(),
+    workGeneration = localWorkGeneration;
   try {
     tell('Checking retained history and interpreting updates…');
-    const input = await api.call('sync', invitation);
-    if (generation !== localWorkGeneration) return;
-    const checked = await evaluator.call('sync', { invitation, input }, 120_000);
+    const input: RetainedInput = await api.call('sync', invitation);
+    if (!stillCurrent(generation) || workGeneration !== localWorkGeneration) return;
+    const checked = await evaluator.call(
+      'sync',
+      { session: activeSession() ?? { ...invitation, definition: input.genesis.definition.$link }, input },
+      120_000,
+    );
+    if (!stillCurrent(generation)) return;
+    await pinInvitation(invitation);
+    if (!stillCurrent(generation)) return;
     // Only worker-verified inputs become the device's canonical cache.
-    await store.set(`verified:${invitation.app}:${invitation.genesis}`, input);
-    if (current?.app !== invitation.app) return;
+    await retainVerified(store, input);
+    if (!stillCurrent(generation)) return;
     snapshot = checked;
     definition = checked.definition;
-    await reconcile();
+    await outbox.reconcile(checked);
+    if (!stillCurrent(generation)) return;
     await drawApp();
+    if (!stillCurrent(generation)) return;
     tell(
       checked.stalled
         ? `Saved through ${checked.head.position}; interpretation paused at ${checked.stalled.position}: ${checked.stalled.code}`
         : `Verified through entry ${checked.projection.frontier.position}.`,
     );
   } catch (error) {
-    if (snapshot && current?.app === invitation.app) {
+    if (!stillCurrent(generation)) return;
+    if (snapshot) {
       await drawApp();
+      if (!stillCurrent(generation)) return;
       tell(
-        `${navigator.onLine ? `Latest data unavailable: ${(error as Error).message}.` : 'Offline.'} Showing saved state through entry ${snapshot.projection.frontier.position}. Pending actions stay on this device.`,
+        `${navigator.onLine ? `Latest data unavailable: ${hostMessage(error)}.` : 'Offline.'} Showing saved state through entry ${snapshot.projection.frontier.position}. Pending actions stay on this device.`,
       );
     } else {
       content.replaceChildren(
@@ -375,56 +300,15 @@ async function refresh() {
     document.querySelectorAll<HTMLButtonElement>('button[data-refresh]').forEach((button) => {
       button.disabled = false;
     });
-    if (current && (refreshAgain || current.app !== invitation.app)) {
+    if (current && (refreshAgain || !stillCurrent(generation))) {
       refreshAgain = false;
       await refresh();
     }
   }
 }
-async function reconcile() {
-  if (!current || !snapshot) return;
-  for (const pending of await store.list<Pending>(`outbox:${current.app}:`)) {
-    const observed = snapshot.projection.outcomes.find((o: any) => o.intent === pending.cid);
-    if (!observed) continue;
-    await store.update<Pending>(`outbox:${pending.app}:${pending.cid}`, (previous) => ({
-      ...(previous ?? pending),
-      status: observed.outcome.$type === NSID.defsEffective ? 'applied' : 'not-applied',
-      outcome: observed.outcome,
-      receipt: { position: observed.position, entry: observed.entry, intent: observed.intent },
-      error: undefined,
-    }));
-  }
-}
 async function flush() {
-  if (flushing) return;
-  flushing = true;
-  try {
-    for (const pending of await store.list<Pending>('outbox:')) {
-      if (pending.status !== 'queued') continue;
-      try {
-        const recorded = await api.call('submit', { block: bytes(new Uint8Array(pending.block)) });
-        await store.update<Pending>(`outbox:${pending.app}:${pending.cid}`, (previous) =>
-          previous && ['applied', 'not-applied'].includes(previous.status)
-            ? previous
-            : { ...(previous ?? pending), status: 'recorded', receipt: recorded.receipt, error: undefined },
-        );
-      } catch (error) {
-        const refused = error instanceof ApiError && error.permanent;
-        await store.update<Pending>(`outbox:${pending.app}:${pending.cid}`, (previous) =>
-          previous && ['recorded', 'applied', 'not-applied'].includes(previous.status)
-            ? previous
-            : {
-                ...(previous ?? pending),
-                status: refused ? 'refused' : pending.status,
-                error: refused ? error.message : 'Reply uncertain. The original signed action is retained for retry.',
-              },
-        );
-      }
-    }
-    await refresh();
-  } finally {
-    flushing = false;
-  }
+  await outbox.flush();
+  await refresh();
 }
 function primitive(node: ViewNode, area: HTMLElement): Node {
   if (typeof node === 'string') return document.createTextNode(node);
@@ -455,20 +339,24 @@ function openAction(ref: string, area: HTMLElement, initial?: Record<string, Jso
     return;
   }
   const pinned = { ...current! },
-    pinnedDefinition = definition!.cid;
+    pinnedDefinition = definition!.cid,
+    binding = activeSession()!,
+    generation = sessions.capture();
   const form = actionForm(
     definition!,
     ref,
     'Save action',
     async (payload) => {
       if (snapshot?.stalled) throw new Error('Interpretation is paused. Retained work is unchanged.');
-      if (current?.app !== pinned.app || definition?.cid !== pinnedDefinition)
-        throw new Error('App changed. Review this action with the current form.');
-      await evaluator.call('validateAction', { action: ref, payload });
-      if (current?.app !== pinned.app || definition?.cid !== pinnedDefinition)
-        throw new Error('App changed while validating. Review the current form.');
-      const prepared = await prepareIntent(identity!, pinned, pinnedDefinition, ref, payload);
+      if (!stillCurrent(generation, binding)) throw new Error('App changed. Review this action with the current form.');
+      await evaluator.call('validateAction', { session: binding, action: ref, payload });
+      if (!stillCurrent(generation, binding)) throw new Error('App changed while validating. Review the current form.');
+      const prepared = await prepareDeviceIntent(identity!, pinned, pinnedDefinition, ref, payload);
       await store.enqueue<Pending>(pinned.app, prepared.cid, { ...prepared, ...pinned, status: 'queued' });
+      if (!stillCurrent(generation, binding)) {
+        void flush().catch(failure);
+        return;
+      }
       tell('Queued on this device. Waiting for a verified receipt.');
       area.replaceChildren();
       await drawApp();
@@ -481,6 +369,10 @@ function openAction(ref: string, area: HTMLElement, initial?: Record<string, Jso
 }
 async function drawApp() {
   if (!current || !definition || !snapshot) return;
+  const binding = activeSession()!,
+    generation = sessions.capture(),
+    version = ++drawVersion;
+  const visible = () => stillCurrent(generation, binding) && version === drawVersion;
   const title = element('div');
   title.append(
     element('h1', definition.manifest.title),
@@ -497,6 +389,21 @@ async function drawApp() {
   controls.append(
     refreshButton,
     button('Retry pending actions', () => flush()),
+    button('Forget this invitation', async () => {
+      if (!visible()) return;
+      await store.delete(`pin:${binding.app}`);
+      await store.delete(`verified:${binding.app}:${binding.genesis}`);
+      await store.update<Invitation[]>('apps', (previous) => (previous ?? []).filter((app) => app.app !== binding.app));
+      if (!visible()) return;
+      sessions.begin();
+      evaluator.select();
+      current = undefined;
+      snapshot = undefined;
+      definition = undefined;
+      history.replaceState(null, '', '/');
+      content.replaceChildren(element('p', 'Invitation forgotten. Signed work remains on this device.'));
+      await applications();
+    }),
   );
   const workspace = element('section', undefined, 'card'),
     formArea = (editorArea ??= element('div')),
@@ -517,23 +424,30 @@ async function drawApp() {
     queryArea.append(
       element('h3', query.name),
       schemaForm(definition, schema.parameters ?? { properties: {} }, 'Run query', async (params) => {
-        const pinned = { ...current! },
-          cid = definition!.cid;
-        const response = await evaluator.call('query', { name: query.name, params });
+        if (!visible()) throw new Error('App changed. Open its current query form.');
+        const pinned = { app: binding.app, genesis: binding.genesis },
+          cid = binding.definition;
+        const response = await evaluator.call('query', { session: binding, name: query.name, params });
+        if (!visible()) return;
         result.replaceChildren(
           element('p', `Interpreted through entry ${response.frontier.position}`, 'muted'),
           element('pre', JSON.stringify(response.result, null, 2)),
         );
         if (response.result.$type === NSID.defsQueryAvailable)
           result.append(
-            queryExport(response.result.value, {
-              ...pinned,
-              definition: cid,
-              position: response.frontier.position,
-              entry: response.frontier.entry.$link,
-              query: query.name,
-              params,
-            }),
+            queryExport(
+              response.result.value,
+              {
+                ...pinned,
+                definition: cid,
+                position: response.frontier.position,
+                entry: response.frontier.entry.$link,
+                query: query.name,
+                params,
+              },
+              visible,
+              failure,
+            ),
           );
       }),
       result,
@@ -541,7 +455,8 @@ async function drawApp() {
   }
   const activity = element('section', undefined, 'card');
   activity.append(element('h2', 'Activity'));
-  const pending = await store.list<Pending>(`outbox:${current.app}:`);
+  const pending = (await store.list<Pending>(`outbox:${binding.app}:`)).filter((p) => p.genesis === binding.genesis);
+  if (!visible()) return;
   const labels = {
     queued: 'Queued on device',
     recorded: 'Saved, awaiting interpretation',
@@ -552,9 +467,17 @@ async function drawApp() {
   for (const item of pending) {
     const row = element('div', undefined, 'activity');
     row.append(element('strong', labels[item.status]), element('p', item.signed.intent.action));
-    if (item.outcome?.reason) row.append(element('p', item.outcome.reason));
+    if (item.status === 'refused')
+      row.append(
+        button('Resend original signed action', async () => {
+          if (!visible()) return;
+          await outbox.resend(item);
+          if (visible()) await refresh();
+        }),
+      );
+    if (item.outcome && 'reason' in item.outcome) row.append(element('p', item.outcome.reason));
     if (item.error) row.append(element('p', item.error, 'error'));
-    if (item.outcome?.reason === 'definition_changed') {
+    if (item.outcome && 'reason' in item.outcome && item.outcome.reason === 'definition_changed') {
       row.append(
         element(
           'p',
@@ -595,7 +518,7 @@ async function drawApp() {
         element(
           'pre',
           JSON.stringify(
-            await evaluator.call('previewPending', { intents: waiting.map((p) => p.signed.intent) }),
+            await evaluator.call('previewPending', { session: binding, intents: waiting.map((p) => p.signed.intent) }),
             null,
             2,
           ),
@@ -606,8 +529,9 @@ async function drawApp() {
     }
     queryArea.prepend(estimated);
   }
+  if (!visible()) return;
   const own = new Set(pending.map((p) => p.cid));
-  for (const outcome of snapshot.projection.outcomes.filter((o: any) => !own.has(o.intent))) {
+  for (const outcome of snapshot.projection.outcomes.filter((o) => !own.has(o.intent))) {
     const row = element('div', undefined, 'activity');
     row.append(
       element(
@@ -626,153 +550,61 @@ async function drawApp() {
     workspace,
     queryArea,
     activity,
-    changePanel(),
-    archivePanel(),
+    changePanel({
+      changeDraft,
+      current,
+      definition,
+      snapshot,
+      api,
+      store,
+      identity: () => identity,
+      applying: () => applying,
+      setApplying: (value) => {
+        applying = value;
+      },
+      clearDraft: () => {
+        changeDraft = undefined;
+      },
+      visible,
+      tell,
+      failure,
+      inspect,
+      compareChange,
+      drawApp,
+      flush,
+    }),
+    archivePanel(snapshot, binding, evaluator, visible, tell, failure),
     inspect('Verified state and frontier', snapshot.projection),
     inspect('Inspect definition', definition),
   );
   try {
-    const binding = definition.manifest.views[0];
-    if (binding)
-      view.replaceChildren(
-        ...(await evaluator.call('view', { name: binding.name })).map((node: ViewNode) => primitive(node, formArea)),
-      );
+    const selectedView = definition.manifest.views[0];
+    if (selectedView) {
+      const tree = await evaluator.call('view', { session: binding, name: selectedView.name });
+      if (!visible()) return;
+      view.replaceChildren(...tree.map((node) => primitive(node, formArea)));
+    }
   } catch (error) {
+    if (!visible()) return;
     view.replaceChildren(element('p', `View unavailable: ${(error as Error).message}`, 'muted'));
   }
 }
 async function compareChange(source: number[]) {
   if (!current || !definition) throw new Error('Open an app first');
   const target = { ...current },
-    expected = definition.cid;
+    expected = definition.cid,
+    binding = activeSession()!,
+    generation = sessions.capture();
   tell('Checking the candidate and replaying the existing prefix…');
-  const comparison = await evaluator.call('compareDefinition', { source, expected }, 120_000);
+  const comparison = await evaluator.call('compareDefinition', { session: binding, source, expected }, 120_000);
   const proposed = { source, expected, comparison };
   await store.set(`change:${target.app}`, proposed);
-  if (current.app === target.app) {
+  if (stillCurrent(generation, binding)) {
     changeDraft = proposed;
     await drawApp();
+    if (!stillCurrent(generation, binding)) return;
     tell('Candidate checked. Existing data is preserved. Apply explicitly to retain and activate it.');
   }
-}
-function changePanel(): HTMLElement {
-  const panel = element('section', undefined, 'card');
-  panel.append(element('h2', 'Change this app'));
-  const label = element('label', 'Import updated definition CAR'),
-    file = element('input');
-  file.type = 'file';
-  file.accept = '.car';
-  file.setAttribute('aria-label', 'Import updated definition CAR');
-  file.onchange = async () => {
-    const source = file.files?.[0];
-    if (!source) return;
-    try {
-      if (source.size > 512 * 1024) throw new Error('Definition exceeds 512 KiB');
-      await compareChange([...new Uint8Array(await source.arrayBuffer())]);
-    } catch (error) {
-      failure(error);
-    }
-  };
-  label.append(file);
-  panel.append(label);
-  if (!changeDraft || !current || !definition) {
-    panel.append(
-      element(
-        'p',
-        'Preview an update that keeps the current data schema and runtime. A grant from genesis is required to apply it.',
-        'muted',
-      ),
-    );
-    return panel;
-  }
-  const proposed = changeDraft,
-    target = { ...current },
-    comparison = proposed.comparison;
-  panel.append(
-    element('p', `${comparison.current.manifest.title} → ${comparison.candidate.manifest.title}`),
-    element('p', 'State schema matches · existing prefix replays · current data is preserved', 'tag'),
-  );
-  const additions = (key: 'actions' | 'queries' | 'views', identity: 'ref' | 'name') =>
-    comparison.candidate.manifest[key]
-      .filter((next: any) => !comparison.current.manifest[key].some((old: any) => old[identity] === next[identity]))
-      .map((value: any) => value[identity]);
-  panel.append(
-    inspect('Inspect changes', {
-      newActions: additions('actions', 'ref'),
-      newQueries: additions('queries', 'name'),
-      newViews: additions('views', 'name'),
-      expected: proposed.expected,
-      candidate: comparison.candidate.cid,
-    }),
-  );
-  const moved = proposed.expected !== definition.cid,
-    authorized = identity && snapshot.genesis.activationKeys.includes(identity.publicKey);
-  if (moved)
-    panel.append(
-      element('p', 'The app changed after this comparison. Refresh it before applying.', 'error'),
-      button('Refresh comparison', () => compareChange(proposed.source).catch(failure)),
-    );
-  if (!authorized)
-    panel.append(
-      element(
-        'p',
-        'This device does not hold an initial app-update grant. You can keep and inspect the proposal.',
-        'muted',
-      ),
-    );
-  const apply = button(
-    'Apply change',
-    async () => {
-      if (!identity || !authorized || moved || apply.disabled || applying) return;
-      applying = true;
-      apply.disabled = true;
-      try {
-        const staged = await api.call('stageDefinition', {
-          ...target,
-          expected: proposed.expected,
-          source: bytes(new Uint8Array(proposed.source)),
-        });
-        if (
-          staged.candidate.cid !== comparison.candidate.cid ||
-          JSON.stringify(staged.closure) !== JSON.stringify(comparison.closure)
-        )
-          throw new Error('Retained candidate differs from the reviewed source');
-        const payload = {
-          expected: proposed.expected,
-          definition: comparison.candidate.cid,
-          closure: comparison.closure,
-        };
-        const prepared = await prepareIntent(identity, target, proposed.expected, ACTIVATE, payload);
-        await store.enqueue<Pending>(target.app, prepared.cid, {
-          ...prepared,
-          ...target,
-          source: proposed.source,
-          status: 'queued',
-        });
-        await store.set(`change:${target.app}`, undefined);
-        if (current?.app === target.app) changeDraft = undefined;
-        tell('Update queued on this device. Waiting for its recorded outcome.');
-        await drawApp();
-        await flush();
-      } catch (error) {
-        tell(`Proposal retained. ${(error as Error).message}`);
-      } finally {
-        applying = false;
-        await drawApp();
-      }
-    },
-    'primary',
-  );
-  apply.disabled = moved || !authorized || applying;
-  panel.append(
-    element(
-      'p',
-      'Apply retains this source on the test PDS and submits a signed activation. The new definition starts after that entry.',
-      'muted',
-    ),
-    apply,
-  );
-  return panel;
 }
 window.addEventListener('hashchange', () => {
   const target = new URLSearchParams(location.hash.slice(1));
@@ -782,7 +614,14 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('online', () => {
   void flush().catch(failure);
 });
+document.querySelector('#cancel-work')!.addEventListener('click', () => {
+  localWorkGeneration++;
+  evaluator.cancel('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
+  tell('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
+});
+
 drawIdentity();
+const startupFlush = outbox.flush();
 await applications();
 const previewCid = new URLSearchParams(location.search).get('preview'),
   invitation = new URLSearchParams(location.hash.slice(1));
@@ -808,58 +647,43 @@ try {
 } catch (error) {
   failure(error);
 }
+void startupFlush.then(() => refresh()).catch(failure);
 
-function download(name: string, data: Uint8Array, type: string) {
-  const url = URL.createObjectURL(new Blob([new Uint8Array(data)], { type })),
-    a = element('a');
-  a.href = url;
-  a.download = name;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-function archivePanel() {
-  const panel = element('section', undefined, 'card');
-  panel.append(
-    element('h2', 'Keep a copy'),
-    element(
-      'p',
-      `App and verified history through entry ${snapshot.projection.frontier.position}. Includes definitions and data. Replay needs this installed runtime; signing keys are excluded.`,
-      'muted',
-    ),
-  );
-  panel.append(
-    button('Download app and verified history', async () => {
-      tell('Verifying source and replaying the chosen prefix for export…');
-      try {
-        const result = await evaluator.call('exportArchive', {}, 120_000);
-        download('application.atseq.json', result.bytes, 'application/json');
-        tell(`Exported verified history through entry ${result.head.position}. The app remains open.`);
-      } catch (error) {
-        failure(error);
-      }
-    }),
-  );
-  return panel;
-}
 document.querySelector<HTMLInputElement>('#import-archive')!.onchange = async (event) => {
   const input = event.target as HTMLInputElement,
     file = input.files?.[0];
   if (!file) return;
+  const generation = sessions.capture();
   try {
     if (file.size > ARCHIVE_LIMIT) throw new Error('Archive exceeds 48 MiB');
     tell('Verifying the archive and replaying its retained history…');
-    const checked = await evaluator.call(
-      'importArchive',
-      { source: new Uint8Array(await file.arrayBuffer()), expected: await knownInvitations() },
-      120_000,
-    );
+    const archiveEvaluator = new Evaluator();
+    let checked: Operations['importArchive']['result'];
+    try {
+      checked = await archiveEvaluator.call(
+        'importArchive',
+        { source: new Uint8Array(await file.arrayBuffer()), expected: await knownInvitations() },
+        120_000,
+      );
+      const pinned = { app: checked.input.genesis.app, genesis: checked.input.genesisCid };
+      const saved = await store.get<RetainedInput>(`verified:${pinned.app}:${pinned.genesis}`);
+      if (saved) {
+        archiveEvaluator.select();
+        const floor = await archiveEvaluator.restore({ ...pinned, definition: saved.genesis.definition.$link }, saved);
+        await archiveEvaluator.call('sync', { session: floor.session, input: checked.input }, 120_000);
+      }
+    } finally {
+      archiveEvaluator.dispose();
+    }
+    if (!stillCurrent(generation)) return;
     const invitation = { app: checked.input.genesis.app, genesis: checked.input.genesisCid };
     await pinInvitation(invitation);
-    await store.set(`verified:${invitation.app}:${invitation.genesis}`, checked.input);
-    await store.update<any[]>('apps', (previous) => [
+    await retainVerified(store, checked.input);
+    await store.update<AppInvitation[]>('apps', (previous) => [
       ...(previous ?? []).filter((app) => app.app !== invitation.app),
       { ...invitation, title: 'Imported application' },
     ]);
+    if (!stillCurrent(generation)) return;
     await openApp(invitation);
     await applications();
   } catch (error) {
@@ -879,80 +703,3 @@ if ('serviceWorker' in navigator) {
       document.querySelector('#offline-ready')!.textContent = 'Offline shell is not saved';
     });
 }
-
-function queryExport(value: any, source: ChartSource) {
-  const panel = element('div'),
-    datasets = Object.entries(value ?? {}).filter(
-      ([, rows]) =>
-        Array.isArray(rows) &&
-        rows.length &&
-        rows.length <= 100 &&
-        rows.every((row) => row && typeof row === 'object' && !Array.isArray(row)),
-    );
-  for (const [name, data] of datasets) {
-    const rows = data as Record<string, unknown>[],
-      labels = Object.keys(rows[0]!).filter((key) => rows.every((row) => typeof row[key] === 'string')),
-      values = Object.keys(rows[0]!).filter((key) => rows.every((row) => Number.isSafeInteger(row[key])));
-    if (!labels.length || !values.length) continue;
-    const card = element('section', undefined, 'card'),
-      label = element('select'),
-      metric = element('select'),
-      result = element('div');
-    label.setAttribute('aria-label', 'Chart labels');
-    metric.setAttribute('aria-label', 'Chart values');
-    for (const key of labels) {
-      const option = element('option', key);
-      option.value = key;
-      label.append(option);
-    }
-    for (const key of values) {
-      const option = element('option', key);
-      option.value = key;
-      metric.append(option);
-    }
-    card.append(
-      element('h3', `Chart or table: ${name}`),
-      label,
-      metric,
-      button('Draw chart', () => {
-        try {
-          const exported = chartExport(rows, label.value, metric.value, source),
-            picture = element('img');
-          picture.alt = `${metric.value} by ${label.value}; values are in the accompanying table`;
-          picture.style.width = '100%';
-          picture.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(exported.svg);
-          const table = element('table'),
-            header = element('tr');
-          header.append(element('th', label.value), element('th', metric.value));
-          table.append(header);
-          for (const row of rows) {
-            const tr = element('tr');
-            tr.append(element('td', String(row[label.value])), element('td', String(row[metric.value])));
-            table.append(tr);
-          }
-          result.replaceChildren(
-            picture,
-            table,
-            button('Download SVG', () =>
-              download('query.svg', new TextEncoder().encode(exported.svg), 'image/svg+xml'),
-            ),
-            button('Download table', () =>
-              download('query.html', new TextEncoder().encode(exported.html), 'text/html'),
-            ),
-          );
-        } catch (error) {
-          failure(error);
-        }
-      }),
-      result,
-    );
-    panel.append(card);
-  }
-  return panel;
-}
-
-document.querySelector('#cancel-work')!.addEventListener('click', () => {
-  localWorkGeneration++;
-  evaluator.cancel('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
-  tell('Local work cancelled. Retained history and pending actions are unchanged. Refresh to rebuild.');
-});

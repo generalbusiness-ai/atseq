@@ -37,12 +37,16 @@
     <dialog id="identity-dialog">
       <form id="identity-form">
         <h2>A signing identity for this device</h2>
-        <p>Local demo identity; not linked to an atproto account.</p>
+        <p>Device signing identity; not linked to an atproto account.</p>
         <label>Display name<input name="name" required maxlength="80" autocomplete="nickname" /></label>
         <p id="identity-error" role="alert"></p>
         <button type="submit" class="primary">Continue</button
         ><button type="button" id="identity-cancel">Cancel</button>
       </form>
+      <p class="muted">
+        Clearing site data loses this device’s signing key and any app-update grant tied to it. Keep another authorized
+        device before clearing it.
+      </p>
     </dialog>
     <dialog id="host-access-dialog">
       <form id="host-access-form">

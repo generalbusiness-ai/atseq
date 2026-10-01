@@ -82,7 +82,10 @@ export class DeviceStore {
   }
   async list<T>(prefix: string): Promise<T[]> {
     return new Promise((resolve, reject) => {
-      const request = this.db.transaction('values').objectStore('values').openCursor(),
+      const request = this.db
+          .transaction('values')
+          .objectStore('values')
+          .openCursor(IDBKeyRange.bound(prefix, prefix + '\uffff', false, false)),
         result: T[] = [];
       request.onsuccess = () => {
         const cursor = request.result;
@@ -95,6 +98,15 @@ export class DeviceStore {
         cursor.continue();
       };
       request.onerror = () => reject(request.error);
+    });
+  }
+  delete(key: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const tx = this.db.transaction('values', 'readwrite', { durability: 'strict' });
+      tx.objectStore('values').delete(key);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+      tx.onabort = () => reject(tx.error ?? new Error('Device deletion aborted'));
     });
   }
   close() {
