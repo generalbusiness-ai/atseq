@@ -1,0 +1,12 @@
+[{"name":"browser-app","delta":{"raw":90436,"gzip":8329},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"browser-worker","delta":{"raw":102686,"gzip":9079},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"portable-verifier","delta":{"raw":90248,"gzip":9457},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"node-cli-start","delta":{"raw":345573,"gzip":95063},"metadataRawBytesInOutput":54967,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"node-host-start","delta":{"raw":333325,"gzip":94487},"metadataRawBytesInOutput":54967,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}}]
+✔ actual ordinary browser/verifier/Node start graphs retain only added OAuth manifests, never executable modules (6049.168792ms)
+[{"platform":"browser","dynamicImports":2,"chunks":[{"path":"oauth-loader.js","rawBytes":213,"gzipBytes":182},{"path":"dist-PBJBG52W.js","rawBytes":254159,"gzipBytes":69204},{"path":"oauth-adapter-H3JOKXOP.js","rawBytes":89164,"gzipBytes":21744},{"path":"chunk-C7IDU5NN.js","rawBytes":414610,"gzipBytes":82263},{"path":"chunk-OOJM4CTU.js","rawBytes":638,"gzipBytes":385}]},{"platform":"node","dynamicImports":2,"chunks":[{"path":"oauth-loader.js","rawBytes":207,"gzipBytes":181},{"path":"dist-BWVBLADZ.js","rawBytes":242020,"gzipBytes":67211},{"path":"oauth-adapter-XJCNUOE4.js","rawBytes":88756,"gzipBytes":21649},{"path":"chunk-3PPTV3RF.js","rawBytes":8311330,"gzipBytes":2142577},{"path":"chunk-2SEI3BXJ.js","rawBytes":1521386,"gzipBytes":478039},{"path":"chunk-IYWUY3VA.js","rawBytes":894,"gzipBytes":503}]}]
+✔ OAuth enrolment loaders retain a dynamic adapter/client chunk boundary (1783.59775ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8173.464542

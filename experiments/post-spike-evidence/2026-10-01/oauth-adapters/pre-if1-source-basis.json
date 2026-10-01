@@ -1,0 +1,11 @@
+{
+  "basis": "2b9e255c",
+  "phase": "Synthetic OAuth foundation before approved IF1 integration; no frozen candidate claim",
+  "harnesses": {
+    "tests/oauth-bundle.test.ts": "51d2ed9f6b93755b807e94ceadfdd0e0249e11a875d49b575dc9800679b6b513",
+    "experiments/oauth-adapters-dependencies.ts": "98ad919c5d388cf4c658f58f1daa0baa2f09564a4b945bbcaf904d955514013c",
+    "src/protocol/oauth.ts": "4fa7e42123641f5787711bed26bcabe52be591d4da0b10c54b094eef3eb7e3f7",
+    "src/host/oauth-adapter.ts": "12fbcd87f690b33eb1814f5d563506a10e27c4615bcbcd2094280bfab93dd7ac",
+    "src/browser/oauth-adapter.ts": "9103cf50e4b003c63c9f2aa7dcbf5f035bcb7166707892683b54878af877b157"
+  }
+}
