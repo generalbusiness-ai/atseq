@@ -1,0 +1,340 @@
+TAP version 13
+# Subtest: isolated native foundation agrees with independent fixtures in Node and Chromium
+    # Subtest: independent exact block disableRoleIntent
+    ok 1 - independent exact block disableRoleIntent
+      ---
+      duration_ms: 0.3165
+      type: 'test'
+      ...
+    # Subtest: independent exact block appBinding
+    ok 2 - independent exact block appBinding
+      ---
+      duration_ms: 0.028791
+      type: 'test'
+      ...
+    # Subtest: independent exact block receipt
+    ok 3 - independent exact block receipt
+      ---
+      duration_ms: 0.025417
+      type: 'test'
+      ...
+    # Subtest: independent exact block definition
+    ok 4 - independent exact block definition
+      ---
+      duration_ms: 0.020291
+      type: 'test'
+      ...
+    # Subtest: independent exact block policy
+    ok 5 - independent exact block policy
+      ---
+      duration_ms: 0.016292
+      type: 'test'
+      ...
+    # Subtest: independent exact block genesis
+    ok 6 - independent exact block genesis
+      ---
+      duration_ms: 0.026209
+      type: 'test'
+      ...
+    # Subtest: independent exact block epoch
+    ok 7 - independent exact block epoch
+      ---
+      duration_ms: 0.017667
+      type: 'test'
+      ...
+    # Subtest: independent exact block epochCurrent
+    ok 8 - independent exact block epochCurrent
+      ---
+      duration_ms: 0.071417
+      type: 'test'
+      ...
+    # Subtest: independent exact block grant
+    ok 9 - independent exact block grant
+      ---
+      duration_ms: 0.083958
+      type: 'test'
+      ...
+    # Subtest: independent exact block revoke
+    ok 10 - independent exact block revoke
+      ---
+      duration_ms: 0.039625
+      type: 'test'
+      ...
+    # Subtest: independent exact block intent
+    ok 11 - independent exact block intent
+      ---
+      duration_ms: 0.016375
+      type: 'test'
+      ...
+    # Subtest: independent exact block signed
+    ok 12 - independent exact block signed
+      ---
+      duration_ms: 0.013042
+      type: 'test'
+      ...
+    # Subtest: independent exact block entry
+    ok 13 - independent exact block entry
+      ---
+      duration_ms: 0.011292
+      type: 'test'
+      ...
+    # Subtest: independent exact block head
+    ok 14 - independent exact block head
+      ---
+      duration_ms: 0.010875
+      type: 'test'
+      ...
+    # Subtest: independent exact block account
+    ok 15 - independent exact block account
+      ---
+      duration_ms: 0.016541
+      type: 'test'
+      ...
+    # Subtest: independent exact block observation
+    ok 16 - independent exact block observation
+      ---
+      duration_ms: 0.012542
+      type: 'test'
+      ...
+    # Subtest: independent exact block accountEntry
+    ok 17 - independent exact block accountEntry
+      ---
+      duration_ms: 0.011833
+      type: 'test'
+      ...
+    # Subtest: independent exact block chunk0
+    ok 18 - independent exact block chunk0
+      ---
+      duration_ms: 0.012083
+      type: 'test'
+      ...
+    # Subtest: independent exact block chunk1
+    ok 19 - independent exact block chunk1
+      ---
+      duration_ms: 0.01175
+      type: 'test'
+      ...
+    # Subtest: independent exact block manifest
+    ok 20 - independent exact block manifest
+      ---
+      duration_ms: 0.011584
+      type: 'test'
+      ...
+    # Subtest: independent exact block file
+    ok 21 - independent exact block file
+      ---
+      duration_ms: 0.01125
+      type: 'test'
+      ...
+    # Subtest: independent exact block setControl
+    ok 22 - independent exact block setControl
+      ---
+      duration_ms: 0.012167
+      type: 'test'
+      ...
+    # Subtest: independent exact block setRecovery
+    ok 23 - independent exact block setRecovery
+      ---
+      duration_ms: 0.019541
+      type: 'test'
+      ...
+    # Subtest: independent exact block setOwner
+    ok 24 - independent exact block setOwner
+      ---
+      duration_ms: 0.01125
+      type: 'test'
+      ...
+    # Subtest: independent exact block setRole
+    ok 25 - independent exact block setRole
+      ---
+      duration_ms: 0.011375
+      type: 'test'
+      ...
+    # Subtest: independent exact block activate
+    ok 26 - independent exact block activate
+      ---
+      duration_ms: 0.013209
+      type: 'test'
+      ...
+    # Subtest: independent exact block recoverParticipant
+    ok 27 - independent exact block recoverParticipant
+      ---
+      duration_ms: 0.011667
+      type: 'test'
+      ...
+    # Subtest: independent exact block recoverGovernance
+    ok 28 - independent exact block recoverGovernance
+      ---
+      duration_ms: 0.01175
+      type: 'test'
+      ...
+    # Subtest: independent exact block assignRole
+    ok 29 - independent exact block assignRole
+      ---
+      duration_ms: 0.011458
+      type: 'test'
+      ...
+    # Subtest: independent exact block advanceEpoch
+    ok 30 - independent exact block advanceEpoch
+      ---
+      duration_ms: 0.011625
+      type: 'test'
+      ...
+    # Subtest: independent exact block revokeGrant
+    ok 31 - independent exact block revokeGrant
+      ---
+      duration_ms: 0.011417
+      type: 'test'
+      ...
+    # Subtest: native record canonical keys and exact owned bytes
+    ok 32 - native record canonical keys and exact owned bytes
+      ---
+      duration_ms: 0.011291
+      type: 'test'
+      ...
+    # Subtest: positive safe positions and full genesis paths
+    ok 33 - positive safe positions and full genesis paths
+      ---
+      duration_ms: 0.011167
+      type: 'test'
+      ...
+    # Subtest: genesis external pin is exact and required
+    ok 34 - genesis external pin is exact and required
+      ---
+      duration_ms: 0.011917
+      type: 'test'
+      ...
+    # Subtest: head zero/genesis equivalence and append overflow
+    ok 35 - head zero/genesis equivalence and append overflow
+      ---
+      duration_ms: 0.012
+      type: 'test'
+      ...
+    # Subtest: two valid signatures share unsigned request and retry identity
+    ok 36 - two valid signatures share unsigned request and retry identity
+      ---
+      duration_ms: 0.011583
+      type: 'test'
+      ...
+    # Subtest: every mutated signed binding fails verification
+    ok 37 - every mutated signed binding fails verification
+      ---
+      duration_ms: 0.014959
+      type: 'test'
+      ...
+    # Subtest: P256 devices and control; dual repository curve representation
+    ok 38 - P256 devices and control; dual repository curve representation
+      ---
+      duration_ms: 0.011042
+      type: 'test'
+      ...
+    # Subtest: closed schemas reject extra fields, unknown unions and coercion
+    ok 39 - closed schemas reject extra fields, unknown unions and coercion
+      ---
+      duration_ms: 0.011625
+      type: 'test'
+      ...
+    # Subtest: ordinary entry content needs no extra ordering signature
+    ok 40 - ordinary entry content needs no extra ordering signature
+      ---
+      duration_ms: 0.010958
+      type: 'test'
+      ...
+    # Subtest: proof-derived outer context mismatch is invalid content
+    ok 41 - proof-derived outer context mismatch is invalid content
+      ---
+      duration_ms: 0.010959
+      type: 'test'
+      ...
+    # Subtest: observation projection binds everything except observation reference
+    ok 42 - observation projection binds everything except observation reference
+      ---
+      duration_ms: 0.016084
+      type: 'test'
+      ...
+    # Subtest: five-field metadata excludes enrolment identity
+    ok 43 - five-field metadata excludes enrolment identity
+      ---
+      duration_ms: 0.014416
+      type: 'test'
+      ...
+    # Subtest: chunked exact bytes keep raw file and native locator identities distinct
+    ok 44 - chunked exact bytes keep raw file and native locator identities distinct
+      ---
+      duration_ms: 0.012542
+      type: 'test'
+      ...
+    # Subtest: missing bytes and local limits stay transient
+    ok 45 - missing bytes and local limits stay transient
+      ---
+      duration_ms: 0.011334
+      type: 'test'
+      ...
+    # Subtest: chunk tampering and noncanonical chunk lengths fail
+    ok 46 - chunk tampering and noncanonical chunk lengths fail
+      ---
+      duration_ms: 0.011
+      type: 'test'
+      ...
+    # Subtest: typed shape remains separate from native authority acceptance
+    ok 47 - typed shape remains separate from native authority acceptance
+      ---
+      duration_ms: 0.010875
+      type: 'test'
+      ...
+    # Subtest: account principals use PLC or hostname web throughout
+    ok 48 - account principals use PLC or hostname web throughout
+      ---
+      duration_ms: 0.011084
+      type: 'test'
+      ...
+    # Subtest: retained file-table order and unused assets remain exact identity
+    ok 49 - retained file-table order and unused assets remain exact identity
+      ---
+      duration_ms: 0.031292
+      type: 'test'
+      ...
+    # Subtest: high-S signatures do not create accepted retry aliases
+    ok 50 - high-S signatures do not create accepted retry aliases
+      ---
+      duration_ms: 0.011042
+      type: 'test'
+      ...
+    # Subtest: sparse receipt is closed framing, never self-appointed assurance
+    ok 51 - sparse receipt is closed framing, never self-appointed assurance
+      ---
+      duration_ms: 0.010791
+      type: 'test'
+      ...
+    # Subtest: native preparation does not advertise a new supported profile
+    ok 52 - native preparation does not advertise a new supported profile
+      ---
+      duration_ms: 0.011083
+      type: 'test'
+      ...
+    # Subtest: native shape returns owned immutable content and bounds enclosing blocks
+    ok 53 - native shape returns owned immutable content and bounds enclosing blocks
+      ---
+      duration_ms: 0.010917
+      type: 'test'
+      ...
+# [plugin builtin:vite-reporter] 
+# (!) Some chunks are larger than 500 kB after minification. Consider:
+# - Using dynamic import() to code-split the application
+# - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+# - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+    1..53
+ok 1 - isolated native foundation agrees with independent fixtures in Node and Chromium
+  ---
+  duration_ms: 810.842209
+  type: 'test'
+  ...
+1..1
+# tests 54
+# suites 0
+# pass 54
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1389.285916
