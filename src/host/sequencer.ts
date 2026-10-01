@@ -64,7 +64,8 @@ export async function readSnapshot(pds: PdsClient, anchor: Anchor, knownHead?: H
 /** Share a verified repository snapshot while its commit is unchanged. */
 export class SnapshotReader {
   private cached?: Snapshot;
-  private inFlight?: Promise<Snapshot>;
+  private inFlight?: { generation: number; promise: Promise<Snapshot> };
+  private generation = 0;
   private knownHead?: Head;
   constructor(
     private readonly pds: PdsClient,
@@ -79,33 +80,55 @@ export class SnapshotReader {
       throw new ProtocolError('fork', 'Retained heads conflict');
     if (!this.knownHead || head.position > this.knownHead.position) this.knownHead = structuredClone(head);
   }
-  read(): Promise<Snapshot> {
-    if (this.inFlight) return this.inFlight;
-    const run = (async () => {
-      if (
-        this.cached &&
-        this.cached.history.head.position >= (this.knownHead?.position ?? 0) &&
-        (await this.pds.latestCommit()).cid === this.cached.commit
-      )
-        return this.cached;
-      const snapshot = await readSnapshot(this.pds, this.anchor, this.knownHead);
-      if (this.knownHead) {
-        if (snapshot.history.head.position < this.knownHead.position)
-          throw new ProtocolError('rollback', 'Snapshot is behind the retained verified head');
-        if (verifiedEntryCid(snapshot.history, this.anchor, this.knownHead.position) !== this.knownHead.entry.$link)
-          throw new ProtocolError('fork', 'Snapshot differs from the retained verified head');
+  /** A completed write invalidates reads that began before its response. */
+  invalidate() {
+    this.generation++;
+    this.cached = undefined;
+  }
+  retainedHead() {
+    return this.knownHead && structuredClone(this.knownHead);
+  }
+  covers(history: Snapshot['history']) {
+    if (!this.knownHead) return true;
+    if (history.head.position < this.knownHead.position) return false;
+    if (verifiedEntryCid(history, this.anchor, this.knownHead.position) !== this.knownHead.entry.$link)
+      throw new ProtocolError('fork', 'Snapshot differs from the retained verified head');
+    return true;
+  }
+  async read(): Promise<Snapshot> {
+    for (;;) {
+      const running = this.inFlight ?? this.startRead();
+      try {
+        const snapshot = await running.promise;
+        if (running.generation !== this.generation || !this.covers(snapshot.history)) continue;
+        return snapshot;
+      } catch (error) {
+        if (running.generation !== this.generation) continue;
+        throw error;
       }
+    }
+  }
+  private startRead() {
+    const generation = this.generation;
+    const run = (async () => {
+      const cached = this.cached;
+      if (cached && this.covers(cached.history) && (await this.pds.latestCommit()).cid === cached.commit) return cached;
+      const snapshot = await readSnapshot(this.pds, this.anchor, this.knownHead);
+      if (!this.covers(snapshot.history))
+        throw new ProtocolError('rollback', 'Snapshot is behind the retained verified head');
       this.requireHead(snapshot.history.head);
-      this.cached = Object.freeze(snapshot);
-      return this.cached;
+      // A write may have completed while this read was in progress.
+      if (generation === this.generation) this.cached = Object.freeze(snapshot);
+      return snapshot;
     })();
-    this.inFlight = run;
+    const running = { generation, promise: run };
+    this.inFlight = running;
     void run
       .finally(() => {
-        if (this.inFlight === run) this.inFlight = undefined;
+        if (this.inFlight === running) this.inFlight = undefined;
       })
       .catch(() => {});
-    return run;
+    return running;
   }
 }
 export async function provisionLog(pds: PdsClient, anchor: Anchor): Promise<void> {
@@ -133,7 +156,6 @@ export async function provisionLog(pds: PdsClient, anchor: Anchor): Promise<void
 }
 export class Sequencer {
   private readonly queue = new SerialQueue();
-  private knownHead?: Head;
   private closed = false;
   private readonly lease: WriterLease;
   private readonly snapshots: SnapshotReader;
@@ -150,23 +172,23 @@ export class Sequencer {
     this.snapshots = snapshots ?? new SnapshotReader(pds, anchor);
     this.lease = acquireWriterLease(leaseDirectory, anchor.genesis.app);
     try {
+      let retainedHead: Head | undefined;
       const cached = this.lease.readHead();
       if (cached !== undefined) {
         validateHead(cached, anchor);
-        this.knownHead = structuredClone(cached);
+        retainedHead = structuredClone(cached);
       }
       if (knownHead) {
         validateHead(knownHead, anchor);
         if (
-          this.knownHead &&
-          knownHead.position === this.knownHead.position &&
-          knownHead.entry.$link !== this.knownHead.entry.$link
+          retainedHead &&
+          knownHead.position === retainedHead.position &&
+          knownHead.entry.$link !== retainedHead.entry.$link
         )
           throw new ProtocolError('fork', 'Supplied and cached heads conflict');
-        if (!this.knownHead || knownHead.position > this.knownHead.position)
-          this.knownHead = structuredClone(knownHead);
+        if (!retainedHead || knownHead.position > retainedHead.position) retainedHead = structuredClone(knownHead);
       }
-      if (this.knownHead) this.snapshots.requireHead(this.knownHead);
+      if (retainedHead) this.snapshots.requireHead(retainedHead);
     } catch (error) {
       this.lease.close();
       throw error;
@@ -183,17 +205,21 @@ export class Sequencer {
     link(intentCid);
     const snapshot = await this.snapshots.read();
     const receipt = snapshot.history.retries.lookupCid(intentCid);
-    return receipt ? { receipt, head: structuredClone(snapshot.history.head) } : undefined;
+    if (!receipt) return undefined;
+    this.lease.saveHead(this.snapshots.retainedHead());
+    return { receipt, head: structuredClone(snapshot.history.head) };
   }
   private async append(block: Uint8Array): Promise<{ receipt: Receipt; head: Head }> {
     const { signed } = await verifyIntent(decodeBlock(block), this.anchor);
     for (let attempt = 0; attempt < 8; attempt++) {
       const snapshot = await this.snapshots.read();
-      this.knownHead = structuredClone(snapshot.history.head);
       const receipt = await snapshot.history.retries.lookup(signed.intent);
-      if (receipt) return { receipt, head: snapshot.history.head };
+      if (receipt) {
+        this.lease.saveHead(this.snapshots.retainedHead());
+        return { receipt, head: snapshot.history.head };
+      }
       if (snapshot.history.head.position >= HOST_LIMITS.historyEntries) throw new PdsError(413, 'AppendLimit');
-      this.lease.saveHead(this.knownHead);
+      this.lease.saveHead(this.snapshots.retainedHead());
       const entry = await sequence(signed, this.anchor, snapshot.history.head, this.signer);
       const head = headAt(this.anchor, entry.position, await contentCid(entry));
       try {
@@ -213,6 +239,7 @@ export class Sequencer {
         // A conflict or a lost response requires reconciliation, never a new nonce.
         if (error instanceof PdsError && error.status < 500 && error.code !== 'InvalidSwap') throw error;
       }
+      this.snapshots.invalidate();
       // Read confirmation even after a reported success. Only verified persistence
       // can produce a receipt; on uncertainty the next pass finds the exact retry.
     }

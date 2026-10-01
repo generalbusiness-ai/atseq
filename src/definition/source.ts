@@ -173,7 +173,7 @@ export class SourcePool implements SourceReader {
     )
       throw new InterpretationError(
         'source_pool_limit',
-        'Retained application source exceeds the local 16 MiB / 2048-block limit',
+        `Retained application source exceeds the local ${SOURCE_LIMITS.bytes}-byte / ${SOURCE_LIMITS.blocks}-block limit`,
       );
     this.blocks.clear();
     for (const [cid, bytes] of next) this.blocks.set(cid, bytes);

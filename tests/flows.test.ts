@@ -7,6 +7,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { cli } from './helpers/cli.ts';
 import { join, dirname } from 'node:path';
 import { startEnvironment, resetDisposable } from '../experiments/pds/environment.mjs';
+import { Folder } from '../src/application/folder.ts';
 import { ApplicationHost } from '../src/host/application.ts';
 import { LocalAccounts } from '../src/host/accounts.ts';
 import { startApplicationService } from '../src/host/http.ts';
@@ -79,6 +80,46 @@ test('human and agent participation on a real PDS', async (t) => {
       const query = await api.call('query', { ...invitation, name: 'summary', params: '{}' });
       assert.equal(query.result.value.count, 1);
     });
+    await check('reads after confirmation pass an older held interpretation refresh', async () => {
+      let release!: () => void, entered!: () => void;
+      const held = new Promise<void>((resolve) => (release = resolve)),
+        reached = new Promise<void>((resolve) => (entered = resolve));
+      const original = Folder.prototype.catchUpVerified;
+      let once = true;
+      const spy = t.mock.method(
+        Folder.prototype,
+        'catchUpVerified',
+        async function (this: Folder, history: Parameters<Folder['catchUpVerified']>[0]) {
+          if (once && history.head.position === 1) {
+            once = false;
+            entered();
+            await held;
+          }
+          return original.call(this, history);
+        },
+      );
+      try {
+        const older = api.call('describe', invitation);
+        await reached;
+        const next = await prepareIntent(identity, invitation, fixture.bundle.root, fixture.action, {
+          id: 'confirmed-race',
+          title: 'Confirmed during refresh',
+          pricePence: 10000,
+        });
+        assert.equal((await api.call('submit', { block: bytes(new Uint8Array(next.block)) })).receipt.position, 2);
+        const receipt = api.call('receipt', { ...invitation, intent: next.cid }),
+          description = api.call('describe', invitation),
+          query = api.call('query', { ...invitation, name: 'summary', params: '{}' });
+        release();
+        assert.equal((await receipt).receipt.position, 2);
+        assert.equal((await description).head.position, 2);
+        assert.equal((await query).result.value.count, 2);
+        assert.equal((await older).head.position, 2);
+      } finally {
+        release();
+        spy.mock.restore();
+      }
+    });
     await check('host restart restores the same app and interpreted history', async () => {
       await service.close();
       const broken = randomUUID();
@@ -113,7 +154,7 @@ test('human and agent participation on a real PDS', async (t) => {
         ]),
       );
       for (const response of results) assert.ok(response.frontier.position <= response.head.position);
-      assert.equal((await client.call('sync', invitation)).entries.length, 6);
+      assert.equal((await client.call('sync', invitation)).entries.length, 7);
     });
     await check('documented CLI packs, validates and creates the same immutable source', async () => {
       const root = join(env.dir, 'authored'),
@@ -148,7 +189,7 @@ test('human and agent participation on a real PDS', async (t) => {
     });
   } finally {
     await recordFlowEvidence('host-flows', results, {
-      expectedCases: 6,
+      expectedCases: 7,
       pdsVersion: '0.5.31',
       transport: 'real HTTP and SQLite',
     });

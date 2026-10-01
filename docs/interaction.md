@@ -144,7 +144,7 @@ an Origin header and enables no cross-origin browser access. JSON import bodies
 are bounded to 768 KiB; signed blocks retain their 64 KiB limit, definitions
 512 KiB, and read responses 32 MiB. These operational bounds do not expand the
 runtime profile. Operator procedures (`preview`, `validateDraft`, `create`,
-`compareDefinition` and `stageDefinition`) require the retained host token.
+`compareDefinition` and `stageDefinition`) require the retained host token. The CLI names the last two operations `compare` and `stage`.
 Participant `submit` is authenticated by its signed intent and needs no operator
 token. All requests retain the same Origin, Host, size and signature checks.
 Browser invitation links work for participants without host credentials.

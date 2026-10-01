@@ -51,6 +51,8 @@ candidate with the current definition and independently replays the existing
 prefix. The panel shows preserved state, current/candidate interfaces and replay
 results. Importing or comparing does not sign, append or upload to the PDS.
 
+Comparison and staging require the retained operator host token. **Host access** supplies it for this tab.
+
 Only **Apply change** stages the source on the PDS, then signs and queues an
 activation under the displayed expected definition. A failed stage preserves
 the unsigned draft. If another activation wins, the queued activation remains

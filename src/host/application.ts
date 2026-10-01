@@ -204,20 +204,25 @@ export class ApplicationHost {
       throw new ProtocolError('anchor', 'Application is not available at this invitation');
     return found;
   }
-  private refresh(app: Running) {
-    if (app.refreshInFlight) return app.refreshInFlight;
-    const run = (async () => {
-      const snapshot = await app.snapshots.read();
-      await app.folder.catchUpVerified(snapshot.history);
-      return snapshot.history;
-    })();
-    app.refreshInFlight = run;
-    void run
-      .finally(() => {
-        if (app.refreshInFlight === run) app.refreshInFlight = undefined;
-      })
-      .catch(() => {});
-    return run;
+  private async refresh(app: Running) {
+    for (;;) {
+      if (!app.refreshInFlight) {
+        const run = (async () => {
+          const snapshot = await app.snapshots.read();
+          await app.folder.catchUpVerified(snapshot.history);
+          return snapshot.history;
+        })();
+        app.refreshInFlight = run;
+        void run
+          .finally(() => {
+            if (app.refreshInFlight === run) app.refreshInFlight = undefined;
+          })
+          .catch(() => {});
+      }
+      const history = await app.refreshInFlight;
+      // An append can be confirmed while interpretation of an older prefix waits.
+      if (app.snapshots.covers(history)) return history;
+    }
   }
   private created(app: Running) {
     const { head, projection } = app.folder.snapshot();

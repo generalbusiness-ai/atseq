@@ -1,4 +1,4 @@
-import { HOST_LIMITS } from '../core/limits.ts';
+import { HOST_LIMITS, SOURCE_LIMITS } from '../core/limits.ts';
 import { fromBytes } from '@atcute/cbor';
 import {
   Anchor,
@@ -245,7 +245,7 @@ async function importVerifiedArchive(raw: Uint8Array, expected?: ArchiveInvitati
     (await contentCid(parsed.runtime.engine)) !== (await runtimeCid())
   )
     throw new ProtocolError('archive_runtime', 'Archive requires a different installed runtime');
-  if (!Array.isArray(parsed.inventory) || parsed.inventory.length > 2048)
+  if (!Array.isArray(parsed.inventory) || parsed.inventory.length > SOURCE_LIMITS.blocks)
     throw new ProtocolError('archive_inventory', 'Invalid archive inventory');
   const inventory = parsed.inventory.map((item) => {
     fields(item, ['cid', 'bytes']);

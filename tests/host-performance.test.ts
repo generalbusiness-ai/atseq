@@ -172,6 +172,96 @@ test('receipt lookup completes while an append waits for its conditional write',
   }
 });
 
+test('confirmation replaces an in-flight read started before the conditional write completed', async (t) => {
+  const f = await fixture(1),
+    pds = new MemoryPds(f.app.anchor, f.history.head, f.history.entries),
+    reader = new SnapshotReader(pds, f.app.anchor),
+    directory = await mkdtemp(join(tmpdir(), 'atseq-confirmation-race-')),
+    sequencer = new Sequencer(pds, f.app.anchor, f.app.writer, directory, undefined, reader);
+  let releaseWrite!: () => void,
+    enteringWrite!: () => void,
+    releaseRead!: () => void,
+    enteringRead!: () => void,
+    finishedWrite!: () => void;
+  const writeHeld = new Promise<void>((resolve) => (releaseWrite = resolve)),
+    writing = new Promise<void>((resolve) => (enteringWrite = resolve)),
+    readHeld = new Promise<void>((resolve) => (releaseRead = resolve)),
+    reading = new Promise<void>((resolve) => (enteringRead = resolve)),
+    written = new Promise<void>((resolve) => (finishedWrite = resolve));
+  pds.gate = async () => {
+    enteringWrite();
+    await writeHeld;
+  };
+  const apply = pds.applyConditional.bind(pds);
+  t.mock.method(pds, 'applyConditional', async (writes: Parameters<PdsClient['applyConditional']>[0], swap: string) => {
+    const result = await apply(writes, swap);
+    finishedWrite();
+    return result;
+  });
+  try {
+    const submitted = sequencer.submit(encodeBlock(await signed(f, 'race')));
+    await writing;
+    const commit = pds.latestCommit.bind(pds);
+    let once = true;
+    t.mock.method(pds, 'latestCommit', async () => {
+      const result = await commit();
+      if (once) {
+        once = false;
+        enteringRead();
+        await readHeld;
+      }
+      return result;
+    });
+    const overlapping = reader.read();
+    await reading;
+    releaseWrite();
+    await written;
+    releaseRead();
+    assert.equal((await submitted).receipt.position, 2);
+    assert.equal((await overlapping).history.head.position, 2);
+    assert.equal(pds.writes, 1, 'confirmation must not re-sign after joining a pre-write read');
+  } finally {
+    releaseWrite();
+    releaseRead();
+    await sequencer.close();
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('confirmed and repeated receipts retain their head across restart and refuse rollback', async () => {
+  const f = await fixture(1),
+    oldHead = structuredClone(f.history.head),
+    oldEntries = structuredClone(f.history.entries),
+    pds = new MemoryPds(f.app.anchor, f.history.head, f.history.entries),
+    directory = await mkdtemp(join(tmpdir(), 'atseq-confirmed-floor-'));
+  let sequencer = new Sequencer(pds, f.app.anchor, f.app.writer, directory);
+  try {
+    const block = encodeBlock(await signed(f, 'retained'));
+    assert.equal((await sequencer.submit(block)).head.position, 2);
+    await sequencer.close();
+    pds.replace(oldHead, oldEntries);
+    sequencer = new Sequencer(pds, f.app.anchor, f.app.writer, directory);
+    await assert.rejects(() => sequencer.submit(block), { code: 'rollback' });
+    await sequencer.close();
+    // Use a separate lease to test returning an already persistent retry on first use.
+    const history = await fixtureHistory(f.app, [
+      { action: f.source.action, payload: { day: 'existing', millimetres: 1 } },
+    ]);
+    pds.replace(history.head, history.entries);
+    const other = join(directory, 'existing');
+    sequencer = new Sequencer(pds, f.app.anchor, f.app.writer, other);
+    const existing = encodeBlock(history.entries[0]!.signedIntent);
+    assert.equal((await sequencer.submit(existing)).head.position, 1);
+    await sequencer.close();
+    pds.replace(headAt(f.app.anchor), []);
+    sequencer = new Sequencer(pds, f.app.anchor, f.app.writer, other);
+    await assert.rejects(() => sequencer.submit(existing), { code: 'rollback' });
+  } finally {
+    await sequencer.close();
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
 test(
   'entry 20000 is accepted, 20001 is refused before a PDS write and existing history stays readable',
   { timeout: 120000 },

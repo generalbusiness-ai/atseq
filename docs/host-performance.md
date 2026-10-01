@@ -2,27 +2,27 @@
 
 The host shares an in-flight snapshot read and interpretation refresh for each app. A repository commit CID names immutable data: while it stays unchanged, the host reuses its previously verified snapshot. A changed commit requires full record-CID, signature, position, predecessor, retry, fork and rollback verification. A reported write never produces a receipt until that entry appears in verified persistent history.
 
-`verifyHistory` issues an immutable history capability bound to the pinned genesis. `Folder.catchUpVerified` accepts that object, preventing a second verification of the same records. Copies, fabricated objects and histories for another genesis are refused. Public unverified inputs still use `Folder.catchUp`. Receipt reads share the refresh and do not wait for the append queue.
+`verifyHistory` issues an immutable history capability bound to the pinned genesis. `Folder.catchUpVerified` accepts that object, preventing a second verification of the same records. Copies, fabricated objects and histories for another genesis are refused. Public unverified inputs still use `Folder.catchUp`. Receipt reads share the refresh and do not wait for the append queue. A completed write invalidates any snapshot read begun before its response. If an append is confirmed while an older interpretation refresh is pending, readers continue to a refresh covering the shared retained head. Receipt returns save that newest verified head in the writer lease, including existing retries, so a restart retains rollback protection.
 
-The host keeps projections in memory. It rebuilds from signed history on restart, and does not write a growing projection file after every entry. Interpretation appends to its private outcomes list; public snapshots are owned copies. An optional library persistence callback still receives a complete owned snapshot before state advances.
+The host keeps projections in memory. It rebuilds from signed history on restart, and does not write a growing projection file after every entry. Interpretation appends to its private outcomes list; public snapshots are owned copies. An optional library persistence callback still receives a complete owned snapshot before state advances. That callback copies the growing outcomes list for every entry, so replay with it has quadratic copying cost.
 
 ## Measured before and after
 
-These runs use the same machine, Node 26.10.0, Chromium and a disposable official PDS with real SQLite and loopback HTTP. The before run uses browser revision `c77bdfe`; the after run includes the reviewed browser correction and the host changes described here. Raw results include timestamps, hardware, samples and source hashes:
+These runs use the same machine, Node 26.10.0, Chromium and a disposable official PDS with real SQLite and loopback HTTP. The before run uses browser revision `c77bdfe`; the after run includes the reviewed browser correction, the host changes described here and the review fixes for concurrent refresh and durable confirmed heads. The first after captures from `8dc7056` remain beside the replacement captures with that revision in their filenames. Raw results include timestamps, hardware, samples and source hashes:
 
 - [Node before](../experiments/adoption-f/node-before.json) and [after](../experiments/adoption-f/node-after.json).
 - [Browser before](../experiments/adoption-f/browser-before.json) and [after](../experiments/adoption-f/browser-after.json).
 
 | Work at 10,000 entries                               |  Before |   After |
 | ---------------------------------------------------- | ------: | ------: |
-| Confirmed append, median of nine                     | 15.65 s |  7.78 s |
-| Confirmed append, nearest-rank p95 of nine           | 16.39 s | 15.64 s |
-| Complete PDS read and verification                   |  9.17 s |  7.80 s |
-| Cold Node replay, including verification             | 11.85 s |  7.80 s |
-| Catch-up by one entry from unverified complete input |  6.27 s |  6.33 s |
-| Browser replay and result transfer                   | 14.78 s | 14.48 s |
+| Confirmed append, median of nine                     | 15.65 s |  7.74 s |
+| Confirmed append, nearest-rank p95 of nine           | 16.39 s | 15.48 s |
+| Complete PDS read and verification                   |  9.17 s |  7.72 s |
+| Cold Node replay, including verification             | 11.85 s |  7.75 s |
+| Catch-up by one entry from unverified complete input |  6.27 s |  6.29 s |
+| Browser replay and result transfer                   | 14.78 s | 14.53 s |
 
-The first append in the after run starts with no cached snapshot and takes 15.64 seconds; subsequent appends reuse the preceding verified commit and verify the new commit once. The browser and public cold replay paths still verify their complete input. Browser timing changed little. These small samples describe this run and are not throughput or capacity guarantees.
+The first append in the after run starts with no cached snapshot and takes 15.48 seconds; subsequent appends reuse the preceding verified commit and verify the new commit once. The browser and public cold replay paths still verify their complete input. Browser timing changed little. These small samples describe this run and are not throughput or capacity guarantees.
 
 The append benchmark calls the sequencer directly. It never measured the application host's projection-file writes, so its improvement cannot be attributed to removing those writes. Removing the writes and per-entry outcomes copying removes separate host restore costs; the existing persistence and replay tests check that state, outcomes and frontier remain coherent.
 
