@@ -17,12 +17,15 @@ import { observeInterpretation } from './performance-interpretation-observer.ts'
 const sizes = (process.env.ATSEQ_BENCH_SIZES ?? '100,1000,10000').split(',').map(Number);
 const actorCounts = (process.env.ATSEQ_BENCH_ACTORS ?? '1,16').split(',').map(Number);
 const repeats = Number(process.env.ATSEQ_BENCH_REPEATS ?? 3);
+const stateKinds = (process.env.ATSEQ_BENCH_STATES ?? 'bounded,growing').split(',');
 if (
   !sizes.every((n) => Number.isSafeInteger(n) && n > 0 && n <= 10000) ||
   !actorCounts.every((n) => Number.isSafeInteger(n) && n > 0 && n <= 100) ||
   !Number.isSafeInteger(repeats) ||
   repeats < 1 ||
-  repeats > 20
+  repeats > 20 ||
+  !stateKinds.length ||
+  !stateKinds.every((kind) => ['bounded', 'growing'].includes(kind))
 )
   throw new Error('Invalid bounded benchmark matrix');
 const text = (value: string) => new TextEncoder().encode(value);
@@ -44,6 +47,7 @@ const metadata = {
   sizes,
   actorCounts,
   repeats,
+  stateKinds,
   limitations: [
     'In-memory baseline; no PDS/network/browser measurements here',
     'Summed WebCrypto durations overlap under concurrency and include observer overhead',
@@ -56,7 +60,8 @@ const metadata = {
   ],
 };
 await mkdir('experiments/generated/performance-stages', { recursive: true });
-for (const growing of [false, true]) {
+for (const kind of stateKinds) {
+  const growing = kind === 'growing';
   const base = await guitarFixture('ai.generalbusiness.atseq.examples.benchmark');
   const data = JSON.parse(new TextDecoder().decode(base.files['schemas/data.json']));
   data.defs.state.properties.candidates = { type: 'array', maxLength: 10000, items: { type: 'integer' } };
