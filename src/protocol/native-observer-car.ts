@@ -1,7 +1,7 @@
 /** Owned proof bytes; header roots in exact-block responses supply no authority. */
 import * as CAR from '@atcute/car';
 import * as CID from '@atcute/cid';
-import { decode as decodeVarint } from '@atcute/varint';
+import { decode as decodeVarint, encodingLength } from '@atcute/varint';
 import { AtseqError, ProtocolError } from '../core/errors.ts';
 import { isCborInputError, validateCborFraming } from './wire.ts';
 import {
@@ -68,36 +68,121 @@ function read(raw: Uint8Array, maximumBlocks: number) {
   }
 }
 
+function portableBudget(blocks: Map<string, Uint8Array>) {
+  if (blocks.size > NATIVE_CACHE_BROWSER.blocks) limited('Observation unique block count exceeds portable budget');
+  let bytes = 0;
+  for (const raw of blocks.values()) bytes += raw.length;
+  if (bytes > NATIVE_CACHE_BROWSER.bytes) limited('Observation unique bytes exceed portable budget');
+}
+function selected(raw: Uint8Array) {
+  const parsed = read(raw, NATIVE_PROOF_LIMITS.carBlocks);
+  if (parsed.roots.length !== 1) invalid('Selected observation CAR must contain one root');
+  const root = parsed.roots[0]!;
+  if (!parsed.blocks.has(root)) invalid('Selected observation commit is missing');
+  portableBudget(parsed.blocks);
+  return { root, blocks: parsed.blocks };
+}
+function exactBlocks(raw: Uint8Array, requested: readonly string[]) {
+  if (!requested.length || requested.length > 64 || new Set(requested).size !== requested.length)
+    invalid('Expected one unique bounded block request');
+  const parsed = read(raw, 64); // Roots are bounded syntax only; never choose authority.
+  const expected = new Set(requested);
+  for (const cid of parsed.blocks.keys())
+    if (!expected.has(cid)) invalid('Observation block response contains unrequested CID');
+  for (const cid of expected)
+    if (!parsed.blocks.has(cid)) unavailable('Observation block response omits requested CID');
+  return parsed.blocks;
+}
+function canonicalCid(value: string, cbor = false) {
+  if (typeof value !== 'string' || value.length > 128) invalid('Expected canonical observation CID');
+  try {
+    const cid = CID.fromString(value);
+    if (CID.toString(cid) !== value || (cbor && cid.codec !== CID.CODEC_DCBOR))
+      invalid('Expected canonical CBOR observation CID');
+    return cid;
+  } catch (error) {
+    if (error instanceof SyntaxError && error.constructor === SyntaxError && error.message === 'not a valid cid string')
+      invalid('Expected canonical observation CID');
+    throw error;
+  }
+}
+/** Owned selected-commit DATA only; P1 still authenticates its DID, key and signed root. */
+export function selectNativeObservationCommit(raw: Uint8Array): { root: string; bytes: Uint8Array<ArrayBuffer> } {
+  const parsed = selected(raw);
+  return { root: parsed.root, bytes: new Uint8Array(parsed.blocks.get(parsed.root)!) };
+}
+/** Serialize only the owned selected commit and a fully checked exact response, never retained cache contents. */
+export async function exactAdmissionCar(
+  raw: Uint8Array,
+  requested: readonly string[],
+  selectedCommit: { root: string; bytes: Uint8Array },
+): Promise<Uint8Array<ArrayBuffer>> {
+  if (!Array.isArray(requested) || requested.length < 1 || requested.length > 64)
+    invalid('Expected one unique bounded block request');
+  const count = requested.length,
+    captured: string[] = [];
+  for (let i = 0; i < count; i++) {
+    const cid = requested[i]!;
+    canonicalCid(cid, true);
+    captured.push(cid);
+  }
+  if (!selectedCommit || typeof selectedCommit !== 'object') invalid('Expected selected observation commit DATA');
+  const root = selectedCommit.root,
+    cid = canonicalCid(root),
+    source = selectedCommit.bytes;
+  if (!(source instanceof Uint8Array)) invalid('Expected selected observation commit bytes');
+  if (source.length > NATIVE_PROOF_LIMITS.blockBytes) limited('Observation CAR block exceeds budget');
+  const commit = new Uint8Array(source);
+  try {
+    CAR.verifyBlock(cid, commit);
+  } catch (error) {
+    rethrow(error);
+  }
+  const blocks = exactBlocks(raw, captured);
+  blocks.set(root, commit);
+  const entries = [...blocks]
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+    .map(([cid, data]) => ({ cid: CID.fromString(cid).bytes, data }));
+  // Everything above is owned before the first await. The maintained writer's
+  // first yield is its small header; no framed entry or final output is allocated yet.
+  const writer = CAR.writeCarStream([{ $link: root }], entries);
+  try {
+    const header = await writer.next();
+    if (header.done) throw new Error('Native CAR writer omitted its header');
+    let size = header.value.length;
+    for (const entry of entries) {
+      const length = entry.cid.length + entry.data.length;
+      size += encodingLength(length) + length;
+      if (size > NATIVE_CACHE_BROWSER.bytes) limited('Composed observation CAR exceeds portable byte budget');
+    }
+    const output = new Uint8Array(size);
+    output.set(header.value);
+    let offset = header.value.length;
+    for await (const part of writer) {
+      output.set(part, offset);
+      offset += part.length;
+    }
+    if (offset !== size) throw new Error('Native CAR writer size differs from its framing');
+    return output;
+  } finally {
+    await writer.return(undefined);
+  }
+}
+
 /** No signing key or authenticated-root brand is minted by this byte owner. */
 export class NativeObserverCar {
   #blocks: Map<string, Uint8Array<ArrayBuffer>>;
   readonly root: string;
   constructor(raw: Uint8Array) {
-    const parsed = read(raw, NATIVE_PROOF_LIMITS.carBlocks);
-    if (parsed.roots.length !== 1) invalid('Selected observation CAR must contain one root');
-    this.root = parsed.roots[0]!;
-    if (!parsed.blocks.has(this.root)) invalid('Selected observation commit is missing');
+    const parsed = selected(raw);
+    this.root = parsed.root;
     this.#blocks = parsed.blocks;
-    this.#budget(this.#blocks);
-  }
-  #budget(blocks: Map<string, Uint8Array>) {
-    if (blocks.size > NATIVE_CACHE_BROWSER.blocks) limited('Observation unique block count exceeds portable budget');
-    let bytes = 0;
-    for (const raw of blocks.values()) bytes += raw.length;
-    if (bytes > NATIVE_CACHE_BROWSER.bytes) limited('Observation unique bytes exceed portable budget');
   }
   addExact(raw: Uint8Array, requested: readonly string[]): void {
-    if (!requested.length || requested.length > 64 || new Set(requested).size !== requested.length)
-      invalid('Expected one unique bounded block request');
-    const parsed = read(raw, 64); // Roots are bounded syntax only; never choose authority.
-    const expected = new Set(requested);
-    for (const cid of parsed.blocks.keys())
-      if (!expected.has(cid)) invalid('Observation block response contains unrequested CID');
-    for (const cid of expected)
-      if (!parsed.blocks.has(cid)) unavailable('Observation block response omits requested CID');
+    const parsed = exactBlocks(raw, requested);
     const next = new Map(this.#blocks);
-    for (const [cid, bytes] of parsed.blocks) next.set(cid, bytes);
-    this.#budget(next);
+    for (const [cid, bytes] of parsed) next.set(cid, bytes);
+    portableBudget(next);
     this.#blocks = next;
   }
   async bytes(): Promise<Uint8Array<ArrayBuffer>> {
