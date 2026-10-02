@@ -1,0 +1,5 @@
+
+> atseq@0.1.0 check:dependencies
+> node scripts/source-run.mjs scripts/check-dependencies.ts
+
+Installed runtime closure, dependency edges and integrity pins match reviewed provenance.

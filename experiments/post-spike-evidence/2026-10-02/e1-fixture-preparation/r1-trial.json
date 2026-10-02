@@ -1,0 +1,771 @@
+{
+  "scope": "exact R1 correctness and actual stage work counters only; no host/persistence/reader timing",
+  "r1Head": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+  "fixtureDirectory": ".atseq-local/e1-preparation/trial",
+  "results": [
+    {
+      "name": "bounded-one-actor",
+      "n": 100,
+      "delta": 0,
+      "base": 100,
+      "target": 100,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 100,
+      "delta": 1,
+      "base": 99,
+      "target": 100,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 0,
+        "publicationLookups": 4
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 2,
+        "publicationLookups": 4
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 100,
+      "delta": 100,
+      "base": 0,
+      "target": 100,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 99,
+        "entryLoads": 100,
+        "reusedEntries": 0,
+        "descriptorLoads": 1,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 0,
+        "publicationLookups": 103
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 99,
+        "entryLoads": 100,
+        "reusedEntries": 0,
+        "descriptorLoads": 1,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 200,
+        "publicationLookups": 103
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 100,
+      "fault": "duplicate-request",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 100,
+      "fault": "duplicate-nonce",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 100,
+      "fault": "same-height-fork",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 100,
+      "delta": 0,
+      "base": 100,
+      "target": 100,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 100,
+      "delta": 1,
+      "base": 99,
+      "target": 100,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 0,
+        "publicationLookups": 4
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 2,
+        "publicationLookups": 4
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 100,
+      "delta": 100,
+      "base": 0,
+      "target": 100,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 84,
+        "entryLoads": 100,
+        "reusedEntries": 0,
+        "descriptorLoads": 16,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 0,
+        "publicationLookups": 118
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 84,
+        "entryLoads": 100,
+        "reusedEntries": 0,
+        "descriptorLoads": 16,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 200,
+        "publicationLookups": 118
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 100,
+      "fault": "duplicate-request",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 100,
+      "fault": "duplicate-nonce",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 100,
+      "fault": "same-height-fork",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 1000,
+      "delta": 0,
+      "base": 1000,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 1000,
+      "delta": 1,
+      "base": 999,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 0,
+        "publicationLookups": 4
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 2,
+        "publicationLookups": 4
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 1000,
+      "delta": 100,
+      "base": 900,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 0,
+        "publicationLookups": 103
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 200,
+        "publicationLookups": 103
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 1000,
+      "delta": 1000,
+      "base": 0,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 999,
+        "entryLoads": 1000,
+        "reusedEntries": 0,
+        "descriptorLoads": 1,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 0,
+        "publicationLookups": 1003
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 999,
+        "entryLoads": 1000,
+        "reusedEntries": 0,
+        "descriptorLoads": 1,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 2000,
+        "publicationLookups": 1003
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 1000,
+      "fault": "duplicate-request",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 1000,
+      "fault": "duplicate-nonce",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 1000,
+      "fault": "same-height-fork",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 1000,
+      "delta": 0,
+      "base": 1000,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 1000,
+      "delta": 1,
+      "base": 999,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 0,
+        "publicationLookups": 4
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 2,
+        "publicationLookups": 4
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 1000,
+      "delta": 100,
+      "base": 900,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 0,
+        "publicationLookups": 103
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 200,
+        "publicationLookups": 103
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 1000,
+      "delta": 1000,
+      "base": 0,
+      "target": 1000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 984,
+        "entryLoads": 1000,
+        "reusedEntries": 0,
+        "descriptorLoads": 16,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 0,
+        "publicationLookups": 1018
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 984,
+        "entryLoads": 1000,
+        "reusedEntries": 0,
+        "descriptorLoads": 16,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 2000,
+        "publicationLookups": 1018
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 1000,
+      "fault": "duplicate-request",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 1000,
+      "fault": "duplicate-nonce",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 1000,
+      "fault": "same-height-fork",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 10000,
+      "delta": 0,
+      "base": 10000,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 10000,
+      "delta": 1,
+      "base": 9999,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 0,
+        "publicationLookups": 4
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 2,
+        "publicationLookups": 4
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 10000,
+      "delta": 100,
+      "base": 9900,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 0,
+        "publicationLookups": 103
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 200,
+        "publicationLookups": 103
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 10000,
+      "delta": 1000,
+      "base": 9000,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1000,
+        "entryLoads": 1000,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 0,
+        "publicationLookups": 1003
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1000,
+        "entryLoads": 1000,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 2000,
+        "publicationLookups": 1003
+      }
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 10000,
+      "fault": "duplicate-request",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 10000,
+      "fault": "duplicate-nonce",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "bounded-one-actor",
+      "n": 10000,
+      "fault": "same-height-fork",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 10000,
+      "delta": 0,
+      "base": 10000,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 0,
+        "entryLoads": 0,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 0,
+        "stagedIndexWrites": 0,
+        "indexWrites": 0,
+        "publicationLookups": 3
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 10000,
+      "delta": 1,
+      "base": 9999,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 0,
+        "publicationLookups": 4
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1,
+        "entryLoads": 1,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4,
+        "stagedIndexWrites": 2,
+        "indexWrites": 2,
+        "publicationLookups": 4
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 10000,
+      "delta": 100,
+      "base": 9900,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 0,
+        "publicationLookups": 103
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 100,
+        "entryLoads": 100,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 400,
+        "stagedIndexWrites": 200,
+        "indexWrites": 200,
+        "publicationLookups": 103
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 10000,
+      "delta": 1000,
+      "base": 9000,
+      "target": 10000,
+      "valid": true,
+      "reason": null,
+      "workBeforeAcceptance": {
+        "signatureChecks": 1000,
+        "entryLoads": 1000,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 0,
+        "publicationLookups": 1003
+      },
+      "workAfterAcceptance": {
+        "signatureChecks": 1000,
+        "entryLoads": 1000,
+        "reusedEntries": 1,
+        "descriptorLoads": 0,
+        "indexReads": 4000,
+        "stagedIndexWrites": 2000,
+        "indexWrites": 2000,
+        "publicationLookups": 1003
+      }
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 10000,
+      "fault": "duplicate-request",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 10000,
+      "fault": "duplicate-nonce",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action",
+      "n": 10000,
+      "fault": "same-height-fork",
+      "rejected": true,
+      "acceptedInventoryUnchanged": true
+    }
+  ]
+}

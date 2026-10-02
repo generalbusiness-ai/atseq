@@ -1,0 +1,658 @@
+{
+  "format": "atseq-e1-fixture-preparation",
+  "version": 1,
+  "request": "443018dc14130da954873a507b7a0ba503706379",
+  "promise": "a5380c898ad8a6e425e74c27a3aafdf1baadaee3",
+  "parentRequest": "8eec1d657cdffa2edaeafb28294797c56e605dfc",
+  "parentPromise": "621d4cea355cd3249d39b9184b981af61ae70f83",
+  "producerHead": "dd2f97bd710c88fa5c3f629f8efa6f00f837e5b1",
+  "workingTreeDirty": false,
+  "preparationClock": "Includes key/signature/source/oracle preparation and public fixture array construction; excludes outer JSON/gzip serialization and independent validation; not controlled reader timing",
+  "started": "2026-10-02T11:51:28.306Z",
+  "finished": "2026-10-02T11:52:11.616Z",
+  "runtime": "v26.10.0",
+  "host": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpus": 18,
+    "model": "Apple M5 Max",
+    "memoryBytes": 68719476736
+  },
+  "convention": "N=final ordered entries; base=N-delta; valid delta<=N; admissions/activation included; actions separately reported",
+  "scope": "generation and correctness only; all preparation/validation outside reader timing; joined E1 measurements unrun",
+  "matrix": [
+    {
+      "n": 100,
+      "delta": 0,
+      "base": 100,
+      "target": 100,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 100,
+      "delta": 1,
+      "base": 99,
+      "target": 100,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 100,
+      "delta": 100,
+      "base": 0,
+      "target": 100,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 100,
+      "delta": 1000,
+      "base": -900,
+      "target": 100,
+      "valid": false,
+      "reason": "delta exceeds final ordered-entry count"
+    },
+    {
+      "n": 1000,
+      "delta": 0,
+      "base": 1000,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 1000,
+      "delta": 1,
+      "base": 999,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 1000,
+      "delta": 100,
+      "base": 900,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 1000,
+      "delta": 1000,
+      "base": 0,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 0,
+      "base": 10000,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 1,
+      "base": 9999,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 100,
+      "base": 9900,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 1000,
+      "base": 9000,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    }
+  ],
+  "captures": [
+    {
+      "name": "bounded-one-actor-100",
+      "workload": {
+        "n": 100,
+        "actors": 1,
+        "growing": false,
+        "activation": false,
+        "invalidAction": false
+      },
+      "preparation": {
+        "elapsedMs": 555.144084,
+        "appRecordWrites": 116,
+        "appRecordDeletes": 1,
+        "participantRecordWrites": 3,
+        "participantSignedCommits": 1,
+        "identitySignedOperations": 4,
+        "signedRequests": 101,
+        "appSignedCommits": 6,
+        "selectedRoots": 6,
+        "repositoryBlocks": 174,
+        "repositoryBytes": 120039,
+        "retainedContentBytes": 5328,
+        "sourceBytes": 2381,
+        "maxWorkingAppBlocks": 276,
+        "discardedAppBlocks": 393,
+        "expectedStateBytes": 34
+      },
+      "validation": {
+        "entries": 100,
+        "signedRequests": 99,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreicuncfpudqazug4tplsriwyutzkh72eyvojcyk2lqcloawci2xebu",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 99,
+            "root": "bafyreie3cemcdbft4iiwcjjrrxacdviybbzx62tciv2w6dcs2wfzzrur7m",
+            "carBytes": 111455,
+            "records": 107,
+            "nodeLoads": 33
+          },
+          {
+            "position": 100,
+            "root": "bafyreifajsuve4wx5lsuw3wd4cdc6miz556u36jrecvhyjfswe26ise6ly",
+            "carBytes": 112530,
+            "records": 108,
+            "nodeLoads": 33
+          },
+          {
+            "position": 101,
+            "root": "bafyreigfptihwgmtjs3ykeg7xvyywvan67enb72ap4px2yvt26brvbk6ce",
+            "carBytes": 113634,
+            "records": 109,
+            "nodeLoads": 34
+          },
+          {
+            "position": 101,
+            "root": "bafyreiagtrhket7jivm3wil2mujofenea6qsvzz5u5jzcxarosx2h2hns4",
+            "carBytes": 113634,
+            "records": 109,
+            "nodeLoads": 34
+          },
+          {
+            "position": 100,
+            "root": "bafyreieh5c7xjyrdz7yfodlrutygfngznjmx2kv2x4x3slfwxfixukbj6u",
+            "carBytes": 112530,
+            "records": 108,
+            "nodeLoads": 33
+          }
+        ],
+        "expectedStateBytes": 34
+      },
+      "validationElapsedMs": 124.71916699999997,
+      "fixtureBytes": 541572,
+      "gzipBytes": 61514,
+      "fixtureSha256": "6ffbffae136d2f0e9d177b8061f98c62dc6c85998a339b038770659fadda799d",
+      "gzipSha256": "2246a0c378da83426f1fdd6ca2c1c6e30195771bbc23868705f8c635cdd08443"
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action-100",
+      "workload": {
+        "n": 100,
+        "actors": 16,
+        "growing": true,
+        "activation": true,
+        "invalidAction": true
+      },
+      "preparation": {
+        "elapsedMs": 83.59916700000008,
+        "appRecordWrites": 191,
+        "appRecordDeletes": 1,
+        "participantRecordWrites": 48,
+        "participantSignedCommits": 16,
+        "identitySignedOperations": 34,
+        "signedRequests": 86,
+        "appSignedCommits": 6,
+        "selectedRoots": 6,
+        "repositoryBlocks": 275,
+        "repositoryBytes": 201431,
+        "retainedContentBytes": 79651,
+        "sourceBytes": 2543,
+        "maxWorkingAppBlocks": 442,
+        "discardedAppBlocks": 1018,
+        "expectedStateBytes": 237
+      },
+      "validation": {
+        "entries": 100,
+        "signedRequests": 84,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreic2jkxc3fbzx3gg3gpa6jy7wlffzrcatkb4szrv5z5ajwetnfodf4",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 99,
+            "root": "bafyreibsxp6tlkjt75v3retpoilvdehyyt2bicjilzy4xnggqnbv7ytrya",
+            "carBytes": 195442,
+            "records": 182,
+            "nodeLoads": 51
+          },
+          {
+            "position": 100,
+            "root": "bafyreiexj2dlkwkpgnicpq4id4wt5cvlxowyzxhfetxzmz45tlcv5b5l6m",
+            "carBytes": 196546,
+            "records": 183,
+            "nodeLoads": 52
+          },
+          {
+            "position": 101,
+            "root": "bafyreia3y243qodexnbp25snp6wngcli454o4o7736trzwjtmj5ooue6ge",
+            "carBytes": 197621,
+            "records": 184,
+            "nodeLoads": 52
+          },
+          {
+            "position": 101,
+            "root": "bafyreihbew4judf5hi4345ahyzjkic3ndep2tio57p75k3rzqxn5esewou",
+            "carBytes": 197621,
+            "records": 184,
+            "nodeLoads": 52
+          },
+          {
+            "position": 100,
+            "root": "bafyreihchi7x6dprbhh3nicvhaeruykz3o547rvpwbiahcdprpbammiome",
+            "carBytes": 196546,
+            "records": 183,
+            "nodeLoads": 52
+          }
+        ],
+        "expectedStateBytes": 237
+      },
+      "validationElapsedMs": 112.39737500000001,
+      "fixtureBytes": 1144415,
+      "gzipBytes": 169780,
+      "fixtureSha256": "11435efe456ba7fd16adeae0a4f128700dac647e4514e3d204922b810dc19da8",
+      "gzipSha256": "8c5a087468fc5f5e338c39718fac035776f4889a42d34167a713c0d757eff6b1"
+    },
+    {
+      "name": "bounded-one-actor-1000",
+      "workload": {
+        "n": 1000,
+        "actors": 1,
+        "growing": false,
+        "activation": false,
+        "invalidAction": false
+      },
+      "preparation": {
+        "elapsedMs": 712.6089160000001,
+        "appRecordWrites": 1017,
+        "appRecordDeletes": 1,
+        "participantRecordWrites": 3,
+        "participantSignedCommits": 1,
+        "identitySignedOperations": 4,
+        "signedRequests": 1001,
+        "appSignedCommits": 7,
+        "selectedRoots": 7,
+        "repositoryBlocks": 1356,
+        "repositoryBytes": 1024753,
+        "retainedContentBytes": 5328,
+        "sourceBytes": 2381,
+        "maxWorkingAppBlocks": 3679,
+        "discardedAppBlocks": 6261,
+        "expectedStateBytes": 35
+      },
+      "validation": {
+        "entries": 1000,
+        "signedRequests": 999,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreibxzsns2dqsfh6obnsz6yc6bevaioylb4le2s6wtk3n266lk3vwhm",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 900,
+            "root": "bafyreib3m6ynyznyy4uluvrpqshjctzmyforjjps7gbshidgm6l67krlh4",
+            "carBytes": 950735,
+            "records": 908,
+            "nodeLoads": 270
+          },
+          {
+            "position": 999,
+            "root": "bafyreigiq546p64rsigc4svw24qmh2ffm6oohe7udzdp6kr2p7baiykbda",
+            "carBytes": 1053441,
+            "records": 1007,
+            "nodeLoads": 293
+          },
+          {
+            "position": 1000,
+            "root": "bafyreibztjlrrcmtton7bv77chfvgv2dutihlkrnx7zsrtsu5vgfxitsgu",
+            "carBytes": 1054438,
+            "records": 1008,
+            "nodeLoads": 293
+          },
+          {
+            "position": 1001,
+            "root": "bafyreibjlulkcwjk7bcub3fatwkxo3iqh7mwysfon3bb4o5rjvz2c2h7qm",
+            "carBytes": 1055623,
+            "records": 1009,
+            "nodeLoads": 294
+          },
+          {
+            "position": 1001,
+            "root": "bafyreifkrfsygmpoiclrv4li2rgpulx5pzxb24sgtanvd2gdyaoa2iqjpa",
+            "carBytes": 1055623,
+            "records": 1009,
+            "nodeLoads": 294
+          },
+          {
+            "position": 1000,
+            "root": "bafyreid4g2dauwq24rl7ccsbvyffl5gmqr2o4hlfjxjbwaqwcxabprea5i",
+            "carBytes": 1054438,
+            "records": 1008,
+            "nodeLoads": 293
+          }
+        ],
+        "expectedStateBytes": 35
+      },
+      "validationElapsedMs": 1097.0875839999999,
+      "fixtureBytes": 4470577,
+      "gzipBytes": 676566,
+      "fixtureSha256": "c0bb432bd99c66bf4c02510786370686895f5fbcbe51a8e39652be19c8891180",
+      "gzipSha256": "05679ff3c203002b822a4471171d67c6fbe031a4fa4a88c77e11530f3c3ac283"
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action-1000",
+      "workload": {
+        "n": 1000,
+        "actors": 16,
+        "growing": true,
+        "activation": true,
+        "invalidAction": true
+      },
+      "preparation": {
+        "elapsedMs": 657.6386659999998,
+        "appRecordWrites": 1092,
+        "appRecordDeletes": 1,
+        "participantRecordWrites": 48,
+        "participantSignedCommits": 16,
+        "identitySignedOperations": 34,
+        "signedRequests": 986,
+        "appSignedCommits": 7,
+        "selectedRoots": 7,
+        "repositoryBlocks": 1431,
+        "repositoryBytes": 1102707,
+        "retainedContentBytes": 79651,
+        "sourceBytes": 2543,
+        "maxWorkingAppBlocks": 3075,
+        "discardedAppBlocks": 4573,
+        "expectedStateBytes": 2353
+      },
+      "validation": {
+        "entries": 1000,
+        "signedRequests": 984,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreido5ggvxsxwwmfr65efswew5rklxjn3a6efjpwfauvjgeibean4yy",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 900,
+            "root": "bafyreia5pqtij5pj7bypzaj6zwptuwcyw2pku6unxis7ybbd7oztdkwani",
+            "carBytes": 1032663,
+            "records": 983,
+            "nodeLoads": 276
+          },
+          {
+            "position": 999,
+            "root": "bafyreiccidomdsthr47w3qkglfndlimmd5c4hlrcyxof22zdkxbylnpgpu",
+            "carBytes": 1136428,
+            "records": 1082,
+            "nodeLoads": 303
+          },
+          {
+            "position": 1000,
+            "root": "bafyreih7k5agqoy4lqrlog5qgawbwijkef27tkpdha26fm3hgjvco3cxei",
+            "carBytes": 1137425,
+            "records": 1083,
+            "nodeLoads": 303
+          },
+          {
+            "position": 1001,
+            "root": "bafyreicthph44whjtkmjdmb54rozezidjo4ivs37d2ayfrb523e7gprcf4",
+            "carBytes": 1138615,
+            "records": 1084,
+            "nodeLoads": 305
+          },
+          {
+            "position": 1001,
+            "root": "bafyreigeox2oapxlgbpitn4rtpcs2o7oat5wejmkrwxep4gktwp35tbso4",
+            "carBytes": 1138615,
+            "records": 1084,
+            "nodeLoads": 305
+          },
+          {
+            "position": 1000,
+            "root": "bafyreigztajjkpe23fd24w7qdhnibrvng4hc3kwajbscz6aulgar4otux4",
+            "carBytes": 1137425,
+            "records": 1083,
+            "nodeLoads": 303
+          }
+        ],
+        "expectedStateBytes": 2353
+      },
+      "validationElapsedMs": 1065.1012920000003,
+      "fixtureBytes": 5048203,
+      "gzipBytes": 917698,
+      "fixtureSha256": "a4b2556fc118483e365410b09dd43ba1e310995c5bf4cb9648c1a51a7680c4fb",
+      "gzipSha256": "926612272d80ef6ac8cb6e41c48dce0534ab890669e5be619e33067281225cae"
+    },
+    {
+      "name": "bounded-one-actor-10000",
+      "workload": {
+        "n": 10000,
+        "actors": 1,
+        "growing": false,
+        "activation": false,
+        "invalidAction": false
+      },
+      "preparation": {
+        "elapsedMs": 7223.332166,
+        "appRecordWrites": 10018,
+        "appRecordDeletes": 1,
+        "participantRecordWrites": 3,
+        "participantSignedCommits": 1,
+        "identitySignedOperations": 4,
+        "signedRequests": 10001,
+        "appSignedCommits": 8,
+        "selectedRoots": 8,
+        "repositoryBlocks": 12717,
+        "repositoryBytes": 9975956,
+        "retainedContentBytes": 5328,
+        "sourceBytes": 2381,
+        "maxWorkingAppBlocks": 37687,
+        "discardedAppBlocks": 65273,
+        "expectedStateBytes": 36
+      },
+      "validation": {
+        "entries": 10000,
+        "signedRequests": 9999,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreihtho7yusg46tprbdhauimevfklv4noutzwdtymvvz5i5rjv5zeve",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 9000,
+            "root": "bafyreicez4gjtknuszltnzfnczwut4h2uqsva4zq2a3fhd6623af3bkib4",
+            "carBytes": 9395093,
+            "records": 9008,
+            "nodeLoads": 2393
+          },
+          {
+            "position": 9900,
+            "root": "bafyreieojz43an2j4wlqc7pejsuqhqljcztzulf7llmr4olwgvqzeptyge",
+            "carBytes": 10332084,
+            "records": 9908,
+            "nodeLoads": 2623
+          },
+          {
+            "position": 9999,
+            "root": "bafyreibdogjtwlxde4gkepoxqwckqm2466mybk7bewwzs6fha4c3rzaabu",
+            "carBytes": 10434712,
+            "records": 10007,
+            "nodeLoads": 2646
+          },
+          {
+            "position": 10000,
+            "root": "bafyreihyj2xilmzataveqtyqgwch63illiu6gz5wzrcvmgjnd2xrnmuwye",
+            "carBytes": 10435788,
+            "records": 10008,
+            "nodeLoads": 2646
+          },
+          {
+            "position": 10001,
+            "root": "bafyreiezzmmtzy5o3se6pc6bjj64dkbg6eiwlm4aktbmx4e7epihckv2g4",
+            "carBytes": 10436998,
+            "records": 10009,
+            "nodeLoads": 2647
+          },
+          {
+            "position": 10001,
+            "root": "bafyreidd6r6uhe4rrq5riaeo3re4dgblv3exlifsyv26buzw2q3ynvq7cy",
+            "carBytes": 10436998,
+            "records": 10009,
+            "nodeLoads": 2647
+          },
+          {
+            "position": 10000,
+            "root": "bafyreidu5ht5qycw2medv4h2mkv3fqdlzzqyjoqrncwsofqeym7gv6wpna",
+            "carBytes": 10435788,
+            "records": 10008,
+            "nodeLoads": 2646
+          }
+        ],
+        "expectedStateBytes": 36
+      },
+      "validationElapsedMs": 10993.13675,
+      "fixtureBytes": 43876635,
+      "gzipBytes": 6817293,
+      "fixtureSha256": "b89699f38dac6c3b6508d07a3d4c00255add0f0fcdc5d3dea3bf24d9e5be35db",
+      "gzipSha256": "bb8e40dd027db95350064e4373362392e28aa2efb8ab228385e23765062a841e"
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action-10000",
+      "workload": {
+        "n": 10000,
+        "actors": 16,
+        "growing": true,
+        "activation": true,
+        "invalidAction": true
+      },
+      "preparation": {
+        "elapsedMs": 7382.142082999999,
+        "appRecordWrites": 10093,
+        "appRecordDeletes": 1,
+        "participantRecordWrites": 48,
+        "participantSignedCommits": 16,
+        "identitySignedOperations": 34,
+        "signedRequests": 9986,
+        "appSignedCommits": 8,
+        "selectedRoots": 8,
+        "repositoryBlocks": 12905,
+        "repositoryBytes": 10075275,
+        "retainedContentBytes": 79651,
+        "sourceBytes": 2543,
+        "maxWorkingAppBlocks": 37025,
+        "discardedAppBlocks": 63378,
+        "expectedStateBytes": 23504
+      },
+      "validation": {
+        "entries": 10000,
+        "signedRequests": 9984,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreieiwk3q6c54nmcs42edh7plecmsvx3l65kwz4wrj6qgibbnangbba",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 9000,
+            "root": "bafyreidpkbnxsifysm4bezx52zpdafj3gb2xw65l76g7nzajf6qvmmuhoa",
+            "carBytes": 9489586,
+            "records": 9083,
+            "nodeLoads": 2476
+          },
+          {
+            "position": 9900,
+            "root": "bafyreigvqcmgvvjab545tqyi4hw35eogf66fiz5ij7cyautt6dzhyjr7rq",
+            "carBytes": 10431006,
+            "records": 9983,
+            "nodeLoads": 2727
+          },
+          {
+            "position": 9999,
+            "root": "bafyreig5pd5ofwiqsyovz6ooszfmd2vygqvueovzcprj6jqpbjdiqusja4",
+            "carBytes": 10534454,
+            "records": 10082,
+            "nodeLoads": 2755
+          },
+          {
+            "position": 10000,
+            "root": "bafyreiddhltbrtpemm3zan2xl5ytbzhpmz3ugkz42ofrry6qlbqasdboye",
+            "carBytes": 10535639,
+            "records": 10083,
+            "nodeLoads": 2756
+          },
+          {
+            "position": 10001,
+            "root": "bafyreig5lz3du4e3bwyeaqggnipepfch5j7c3bn47a65marnnigswjkztu",
+            "carBytes": 10536633,
+            "records": 10084,
+            "nodeLoads": 2756
+          },
+          {
+            "position": 10001,
+            "root": "bafyreiagudw3bjqhlp3avjzlpdtcjbqsr5rz6kseujbsopci3dvfnhr2ny",
+            "carBytes": 10536633,
+            "records": 10084,
+            "nodeLoads": 2756
+          },
+          {
+            "position": 10000,
+            "root": "bafyreihz5am7cw7bhe6sig5bhkwp2udco6vdzsty3wvlvuhlqr4pfk7enm",
+            "carBytes": 10535639,
+            "records": 10083,
+            "nodeLoads": 2756
+          }
+        ],
+        "expectedStateBytes": 23504
+      },
+      "validationElapsedMs": 11496.498124999998,
+      "fixtureBytes": 44558179,
+      "gzipBytes": 8170031,
+      "fixtureSha256": "880816add306cf3631d44b54df49877d7d34f62ba8a7f0361756d600e906fe34",
+      "gzipSha256": "6a95166d810bc98e8001bbc6efbdbdf570a557229b5ce2e3a70a28b1e623236d"
+    }
+  ],
+  "failures": []
+}

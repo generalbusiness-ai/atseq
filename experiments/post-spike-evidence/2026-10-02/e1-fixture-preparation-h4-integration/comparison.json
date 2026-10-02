@@ -1,0 +1,58 @@
+{
+  "originalCapturedFilesVerifiedUnchanged": 61,
+  "originalManifestSha256": "b1d63ba01fe69f662cbfca8262e8c33c5d6e3dca725db5898765d820ff11647e",
+  "originalReportSha256": "d9549a196ddae43672c8d433794405316a60d9cf5ea79a915d8001a5c710ead4",
+  "originalSourcePins": 313,
+  "sourcePinChanges": [
+    "tsconfig.json"
+  ],
+  "experimentSourceAndTestsChanged": [],
+  "runtimeDependencyGraphAnd14234FileBytesChanged": false,
+  "physicalRuntimePackages": 194,
+  "physicalRuntimeFilesVerified": 14234,
+  "buildSourceChanges": [
+    "tsconfig.json"
+  ],
+  "buildOutputChanges": [],
+  "actualBuildSourcePins": 144,
+  "actualBuildOutputPins": 464,
+  "normalCompilerListsEqualEachOtherAndOldProposedH4ListAfterPathNormalization": true,
+  "checks": [
+    {
+      "runtime": {
+        "node": "v22.19.0",
+        "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node"
+      },
+      "normalNpmCheckExit": 0,
+      "normalCompilerListExit": 0,
+      "compilerInputs": 1223,
+      "liveInputs": 276,
+      "allSevenExperimentInputsIncluded": true
+    },
+    {
+      "runtime": {
+        "node": "v24.21.0",
+        "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node"
+      },
+      "normalNpmCheckExit": 0,
+      "normalCompilerListExit": 0,
+      "compilerInputs": 1223,
+      "liveInputs": 276,
+      "allSevenExperimentInputsIncluded": true
+    },
+    {
+      "runtime": {
+        "node": "v26.10.0",
+        "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node"
+      },
+      "normalNpmCheckExit": 0,
+      "normalCompilerListExit": 0,
+      "compilerInputs": 1223,
+      "liveInputs": 276,
+      "allSevenExperimentInputsIncluded": true
+    }
+  ],
+  "runtimeFixtureTestsRepeated": false,
+  "fixtureGenerationRepeated": false,
+  "reasonNoRuntimeRepeat": "All seven experiment source/test files, all runtime dependency bytes and all 464 emitted build outputs match the original successful immutable conformance producer; only reviewed H4 compiler exclusion changed."
+}
