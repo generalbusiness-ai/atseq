@@ -1,0 +1,79 @@
+{
+  "format": "atseq-native-coordinator-case-comparison",
+  "version": 1,
+  "source": "112aa445f98f60d9974fb3eb7ac4d9eedc18df60",
+  "runtimeSource": "8e1ef2b5a9add1f9993b40b110bfe67ea1b9312a",
+  "portableCaseCount": 58,
+  "transformedCallsiteFaultCaseCount": 24,
+  "compiledProductionCaseCount": 58,
+  "samePortableCaseNames": true,
+  "sameTransformedCaseNamesNodeAndChromium": true,
+  "exactFixtureBytesAgree": true,
+  "fixture": {
+    "bytes": 8397991,
+    "sha256": "7cde6269de0402aea937c01cc478cf60fda492131f0966a11ab16c70110ea5bb",
+    "publicationCount": 40,
+    "archive": "public-fixture.json.gz"
+  },
+  "captureDerivation": {
+    "chromium-final.json": "Reconstructed from exact focused chromium-final.log JSON stdout; successful result hashes match the actual retained test-only fault bundle.",
+    "compiled-node*-final.json": "Byte-preserving copies of unique actual compiled production probe captures.",
+    "build-provenance.json": "Byte-preserving actual production build capture; all recorded source hashes checked against current frozen source."
+  },
+  "testOnlyFaultBundle": {
+    "archive": "test-only-fault-bundle-final.mjs.gz",
+    "uncompressedBytes": 1375748,
+    "uncompressedSha256": "d4cbe603ce8b0d452aaa3c6c9be78f702efe7d22d6efb8a9c5c0a0e5ef7b3db7"
+  },
+  "runs": [
+    {
+      "capture": "node22-final.log",
+      "node": "v22.19.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "node24-final.log",
+      "node": "v24.21.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "node26-final.log",
+      "node": "v26.10.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "chromium-final.log",
+      "node": "v26.10.0",
+      "chromium": "153.0.8010.12",
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "compiled-node22-final.log",
+      "node": "v22.19.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 0
+    },
+    {
+      "capture": "compiled-node24-final.log",
+      "node": "v24.21.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 0
+    },
+    {
+      "capture": "compiled-node26-final.log",
+      "node": "v26.10.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 0
+    }
+  ]
+}

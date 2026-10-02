@@ -1,0 +1,101 @@
+{
+  "node": "v24.21.0",
+  "cases": [
+    "genesis derives only root-declared set and reads verified root once",
+    "unadmitted grant beats absent action",
+    "authentic participant grant admission",
+    "effective action increments owned state",
+    "known action absence beats execution",
+    "one grant immutable CID mismatch",
+    "one grant exact signed pair scope",
+    "stale grant epoch beats wrong signer",
+    "wrong grant signer beats pair scope",
+    "input schema rejection is framework invalid_action",
+    "control context stale before target fetch",
+    "control tip stale before target fetch",
+    "control unappointed before target fetch",
+    "control power before target fetch",
+    "stale expected source before fetch",
+    "semantic mismatch before unsupported target program",
+    "changed state-only projection incompatible",
+    "complete signed omission cannot use global pool repair",
+    "activation retains current state instead of new initial",
+    "same-source activation has no invented no-op denial",
+    "changed derived execution",
+    "govern disables genesis role",
+    "missing role beats changed execution",
+    "govern re-enables role at exact revision",
+    "eligible current role action",
+    "activate authored denial",
+    "authored framework-looking reason remains fold namespace",
+    "activate malformed fold output source",
+    "fold cannot inject framework provenance",
+    "activate successor rejection source",
+    "successor schema failure retains current state",
+    "activate exact bounded Unicode denial",
+    "1024 astral code points and 4096 bytes retained exactly",
+    "activate over-bound Unicode message source",
+    "one code point over message bound is fold_failed",
+    "activate escaped surrogate literal source",
+    "malformed surrogate output is fold_failed/unicode",
+    "activate original action source again",
+    "effective action after multiple activations",
+    "terminal grant revocation through authentic account observation",
+    "revocation beats known action absence",
+    "query returns coherent current captured state and frontier",
+    "unknown or malformed query is unavailable and changes no projection",
+    "snapshot mutation cannot alter domain authority outcomes or frontier",
+    "second ordered copy is invalid history without identity consumption",
+    "captured caller entry cannot be changed while queued",
+    "real public source-like errors from evidence reader escape unchanged",
+    "persistence refusal leaves all projection fields unchanged and live retry equivalent",
+    "source unavailability at activation stalls then exact retry equals healthy replay",
+    "forged source capability cannot invoke private validators",
+    "wrong admitted source action capability cannot select another validator",
+    "unsupported genesis semantics produces no executable instance",
+    "forged copied or prototype-derived native repository proof cannot authenticate publication",
+    "cancelled reader work leaves no committed outcome and serial queue remains usable",
+    "genesis missing or corrupt bytes cannot initialize authority",
+    "genesis alias occurrences remain charged independently after internal set derivation",
+    "fresh replay is byte-identical to healthy and live resumed processing",
+    "query capture cannot be relabeled by a concurrent commit"
+  ],
+  "fixtureBytes": 8397991,
+  "fixtureSha256": "7cde6269de0402aea937c01cc478cf60fda492131f0966a11ab16c70110ea5bb",
+  "actualProductionModules": [
+    {
+      "path": "dist/src/application/native-authority.js",
+      "sha256": "35531678c3662766d804cc94303c44c2e00dfcfdbe110df38ae29402fbfd2bb9"
+    },
+    {
+      "path": "dist/src/protocol/native-wire.js",
+      "sha256": "9222f8536d0431694bcb2ea56fcde27c04e78802c5f371fdd902af725803b2d5"
+    },
+    {
+      "path": "dist/src/protocol/native-proof.js",
+      "sha256": "f4c86609dfd2cebd4f32acf4cfbba2eb89476a0c626c7ea9ea270361bc3621ad"
+    },
+    {
+      "path": "dist/src/core/errors.js",
+      "sha256": "f262303819c1ff725fd878fd3de0d0352f52657cb5dafe44f073ddf637e06eb0"
+    },
+    {
+      "path": "dist/src/protocol/wire.js",
+      "sha256": "ba879338de32398dfc2733ed11a75421872ffff2498c3a4b2a0792b2c6d6718b"
+    },
+    {
+      "path": "dist/src/core/values.js",
+      "sha256": "d3805c888e495c47a5d09e712b5545bb66ac19ba63a9bc844731a26c399a2efe"
+    },
+    {
+      "path": "dist/src/definition/native-source.js",
+      "sha256": "688269d3431e64f01b35ecc31e1675a1de2250a0017f0aba0c98551c64d09d99"
+    },
+    {
+      "path": "dist/src/definition/native-source-contract.js",
+      "sha256": "acd371663819af28066332707c07d8c7e81c0c858934df535861f5867fddd0c8"
+    }
+  ],
+  "testCorpusSha256": "316f0dd7e6d084c7c4c54c186cb8d4f44becaf844016ebf22ad4a5e8ffb92e0b",
+  "transpiledTestCorpusSha256": "1135f45b30d3a18d3720e35a0b5c5842ca9d5780e891036b241dabe46cb86a83"
+}

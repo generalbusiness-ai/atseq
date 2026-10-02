@@ -19,6 +19,8 @@ export const NATIVE_SOURCE_CONTRACT = deepFreeze({
   application: 'bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny',
   evaluator: 'bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm',
 });
+/** Exact compiled producer stages; parser acceptance alone proves no provenance. */
+export const NATIVE_FOLD_FAILURE_STAGES = deepFreeze(applicationRules.foldFailureStages);
 const schemas = deepFreeze(nativeSchemas);
 const registry = new Lexicons(structuredClone(schemas) as unknown as LexiconDoc[]);
 const typed = new Set<string>(Object.keys(schemas.find((doc) => doc.id === NATIVE_NSID.defs)!.defs).map(nativeRef));

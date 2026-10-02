@@ -61,12 +61,30 @@ function budget(value: number | undefined, fallback: number): number {
   return chosen;
 }
 
-/** Hash the entire supplied stream before interpreting length as an authenticated fact. */
-export async function collectNativeSourceClosure(
+/** Activation preserves the exact supplied signed vector. */
+export function collectNativeSourceClosure(
   rootCid: string,
   closure: readonly string[],
   reader: NativeSourceReader,
   options: NativeSourceReadOptions = {},
+): Promise<NativeSourceCollection> {
+  if (!Array.isArray(closure)) return Promise.resolve(invalid('Expected a source closure vector'));
+  return collectSource(rootCid, [...closure], reader, { ...options });
+}
+/** Genesis derives its set from the pinned, verified root; no caller vector or trusted mode. */
+export function collectNativeGenesisSource(
+  rootCid: string,
+  reader: NativeSourceReader,
+  options: NativeSourceReadOptions = {},
+): Promise<NativeSourceCollection> {
+  return collectSource(rootCid, null, reader, { ...options });
+}
+/** Hash the entire supplied stream before interpreting length as an authenticated fact. */
+async function collectSource(
+  rootCid: string,
+  closure: readonly string[] | null,
+  reader: NativeSourceReader,
+  options: NativeSourceReadOptions,
 ): Promise<NativeSourceCollection> {
   assertDependencies();
   const retainBudget = Math.min(PROFILE.definitionBytes, budget(options.maximumRetainedBytes, PROFILE.definitionBytes));
@@ -74,9 +92,9 @@ export async function collectNativeSourceClosure(
   const rootIdentity = parseCid(rootCid, CODEC_DCBOR);
   if ('ok' in rootIdentity) return rootIdentity;
   // These are authenticated-set/count facts only once the later authority owner binds this result.
-  if (!Array.isArray(closure) || closure.length < 1 || closure.length > 64)
+  if (closure !== null && (!Array.isArray(closure) || closure.length < 1 || closure.length > 64))
     return invalid('Source closure must contain 1–64 distinct blocks');
-  const identities = [...closure];
+  let identities = closure === null ? [rootCid] : [...closure];
   if (new Set(identities).size !== identities.length || !identities.includes(rootCid))
     return invalid('Source closure must contain its single root without duplicates');
   const parsed = new Map<string, Cid>();
@@ -163,6 +181,14 @@ export async function collectNativeSourceClosure(
       return invalid('Definition root contains an invalid file binding');
     const identity = parseCid(file.cid, CODEC_RAW);
     if ('ok' in identity) return identity;
+  }
+  if (closure === null) {
+    identities = [...new Set([rootCid, ...declared.map((file) => file.cid)])].sort();
+    for (const cid of identities) {
+      const identity = parseCid(cid, cid === rootCid ? CODEC_DCBOR : CODEC_RAW);
+      if ('ok' in identity) return identity;
+      parsed.set(cid, identity);
+    }
   }
   const verified = new Map<string, VerifiedBlock>([[rootCid, root]]);
   retained = root.size;

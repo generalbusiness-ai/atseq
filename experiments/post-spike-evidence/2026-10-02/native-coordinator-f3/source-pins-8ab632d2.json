@@ -1,0 +1,140 @@
+{
+  "format": "atseq-native-coordinator-source-pins",
+  "version": 1,
+  "base": "65e7042a01184f4d755bf0a7853e92411e6dee9f",
+  "source": "8ab632d23337e1ef1987cc237e50778e38b0caae",
+  "changedFiles": [
+    {
+      "path": "experiments/native-application/compiled-conformance.mjs",
+      "bytes": 2396,
+      "sha256": "428f503c76997144a29195abe05d3b7a93a621c3d09a24b9752517b9cad2a672"
+    },
+    {
+      "path": "src/application/native-authority.ts",
+      "bytes": 35147,
+      "sha256": "17c3a618140d5f0f72f7894ccaec078b2358f58596e29de8fd80326b15efe79f"
+    },
+    {
+      "path": "src/definition/native-source-contract.ts",
+      "bytes": 6906,
+      "sha256": "e8b877b2913ae3c3f6a9503f63dcdf6a9162e3fb6f09119788dc1504c56fd984"
+    },
+    {
+      "path": "src/definition/native-source-transport.ts",
+      "bytes": 11521,
+      "sha256": "edbc14156624e0ec356fdd4c9fe1851ed681dff312e9faddf67aae757b289636"
+    },
+    {
+      "path": "src/definition/native-source.ts",
+      "bytes": 21032,
+      "sha256": "34b2a7147702cfd9eb4271052ddd4545d1d73e55425cac1435215cfca71e7acd"
+    },
+    {
+      "path": "tests/native-application-browser.test.ts",
+      "bytes": 3748,
+      "sha256": "da645d5f053038c7fde8674175773a1be1e96f6f5c3380551cb999131fd30c4e"
+    },
+    {
+      "path": "tests/native-application.test.ts",
+      "bytes": 1482,
+      "sha256": "acd4cdc8c2a130db7f7d5fbe5b894fdd2f0e5e52f7a4be8cce0857784a92efa1"
+    },
+    {
+      "path": "tests/support/native-application-corpus.ts",
+      "bytes": 15448,
+      "sha256": "8468a8f9edc9588a23b39f7f73eb58acac477baf5d7f0080f50ac1b65ca4893c"
+    },
+    {
+      "path": "tests/support/native-application-fault-bundle.ts",
+      "bytes": 2700,
+      "sha256": "28d064a8074ae6bd53108f85f4cc93fe666b7b45e73be5e1ff8736e9862d3af4"
+    },
+    {
+      "path": "tests/support/native-application-fault-probe.ts",
+      "bytes": 4710,
+      "sha256": "dc49d3bfacc4dcc1e8e8edc8037647af2f690a5999b6c51e0d789edd39bf6a3f"
+    },
+    {
+      "path": "tests/support/native-application-fixture.ts",
+      "bytes": 19559,
+      "sha256": "af2cdb1aa2cc8c4e8a1eee6817d534b88f30b4b72b5fbe7fdbeb982b09218811"
+    }
+  ],
+  "unchangedBaseFiles": [
+    {
+      "path": "package.json",
+      "bytes": 4267,
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a"
+    },
+    {
+      "path": "npm-shrinkwrap.json",
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    },
+    {
+      "path": "src/core/dependencies-approved.json",
+      "bytes": 43395,
+      "sha256": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a"
+    },
+    {
+      "path": "src/integrity/files-approved.json",
+      "bytes": 1160851,
+      "sha256": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+    },
+    {
+      "path": "src/application/index.ts",
+      "bytes": 811,
+      "sha256": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2"
+    },
+    {
+      "path": "src/protocol/identity.ts",
+      "bytes": 810,
+      "sha256": "4d9edb717b6d98e051a229f3d507012de2739659f231b82b558add4b177ddb49"
+    },
+    {
+      "path": "src/protocol/native-schema.ts",
+      "bytes": 11444,
+      "sha256": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4"
+    },
+    {
+      "path": "src/protocol/native-wire.ts",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "path": "src/application/native-authority-evidence.ts",
+      "bytes": 12775,
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    {
+      "path": "src/application/native-authority-data.ts",
+      "bytes": 10799,
+      "sha256": "63323985bdfee3ee5620405d83e6dc5fb31c1eba913aec115431777771fe412a"
+    },
+    {
+      "path": "src/application/native-authority-snapshot.ts",
+      "bytes": 501,
+      "sha256": "1a86946e28a49154d55db71f055bbe13184631bfa544bda55664b2752ca14dcb"
+    },
+    {
+      "path": "tests/support/native-authority-fixture.ts",
+      "bytes": 15329,
+      "sha256": "574e4a7a0422be4398293b6f98779f7fedce9e59e68e2d02803bb72b7c18fde6"
+    },
+    {
+      "path": "tests/support/native-authority-corpus.ts",
+      "bytes": 5240,
+      "sha256": "f9e458df90f1d89872b5f6cbfc0d4c07d99a3959651470b95b1ad3f1c0bb542d"
+    },
+    {
+      "path": "testdata/native-source/source-identity-vectors.json",
+      "bytes": 38747,
+      "sha256": "1dc718d65cf44e80bb6df32ec8b2fc0c79adf0f105638ec59adfbd3fa67f5135"
+    },
+    {
+      "path": "src/definition/native-source-data/application-rules.json",
+      "bytes": 14201,
+      "sha256": "87a1fddd54120b974ea69f75d398861060ee9a077fb41e4e32c86cd659feb153"
+    }
+  ]
+}

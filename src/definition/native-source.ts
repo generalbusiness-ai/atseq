@@ -29,6 +29,7 @@ import {
 } from './native-source-projection.ts';
 import {
   collectNativeSourceClosure,
+  collectNativeGenesisSource,
   type NativeSourceReader,
   type NativeSourceReadOptions,
 } from './native-source-transport.ts';
@@ -236,6 +237,20 @@ export async function assessNativeSource(
     return Object.freeze({ kind: result.kind, actualSemantics: result.actualSemantics });
   return Object.freeze({ kind: result.kind, definition: result.definition });
 }
+/** The checked application pin selects this root. Only this owner derives its genesis closure. */
+export async function assessNativeGenesisSource(
+  root: string,
+  reader: NativeSourceReader,
+  localOptions: NativeSourceReadOptions = {},
+): Promise<NativeSourceFacts> {
+  if (typeof root !== 'string') throw new TypeError('Expected a pinned genesis source root');
+  const target = Object.freeze({ root, expectedSemantics: NATIVE_SOURCE_CONTRACT.application });
+  const result = await checkSource(target, reader, { ...localOptions });
+  if (result.kind === 'proven_invalid') return Object.freeze({ kind: result.kind });
+  if (result.kind === 'incompatible')
+    return Object.freeze({ kind: result.kind, actualSemantics: result.actualSemantics });
+  return Object.freeze({ kind: result.kind, definition: result.definition });
+}
 /** Diagnostic convenience. Publicly constructible thrown errors never serve as source facts. */
 export async function admitNativeSourceDefinition(
   cid: string,
@@ -249,7 +264,7 @@ export async function admitNativeSourceDefinition(
   return result.definition;
 }
 async function checkSource(
-  target: NativeSourceTarget,
+  target: NativeSourceTarget | Readonly<{ root: string; expectedSemantics: string }>,
   reader: NativeSourceReader,
   localOptions: NativeSourceReadOptions,
 ): Promise<CheckedSource> {
@@ -260,7 +275,10 @@ async function checkSource(
       'Expected application semantics are not compiled and supported',
     );
   const cid = target.root;
-  const collection = await collectNativeSourceClosure(cid, target.closure, reader, localOptions);
+  const collection =
+    'closure' in target
+      ? await collectNativeSourceClosure(cid, target.closure, reader, localOptions)
+      : await collectNativeGenesisSource(cid, reader, localOptions);
   if (!collection.ok) return invalidSource(collection.error);
   const complete = collection.value;
   const shape = checkInput(() => validateNativeSourceShape(NATIVE_NSID.definition, complete.root), manifestFailures);
@@ -454,4 +472,38 @@ export function nativeSourceActionProjectionBlocks(capability: NativeSourceActio
 }
 export function nativeSourceActionFold(capability: NativeSourceAction): string {
   return actionData(capability).fold;
+}
+
+/** Validator ownership remains inside the actual admitted definition. */
+export function validateNativeSourceState(definition: NativeSourceDefinition, state: Json): void {
+  const data = definitionData(definition);
+  data.schemas.validate(data.facts.manifest.state.ref, state);
+}
+export function validateNativeSourceAction(
+  definition: NativeSourceDefinition,
+  action: NativeSourceAction,
+  payload: Json,
+): void {
+  const data = definitionData(definition),
+    facts = actionData(action).facts;
+  if (data.actions.get(facts.ref) !== action) throw new TypeError('Action belongs to another admitted source');
+  data.schemas.validate(facts.ref, payload);
+}
+function queryBinding(definition: NativeSourceDefinition, name: string) {
+  const data = definitionData(definition);
+  const query = data.facts.manifest.queries.find((query) => query.name === name);
+  if (!query) throw new InterpretationError('unknown_query', 'Query is absent from admitted source');
+  return { data, query };
+}
+export function nativeSourceQueryProgram(definition: NativeSourceDefinition, name: string): string {
+  const { data, query } = queryBinding(definition, name);
+  return sourceText(data.files, query.program);
+}
+export function validateNativeSourceQueryParams(definition: NativeSourceDefinition, name: string, params: Json): void {
+  const { data, query } = queryBinding(definition, name);
+  data.schemas.queryParams(query.ref, params);
+}
+export function validateNativeSourceQueryResult(definition: NativeSourceDefinition, name: string, result: Json): void {
+  const { data, query } = queryBinding(definition, name);
+  data.schemas.queryResult(query.ref, result);
 }
