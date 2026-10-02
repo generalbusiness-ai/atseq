@@ -1,0 +1,3 @@
+Baseline: actual competitor took the released port; official PDS startup failed with EADDRINUSE.
+Fixed source: actual competitor refused after parent release; official PDS served HTTP 200.
+Node v22.19.0; official PDS 0.5.31; PLC 0.0.1; exact baseline 098d3dffb04998d43eb51bb3ab6b9f38cce03b20.

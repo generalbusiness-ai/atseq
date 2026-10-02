@@ -11,6 +11,7 @@ const pds = await PDS.fromEnv(config);
 const listen = pds.app.listen.bind(pds.app);
 pds.app.listen = () => listen(socket);
 await pds.start();
+await new Promise((done) => socket.close(done));
 process.send?.({ ready: true });
 async function close() {
   await pds.destroy();

@@ -1,0 +1,213 @@
+{
+  "task": "T1-H2",
+  "request": "099933250a7ffc33135f6a3330529e00e64e3623",
+  "promise": "27b130b095ccf3b15c4a3f014548f2a0b293a4e5",
+  "base": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+  "runtimeAndTestSourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+  "controlProducerCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9",
+  "sourcePins": {
+    "tests/support/pds/environment.mjs": {
+      "bytes": 6342,
+      "sha256": "e7c4939d806eecd51efcd634bc134070f88a7413dacf9b156d17ee57d36c24bb",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/support/pds/pds-server.mjs": {
+      "bytes": 865,
+      "sha256": "bcf34535c938a6deb6d8c0e98caf91bcf872a38b67d8b9ff6f27ade53c46d430",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/pds-startup.test.ts": {
+      "bytes": 5824,
+      "sha256": "a3f689ebe2136cdba66eff0b593e94d10e9ebeb18e3fb1c9cf8564490d2253e1",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "experiments/pds-startup-h2/reproduce-port-race.mjs": {
+      "bytes": 3465,
+      "sha256": "98eb1a7e0069268aa1f6637b7d00dfc56cc6c61f01d2d39c791247b8d94c093a",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/support/pds/child-environment.mjs": {
+      "bytes": 452,
+      "sha256": "8f63a6e9f540389b899af8b044db44a695a8e299843f7b782923e2f20dd7171c",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/archive.test.ts": {
+      "bytes": 23675,
+      "sha256": "ff1a6b859685c4d9b86f06f7c0f2f8ddf8a746667b1cf1be31f98d588c8b8646",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/pds.test.ts": {
+      "bytes": 25577,
+      "sha256": "73037d8e884b51b2a27d32b79b1916a70a20af023b470aff8da6b76608af098e",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/pds-telemetry.test.ts": {
+      "bytes": 6426,
+      "sha256": "77623b67c1c50bcc3861d06367f374db1c448122e3af71e7b2f39482f33b0111",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/support/pds/package.json": {
+      "bytes": 296,
+      "sha256": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "tests/support/pds/package-lock.json": {
+      "bytes": 295370,
+      "sha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "package.json": {
+      "bytes": 4267,
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "npm-shrinkwrap.json": {
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    },
+    "scripts/source-run.mjs": {
+      "bytes": 507,
+      "sha256": "0b453aaf5049038e8e02a33640b39f57d30bb3c3dff3c8b7ea2ffacaeb222e08",
+      "gitCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+    }
+  },
+  "unchangedAgainstBase": [
+    "package.json",
+    "npm-shrinkwrap.json",
+    "tests/support/pds/package.json",
+    "tests/support/pds/package-lock.json",
+    "tests/support/pds/child-environment.mjs",
+    "tests/archive.test.ts",
+    "tests/pds.test.ts",
+    "tests/pds-telemetry.test.ts",
+    "scripts/source-run.mjs"
+  ],
+  "captures": {
+    "attempts.json": {
+      "bytes": 8509,
+      "sha256": "0f4e8c93d23082edcdc795e6d6ba92ff7064228bece3a380817909a43382f1fa"
+    },
+    "build.log": {
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    "check.log": {
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "final-build.log": {
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    "final-check.log": {
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "initial-ci-node22.log": {
+      "bytes": 359717,
+      "sha256": "d2641509cc7522a6555882948b710dabf7766d5f2a94465a2e4270acb312d662"
+    },
+    "node22-baseline-control.log": {
+      "bytes": 835,
+      "sha256": "ace439cdfdb37c583e42d23756e8c835aed247809ad898e7cea3a6a948835b85"
+    },
+    "node22-final.log": {
+      "bytes": 10907,
+      "sha256": "654255db2c511d5e14ae825954c3be8d9eeb424e311ca4f5ecce0042b0136134"
+    },
+    "node22-native-rebuild.log": {
+      "bytes": 156,
+      "sha256": "f422371126083710f251f06e6c1b8189646dfc9ee43a65d6dbe733a1b0c42482"
+    },
+    "node22-pds-results.json": {
+      "bytes": 7209,
+      "sha256": "f76b340df7b9d0cecd55db5f0143a7f6bcdb38fedf152dfe6ec6de7eefcecd77"
+    },
+    "node24-baseline-control.log": {
+      "bytes": 835,
+      "sha256": "5680419585a25e7aadae4b4b12b999e0ea7d9bcdd1e6184b355e62fb084e14c2"
+    },
+    "node24-final.log": {
+      "bytes": 4760,
+      "sha256": "a07190cfcf8596772f3a816714df290bc05c92a0c986cf64ddf36cd1a6f4dfaa"
+    },
+    "node24-native-rebuild.log": {
+      "bytes": 156,
+      "sha256": "f422371126083710f251f06e6c1b8189646dfc9ee43a65d6dbe733a1b0c42482"
+    },
+    "node24-pds-results.json": {
+      "bytes": 7206,
+      "sha256": "29a98f50c26ae616e9a47fa06d8600fa2153a9d8cd6eed04233c589c8f947894"
+    },
+    "node26-baseline-control.log": {
+      "bytes": 835,
+      "sha256": "4268721550194b0f2364b077e1b152e9b754fa10bfe2f8b2cbc0c22ad215c6ec"
+    },
+    "node26-final.log": {
+      "bytes": 4763,
+      "sha256": "2a680f82826301f4ee4015b9f245f646010e05ea9fac94ae0b72bca912442372"
+    },
+    "node26-pds-results.json": {
+      "bytes": 7209,
+      "sha256": "36f28e75c5441814291ec449dfeb8952f70aec457a1eef41af8b7568a43e2761"
+    },
+    "preparation-baseline-control.log": {
+      "bytes": 293,
+      "sha256": "cecd63bd1d517988cdc4de301fad6ec38ccec9001b90e69653173485071705ae"
+    },
+    "preparation-check-2.log": {
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    "preparation-corrected-http-restart.log": {
+      "bytes": 39,
+      "sha256": "6d574abe7ced908b4ab8a3788016a45bf41e35ddad45d8a900ce5fbc9f5d9b2f"
+    },
+    "preparation-first-child.mjs": {
+      "bytes": 914,
+      "sha256": "7d188e7bb7a9a05deb313a679712ea621af8e63db897fcd540e24904edcb017d"
+    },
+    "preparation-first-http-observation.json": {
+      "bytes": 810,
+      "sha256": "76acbb4e5d93e6244781b15bfeb3a99730f17de60e96810fb8a41438c262bd2f"
+    },
+    "preparation-focused.log": {
+      "bytes": 916,
+      "sha256": "8b640ff2c80c827bf83601972a140146c6737071a36b71affbede808d3b08f70"
+    },
+    "preparation-node22-extra-cleanup-probe.log": {
+      "bytes": 5933,
+      "sha256": "24414a5a7934cfd4e01863403e3fd1b4c4bb56be1a2c10ba3ea18a7ac5f580bb"
+    },
+    "preparation-node22-good-abi.log": {
+      "bytes": 5398,
+      "sha256": "e61d9bd788e995e35eeee71d919176205bfd70d9521894b1dccc9aae2f774211"
+    },
+    "preparation-node22-pds-regression.log": {
+      "bytes": 5615,
+      "sha256": "b2500b41e2ca45b53fa2aaf84c4ad3cb31091095f0a20f5356f586eed49c6dd9"
+    },
+    "preparation-node22-pds-results.json": {
+      "bytes": 7205,
+      "sha256": "03bcd83b3c7f749d83cdbb56dd8a6a890a7858728e96fc0e022f91eed9e87b30"
+    },
+    "preparation-node22-wrong-native-abi.log": {
+      "bytes": 10212,
+      "sha256": "c5c5b1df214aaa60f4b55d4e9a25c9df5ba19a933f25fae92ec4a47f9537f943"
+    },
+    "preparation-node24-pds-results.json": {
+      "bytes": 7210,
+      "sha256": "a7ee360e4738f7a8f719749d33dcbd0987a88b8e61f97ae16a1411110559772b"
+    },
+    "preparation-node24.log": {
+      "bytes": 4765,
+      "sha256": "8eae6938d79dd57d6f965e4a21e4e104a902162b39c532c69d8a276e98ec2a71"
+    },
+    "source-inspection.json": {
+      "bytes": 2502,
+      "sha256": "4959500a73f815e43872cdb20741e365e9940a005fc99036366084a70e7f4a42"
+    }
+  },
+  "verification": "42 genuine PDS/archive/telemetry/startup cases and actual original-versus-fixed collision control on each of Node22.19.0/24.21.0/26.10.0; final build and check passed. Local runs macOS, Linux CI remains follow-up after independent review and landing."
+}

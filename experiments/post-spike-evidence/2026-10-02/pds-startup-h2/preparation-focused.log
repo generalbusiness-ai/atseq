@@ -1,0 +1,16 @@
+✔ actual PLC and PDS listeners retain exclusive ports throughout startup (1257.268167ms)
+ℹ Both real listeners refused competing bind attempts; account creation and PLC endpoint passed.
+✔ six real official PDS instances start concurrently with distinct retained ports (1031.8715ms)
+ℹ Six distinct real PDS listeners, six persisted accounts, and six matching PLC service endpoints.
+✔ restart refuses an occupied original port and resumes at the same URL after release (1350.374042ms)
+ℹ Occupied restart port was refused before spawning; released port reused without retargeting.
+✔ a genuine non-port child startup failure escapes and releases the reserved listener (1960.834709ms)
+ℹ Actual invalid data-directory startup failed once; same reserved port available for explicit restart.
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6094.795166

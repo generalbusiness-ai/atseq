@@ -1,0 +1,63 @@
+{
+  "base": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+  "runtimeSourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+  "finalTestSourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+  "pins": {
+    "tests/support/pds/node_modules/@atproto/pds/package.json": {
+      "bytes": 3977,
+      "sha256": "f44e8d5cd75e762e539f68a5c1354c82c33dd0d695c3f6a2d5733bba55bea947"
+    },
+    "tests/support/pds/node_modules/@atproto/pds/dist/index.js": {
+      "bytes": 9317,
+      "sha256": "fe976c5f8b7f4f67531b79f478a02eb5f43d4908205b3225de0d9a51a73fb1b0"
+    },
+    "tests/support/pds/node_modules/@did-plc/server/package.json": {
+      "bytes": 1403,
+      "sha256": "d95bcdf2001b48921bb72a7ba13783d51db498413773d799c32165f8879ba000"
+    },
+    "tests/support/pds/node_modules/@did-plc/server/dist/index.js": {
+      "bytes": 3358494,
+      "sha256": "ed096a3438e99aa489e6cc170c6c0b94ec7515046395589b29858a6cb4339dfa"
+    },
+    "tests/support/pds/package.json": {
+      "bytes": 296,
+      "sha256": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6"
+    },
+    "tests/support/pds/package-lock.json": {
+      "bytes": 295370,
+      "sha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd"
+    },
+    "package.json": {
+      "bytes": 4267,
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a"
+    },
+    "npm-shrinkwrap.json": {
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    },
+    "scripts/source-run.mjs": {
+      "bytes": 507,
+      "sha256": "0b453aaf5049038e8e02a33640b39f57d30bb3c3dff3c8b7ea2ffacaeb222e08"
+    }
+  },
+  "sqliteNativeBinaries": {
+    "node22": {
+      "bytes": 1931552,
+      "sha256": "1946ab352978b5b3493f99080dc04ed6d0a4157c511c7139cbf50b3d44d8d560"
+    },
+    "node24": {
+      "bytes": 1931952,
+      "sha256": "c6fac315df023cf5efec45a3511e6515c6b0f7461a4a284b1b7a79c7ef8febe7"
+    },
+    "node26": {
+      "bytes": 1932672,
+      "sha256": "0000d73c6e2e94318ed2b9339139623d5a0908b195f1e761c16cfd98f9cc6229"
+    }
+  },
+  "officialNodeReferences": [
+    "https://nodejs.org/api/child_process.html#example-sending-a-server-object",
+    "https://nodejs.org/api/net.html#serverlistenhandle-backlog-callback"
+  ],
+  "interface": "PDS.start and PLC.start return their actual HTTP server; public Express app.listen accepts the public net.Server handle; no library file patches.",
+  "controlSourceCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9"
+}
