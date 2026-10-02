@@ -924,11 +924,15 @@ class NativeApplicationOwner {
       Array.isArray(selector) ||
       Object.keys(selector).some((name) => !['principal', 'actorKey', 'grantId'].includes(name)) ||
       typeof selector.principal !== 'string' ||
-      typeof selector.actorKey !== 'string'
+      typeof selector.actorKey !== 'string' ||
+      selector.actorKey.length > 128
     )
       throw new ProtocolError('input', 'Expected a complete principal/device selector');
     validateNativeAccountDid(selector.principal);
     if (selector.grantId !== undefined) validateNativeGrantId(selector.grantId);
+    // Existing native key shape cap; reserve small representation/point-input
+    // passes before the unchanged maintained key validator/crypto dependency.
+    ledger.charge(16 * selector.actorKey.length);
     return selector;
   }
   #subject(
@@ -1046,7 +1050,6 @@ class NativeApplicationOwner {
     name: string,
     ledger: DiscoveryLedger,
   ): { result: NativeActionDiscovery; attempt: ActionAttempt; prepared: CandidateFacts } {
-    ledger.row();
     const sourceAction = nativeSourceAction(base.source, name);
     if (!sourceAction) throw new ProtocolError('input', 'Action is absent from admitted definition');
     const execution = readNativeSourceAction(sourceAction).execution;
@@ -1111,24 +1114,30 @@ class NativeApplicationOwner {
       const selector = this.#selector(value, ledger);
       const base = this.#current;
       const facts = this.#subject(selector, stateData(base.authority), ledger);
+      const declaredActions: { action: string; execution: string }[] = [];
+      for (const declared of readNativeSourceDefinition(base.source).manifest.actions) {
+        ledger.row();
+        declaredActions.push({
+          action: declared.ref,
+          execution: readNativeSourceAction(nativeSourceAction(base.source, declared.ref)!).execution,
+        });
+      }
       await validateNativeDeviceKey(selector.actorKey);
       this.#retained(base, ledger);
       const basis = await this.#basis(base, facts, ledger);
       const actions: NativeActionDiscovery[] = [];
       let exhausted = false;
-      for (const declared of readNativeSourceDefinition(base.source).manifest.actions) {
+      for (const declared of declaredActions) {
         if (exhausted) {
-          const execution = readNativeSourceAction(nativeSourceAction(base.source, declared.ref)!).execution;
-          actions.push({ action: declared.ref, execution, kind: 'unavailable', code: 'content_unavailable' });
+          actions.push({ ...declared, kind: 'unavailable', code: 'content_unavailable' });
           continue;
         }
         try {
-          actions.push(this.#select(base, selector, facts, declared.ref, ledger).result);
+          actions.push(this.#select(base, selector, facts, declared.action, ledger).result);
         } catch (error) {
           if (!(error instanceof AtseqError) || error.code !== 'content_unavailable') throw error;
           exhausted = true;
-          const execution = readNativeSourceAction(nativeSourceAction(base.source, declared.ref)!).execution;
-          actions.push({ action: declared.ref, execution, kind: 'unavailable', code: error.code });
+          actions.push({ ...declared, kind: 'unavailable', code: error.code });
         }
       }
       this.#retained(base, ledger);
@@ -1166,6 +1175,7 @@ class NativeApplicationOwner {
       await validateNativeDeviceKey(selector.actorKey);
       this.#retained(base, ledger);
       const basis = await this.#basis(base, facts, ledger);
+      ledger.row();
       const selected = this.#select(base, selector, facts, ownedName, ledger);
       ledger.codec(payloadBound);
       const payloadCid = await contentCid(ownedPayload);
