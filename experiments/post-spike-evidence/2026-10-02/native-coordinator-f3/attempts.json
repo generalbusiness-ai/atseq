@@ -1,0 +1,62 @@
+{
+  "format": "atseq-native-coordinator-attempt-record",
+  "version": 1,
+  "date": "2026-10-02",
+  "attempts": [
+    {
+      "stage": "pre-freeze Unicode fixture expectation",
+      "source": "Uncommitted initial fixture; not attributed to final frozen source. Runtime producer was not changed to correct this expectation.",
+      "command": "node scripts/source-run.mjs --test tests/native-application.test.ts",
+      "result": "failed",
+      "toolOutputExcerpt": "Error: malformed surrogate output is fold_failed/unicode: wrong outcome {\"frontier\":{\"position\":30,\"entry\":\"bafyreibaa7ko54sirsclur5777vrd6cqtkvqd4j54siqkubmb7fmkc4l7q\"},\"outcome\":{\"decision\":\"ineffective\",\"message\":\"🚀\",\"reason\":\"denied\",\"source\":\"fold\"}}",
+      "retention": "Exact error excerpt copied from the tool result; no saved full stdout log existed for this pre-freeze attempt.",
+      "correction": "JSONata substring preserves Unicode code points. Replace the test input with an ASCII escaped surrogate literal to exercise an actual malformed result. Corrected fixture is frozen in 8e1ef2b5 and tested in the final 58-case corpus."
+    },
+    {
+      "stage": "actual compiled harness first attempt",
+      "source": "8e1ef2b5a9add1f9993b40b110bfe67ea1b9312a",
+      "command": "node experiments/native-application/compiled-conformance.mjs",
+      "result": "failed",
+      "capture": "compiled-first.log",
+      "correction": "Use existing ts-morph ts API rather than limited default typescript export. One-line harness-only successor 8ab632d2; production bytes unchanged."
+    },
+    {
+      "stage": "compiled harness correction before successor commit",
+      "source": "One-line uncommitted test-only correction later frozen as 8ab632d2; unchanged production build from 8e1ef2b5.",
+      "command": "node experiments/native-application/compiled-conformance.mjs",
+      "result": "passed 58 cases",
+      "capture": "compiled-second.log"
+    },
+    {
+      "stage": "prior successful frozen captures",
+      "source": "8ab632d23337e1ef1987cc237e50778e38b0caae",
+      "result": "All captures passed; retained as prior evidence. The subsequent test-only duplicate assertion was strengthened.",
+      "captures": [
+        "node22.log",
+        "node24.log",
+        "node26.log",
+        "chromium.log",
+        "compiled-node22.log",
+        "compiled-node24.log",
+        "compiled-node26.log"
+      ]
+    },
+    {
+      "stage": "final stronger duplicate assertion",
+      "source": "112aa445f98f60d9974fb3eb7ac4d9eedc18df60",
+      "productionSource": "8e1ef2b5a9add1f9993b40b110bfe67ea1b9312a",
+      "change": "A valid next-position context reuses the exact consumed request and must produce the exact I2 duplicate error. No production bytes changed.",
+      "result": "All seven final focused runs passed; 58 portable cases, 24 source callsite transformations, 58 actual compiled production cases.",
+      "captures": [
+        "node22-final.log",
+        "node24-final.log",
+        "node26-final.log",
+        "chromium-final.log",
+        "compiled-node22-final.log",
+        "compiled-node24-final.log",
+        "compiled-node26-final.log"
+      ],
+      "checkCapture": "check-source112.log"
+    }
+  ]
+}

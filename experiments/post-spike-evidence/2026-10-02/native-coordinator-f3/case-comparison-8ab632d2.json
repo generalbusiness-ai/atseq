@@ -1,0 +1,73 @@
+{
+  "format": "atseq-native-coordinator-case-comparison",
+  "version": 1,
+  "source": "8ab632d23337e1ef1987cc237e50778e38b0caae",
+  "portableCaseCount": 58,
+  "transformedCallsiteFaultCaseCount": 24,
+  "compiledProductionCaseCount": 58,
+  "samePortableCaseNames": true,
+  "sameTransformedCaseNamesNodeAndChromium": true,
+  "exactFixtureBytesAgree": true,
+  "fixture": {
+    "bytes": 8397991,
+    "sha256": "7cde6269de0402aea937c01cc478cf60fda492131f0966a11ab16c70110ea5bb",
+    "publicationCount": 40,
+    "archive": "public-fixture.json.gz"
+  },
+  "captureDerivation": {
+    "chromium.json": "Reconstructed from exact focused chromium.log JSON stdout. The later ordinary suite overwrites its default .atseq-local browser JSON; that later file is not this evidence.",
+    "compiled-node*.json": "Byte-preserving copies of unique actual compiled probe capture files.",
+    "build-provenance.json": "Byte-preserving production build capture copy."
+  },
+  "runs": [
+    {
+      "capture": "node22.log",
+      "node": "v22.19.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "node24.log",
+      "node": "v24.21.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "node26.log",
+      "node": "v26.10.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "chromium.log",
+      "node": "v26.10.0",
+      "chromium": "153.0.8010.12",
+      "portableCases": 58,
+      "transformedFaults": 24
+    },
+    {
+      "capture": "compiled-node22.log",
+      "node": "v22.19.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 0
+    },
+    {
+      "capture": "compiled-node24.log",
+      "node": "v24.21.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 0
+    },
+    {
+      "capture": "compiled-node26.log",
+      "node": "v26.10.0",
+      "chromium": null,
+      "portableCases": 58,
+      "transformedFaults": 0
+    }
+  ]
+}
