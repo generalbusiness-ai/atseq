@@ -1,0 +1,8 @@
+file:///private/tmp/atseq-r0-native-cost-provenance-20261002/experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction.mjs:10
+const json=snapshots[0];if(json.bytes!==38747||json.sha256!=='dc718d65cf44e80bb6df32ec8b2fc0c79adf0f105638ec59adfbd3fa67f5135')throw Error('Unexpected immutable vector bytes');
+                                                                                                                                     ^
+
+Error: Unexpected immutable vector bytes
+    at file:///private/tmp/atseq-r0-native-cost-provenance-20261002/experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction.mjs:10:134
+
+Node.js v26.10.0
