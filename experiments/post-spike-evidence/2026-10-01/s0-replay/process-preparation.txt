@@ -1,0 +1,135 @@
+2026-10-02T02:38:18.136Z
+Retained ps rows with CPU >= 5%, or node/gs/Chrome/Chromium/mdworker/mds/tsgo/vite in command name. Values are process-accounting samples, not interval utilization.
+  PID     ELAPSED STAT  %CPU COMM
+  123       00:41 R    101.3 /Users/hughpyle/play/gitseq-reader-02090-artroom/gs
+  542 02-14:16:16 Ss    11.7 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+  567 02-14:16:16 Ss     2.9 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds
+  579 02-14:16:16 Ss     6.0 /usr/libexec/opendirectoryd
+  609 02-14:16:16 Ss    19.0 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+  686 02-14:16:15 Ss     5.1 /usr/libexec/syspolicyd
+  872       00:27 S      0.0 node
+  905 02-14:16:07 Ss     2.1 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+ 1200 02-14:15:53 Ss     0.0 /System/Applications/System Settings.app/Contents/PlugIns/SettingsImportExtension.appex/Contents/MacOS/SettingsImportExtension
+ 1269 02-14:15:50 S     20.6 /Applications/iTerm.app/Contents/MacOS/iTerm2
+ 1271 02-14:15:50 S      0.1 /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+ 1499 02-14:15:46 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/chrome_crashpad_handler
+ 1501 02-14:15:46 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+ 1502 02-14:15:46 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+ 1503 02-14:15:46 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+ 1574 02-14:15:41 Ss     0.0 /System/Library/ExtensionKit/Extensions/BatterySettingsIntentsExtension.appex/Contents/MacOS/BatterySettingsIntentsExtension
+ 1579 02-14:15:41 Ss     0.0 /System/Library/ExtensionKit/Extensions/ProfilesSettingsIntents.appex/Contents/MacOS/ProfilesSettingsIntents
+ 1581 02-14:15:41 Ss     0.0 /System/Library/ExtensionKit/Extensions/StorageSettingsIntentsExtension.appex/Contents/MacOS/StorageSettingsIntentsExtension
+ 1582 02-14:15:40 Ss     0.0 /System/Library/ExtensionKit/Extensions/ControlCenterSettingsIntents.appex/Contents/MacOS/ControlCenterSettingsIntents
+ 1584 02-14:15:40 Ss     0.0 /System/Library/ExtensionKit/Extensions/PlaceholderSettingsSearchTermsIntents.appex/Contents/MacOS/PlaceholderSettingsSearchTermsIntents
+ 1585 02-14:15:40 Ss     0.0 /System/Library/ExtensionKit/Extensions/NotificationsSettingsIntents.appex/Contents/MacOS/NotificationsSettingsIntents
+ 1587 02-14:15:39 Ss     0.0 /System/Library/ExtensionKit/Extensions/SoftwareUpdateSettingsExtensionIntents.appex/Contents/MacOS/SoftwareUpdateSettingsExtensionIntents
+ 1591 02-14:15:39 Ss     0.0 /System/Library/ExtensionKit/Extensions/AccountsUISettingsAppIntents.appex/Contents/MacOS/AccountsUISettingsAppIntents
+ 1607 02-14:15:37 Ss     0.0 /System/Library/ExtensionKit/Extensions/GameControllerSettingsIntents.appex/Contents/MacOS/GameControllerSettingsIntents
+ 1608 02-14:15:37 Ss     0.0 /System/Library/ExtensionKit/Extensions/TimeMachineSettingsIntents.appex/Contents/MacOS/TimeMachineSettingsIntents
+ 1609 02-14:15:37 Ss     0.0 /System/Library/ExtensionKit/Extensions/KeyboardSettingsIntents.appex/Contents/MacOS/KeyboardSettingsIntents
+ 1610 02-14:15:37 Ss     0.0 /System/Library/ExtensionKit/Extensions/DesktopSettingsIntents.appex/Contents/MacOS/DesktopSettingsIntents
+ 1613 02-14:15:36 Ss     0.0 /System/Library/ExtensionKit/Extensions/BluetoothSettingsAppIntentsWidgetExtension.appex/Contents/MacOS/BluetoothSettingsAppIntentsWidgetExtension
+ 1614 02-14:15:36 Ss     0.0 /System/Library/ExtensionKit/Extensions/VpnSettingsIntents.appex/Contents/MacOS/VpnSettingsIntents
+ 1621 02-14:15:34 Ss     0.0 /System/Library/ExtensionKit/Extensions/InternationalSettingsExtension.appex/Contents/MacOS/InternationalSettingsExtension
+ 1624 02-14:15:34 Ss     0.0 /System/Library/ExtensionKit/Extensions/AccessibilitySettingsSearchExtension.appex/Contents/MacOS/AccessibilitySettingsSearchExtension
+ 1630 02-14:15:33 Ss     0.0 /System/Library/ExtensionKit/Extensions/GameCenterSettingsSearchExtension.appex/Contents/MacOS/GameCenterSettingsSearchExtension
+ 1631 02-14:15:32 Ss     0.0 /System/Library/ExtensionKit/Extensions/CDsAndDvDsSettingsIntents.appex/Contents/MacOS/CDsAndDvDsSettingsIntents
+ 1632 02-14:15:32 Ss     0.0 /System/Library/ExtensionKit/Extensions/BiometricsAndPasswordSettingsAppIntentsExtension.appex/Contents/MacOS/BiometricsAndPasswordSettingsAppIntentsExtension
+ 1633 02-14:15:32 Ss     0.0 /System/Library/ExtensionKit/Extensions/WiFiMacSettingsIntents.appex/Contents/MacOS/WiFiMacSettingsIntents
+ 1635 02-14:15:32 Ss     0.0 /System/Library/ExtensionKit/Extensions/PasswordSettingsAppIntentsExtension.appex/Contents/MacOS/PasswordSettingsAppIntentsExtension
+ 1637 02-14:15:31 Ss     0.0 /System/Library/ExtensionKit/Extensions/SpotlightSettingsIntentsExtension.appex/Contents/MacOS/SpotlightSettingsIntentsExtension
+ 1640 02-14:15:31 Ss     0.0 /System/Library/ExtensionKit/Extensions/SiriSetupSettingsIntents.appex/Contents/MacOS/SiriSetupSettingsIntents
+ 1645 02-14:15:31 Ss     0.0 /System/Library/ExtensionKit/Extensions/WallpaperSettingsIntents.appex/Contents/MacOS/WallpaperSettingsIntents
+ 2613 02-13:54:07 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+ 2614 02-13:54:07 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+ 3936    07:53:07 S      1.0 /opt/homebrew/Cellar/node/26.10.0_1/bin/node
+ 5234    19:13:59 Ss     0.0 /System/Library/PrivateFrameworks/RemoteManagement.framework/XPCServices/PasscodeSettingsSubscriber.xpc/Contents/MacOS/PasscodeSettingsSubscriber
+ 5235    19:13:59 Ss     0.0 /System/Library/PrivateFrameworks/RemoteManagement.framework/XPCServices/PasscodeSettingsSubscriber.xpc/Contents/MacOS/PasscodeSettingsSubscriber
+ 5257    19:13:58 Ss     0.0 /System/Library/PrivateFrameworks/RemoteManagement.framework/XPCServices/ManagedSettingsSubscriber.xpc/Contents/MacOS/ManagedSettingsSubscriber
+ 8125       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8126       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8127       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8128       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8129       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8130       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8131       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8132       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8133       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8143       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8147       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8148       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8149       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8150       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8151       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8152       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8263       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8264       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8265       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8266       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8267       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8268       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8269       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8270       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8271       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8272       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8273       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+ 8274       00:18 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+10388    14:53:55 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+11929    14:49:57 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+18082    14:34:41 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+21610    14:26:20 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+23153       00:03 S      8.1 /opt/homebrew/Cellar/node/26.10.0_1/bin/node
+23167       00:03 S      0.0 npm exec vitest run --config vitest.config.ts test/bounded.test.ts test/staging.test.ts test/golden.test.ts test/review-a454cbaf.test.ts
+23209    03:37:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+23211    03:37:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+23243    03:37:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+23366       00:03 S      0.0 node
+23533       00:02 R    100.3 /opt/homebrew/Cellar/node/26.10.0_1/bin/node
+23534       00:02 R    101.1 /opt/homebrew/Cellar/node/26.10.0_1/bin/node
+24427       00:01 R     21.2 /Library/Developer/CommandLineTools/usr/bin/git
+24497    02:48:18 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+24503    02:48:18 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+24587    02:48:18 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+24669       00:01 S     19.0 /Library/Developer/CommandLineTools/usr/bin/git
+35738 02-05:40:53 S      0.0 /System/Library/Frameworks/ManagedSettings.framework/Versions/A/ManagedSettingsAgent
+35942 02-05:40:52 Ss     0.0 /System/Library/PrivateFrameworks/ScreenTimeSettingsFoundation.framework/Versions/A/PlugIns/ScreenTimeSettingsDeviceActivityMonitorExtension.appex/Contents/MacOS/ScreenTimeSettingsDeviceActivityMonitorExtension
+36635    13:56:43 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+42994    23:04:58 S      0.0 /opt/homebrew/Cellar/node/26.10.0_1/bin/node
+43859    05:35:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+43861    05:35:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+43947    05:35:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+43967    05:35:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+43968    05:35:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+44068    05:35:46 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+61379    13:12:46 S      0.0 /Applications/Visual Studio Code.app/Contents/Resources/app/node_modules.asar.unpacked/@github/copilot-sdk-darwin-arm64/prebuilds/darwin-arm64/copilot-runtime
+71584    04:48:48 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+71590    04:48:48 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+71722    04:48:48 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+75201    02:17:14 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+75204    02:17:14 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+75301    02:17:14 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+75888    10:44:26 SN     0.5 /Users/hughpyle/play/gitseq-reader-02090-artroom/gs
+76190 01-09:54:33 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+76197 01-09:54:33 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+77533    08:21:41 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+77711 01-08:47:52 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+77774    08:21:33 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+77810    08:21:31 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+78019    08:21:27 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+78024    08:21:27 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+79044    08:21:07 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+79264 01-05:09:17 S      0.0 /System/Library/PrivateFrameworks/ScreenTimeSettingsFoundation.framework/Versions/A/ScreenTimeSettingsAgent
+81016 01-03:46:36 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+85458    05:17:07 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+86486       06:32 Rs   105.2 /Users/hughpyle/.local/bin/gs
+89330       05:12 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+89333       05:12 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper
+94857       02:17 S      0.0 /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)
+95077       02:12 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+98238    04:17:33 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+98239    04:17:33 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node
+98261    04:17:33 S      0.0 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl
+99630       00:51 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+99677       00:49 S      0.0 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared
+82031 01-03:45:05 S+     0.7 gs
+12537    11:57:28 S+     0.0 gs

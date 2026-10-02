@@ -1,0 +1,5 @@
+Command: git diff --cached --check
+Exit code: 2
+Disposition: preserve the sole diagnostic in the exact historical capture; no authored whitespace failure.
+experiments/post-spike-evidence/2026-10-01/s0-replay/build.log:5: trailing whitespace.
++[plugin builtin:vite-reporter] 

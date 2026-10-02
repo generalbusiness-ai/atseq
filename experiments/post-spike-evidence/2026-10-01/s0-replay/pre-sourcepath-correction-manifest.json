@@ -1,0 +1,171 @@
+{
+  "inheritedFixtureSha256": "bc0ead4ddb710a1a5c3cb5d1d3836d19a60b33360f8ca36d0138a37aac663b4d",
+  "inheritedFixtureBytes": 8733307,
+  "publicInputSha256": "1365b7cc6fdfef7ded73ada30f2af2e7c4ede0da490b1d41a8a1f4b0b3878e3e",
+  "publicInputBytes": 7315417,
+  "request": "1c284142e7488e4242a77a67ec1cda349efd8151",
+  "promise": "98cc092fcd4b0c9522438fe68352fec188216fa2",
+  "inputs": [
+    {
+      "name": "row-array-100",
+      "family": "row-array",
+      "n": 100,
+      "basis": "row-array-at-cap; existing schema and programs",
+      "originalSourceCid": "bafyreid4tqt572qou76gf26mz4dh7ozli34rxqnyw6nw6tehih5la6j75e",
+      "derivativeSourceCid": "bafyreid4tqt572qou76gf26mz4dh7ozli34rxqnyw6nw6tehih5la6j75e",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "query": "summary",
+      "expectedQuery": {
+        "count": 1000,
+        "total": 1000000000
+      }
+    },
+    {
+      "name": "taskboard-100",
+      "family": "taskboard",
+      "n": 100,
+      "basis": "taskboard-at-cap; existing schema and programs",
+      "originalSourceCid": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "derivativeSourceCid": "bafyreidd7mhmy4y3so2nj353hj2wyz5wtnm4c7qcjzi2edwecsxh4ven4y",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 130172,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "query": "summary",
+      "expectedQuery": {
+        "count": 1000,
+        "completed": 1000
+      }
+    },
+    {
+      "name": "guitar-selection-100",
+      "family": "guitar-selection",
+      "n": 100,
+      "basis": "existing guitarEvolution schema and programs; retained cap candidates with shortened title padding",
+      "originalSourceCid": "bafyreic3n35csmtnymvpzewkb4n6ro4qne5m3cn7qbu2n7ce3zwuljmjeq",
+      "derivativeSourceCid": "bafyreidycuzgbgkpigpihuqoyac6bpe45owx5r5m4mtb3lbnff4ic2z5z4",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "query": "selection",
+      "expectedQuery": {
+        "selected": "r00999"
+      }
+    },
+    {
+      "name": "ledger-100",
+      "family": "ledger",
+      "n": 100,
+      "basis": "ledger-at-cap; existing schema and programs",
+      "originalSourceCid": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "derivativeSourceCid": "bafyreih42fzg2gjyu3vwsfwk22uxclyk4epqwxlxyyshfmqwkunkynhuki",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 126022,
+      "finalStateBytes": 131072,
+      "initialRows": 900,
+      "finalRows": 1000,
+      "query": "summary",
+      "expectedQuery": {
+        "count": 1000,
+        "balanceMinor": 0,
+        "currency": "GBP"
+      }
+    },
+    {
+      "name": "row-array-1000",
+      "family": "row-array",
+      "n": 1000,
+      "basis": "row-array-at-cap; existing schema and programs",
+      "originalSourceCid": "bafyreid4tqt572qou76gf26mz4dh7ozli34rxqnyw6nw6tehih5la6j75e",
+      "derivativeSourceCid": "bafyreid4tqt572qou76gf26mz4dh7ozli34rxqnyw6nw6tehih5la6j75e",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "query": "summary",
+      "expectedQuery": {
+        "count": 1000,
+        "total": 1000000000
+      }
+    },
+    {
+      "name": "taskboard-1000",
+      "family": "taskboard",
+      "n": 1000,
+      "basis": "taskboard-at-cap; existing schema and programs",
+      "originalSourceCid": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "derivativeSourceCid": "bafyreieupnosbfy4jx4qf25iji5tw6lhzpdphbfbgiaq7twhjukqfb2kie",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 122073,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "query": "summary",
+      "expectedQuery": {
+        "count": 1000,
+        "completed": 1000
+      }
+    },
+    {
+      "name": "guitar-selection-1000",
+      "family": "guitar-selection",
+      "n": 1000,
+      "basis": "existing guitarEvolution schema and programs; retained cap candidates with shortened title padding",
+      "originalSourceCid": "bafyreic3n35csmtnymvpzewkb4n6ro4qne5m3cn7qbu2n7ce3zwuljmjeq",
+      "derivativeSourceCid": "bafyreidycuzgbgkpigpihuqoyac6bpe45owx5r5m4mtb3lbnff4ic2z5z4",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "query": "selection",
+      "expectedQuery": {
+        "selected": "r00999"
+      }
+    },
+    {
+      "name": "ledger-1000",
+      "family": "ledger",
+      "n": 1000,
+      "basis": "ledger-at-cap; existing schema and programs",
+      "originalSourceCid": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "derivativeSourceCid": "bafyreigeg3jtwe4yvlzwnmphab3eoppxv6asbrerr7bvi7wnh7gtrijalm",
+      "changedSourcePaths": [
+        "initial.json"
+      ],
+      "initialStateBytes": 48,
+      "finalStateBytes": 131072,
+      "initialRows": 0,
+      "finalRows": 1000,
+      "query": "summary",
+      "expectedQuery": {
+        "count": 1000,
+        "balanceMinor": 0,
+        "currency": "GBP"
+      }
+    }
+  ],
+  "privateKeysRetained": false
+}

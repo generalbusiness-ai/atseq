@@ -1,0 +1,302 @@
+{
+  "format": "atseq-accepted-continuation-publication-delivery",
+  "version": 1,
+  "date": "2026-10-02",
+  "basis": "65e7042a01184f4d755bf0a7853e92411e6dee9f",
+  "request": "688aefa42d299063a67f157e0de0190970b17929",
+  "promise": "7436927d979521ef810a5f95972a7980b74bd8fb",
+  "sourceFiles": 50,
+  "sourceBytes": 3394609,
+  "deliveryFiles": 57,
+  "hashedFiles": 56,
+  "hashedBytes": 3441029,
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/native-coordinator-d5/decision-vectors.json",
+      "bytes": 26646,
+      "sha256": "87933a23f0937d47a03527dcd5cd0f03b144e302219d628934848d3751e51d0f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/native-coordinator-d5/source-pins.json",
+      "bytes": 5499,
+      "sha256": "7bf6793a36fbb661907a0357580590999f571ec0ba618db3641133e48e0a15fa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/native-observer-clarification/expectation-vectors.json",
+      "bytes": 18790,
+      "sha256": "2d4cd57791e2ea6d0ca6f120b5f8ee0e0fa687c24c5c29f755e1b9eca240f784"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/native-observer-clarification/manifest.json",
+      "bytes": 1649,
+      "sha256": "76fd0ea5e51cc2a92c1ccaa4f33825b2676adb3031f9a7e2eca45a960596d589"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/native-observer-clarification/source-inspection.json",
+      "bytes": 15404,
+      "sha256": "20101165d72227e9e2c4fd5c1776773626bc7b448c73cab7a9cfec286db5a50f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/retry-prefix-boundary/decision-vectors.json",
+      "bytes": 12753,
+      "sha256": "28ddbbcaea2807709097735e260380ee4e2fd1d2fd486a1422e1df306fa52fda"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/retry-prefix-boundary/manifest.json",
+      "bytes": 3826,
+      "sha256": "51e412a71957c93160c040f5b5652c186accb98333db6f1e41308e138dc6c2c7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/build.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/chromium-probe-initial.log",
+      "bytes": 481,
+      "sha256": "c804eef6e4034ebd0a2cc1db091dc464814fdb5a367ef58d74646d79a9eb0222"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/chromium-probe-unrestricted.log",
+      "bytes": 78,
+      "sha256": "44f725b2a54cddd128585697f778f454ab06e275297e52dfb33587cad47e7a3a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/chromium-probe.json",
+      "bytes": 4504,
+      "sha256": "60cdfbf300c370085d62d6047bc4363fcd9f83e2ac0700dcb940f45a81469579"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/chromium-timing.json",
+      "bytes": 9075,
+      "sha256": "62e8849510f012f769c6ab03183c932522bdfbf3ac008eac87c801c589cd6444"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/chromium-timing.log",
+      "bytes": 79,
+      "sha256": "424ac13e069c71da49eac2c914e7b222664cda6c9e9fa53aaad43feeca50d29a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/final-check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/initial-preparation-inputs.json.gz",
+      "bytes": 993464,
+      "sha256": "405f522f6862c9fc2dd52d2f5f4ec1f39bbf3a9065834068570de0fda75eef64"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/initial-preparation-manifest.json",
+      "bytes": 5565,
+      "sha256": "d6fe283a2458d78037e97e72fed3d3b02f3f729566de5209d5d547443e6180df"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/input-manifest.json",
+      "bytes": 5505,
+      "sha256": "ac4187ba21e20af94c50f712322fa1ada1a9568f6e57fd5695696117df06ff8f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/manifest.json",
+      "bytes": 13686,
+      "sha256": "b439eb50eaea3350aded8d408999d83cf585b539060b3066742cf90d9324dfd0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/node-probe.json",
+      "bytes": 6803,
+      "sha256": "b19f3611ecadc837b3fa22d426f4770544155bdb18fe6d550f983b6dc952fdac"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/node-probe.log",
+      "bytes": 47,
+      "sha256": "bb2c0ac2c29d08d67042c3b97713ffa9f4da8a1cebc7baea117ba005e9eb0b0c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/node-timing.json",
+      "bytes": 11351,
+      "sha256": "49e6702a9c99cbe6e7c8bd841a1eeedd7aaa12ad2403192022a721b2060e3bbf"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/node-timing.log",
+      "bytes": 48,
+      "sha256": "d87fc26f8023e3ffb6ef4183232aabe26746dd00047cda14f0c4b40fa74d1e80"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/pre-sourcepath-correction-inputs.json.gz",
+      "bytes": 993344,
+      "sha256": "2edb6801339776f673ede7ff3646a610e388e9cb1282ffc43c267494e13bba65"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/pre-sourcepath-correction-manifest.json",
+      "bytes": 5565,
+      "sha256": "31c9b22585b760e23e8da21a0c7dcd14ba32dd96f70d9228ef15974288346376"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/preparation.log",
+      "bytes": 576,
+      "sha256": "b52d4f2a74a17c77b85d468a1ed1523511443768040a5b1a108a935d556c642d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/process-after.txt",
+      "bytes": 16214,
+      "sha256": "5d1e1a9bf8b3d72a8bacac76df97be7bb227f35d3094ccd0dbc0abea40b9bcc7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/process-before.txt",
+      "bytes": 19087,
+      "sha256": "ed868ea41c910450a2fb68b35f8f6872a0540f955d11b252d52da6bffe4ac553"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/process-chromium-during.txt",
+      "bytes": 13315,
+      "sha256": "5b3677434c34ffa200b5546d04da43053f90cf01c5db727a01aa5dcad56ffdf6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/process-node-during.txt",
+      "bytes": 20406,
+      "sha256": "27b2db4e8e03321c9eddcabf01461e98c972c78f2c5c4bdca8777dace5cc1ae6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/process-preparation.txt",
+      "bytes": 19402,
+      "sha256": "29acab3c2900c46e88c6b16f92f34d13adffbdd014a2bca522e5fd2ac21e1e7f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/process-stage-boundary.txt",
+      "bytes": 14438,
+      "sha256": "bd4ab0f2195a41fe880a00fb706430af9faf5df12833cb81dabd143d4c2eb291"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/public-inputs.json.gz",
+      "bytes": 993338,
+      "sha256": "53f75ada8d25898d7d68838a15278ab4816a6eaf1df2ebddf8e54531a142ac98"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/statistics-table.md",
+      "bytes": 719,
+      "sha256": "eb16bfc686254e1552945a70678cc5af4bfd56967efaa185575e3b676fe78cfd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/statistics.json",
+      "bytes": 5841,
+      "sha256": "856e96c561105335bf166b7f1962a37e68286e0977e87cfa2ccbdafb438267a6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/s0-replay/typecheck.log",
+      "bytes": 411,
+      "sha256": "6f729f78fb1b8d9dce4483cf8b95d3048ca216ba46a85ba6177d73516b203c7f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/accepted-continuation-publication/format-check.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/accepted-continuation-publication/source-publication.json",
+      "bytes": 26088,
+      "sha256": "1a775b188bca176ea60509e3aac2fd47b2f51fcc2daa13f003850c94dbc59891"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/accepted-continuation-publication/validation.json",
+      "bytes": 1099,
+      "sha256": "e125e59fb24d4f19822b3b0097a0646b12a35504aa87682fdb83becb5018245e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/accepted-continuation-publication/verify-publication.py",
+      "bytes": 10222,
+      "sha256": "bd01bc4d0983077548070d96446460db82965a51bd914bfd51396f32a2775cdd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/accepted-continuation-publication/whitespace-check.log",
+      "bytes": 275,
+      "sha256": "a0dee239ed23dd9996e1f6c2d26c35499e767cbebf00f5cee604aa75107c04f1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/retry-prefix-boundary/decision-vectors.json",
+      "bytes": 18286,
+      "sha256": "480a98b6644145ef102b7015badf733be9adaba6fb67bd2b46f607b47b6cd662"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/retry-prefix-boundary/manifest.json",
+      "bytes": 8359,
+      "sha256": "cde927011085a3b83e2aa89508db76bd8426a2f50627eba0fc0385a8b7759786"
+    },
+    {
+      "path": "experiments/s0-replay/browser-run.mjs",
+      "bytes": 3345,
+      "sha256": "da7f247e6ecb8843cad27471c06052b4925df58a702ac418d7203b8dccc3190d"
+    },
+    {
+      "path": "experiments/s0-replay/node-run.ts",
+      "bytes": 2780,
+      "sha256": "9a856c7e351d4b4cbd7f68dd88a31c9274bd69eb069529137c64b9a991612ac2"
+    },
+    {
+      "path": "experiments/s0-replay/prepare.ts",
+      "bytes": 6342,
+      "sha256": "abf5fc9a9251d78aa0689667953c6db5499035d56d51537f98b1a226318bd3b0"
+    },
+    {
+      "path": "experiments/s0-replay/replay.ts",
+      "bytes": 5294,
+      "sha256": "6a8ee4dc4819aba65e7c35159f719f1ce824b7e7a6595f958881f661548e984b"
+    },
+    {
+      "path": "experiments/s0-replay/summarize.py",
+      "bytes": 2788,
+      "sha256": "a852d4eda5645d86119f46d5bd6c7c5719130d79d27bc850f1908cbea934e387"
+    },
+    {
+      "path": "notes/2026-10-01-atseq-native-coordinator-ownership.md",
+      "bytes": 17876,
+      "sha256": "297c981386bc7bb17a314e42878859df1ddd258dbb09fc76621a96a96ac154dc"
+    },
+    {
+      "path": "notes/2026-10-01-atseq-native-observer-clarification.md",
+      "bytes": 9440,
+      "sha256": "73cbcbf6fd2c30cd5a029743a2bee1e007841d50725a8e2ab7e486de262fe7c4"
+    },
+    {
+      "path": "notes/2026-10-01-atseq-retry-prefix-boundary.md",
+      "bytes": 21927,
+      "sha256": "5ea3e7d4bd5b16eae5c85f259060e18933dcf46169831f3472b93f76a916f4a6"
+    },
+    {
+      "path": "notes/2026-10-01-atseq-s0-complete-state-disposition.md",
+      "bytes": 15854,
+      "sha256": "b8e36d0c8460475bb368d4b696c3935a61d9df4954dc85a0c4ff9b0d76066f87"
+    },
+    {
+      "path": "notes/2026-10-01-atseq-s0-replay-preparation.md",
+      "bytes": 6499,
+      "sha256": "565bc84bb5a98db7106de1ee6fd09b5eb8d0cd98fe5f285528a662771a206a44"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-accepted-continuation-publication-results.md",
+      "bytes": 8670,
+      "sha256": "497dad910ae1e826cf68822d7a4a05814bb446c7e9355c7aef771135ba56da99"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-retry-prefix-boundary-revision-results.md",
+      "bytes": 4257,
+      "sha256": "cfbf6919601e98622081d449ea74bc48f598ec1f2c42daacdea1da10e4eae909"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-retry-prefix-boundary.md",
+      "bytes": 31781,
+      "sha256": "7786005948708b1d6af3f1000f76ee84e899e53a1a43126f99765a3239c41a89"
+    }
+  ],
+  "manifestSelfHash": "Excluded from its own list; exact SHA-256 is supplied at the frozen candidate handoff.",
+  "limits": [
+    "Source publication only. Exact reviewed copies and retained measurements create no runtime trust capability.",
+    "No source changes, installation, build, timing rerun, service suite or provider trial.",
+    "One original trailing space in the retained Vite build capture is preserved and documented. No new formatting exception.",
+    "Independent exact-head publication review is required before merge and push."
+  ]
+}

@@ -1,0 +1,723 @@
+{
+  "format": "atseq-source-only-decision-vectors",
+  "version": 1,
+  "date": "2026-10-01",
+  "request": "8cd6eee91eaefd263003ac2d63bdb7286c47ee28",
+  "promise": "cf2dc06b8f67731bee3f004ae6dda375f78b441e",
+  "executionStatus": "NOT EXECUTED: proposed acceptance requirements only",
+  "fixtureStatus": "Descriptions are proposed fixture changes. Implementation must generate/pin actual signed bytes and expected complete projections. This data authenticates no publication and mints no capability.",
+  "sourcePins": "source-pins.json",
+  "stageTableSource": {
+    "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+    "path": "src/definition/native-source-data/application-rules.json",
+    "member": "foldFailureStages"
+  },
+  "cases": [
+    {
+      "id": "genesis-derive-declared-closure",
+      "scope": "bootstrap",
+      "setup": "Checked external pin names a supported root; reader also has unrelated global blocks.",
+      "expected": {
+        "instance": "created after full owner admission",
+        "closure": "derive distinct root plus declared raw files only within same bounded owner attempt",
+        "initialState": "validated owner initial state",
+        "authority": "existing I2 genesis rules; roles revision G; no inferred grants"
+      }
+    },
+    {
+      "id": "genesis-caller-claims",
+      "scope": "bootstrap",
+      "setup": "Attempt caller closure vector, source facts, state, support descriptor, validator or Boolean authorization input.",
+      "expected": {
+        "acceptanceRoute": "no such parameter or registering factory",
+        "instance": "none from substituted claims"
+      }
+    },
+    {
+      "id": "genesis-root-hash-mismatch",
+      "scope": "bootstrap",
+      "setup": "Canonical-looking selected root bytes do not hash to pinned CID.",
+      "expected": {
+        "instance": "none",
+        "classification": "unavailable/content corruption",
+        "outcome": "none"
+      }
+    },
+    {
+      "id": "genesis-complete-invalid",
+      "scope": "bootstrap",
+      "setup": "Complete hash-correct root/schema/initial state/static program/view violates adopted source rules.",
+      "expected": {
+        "instance": "none",
+        "classification": "reject invalid bootstrap",
+        "outcome": "no invented genesis outcome"
+      }
+    },
+    {
+      "id": "genesis-unsupported-contracts",
+      "scope": "bootstrap",
+      "setup": "Pinned native semantic CID or complete source application semantic CID differs from compiled support.",
+      "expected": {
+        "instance": "none",
+        "authorityInitialization": "not performed",
+        "outcome": "none",
+        "supportRegistry": "caller cannot supply one"
+      }
+    },
+    {
+      "id": "genesis-aliased-occurrences",
+      "scope": "bootstrap",
+      "setup": "Repeated named file CID yields legal unique-block bytes but exceeds decoded occurrence limit.",
+      "expected": {
+        "instance": "none",
+        "classification": "invalid after verified lengths; charge each named occurrence"
+      }
+    },
+    {
+      "id": "genesis-local-limit",
+      "scope": "bootstrap",
+      "setup": "Legal source exceeds only local read/chunk/retention capacity.",
+      "expected": {
+        "instance": "none",
+        "classification": "unavailable, no normative size evidence",
+        "outcome": "none"
+      }
+    },
+    {
+      "id": "forged-entry-empty",
+      "scope": "capability",
+      "setup": "Supply empty object as authenticated entry.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "existing authenticated entry WeakMap refuses"
+      }
+    },
+    {
+      "id": "forged-entry-spread",
+      "scope": "capability",
+      "setup": "Supply spread real token as authenticated entry.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "existing authenticated entry WeakMap refuses"
+      }
+    },
+    {
+      "id": "forged-entry-prototype",
+      "scope": "capability",
+      "setup": "Supply Object.create(real token) as authenticated entry.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "existing authenticated entry WeakMap refuses"
+      }
+    },
+    {
+      "id": "forged-entry-clone",
+      "scope": "capability",
+      "setup": "Supply structuredClone(real token) as authenticated entry.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "existing authenticated entry WeakMap refuses"
+      }
+    },
+    {
+      "id": "caller-completion-factory-absent",
+      "scope": "capability",
+      "setup": "Attempt to complete transition from parsed outcome, state, source facts, Boolean or permission callback.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "route": "no exported/registering completion consumer accepts these claims"
+      }
+    },
+    {
+      "id": "wrong-source-action-capability",
+      "scope": "capability",
+      "setup": "Genuine action belongs to another admitted definition.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "owner exact definition/action-map identity refuses; no eligibility"
+      }
+    },
+    {
+      "id": "plain-data-cannot-restore",
+      "scope": "capability",
+      "setup": "Supply exported authority/source/application snapshot as accepted state.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "no accepted restore factory; bootstrap requires checked pin and actual owner admission"
+      }
+    },
+    {
+      "id": "grant-absent-beats-action",
+      "scope": "ordinary",
+      "setup": "Grant unadmitted; action absent.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "grant_unadmitted"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "grant-cid-beats-revoke",
+      "scope": "ordinary",
+      "setup": "Existing ID has differing immutable CID and is revoked.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "grant_conflict"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "revoke-beats-action",
+      "scope": "ordinary",
+      "setup": "Exact admitted CID revoked; action absent.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "grant_revoked"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "epoch-beats-signer",
+      "scope": "ordinary",
+      "setup": "Stale epoch and wrong signer.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "grant_epoch"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "signer-beats-scope",
+      "scope": "ordinary",
+      "setup": "Live epoch; wrong signer and absent pair.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "grant_signer"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "pair-scope-beats-action",
+      "scope": "ordinary",
+      "setup": "Correct live signer; signed pair not in the one grant; action absent.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "grant_scope"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "action-absence-beats-execution",
+      "scope": "ordinary",
+      "setup": "Grant lists signed pair but admitted active map has no action.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "unknown_action"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "role-beats-execution",
+      "scope": "ordinary",
+      "setup": "Known action requires absent/disabled role; grant permits signed execution differing from current.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "role_missing"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "open-still-needs-grant",
+      "scope": "ordinary",
+      "setup": "Open participation action but no live exact grant.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "grant_unadmitted"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "execution-beats-input",
+      "scope": "ordinary",
+      "setup": "All grant/role checks pass; execution differs and payload invalid.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "execution_changed"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "input-schema",
+      "scope": "ordinary",
+      "setup": "Eligible exact action input raises exact typed schema_value or schema_coercion.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "invalid_action"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "fold-source-injection",
+      "scope": "ordinary",
+      "setup": "Fold returns source: framework in otherwise plausible denial.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "fold_failed/fold_output"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "authored-denial-namespace",
+      "scope": "ordinary",
+      "setup": "Fold returns invalid_activation as reason and an allowed exact message.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "fold",
+          "reason": "invalid_activation",
+          "message": "exact authored message"
+        },
+        "domainState": "unchanged",
+        "frontier": "advance one"
+      }
+    },
+    {
+      "id": "fold-stage-allowlist",
+      "scope": "ordinary",
+      "setup": "Each exact typed code at actual evaluator/fold callsite in compiled evaluateAndFold table.",
+      "expected": {
+        "outcome": "framework fold_failed/<code>",
+        "codes": "only the exact 15 compiled stage codes",
+        "message": "none replicated",
+        "domainState": "unchanged",
+        "frontier": "advance one"
+      }
+    },
+    {
+      "id": "successor-schema",
+      "scope": "ordinary",
+      "setup": "Eligible fold effective result fails designated successor schema_value/schema_coercion.",
+      "expected": {
+        "outcome": "framework fold_failed/schema_value or fold_failed/schema_coercion respectively",
+        "domainState": "unchanged",
+        "frontier": "advance one"
+      }
+    },
+    {
+      "id": "foreign-static-runtime-fault",
+      "scope": "ordinary",
+      "setup": "Actual callsite raises engine_error/dependency_mismatch/static admission code, foreign object or InterpretationError subclass.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "escapes/stalls; no catch-all public-code mapping"
+      }
+    },
+    {
+      "id": "device-metadata-equivalence",
+      "scope": "ordinary",
+      "setup": "Independent histories at same app/G/position/principal/execution/payload/state use two independently eligible devices/grants.",
+      "expected": {
+        "metadataKeys": ["app", "genesis", "position", "principal", "execution"],
+        "metadataAndDomainResult": "byte equal",
+        "authorityDetails": "retain actual differing signed device/grant/epoch details"
+      }
+    },
+    {
+      "id": "ambient-metadata-absent",
+      "scope": "ordinary",
+      "setup": "Fold reads actorKey/grant/epoch/definition/identity/authority/clock from metadata.",
+      "expected": {
+        "metadata": "only five adopted fields",
+        "semantics": "existing evaluator absent-property/result behavior; no ambient injection"
+      }
+    },
+    {
+      "id": "unicode-message-boundary",
+      "scope": "ordinary",
+      "setup": "Exercise empty message, 1024 astral code points/4096 bytes, one code point over, malformed surrogate.",
+      "expected": {
+        "legal": "exact source fold message retained",
+        "overCodePoints": "framework fold_failed/fold_message",
+        "malformed": "designated evaluator/fold unicode failure",
+        "frontier": "completed authenticated outcome advances one"
+      }
+    },
+    {
+      "id": "control-prefix-before-fetch",
+      "scope": "activation",
+      "setup": "Mix stale intended context/tip, absent appointment, wrong power and stale expected definition; count reader calls.",
+      "expected": {
+        "outcome": "first applicable control_context_stale, control_tip_stale, control_unappointed, control_power, definition_changed in fixed order",
+        "targetReaderCalls": 0,
+        "frontier": "advance one for valid ineffective entry"
+      }
+    },
+    {
+      "id": "owner-role-does-not-activate",
+      "scope": "activation",
+      "setup": "Owner has participant grant and role but no prior govern appointment.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "control_unappointed"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "forged-reader-error",
+      "scope": "activation",
+      "setup": "Reader throws real public AtseqError invalid_activation or InterpretationError incompatible_definition.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "exact callback exception escapes; no owner facts or replicated denial"
+      }
+    },
+    {
+      "id": "signed-set-not-repaired",
+      "scope": "activation",
+      "setup": "Complete signed vector omits declared dependency or includes extra complete block; global pool has dependency.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "invalid_activation"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable",
+        "selection": "exact supplied vector; never derive/deduplicate/repair"
+      }
+    },
+    {
+      "id": "oversize-before-later-corrupt",
+      "scope": "activation",
+      "setup": "Earlier selected file oversized but later listed file missing or hash-corrupt.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "unavailable before complete normative size evidence"
+      }
+    },
+    {
+      "id": "semantic-mismatch-before-program",
+      "scope": "activation",
+      "setup": "Complete legal closure pins different application semantics plus unsupported target program.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "incompatible_definition"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable",
+        "stage": "semantic comparison before target program interpretation"
+      }
+    },
+    {
+      "id": "state-projection-change",
+      "scope": "activation",
+      "setup": "Admitted successor same semantics but different complete state-only projection.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "incompatible_definition"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "retain-current-state",
+      "scope": "activation",
+      "setup": "Admitted successor equal state-only projection; its valid initial state differs from current.",
+      "expected": {
+        "outcome": {
+          "decision": "effective"
+        },
+        "domainState": "retain captured current state, validated by successor",
+        "activeSource": "successor actual admitted capability",
+        "controlTip": "this unsigned request CID",
+        "frontier": "advance one"
+      }
+    },
+    {
+      "id": "same-source-no-new-noop",
+      "scope": "activation",
+      "setup": "Authorized activation expects and targets current source with exact complete signed vector.",
+      "expected": {
+        "outcome": {
+          "decision": "effective"
+        },
+        "domainState": "unchanged validated state",
+        "controlTip": "this unsigned request CID",
+        "frontier": "advance one",
+        "newReason": "none"
+      }
+    },
+    {
+      "id": "current-state-validation",
+      "scope": "activation",
+      "setup": "Complete equal interface; actual designated successor validator rejects current state with known schema rejection.",
+      "expected": {
+        "outcome": {
+          "decision": "ineffective",
+          "source": "framework",
+          "reason": "invalid_activation"
+        },
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "frontier": "advance exactly one authenticated entry",
+        "consumedIdentities": "consume request and actor retry once, observation if applicable"
+      }
+    },
+    {
+      "id": "stale-after-await",
+      "scope": "atomicity",
+      "setup": "Suspend auth/source/fold then test-only actual-module instrumentation changes private generation.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "exact generation check refuses before classification/persistence",
+        "productionInjection": "none"
+      }
+    },
+    {
+      "id": "caller-mutation-during-await",
+      "scope": "atomicity",
+      "setup": "Mutate original entry/closure/options/delivered byte chunks before or during awaits.",
+      "expected": {
+        "selection": "authenticated entry and owned source target unchanged",
+        "bytes": "hash and retain same owned snapshots",
+        "commit": "only captured authenticated operation"
+      }
+    },
+    {
+      "id": "persistence-rejects",
+      "scope": "atomicity",
+      "setup": "Whole-projection atomic callback rejects before durable write.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "memory unchanged; same exact entry can retry later"
+      }
+    },
+    {
+      "id": "persistence-copy-mutation",
+      "scope": "atomicity",
+      "setup": "Callback mutates its received snapshot then succeeds.",
+      "expected": {
+        "generation": "actual private successor unaffected",
+        "stateOutcomeSourceFrontier": "exact producer-owned values"
+      }
+    },
+    {
+      "id": "commit-before-result",
+      "scope": "atomicity",
+      "setup": "Observe configured persistence completion, generation replacement and result exposure.",
+      "expected": {
+        "order": [
+          "complete successor prepared",
+          "persistence succeeds",
+          "exact base rechecked",
+          "synchronous generation replacement",
+          "committed local result exposed"
+        ],
+        "futureHost": "cannot expose committed outcome/checkpoint before this order"
+      }
+    },
+    {
+      "id": "second-ordered-retry",
+      "scope": "atomicity",
+      "setup": "Second ordered occurrence of accepted unsigned request or actor nonce identity.",
+      "expected": {
+        "outcome": "none",
+        "domainState": "unchanged",
+        "activeSource": "unchanged",
+        "authority": "unchanged",
+        "consumedIdentities": "unchanged",
+        "frontier": "unchanged",
+        "classification": "invalid history at I2 context check; no original-result lookup or domain denial"
+      }
+    },
+    {
+      "id": "existing-authority-regressions",
+      "scope": "authority",
+      "setup": "Retain normal floor progression, grant tombstone, epoch forest, null owner, disabled role revision, grant role scope and no-change controls.",
+      "expected": {
+        "authority": "existing reviewed exact I2 transitions unchanged",
+        "domainStateAndSource": "unchanged",
+        "outcome": "adopted framework reason from actual producer",
+        "consumption": "existing one-use request/retry/descriptor behavior"
+      }
+    },
+    {
+      "id": "query-capture",
+      "scope": "query",
+      "setup": "Suspend query while action/activation commits; mutate original params.",
+      "expected": {
+        "sourceStateFrontier": "captured prior generation, never relabeled",
+        "params": "owned before await",
+        "applicationChangesByQuery": "none"
+      }
+    },
+    {
+      "id": "query-failure",
+      "scope": "query",
+      "setup": "Unknown query/malformed params/coercion/Unicode/value/runtime fault.",
+      "expected": {
+        "query": "unavailable bounded local diagnostics",
+        "authorityStateOutcomesIndexesFrontier": "unchanged; no replicated denial"
+      }
+    },
+    {
+      "id": "healthy-live-resume-fresh-replay",
+      "scope": "equivalence",
+      "setup": "Same mixed authenticated history healthy, interrupted/retried at each phase, and fresh replay from checked pin.",
+      "expected": {
+        "comparison": "canonical byte equality of state/source/authority/outcomes/request-retry-descriptor identities/frontier",
+        "resume": "live-container retry and fresh replay only",
+        "trustedCheckpointRestore": "not established; separate P3/P4 gates"
+      }
+    }
+  ]
+}

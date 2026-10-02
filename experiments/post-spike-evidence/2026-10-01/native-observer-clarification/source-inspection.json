@@ -1,0 +1,268 @@
+{
+  "format": "atseq-native-observer-source-inspection",
+  "version": 1,
+  "date": "2026-10-01",
+  "baseline": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+  "acceptedObserverSource": "daade18c86018638509ee5f491aa1aafddd1afc7",
+  "request": "bbd1daf0be2dabf21569e558786631c3649e1f47",
+  "promise": "800db06b46bd42df60033b119ceaf2fdb26eae12",
+  "activity": "Read exact Git source and installed maintained source only. No package installation, observer execution or provider trial.",
+  "files": [
+    {
+      "path": "src/application/native-authority-evidence.ts",
+      "source": "approved Git baseline",
+      "gitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "bytes": 12775,
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e",
+      "excerpts": [
+        {
+          "matchedText": "invalid('Advance epoch differs from selected current pointer');",
+          "startLine": 255,
+          "endLine": 260,
+          "text": "        !recovery\n      )\n        invalid('Advance epoch differs from selected current pointer');\n      if (recovery && recovery.epoch.$link !== current.epoch.$link)\n        invalid('Recovery epoch differs from selected pointer');\n    }\n"
+        },
+        {
+          "matchedText": "invalid('Recovery epoch differs from selected pointer');",
+          "startLine": 258,
+          "endLine": 260,
+          "text": "      if (recovery && recovery.epoch.$link !== current.epoch.$link)\n        invalid('Recovery epoch differs from selected pointer');\n    }\n"
+        },
+        {
+          "matchedText": "invalid('Observation includes unrelated subject records');",
+          "startLine": 261,
+          "endLine": 261,
+          "text": "    if (required.size !== selected.size) invalid('Observation includes unrelated subject records');\n"
+        }
+      ]
+    },
+    {
+      "path": "src/application/native-authority.ts",
+      "source": "approved Git baseline",
+      "gitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "bytes": 19024,
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455",
+      "excerpts": [
+        {
+          "matchedText": "if (grant.epoch.$link !== observation.current?.epoch.$link)",
+          "startLine": 257,
+          "endLine": 264,
+          "text": "    const target = state.grants.find((row) => row.principal === op.principal && row.id === grant.id);\n    if (target?.revoked) return ineffective('grant_revoked');\n    if (target?.cid && target.cid !== op.operation.grant.cid.$link) return ineffective('grant_conflict');\n    if (grant.epoch.$link !== observation.current?.epoch.$link) return ineffective('epoch_conflict');\n    const epochFailure = progressEpoch(row, observation);\n    if (epochFailure) return ineffective(epochFailure);\n    if (target?.cid) return ineffective('authority_unchanged');\n    Object.assign(grantRow(state, op.principal, grant.id), { cid: op.operation.grant.cid.$link, grant });\n"
+        },
+        {
+          "matchedText": "if (!appointment) return ineffective('control_unappointed');",
+          "startLine": 328,
+          "endLine": 341,
+          "text": "  const appointment = state.control.appointments.find(\n    (row) => row.principal === signed.intent.principal && row.actorKey === signed.intent.actorKey,\n  );\n  if (!appointment) return ineffective('control_unappointed');\n  const recovery = new Set<string>([\n    nativeRef('setRecovery'),\n    nativeRef('recoverGovernance'),\n    nativeRef('recoverParticipant'),\n  ]).has(op.$type);\n  if (!appointment.powers.includes(recovery ? 'recover' : 'govern')) return ineffective('control_power');\n  let outcome: NativeAuthorityOutcome;\n  if (op.$type === nativeRef('recoverParticipant')) {\n    if (!observation) invalid('Recovery lacks authenticated observation');\n    const existing = state.principals.find((row) => row.principal === op.target);\n"
+        },
+        {
+          "matchedText": "if (state.retries.includes(nativeRetryIdentity(intent)))",
+          "startLine": 161,
+          "endLine": 166,
+          "text": "  else {\n    const intent = (entry.request as NativeSignedRequest).intent;\n    if (state.retries.includes(nativeRetryIdentity(intent))) invalid('Actor nonce occurs twice in ordered history');\n    if (intent.operation.$type === nativeRef('recoverParticipant')) descriptor = intent.operation.observation.$link;\n  }\n  if (descriptor && state.consumedObservations.includes(descriptor))\n"
+        }
+      ]
+    },
+    {
+      "path": "src/protocol/native-proof.ts",
+      "source": "approved Git baseline",
+      "gitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "bytes": 18104,
+      "sha256": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9",
+      "excerpts": [
+        {
+          "matchedText": "if (car.roots.length !== 1)",
+          "startLine": 231,
+          "endLine": 240,
+          "text": "      nativeFraming(raw.subarray(header.nextOffset, header.nextOffset + header.value), limits.depth);\n      const car = CAR.fromUint8Array(raw, { verifyBlocks: false });\n      if (car.roots.length !== 1) fail('Native CAR must select exactly one root');\n      const root = cborCid(car.roots[0]!.$link);\n      if (expectedRoot !== undefined && expectedRoot !== root) fail('Native CAR root differs from expected root');\n      const staged = new Map<string, Uint8Array<ArrayBuffer>>();\n      let count = 0;\n      for (const block of car) {\n        if (++count > limits.carBlocks) limit('CAR block count exceeds budget');\n        if (block.bytes.length > limits.blockBytes) limit('CAR block bytes exceed budget');\n"
+        },
+        {
+          "matchedText": "CAR.verifyBlock(block.cid, block.bytes);",
+          "startLine": 238,
+          "endLine": 243,
+          "text": "      for (const block of car) {\n        if (++count > limits.carBlocks) limit('CAR block count exceeds budget');\n        if (block.bytes.length > limits.blockBytes) limit('CAR block bytes exceed budget');\n        CAR.verifyBlock(block.cid, block.bytes);\n        staged.set(CID.toString(block.cid), new Uint8Array(block.bytes));\n      }\n"
+        },
+        {
+          "matchedText": "if (!(await key.verify(signature",
+          "startLine": 256,
+          "endLine": 262,
+          "text": "      if (signature.length !== 64) fail('Native signature must use 64-byte compact encoding');\n      const { sig: _sig, ...unsigned } = commit;\n      const key = await signingKey(trustedKey);\n      if (!(await key.verify(signature, CBOR.encode(unsigned), { allowMalleableSig: false })))\n        fail('Invalid native repository signature');\n      this.#admit(staged);\n      const cache = this;\n"
+        },
+        {
+          "matchedText": "if (expectedCid !== undefined && cid !== expectedCid)",
+          "startLine": 335,
+          "endLine": 339,
+          "text": "            if (found === null) return { kind: 'absent' };\n            const cid = cborCid(found.$link);\n            if (expectedCid !== undefined && cid !== expectedCid) fail('Record CID differs from expected record');\n            const bytes = cache.#get(cid);\n            return bytes ? { kind: 'found', cid, bytes: new Uint8Array(bytes) } : { kind: 'missing', cid };\n"
+        }
+      ]
+    },
+    {
+      "path": "src/protocol/native-wire.ts",
+      "source": "approved Git baseline",
+      "gitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+      "excerpts": [
+        {
+          "matchedText": "case nativeRef('accountOperation'):",
+          "startLine": 386,
+          "endLine": 389,
+          "text": "    case nativeRef('accountOperation'):\n      await readNativeValue(data.operation.$type, data.operation);\n      break;\n    case nativeRef('admitGrant'):\n"
+        },
+        {
+          "matchedText": "case NATIVE_NSID.epochCurrent:",
+          "startLine": 500,
+          "endLine": 503,
+          "text": "    case NATIVE_NSID.epochCurrent:\n      expected = 'self';\n      break;\n    case NATIVE_NSID.grant:\n"
+        },
+        {
+          "matchedText": "export async function nativeObservationSubject",
+          "startLine": 631,
+          "endLine": 638,
+          "text": "export async function nativeObservationSubject(value: NativeIntent | NativeAccountOperation): Promise<string> {\n  const owned: any = copy(await readNativeValue(value.$type, value));\n  if (owned.$type === nativeRef('accountOperation')) delete owned.observation;\n  else if (owned.$type === nativeRef('intent') && owned.operation.$type === nativeRef('recoverParticipant'))\n    delete owned.operation.observation;\n  else fail('envelope', 'Only account imports or participant recovery consume observations');\n  return contentCid({ $type: nativeRef('observationSubject'), request: owned });\n}\n"
+        }
+      ]
+    },
+    {
+      "path": "notes/2026-10-01-atseq-native-observer-preparation.md",
+      "source": "accepted observer Git source",
+      "gitRef": "daade18c86018638509ee5f491aa1aafddd1afc7",
+      "bytes": 18274,
+      "sha256": "c35cb110d2a6778de44b49d3fd1067153ff22b9de38e71960d5a79314e8b43bb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/identity-observer-preparation/source-inspection.json",
+      "source": "accepted observer Git source",
+      "gitRef": "daade18c86018638509ee5f491aa1aafddd1afc7",
+      "bytes": 1581,
+      "sha256": "77049b950aaa9217e32ca8809ce1a4951bc62156a1d4d42cb28bdc716406d183"
+    },
+    {
+      "path": "src/integrity/files-approved.json",
+      "source": "approved Git baseline",
+      "gitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "bytes": 1160851,
+      "sha256": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+    },
+    {
+      "path": "node_modules/@atcute/car/dist/reader.js",
+      "source": "installed maintained source; hash matches approved Git file manifest",
+      "package": "@atcute/car",
+      "version": "6.1.0",
+      "approvedManifestGitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "approvedManifestPath": "src/integrity/files-approved.json",
+      "bytes": 4812,
+      "sha256": "2a8cbfe634d24b5d6287c26a75b0faba62a33a0dddd9946dca4de97733669085",
+      "excerpts": [
+        {
+          "matchedText": "roots: header.data.roots,",
+          "startLine": 20,
+          "endLine": 24,
+          "text": "    return {\n        header,\n        roots: header.data.roots,\n        [Symbol.iterator]() {\n            let pos = headerOffset;\n"
+        },
+        {
+          "matchedText": "if (verifyBlocks)",
+          "startLine": 49,
+          "endLine": 53,
+          "text": "                    pos = bytesEnd;\n                    if (verifyBlocks) {\n                        verifyBlock(cid, bytes);\n                    }\n                    const cidEnd = bytesStart;\n"
+        }
+      ]
+    },
+    {
+      "path": "node_modules/@atcute/car/dist/types.js",
+      "source": "installed maintained source; hash matches approved Git file manifest",
+      "package": "@atcute/car",
+      "version": "6.1.0",
+      "approvedManifestGitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "approvedManifestPath": "src/integrity/files-approved.json",
+      "bytes": 319,
+      "sha256": "a6789e2c4f9c70dbf9b76de16618834e53e62c23a5d1f9d28c3d951ce389a542",
+      "excerpts": [
+        {
+          "matchedText": "return version === 1",
+          "startLine": 5,
+          "endLine": 8,
+          "text": "    }\n    const { version, roots } = value;\n    return version === 1 && Array.isArray(roots) && roots.every((root) => root instanceof CidLinkWrapper);\n};\n"
+        }
+      ]
+    },
+    {
+      "path": "node_modules/@atcute/car/dist/verify.js",
+      "source": "installed maintained source; hash matches approved Git file manifest",
+      "package": "@atcute/car",
+      "version": "6.1.0",
+      "approvedManifestGitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "approvedManifestPath": "src/integrity/files-approved.json",
+      "bytes": 775,
+      "sha256": "c71f9afeb51f3e3a8de72fb2d9b5d2b10f54cbee4450905c1bc90559bcc69954",
+      "excerpts": [
+        {
+          "matchedText": "const actual = toSha256Sync(bytes);",
+          "startLine": 14,
+          "endLine": 22,
+          "text": "    const expected = cid.digest.contents;\n    const actual = toSha256Sync(bytes);\n    for (let i = 0; i < 32; i++) {\n        if (actual[i] !== expected[i]) {\n            const codec = cid.codec;\n            throw new CarBlockMismatchError(CID.toString(cid), CID.toString(CID.fromDigest(codec, actual)));\n        }\n    }\n};\n"
+        }
+      ]
+    },
+    {
+      "path": "node_modules/@atcute/car/dist/writer.js",
+      "source": "installed maintained source; hash matches approved Git file manifest",
+      "package": "@atcute/car",
+      "version": "6.1.0",
+      "approvedManifestGitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "approvedManifestPath": "src/integrity/files-approved.json",
+      "bytes": 2118,
+      "sha256": "2c70eb6735e93de5e176298e8d7d30592829f6c89306d864c77cda6993115151",
+      "excerpts": [
+        {
+          "matchedText": "yield serializeCarHeader(roots);",
+          "startLine": 60,
+          "endLine": 67,
+          "text": "export async function* writeCarStream(roots, blocks) {\n    // Emit header first\n    yield serializeCarHeader(roots);\n    // Then emit each block entry\n    for await (const block of blocks) {\n        yield serializeCarEntry(block.cid, block.data);\n    }\n}\n"
+        }
+      ]
+    },
+    {
+      "path": "node_modules/@atcute/car/package.json",
+      "source": "installed maintained package metadata; hash matches approved Git file manifest",
+      "approvedManifestGitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "approvedManifestPath": "src/integrity/files-approved.json",
+      "bytes": 1070,
+      "sha256": "6d6fa72417af7566213f249d124a5c81f847b36e902efa88c9ab8fbcd0227b73",
+      "name": "@atcute/car",
+      "version": "6.1.0"
+    },
+    {
+      "path": "npm-shrinkwrap.json",
+      "source": "approved Git baseline lock; user working copy not read",
+      "gitRef": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+      "inspectedEntry": {
+        "path": "node_modules/@atcute/car",
+        "version": "6.1.0",
+        "resolved": "https://registry.npmjs.org/@atcute/car/-/car-6.1.0.tgz",
+        "integrity": "sha512-Dp7MlyI3YT7NiIUK6bm2ZyA95Pdun+DuFlcr40ZsGdqhOkKrctZT7wMZXSs6IYd7RorjSnddEJDh51hqrkNSPQ==",
+        "inBundle": true,
+        "license": "0BSD",
+        "dependencies": {
+          "@atcute/cbor": "^2.3.8",
+          "@atcute/cid": "^2.5.0",
+          "@atcute/uint8array": "^1.2.0",
+          "@atcute/varint": "^2.0.2"
+        },
+        "peerDependencies": {
+          "@atcute/cbor": "^2.0.0",
+          "@atcute/cid": "^2.0.0"
+        }
+      }
+    }
+  ],
+  "findings": {
+    "advanceAndRecoveryPointerMismatchAlreadyEnvelopeRefusal": true,
+    "oldEpochGrantEffectivenessRemainsI2": true,
+    "carReaderSeparatesHeaderRootsFromBody": true,
+    "nativeAuthenticationRequiresOneRootAndCommitWithExpectedRootPin": true,
+    "maintainedWriterTakesExplicitRoots": true,
+    "maintainedCarInspectedFilesMatchApprovedManifest": true
+  }
+}

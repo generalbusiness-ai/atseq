@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "capturedAt": "2026-10-02T02:44:12.306Z",
+    "exactHead": "7ae19979b72f735ffe6f08012a5e9185b6dc04e4",
+    "node": "v26.10.0",
+    "machine": {
+      "platform": "darwin",
+      "release": "27.0.0",
+      "arch": "arm64",
+      "cpu": "Apple M5 Max",
+      "logicalCpus": 18,
+      "totalMemoryBytes": 68719476736
+    },
+    "inputSha256": "53c4b6b3c76548d9678d81037972506fcb75d02e544b00350e209d3e017be88a",
+    "inputBytes": 7315389,
+    "profiles": [
+      {
+        "name": "atseq-log-v2",
+        "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+        "role": "log"
+      },
+      {
+        "name": "atseq-jsonata-v1",
+        "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+        "role": "evaluator"
+      },
+      {
+        "name": "atseq-app-v2",
+        "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+        "role": "application"
+      }
+    ],
+    "sourceHashes": {
+      "experiments/s0-replay/prepare.ts": "abf5fc9a9251d78aa0689667953c6db5499035d56d51537f98b1a226318bd3b0",
+      "experiments/s0-replay/replay.ts": "6a8ee4dc4819aba65e7c35159f719f1ce824b7e7a6595f958881f661548e984b",
+      "experiments/s0-replay/node-run.ts": "9a856c7e351d4b4cbd7f68dd88a31c9274bd69eb069529137c64b9a991612ac2",
+      "experiments/s0-replay/browser-run.mjs": "da7f247e6ecb8843cad27471c06052b4925df58a702ac418d7203b8dccc3190d",
+      "src/application/folder.ts": "de87ce34a4062417c933ce8b7b7eb273f992a37ac3c8afc3bbe3be664b2111f0",
+      "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+      "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+      "src/core/values.ts": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f",
+      "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+      "src/protocol/log.ts": "185e92c4d2e044c8b2ca9fba91a9de5a647338735a6f67635503caadc0856844",
+      "testdata/apps/evolution.ts": "71031d4e35808dff51ae25bf390ca0da053d3ff4497c0bb104a92b3453744adc",
+      "testdata/apps/fixtures.ts": "d94df092b9bc659ab54c43cc8b9cc90dbd97884faf3d23ea8dd1de92d497a525",
+      "testdata/source-documents/taskboard.atseq.json": "bf2c631de02840922a58d61f921e6c3d3ddd7367ed05f21ec05c85651c03df20",
+      "testdata/source-documents/guitar.atseq.json": "1d1a5163f18f53e7eeae178f90fda440fee0efe42e6f8bcf5de7f1952dce9643",
+      "testdata/source-documents/ledger.atseq.json": "f0b35532e77430223b076a1b33b9cffebdab09ea02971f4275d12154ac615f82",
+      "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+      "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+      "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+      "src/integrity/files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+    },
+    "method": "Each timed span interprets all N distinct signed entries from frontier zero using actual Folder.catchUpVerifiedStatus once. Source loading, signature/history verification, ten-entry warmup, final snapshot, query and independent oracle are outside the span. No persistence adapter; no native repository proofs, transport, checkpoint restore, archive or worker cost."
+  },
+  "samples": 2,
+  "warmupEntriesPerCell": 10,
+  "captures": [
+    {
+      "name": "row-array-100",
+      "family": "row-array",
+      "n": 100,
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 1655.416875
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 1645.4150829999999
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreif3dwkzypjvtdfkkxv3hpakuq4bnqaqql276efo5bi4uphrh3q6pm"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "revision": 0
+        },
+        "queryValue": {
+          "count": 1000,
+          "total": 1000000000
+        }
+      }
+    },
+    {
+      "name": "taskboard-100",
+      "family": "taskboard",
+      "n": 100,
+      "initialStateBytes": 130172,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 2757.220333
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 2969.491083000001
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreifx4eub7c4tpj2txto54xrwtbv77uq6xyamudb3lxbn6tbjwwyshi"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "completed": 1000
+        },
+        "queryValue": {
+          "completed": 1000,
+          "count": 1000
+        }
+      }
+    },
+    {
+      "name": "guitar-selection-100",
+      "family": "guitar-selection",
+      "n": 100,
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 2417.102583
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 2566.8737500000007
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreifxf725ykvhkylemg5eogothv7rzuxeewxi37omptheloqz5xc3qa"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "selected": "r00999"
+        },
+        "queryValue": {
+          "selected": "r00999"
+        }
+      }
+    },
+    {
+      "name": "ledger-100",
+      "family": "ledger",
+      "n": 100,
+      "initialStateBytes": 126022,
+      "finalStateBytes": 131072,
+      "initialRows": 900,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 2470.513917
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 2583.961209000001
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreiakocffy33vq6zy7frbqehuhxpazawrnqo6e3lv7syeu6pc6bie44"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "independentlySummedMinor": 0,
+          "currency": "GBP"
+        },
+        "queryValue": {
+          "balanceMinor": 0,
+          "count": 1000,
+          "currency": "GBP"
+        }
+      }
+    },
+    {
+      "name": "row-array-1000",
+      "family": "row-array",
+      "n": 1000,
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 16285.757333999998
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 16498.456165999996
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreiceliztzx54xhlop47l2d6fc3f67nh5eavz5uqglhfoefdkljk2be"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "revision": 0
+        },
+        "queryValue": {
+          "count": 1000,
+          "total": 1000000000
+        }
+      }
+    },
+    {
+      "name": "taskboard-1000",
+      "family": "taskboard",
+      "n": 1000,
+      "initialStateBytes": 122073,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 24700.880249999995
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 24425.892708
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreienuns4lvlxsrx4kr4fqvv5b7vre6hn5tl4o4jbwgqf2ecbkbvdxa"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "completed": 1000
+        },
+        "queryValue": {
+          "completed": 1000,
+          "count": 1000
+        }
+      }
+    },
+    {
+      "name": "guitar-selection-1000",
+      "family": "guitar-selection",
+      "n": 1000,
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 21668.18979199999
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 22242.44137499998
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreidrqzd7duvdt74ks54qbvnuau4dcvxljnezckgkbdvxq6qaxijaje"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "selected": "r00999"
+        },
+        "queryValue": {
+          "selected": "r00999"
+        }
+      }
+    },
+    {
+      "name": "ledger-1000",
+      "family": "ledger",
+      "n": 1000,
+      "initialStateBytes": 48,
+      "finalStateBytes": 131072,
+      "initialRows": 0,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 14390.180374999996
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 14158.45199999999
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreic3tcbfe72353nqnm4agplhcnpo7scg5pot4pbqoijfp73b7wbqz4"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "independentlySummedMinor": 0,
+          "currency": "GBP"
+        },
+        "queryValue": {
+          "balanceMinor": 0,
+          "count": 1000,
+          "currency": "GBP"
+        }
+      }
+    }
+  ],
+  "failures": []
+}

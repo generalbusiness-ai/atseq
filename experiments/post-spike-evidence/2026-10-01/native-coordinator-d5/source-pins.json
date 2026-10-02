@@ -1,0 +1,139 @@
+{
+  "format": "atseq-source-only-decision-pins",
+  "version": 1,
+  "date": "2026-10-01",
+  "base": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+  "request": "8cd6eee91eaefd263003ac2d63bdb7286c47ee28",
+  "promise": "cf2dc06b8f67731bee3f004ae6dda375f78b441e",
+  "sourceOwnerCandidate": "9f00c861d6b77609010c8ed6d844bb6725dc83d6",
+  "sourceOwnerImplementation": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+  "directOwnerDecision": {
+    "assessment": "5dc2b51f6b768c80d3e7311f654d1191aea869df",
+    "ratification": "077b410509bd94ffb5a84b573872a33b931cbc93",
+    "adoption": "5c54cc850851313a6de6096874f477543d72bac6"
+  },
+  "checkpointOutcomeCandidate": "c84a52e690873a16611a1a8c82f9ff1ae354c3ed",
+  "status": "Source-owner and checkpoint-outcome candidates remain subject to their independent exact-head implementation reviews. Pins are inspection evidence, not runtime test results.",
+  "files": [
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/application/native-authority.ts",
+      "bytes": 19024,
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/application/native-authority-evidence.ts",
+      "bytes": 12775,
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/application/native-authority-data.ts",
+      "bytes": 10799,
+      "sha256": "63323985bdfee3ee5620405d83e6dc5fb31c1eba913aec115431777771fe412a"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/protocol/native-wire.ts",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/protocol/native-schema.ts",
+      "bytes": 11444,
+      "sha256": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/protocol/native-proof.ts",
+      "bytes": 18104,
+      "sha256": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/core/queue.ts",
+      "bytes": 380,
+      "sha256": "9c7a41f579380c0b9f9161d2c494dba187b96d61a2912442d05193a5564d75fd"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/core/values.ts",
+      "bytes": 4403,
+      "sha256": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/core/errors.ts",
+      "bytes": 4753,
+      "sha256": "e2aa383756ad38b9630216c5b892e38fb6fc446292b4c30b29ffbbddd4b7e250"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/runtime/evaluator.ts",
+      "bytes": 9906,
+      "sha256": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1"
+    },
+    {
+      "commit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "path": "src/definition/schemas.ts",
+      "bytes": 9220,
+      "sha256": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac"
+    },
+    {
+      "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+      "path": "src/definition/native-source.ts",
+      "bytes": 18364,
+      "sha256": "308a1938e257931775c6d01537de752679e1c1d616b355bc344f1dae9ded864c"
+    },
+    {
+      "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+      "path": "src/definition/native-source-transport.ts",
+      "bytes": 10402,
+      "sha256": "ad490d964e318c2748165a28db932cca858a10e3f277f53d477c509c49bfb9d2"
+    },
+    {
+      "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+      "path": "src/definition/native-source-contract.ts",
+      "bytes": 6731,
+      "sha256": "eefac97d7c03474878530655288ec3df9195c28cfe7ac1d0eb7c29a3c196712d"
+    },
+    {
+      "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+      "path": "src/definition/native-source-projection.ts",
+      "bytes": 3462,
+      "sha256": "8df0476fd0e287cc9fa07afaaa4c734471bacd29234caf07f28f216ad1a0e35e"
+    },
+    {
+      "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+      "path": "src/definition/native-source-data/application-rules.json",
+      "bytes": 14201,
+      "sha256": "87a1fddd54120b974ea69f75d398861060ee9a077fb41e4e32c86cd659feb153"
+    },
+    {
+      "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+      "path": "src/definition/native-source-data/native-rules.json",
+      "bytes": 11520,
+      "sha256": "38f70129e7cf253df7df243c8038eab67c04f6a3704d9936e76dd129017ea5c1"
+    },
+    {
+      "commit": "378880b45d178a6f4cbdfece7327626df7f4e7fc",
+      "path": "src/definition/native-source-data/application-descriptor.json",
+      "bytes": 633,
+      "sha256": "902cd3951dedf0e1a5a833081224e9273dc2f950bc840fe633238e5cb3909ff7"
+    },
+    {
+      "commit": "c84a52e690873a16611a1a8c82f9ff1ae354c3ed",
+      "path": "src/protocol/native-outcome.ts",
+      "bytes": 3456,
+      "sha256": "8042f3db6cea238b05eaf9595fdce8ce21287fddc23bdaa1099bfa4e56ce2078"
+    },
+    {
+      "commit": "c84a52e690873a16611a1a8c82f9ff1ae354c3ed",
+      "path": "src/protocol/checkpoint-data.ts",
+      "bytes": 21478,
+      "sha256": "507ec3791952603562997712f8d00b804cbc020d04e9c7172784ea348c488a67"
+    }
+  ]
+}

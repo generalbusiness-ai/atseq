@@ -1,0 +1,202 @@
+{
+  "format": "atseq-design-packet-manifest",
+  "version": 1,
+  "date": "2026-10-02",
+  "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:373638c4a1c444592b6f8055d1641bc1a83bae4f",
+  "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6752d5d6dde29d779387fcae880f8fd598c586a0",
+  "runtimeExaminedAt": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+  "predecessor": "7aff44f01170b2832da6f2e1739277278538f8f8",
+  "coordinatorDecisionHead": "85f0033e8c5d0ae636d5cc952c11a56baf9cc3f7",
+  "adoptedR1Assessment": "6e3d5811b02625ff3ad253b8de00f3c53f6854ff",
+  "adoptedR1Ratification": "96af8911cb1dbb76b067effe3863c5692e23ca72",
+  "alignedCoordinatorAssessment": "de72b10f847a00b9aaf562f15b36078bff287dbf",
+  "artifacts": {
+    "notes/2026-10-02-atseq-retry-prefix-boundary.md": {
+      "bytes": 31781,
+      "sha256": "7786005948708b1d6af3f1000f76ee84e899e53a1a43126f99765a3239c41a89"
+    },
+    "notes/2026-10-02-atseq-retry-prefix-boundary-revision-results.md": {
+      "bytes": 4257,
+      "sha256": "cfbf6919601e98622081d449ea74bc48f598ec1f2c42daacdea1da10e4eae909"
+    },
+    "experiments/post-spike-evidence/2026-10-02/retry-prefix-boundary/decision-vectors.json": {
+      "bytes": 18286,
+      "sha256": "480a98b6644145ef102b7015badf733be9adaba6fb67bd2b46f607b47b6cd662"
+    }
+  },
+  "unchangedPredecessorArtifacts": {
+    "notes/2026-10-01-atseq-retry-prefix-boundary.md": {
+      "bytes": 21927,
+      "sha256": "5ea3e7d4bd5b16eae5c85f259060e18933dcf46169831f3472b93f76a916f4a6"
+    },
+    "experiments/post-spike-evidence/2026-10-01/retry-prefix-boundary/decision-vectors.json": {
+      "bytes": 12753,
+      "sha256": "28ddbbcaea2807709097735e260380ee4e2fd1d2fd486a1422e1df306fa52fda"
+    },
+    "experiments/post-spike-evidence/2026-10-01/retry-prefix-boundary/manifest.json": {
+      "bytes": 3826,
+      "sha256": "51e412a71957c93160c040f5b5652c186accb98333db6f1e41308e138dc6c2c7"
+    }
+  },
+  "sourcePins": [
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "notes/2026-10-01-atseq-retry-uniqueness.md",
+      "bytes": 24732,
+      "sha256": "fd787d9016a2043388781552816f8cce7bc53c48f89bb43ca062467a0bfde7b3"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "notes/2026-10-01-atseq-incremental-reader-requirements.md",
+      "bytes": 20081,
+      "sha256": "38578365ac6e16e5ed90f5556b2a5ecb78f6644ae43f299e7d5c09ba93e5b091"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "notes/2026-10-01-atseq-materialized-checkpoints.md",
+      "bytes": 30429,
+      "sha256": "5832c7ea6b9e1c1599d7694b8ce228721076205ffa31ea394af7c9bb3f41edd6"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "notes/2026-10-01-atseq-checkpoint-policy-bytes.md",
+      "bytes": 20406,
+      "sha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "notes/2026-10-01-atseq-native-wire-contract.md",
+      "bytes": 64385,
+      "sha256": "b5aa4cc662f98940519daba2dafa882694da08f01bf0dbf2ac9f339f3e8c255b"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/protocol/native-wire.ts",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/protocol/native-proof.ts",
+      "bytes": 18104,
+      "sha256": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/protocol/checkpoint-data.ts",
+      "bytes": 19142,
+      "sha256": "5366c092187892a7975e4965da0d867b4e53d5bac6474e62043d0dbf00e4e6b2"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/application/native-authority.ts",
+      "bytes": 19024,
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/application/native-authority-evidence.ts",
+      "bytes": 12775,
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/application/native-authority-data.ts",
+      "bytes": 10799,
+      "sha256": "63323985bdfee3ee5620405d83e6dc5fb31c1eba913aec115431777771fe412a"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/core/local-generations.ts",
+      "bytes": 5382,
+      "sha256": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/host/local-generations.ts",
+      "bytes": 10527,
+      "sha256": "82e251d0a99c799495c15db332fa37d78f6c021b378956630b2dcea61825ef6f"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/browser/local-generations.ts",
+      "bytes": 12712,
+      "sha256": "5fcc3ba0ab63b5056fb443da37e4ef58eb34c0eefbaff52de4e62db83c6f6eed"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "scripts/check-layers.mjs",
+      "bytes": 5118,
+      "sha256": "e0d7baa0082c80da53a67a7aa0a5b6d0141679e86a5506b1a744fec93837c5e2"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/application/checkpoint-authority-data.ts",
+      "bytes": 3378,
+      "sha256": "0f6b3154998163c391a7acecb7af81b8aac56013b77d3fe4a5427525b06a9a05"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "src/application/native-authority-snapshot.ts",
+      "bytes": 501,
+      "sha256": "1a86946e28a49154d55db71f055bbe13184631bfa544bda55664b2752ca14dcb"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "tests/support/native-authority-fixture.ts",
+      "bytes": 15329,
+      "sha256": "574e4a7a0422be4398293b6f98779f7fedce9e59e68e2d02803bb72b7c18fde6"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "tests/support/native-authority-corpus.ts",
+      "bytes": 5240,
+      "sha256": "f9e458df90f1d89872b5f6cbfc0d4c07d99a3959651470b95b1ad3f1c0bb542d"
+    },
+    {
+      "commit": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+      "path": "tests/native-authority.test.ts",
+      "bytes": 25828,
+      "sha256": "c8c3b4581ac46a88c3f1bd0f6231e4cbc56598dde0c1169350bf6fa2f13aa5c3"
+    },
+    {
+      "commit": "85f0033e8c5d0ae636d5cc952c11a56baf9cc3f7",
+      "path": "notes/2026-10-01-atseq-native-coordinator-ownership.md",
+      "bytes": 17876,
+      "sha256": "297c981386bc7bb17a314e42878859df1ddd258dbb09fc76621a96a96ac154dc"
+    },
+    {
+      "commit": "85f0033e8c5d0ae636d5cc952c11a56baf9cc3f7",
+      "path": "experiments/post-spike-evidence/2026-10-01/native-coordinator-d5/source-pins.json",
+      "bytes": 5499,
+      "sha256": "7bf6793a36fbb661907a0357580590999f571ec0ba618db3641133e48e0a15fa"
+    },
+    {
+      "commit": "85f0033e8c5d0ae636d5cc952c11a56baf9cc3f7",
+      "path": "experiments/post-spike-evidence/2026-10-01/native-coordinator-d5/decision-vectors.json",
+      "bytes": 26646,
+      "sha256": "87933a23f0937d47a03527dcd5cd0f03b144e302219d628934848d3751e51d0f"
+    }
+  ],
+  "validation": {
+    "expectationScenarios": 47,
+    "predecessorScenariosRetained": 36,
+    "addedScenarios": 11,
+    "changedPredecessorAnswers": [
+      "invalid-participant-proof-later",
+      "stale-base-extension"
+    ],
+    "runtimeCasesExecuted": 0,
+    "uniqueScenarioIds": true,
+    "closedScenarioShape": true,
+    "resolvedLocalLinksExcludingSelfManifest": 8,
+    "sourceByteEqualityToExactGit": true,
+    "predecessorByteEquality": true
+  },
+  "limits": [
+    "Source-only inspection and packet checks. No runtime edits or conformance, build, database, PDS, provider or benchmark execution.",
+    "Revised independent review required before runtime migration.",
+    "D5 coordinator initially keeps I2 arrays as sole owner; later reviewed R1 switches prefix ownership, compact state and producer together.",
+    "No durable workroom mutation, dependency/profile change or historical-source edit."
+  ]
+}

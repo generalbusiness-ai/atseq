@@ -1,0 +1,229 @@
+{
+  "timedSource": "7ae19979b72f735ffe6f08012a5e9185b6dc04e4",
+  "publicInputSha256": "53c4b6b3c76548d9678d81037972506fcb75d02e544b00350e209d3e017be88a",
+  "captureHashes": {
+    "node": "49e6702a9c99cbe6e7c8bd841a1eeedd7aaa12ad2403192022a721b2060e3bbf",
+    "chromium": "62e8849510f012f769c6ab03183c932522bdfbf3ac008eac87c801c589cd6444"
+  },
+  "timedWholeReplaySpans": 32,
+  "timedEntriesInterpreted": 17600,
+  "method": "Full minimum/maximum range of two whole-replay samples; raw observations retained. No percentile, exclusive stage attribution, latency target, throughput fit or discarded samples.",
+  "cells": [
+    {
+      "name": "row-array-100",
+      "family": "row-array",
+      "n": 100,
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 1645.4150829999999,
+          "maximumMs": 1655.416875,
+          "allMs": [
+            1655.416875,
+            1645.4150829999999
+          ]
+        },
+        "chromium": {
+          "minimumMs": 4380.0999999940395,
+          "maximumMs": 4393.4000000059605,
+          "allMs": [
+            4380.0999999940395,
+            4393.4000000059605
+          ]
+        }
+      }
+    },
+    {
+      "name": "taskboard-100",
+      "family": "taskboard",
+      "n": 100,
+      "initialStateBytes": 130172,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 2757.220333,
+          "maximumMs": 2969.491083000001,
+          "allMs": [
+            2757.220333,
+            2969.491083000001
+          ]
+        },
+        "chromium": {
+          "minimumMs": 6526.100000023842,
+          "maximumMs": 6600.4000000059605,
+          "allMs": [
+            6526.100000023842,
+            6600.4000000059605
+          ]
+        }
+      }
+    },
+    {
+      "name": "guitar-selection-100",
+      "family": "guitar-selection",
+      "n": 100,
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 2417.102583,
+          "maximumMs": 2566.8737500000007,
+          "allMs": [
+            2417.102583,
+            2566.8737500000007
+          ]
+        },
+        "chromium": {
+          "minimumMs": 5606.5999999940395,
+          "maximumMs": 5608.699999988079,
+          "allMs": [
+            5608.699999988079,
+            5606.5999999940395
+          ]
+        }
+      }
+    },
+    {
+      "name": "ledger-100",
+      "family": "ledger",
+      "n": 100,
+      "initialStateBytes": 126022,
+      "finalStateBytes": 131072,
+      "initialRows": 900,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 2470.513917,
+          "maximumMs": 2583.961209000001,
+          "allMs": [
+            2470.513917,
+            2583.961209000001
+          ]
+        },
+        "chromium": {
+          "minimumMs": 6073.799999982119,
+          "maximumMs": 6116.200000017881,
+          "allMs": [
+            6073.799999982119,
+            6116.200000017881
+          ]
+        }
+      }
+    },
+    {
+      "name": "row-array-1000",
+      "family": "row-array",
+      "n": 1000,
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 16285.757333999998,
+          "maximumMs": 16498.456165999996,
+          "allMs": [
+            16285.757333999998,
+            16498.456165999996
+          ]
+        },
+        "chromium": {
+          "minimumMs": 46771.79999998212,
+          "maximumMs": 47893.80000001192,
+          "allMs": [
+            46771.79999998212,
+            47893.80000001192
+          ]
+        }
+      }
+    },
+    {
+      "name": "taskboard-1000",
+      "family": "taskboard",
+      "n": 1000,
+      "initialStateBytes": 122073,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 24425.892708,
+          "maximumMs": 24700.880249999995,
+          "allMs": [
+            24700.880249999995,
+            24425.892708
+          ]
+        },
+        "chromium": {
+          "minimumMs": 62429.59999999404,
+          "maximumMs": 65039,
+          "allMs": [
+            65039,
+            62429.59999999404
+          ]
+        }
+      }
+    },
+    {
+      "name": "guitar-selection-1000",
+      "family": "guitar-selection",
+      "n": 1000,
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 21668.18979199999,
+          "maximumMs": 22242.44137499998,
+          "allMs": [
+            21668.18979199999,
+            22242.44137499998
+          ]
+        },
+        "chromium": {
+          "minimumMs": 56098.20000001788,
+          "maximumMs": 57007.40000000596,
+          "allMs": [
+            57007.40000000596,
+            56098.20000001788
+          ]
+        }
+      }
+    },
+    {
+      "name": "ledger-1000",
+      "family": "ledger",
+      "n": 1000,
+      "initialStateBytes": 48,
+      "finalStateBytes": 131072,
+      "initialRows": 0,
+      "finalRows": 1000,
+      "environments": {
+        "node": {
+          "minimumMs": 14158.45199999999,
+          "maximumMs": 14390.180374999996,
+          "allMs": [
+            14390.180374999996,
+            14158.45199999999
+          ]
+        },
+        "chromium": {
+          "minimumMs": 31865.70000001788,
+          "maximumMs": 32173.69999998808,
+          "allMs": [
+            31865.70000001788,
+            32173.69999998808
+          ]
+        }
+      }
+    }
+  ]
+}

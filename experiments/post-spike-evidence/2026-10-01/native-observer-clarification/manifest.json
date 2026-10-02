@@ -1,0 +1,39 @@
+{
+  "format": "atseq-native-observer-clarification-packet",
+  "version": 1,
+  "date": "2026-10-01",
+  "baseline": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+  "request": "bbd1daf0be2dabf21569e558786631c3649e1f47",
+  "promise": "800db06b46bd42df60033b119ceaf2fdb26eae12",
+  "parentRequest": "71b93a9c916f99f9828da61d3737553117e454ab",
+  "acceptedObserverSource": "daade18c86018638509ee5f491aa1aafddd1afc7",
+  "activity": "Source inspection and packet checks only; expectation vectors are unexecuted.",
+  "validation": {
+    "sourceHashAndByteChecks": 13,
+    "excerptChecks": 18,
+    "maintainedFilesMatchApprovedManifest": 5,
+    "expectationCases": 30,
+    "distinctExpectationIds": 30,
+    "runtimeTestsRun": false,
+    "providerTrialsRun": false,
+    "dependenciesInstalled": false,
+    "runtimeSourceChanged": false,
+    "packageExportsChanged": false,
+    "predecessorSourcesChanged": false
+  },
+  "formatCheckCommand": "/Users/hughpyle/play/atseq/node_modules/.bin/prettier --check <the four new packet paths>",
+  "files": {
+    "notes/2026-10-01-atseq-native-observer-clarification.md": {
+      "bytes": 9440,
+      "sha256": "73cbcbf6fd2c30cd5a029743a2bee1e007841d50725a8e2ab7e486de262fe7c4"
+    },
+    "experiments/post-spike-evidence/2026-10-01/native-observer-clarification/source-inspection.json": {
+      "bytes": 15404,
+      "sha256": "20101165d72227e9e2c4fd5c1776773626bc7b448c73cab7a9cfec286db5a50f"
+    },
+    "experiments/post-spike-evidence/2026-10-01/native-observer-clarification/expectation-vectors.json": {
+      "bytes": 18790,
+      "sha256": "2d4cd57791e2ea6d0ca6f120b5f8ee0e0fa687c24c5c29f755e1b9eca240f784"
+    }
+  }
+}

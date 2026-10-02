@@ -1,0 +1,3 @@
+experiments/s0-replay/prepare.ts(121,84): error TS2353: Object literal may only specify known properties, and 'mtime' does not exist in type 'ZlibOptions'.
+src/core/dependencies.ts(1,45): error TS2307: Cannot find module '#atseq-integrity' or its corresponding type declarations.
+tests/support/profile-corpus.ts(1,38): error TS2307: Cannot find module '#atseq-integrity' or its corresponding type declarations.

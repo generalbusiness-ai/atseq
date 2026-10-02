@@ -1,0 +1,234 @@
+{
+  "format": "atseq-design-expectations",
+  "version": 1,
+  "date": "2026-10-01",
+  "status": "unexecuted review expectations; not conformance results",
+  "examinedAt": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+  "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:373638c4a1c444592b6f8055d1641bc1a83bae4f",
+  "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6752d5d6dde29d779387fcae880f8fd598c586a0",
+  "executedCases": 0,
+  "scenarios": [
+    {
+      "id": "cold-suffix-shared-checks",
+      "given": "Real canonical signed native entries admitted cold and as a suffix from the exact base.",
+      "expect": "Same request/entry identities and duplicate inventories; each new actor signature checked once; no old actor signature recheck on warm extension.",
+      "requiredEvidence": "Node and Chromium shared corpus"
+    },
+    {
+      "id": "alternate-valid-signature",
+      "given": "Same canonical unsigned intent, second different valid low-S signature.",
+      "expect": "One original receipt core and first stored signed entry; no second entry or consent evaluation.",
+      "requiredEvidence": "Real P-256 signatures"
+    },
+    {
+      "id": "forged-signature-known-cid",
+      "given": "Known unsigned intent CID delivered with invalid signature.",
+      "expect": "Structural refusal before receipt lookup; no new identity consumed.",
+      "requiredEvidence": "Real P-256 verification"
+    },
+    {
+      "id": "changed-signed-field",
+      "given": "Reuse signer/nonce while varying principal, grant CID, epoch, execution, operation kind or payload individually.",
+      "expect": "Exact-CID miss followed by tuple conflict; no append or new ineffective outcome.",
+      "requiredEvidence": "One executed case per field"
+    },
+    {
+      "id": "separate-signer-app-genesis",
+      "given": "Reuse nonce under a different signer, app or genesis.",
+      "expect": "Distinct namespace and separately evaluated intent; unrelated key cannot consume victim namespace.",
+      "requiredEvidence": "Cross-app and same-account fixture"
+    },
+    {
+      "id": "canonical-key-nonce",
+      "given": "Alternate key encoding or nonce length other than 16 bytes.",
+      "expect": "Canonical wire refusal before lookup; no split namespace.",
+      "requiredEvidence": "Shared hostile wire corpus"
+    },
+    {
+      "id": "exact-account-operation-retry",
+      "given": "Repeat identical complete accountOperation after descriptor already consumed.",
+      "expect": "Return original receipt before descriptor-consumption check; no second authority operation.",
+      "requiredEvidence": "Retained native observation fixture"
+    },
+    {
+      "id": "duplicate-prefix-suffix",
+      "given": "Suffix repeats exact unsigned request, tuple or consumed descriptor from complete prior prefix.",
+      "expect": "Invalid history; no extension publication, new floor or domain outcome.",
+      "requiredEvidence": "One case per identity"
+    },
+    {
+      "id": "duplicate-within-suffix",
+      "given": "Two staged entries repeat exact unsigned request, tuple or descriptor.",
+      "expect": "Invalid history before atomic publication; staged first row does not leak into accepted owner.",
+      "requiredEvidence": "One case per identity"
+    },
+    {
+      "id": "deferred-unknown-prior",
+      "given": "Checkpoint deferred mode lacks an old tuple and suffix appears new.",
+      "expect": "Explicit incomplete prior coverage; no prior absence or writer readiness; audit may later detect duplicate.",
+      "requiredEvidence": "Checkpoint and fixed-target audit"
+    },
+    {
+      "id": "checkpoint-complete-asserted",
+      "given": "Complete asserted tables and valid suffix, without genesis audit.",
+      "expect": "Asserted complete uniqueness with checkpoint dependence; no independently replayed or ordering-writer capability.",
+      "requiredEvidence": "P4 accepted assertion route"
+    },
+    {
+      "id": "checkpoint-data-forgery",
+      "given": "P4 DATA parses successfully, copied shape presented as an accepted prefix.",
+      "expect": "No genuine prefix capability; caller misuse/refusal, no accepted floor or append.",
+      "requiredEvidence": "Clone, spread and deserialization"
+    },
+    {
+      "id": "authority-evidence-stall",
+      "given": "App descriptor/context paths verify; required nested participant proof content is missing.",
+      "expect": "Ordering/index head may advance; interpreted frontier stalls exactly; descriptor consumed only as verified reference, no claimed I1 acceptance or authority effect.",
+      "requiredEvidence": "Real retained descriptor and removed nested block"
+    },
+    {
+      "id": "missing-verification-path",
+      "given": "Required selected-root entry or descriptor path has a missing MST/block.",
+      "expect": "Recover same-root bytes or bounded restart; no new verified head and no fabricated absence.",
+      "requiredEvidence": "Native partial CAR/cache fixture"
+    },
+    {
+      "id": "invalid-participant-proof-later",
+      "given": "Exact nested proof recovered and exposes invalid signature or context.",
+      "expect": "Fail closed, retain contradiction and known floors, stop lineage promotion; no fold denial or silent rollback.",
+      "requiredEvidence": "Actual invalid native or identity proof"
+    },
+    {
+      "id": "stalled-source-repair",
+      "given": "Verified activation source content unavailable, later exact bytes restored.",
+      "expect": "Same entry resumes; coherent state/source/authority/outcomes match healthy cold replay.",
+      "requiredEvidence": "Source capability integration"
+    },
+    {
+      "id": "immutable-old-view",
+      "given": "Publish valid next entries, then read an earlier genuine fixed view.",
+      "expect": "Ignore rows above that view boundary; unchanged logical lookup and coverage answers.",
+      "requiredEvidence": "Private-owner runtime corpus"
+    },
+    {
+      "id": "stale-base-extension",
+      "given": "Candidate verified from genuine base A; current view advances to B before publish.",
+      "expect": "Reject stale publication or safely revalidate from B; no row insertion, floor regression or overwritten state.",
+      "requiredEvidence": "Controlled async interleaving"
+    },
+    {
+      "id": "clone-base-empty-delta",
+      "given": "Copied base or empty suffix used to claim acceptance of a new selected root.",
+      "expect": "No acceptance; genuine delta-zero update still authenticates root/genesis/head/boundary.",
+      "requiredEvidence": "Clone, prototype and zero-delta cases"
+    },
+    {
+      "id": "boundary-current-map",
+      "given": "Current root retains tip but changes an older interior record.",
+      "expect": "Prefix reuse states its narrower policy; explicit current-map audit catches the changed historical path.",
+      "requiredEvidence": "Real native map fixtures"
+    },
+    {
+      "id": "native-revision-recovery",
+      "given": "Lower revision or equal revision with different root, preserving all known app histories.",
+      "expect": "Full selected-root recovery may accept under I1; preserve every pair-scoped app floor and do not invent an app position.",
+      "requiredEvidence": "Two apps in one account"
+    },
+    {
+      "id": "mixed-root-completion",
+      "given": "Full-export recovery selects a different root than incomplete diff.",
+      "expect": "Restart candidate under actual new root; no mixed-root lookup result or proof relabelling.",
+      "requiredEvidence": "Native diff/full-export fixture"
+    },
+    {
+      "id": "missing-original-retry",
+      "given": "Complete index points to original content or receipt proof now unavailable.",
+      "expect": "Recover exact content/proof or return unavailable; no fabricated receipt, guessed conflict or second append.",
+      "requiredEvidence": "Oldest, middle and latest rows"
+    },
+    {
+      "id": "renewed-proof-root",
+      "given": "Lost reply reconciled with a later authenticated root proving identical entry.",
+      "expect": "Same immutable request/position/entry; new package names actual later root, original package remains unchanged.",
+      "requiredEvidence": "Real sparse native proofs"
+    },
+    {
+      "id": "recorded-before-revocation",
+      "given": "Exact recorded request retried after revoke, epoch reset, grant renewal or action activation.",
+      "expect": "Return historical receipt and available historical outcome without evaluating new authority; missing old outcome is unavailable.",
+      "requiredEvidence": "One authority transition per case"
+    },
+    {
+      "id": "outbox-consent",
+      "given": "CAS loss, refresh or grant renewal occurs for retained queued bytes.",
+      "expect": "Original nonce/signature/grant/execution bytes unchanged; explicit replacement alone creates fresh nonce and signature.",
+      "requiredEvidence": "Browser outbox integration"
+    },
+    {
+      "id": "same-generation-outcome",
+      "given": "State generation changes while selective outcome read awaits storage.",
+      "expect": "Return a result bound to captured pinned generation or reject stale publication; never combine generations.",
+      "requiredEvidence": "SQLite and IndexedDB interleaving"
+    },
+    {
+      "id": "outcome-coverage",
+      "given": "Missing outcome at or before frontier versus beyond frontier.",
+      "expect": "Older missing result unavailable or promised-coverage integrity fault; only beyond frontier awaits interpretation.",
+      "requiredEvidence": "Selective and dense coverage fixtures"
+    },
+    {
+      "id": "trusted-restore-rederive",
+      "given": "Trusted committed generation contains complete original history and indexes.",
+      "expect": "Bounded O(N) rederive/compare both access paths and descriptors; no old actor crypto/fold recheck; retain explicit reused provenance.",
+      "requiredEvidence": "SQLite and Chromium restart"
+    },
+    {
+      "id": "restore-row-transplant",
+      "given": "Wrong app/genesis, pointer, extra row, gap, descriptor or outcome inventory in stored generation.",
+      "expect": "No accepted restore capability or append readiness; preserve higher known floors and recover.",
+      "requiredEvidence": "One mutation per component"
+    },
+    {
+      "id": "build-provenance",
+      "given": "Same semantic CID but changed installed bytes/dependencies or copied provenance document.",
+      "expect": "No state reuse without checked actual target and exact accepted directed equivalence decision; otherwise replay.",
+      "requiredEvidence": "Installed Node and trusted browser adapter"
+    },
+    {
+      "id": "remote-local-crash",
+      "given": "Crash/abort before and after native CAS and local generation commit, including lost native success reply.",
+      "expect": "Restore old or new coherent local generation, reconcile confirmed native suffix before new writes, no missing-row absence assumption.",
+      "requiredEvidence": "Reference PDS plus SQLite and Chromium"
+    },
+    {
+      "id": "two-writers",
+      "given": "Two writers use one native base for same intent and for distinct intents.",
+      "expect": "Native swapCommit arbitrates; loser refreshes, identical intent returns original receipt, distinct intent may append after fresh preflight.",
+      "requiredEvidence": "Actual reference-PDS CAS"
+    },
+    {
+      "id": "quota-and-pin",
+      "given": "Local quota prevents commit or active reader/audit pins block reclamation.",
+      "expect": "No partial current view or accidental unpin; explicit unavailable/local resource failure; release and retry preserves exact bytes.",
+      "requiredEvidence": "SQLite and IndexedDB quota tests"
+    },
+    {
+      "id": "sparse-confirmed-floor",
+      "given": "Confirmed receipt establishes a floor above local verified prefix, followed by stale read.",
+      "expect": "Persist higher floor without manufacturing prefix acceptance; stale read cannot lower it; bridge before append.",
+      "requiredEvidence": "Coordinator crash and async cases"
+    },
+    {
+      "id": "audit-promotion-target",
+      "given": "Fixed-target checkpoint audit completes while live suffix has advanced.",
+      "expect": "Upgrade only exact audited target/related validated generation; no unrelated assurance upgrade or silent newer-floor overwrite.",
+      "requiredEvidence": "P4/P3 coordinator integration"
+    }
+  ],
+  "limits": [
+    "Symbolic scenarios, not literal wire fixtures.",
+    "No runtime code, signature, proof, persistence, provider, build or benchmark execution.",
+    "Expanded per-field cases and runtime fixtures must be retained by implementation reports.",
+    "No completed P2, R1, P3 or supported native profile claim."
+  ]
+}
