@@ -62,7 +62,7 @@ test('actual PLC and PDS listeners retain exclusive ports throughout startup', a
         contend();
         // This probes the exact old race: immediately after the parent's socket
         // closes, the real PDS child must already own the same listening port.
-        this.once('close', contend);
+        if (this.constructor === Server) this.once('close', contend);
       });
     }
     return result;
