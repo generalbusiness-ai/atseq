@@ -1,0 +1,17 @@
+TAP version 13
+# {"browser":"153.0.8010.12","entry":".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-browser-probe.js","compiledProduction":true,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false,"bundledBytes":1508966,"bundleHashes":{"writer.js":"e14ce758670b51ed18460351716012489867a8c367e44efe8491ecb3e4204a84","dist-Q6ZHUMY6.js":"910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8","chunk-4UJAH5YT.js":"05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736","oauth-adapter-J4P7XZDC.js":"71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94","chunk-WK77AKTB.js":"70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159","chunk-CZ7CSFO4.js":"0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01"},"resources":20,"credentialRecovery":{"message":"OAuth credential request exceeds the byte limit; reauthorization is required","storedMetadataBytes":22358,"actualCountedEncodedRefreshBytes":65656,"maintainedMethods":5,"reloadLive":true,"boundedReauthorization":true,"actualDispatchedFailureRetired":true}}
+# Subtest: Chromium native writer uses maintained browser OAuth and actual guarded fetch with bounded custody
+ok 1 - Chromium native writer uses maintained browser OAuth and actual guarded fetch with bounded custody
+  ---
+  duration_ms: 989.474833
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1204.648958

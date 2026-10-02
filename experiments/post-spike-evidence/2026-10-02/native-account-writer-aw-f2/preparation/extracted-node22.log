@@ -1,0 +1,129 @@
+TAP version 13
+# (node:3186) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: host procedures require a retained owner-only token; reads remain public
+ok 1 - host procedures require a retained owner-only token; reads remain public
+  ---
+  duration_ms: 790.857916
+  type: 'test'
+  ...
+# Subtest: draft cache evicts least recently used previews within count and byte budgets
+ok 2 - draft cache evicts least recently used previews within count and byte budgets
+  ---
+  duration_ms: 68.266917
+  type: 'test'
+  ...
+# Subtest: incomplete creations consume application quota before an account is provisioned
+ok 3 - incomplete creations consume application quota before an account is provisioned
+  ---
+  duration_ms: 9.474875
+  type: 'test'
+  ...
+# Subtest: a corrupt lease database keeps its SQLite diagnostic instead of claiming contention
+ok 4 - a corrupt lease database keeps its SQLite diagnostic instead of claiming contention
+  ---
+  duration_ms: 3.571959
+  type: 'test'
+  ...
+# Subtest: only a PDS RecordNotFound response becomes a missing source
+ok 5 - only a PDS RecordNotFound response becomes a missing source
+  ---
+  duration_ms: 5.560875
+  type: 'test'
+  ...
+# Subtest: only definite invalid input is final; integrity and host availability errors use 503
+ok 6 - only definite invalid input is final; integrity and host availability errors use 503
+  ---
+  duration_ms: 0.182125
+  type: 'test'
+  ...
+# Subtest: actual native proof limits remain unavailable and nonpermanent through host HTTP
+ok 7 - actual native proof limits remain unavailable and nonpermanent through host HTTP
+  ---
+  duration_ms: 29.559042
+  type: 'test'
+  ...
+# Subtest: expiry renews once across concurrent JSON, blob and upload calls
+ok 8 - expiry renews once across concurrent JSON, blob and upload calls
+  ---
+  duration_ms: 37.477583
+  type: 'test'
+  ...
+# Subtest: missing, rejected or repeatedly expired session credentials have a permanent authentication code
+ok 9 - missing, rejected or repeatedly expired session credentials have a permanent authentication code
+  ---
+  duration_ms: 4.888209
+  type: 'test'
+  ...
+# Subtest: complete-prefix limits and nonce conflicts have stable permanent codes
+ok 10 - complete-prefix limits and nonce conflicts have stable permanent codes
+  ---
+  duration_ms: 0.310958
+  type: 'test'
+  ...
+# Subtest: authorization refusal does not permanently disable a valid PDS credential
+ok 11 - authorization refusal does not permanently disable a valid PDS credential
+  ---
+  duration_ms: 3.309208
+  type: 'test'
+  ...
+# (node:3187) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: real disposable PDS persistence and recovery
+not ok 12 - real disposable PDS persistence and recovery
+  ---
+  duration_ms: 798.932
+  type: 'test'
+  location: '/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/pds.test.ts:1:1031'
+  failureType: 'testCodeFailure'
+  error: |-
+    Official PDS exited during startup (1): node:internal/modules/cjs/loader:1865
+      return process.dlopen(module, path.toNamespacedPath(filename));
+                     ^
+    
+    Error: The module '/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+    was compiled against a different Node.js version using
+    NODE_MODULE_VERSION 147. This version of Node.js requires
+    NODE_MODULE_VERSION 127. Please try re-compiling or re-installing
+    the module (for instance, using `npm rebuild` or `npm install`).
+        at Object..node (node:internal/modules/cjs/loader:1865:18)
+        at Module.load (node:internal/modules/cjs/loader:1441:32)
+        at Function._load (node:internal/modules/cjs/loader:1263:12)
+        at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+        at Module.require (node:internal/modules/cjs/loader:1463:12)
+        at require (node:internal/modules/helpers:147:16)
+        at bindings (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+        at new Database (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+        at Database.sqlite (file:///private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+      code: 'ERR_DLOPEN_FAILED'
+    }
+    
+    Node.js v22.19.0
+    
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    Object..node (node:internal/modules/cjs/loader:1865:18)
+    Module.load (node:internal/modules/cjs/loader:1441:32)
+    Function._load (node:internal/modules/cjs/loader:1263:12)
+    TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    Module.require (node:internal/modules/cjs/loader:1463:12)
+    require (node:internal/modules/helpers:147:16)
+    bindings (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+    new Database (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+    Database.sqlite (file:///private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+    ChildProcess.<anonymous> (file:///private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/environment.mjs:125:18)
+    Object.onceWrapper (node:events:634:26)
+    ChildProcess.emit (node:events:519:28)
+    ChildProcess._handle.onexit (node:internal/child_process:293:12)
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 11
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1633.685709

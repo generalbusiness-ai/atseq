@@ -1,0 +1,12 @@
+{
+  "producer": "16f36988179a0ccacf1189eeb7b2b0e3453d6836",
+  "runtime": "v26.10.0",
+  "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+  "executableSHA256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+  "scriptSHA256": "4c1e9f1e151bd5d2182a59e9c1aee033acd3f986d178a05890deba71668760e4",
+  "preparedBeforeExecution": "2026-10-02T17:25:20.386Z",
+  "productionBuild": "final/build-provenance-16f-node26.json",
+  "productionBuildSHA256": "9e46e69767c630a2288d9668f88de94aff0d827a76b763a87dd6d4808b9e85b4",
+  "testWrapperInputs": "final/compiled-pins-16f-node26.json",
+  "semantics": "All three supplemental runtimes use the unchanged common Node26-built production outputs and Node26-transpiled test fixtures. Original complete source/emitted matrices used separately built outputs on each selected runtime."
+}

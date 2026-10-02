@@ -1,0 +1,13 @@
+{
+  "sourceProducer": "16f36988179a0ccacf1189eeb7b2b0e3453d6836",
+  "runtime": "v26.10.0",
+  "originalCompiledWrapper": "/private/tmp/atseq-native-account-writer-aw-f2-20261002/.atseq-local/writer-compiled-final-16f-node26/tests/native-account-writer-browser.test.js",
+  "originalCompiledWrapperSHA256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+  "actualWrapper": "/private/tmp/atseq-native-account-writer-aw-f2-20261002/.atseq-local/writer-compiled-final-16f-node26/tests/native-account-writer-browser-persistent.test.js",
+  "actualWrapperSHA256": "efd840fd2ba0b564490323d650485b0dfb5c76c69065b9d24cffa64994d6c263",
+  "generator": "/private/tmp/atseq-native-account-writer-aw-f2-20261002/experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/prepare-persistent-browser.mjs",
+  "generatorSHA256": "41f2552849d55dd0f9c724de3e6c0300758c3abc43b7fe863a07b57aed4ff558",
+  "compiledInputs": ".atseq-local/writer-compiled-final-16f-node26/compiled-pins.json",
+  "preparedBeforeExecution": "2026-10-02T17:20:39.263Z",
+  "scope": "Test-only wrapper transformation: persistent browser profile, close/reopen actual context at the second reload, reattach synthetic fixture routes. All production modules and test browser probe remain unchanged emitted16f. Dedicated browser bundle pins are captured before browser execution."
+}

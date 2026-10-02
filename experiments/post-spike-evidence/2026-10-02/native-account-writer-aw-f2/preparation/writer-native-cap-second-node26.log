@@ -1,0 +1,62 @@
+/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273
+  if (!result.success) throw new ProtocolError('envelope', result.error.message);
+                             ^
+
+ProtocolError: Record must have the property "version"
+    at validateNativeShape (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273:30)
+    at readNativeValue (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-wire.ts:327:3)
+    at largeNativeBatch (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-near-cap.ts:24:23)
+    at async runNativeWriterCorpus (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-corpus.ts:125:18)
+    at async <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-node-probe.ts:13:15) {
+  code: 'envelope',
+  kind: 'invalid_input'
+}
+
+Node.js v26.10.0
+✖ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (1264.989792ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1378.066458
+
+✖ failing tests:
+
+test at tests/native-account-writer.test.ts:1:113
+✖ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (1264.989792ms)
+  Error: Command failed: /opt/homebrew/Cellar/node/26.10.0_1/bin/node --conditions=atseq-source --import tsx tests/support/native-account-writer-node-probe.ts
+  /private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273
+    if (!result.success) throw new ProtocolError('envelope', result.error.message);
+                               ^
+  
+  ProtocolError: Record must have the property "version"
+      at validateNativeShape (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273:30)
+      at readNativeValue (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-wire.ts:327:3)
+      at largeNativeBatch (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-near-cap.ts:24:23)
+      at async runNativeWriterCorpus (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-corpus.ts:125:18)
+      at async <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-node-probe.ts:13:15) {
+    code: 'envelope',
+    kind: 'invalid_input'
+  }
+  
+  Node.js v26.10.0
+  
+      at genericNodeError (node:internal/errors:999:15)
+      at wrappedFn (node:internal/errors:544:14)
+      at checkExecSyncError (node:child_process:943:11)
+      at execFileSync (node:child_process:979:15)
+      at TestContext.<anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/native-account-writer.test.ts:6:15)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', `/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273\n  if (!result.success) throw new ProtocolError('envelope', result.error.message);\n                             ^\n\nProtocolError: Record must have the property "version"\n    at validateNativeShape (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273:30)\n    at readNativeValue (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-wire.ts:327:3)\n    at largeNativeBatch (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-near-cap.ts:24:23)\n    at async runNativeWriterCorpus (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-corpus.ts:125:18)\n    at async <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-node-probe.ts:13:15) {\n  code: 'envelope',\n  kind: 'invalid_input'\n}\n\nNode.js v26.10.0\n` ],
+    pid: 7597,
+    stdout: '',
+    stderr: `/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273\n  if (!result.success) throw new ProtocolError('envelope', result.error.message);\n                             ^\n\nProtocolError: Record must have the property "version"\n    at validateNativeShape (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-schema.ts:273:30)\n    at readNativeValue (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/protocol/native-wire.ts:327:3)\n    at largeNativeBatch (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-near-cap.ts:24:23)\n    at async runNativeWriterCorpus (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-corpus.ts:125:18)\n    at async <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-node-probe.ts:13:15) {\n  code: 'envelope',\n  kind: 'invalid_input'\n}\n\nNode.js v26.10.0\n`
+  }

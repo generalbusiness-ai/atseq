@@ -1,0 +1,34 @@
+[
+  {
+    "producer": "29683b1987684c2add6bb1602ef10c2903dcf9ee",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-design/acceptance-vectors.json",
+    "gitBlob": "2f2525570d4687e16eeacfe9eefd07fa98edfa63",
+    "bytes": 7500,
+    "sha256": "9da94c6b5f7cb33e0a537ae474cd258f002d7dcc8c60e9e09ebfd7032bfe78c6",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/design-vectors.json"
+  },
+  {
+    "producer": "29683b1987684c2add6bb1602ef10c2903dcf9ee",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-resource-policy/acceptance-vectors.json",
+    "gitBlob": "ae36fbff3a9a3123f4ac85ea353063618a43143f",
+    "bytes": 5267,
+    "sha256": "7d1ee4c933fc86f9804b0e87bf7fba2a012241f148623518437d9e38e8decd89",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/resource-vectors.json"
+  },
+  {
+    "producer": "a6bbfb38964b38036eb20f20fabc353cc5ac1b62",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-writer-refusal-handoff/vectors.json",
+    "gitBlob": "ae201d9a8bc69e73be3480bf480f1d1a639abde3",
+    "bytes": 2491,
+    "sha256": "d71864fb0ed9eed64cb091d8de323ed64819f203ae497a0bcf45f09649d10d1c",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/handoff-vectors.json"
+  },
+  {
+    "producer": "7b54ad86c5f56c1a5237ba71f2168e1ce10e4f98",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-writer-reauthorization-clarification/vectors.json",
+    "gitBlob": "738a572841fc6030e29ea917ac40a59ba4e440bd",
+    "bytes": 5778,
+    "sha256": "cc8ec8851b879114facc5a2cc6720991c7231ca195604f12cde712b6b5846b30",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/recovery-vectors.json"
+  }
+]

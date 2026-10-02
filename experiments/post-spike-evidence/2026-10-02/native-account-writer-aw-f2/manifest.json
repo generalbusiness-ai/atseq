@@ -1,0 +1,1970 @@
+{
+  "sourceProducer": "16f36988179a0ccacf1189eeb7b2b0e3453d6836",
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-input-pins.json",
+      "bytes": 1891,
+      "sha256": "56e57d291b623249d8275def54021dc260530a33dd95c3c888ce51b5a7cbcc2d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/design-vectors.json",
+      "bytes": 7500,
+      "sha256": "9da94c6b5f7cb33e0a537ae474cd258f002d7dcc8c60e9e09ebfd7032bfe78c6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/handoff-vectors.json",
+      "bytes": 2491,
+      "sha256": "d71864fb0ed9eed64cb091d8de323ed64819f203ae497a0bcf45f09649d10d1c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/recovery-vectors.json",
+      "bytes": 5778,
+      "sha256": "cc8ec8851b879114facc5a2cc6720991c7231ca195604f12cde712b6b5846b30"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/resource-vectors.json",
+      "bytes": 5267,
+      "sha256": "7d1ee4c933fc86f9804b0e87bf7fba2a012241f148623518437d9e38e8decd89"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/chunk-4UJAH5YT.js",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/chunk-CZ7CSFO4.js",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/chunk-WK77AKTB.js",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/dist-Q6ZHUMY6.js",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/oauth-adapter-J4P7XZDC.js",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/writer.js",
+      "bytes": 195489,
+      "sha256": "e14ce758670b51ed18460351716012489867a8c367e44efe8491ecb3e4204a84"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle-pins.json",
+      "bytes": 523114,
+      "sha256": "d8aeff36cc17f3f347bad817025ae0a3497aecbc8b482b8af050bc63435871eb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/chunk-4UJAH5YT.js",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/chunk-CZ7CSFO4.js",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/chunk-WK77AKTB.js",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/dist-Q6ZHUMY6.js",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/oauth-adapter-J4P7XZDC.js",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/writer.js",
+      "bytes": 195489,
+      "sha256": "bfa3de0e4de146c46babac507c59c1769a700145d4ac200e1a77f210c5ddb5e5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle-pins.json",
+      "bytes": 523114,
+      "sha256": "f516fe389b1bf1a7b06ae5a5665980d2d1d78f351f5973bfce2ddcc3427bac16"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/chunk-4UJAH5YT.js",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/chunk-CZ7CSFO4.js",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/chunk-WK77AKTB.js",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/dist-Q6ZHUMY6.js",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/oauth-adapter-J4P7XZDC.js",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/writer.js",
+      "bytes": 195489,
+      "sha256": "c8ce85829e75130fe24d50d2939656e892e67c0268f556b7367f14051b8c8389"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle-pins.json",
+      "bytes": 523114,
+      "sha256": "aa2f4d0405a6b2804fb06a44bfaa369f814e47100f04055124efbc0191d0c96b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/chunk-4UJAH5YT.js",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/chunk-CZ7CSFO4.js",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/chunk-WK77AKTB.js",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/dist-Q6ZHUMY6.js",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/oauth-adapter-J4P7XZDC.js",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/writer.js",
+      "bytes": 195489,
+      "sha256": "c8ce85829e75130fe24d50d2939656e892e67c0268f556b7367f14051b8c8389"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle-pins.json",
+      "bytes": 523114,
+      "sha256": "aa2f4d0405a6b2804fb06a44bfaa369f814e47100f04055124efbc0191d0c96b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-16f-node22.log",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-16f-node24.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-16f-node26.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-7ec-node22.log",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-16f-node22.json",
+      "bytes": 68556,
+      "sha256": "67872050456920a3d934a26410c35a9044f19dc8b40112a1b9ac1e86116a89c8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-16f-node24.json",
+      "bytes": 68556,
+      "sha256": "3354b05e56e7b552f20b91d5c4db9d3071b8b4df2e607d604d31dbc0a1c1fb95"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-16f-node26.json",
+      "bytes": 68556,
+      "sha256": "9e46e69767c630a2288d9668f88de94aff0d827a76b763a87dd6d4808b9e85b4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-7ec-node22.json",
+      "bytes": 68556,
+      "sha256": "8ea98645d5846b63b589f29b1d08d9470642093410e7df680ec2ddee7a9d18ac"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-16f-node22.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-16f-node24.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-16f-node26.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-7ec-node22.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-7ec-node24.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-7ec-node26.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-16f-node22.log",
+      "bytes": 2169,
+      "sha256": "fd18fff071efa5cff19ea518eabc661a74203fb2ae720473d1110d42a430f3c7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-16f-node24.log",
+      "bytes": 2169,
+      "sha256": "6f64281fde0ed7997f371d9c0f335c9bd7f27af34173c7db28bf697e4da9d126"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-16f-node26.log",
+      "bytes": 2169,
+      "sha256": "b13e64859b6c15975690a4e62b690569db10642ef99256e6e4421c3911a05ff3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-7ec-node22.log",
+      "bytes": 2169,
+      "sha256": "b7b3ce0b2a43a0d2d4155074420e51e0feed4f2cecf49f045cfe9c9de5697313"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-16f-node22.log",
+      "bytes": 38398,
+      "sha256": "d746bd42998f4ee3c2a2771e072736398ce8bbfe0cc7f44f743a491bf0da9b40"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-16f-node24.log",
+      "bytes": 25310,
+      "sha256": "9bf08eeebbb06b60fdd8f41058a151f562cb3c297f490a64c15aa34ff999802c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-16f-node26.log",
+      "bytes": 25322,
+      "sha256": "4f22777b2e847e200ccd9c2fa89bbfe0f3b78006adc629769d49e4aa704002ac"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-7ec-node22.log",
+      "bytes": 38342,
+      "sha256": "36f8d4ceb7218d94429fd6b7c6257bc57e284728798836f3b14aef021f76897e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-16f-node22.log",
+      "bytes": 1504,
+      "sha256": "dbace04ff2fb767097d363e0529035d5329cad8a32b6a9185e388bea9bd27be4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-16f-node24.log",
+      "bytes": 1347,
+      "sha256": "7553741a8ee0ebdeabcf4b8f15c5f006141b8ab858f6a89d7dd446b7265b1c19"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-16f-node26.log",
+      "bytes": 1347,
+      "sha256": "5e93187f186dd99e474d6cd3b1f65222644fd7a61cebc8cc4012762b821385aa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-persistent-16f-node26.log",
+      "bytes": 1397,
+      "sha256": "262369646a2666c787887045dcaaeb76d11d215c0d2b0a913b6fa05659b5e650"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-PDS-16f-node22.log",
+      "bytes": 742,
+      "sha256": "33e4014139e1641bf55ed9d0d7dbbf6b3ca03cf14d72f38089fc56a5d620e73b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-PDS-16f-node24.log",
+      "bytes": 742,
+      "sha256": "aad780d49310a169e42241eed6304c38973eb4c5bf4728760340f9bcd33df9b2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-PDS-16f-node26.log",
+      "bytes": 742,
+      "sha256": "ebfc61524486ff229b3fc90a4b88b93f05354c8bbf7cab20e7e8711cc932f93f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-legacy-16f-node22.log",
+      "bytes": 8262,
+      "sha256": "de83749c13419ddea3be3ede315d280a52ca918591017e5e5afe75e985136ed3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-legacy-16f-node24.log",
+      "bytes": 3213,
+      "sha256": "f19402a6f1769b27c22d6d8189f7822b29f5326366481a1d9336a246581a8e57"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-legacy-16f-node26.log",
+      "bytes": 3220,
+      "sha256": "954de51ce6ef7b961bb411a4bf9a861ab0b43338dac56d1106149906a298c5f9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/testdata/apps/fixtures.js",
+      "bytes": 5772,
+      "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/pds-faults.js",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/writer-child.js",
+      "bytes": 1116,
+      "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/writer-process.js",
+      "bytes": 1448,
+      "sha256": "1fb98eb65d0d3ff42c2f012906290a3df106541ff4348f040fada88287823f60"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/host-availability.test.js",
+      "bytes": 15478,
+      "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-browser.test.js",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-dispatch.test.js",
+      "bytes": 6245,
+      "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-handoff.test.js",
+      "bytes": 11038,
+      "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer.test.js",
+      "bytes": 691,
+      "sha256": "64e05ae22d125a92c0bb399f198c1190fcc8b36a1b14c885f1ad95046cef0eea"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-adapter.test.js",
+      "bytes": 4687,
+      "sha256": "8f62e1655b4c0d6d8a09fc828877d6b83ab883a760197a59b22b9afce0c05f9b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-custody-lifecycle.test.js",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-custody.test.js",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/pds.test.js",
+      "bytes": 28160,
+      "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/identity-corpus.js",
+      "bytes": 18942,
+      "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-browser-probe.js",
+      "bytes": 5839,
+      "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-byte-observation.js",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-corpus.js",
+      "bytes": 19036,
+      "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-fixture.js",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-native-batch.js",
+      "bytes": 2803,
+      "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-node-probe.js",
+      "bytes": 3375,
+      "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-pds-probe.js",
+      "bytes": 8072,
+      "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-application-fixture.js",
+      "bytes": 19889,
+      "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-authority-fixture.js",
+      "bytes": 15535,
+      "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-proof-corpus.js",
+      "bytes": 29660,
+      "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/oauth-fixture.js",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/oauth-node-probe.js",
+      "bytes": 15222,
+      "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/sequencer-service.js",
+      "bytes": 4096,
+      "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/testdata/apps/fixtures.js",
+      "bytes": 5772,
+      "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/pds-faults.js",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/writer-child.js",
+      "bytes": 1116,
+      "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/writer-process.js",
+      "bytes": 1448,
+      "sha256": "2ee54a5a553dfda994a042a367fefca106ba7d41df116701a9299de7919e7b5e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/host-availability.test.js",
+      "bytes": 15478,
+      "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-browser.test.js",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-dispatch.test.js",
+      "bytes": 6245,
+      "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-handoff.test.js",
+      "bytes": 11038,
+      "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer.test.js",
+      "bytes": 691,
+      "sha256": "360c8a9287b19f631a7a07840c3a19102d68528e4e9581bc163294d6de80c8d2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-adapter.test.js",
+      "bytes": 4687,
+      "sha256": "7f8c41e06360bb318c95caf9fd1fc5a0b9a08995a1d005df010da809b56b5f76"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-custody-lifecycle.test.js",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-custody.test.js",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/pds.test.js",
+      "bytes": 28160,
+      "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/identity-corpus.js",
+      "bytes": 18942,
+      "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-browser-probe.js",
+      "bytes": 5839,
+      "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-byte-observation.js",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-corpus.js",
+      "bytes": 19036,
+      "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-fixture.js",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-native-batch.js",
+      "bytes": 2803,
+      "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-node-probe.js",
+      "bytes": 3375,
+      "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-pds-probe.js",
+      "bytes": 8072,
+      "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-application-fixture.js",
+      "bytes": 19889,
+      "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-authority-fixture.js",
+      "bytes": 15535,
+      "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-proof-corpus.js",
+      "bytes": 29660,
+      "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/oauth-fixture.js",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/oauth-node-probe.js",
+      "bytes": 15222,
+      "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/sequencer-service.js",
+      "bytes": 4096,
+      "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/testdata/apps/fixtures.js",
+      "bytes": 5772,
+      "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/pds-faults.js",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/writer-child.js",
+      "bytes": 1116,
+      "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/writer-process.js",
+      "bytes": 1448,
+      "sha256": "ded22c06d8d9bed19d727f2c581f25bdaa2fc6c86ec584e97fd19069855b251f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/host-availability.test.js",
+      "bytes": 15478,
+      "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-browser.test.js",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-dispatch.test.js",
+      "bytes": 6245,
+      "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-handoff.test.js",
+      "bytes": 11038,
+      "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer.test.js",
+      "bytes": 691,
+      "sha256": "69714bd2808d3c2a9d6eac470e155450f07c6cbf60fbe8605064470a618c6e22"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-adapter.test.js",
+      "bytes": 4687,
+      "sha256": "6bde46a8307aa65652ff7fa2a6a6fc38eec0c1c0996d687d6c2763a875c196e8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-custody-lifecycle.test.js",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-custody.test.js",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/pds.test.js",
+      "bytes": 28160,
+      "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/identity-corpus.js",
+      "bytes": 18942,
+      "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-browser-probe.js",
+      "bytes": 5839,
+      "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-byte-observation.js",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-corpus.js",
+      "bytes": 19036,
+      "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-fixture.js",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-native-batch.js",
+      "bytes": 2803,
+      "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-node-probe.js",
+      "bytes": 3375,
+      "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-pds-probe.js",
+      "bytes": 8072,
+      "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-application-fixture.js",
+      "bytes": 19889,
+      "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-authority-fixture.js",
+      "bytes": 15535,
+      "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-proof-corpus.js",
+      "bytes": 29660,
+      "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/oauth-fixture.js",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/oauth-node-probe.js",
+      "bytes": 15222,
+      "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/sequencer-service.js",
+      "bytes": 4096,
+      "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/testdata/apps/fixtures.js",
+      "bytes": 6028,
+      "sha256": "c099b3ce465be72b45a62d99db9d753af4a027827dbeecdd1db7fefa24ed7c7f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/pds-faults.js",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/writer-child.js",
+      "bytes": 1308,
+      "sha256": "f0ac896e7ddb059c3eb6b424b5eae1c54091b4eeb0dd7b5bab6183dd0a98e65a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/writer-process.js",
+      "bytes": 1455,
+      "sha256": "58aba8ae258d651c9aab241dbce7c52465163c190e55c81839b53bc62222aac2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/host-availability.test.js",
+      "bytes": 16438,
+      "sha256": "d46cbffe95b6823313f6e009ef4ba64fbefc5de00b78549d4e3b005d0b1bc070"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-browser.test.js",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-dispatch.test.js",
+      "bytes": 6437,
+      "sha256": "1ffd5f7daf55f0678c33305824673f9c971ebdfb71230cd920a0c7f2534a1594"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-handoff.test.js",
+      "bytes": 11230,
+      "sha256": "ffd56c140f10c4dfb5403d865bf679e3de0c7d5bf5f2340e679c898d7fd3ef9f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer.test.js",
+      "bytes": 698,
+      "sha256": "6a82138d1de65624cdbd2b47f42e4b0ec445484d7925c4b13f7795ec4ba8433a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-adapter.test.js",
+      "bytes": 4822,
+      "sha256": "c2b5b2e62b79e8d70ddf52b6049c0c339ac10b530cd5147e81d095578ce4a1bf"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-custody-lifecycle.test.js",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-custody.test.js",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/pds.test.js",
+      "bytes": 28480,
+      "sha256": "374d15f346543b7a976468771efc71078ee1ffedad3f5e85635c1032394a2f17"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/identity-corpus.js",
+      "bytes": 19134,
+      "sha256": "97de7fe6009c671fc17c0aadfadfbbb53acec25d0cbf5184dc3d986d43ced466"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-browser-probe.js",
+      "bytes": 6095,
+      "sha256": "673951ea407f547db3c1918c612be985e252e4cb1b6f2e524e52f78739f7f02f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-byte-observation.js",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-corpus.js",
+      "bytes": 19292,
+      "sha256": "bdb2e425883369e1281f596f8a6cf570dfc1c8ca55459e68409afa85b5d6cf81"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-fixture.js",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-native-batch.js",
+      "bytes": 2995,
+      "sha256": "44fe4c0bc37037e156615f45c1b863d3433628467e44a1320c1f2c486534de33"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-node-probe.js",
+      "bytes": 3567,
+      "sha256": "5c5c22badc018d3b4d6c7d186e06ccaaa5e3944369694418f84af5c5d8144984"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-pds-probe.js",
+      "bytes": 8264,
+      "sha256": "b991aa748f42d78e09b098e80927a39ae78aa1daed3221ece8ac59dd042d7a20"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-application-fixture.js",
+      "bytes": 20465,
+      "sha256": "f7dc25109110f555388ea749cdae7304828c0147984e73470b373d58f6d4ad5f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-authority-fixture.js",
+      "bytes": 16175,
+      "sha256": "bad9d71c41e08f4b0d2fda7deafc0aa9fbb50162e38deb9014f30ab67985d183"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-proof-corpus.js",
+      "bytes": 29852,
+      "sha256": "603cfde92733390caecfd2e695893800cd379e473674512ebb078a757cfd3573"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/oauth-fixture.js",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/oauth-node-probe.js",
+      "bytes": 15414,
+      "sha256": "8b79b44bda5b01a5f6fcddffaaa1f420100f3bb35f77e08d48d925f2a3696195"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/sequencer-service.js",
+      "bytes": 4416,
+      "sha256": "3fd60d5ed61488f4481b0ecb5cd7237e8512a888a8865a649d891871fd2df91b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/testdata/apps/fixtures.js",
+      "bytes": 6028,
+      "sha256": "1e71cac2a7cc7f0d4ae36efaf5d016ed12536d8d443d1bbb96cb54e4c2c14212"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/pds-faults.js",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/writer-child.js",
+      "bytes": 1308,
+      "sha256": "bb89cdeeb4946ad844d1a8203321c054ae04f92f19b071b20a777a3670b49748"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/writer-process.js",
+      "bytes": 1455,
+      "sha256": "16f4ac5b83539d040377c85b16d04f3e422ee4bffeeab19ef362b66fb4e6afce"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/host-availability.test.js",
+      "bytes": 16438,
+      "sha256": "3507122ec9a2b184810d290c8d15137be0a161e565abdf4dc427cbc7c55c4da4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-browser.test.js",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-dispatch.test.js",
+      "bytes": 6437,
+      "sha256": "5c54021eb40e1b0ca97720aeef2fb9f69da02158bcfd4e540783a3500aa72308"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-handoff.test.js",
+      "bytes": 11230,
+      "sha256": "e42884f37b7edfb0a392497d773dcf3f3589d2cd65ebde54440ce31e58fc419d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer.test.js",
+      "bytes": 698,
+      "sha256": "a3c0dafa10b618299a6929744251b491e6659430a4582513e4c36ce793575aa0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-adapter.test.js",
+      "bytes": 4822,
+      "sha256": "bb80d6ffd561c826d45991d9ce0fac52974bbba71f505314bfb10d2bfbddea18"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-custody-lifecycle.test.js",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-custody.test.js",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/pds.test.js",
+      "bytes": 28480,
+      "sha256": "51e22d502e322353d94434add9d393e2ef94514a624e0e8e0df56a0630383943"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/identity-corpus.js",
+      "bytes": 19134,
+      "sha256": "11f56a42c31d04e1c78628e19a92bd98af4f52019d82caac1eeddd8305a9133a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-browser-probe.js",
+      "bytes": 6095,
+      "sha256": "26e40714f3e4c864a7d13ecf28e5a8c5d5089416936a36dccc214c53a85848af"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-byte-observation.js",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-corpus.js",
+      "bytes": 19292,
+      "sha256": "dea64119d4a92c877b5c69142ef59424cdc37dcc04b61be6938df8968e3714a7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-fixture.js",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-native-batch.js",
+      "bytes": 2995,
+      "sha256": "11fe8e19d10c921768c025aecba0d18979ef5bfa6c2ccea292f5d16246cf1ad3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-node-probe.js",
+      "bytes": 3567,
+      "sha256": "68171c31272623bd89017da4df3e1488ac837607af40b53bf0f4ab60d6a23d3b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-pds-probe.js",
+      "bytes": 8264,
+      "sha256": "2cd60ff91ab3a6a2c7cea3a527648432bfcbf678923d6bae4a7079e7c772648a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-application-fixture.js",
+      "bytes": 20465,
+      "sha256": "45d9ab7994e4d5457151950f4c6ab1cdef4556ed21ba8131d730c84ff0f06602"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-authority-fixture.js",
+      "bytes": 16175,
+      "sha256": "ff9ee6ef785ee1d63e2959137fe4c8cb7aebcdb1cc6fab98706b68b74a1a52cc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-proof-corpus.js",
+      "bytes": 29852,
+      "sha256": "63150850599040a54e499d8820119889ff623af9171c80f0ea03b73ccef81f7a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/oauth-fixture.js",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/oauth-node-probe.js",
+      "bytes": 15414,
+      "sha256": "86fca5ddcb175cf7b94abc7b8da6c637fcec35622a4a666bad8276b67352b911"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/sequencer-service.js",
+      "bytes": 4416,
+      "sha256": "7f462052a6e89bd78f66b3bf2e9d9959dbd0ede28b1a33c4765cc2a5bff0a9c4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/testdata/apps/fixtures.js",
+      "bytes": 6028,
+      "sha256": "ed1e03135d6f7fb1f698abee11a1ff07c6416a289d88ae85a3ece862eda10c78"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/pds-faults.js",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/writer-child.js",
+      "bytes": 1308,
+      "sha256": "067bccdedb9c751da2674bb94cce7cf8c6a58214d3c8a6698414b176ac35e282"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/writer-process.js",
+      "bytes": 1455,
+      "sha256": "0483df57cb5c18756b3c969f08e0ac4f84ba81ec352d37f71d35f6407fac0d55"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/host-availability.test.js",
+      "bytes": 16438,
+      "sha256": "30e1d71470fe26284b8c2255c671601117ecc53e311a91c5c15b65c170f8a5d2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-browser.test.js",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-dispatch.test.js",
+      "bytes": 6437,
+      "sha256": "3cf7ac7d1a834a466dc212509051b596561855550a120c045b208abc8e1de90b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-handoff.test.js",
+      "bytes": 11230,
+      "sha256": "e2631bc09993f4c34b72ec62248ef9eafed01007c13b28cb893256a4e27565f1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer.test.js",
+      "bytes": 698,
+      "sha256": "1c52272e7c88805be1e1f00f3f0db456ee83a69660ec7d07e2134f52b7cfd119"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-adapter.test.js",
+      "bytes": 4822,
+      "sha256": "092f9c3a0260d0f7cd4888ae7676304746be6736b13788718390c1076f8d1927"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-custody-lifecycle.test.js",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-custody.test.js",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/pds.test.js",
+      "bytes": 28480,
+      "sha256": "8c7449f4f017d3c638849927780403b709717e154b08ae43973c957a349c7b2c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/identity-corpus.js",
+      "bytes": 19134,
+      "sha256": "14c4f6240aad558c9d516868d3aaab2007c4a4b5a194f23d5e2622068daf894a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-browser-probe.js",
+      "bytes": 6095,
+      "sha256": "cda3b79f8744abccde01c2c579af3dcc06a464b03e587299d3be9d729da0c841"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-byte-observation.js",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-corpus.js",
+      "bytes": 19292,
+      "sha256": "96fe1a5995623145dcf257b653625c6f63a56d900f76cd4cc6d884d80ad571bc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-fixture.js",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-native-batch.js",
+      "bytes": 2995,
+      "sha256": "72d6f7ad983ad68a0308c74b6c22142ba5fa7b904eb5aae248d399fdba9182c4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-node-probe.js",
+      "bytes": 3567,
+      "sha256": "1fcbb2cd2f1f96423377f637ff922556e5e52a532c2b14a0835189f323e8c494"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-pds-probe.js",
+      "bytes": 8264,
+      "sha256": "4ca2cac912ba1c967d167d1ca03f321f6e338971d0a233c1e8367056437f0493"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-application-fixture.js",
+      "bytes": 20465,
+      "sha256": "95b39a841eac3eecf7454823f23c732284a84be42c1fa40db0864438c927f3c5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-authority-fixture.js",
+      "bytes": 16175,
+      "sha256": "d0eaba0cada509766d21c7e42e02ebffcb9ee290e86932ed041bc2587ff0ebda"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-proof-corpus.js",
+      "bytes": 29852,
+      "sha256": "18418a1b7d89d092d50ead1c9aeb2604991108450ba51a2799ae46640d8d7af7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/oauth-fixture.js",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/oauth-node-probe.js",
+      "bytes": 15414,
+      "sha256": "845c3cebf86e70e790df681a687afaed0e141cd8fc84f12f817209830b7942a7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/sequencer-service.js",
+      "bytes": 4416,
+      "sha256": "ff263073bc5caae35b724746107d6d4063c46447eb8e7426023ae5f74a8fbc63"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-retention.json",
+      "bytes": 104610,
+      "sha256": "b3ed716dce9ab84559121e3974f76892c1d275fd1223057526719fd1585ec9fb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+      "bytes": 15177,
+      "sha256": "635902b0c56e7f6db3f9ccedf76ad11a4107f8942e9f670c435039474d14fb7d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+      "bytes": 15177,
+      "sha256": "16ebe7c83e9b6e6be3d595b7701b59b26c717a1a1b26973838015b25fd1e9abf"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+      "bytes": 15177,
+      "sha256": "5714cf1d1e6e6b546ec00e7afe61efe9eade64ab132ac4559494b55f86c3b8b2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-7ec-node22.json",
+      "bytes": 15177,
+      "sha256": "b489285ad322d87fb7755ac5c1697971962c065e939ad34f2b09c7cc94f4e210"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-client.js",
+      "bytes": 13216,
+      "sha256": "caff70d770559e359c68fca345024b01065487c64f99d18f4bfc812fe0c2c93c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-server-agent.js",
+      "bytes": 7739,
+      "sha256": "bc4f644df77e7e180e711f5b8a7a118f5d06dcf9457933bb088a3562cc321b74"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-session.js",
+      "bytes": 5208,
+      "sha256": "d95fbbc2fe26d7704d236a7b3fc17754b811c060ef81ed40d4a630e6baf0d631"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/package.json",
+      "bytes": 1392,
+      "sha256": "13a0a08dd3c36e62cb66259c8cc55f84d7fa981203e1eeb4faac6464db8119fc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-browser/package.json",
+      "bytes": 1158,
+      "sha256": "38ae559a12d1b328451d3e66f12fbfa7b1ef4e1ed8bdbbc5db152d014a4ef330"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-node/package.json",
+      "bytes": 1085,
+      "sha256": "752660817b58a6176591d0c84f4c3046b6d0a89a81b19931142bd474e810abb7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@ts-morph/common/package.json",
+      "bytes": 2006,
+      "sha256": "faef4d4f45c3c5f46d7aca9c1265eb9f4a7111987ff9f73d023b164e8c9719d1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/lib/main.js",
+      "bytes": 97463,
+      "sha256": "61ec0ba144ff93f4bf0e96ad6fab6f430ede0aa13e27ace8063ed63ba416b3cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/package.json",
+      "bytes": 3980,
+      "sha256": "9d0bc453f4e791553c4cc2298ba023b409241fd9801e494741666eb0f6051490"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/ts-morph/package.json",
+      "bytes": 3568,
+      "sha256": "2c5af3ce2bc65a99b6878045446a45e36097e67861fffd066ef6e9251e7671c6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/dist/loader.mjs",
+      "bytes": 743,
+      "sha256": "7e3dba3b9b862a5fa1c741d54fc921ee8b17fc7a4d0087fa64e42a32142cf03d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/package.json",
+      "bytes": 1601,
+      "sha256": "3ace2493a0acd26fc72a8433a38113ee04d5a1976910a3f40815f9e779d5c426"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/typescript/package.json",
+      "bytes": 3087,
+      "sha256": "3722b30210616a13a3213ded11575ba6b2dbab10c32a5ef67afca8513e27017e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/actor-store/blob/transactor.js",
+      "bytes": 12909,
+      "sha256": "9e78e78a90d9d719596f30888dcdb72ae80c0d13354e977d4275b445651ab115"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/api/com/atproto/repo/uploadBlob.js",
+      "bytes": 2337,
+      "sha256": "f60c8a83786dcc750027ecc2a1a7f257b8b0d0543bba83a126d32d8b81d6bc56"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/package.json",
+      "bytes": 3977,
+      "sha256": "f44e8d5cd75e762e539f68a5c1354c82c33dd0d695c3f6a2d5733bba55bea947"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/better-sqlite3/package.json",
+      "bytes": 1436,
+      "sha256": "4665126292eff5dffe6c0ffabf98c4de18e479aa0b53edd775028eb567b3ecc1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/package-16f-node22.log",
+      "bytes": 358,
+      "sha256": "df4818c5371780b970e991927e67b7ffdee6991b582bb1332d615e8dcf8b677c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/package-16f-node24.log",
+      "bytes": 220,
+      "sha256": "a8494014a66699a5f911897207af9067cc0b5b47d8719c14a3617badb7ebe1fe"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/package-16f-node26.log",
+      "bytes": 217,
+      "sha256": "d58bc8293510e1e3cc484d6b6f18ed7884201684418621e488fa69c242b196fc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-build-16f-node22.log",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-build-16f-node24.log",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-build-16f-node26.log",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compile-16f-node22.log",
+      "bytes": 2253,
+      "sha256": "64d74d9e11a8145362751ecf7b385107b938d310455a1f6a1c448923f7ed3b49"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compile-16f-node24.log",
+      "bytes": 2253,
+      "sha256": "e6664979567cd5c4ab50babebf240b06c049a473e9865f0f90b4480425d41f54"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compile-16f-node26.log",
+      "bytes": 2253,
+      "sha256": "1521c94cfbc98fdf668f9f481504931145931b109c129cd1e3f2f641572fd480"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+      "bytes": 15523,
+      "sha256": "cbfdc628b5480dab290a29d2ce531bc2ac0f737979dac78d89df85c1117b5fc3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+      "bytes": 15523,
+      "sha256": "bc5fdce1d99fde6ec1bcc11068a9c1b653d419c7dc9c3c07b51efc06fb3c11e3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+      "bytes": 15523,
+      "sha256": "524238abf7670bef0d6cb9897c1232bef1b74b1d242066f3906d5496d752365a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-execution-pins-16f-node22.json",
+      "bytes": 2041728,
+      "sha256": "c20de3f97b4f586fb9733912b211a429cf1cd9176da5e889614c9735fc9d7432"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-execution-pins-16f-node24.json",
+      "bytes": 2041728,
+      "sha256": "f1ac16e08d77dcd583b5de764b0d777036df5d57b397a77f670cd73e16e60d11"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-execution-pins-16f-node26.json",
+      "bytes": 2041703,
+      "sha256": "293ad14803c20650cd6c1e13af02c61389229f5fa5a11a67741478223e54a010"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-16f-node26.log",
+      "bytes": 479,
+      "sha256": "fd8eeaf1d10cafead7c5c4e4a6f0a20dbef8bbd7ae7636847fb23f1090b286e0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-published-inputs-16f-node22.log",
+      "bytes": 197,
+      "sha256": "e1896ec456f2d25bd1b471e922af76cb0bd9aa03890c3515b9ffc3c669b81057"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-published-inputs-16f-node24.log",
+      "bytes": 197,
+      "sha256": "9025b2ebd012c44eeb0f171cedbb8d1ec9069218512d44c3c5096ad93b7364bd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-published-inputs-16f-node26.log",
+      "bytes": 197,
+      "sha256": "280538630b0bfc63de0b5461cfb1cba07af244f0e4e3713a463340faa9fc3ce7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-install-16f-node22.log",
+      "bytes": 24,
+      "sha256": "219780da827085a5c47b7d155caf40097369152aeca61fa778693913bf1d5152"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-install-16f-node24.log",
+      "bytes": 24,
+      "sha256": "e99b3248526c33934f2106228a4772ca88f1d61278e6e24ebaee384f07f56879"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-install-16f-node26.log",
+      "bytes": 23,
+      "sha256": "ed435fab73a9b746a43a14339ba74fe949add5a81a8c6f3c8b718d53164f5cfd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-native-16f-node22.log",
+      "bytes": 7758,
+      "sha256": "4429dd1498d972c09ed60f3b236e9f56735560a50de747ceee171ffaf9fe6258"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-native-16f-node24.log",
+      "bytes": 4076,
+      "sha256": "d21862371ab454d7ce9cebad3db5504a181bc1811857b0519e295727d58ffde4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-native-16f-node26.log",
+      "bytes": 4073,
+      "sha256": "119750e731435f8034dfcd991068ad18464f211aaa182f4281049e4430cce155"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-pack-16f-node22.json",
+      "bytes": 2040541,
+      "sha256": "7935e99b0df2322e71b1976e406b2dc18b45dff84a01111124d133d126f454f1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-pack-16f-node24.json",
+      "bytes": 2040541,
+      "sha256": "275cade796458605be497e2cb7ce8a5ce4780bd0b0d07d33cf096c1da26d23f8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-pack-16f-node26.json",
+      "bytes": 2040541,
+      "sha256": "f5461ba78f0513290ced1f1b7663196defe8e1bdf1909a2f1f3c57bc232cdadd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-provenance-16f-node22.json",
+      "bytes": 68556,
+      "sha256": "67872050456920a3d934a26410c35a9044f19dc8b40112a1b9ac1e86116a89c8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-provenance-16f-node24.json",
+      "bytes": 68556,
+      "sha256": "3354b05e56e7b552f20b91d5c4db9d3071b8b4df2e607d604d31dbc0a1c1fb95"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-provenance-16f-node26.json",
+      "bytes": 68556,
+      "sha256": "9e46e69767c630a2288d9668f88de94aff0d827a76b763a87dd6d4808b9e85b4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/persistent-browser-executable-16f-node26.js",
+      "bytes": 12243,
+      "sha256": "efd840fd2ba0b564490323d650485b0dfb5c76c69065b9d24cffa64994d6c263"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/persistent-browser-wrapper-pins-16f-node26.json",
+      "bytes": 1372,
+      "sha256": "7b7c6bb6c8020fc1e27ba999c46bb7e25c680af6630e09c1d6e8332e116ac2af"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/physical-runtime-pins.json",
+      "bytes": 9256,
+      "sha256": "e83c0d4b20b2c6176ba61c818b5b2febe3e9c6df5cfe0045689709b88274c467"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/producer-source-pins.json",
+      "bytes": 53240,
+      "sha256": "253e6171d75b3ebb0314b0cde16fab044cb440dc2949ed6da4f60945deac17b8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-16f-node22.log",
+      "bytes": 38401,
+      "sha256": "fc6c2fd91d4d7ab512afd4d0b907d3b6e05e5e47936524fc6481ab8d8c8090d5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-16f-node24.log",
+      "bytes": 25332,
+      "sha256": "23c5f1f27651cc11633d7ed091f0aa06af125f8d94c4f3e42804b37db8814751"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-16f-node26.log",
+      "bytes": 25336,
+      "sha256": "75bed77810d67bbf683039271761f972f8e0ddbdab440b09b01a36a7644ea5d0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-7ec-node22.log",
+      "bytes": 38343,
+      "sha256": "4836d55a80b744494289b56e650c8dca8d83108208de870c3c54bf176aee811f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-7ec-node24.log",
+      "bytes": 25268,
+      "sha256": "3e3af8a2ee949e6af460ad6bdb01fa4796e1bfee4780c56298fbf62a8cbfc6bf"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-7ec-node26.log",
+      "bytes": 25255,
+      "sha256": "332ebeb1f4eaa927a39c74b621c69edbc9b4c60f6deaf52f5672d31e1dbc5bd3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-PDS-16f-node22.log",
+      "bytes": 742,
+      "sha256": "33e4014139e1641bf55ed9d0d7dbbf6b3ca03cf14d72f38089fc56a5d620e73b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-PDS-16f-node24.log",
+      "bytes": 742,
+      "sha256": "aad780d49310a169e42241eed6304c38973eb4c5bf4728760340f9bcd33df9b2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-PDS-16f-node26.log",
+      "bytes": 742,
+      "sha256": "ebfc61524486ff229b3fc90a4b88b93f05354c8bbf7cab20e7e8711cc932f93f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-legacy-16f-node22.log",
+      "bytes": 8262,
+      "sha256": "dee28bc21be50cce8c3ecb19bcf5ed5c8e7cb959c31b44a3cdafa084341fb8ee"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-legacy-16f-node24.log",
+      "bytes": 3210,
+      "sha256": "030ada823b08e5a187cbe79d727d048777b29f6dcfd3f7b7224af525526fb2a8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-legacy-16f-node26.log",
+      "bytes": 3225,
+      "sha256": "579a692f12f81b3751ee6aede29c5f5a2c84165718ec87d5cdfc799814ec6dc8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-16f-node22.log",
+      "bytes": 1338,
+      "sha256": "d7cd93f07f3715f0a67ddb80f1f0f9d3ab96dc3db66504091d1cd633b987d882"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-16f-node24.log",
+      "bytes": 1338,
+      "sha256": "e67d40dfa86a0450ea9b39dfb06a196ec944a0c3ec8c5f2514b04bdff2ee8500"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-16f-node26.log",
+      "bytes": 1313,
+      "sha256": "e7fc6ad66cd3196a9bbfe323937454ec674012e158ed1505573f3f08244aeebf"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-pins-16f-node22.json",
+      "bytes": 870,
+      "sha256": "6021d309cae4b5771a3e888a152ea249affd89cd58c5a44e5153c5feafa112ca"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-pins-16f-node24.json",
+      "bytes": 870,
+      "sha256": "302308d86ecc75399a33c1722ff991d934ea78e0efa792591f195ecd17d73de8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-pins-16f-node26.json",
+      "bytes": 845,
+      "sha256": "f035ff6d653baab6f2d51209d3fa08b024077839f906d691caad45631d94da4f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/vector-coverage.json",
+      "bytes": 76121,
+      "sha256": "04fdc92612738c5aa9927d6f500022fe6b208737ffd36c3051584276b0b70f4d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/compile-existing-regressions.mjs",
+      "bytes": 2795,
+      "sha256": "9f73bb069466052fd111bdbb5ecab2b6640e5f0acd335ac242bff22ea441d2c3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/compile-writer-gates-file-url-original.mjs",
+      "bytes": 5034,
+      "sha256": "e67580237be7536d54d5c05a3fa44114fbc311849c115e373a00baac725a873b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/compile-writer-gates.mjs",
+      "bytes": 5800,
+      "sha256": "5c2d5222dd89305549ff9dadfd061af0df9ad4f4cf94277e59eb7e0b40ad79ab"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/dispatch-first-node26.log",
+      "bytes": 1574,
+      "sha256": "c4e0b9a4cb7a1d542d9220e77749f7ab3ca5c6bfd6741b58168098bd30a23cfe"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/dispatch-second-node26.log",
+      "bytes": 751,
+      "sha256": "556987c453cf5ebc7bd8e0c239311252738dd3033ca10636871558b44f22a146"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-build-node26.log",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-build-provenance-node26.json",
+      "bytes": 67954,
+      "sha256": "cc0c868a567455721d586e2062b8b240096fffdcc6b185355aa5e1468174f346"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-check-node26.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-compiled-node24.log",
+      "bytes": 3223,
+      "sha256": "9a49b3a6bf9f1d6c5b7bd436a053ad17fd9d0ebb85455df50db270da8d20e571"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-compiled-prepare.log",
+      "bytes": 250,
+      "sha256": "aef230098584050a154eec598f5a91c148d33ae9ef2fd672bc7e37cd33097743"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-host-node26.log",
+      "bytes": 1154,
+      "sha256": "2740e0b2e9ed4093ab79ddcf00f7722b2f313617e33c8817e9358511825ec3fd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node22-correct-abi.log",
+      "bytes": 8244,
+      "sha256": "bae89b4ff296a7ee1aadf0e00ab4ddacbe955b9411aae46223cbafdf41d7ee52"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node22.log",
+      "bytes": 5985,
+      "sha256": "9eed51e392d4a3a29b0946e7530975efda442dc548db074cd1e88cfbaf0f2bbd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node24-correct-abi.log",
+      "bytes": 3215,
+      "sha256": "d332e4b4d4df4f1368e3580fad79ffb6c6cfbd56f1a5788cbd4956ecf902c1e1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node24.log",
+      "bytes": 3275,
+      "sha256": "4d0bd67a51f0319e0971b022307035a61abd63417343b77c3c0c1b2787809399"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-pds-node26.log",
+      "bytes": 2179,
+      "sha256": "5926a87bee7852425a83201425c76a1fc0078cb21ed3b52d8fd93517b4981a47"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/first-unpublished-input-packed-build-16f-node26.log",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/first-unpublished-input-packed-install-16f-node26.log",
+      "bytes": 23,
+      "sha256": "ed435fab73a9b746a43a14339ba74fe949add5a81a8c6f3c8b718d53164f5cfd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/first-unpublished-input-packed-pack-16f-node26.json",
+      "bytes": 2040541,
+      "sha256": "f5461ba78f0513290ced1f1b7663196defe8e1bdf1909a2f1f3c57bc232cdadd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/framing-only-32KiB-batch-original.ts",
+      "bytes": 2250,
+      "sha256": "7ac25d337abb297e3c763693e368f9103b0266a85af7d218dd235ccd500d593f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/packed-unpublished-input-first-16f-node26.log",
+      "bytes": 479,
+      "sha256": "fd8eeaf1d10cafead7c5c4e4a6f0a20dbef8bbd7ae7636847fb23f1090b286e0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/packed-writer-gate-missing-unpublished-input-original.ts",
+      "bytes": 4661,
+      "sha256": "bd1867c42404f1ffe84c9813dd2375d72335b269a6637a35040ed510de8681f1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/packed-writer-gate.ts",
+      "bytes": 4910,
+      "sha256": "0da940fd855c321a7921d9ca5a8f24ece6e0b5bf64137042b1e1e833008a17f2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/prepare-persistent-browser.mjs",
+      "bytes": 3213,
+      "sha256": "41f2552849d55dd0f9c724de3e6c0300758c3abc43b7fe863a07b57aed4ff558"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/record-vector-coverage.py",
+      "bytes": 6530,
+      "sha256": "3f996759ea4d06d99753fe5252198c472a80fb0cc87bd403fc0377dd1421a3b1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/refusal-physical-dependencies-correct-loader.log",
+      "bytes": 10,
+      "sha256": "770c2d18aa4ec3159f46da461ef452972949942ff4f6a9771044485faa146398"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/refusal-physical-dependencies.log",
+      "bytes": 1155,
+      "sha256": "27419cb5610d69a8c0970fb728e514c44e4cd22ea031c9461f8bd8b7caa957ee"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/rejected-missing-content-version-input.ts",
+      "bytes": 2141,
+      "sha256": "2303ea2ff8457ee96cdcac4ef14abd7cd9759e0871ff85d8f8b5e324ba12583d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/rejected-near-cap-act-input.ts",
+      "bytes": 1529,
+      "sha256": "b222d48631b0322208965137fac518c2f2cab960e8b280f02b7d755855d50561"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix-7ec-node26.log",
+      "bytes": 815,
+      "sha256": "02271692619c46ade894fcbe211b0e95e7e6b59a01d686a5a6ceb8a600df81f3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix-observed-7ec-node26.log",
+      "bytes": 1235,
+      "sha256": "f79ede64eb5e72cc2486d46d321b737fba5cfd6fbf047538dc80af51e469f9a4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix-observed.ts",
+      "bytes": 7495,
+      "sha256": "f0a68ddd58864d26f39bd0513dfce377f0488f5b2680b12e83e3c39f7fc758b4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix.ts",
+      "bytes": 7076,
+      "sha256": "b5b189a8c59c47d28cf0ce2c1977dee8db4037b6b2974408249bafaece975db7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sqlite-node22-setup.log",
+      "bytes": 156,
+      "sha256": "f422371126083710f251f06e6c1b8189646dfc9ee43a65d6dbe733a1b0c42482"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sqlite-node24-setup.log",
+      "bytes": 156,
+      "sha256": "f422371126083710f251f06e6c1b8189646dfc9ee43a65d6dbe733a1b0c42482"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/supplemental-writer-predicates.mjs",
+      "bytes": 6213,
+      "sha256": "4c1e9f1e151bd5d2182a59e9c1aee033acd3f986d178a05890deba71668760e4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/swallowed-refresh-beec-node26.log",
+      "bytes": 227,
+      "sha256": "1c8b92464b05fec20b4d16ffe2ec51f9b26d6d9648424259b7d3956a567d6323"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/swallowed-refresh-node26.log",
+      "bytes": 227,
+      "sha256": "1c8b92464b05fec20b4d16ffe2ec51f9b26d6d9648424259b7d3956a567d6323"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/swallowed-refresh-observation.ts",
+      "bytes": 1515,
+      "sha256": "11bf68ee0f03db65649ca8a5b336e4aae36aeb65ed16960dfbb57e007966e8f3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-MIME-correction-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-beec-node22.log",
+      "bytes": 551,
+      "sha256": "00aee1d7c7c2597811729fb7e7f9ad6e4d788c51474c5116c3cd9525557cee3a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-beec-node24.log",
+      "bytes": 551,
+      "sha256": "55364a194c08bea6dfa649761ef52f394a830de959148dacd9af7b9e3db09978"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-first-node26.log",
+      "bytes": 558,
+      "sha256": "6cc86cd4b972868d2ca2b8d32e0aeb3b73f81f339b397d060edfd53dd6100a76"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-second-node26.log",
+      "bytes": 551,
+      "sha256": "3d874a6f0229d8f1477af84c24c2ecc67a394d658330d5f73bf137d35874adf7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-browser-first.log",
+      "bytes": 475,
+      "sha256": "e355400e53249fcf8e2152a86175e2bf20f82c44f563d5cc0ac859c2378e3b44"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-build-c778-node26.log",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-build-provenance-c778-node26.json",
+      "bytes": 68556,
+      "sha256": "dd4338a04aa6cd4a82ab6533b633791e5dfd91d55e1040a6f2f2363d4df036a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-check-d4-node26.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-Chrome-c778-corrected-harness.log",
+      "bytes": 525,
+      "sha256": "a6c1305391b58b2b77981ece355b99e39a985fa54df006fb54ccba7c38a9800a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-Chrome-c778.log",
+      "bytes": 7353,
+      "sha256": "6b13e30e99bf742857391a9520a38462d44477e35db4f47c0cf3dadee748a2d9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-PDS-c778-node26.log",
+      "bytes": 551,
+      "sha256": "3d874a6f0229d8f1477af84c24c2ecc67a394d658330d5f73bf137d35874adf7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-c778-node26.log",
+      "bytes": 2323,
+      "sha256": "b6a03f1aacc1813106e9d8a76be42fd88cc72bd0c8cde679a40a92425f415d00"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-legacy-c778-node26.log",
+      "bytes": 3197,
+      "sha256": "e6a0ed569f9b83cf37d29dbe6018e4dad6c2b410872a62e6d6a87fcf452a26aa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-prepare-c778-browser-compatible.log",
+      "bytes": 1525,
+      "sha256": "d6426e3626a67a3198dec6ae723791b4f8067c1ba63e171ad71c87307785fcb8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-prepare-c778-node26.log",
+      "bytes": 1429,
+      "sha256": "d2332d178732d158846bfa6893cdb6a14cbe2722ec3795f5dd3d3311dc1de599"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-first-node26.log",
+      "bytes": 5367,
+      "sha256": "44c756de3c8eeb958752d4c131f6bd921bcd8119e5acf3ef9d595c0c95438ff4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-first-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-fourth-node26.log",
+      "bytes": 1150,
+      "sha256": "440b123efa85f5ec2261bc1682e3a2c2b3b059a4f284668cf1fd9428224f00f1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-first-node26.log",
+      "bytes": 114,
+      "sha256": "e4c68064115faff4ad044d28710cd34dca00c5064b2ca7ed7d3ee307ad2a8bda"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-first-typecheck.log",
+      "bytes": 466,
+      "sha256": "e933e01a6d42f905d916a78074157b25665cfb0ab4170c4357a3f5fd9679eb74"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-second-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-source-node26.log",
+      "bytes": 1740,
+      "sha256": "ddfdbfe0133f1dc073111844a8c3b6d088cceb960d02336f493fbd1eba4a7720"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-browser-first-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-browser-first.log",
+      "bytes": 1302,
+      "sha256": "edc625a1bdf48421e2080cf54c89e34b5833d3d8c4e365c0e80f07f792f1fc62"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-byte-observer-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-corpus-first-node26.log",
+      "bytes": 1957,
+      "sha256": "23025f94c6d034bf585fde42a5dbcafcbd338838ccb5f4c6c32e711f5fbc320f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-corpus-first-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-first-observation-node26.log",
+      "bytes": 530,
+      "sha256": "9932e9076082b975274688e62d7b78e663e89354a0a44287fe757c0860d95105"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-first-typecheck.log",
+      "bytes": 380,
+      "sha256": "61278a80846a5a76e27f00dfea09699312a78cab3ca6ec77edd21accaa9035a9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-negative-first-node26.log",
+      "bytes": 1338,
+      "sha256": "ad2d5ae5eaa27592f415039c6044ba56a8cf5115f1548d124e3136500f686305"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-negative-first-typecheck.log",
+      "bytes": 465,
+      "sha256": "edf472a2c2a5d08a8dba6117aa90dac11fb8e5ab77b016c5c662e7b2863c58e9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-negative-second-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-second-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-native-cap-second-node26.log",
+      "bytes": 5282,
+      "sha256": "d0dfb98a740d3eb7f0213861a4036328e3d249cbf323f7c534efde3da91370ff"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-native-cap-third-node26.log",
+      "bytes": 1244,
+      "sha256": "5103a01957e4c0e3563672f0d8b3e3fb9b6df2e04f080cac5063daae940999ed"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-native-measured-node26.log",
+      "bytes": 1368,
+      "sha256": "d8587fd8ac8ddff6f997d8513174250f3de8ba96ed51dbf21a28bd5946bd55bc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-near-cap-first-node26.log",
+      "bytes": 7445,
+      "sha256": "11be41562738f2fd7ce79090c80eca8cf2283a7058e8465beb550d9fa3c76e2c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-package-dfbd-node26.log",
+      "bytes": 220,
+      "sha256": "9f2df918057bdfdabe644b9216a0920486bd6a0b5f74c7568de5136b32fa3f83"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-second-node26.log",
+      "bytes": 6802,
+      "sha256": "8a9968f597d51a21d2dd91bd36dee33dfa3ca6d02793d5a9b1a4ee2d453bac86"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-second-typecheck.log",
+      "bytes": 121,
+      "sha256": "5898f189ca92a4d54e0607f109ac64017dc4d6a2840e3aefd25557b14a5da4fd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-c778-node22.log",
+      "bytes": 3870,
+      "sha256": "777f0b573a0e5f0d415b5cc4f6f22a3ac8daa663ad381e6515b9407622b1f375"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-c778-node24.log",
+      "bytes": 2329,
+      "sha256": "3f37252bf2fc9a7c094c1a4bba898bfd3c68a99add47e11ee20b7c08be9efc3e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-c778-node26.log",
+      "bytes": 2333,
+      "sha256": "7ba06575112cda79624e21e90e6b38e0bb2757c9c94544093b54dc3daba2ce01"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-e662-node22.log",
+      "bytes": 4208,
+      "sha256": "a0d3d9ca1a67d5f603d4d8e0da29d82566141acd7ecf2b4d7a2efae966a674cb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-e662-node24.log",
+      "bytes": 2008,
+      "sha256": "84c0c7f0d300b5674294b12f6000ae9c65ce16d898f0a647a5ce3a560a92fe86"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-third-node26.log",
+      "bytes": 1060,
+      "sha256": "4d359b5736a1d54966d142f2a6b8b7dc8098566387f8eb60039a0b102e6b40a7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-third-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/verify-results.py",
+      "bytes": 4495,
+      "sha256": "3144a697e57649b0a484c779bec48893f8757a473052edf1fca58a71a10b8339"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-native-account-writer-implementation-results.md",
+      "bytes": 14082,
+      "sha256": "05a47f25d89ba4d55a6c35947dd98bcad216f7a5125749f47accccce4a6b2285"
+    }
+  ],
+  "exclusions": [
+    "manifest.json avoids self reference",
+    "verify.stdout.log generated after validation"
+  ],
+  "claim": "Delivery inventory, including raw failures and original preparation. Executed source/output/runtime timing is recorded separately; inventory hashes do not invent historical execution pins."
+}

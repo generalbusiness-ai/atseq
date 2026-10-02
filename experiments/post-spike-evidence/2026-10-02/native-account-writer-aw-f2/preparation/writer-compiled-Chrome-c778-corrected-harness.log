@@ -1,0 +1,10 @@
+{"browser":"153.0.8010.12","entry":".atseq-local/writer-compiled-c778-browser-compatible/tests/support/native-account-writer-browser-probe.js","compiledProduction":true,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false,"bundledBytes":1503632,"resources":10}
+✔ Chromium native writer uses maintained browser OAuth and actual guarded fetch with bounded custody (524.40925ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 740.474208

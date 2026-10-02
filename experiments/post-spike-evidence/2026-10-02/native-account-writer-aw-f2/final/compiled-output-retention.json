@@ -1,0 +1,1298 @@
+[
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-proof-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-proof-corpus.js",
+    "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8",
+    "bytes": 29660,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/testdata/apps/fixtures.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/testdata/apps/fixtures.js",
+    "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50",
+    "bytes": 5772,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/host-availability.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/host-availability.test.js",
+    "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7",
+    "bytes": 15478,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/helpers/pds-faults.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/pds-faults.js",
+    "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+    "bytes": 2700,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/sequencer-service.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/sequencer-service.js",
+    "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd",
+    "bytes": 4096,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/helpers/writer-child.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/writer-child.js",
+    "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82",
+    "bytes": 1116,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/helpers/writer-process.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/writer-process.js",
+    "sha256": "1fb98eb65d0d3ff42c2f012906290a3df106541ff4348f040fada88287823f60",
+    "bytes": 1448,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/pds.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/pds.test.js",
+    "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2",
+    "bytes": 28160,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/oauth-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/oauth-fixture.js",
+    "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+    "bytes": 6425,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-fixture.js",
+    "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+    "bytes": 4709,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-byte-observation.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-byte-observation.js",
+    "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+    "bytes": 958,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/identity-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/identity-corpus.js",
+    "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332",
+    "bytes": 18942,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-authority-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-authority-fixture.js",
+    "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35",
+    "bytes": 15535,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-application-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-application-fixture.js",
+    "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db",
+    "bytes": 19889,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-native-batch.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-native-batch.js",
+    "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9",
+    "bytes": 2803,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-corpus.js",
+    "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1",
+    "bytes": 19036,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-node-probe.js",
+    "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c",
+    "bytes": 3375,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/native-account-writer.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer.test.js",
+    "sha256": "64e05ae22d125a92c0bb399f198c1190fcc8b36a1b14c885f1ad95046cef0eea",
+    "bytes": 691,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/native-account-writer-dispatch.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-dispatch.test.js",
+    "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33",
+    "bytes": 6245,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/native-account-writer-handoff.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-handoff.test.js",
+    "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921",
+    "bytes": 11038,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/oauth-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/oauth-node-probe.js",
+    "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57",
+    "bytes": 15222,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/oauth-adapter.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-adapter.test.js",
+    "sha256": "8f62e1655b4c0d6d8a09fc828877d6b83ab883a760197a59b22b9afce0c05f9b",
+    "bytes": 4687,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/oauth-custody.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-custody.test.js",
+    "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+    "bytes": 49265,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/oauth-custody-lifecycle.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-custody-lifecycle.test.js",
+    "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+    "bytes": 9932,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/native-account-writer-browser.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-browser.test.js",
+    "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+    "bytes": 11851,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-browser-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-browser-probe.js",
+    "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae",
+    "bytes": 5839,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node22/tests/support/native-account-writer-pds-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-pds-probe.js",
+    "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f",
+    "bytes": 8072,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-proof-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-proof-corpus.js",
+    "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8",
+    "bytes": 29660,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/testdata/apps/fixtures.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/testdata/apps/fixtures.js",
+    "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50",
+    "bytes": 5772,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/host-availability.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/host-availability.test.js",
+    "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7",
+    "bytes": 15478,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/helpers/pds-faults.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/pds-faults.js",
+    "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+    "bytes": 2700,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/sequencer-service.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/sequencer-service.js",
+    "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd",
+    "bytes": 4096,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/helpers/writer-child.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/writer-child.js",
+    "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82",
+    "bytes": 1116,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/helpers/writer-process.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/writer-process.js",
+    "sha256": "2ee54a5a553dfda994a042a367fefca106ba7d41df116701a9299de7919e7b5e",
+    "bytes": 1448,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/pds.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/pds.test.js",
+    "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2",
+    "bytes": 28160,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/oauth-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/oauth-fixture.js",
+    "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+    "bytes": 6425,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-account-writer-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-fixture.js",
+    "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+    "bytes": 4709,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-account-writer-byte-observation.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-byte-observation.js",
+    "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+    "bytes": 958,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/identity-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/identity-corpus.js",
+    "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332",
+    "bytes": 18942,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-authority-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-authority-fixture.js",
+    "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35",
+    "bytes": 15535,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-application-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-application-fixture.js",
+    "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db",
+    "bytes": 19889,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-account-writer-native-batch.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-native-batch.js",
+    "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9",
+    "bytes": 2803,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-account-writer-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-corpus.js",
+    "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1",
+    "bytes": 19036,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-account-writer-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-node-probe.js",
+    "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c",
+    "bytes": 3375,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/native-account-writer.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer.test.js",
+    "sha256": "360c8a9287b19f631a7a07840c3a19102d68528e4e9581bc163294d6de80c8d2",
+    "bytes": 691,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/native-account-writer-dispatch.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-dispatch.test.js",
+    "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33",
+    "bytes": 6245,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/native-account-writer-handoff.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-handoff.test.js",
+    "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921",
+    "bytes": 11038,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/oauth-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/oauth-node-probe.js",
+    "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57",
+    "bytes": 15222,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/oauth-adapter.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-adapter.test.js",
+    "sha256": "7f8c41e06360bb318c95caf9fd1fc5a0b9a08995a1d005df010da809b56b5f76",
+    "bytes": 4687,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/oauth-custody.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-custody.test.js",
+    "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+    "bytes": 49265,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/oauth-custody-lifecycle.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-custody-lifecycle.test.js",
+    "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+    "bytes": 9932,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/native-account-writer-browser.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-browser.test.js",
+    "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+    "bytes": 11851,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-account-writer-browser-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-browser-probe.js",
+    "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae",
+    "bytes": 5839,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node24/tests/support/native-account-writer-pds-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-pds-probe.js",
+    "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f",
+    "bytes": 8072,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-proof-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-proof-corpus.js",
+    "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8",
+    "bytes": 29660,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/testdata/apps/fixtures.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/testdata/apps/fixtures.js",
+    "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50",
+    "bytes": 5772,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/host-availability.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/host-availability.test.js",
+    "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7",
+    "bytes": 15478,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/helpers/pds-faults.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/pds-faults.js",
+    "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+    "bytes": 2700,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/sequencer-service.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/sequencer-service.js",
+    "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd",
+    "bytes": 4096,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/helpers/writer-child.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/writer-child.js",
+    "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82",
+    "bytes": 1116,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/helpers/writer-process.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/writer-process.js",
+    "sha256": "ded22c06d8d9bed19d727f2c581f25bdaa2fc6c86ec584e97fd19069855b251f",
+    "bytes": 1448,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/pds.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/pds.test.js",
+    "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2",
+    "bytes": 28160,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/oauth-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/oauth-fixture.js",
+    "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+    "bytes": 6425,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-fixture.js",
+    "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+    "bytes": 4709,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-byte-observation.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-byte-observation.js",
+    "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+    "bytes": 958,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/identity-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/identity-corpus.js",
+    "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332",
+    "bytes": 18942,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-authority-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-authority-fixture.js",
+    "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35",
+    "bytes": 15535,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-application-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-application-fixture.js",
+    "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db",
+    "bytes": 19889,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-native-batch.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-native-batch.js",
+    "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9",
+    "bytes": 2803,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-corpus.js",
+    "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1",
+    "bytes": 19036,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-node-probe.js",
+    "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c",
+    "bytes": 3375,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/native-account-writer.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer.test.js",
+    "sha256": "69714bd2808d3c2a9d6eac470e155450f07c6cbf60fbe8605064470a618c6e22",
+    "bytes": 691,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/native-account-writer-dispatch.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-dispatch.test.js",
+    "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33",
+    "bytes": 6245,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/native-account-writer-handoff.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-handoff.test.js",
+    "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921",
+    "bytes": 11038,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/oauth-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/oauth-node-probe.js",
+    "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57",
+    "bytes": 15222,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/oauth-adapter.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-adapter.test.js",
+    "sha256": "6bde46a8307aa65652ff7fa2a6a6fc38eec0c1c0996d687d6c2763a875c196e8",
+    "bytes": 4687,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/oauth-custody.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-custody.test.js",
+    "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+    "bytes": 49265,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/oauth-custody-lifecycle.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-custody-lifecycle.test.js",
+    "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+    "bytes": 9932,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/native-account-writer-browser.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-browser.test.js",
+    "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+    "bytes": 11851,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-browser-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-browser-probe.js",
+    "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae",
+    "bytes": 5839,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-pds-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-pds-probe.js",
+    "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f",
+    "bytes": 8072,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-proof-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-proof-corpus.js",
+    "sha256": "603cfde92733390caecfd2e695893800cd379e473674512ebb078a757cfd3573",
+    "bytes": 29852,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/testdata/apps/fixtures.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/testdata/apps/fixtures.js",
+    "sha256": "c099b3ce465be72b45a62d99db9d753af4a027827dbeecdd1db7fefa24ed7c7f",
+    "bytes": 6028,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/host-availability.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/host-availability.test.js",
+    "sha256": "d46cbffe95b6823313f6e009ef4ba64fbefc5de00b78549d4e3b005d0b1bc070",
+    "bytes": 16438,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/helpers/pds-faults.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/pds-faults.js",
+    "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+    "bytes": 2700,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/sequencer-service.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/sequencer-service.js",
+    "sha256": "3fd60d5ed61488f4481b0ecb5cd7237e8512a888a8865a649d891871fd2df91b",
+    "bytes": 4416,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/helpers/writer-child.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/writer-child.js",
+    "sha256": "f0ac896e7ddb059c3eb6b424b5eae1c54091b4eeb0dd7b5bab6183dd0a98e65a",
+    "bytes": 1308,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/helpers/writer-process.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/writer-process.js",
+    "sha256": "58aba8ae258d651c9aab241dbce7c52465163c190e55c81839b53bc62222aac2",
+    "bytes": 1455,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/pds.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/pds.test.js",
+    "sha256": "374d15f346543b7a976468771efc71078ee1ffedad3f5e85635c1032394a2f17",
+    "bytes": 28480,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/oauth-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/oauth-fixture.js",
+    "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+    "bytes": 6425,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-account-writer-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-fixture.js",
+    "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+    "bytes": 4709,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-account-writer-byte-observation.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-byte-observation.js",
+    "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+    "bytes": 958,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/identity-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/identity-corpus.js",
+    "sha256": "97de7fe6009c671fc17c0aadfadfbbb53acec25d0cbf5184dc3d986d43ced466",
+    "bytes": 19134,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-authority-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-authority-fixture.js",
+    "sha256": "bad9d71c41e08f4b0d2fda7deafc0aa9fbb50162e38deb9014f30ab67985d183",
+    "bytes": 16175,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-application-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-application-fixture.js",
+    "sha256": "f7dc25109110f555388ea749cdae7304828c0147984e73470b373d58f6d4ad5f",
+    "bytes": 20465,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-account-writer-native-batch.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-native-batch.js",
+    "sha256": "44fe4c0bc37037e156615f45c1b863d3433628467e44a1320c1f2c486534de33",
+    "bytes": 2995,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-account-writer-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-corpus.js",
+    "sha256": "bdb2e425883369e1281f596f8a6cf570dfc1c8ca55459e68409afa85b5d6cf81",
+    "bytes": 19292,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-account-writer-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-node-probe.js",
+    "sha256": "5c5c22badc018d3b4d6c7d186e06ccaaa5e3944369694418f84af5c5d8144984",
+    "bytes": 3567,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/native-account-writer.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer.test.js",
+    "sha256": "6a82138d1de65624cdbd2b47f42e4b0ec445484d7925c4b13f7795ec4ba8433a",
+    "bytes": 698,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/native-account-writer-dispatch.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-dispatch.test.js",
+    "sha256": "1ffd5f7daf55f0678c33305824673f9c971ebdfb71230cd920a0c7f2534a1594",
+    "bytes": 6437,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/native-account-writer-handoff.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-handoff.test.js",
+    "sha256": "ffd56c140f10c4dfb5403d865bf679e3de0c7d5bf5f2340e679c898d7fd3ef9f",
+    "bytes": 11230,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/oauth-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/oauth-node-probe.js",
+    "sha256": "8b79b44bda5b01a5f6fcddffaaa1f420100f3bb35f77e08d48d925f2a3696195",
+    "bytes": 15414,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/oauth-adapter.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-adapter.test.js",
+    "sha256": "c2b5b2e62b79e8d70ddf52b6049c0c339ac10b530cd5147e81d095578ce4a1bf",
+    "bytes": 4822,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/oauth-custody.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-custody.test.js",
+    "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+    "bytes": 49265,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/oauth-custody-lifecycle.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-custody-lifecycle.test.js",
+    "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+    "bytes": 9932,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/native-account-writer-browser.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-browser.test.js",
+    "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+    "bytes": 11851,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-account-writer-browser-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-browser-probe.js",
+    "sha256": "673951ea407f547db3c1918c612be985e252e4cb1b6f2e524e52f78739f7f02f",
+    "bytes": 6095,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node22/tests/support/native-account-writer-pds-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-pds-probe.js",
+    "sha256": "b991aa748f42d78e09b098e80927a39ae78aa1daed3221ece8ac59dd042d7a20",
+    "bytes": 8264,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-proof-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-proof-corpus.js",
+    "sha256": "63150850599040a54e499d8820119889ff623af9171c80f0ea03b73ccef81f7a",
+    "bytes": 29852,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/testdata/apps/fixtures.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/testdata/apps/fixtures.js",
+    "sha256": "1e71cac2a7cc7f0d4ae36efaf5d016ed12536d8d443d1bbb96cb54e4c2c14212",
+    "bytes": 6028,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/host-availability.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/host-availability.test.js",
+    "sha256": "3507122ec9a2b184810d290c8d15137be0a161e565abdf4dc427cbc7c55c4da4",
+    "bytes": 16438,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/helpers/pds-faults.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/pds-faults.js",
+    "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+    "bytes": 2700,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/sequencer-service.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/sequencer-service.js",
+    "sha256": "7f462052a6e89bd78f66b3bf2e9d9959dbd0ede28b1a33c4765cc2a5bff0a9c4",
+    "bytes": 4416,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/helpers/writer-child.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/writer-child.js",
+    "sha256": "bb89cdeeb4946ad844d1a8203321c054ae04f92f19b071b20a777a3670b49748",
+    "bytes": 1308,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/helpers/writer-process.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/writer-process.js",
+    "sha256": "16f4ac5b83539d040377c85b16d04f3e422ee4bffeeab19ef362b66fb4e6afce",
+    "bytes": 1455,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/pds.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/pds.test.js",
+    "sha256": "51e22d502e322353d94434add9d393e2ef94514a624e0e8e0df56a0630383943",
+    "bytes": 28480,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/oauth-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/oauth-fixture.js",
+    "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+    "bytes": 6425,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-account-writer-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-fixture.js",
+    "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+    "bytes": 4709,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-account-writer-byte-observation.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-byte-observation.js",
+    "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+    "bytes": 958,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/identity-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/identity-corpus.js",
+    "sha256": "11f56a42c31d04e1c78628e19a92bd98af4f52019d82caac1eeddd8305a9133a",
+    "bytes": 19134,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-authority-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-authority-fixture.js",
+    "sha256": "ff9ee6ef785ee1d63e2959137fe4c8cb7aebcdb1cc6fab98706b68b74a1a52cc",
+    "bytes": 16175,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-application-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-application-fixture.js",
+    "sha256": "45d9ab7994e4d5457151950f4c6ab1cdef4556ed21ba8131d730c84ff0f06602",
+    "bytes": 20465,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-account-writer-native-batch.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-native-batch.js",
+    "sha256": "11fe8e19d10c921768c025aecba0d18979ef5bfa6c2ccea292f5d16246cf1ad3",
+    "bytes": 2995,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-account-writer-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-corpus.js",
+    "sha256": "dea64119d4a92c877b5c69142ef59424cdc37dcc04b61be6938df8968e3714a7",
+    "bytes": 19292,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-account-writer-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-node-probe.js",
+    "sha256": "68171c31272623bd89017da4df3e1488ac837607af40b53bf0f4ab60d6a23d3b",
+    "bytes": 3567,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/native-account-writer.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer.test.js",
+    "sha256": "a3c0dafa10b618299a6929744251b491e6659430a4582513e4c36ce793575aa0",
+    "bytes": 698,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/native-account-writer-dispatch.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-dispatch.test.js",
+    "sha256": "5c54021eb40e1b0ca97720aeef2fb9f69da02158bcfd4e540783a3500aa72308",
+    "bytes": 6437,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/native-account-writer-handoff.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-handoff.test.js",
+    "sha256": "e42884f37b7edfb0a392497d773dcf3f3589d2cd65ebde54440ce31e58fc419d",
+    "bytes": 11230,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/oauth-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/oauth-node-probe.js",
+    "sha256": "86fca5ddcb175cf7b94abc7b8da6c637fcec35622a4a666bad8276b67352b911",
+    "bytes": 15414,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/oauth-adapter.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-adapter.test.js",
+    "sha256": "bb80d6ffd561c826d45991d9ce0fac52974bbba71f505314bfb10d2bfbddea18",
+    "bytes": 4822,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/oauth-custody.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-custody.test.js",
+    "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+    "bytes": 49265,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/oauth-custody-lifecycle.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-custody-lifecycle.test.js",
+    "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+    "bytes": 9932,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/native-account-writer-browser.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-browser.test.js",
+    "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+    "bytes": 11851,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-account-writer-browser-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-browser-probe.js",
+    "sha256": "26e40714f3e4c864a7d13ecf28e5a8c5d5089416936a36dccc214c53a85848af",
+    "bytes": 6095,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node24/tests/support/native-account-writer-pds-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-pds-probe.js",
+    "sha256": "2cd60ff91ab3a6a2c7cea3a527648432bfcbf678923d6bae4a7079e7c772648a",
+    "bytes": 8264,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-proof-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-proof-corpus.js",
+    "sha256": "18418a1b7d89d092d50ead1c9aeb2604991108450ba51a2799ae46640d8d7af7",
+    "bytes": 29852,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/testdata/apps/fixtures.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/testdata/apps/fixtures.js",
+    "sha256": "ed1e03135d6f7fb1f698abee11a1ff07c6416a289d88ae85a3ece862eda10c78",
+    "bytes": 6028,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/host-availability.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/host-availability.test.js",
+    "sha256": "30e1d71470fe26284b8c2255c671601117ecc53e311a91c5c15b65c170f8a5d2",
+    "bytes": 16438,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/helpers/pds-faults.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/pds-faults.js",
+    "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+    "bytes": 2700,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/sequencer-service.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/sequencer-service.js",
+    "sha256": "ff263073bc5caae35b724746107d6d4063c46447eb8e7426023ae5f74a8fbc63",
+    "bytes": 4416,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/helpers/writer-child.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/writer-child.js",
+    "sha256": "067bccdedb9c751da2674bb94cce7cf8c6a58214d3c8a6698414b176ac35e282",
+    "bytes": 1308,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/helpers/writer-process.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/writer-process.js",
+    "sha256": "0483df57cb5c18756b3c969f08e0ac4f84ba81ec352d37f71d35f6407fac0d55",
+    "bytes": 1455,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/pds.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/pds.test.js",
+    "sha256": "8c7449f4f017d3c638849927780403b709717e154b08ae43973c957a349c7b2c",
+    "bytes": 28480,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/oauth-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/oauth-fixture.js",
+    "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+    "bytes": 6425,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-account-writer-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-fixture.js",
+    "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+    "bytes": 4709,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-account-writer-byte-observation.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-byte-observation.js",
+    "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+    "bytes": 958,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/identity-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/identity-corpus.js",
+    "sha256": "14c4f6240aad558c9d516868d3aaab2007c4a4b5a194f23d5e2622068daf894a",
+    "bytes": 19134,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-authority-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-authority-fixture.js",
+    "sha256": "d0eaba0cada509766d21c7e42e02ebffcb9ee290e86932ed041bc2587ff0ebda",
+    "bytes": 16175,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-application-fixture.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-application-fixture.js",
+    "sha256": "95b39a841eac3eecf7454823f23c732284a84be42c1fa40db0864438c927f3c5",
+    "bytes": 20465,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-account-writer-native-batch.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-native-batch.js",
+    "sha256": "72d6f7ad983ad68a0308c74b6c22142ba5fa7b904eb5aae248d399fdba9182c4",
+    "bytes": 2995,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-account-writer-corpus.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-corpus.js",
+    "sha256": "96fe1a5995623145dcf257b653625c6f63a56d900f76cd4cc6d884d80ad571bc",
+    "bytes": 19292,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-account-writer-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-node-probe.js",
+    "sha256": "1fcbb2cd2f1f96423377f637ff922556e5e52a532c2b14a0835189f323e8c494",
+    "bytes": 3567,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/native-account-writer.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer.test.js",
+    "sha256": "1c52272e7c88805be1e1f00f3f0db456ee83a69660ec7d07e2134f52b7cfd119",
+    "bytes": 698,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/native-account-writer-dispatch.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-dispatch.test.js",
+    "sha256": "3cf7ac7d1a834a466dc212509051b596561855550a120c045b208abc8e1de90b",
+    "bytes": 6437,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/native-account-writer-handoff.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-handoff.test.js",
+    "sha256": "e2631bc09993f4c34b72ec62248ef9eafed01007c13b28cb893256a4e27565f1",
+    "bytes": 11230,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/oauth-node-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/oauth-node-probe.js",
+    "sha256": "845c3cebf86e70e790df681a687afaed0e141cd8fc84f12f817209830b7942a7",
+    "bytes": 15414,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/oauth-adapter.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-adapter.test.js",
+    "sha256": "092f9c3a0260d0f7cd4888ae7676304746be6736b13788718390c1076f8d1927",
+    "bytes": 4822,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/oauth-custody.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-custody.test.js",
+    "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+    "bytes": 49265,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/oauth-custody-lifecycle.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-custody-lifecycle.test.js",
+    "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+    "bytes": 9932,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/native-account-writer-browser.test.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-browser.test.js",
+    "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+    "bytes": 11851,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-account-writer-browser-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-browser-probe.js",
+    "sha256": "cda3b79f8744abccde01c2c579af3dcc06a464b03e587299d3be9d729da0c841",
+    "bytes": 6095,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  },
+  {
+    "capture": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+    "originalOutput": ".atseq-local/writer-compiled-final-packed-16f-node26/tests/support/native-account-writer-pds-probe.js",
+    "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-pds-probe.js",
+    "sha256": "4ca2cac912ba1c967d167d1ca03f321f6e338971d0a233c1e8367056437f0493",
+    "bytes": 8264,
+    "captureTiming": "Original hash recorded before execution; unchanged physical output bytes retained in this final packet."
+  }
+]

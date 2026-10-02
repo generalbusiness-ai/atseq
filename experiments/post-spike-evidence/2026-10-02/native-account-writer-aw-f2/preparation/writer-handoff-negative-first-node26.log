@@ -1,0 +1,35 @@
+▶ private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes
+  ✔ input-sdk-success (533.439792ms)
+  ✔ input-sdk-throw (4.032ms)
+  ✔ origin (6.2685ms)
+  ✔ unavailable (6.611666ms)
+  ✔ no-second-resource (3.755625ms)
+  ✔ first-before-revoke (3.73375ms)
+  ✔ credential-sdk-success (3.68525ms)
+  ✔ credential-sdk-throw (3.646666ms)
+  ✔ non-post (4.24525ms)
+  ✔ non-form (5.936333ms)
+  ✔ identity-form (3.752791ms)
+  ✔ authorized-form (3.978917ms)
+  ✔ response (6.275125ms)
+  ✔ count (5.427917ms)
+  ✔ pool (14.460625ms)
+  ✔ pool-plus-body (13.647583ms)
+  ✔ cancel (3.462125ms)
+  ✔ custody-throw (3.217917ms)
+  ✔ unknown-sdk (3.148375ms)
+✔ private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes (633.853792ms)
+▶ native first failure preserves its original deadline and fixed recovery through later finalization
+  ✔ input-late-deadline (30108.906625ms)
+  ✔ origin-late-deadline (30109.020917ms)
+  ✔ recovery-late-deadline (30108.29675ms)
+  ✔ deadline (30001.417666ms)
+✔ native first failure preserves its original deadline and fixed recovery through later finalization (30109.665792ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31171.117084

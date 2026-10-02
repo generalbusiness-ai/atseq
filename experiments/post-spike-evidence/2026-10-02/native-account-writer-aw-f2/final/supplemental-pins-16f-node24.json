@@ -1,0 +1,12 @@
+{
+  "producer": "16f36988179a0ccacf1189eeb7b2b0e3453d6836",
+  "runtime": "v24.21.0",
+  "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+  "executableSHA256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+  "scriptSHA256": "4c1e9f1e151bd5d2182a59e9c1aee033acd3f986d178a05890deba71668760e4",
+  "preparedBeforeExecution": "2026-10-02T17:25:20.416Z",
+  "productionBuild": "final/build-provenance-16f-node26.json",
+  "productionBuildSHA256": "9e46e69767c630a2288d9668f88de94aff0d827a76b763a87dd6d4808b9e85b4",
+  "testWrapperInputs": "final/compiled-pins-16f-node26.json",
+  "semantics": "All three supplemental runtimes use the unchanged common Node26-built production outputs and Node26-transpiled test fixtures. Original complete source/emitted matrices used separately built outputs on each selected runtime."
+}

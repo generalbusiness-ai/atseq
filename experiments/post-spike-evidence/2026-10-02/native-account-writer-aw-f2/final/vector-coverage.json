@@ -1,0 +1,1811 @@
+{
+  "producer": "16f36988179a0ccacf1189eeb7b2b0e3453d6836",
+  "rows": [
+    {
+      "group": "design43",
+      "id": "owned-callback",
+      "status": "executed",
+      "originalExpectation": "actual maintained A1 callback mints handle; exact expectedDID opens writer",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "owned-restore",
+      "status": "executed",
+      "originalExpectation": "actual maintained A1 restore mints owned handle; exact expectedDID opens writer",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "public-constructor-forgery",
+      "status": "executed",
+      "originalExpectation": "new OAuthSessionHandle with fabricated flow refused before fake methods run",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "prototype-forgery",
+      "status": "executed",
+      "originalExpectation": "prototype-shaped handle refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "cloned-handle",
+      "status": "executed",
+      "originalExpectation": "structured clone and copied public properties refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "handle-method-mutation",
+      "status": "executed",
+      "originalExpectation": "owned handle public methods replaced after mint/open cannot replace captured transport",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "writer-did-mutation",
+      "status": "executed",
+      "originalExpectation": "writer DID immutable; snapshots/results contain no credentials/PDS substitute",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "wrong-expected-did",
+      "status": "executed",
+      "originalExpectation": "valid owned handle with different expectedDID refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "wrong-subject",
+      "status": "executed",
+      "originalExpectation": "maintained token subject mismatch prevents owned handle",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "wrong-scope",
+      "status": "executed",
+      "originalExpectation": "missing/excess scope or resource401 refresh escalation prevents credential-bearing resource dispatch",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "changed-pds",
+      "status": "executed",
+      "originalExpectation": "fresh A1 binding mismatch refuses old writer",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "changed-issuer",
+      "status": "executed",
+      "originalExpectation": "fresh A1 issuer mismatch refuses old writer",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "get-exact-uri",
+      "status": "executed",
+      "originalExpectation": "get reply URI requires exact account/collection/rkey; malformedCID/shape refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "list-page",
+      "status": "executed",
+      "originalExpectation": "one page only, ascending100; returned records/cursor retained without completeness claim",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "list-two-pages-explicit",
+      "status": "executed",
+      "originalExpectation": "two caller operations have separate A1 budgets; no hidden traversal",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "list-limit-input",
+      "status": "executed",
+      "originalExpectation": "0,101,fractional,NaN,string limit refused before dispatch",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "list-cursor-input",
+      "status": "executed",
+      "originalExpectation": "nonstring/empty/over8192UTF8bytes cursor refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "list-cursor-response",
+      "status": "executed",
+      "originalExpectation": "empty/nonstring/over8192UTF8bytes remote cursor refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "list-records-shape",
+      "status": "executed",
+      "originalExpectation": "nonarray/>requestedlimit/malformedURI/CID/foreignaccount/collection refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/supplemental-16f-node22.log",
+        "final/supplemental-16f-node24.log",
+        "final/supplemental-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "latest-commit",
+      "status": "executed",
+      "originalExpectation": "nonempty syntax-validCID/rev required; remote candidate not proof",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/supplemental-16f-node22.log",
+        "final/supplemental-16f-node24.log",
+        "final/supplemental-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "mandatory-swap",
+      "status": "executed",
+      "originalExpectation": "undefined/empty/nonstring/malformedCID condition refused before dispatch",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "same-conditional-body",
+      "status": "executed",
+      "originalExpectation": "capture JSON before await; caller mutations and maintained401 retry cannot change body/condition",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "apply-response",
+      "status": "executed",
+      "originalExpectation": "remote apply reply transport candidate only; malformedrequiredshape refused",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/supplemental-16f-node22.log",
+        "final/supplemental-16f-node24.log",
+        "final/supplemental-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "upload-copy",
+      "status": "executed",
+      "originalExpectation": "capture typed bytecopy before await; caller mutation cannot change uploaded bytes",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "upload-65536",
+      "status": "executed",
+      "originalExpectation": "exact65536byte body allowed subject to owned A1 request budget",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "upload-65537",
+      "status": "superseded-by-adopted-fixed-resource-policy",
+      "originalExpectation": "over64KiB refused before resource dispatch; no implicit chunk/retry",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ],
+      "scope": "The adopted 29683 policy replaces the original 64 KiB native cap with fixed 1 MiB. Ordinary public A1 retains 64 KiB."
+    },
+    {
+      "group": "design43",
+      "id": "apply-json-boundary",
+      "status": "superseded-by-adopted-fixed-resource-policy",
+      "originalExpectation": "entire UTF8JSON body cap64KiB; wiremax expansion disclosed, no batch splitting",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ],
+      "scope": "The adopted 29683 policy replaces the original 64 KiB native cap with fixed 1 MiB. Ordinary public A1 retains 64 KiB."
+    },
+    {
+      "group": "design43",
+      "id": "response-one-MiB",
+      "status": "executed",
+      "originalExpectation": "A1 exact1MiB accepted if valid; over1MiB rejected with sanitized input",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/supplemental-16f-node22.log",
+        "final/supplemental-16f-node24.log",
+        "final/supplemental-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "error-body-cap",
+      "status": "executed",
+      "originalExpectation": "over64KiB XRPC error body refused by bounded shared reader",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "typed-input",
+      "status": "executed",
+      "originalExpectation": "real owned A1 deterministic refusal preserved input",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "typed-unavailable",
+      "status": "executed",
+      "originalExpectation": "actual native transport/body drop or caller cancellation preserved content_unavailable",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "typed-origin",
+      "status": "executed",
+      "originalExpectation": "real owned A1 custody/refusal boundary preserves origin without remote text",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "remote-error-secrets",
+      "status": "executed",
+      "originalExpectation": "secret-bearing provider error/message/code sanitizes to knowncode or RequestFailed",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "http-cas-refusal",
+      "status": "executed",
+      "originalExpectation": "InvalidSwap status remains sanitized PdsError; no emptyrepo/transport recategorization",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "lost-conditional-reply",
+      "status": "executed",
+      "originalExpectation": "writer sends once; no automatic retry/re-sign/newnonce/reallocation",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "official-pds-basic",
+      "status": "executed",
+      "originalExpectation": "actual officialPDS get/latest/upload/exactbytes/CAS with syntheticAS bridge labeled honestly",
+      "cases": "Actual official PDS 0.5.31 get/latest/upload/CAS/102-record explicit pages/exact recovery/lost reply; synthetic AS and test-only Bearer bridge.",
+      "captures": [
+        "final/source-PDS-16f-node22.log",
+        "final/source-PDS-16f-node24.log",
+        "final/source-PDS-16f-node26.log",
+        "final/compiled-PDS-16f-node22.log",
+        "final/compiled-PDS-16f-node24.log",
+        "final/compiled-PDS-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "official-pds-pagination",
+      "status": "executed",
+      "originalExpectation": "101+ officialPDS records use explicit pages; old spike collector retains all records",
+      "cases": "Actual official PDS 0.5.31 get/latest/upload/CAS/102-record explicit pages/exact recovery/lost reply; synthetic AS and test-only Bearer bridge.",
+      "captures": [
+        "final/source-PDS-16f-node22.log",
+        "final/source-PDS-16f-node24.log",
+        "final/source-PDS-16f-node26.log",
+        "final/compiled-PDS-16f-node22.log",
+        "final/compiled-PDS-16f-node24.log",
+        "final/compiled-PDS-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "official-pds-stale-cas",
+      "status": "executed",
+      "originalExpectation": "actual unrelated write invalidates swap; rejectedbatch leaves intended records/head unchanged",
+      "cases": "Actual official PDS 0.5.31 get/latest/upload/CAS/102-record explicit pages/exact recovery/lost reply; synthetic AS and test-only Bearer bridge.",
+      "captures": [
+        "final/source-PDS-16f-node22.log",
+        "final/source-PDS-16f-node24.log",
+        "final/source-PDS-16f-node26.log",
+        "final/compiled-PDS-16f-node22.log",
+        "final/compiled-PDS-16f-node24.log",
+        "final/compiled-PDS-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "legacy-pds-predicates",
+      "status": "executed",
+      "originalExpectation": "all prior actual officialPDS persistence/recovery/refresh/account/record source predicates remain",
+      "cases": "All 35 legacy PDS and host predicates, source and emitted on all three runtimes.",
+      "captures": [
+        "final/source-legacy-16f-node22.log",
+        "final/source-legacy-16f-node24.log",
+        "final/source-legacy-16f-node26.log",
+        "final/compiled-legacy-16f-node22.log",
+        "final/compiled-legacy-16f-node24.log",
+        "final/compiled-legacy-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "portable-import",
+      "status": "executed",
+      "originalExpectation": "portable native writer/shared operation imports have no Node, OAuthSDK credential owner or newdependencies",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "packed-compiled",
+      "status": "executed",
+      "originalExpectation": "actual compiled and packedconsumer import/operation gates, source/output hashes",
+      "cases": "Emitted 105 and installed-package native 43 checks on each runtime; actual outputs pinned before execution.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/packed-native-16f-node22.log",
+        "final/packed-native-16f-node24.log",
+        "final/packed-native-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "three-node-and-browser",
+      "status": "executed",
+      "originalExpectation": "same positive/hostile operation predicates Node22/24/26 and applicable realChromium",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "design43",
+      "id": "no-public-provider-claim",
+      "status": "executed",
+      "originalExpectation": "syntheticAS, officialPDS bridge and unexecutedexternalprovider clearly separate",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "source-524288",
+      "status": "executed",
+      "originalExpectation": "Actual maintained native writer uploads exact512KiB source bytes unchanged; no base64",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/source-PDS-16f-node22.log",
+        "final/source-PDS-16f-node24.log",
+        "final/source-PDS-16f-node26.log",
+        "final/compiled-PDS-16f-node22.log",
+        "final/compiled-PDS-16f-node24.log",
+        "final/compiled-PDS-16f-node26.log"
+      ],
+      "scope": "Exact 512 KiB standard raw upload primitive, not replacement of governed native ByteManifest/ByteChunk source publication."
+    },
+    {
+      "group": "resource29",
+      "id": "near-cap-entry-head",
+      "status": "accepted-acceptance-refinement",
+      "originalExpectation": "Actual maintained writer sends accepted near64KiBCBOR entry plus head JSON beyondold64KiB cap unchanged",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/../preparation/writer-near-cap-first-node26.log"
+      ],
+      "scope": "Parent accepted genuine nativeApplicationFixture admission and retained attempted-padding refusal. Actual entry is 1187 CBOR bytes, entry/head JSON 2304, whole batch with two valid chunks 90308. No near-64-KiB admitted entry claim; 285369 is a conservative transport bound. Final independent review remains required."
+    },
+    {
+      "group": "resource29",
+      "id": "outgoing-1048576",
+      "status": "executed",
+      "originalExpectation": "Native apply/upload actual counted bodyexact1MiB admitted subject to cumulative/count/authority",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "outgoing-1048577",
+      "status": "executed",
+      "originalExpectation": "1MiB+1 refused locally asinput before network; Content-Length irrelevant",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "default-65536",
+      "status": "executed",
+      "originalExpectation": "Ordinary A1 request remains64KiB; exactlimit/adverseonebyteover tested",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "nested-token-cap",
+      "status": "executed",
+      "originalExpectation": "Oversized syntheticSDK/AS token request duringnativeoperation stays64KiB and refuses beforedispatch",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "nested-refresh-cap",
+      "status": "executed",
+      "originalExpectation": "Refresh body retains64KiB insideprivate1MiBnativeoperation",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "nested-revoke-cap",
+      "status": "executed",
+      "originalExpectation": "Revoke body retains64KiB including failure cleanup insideprivateoperation",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "nested-par-discovery-cap",
+      "status": "executed",
+      "originalExpectation": "PAR/discovery/metadata bodies retain64KiB; fixednativepolicy notwholeoperationcap",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "samepath-malicious-as",
+      "status": "executed",
+      "originalExpectation": "Token/revoke endpoint claimingresourcepath doesnotgain allowance without exactcredentialboundpublicbody",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "different-origin",
+      "status": "executed",
+      "originalExpectation": "Wrong origin body cannot receiveallowance or credentials",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "different-path-query",
+      "status": "executed",
+      "originalExpectation": "Wrong/encodedpath/query body cannot receiveallowance",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "different-method",
+      "status": "executed",
+      "originalExpectation": "Other than exactPOST cannot receiveallowance",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "different-body",
+      "status": "executed",
+      "originalExpectation": "Modifiedbody rejected locally beforedispatch, includingSDKretry",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "immutable-input",
+      "status": "executed",
+      "originalExpectation": "Writer capturesserializedbatch/bytecopy beforeawait; caller mutation hasnoeffect",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "maintained-401-samebody",
+      "status": "executed",
+      "originalExpectation": "Realmaintained401/DPoPretry carries exactsamepublicbody/condition and freshauthoritychecks",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "allowance-cleanup-success",
+      "status": "executed",
+      "originalExpectation": "Laterdefaultrequest keeps64KiB aftersuccessfulnativewrite",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "allowance-cleanup-error",
+      "status": "executed",
+      "originalExpectation": "Laterdefaultrequest keeps64KiB afterrefusal/throw/cancellation",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "cumulative-32MiB",
+      "status": "executed",
+      "originalExpectation": "Everyactualrequest/response/retry body sharesoriginal32MiBpool",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "http-count64",
+      "status": "executed",
+      "originalExpectation": "Metadata/refresh/retry/resource together shareoriginal64HTTPcap",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "deadline30s",
+      "status": "executed",
+      "originalExpectation": "Actualoperationnetwork deadline remains30s; locks/IDB disclosuresunchanged",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "caller-cancel",
+      "status": "executed",
+      "originalExpectation": "Existing signal remains effective and sanitizedcontent_unavailable",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "response1MiB-over",
+      "status": "executed",
+      "originalExpectation": "Overincoming1MiB body deterministicallyinput, actualnetwork/body/deadline content_unavailable",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "error-body64KiB-over",
+      "status": "executed",
+      "originalExpectation": "Locallycounted errorbodylimit deterministicinput distinctfrombodyreadfailure",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "explicit-page-lowering",
+      "status": "executed",
+      "originalExpectation": "Noautomaticpage retry; futurecollector canexplicitlystartconservativefittingpage",
+      "cases": "Actual over-cap two-record page refused after one send. Caller limit 1 succeeds; no automatic page retry.",
+      "captures": [
+        "final/supplemental-16f-node22.log",
+        "final/supplemental-16f-node24.log",
+        "final/supplemental-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "local-auth-code",
+      "status": "executed",
+      "originalExpectation": "LegacyAuthenticationUnavailable stillmapslocalauthfailure; providerstringmapsRequestFailed",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/source-legacy-16f-node22.log",
+        "final/source-legacy-16f-node24.log",
+        "final/source-legacy-16f-node26.log",
+        "final/compiled-legacy-16f-node22.log",
+        "final/compiled-legacy-16f-node24.log",
+        "final/compiled-legacy-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "publisher-preflight",
+      "status": "deferred-separate-publisher-owner",
+      "originalExpectation": "Trackedpublisher preflights actualbody/blob before signing/enqueue; fixed-widthfieldsaccounted; nooversize retry/split",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [],
+      "scope": "Publisher must preflight actual serialized batch/blob before signing/enqueueing and own lost-reply reconciliation. AW-F2 supplies neither publisher nor collector."
+    },
+    {
+      "group": "resource29",
+      "id": "three-node-browser",
+      "status": "executed",
+      "originalExpectation": "Node22/24/26 +actualChromium applicableownedboundary/hash/importgates",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log",
+        "final/packed-native-16f-node22.log",
+        "final/packed-native-16f-node24.log",
+        "final/packed-native-16f-node26.log"
+      ]
+    },
+    {
+      "group": "resource29",
+      "id": "honest-provider-labels",
+      "status": "executed",
+      "originalExpectation": "SyntheticSDKnegative/SyntheticASmaintainedpositive/referencePDSbridge/publicproviderunexecuted labelsdistinct",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "genuine-refresh-size-first-input",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "genuine-native-read-refresh-size",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "generic-request-original-401-unchanged",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "genuine-normal-DPoP-retry-CAS-identical-body",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "first-input-later-SDK-200",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "first-input-later-SDK-exception",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "first-origin-later-exception",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "first-unavailable-later-input",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ],
+      "scope": "The unavailable probe retains the first failure and blocks a subsequent authenticated request before body processing. This prevents the later input path; it does not claim a later body was read."
+    },
+    {
+      "group": "handoff25",
+      "id": "input-before-later-finalization-deadline",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "origin-before-later-finalization-deadline",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "actual-deadline-first-unavailable",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "no-resource-dispatch-after-retained-failure",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "token-dispatch-witness-not-invented-for-blocked-refresh",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "dispatched-token-retirement-unchanged",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "ordinary-HTTP-CAS-and-provider-code-separation",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "local-error-body-size-input",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "outgoing-body-count-pool-cancellation-swallowed",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "real-native-fetch-socket-drop",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "real-native-body-drop",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "native-success-cleanup-next-generic-64KiB",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "native-failure-cleanup-next-native-and-generic",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "first-failure-custody-cleanup-order",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "exact-authority-method-URL-body-guard-unchanged",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "Node22-24-26-source-and-emitted",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "handoff25",
+      "id": "compiled-Chromium-custody-and-packed-import",
+      "status": "executed",
+      "originalExpectation": null,
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log",
+        "final/packed-native-16f-node22.log",
+        "final/packed-native-16f-node24.log",
+        "final/packed-native-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "genuine-node-refresh-overflow",
+      "status": "executed",
+      "originalExpectation": "input/invalid_input and exact fixed recovery instruction; zero refresh dispatch; one resource send; no automatic retry.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "genuine-browser-live",
+      "status": "executed",
+      "originalExpectation": "Exact instruction, no token witness; existing live row remains; no permanent retirement.",
+      "cases": "Actual Chromium: 22358-byte stored metadata, 65656-byte encoded refresh; live without false dispatch witness; genuinely dispatched bounded failure retires.",
+      "captures": [
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "browser-reload-repeat",
+      "status": "executed",
+      "originalExpectation": "Same bounded instruction; no stale handoff poisoning, no hidden retry; custody remains governed live.",
+      "cases": "Page reload plus actual persistent Chromium context close/reopen, restore, repeated fixed instruction/live row and bounded fresh authorization.",
+      "captures": [
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log",
+        "final/compiled-Chrome-persistent-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "fresh-reauthorization",
+      "status": "executed",
+      "originalExpectation": "Existing A1 route replaces credential; subsequent native operation succeeds; no new recovery API.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "reauthorization-large-again",
+      "status": "executed",
+      "originalExpectation": "Same bounded refusal; do not claim reauthorization guarantees an AS-issued size.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "genuine-dispatched-token-failure",
+      "status": "executed",
+      "originalExpectation": "Existing actual dispatch witness and CF-1 retirement preserved; no overflow recovery text inferred.",
+      "cases": "Actual Chromium: 22358-byte stored metadata, 65656-byte encoded refresh; live without false dispatch witness; genuinely dispatched bounded failure retires.",
+      "captures": [
+        "final/compiled-Chrome-16f-node22.log",
+        "final/compiled-Chrome-16f-node24.log",
+        "final/compiled-Chrome-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "native-read-refresh",
+      "status": "executed",
+      "originalExpectation": "Same fixed recovery instruction through private read marker; outgoing cap remains 64KiB.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "generic-a1-unchanged",
+      "status": "executed",
+      "originalExpectation": "Existing sanitized generic/SDK response behavior unchanged; no native recovery tag.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "authorized-resource-form",
+      "status": "executed",
+      "originalExpectation": "Ordinary owned input; no credential recovery instruction.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "native-json-and-blob-oversize",
+      "status": "executed",
+      "originalExpectation": "Deterministic local input before dispatch, no credential recovery instruction.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "incoming-response-cap",
+      "status": "executed",
+      "originalExpectation": "Ordinary input, no recovery instruction; incoming caps unchanged.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log",
+        "final/supplemental-16f-node22.log",
+        "final/supplemental-16f-node24.log",
+        "final/supplemental-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "pool-and-request-both",
+      "status": "executed",
+      "originalExpectation": "Original pool refusal and generic sanitized input; no specific credential recovery instruction.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "count-and-pool",
+      "status": "executed",
+      "originalExpectation": "Original category/message; no credential recovery instruction.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "shape-negatives",
+      "status": "executed",
+      "originalExpectation": "No fixed recovery instruction; negative dispatch probes never establish SDK provenance.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "first-before-cleanup",
+      "status": "executed",
+      "originalExpectation": "First category/message wins; later credential overflow cannot replace it.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "overflow-before-deadline",
+      "status": "executed",
+      "originalExpectation": "Original input and exact recovery instruction preserved.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "deadline-first",
+      "status": "executed",
+      "originalExpectation": "content_unavailable, no credential recovery instruction.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "swallowed-success-and-cleanup",
+      "status": "executed",
+      "originalExpectation": "First owned instruction wins; no later authenticated resource transport send.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "next-operation-cleanup",
+      "status": "executed",
+      "originalExpectation": "No stale recovery tag, allowance or first-failure state.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    },
+    {
+      "group": "recovery20",
+      "id": "credential-text-sanitized",
+      "status": "executed",
+      "originalExpectation": "Only fixed recovery instruction; no credentials, SDK/AS text or body retained in reports/errors.",
+      "cases": "Maintained Node corpus (17 named cases), hostile dispatch probes, first-refusal handoff checks and existing A1 custody regressions.",
+      "captures": [
+        "final/source-16f-node22.log",
+        "final/source-16f-node24.log",
+        "final/source-16f-node26.log",
+        "final/compiled-16f-node22.log",
+        "final/compiled-16f-node24.log",
+        "final/compiled-16f-node26.log"
+      ]
+    }
+  ],
+  "counts": {
+    "accepted-acceptance-refinement": 1,
+    "deferred-separate-publisher-owner": 1,
+    "executed": 113,
+    "superseded-by-adopted-fixed-resource-policy": 2
+  },
+  "frozenInputsUnchanged": true,
+  "claim": "Implementation evidence with explicit supersession, acceptance refinement and deferred publisher ownership. Original source-only vector bytes remain unchanged; full programme closure is not claimed."
+}

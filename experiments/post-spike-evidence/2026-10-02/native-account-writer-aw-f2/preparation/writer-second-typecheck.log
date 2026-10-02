@@ -1,0 +1,1 @@
+tests/support/native-account-writer-fixture.ts(10,29): error TS2729: Property 'fetch' is used before its initialization.
