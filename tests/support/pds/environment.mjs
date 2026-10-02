@@ -13,13 +13,11 @@ const packageDir = dirname(fileURLToPath(import.meta.url));
 const repo = resolve(packageDir, '../../..');
 const parent = join(repo, '.atseq-local');
 const markerName = 'ATSEQ_DISPOSABLE_PDS.json';
-async function freePort() {
+async function reservePort(port = 0) {
   const server = createServer();
-  server.listen(0, '127.0.0.1');
+  server.listen(port, '127.0.0.1');
   await once(server, 'listening');
-  const port = server.address().port;
-  await new Promise((done) => server.close(done));
-  return port;
+  return server;
 }
 export async function assertDisposable(dir) {
   const actual = await realpath(dir),
@@ -59,21 +57,20 @@ export async function startEnvironment() {
     JSON.stringify({ kind: 'atseq-disposable-pds', version: 0, directory: dir, publicNetwork: false }) + '\n',
   );
   await assertDisposable(dir);
-  const plcPort = await freePort(),
-    pdsPort = await freePort();
   // Pinned PLC's library entry has no telemetry SDK startup. It shares the runner;
   // externally preloaded runner instrumentation is outside this helper's boundary.
-  const plcServer = plc.PlcServer.create({ db: plc.Database.mock(), port: plcPort });
+  const plcServer = plc.PlcServer.create({ db: plc.Database.mock(), port: 0 });
   const listen = plcServer.app.listen.bind(plcServer.app);
   plcServer.app.listen = (port) => listen(port, '127.0.0.1');
   await plcServer.start();
+  const plcPort = plcServer.server.address().port;
   const rotation = await Secp256k1Keypair.create({ exportable: true });
   const credentials = { adminPassword: randomBytes(32).toString('hex'), jwtSecret: randomBytes(32).toString('hex') };
   const config = {
     ...credentials,
     devMode: true,
     hostname: 'localhost',
-    port: pdsPort,
+    port: 0,
     dataDirectory: join(dir, 'data'),
     blobstoreDiskLocation: join(dir, 'blobs'),
     didPlcUrl: `http://127.0.0.1:${plcPort}`,
@@ -92,41 +89,62 @@ export async function startEnvironment() {
   await mkdir(config.dataDirectory, { recursive: true });
   await mkdir(config.blobstoreDiskLocation, { recursive: true });
   const configPath = join(dir, 'pds-secrets.json');
-  await writeFile(configPath, JSON.stringify(config), { mode: 0o600 });
-  let child;
-  const url = `http://127.0.0.1:${pdsPort}`;
+  let child, pdsPort;
   const start = async () => {
     if (child && child.exitCode === null && child.signalCode === null) throw Error('PDS is already running');
-    child = fork(join(packageDir, 'pds-server.mjs'), [configPath], {
-      execArgv: [],
-      env: fixtureChildEnvironment(),
-      stdio: ['ignore', 'ignore', 'pipe', 'ipc'],
-    });
-    await writeFile(join(dir, 'pds.pid'), String(child.pid), { mode: 0o600 });
-    let stderr = '';
-    child.stderr.on('data', (data) => {
-      stderr = (stderr + data).slice(-4000);
-    });
-    await new Promise((done, reject) => {
-      const timer = setTimeout(() => {
-        child.kill('SIGKILL');
-        reject(Error('Official PDS startup timed out'));
-      }, 30_000);
-      child.once('message', (message) => {
-        if (message.ready) {
+    // Keep the actual listener open until the child has adopted it. Choosing a
+    // free port and closing it first races every other concurrently started PDS.
+    const reservation = await reservePort(pdsPort);
+    pdsPort = reservation.address().port;
+    config.port = pdsPort;
+    try {
+      await writeFile(configPath, JSON.stringify(config), { mode: 0o600 });
+      child = fork(join(packageDir, 'pds-server.mjs'), [configPath], {
+        execArgv: [],
+        env: fixtureChildEnvironment(),
+        stdio: ['ignore', 'ignore', 'pipe', 'ipc'],
+      });
+      await writeFile(join(dir, 'pds.pid'), String(child.pid), { mode: 0o600 });
+      let stderr = '';
+      child.stderr.on('data', (data) => {
+        stderr = (stderr + data).slice(-4000);
+      });
+      await new Promise((done, reject) => {
+        const timer = setTimeout(() => {
+          child.kill('SIGKILL');
+          reject(Error('Official PDS startup timed out'));
+        }, 30_000);
+        child.once('message', (message) => {
+          if (message.ready) {
+            clearTimeout(timer);
+            done();
+          }
+        });
+        child.once('exit', (code) => {
           clearTimeout(timer);
-          done();
-        }
+          reject(Error(`Official PDS exited during startup (${code}): ${stderr}`));
+        });
+        child.once('error', (error) => {
+          clearTimeout(timer);
+          reject(error);
+        });
+        child.send({ start: true }, reservation, { keepOpen: true }, (error) => {
+          if (error) {
+            clearTimeout(timer);
+            reject(error);
+          }
+        });
       });
-      child.once('exit', (code) => {
-        clearTimeout(timer);
-        reject(Error(`Official PDS exited during startup (${code}): ${stderr}`));
-      });
-      child.once('error', (error) => {
-        clearTimeout(timer);
-        reject(error);
-      });
-    });
+    } catch (error) {
+      if (child?.pid && child.exitCode === null && child.signalCode === null) {
+        const exited = once(child, 'exit');
+        child.kill('SIGKILL');
+        await exited;
+      }
+      throw error;
+    } finally {
+      await new Promise((done) => reservation.close(done));
+    }
   };
   const stop = async (signal = 'SIGTERM') => {
     if (child && child.exitCode === null && child.signalCode === null) {
@@ -144,7 +162,7 @@ export async function startEnvironment() {
   }
   return {
     dir,
-    url,
+    url: `http://127.0.0.1:${pdsPort}`,
     credentials,
     start,
     stop,
