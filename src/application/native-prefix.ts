@@ -435,6 +435,11 @@ export function nativePrefixStatus(prefix: NativePrefix) {
         : null),
   });
 }
+/** Narrow selected-view DATA, not the original publication context of a history row. */
+export function nativePrefixMethod(prefix: NativePrefix) {
+  const data = view(prefix);
+  return { assuranceClass: data.binding.assuranceClass, policy: data.owner.anchor.genesis.observationPolicy.$link };
+}
 export function nativePrefixHas(
   prefix: NativePrefix,
   kind: 'requests' | 'retries' | 'descriptors',

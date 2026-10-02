@@ -12,6 +12,11 @@ import { readAuthorityData, type CompactAuthorityData } from './native-authority
 import { readNativeAuthoritySnapshot } from './native-authority-snapshot.ts';
 import type { NativeAuthoritySnapshot } from './native-authority.ts';
 export type { CompactAuthorityData } from './native-authority-data.ts';
+/** DATA only: the existing compact fields, with the checkpoint format tag.
+ * The caller owns encoding and its local budget; this never accepts live state. */
+export function checkpointAuthorityData(value: Readonly<NativeAuthoritySnapshot>): CompactAuthorityData {
+  return { ...value, format: 'atseq-checkpoint-authority' };
+}
 export async function readCheckpointAuthorityData(
   raw: Uint8Array,
   anchor: NativeAnchor,
