@@ -1,0 +1,13 @@
+✔ caller cancellation during final proof construction prevents account and app capture (658.058917ms)
+{"actualReservationMilliseconds":30000,"delayPhase":"final proof construction after both method reads","elapsedMilliseconds":30109.251,"node":"v26.10.0","captureCreated":false,"timeoutReplaced":false}
+✔ the actual existing 30-second reservation expires during final evidence construction (30112.603209ms)
+{"sharedCumulativeBytes":33554432,"oneSignedProofBytes":15213076,"recordDispatches":3,"methodDispatches":5,"finalCapture":false,"perRetryBudgetReset":false}
+✔ complete binding-change retries share the cumulative 32 MiB response reservation (84.048667ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 30864.825042

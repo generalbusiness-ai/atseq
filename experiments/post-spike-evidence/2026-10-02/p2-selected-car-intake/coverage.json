@@ -1,0 +1,92 @@
+{
+  "helperVectors": [
+    "CI1",
+    "CI2",
+    "CI3",
+    "CI4",
+    "CI5",
+    "CI6",
+    "CI7",
+    "CI8",
+    "CI9",
+    "CI10"
+  ],
+  "CI11": {
+    "existingObserverSourceAndCompiledGatesExecuted": true,
+    "newJoinedCallerImplemented": false
+  },
+  "CI12": {
+    "byteBrandRefusalAndExistingPrefixFloorGuardExecuted": true,
+    "registryCursorOrP4JoinImplemented": false
+  },
+  "PXVectorsOwnedByOtherChild": true,
+  "originalFullP2Obligations": [
+    {
+      "id": "boundary-suffix",
+      "text": "Retain genuine verified boundary; native membership and complete app suffix; no old actor re-verification on normal warm path.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "native-tree",
+      "text": "Prefer existing retained native MST and CID ecosystem; justify any alternate strategy against actual proof needs.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "separate-frontiers",
+      "text": "Account root/revision, advertised head, verified app head and interpreted frontier remain distinct.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "bounded-crypto",
+      "text": "Bound concurrency and any key cache; canonical-key and low-S rules unchanged.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "negative-history",
+      "text": "Gaps, forks, rollback, old mutations, duplicate positions/requests/nonces/descriptors and canonical/forged input failures.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "changed-context",
+      "text": "Source-only, key-only, PLC-tip-only and unrelated-app changes remain observable without old actor/fold work.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "recovery",
+      "text": "Stale/mixed-root, missing/evicted/pruned blocks, partial diffs and disconnected/corrupt restore recovery.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "concurrency",
+      "text": "Concurrent appends and stale in-flight reads cannot lower accepted or fully checked unpublished floors.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "replay-equivalence",
+      "text": "Cold/warm/resumed state, source, authority, identities, outcomes and frontiers equal full native replay.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "delivery",
+      "text": "Full implementation code/tests, dated results, raw attributable evidence, honest limits and unrun cases.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "independent-review",
+      "text": "Unsettled design decisions reviewed before code; exact-head atseq-reviewer architecture/security/simplification review before gitseq merge and push.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "characterize",
+      "text": "No arbitrary latency target and no spike compatibility goal; characterize circumstances and explicit options.",
+      "status": "OPEN_IMPLEMENTATION"
+    }
+  ],
+  "historicalVectors": 36,
+  "historicalVectorStatusesRewritten": false,
+  "fullP2Complete": false,
+  "nativePersistenceExecuted": false,
+  "checkpointAuditExecuted": false,
+  "providerTrial": false,
+  "N100100010000PerformanceMatrixExecuted": false
+}

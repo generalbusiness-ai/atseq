@@ -1,0 +1,55 @@
+{
+  "adoption": "97be58fccdd42286efa5feb38796f5791aa989b0",
+  "review": "fea8c97826aad8e2ffa1041185cffe323b1cee1c",
+  "ratification": "04804437aa57133a67f1bbef8f4c1c450b79f02c",
+  "files": [
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "notes/2026-10-02-atseq-native-proof-extraction-intake.md",
+      "capture": "adopted/2026-10-02-atseq-native-proof-extraction-intake.md",
+      "sha256": "fd16c0efe1f47d31c239d2600fef3caf006b6d4f921c207bfe2b100051530ef6"
+    },
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "notes/2026-10-02-atseq-native-proof-extraction-intake-results.md",
+      "capture": "adopted/2026-10-02-atseq-native-proof-extraction-intake-results.md",
+      "sha256": "2a96b2d4540a78b0984cf3afd903269f6f7a368e816fb7d18daa8395636b4602"
+    },
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/contract.json",
+      "capture": "adopted/contract.json",
+      "sha256": "2fb22601d1ccd60c20e0d825984ca61ec0a30320d2b2fbc073fa532a1812962b"
+    },
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/decision-vectors.json",
+      "capture": "adopted/decision-vectors.json",
+      "sha256": "6ec2de43eb5325c9b06fe905c8b09f160faaa8c851ada7556b9451389142f942"
+    },
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/original-p2-vectors.json",
+      "capture": "adopted/original-p2-vectors.json",
+      "sha256": "39e627310e887d916fbb47f0201df7eb860d2bf5ec2c3a8044e2b94b5317c011"
+    },
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/source-inspection.json",
+      "capture": "adopted/source-inspection.json",
+      "sha256": "2f564a2238d1e6976d85a4081dad747594d2619f7afe08c6581bd1abdd39d173"
+    },
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/manifest.json",
+      "capture": "adopted/manifest.json",
+      "sha256": "96f744a6e4a40cc67b300490f81b7c902209c9bed030409ec32b51d42e09984b"
+    },
+    {
+      "sourceCommit": "e08c10f38f60cc2b7cbac8fa2398cb333874090a",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/request-projection.json",
+      "capture": "adopted/request-projection.json",
+      "sha256": "2ea93802e77a350eaa67e3d80bc88e2eb07b8d1fd90dd6fc6dcd00b1d54d0d77"
+    }
+  ]
+}

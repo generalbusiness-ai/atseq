@@ -1,0 +1,21 @@
+✖ bounded selected CAR DATA and exact admission preserve genuine P1 and legacy CAR predicates (802.068083ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1522.972875
+
+✖ failing tests:
+
+test at tests/native-car-intake.test.ts:1:258
+✖ bounded selected CAR DATA and exact admission preserve genuine P1 and legacy CAR predicates (802.068083ms)
+  Error: Expected input; got ProtocolError: Expected genuine verified native prefix
+      at check (/private/tmp/atseq-p2-selected-car-intake-f1-20261002/tests/support/native-car-intake.ts:72:21)
+      at refusal (/private/tmp/atseq-p2-selected-car-intake-f1-20261002/tests/support/native-car-intake.ts:81:3)
+      at carIntakeCorpus (/private/tmp/atseq-p2-selected-car-intake-f1-20261002/tests/support/native-car-intake.ts:477:9)
+      at async TestContext.<anonymous> (/private/tmp/atseq-p2-selected-car-intake-f1-20261002/tests/native-car-intake.test.ts:12:14)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)

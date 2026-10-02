@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/private/tmp/atseq-p2-selected-car-intake-f1-20261002/experiments/post-spike-evidence/2026-10-02/p2-selected-car-intake/close-packet.py", line 66, in <module>
+    assert build['outputHashes'] == expected_build['outputHashes']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

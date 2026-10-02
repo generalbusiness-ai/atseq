@@ -1,0 +1,11 @@
+tests/support/native-car-intake.ts(184,19): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(string | Uint8Array<ArrayBuffer>)[][]' is not assignable to parameter of type 'readonly (readonly [string, Uint8Array<ArrayBufferLike>])[]'.
+      Type '(string | Uint8Array<ArrayBuffer>)[]' is not assignable to type 'readonly [string, Uint8Array<ArrayBufferLike>]'.
+        Target requires 2 element(s) but source may have fewer.
+tests/support/native-car-intake.ts(184,66): error TS18048: 'a' is possibly 'undefined'.
+tests/support/native-car-intake.ts(184,70): error TS18048: 'b' is possibly 'undefined'.
+tests/support/native-car-intake.ts(184,79): error TS18048: 'a' is possibly 'undefined'.
+tests/support/native-car-intake.ts(184,83): error TS18048: 'b' is possibly 'undefined'.
+tests/support/native-car-intake.ts(449,30): error TS2741: Property '[extensionBrand]' is missing in type 'NativePrefix' but required in type 'NativePrefixExtension'.
+tests/support/native-car-intake.ts(458,30): error TS2741: Property '[extensionBrand]' is missing in type 'NativePrefix' but required in type 'NativePrefixExtension'.

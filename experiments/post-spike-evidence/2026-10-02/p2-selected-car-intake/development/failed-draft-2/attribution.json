@@ -1,0 +1,26 @@
+{
+  "base": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+  "uncommittedDraft": true,
+  "files": [
+    {
+      "source": "src/protocol/native-observer-car.ts",
+      "capture": ".atseq-local/p2-car-intake/failed-draft-2/native-observer-car.ts",
+      "sha256": "d52c41f51a79c4631ec20aaf5a8f0d4915375fde3e21f9dffc340d7ccc1a2988"
+    },
+    {
+      "source": "tests/support/native-car-intake.ts",
+      "capture": ".atseq-local/p2-car-intake/failed-draft-2/native-car-intake.ts",
+      "sha256": "1e83a579fc7e2acdcd899cddbe31df96d5d0df6a489758aa4023ef34ba7e9a6b"
+    },
+    {
+      "source": "tests/native-car-intake.test.ts",
+      "capture": ".atseq-local/p2-car-intake/failed-draft-2/native-car-intake.test.ts",
+      "sha256": "7cb9c1a22c3c2c674b56b2b725d31ed4bceb2b24107aa0c941389deed0822af9"
+    },
+    {
+      "source": "experiments/p2-car-intake/prepare.ts",
+      "capture": ".atseq-local/p2-car-intake/failed-draft-2/prepare.ts",
+      "sha256": "5c7fd74845723d9d2d596f6e070fbee6d8848a3e09ebfcafbfae776749d12d1d"
+    }
+  ]
+}
