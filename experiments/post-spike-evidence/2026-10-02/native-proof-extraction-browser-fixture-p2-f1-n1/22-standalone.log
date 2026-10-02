@@ -1,0 +1,17 @@
+TAP version 13
+# {"browser":"153.0.8010.12","extractionCases":17,"workloadMeasurements":13,"originalP1Cases":51,"bundleBytes":1398218}
+# Subtest: actual Chromium executes genuine scoped extraction and unchanged P1 corpus
+ok 1 - actual Chromium executes genuine scoped extraction and unchanged P1 corpus
+  ---
+  duration_ms: 32160.681458
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 33184.656417

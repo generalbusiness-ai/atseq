@@ -1,0 +1,10 @@
+{"browser":"153.0.8010.12","extractionCases":17,"workloadMeasurements":13,"originalP1Cases":51,"bundleBytes":1398218}
+✔ actual Chromium executes genuine scoped extraction and unchanged P1 corpus (28607.198375ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29629.375542

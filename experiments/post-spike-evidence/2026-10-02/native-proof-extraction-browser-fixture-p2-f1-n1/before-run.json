@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+    "scripts/source-run.mjs",
+    "--test",
+    "tests/native-proof-extraction-browser.test.ts"
+  ],
+  "started": "2026-10-02T17:39:39.429253+00:00",
+  "seconds": 0.6741862909984775,
+  "exit": 1,
+  "node": "v26.10.0",
+  "binarySha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+  "head": "5ea6bfc6ad347ee1db446cfd6321723002c2c546",
+  "fixtureExists": false,
+  "workloadFixtureExists": false
+}

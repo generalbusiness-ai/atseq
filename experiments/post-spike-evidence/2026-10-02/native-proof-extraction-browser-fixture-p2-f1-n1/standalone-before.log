@@ -1,0 +1,15 @@
+✖ actual Chromium executes genuine scoped extraction and unchanged P1 corpus (2.092542ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 494.793334
+
+✖ failing tests:
+
+test at tests/native-proof-extraction-browser.test.ts:1:288
+✖ actual Chromium executes genuine scoped extraction and unchanged P1 corpus (2.092542ms)
+  [Error: ENOENT: no such file or directory, open '.atseq-local/native-proof-extraction/fixture.json'] { errno: -2, code: 'ENOENT', syscall: 'open', path: '.atseq-local/native-proof-extraction/fixture.json' }

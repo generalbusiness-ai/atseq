@@ -1,0 +1,379 @@
+{
+  "browser": "Chromium",
+  "fixturePreparation": {
+    "fixture": "own genuine factory",
+    "workloads": "own genuine factory",
+    "fixtureSha256": "6a4529518c4f3fb88ae718f8f4356c86a0c29072195847006ffd7d2ff8ba71e0",
+    "workloadSha256": "aa55b0384bc228aec26fc19ff40b3a774b7d7bb5e54b90fb1a99da320c3406ea"
+  },
+  "version": "153.0.8010.12",
+  "extraction": {
+    "cases": [
+      {
+        "id": "PX1",
+        "name": "Genuine issuer and unchanged supported shape; clone/DATA/prototype and caller collector refused"
+      },
+      {
+        "id": "PX2",
+        "name": "Fresh offline P256/secp256k1 membership/raw bytes and absence"
+      },
+      {
+        "id": "PX3",
+        "name": "Original root, exact commit, canonical lexical CID dedup and deterministic output"
+      },
+      {
+        "id": "PX4",
+        "name": "Real found/absence all-encountered closure; pinned1.1.1 has no natural retreat"
+      },
+      {
+        "id": "PX5",
+        "name": "Sparse evidence creates no complete-tree claim; original hostile corpus remains required"
+      },
+      {
+        "id": "PX6",
+        "name": "Request and output-byte ownership across first await"
+      },
+      {
+        "id": "PX7",
+        "name": "Evicted selected commit is unavailable while online absence survives"
+      },
+      {
+        "id": "PX8",
+        "name": "Missing record/node withholds complete output after earlier successful requested path"
+      },
+      {
+        "id": "PX9",
+        "name": "Closed rows, canonical expected CID, mismatch, signal and syntax-before-local-character policy"
+      },
+      {
+        "id": "PX10",
+        "name": "Duplicate row count before dedup; zero diagnostic; exact16MiB request tuple framing and one-byte refusal"
+      },
+      {
+        "id": "PX11",
+        "name": "Actual CAR header/CID/varint bytes at exact issuer cap and one-byte refusal"
+      },
+      {
+        "id": "PX12",
+        "name": "Collector overflow preserves actual hostile interval cleanup and valid-path resource refusal"
+      },
+      {
+        "id": "PX13",
+        "name": "Real missing descendant remains unavailable despite prior collector overflow"
+      },
+      {
+        "id": "PX14",
+        "name": "Cancellation withholds output and foreign walker error retains exact identity"
+      },
+      {
+        "id": "PX15",
+        "name": "Original genuine capability identity retained across verified same-cache fill"
+      },
+      {
+        "id": "PX16",
+        "name": "Genuine signed genesis/head/entry receipt paths offline; participant/source/full receipt closure remains unavailable"
+      },
+      {
+        "id": "PX18",
+        "name": "Actual maintained node loads/signatures/output bytes/time; uninstrumented work remains null"
+      }
+    ],
+    "metrics": [
+      {
+        "name": "four-request warm extraction",
+        "requestRows": 4,
+        "nodeStoreGets": 9,
+        "signatureVerifications": 0,
+        "carBytes": 1714,
+        "uniqueBlocks": 7,
+        "elapsedMs": 0.19999998807907104,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null,
+        "collectorCopiedBlockBytes": 1391
+      },
+      {
+        "name": "portable host-cache bound",
+        "cacheBudgetBytes": 134217728,
+        "passedRequestRows": 23,
+        "refusedRequestRows": 24,
+        "passedFramedCarBytes": 16104731,
+        "portableCapBytes": 16777216
+      }
+    ],
+    "executedPX": [
+      "PX1",
+      "PX10",
+      "PX11",
+      "PX12",
+      "PX13",
+      "PX14",
+      "PX15",
+      "PX16",
+      "PX18",
+      "PX2",
+      "PX3",
+      "PX4",
+      "PX5",
+      "PX6",
+      "PX7",
+      "PX8",
+      "PX9"
+    ],
+    "PX17": "caller must record actual source/emitted/runtime/browser gates",
+    "naturalRetreat": false,
+    "claimScopesNotEstablished": [
+      "complete application replay",
+      "participant/source/receipt closure",
+      "current identity",
+      "P4 asserted-origin upgrade",
+      "observer registry/cursor",
+      "real PDS",
+      "durable restart/restore"
+    ]
+  },
+  "workloads": {
+    "claim": "Generic genuinely signed MST record/path extraction; not native ordered action replay or shared observer delta integration",
+    "measurements": [
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 100,
+        "context": "all records",
+        "elapsedMs": 6.400000035762787,
+        "nodeStoreGets": 265,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 128,
+        "framedCarBytes": 16982,
+        "copiedCollectorBlockBytes": 12161,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 0,
+        "context": "warm delta request set",
+        "elapsedMs": 0,
+        "nodeStoreGets": 0,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1,
+        "framedCarBytes": 285,
+        "copiedCollectorBlockBytes": 188,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 1,
+        "context": "warm delta request set",
+        "elapsedMs": 0,
+        "nodeStoreGets": 2,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 4,
+        "framedCarBytes": 1391,
+        "copiedCollectorBlockBytes": 1181,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 100,
+        "context": "warm delta request set",
+        "elapsedMs": 5.799999952316284,
+        "nodeStoreGets": 265,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 128,
+        "framedCarBytes": 16982,
+        "copiedCollectorBlockBytes": 12161,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 1000,
+        "context": "all records",
+        "elapsedMs": 92.19999998807907,
+        "nodeStoreGets": 4657,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1270,
+        "framedCarBytes": 168570,
+        "copiedCollectorBlockBytes": 121268,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 0,
+        "context": "warm delta request set",
+        "elapsedMs": 0.10000002384185791,
+        "nodeStoreGets": 0,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1,
+        "framedCarBytes": 285,
+        "copiedCollectorBlockBytes": 188,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 1,
+        "context": "warm delta request set",
+        "elapsedMs": 0,
+        "nodeStoreGets": 4,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 6,
+        "framedCarBytes": 2273,
+        "copiedCollectorBlockBytes": 1988,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 100,
+        "context": "warm delta request set",
+        "elapsedMs": 8.5,
+        "nodeStoreGets": 465,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 130,
+        "framedCarBytes": 18219,
+        "copiedCollectorBlockBytes": 13322,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 10000,
+        "context": "all records",
+        "elapsedMs": 1464.4000000357628,
+        "nodeStoreGets": 56658,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 12667,
+        "framedCarBytes": 1682256,
+        "copiedCollectorBlockBytes": 1211040,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 0,
+        "context": "warm delta request set",
+        "elapsedMs": 0,
+        "nodeStoreGets": 0,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1,
+        "framedCarBytes": 285,
+        "copiedCollectorBlockBytes": 188,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 1,
+        "context": "warm delta request set",
+        "elapsedMs": 0.19999998807907104,
+        "nodeStoreGets": 5,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 7,
+        "framedCarBytes": 4340,
+        "copiedCollectorBlockBytes": 4017,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 100,
+        "context": "warm delta request set",
+        "elapsedMs": 16.80000001192093,
+        "nodeStoreGets": 565,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 131,
+        "framedCarBytes": 20286,
+        "copiedCollectorBlockBytes": 15351,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 40000,
+        "requestedPaths": 40000,
+        "context": "actual portable unique-block refusal",
+        "completeInputBlocks": 50742,
+        "completeInputCarBytes": 6740313,
+        "portableUniqueBlockCap": 50000,
+        "portableCarByteCap": 16777216,
+        "refusal": "native_proof_limit",
+        "elapsedMs": 9765.099999964237,
+        "partialOutput": false,
+        "retainedCacheInventoryUnchanged": true,
+        "peakHeap": null
+      }
+    ]
+  },
+  "originalP1Cases": [
+    "root fields, raw membership, absence and whole-tree checks",
+    "non-forgeable capability",
+    "wrong DID",
+    "wrong key",
+    "wrong root",
+    "truncated CAR",
+    "CAR byte budget: resource limit and sufficient-budget recovery",
+    "block count budget: resource limit and sufficient-budget recovery",
+    "block byte budget: resource limit and sufficient-budget recovery",
+    "header budget: resource limit and sufficient-budget recovery",
+    "native header depth budget: resource limit and sufficient-budget recovery",
+    "CAR type and truncated/zero header are input before local header policy",
+    "unknown and nonpositive/fractional/nonfinite/unsafe bounds remain caller input errors",
+    "corrupt block",
+    "wrong record CID",
+    "path protocol syntax/1024 maximum precede stricter local character policy",
+    "path node, full-tree node and walker-depth budgets are resource limits",
+    "node-entry policy yields resource limit and sufficient-budget recovery",
+    "native cached-node depth is local policy distinct from Atseq wire depth",
+    "cached native block bytes obey resource policy",
+    "caller CAR, options and returned-byte mutation isolation",
+    "sparse missing evidence distinct from absence",
+    "missing record bytes",
+    "full-export cache recovery",
+    "failed admission preserves prior evidence",
+    "single-CAR cache byte/count budgets are resource limits",
+    "LRU eviction yields missing evidence",
+    "optional expected root",
+    "exactly one selected CAR root",
+    "oversized authenticated admission is atomic",
+    "p256 legacy/compressed/off-curve keys and compact low-S signatures",
+    "secp256k1 legacy/compressed/off-curve keys and compact low-S signatures",
+    "wrong-layer signed MST node",
+    "unordered signed MST keys",
+    "wrong child layer",
+    "overlapping child interval",
+    "signed walked interval fault overrides withheld child for lookup and full tree",
+    "signed walked interval fault overrides node-load limit before withheld child for lookup and full tree",
+    "canonical MST fields",
+    "invalid node shape precedes local node-entry policy",
+    "canonical empty repository root",
+    "height-one signed empty non-root MST node",
+    "leaf signed empty non-root MST node",
+    "untrimmed keyless root is invalid input",
+    "noncanonical signed MST CBOR is invalid input",
+    "maintained MST deserialization errors are invalid input",
+    "noncanonical commit CBOR is invalid input",
+    "lookup/tree preserve observed runtime/resource/input/missing failures instead of cleanup depth error",
+    "genuine walker runtime faults retain identity",
+    "native depth limit does not claim validity; raised policy detects malformed commit",
+    "native membership cannot bypass strict Atseq record limits"
+  ],
+  "bundleBytes": 1398218,
+  "bundleSha256": "a9b3f89024ed179995d3b32d13b546aad39973b891b26175bcc70d36620f7cdd",
+  "actualExecution": true,
+  "browserInstalledProvenanceAcceptance": false
+}
