@@ -1,0 +1,719 @@
+{
+  "format": "atseq-native-observer-expectations",
+  "version": 1,
+  "date": "2026-10-01",
+  "request": "bbd1daf0be2dabf21569e558786631c3649e1f47",
+  "promise": "800db06b46bd42df60033b119ceaf2fdb26eae12",
+  "execution": "NOT RUN; symbolic hostile expectations for independent decision review. R/E/B/M/T/P labels stand for future valid signed fixtures or paths, not literal wire values.",
+  "scope": "Only stable explicit epoch-target mismatch and non-authoritative getBlocks header roots. Existing broader observer, retry, P1/I2 and transport requirements still apply.",
+  "cases": [
+    {
+      "id": "epoch-stable-mismatch-advanceEpoch",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "M0",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": true,
+        "operation": "advanceEpoch"
+      },
+      "expected": {
+        "result": "throw",
+        "code": "envelope",
+        "kind": "invalid_input",
+        "afterMethodReads": 1,
+        "attempts": 1,
+        "capture": false,
+        "descriptor": false,
+        "receipt": false,
+        "orderedOutcome": false,
+        "retargeted": false,
+        "nonceConsumed": false
+      }
+    },
+    {
+      "id": "epoch-stable-mismatch-recoverParticipant",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "M0",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": true,
+        "operation": "recoverParticipant"
+      },
+      "expected": {
+        "result": "throw",
+        "code": "envelope",
+        "kind": "invalid_input",
+        "afterMethodReads": 1,
+        "attempts": 1,
+        "capture": false,
+        "descriptor": false,
+        "receipt": false,
+        "orderedOutcome": false,
+        "retargeted": false,
+        "nonceConsumed": false
+      }
+    },
+    {
+      "id": "epoch-target-record-not-needed-for-decisive-pointer-mismatch",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "M0",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": "unknown; deliberately not fetched",
+        "operation": "advanceEpoch"
+      },
+      "expected": {
+        "result": "throw",
+        "code": "envelope",
+        "kind": "invalid_input",
+        "afterMethodReads": 1,
+        "attempts": 1,
+        "capture": false,
+        "descriptor": false,
+        "receipt": false,
+        "orderedOutcome": false,
+        "retargeted": false,
+        "nonceConsumed": false
+      }
+    },
+    {
+      "id": "epoch-rotation-discards-pending-mismatch",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "M1",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": true,
+        "operation": "recoverParticipant",
+        "nextAttempt": {
+          "beforeBinding": "M1",
+          "afterBinding": "M1",
+          "selectedRoot": "R1",
+          "authenticatedCurrentEpoch": "E0"
+        }
+      },
+      "expected": {
+        "result": "capture from second complete attempt only",
+        "attempts": 2,
+        "afterMethodReads": 2,
+        "captureRoot": "R1",
+        "captureBinding": "M1",
+        "mixedRoots": false,
+        "retargeted": false,
+        "authorityAccepted": false
+      }
+    },
+    {
+      "id": "epoch-plc-tip-change-with-same-key-and-pds",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "M0",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": true,
+        "operation": "advanceEpoch",
+        "beforeTip": "T0",
+        "afterTip": "T1",
+        "normalizedKeyAndPdsUnchanged": true,
+        "nextAttempt": "same stable mismatch under T1"
+      },
+      "expected": {
+        "result": "throw",
+        "code": "envelope",
+        "kind": "invalid_input",
+        "afterMethodReads": 2,
+        "attempts": 2,
+        "capture": false,
+        "descriptor": false,
+        "receipt": false,
+        "orderedOutcome": false,
+        "retargeted": false,
+        "nonceConsumed": false,
+        "reason": "first attempt restarts because PLC tip changed; stable second mismatch refuses"
+      }
+    },
+    {
+      "id": "epoch-after-method-unavailable",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "missing response",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": true,
+        "operation": "advanceEpoch"
+      },
+      "expected": {
+        "result": "throw",
+        "code": "content_unavailable",
+        "kind": "transient",
+        "stableMismatchCertified": false,
+        "capture": false,
+        "nonceConsumed": false
+      }
+    },
+    {
+      "id": "epoch-after-method-invalid",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "strict interpreter rejects malformed evidence",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": true,
+        "operation": "recoverParticipant"
+      },
+      "expected": {
+        "result": "throw existing after-method input error",
+        "kind": "invalid_input",
+        "stableMismatchCertified": false,
+        "capture": false,
+        "nonceConsumed": false
+      }
+    },
+    {
+      "id": "epoch-after-method-runtime-fault",
+      "area": "epoch-pointer",
+      "given": {
+        "beforeBinding": "M0",
+        "afterBinding": "unexpected runtime or integrity fault",
+        "selectedRoot": "R0",
+        "targetEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "targetEpochRecordPresent": true,
+        "operation": "advanceEpoch"
+      },
+      "expected": {
+        "result": "throw original fault unchanged",
+        "automaticRetry": false,
+        "capture": false,
+        "nonceConsumed": false
+      }
+    },
+    {
+      "id": "epoch-pointer-proven-absent",
+      "area": "epoch-pointer",
+      "given": {
+        "operation": "advanceEpoch",
+        "selectedRoot": "R0",
+        "lookup": "authenticated absence",
+        "beforeBinding": "M0",
+        "afterBinding": "M0"
+      },
+      "expected": {
+        "result": "refused",
+        "code": "subject_absent",
+        "path": "ai.generalbusiness.atseq.epochCurrent/self",
+        "expectedCid": null,
+        "observedCid": null,
+        "root": "R0",
+        "afterMethodReads": 1,
+        "capture": false,
+        "orderedOutcome": false
+      }
+    },
+    {
+      "id": "epoch-pointer-proof-missing",
+      "area": "epoch-pointer",
+      "given": {
+        "operation": "recoverParticipant",
+        "lookup": "missing; exact recovery and bounded full-export recovery unavailable"
+      },
+      "expected": {
+        "result": "throw existing availability error",
+        "kind": "transient",
+        "subjectRefusal": false,
+        "capture": false
+      }
+    },
+    {
+      "id": "epoch-pointer-malformed",
+      "area": "epoch-pointer",
+      "given": {
+        "operation": "advanceEpoch",
+        "lookup": "authenticated bytes; closed native record decoder rejects malformed pointer"
+      },
+      "expected": {
+        "result": "throw existing input error",
+        "kind": "invalid_input",
+        "subjectRefusal": false,
+        "capture": false
+      }
+    },
+    {
+      "id": "epoch-old-grant-retained-with-current-pointer",
+      "area": "epoch-pointer",
+      "given": {
+        "operation": "admitGrant",
+        "grantEpoch": "E0",
+        "authenticatedCurrentEpoch": "E1",
+        "exactGrantPresent": true,
+        "beforeBinding": "M0",
+        "afterBinding": "M0",
+        "allOtherRequiredEvidenceValid": true,
+        "allOtherI2PreconditionsEffective": true
+      },
+      "expected": {
+        "result": "capture",
+        "retainedCurrentEpoch": "E1",
+        "retainedGrantEpoch": "E0",
+        "observerEffectivenessVerdict": false,
+        "orderedOutcomeOwnedBy": "I2",
+        "expectedI2ReasonIfOtherPreconditionsEffective": "epoch_conflict"
+      }
+    },
+    {
+      "id": "epoch-other-app-grant-scope-remains-I2",
+      "area": "epoch-pointer",
+      "given": {
+        "operation": "admitGrant",
+        "exactGrantPresent": true,
+        "grantApp": "another app",
+        "allRequiredEvidenceValid": true,
+        "allOtherI2PreconditionsEffective": true
+      },
+      "expected": {
+        "result": "capture",
+        "observerScopeVerdict": false,
+        "orderedOutcomeOwnedBy": "I2",
+        "expectedI2Reason": "grant_scope"
+      }
+    },
+    {
+      "id": "blocks-header-roots-empty",
+      "area": "getBlocks-header",
+      "given": {
+        "selectedAuthenticatedCommit": "R0",
+        "requestedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "headerRoots": [],
+        "bodyEntries": [
+          "B0",
+          "B1"
+        ],
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "compose and reauthenticate",
+        "composedRoots": [
+          "R0"
+        ],
+        "expectedRoot": "R0",
+        "headerSelectedAuthority": false,
+        "selectedRootRestart": false,
+        "includedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "originalCommitRetained": true
+      }
+    },
+    {
+      "id": "blocks-header-roots-original-selected",
+      "area": "getBlocks-header",
+      "given": {
+        "selectedAuthenticatedCommit": "R0",
+        "requestedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "headerRoots": [
+          "R0"
+        ],
+        "bodyEntries": [
+          "B0",
+          "B1"
+        ],
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "compose and reauthenticate",
+        "composedRoots": [
+          "R0"
+        ],
+        "expectedRoot": "R0",
+        "headerSelectedAuthority": false,
+        "selectedRootRestart": false,
+        "includedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "originalCommitRetained": true
+      }
+    },
+    {
+      "id": "blocks-header-roots-other",
+      "area": "getBlocks-header",
+      "given": {
+        "selectedAuthenticatedCommit": "R0",
+        "requestedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "headerRoots": [
+          "R9"
+        ],
+        "bodyEntries": [
+          "B0",
+          "B1"
+        ],
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "compose and reauthenticate",
+        "composedRoots": [
+          "R0"
+        ],
+        "expectedRoot": "R0",
+        "headerSelectedAuthority": false,
+        "selectedRootRestart": false,
+        "includedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "originalCommitRetained": true
+      }
+    },
+    {
+      "id": "blocks-header-roots-multiple",
+      "area": "getBlocks-header",
+      "given": {
+        "selectedAuthenticatedCommit": "R0",
+        "requestedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "headerRoots": [
+          "R9",
+          "R0",
+          "R8"
+        ],
+        "bodyEntries": [
+          "B0",
+          "B1"
+        ],
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "compose and reauthenticate",
+        "composedRoots": [
+          "R0"
+        ],
+        "expectedRoot": "R0",
+        "headerSelectedAuthority": false,
+        "selectedRootRestart": false,
+        "includedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "originalCommitRetained": true
+      }
+    },
+    {
+      "id": "blocks-header-root-not-in-body",
+      "area": "getBlocks-header",
+      "given": {
+        "selectedAuthenticatedCommit": "R0",
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": [
+          "R9"
+        ],
+        "bodyEntries": [
+          "B0"
+        ],
+        "rootR9NotDelivered": true,
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "compose and reauthenticate",
+        "composedRoots": [
+          "R0"
+        ],
+        "requestedSetSatisfiedBy": "body only",
+        "R9Required": false
+      }
+    },
+    {
+      "id": "blocks-requested-only-in-header",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": [
+          "B0"
+        ],
+        "bodyEntries": []
+      },
+      "expected": {
+        "result": "throw",
+        "code": "content_unavailable",
+        "kind": "transient",
+        "headerSuppliesBody": false,
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-unrequested-root-delivered-in-body",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": [
+          "R9"
+        ],
+        "bodyEntries": [
+          "B0",
+          "R9"
+        ],
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "throw",
+        "code": "input",
+        "kind": "invalid_input",
+        "reason": "extra body CID",
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-extra-and-omitted",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0",
+          "B1"
+        ],
+        "headerRoots": [
+          "B1"
+        ],
+        "bodyEntries": [
+          "B0",
+          "B9"
+        ],
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "throw",
+        "code": "input",
+        "kind": "invalid_input",
+        "reason": "observed extra body CID outranks omission",
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-invalid-body-hash",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": [
+          "R0"
+        ],
+        "bodyEntries": [
+          "B0 with mismatching bytes"
+        ]
+      },
+      "expected": {
+        "result": "throw existing checked input error",
+        "kind": "invalid_input",
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-repeated-valid-entry",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": [],
+        "bodyEntries": [
+          "B0",
+          "B0"
+        ],
+        "everyEntryHashValid": true
+      },
+      "expected": {
+        "result": "compose and reauthenticate",
+        "responseEntryCount": 2,
+        "uniqueReturnedCount": 1,
+        "composedRoots": [
+          "R0"
+        ],
+        "duplicateHashVerificationRequired": true
+      }
+    },
+    {
+      "id": "blocks-bad-hash-in-repeated-entry",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": [],
+        "bodyEntries": [
+          "valid B0",
+          "B0 with mismatching bytes"
+        ]
+      },
+      "expected": {
+        "result": "throw existing checked input error",
+        "kind": "invalid_input",
+        "duplicateHashVerificationRequired": true,
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-duplicate-response-entry-cap",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": [],
+        "bodyEntries": "65 individually valid B0 entries"
+      },
+      "expected": {
+        "result": "throw existing local resource refusal",
+        "kind": "transient",
+        "responseEntryCount": 65,
+        "uniqueReturnedCount": 1,
+        "largerAccountInvalid": false,
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-malformed-header",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": "invalid root encoding or non-v1/malformed CAR header",
+        "bodyEntries": [
+          "valid B0"
+        ]
+      },
+      "expected": {
+        "result": "throw existing checked input error",
+        "kind": "invalid_input",
+        "ignoreHeaderAuthorityDoesNotIgnoreFraming": true,
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-header-local-budget",
+      "area": "getBlocks-header",
+      "given": {
+        "requestedBodyCids": [
+          "B0"
+        ],
+        "headerRoots": "well-formed metadata whose header exceeds adopted local header/depth budget",
+        "bodyEntries": [
+          "valid B0"
+        ]
+      },
+      "expected": {
+        "result": "throw existing local resource refusal",
+        "kind": "transient",
+        "largerAccountInvalid": false,
+        "composedCar": false
+      }
+    },
+    {
+      "id": "blocks-shared-discovery-round",
+      "area": "getBlocks-header",
+      "given": {
+        "requiredPaths": [
+          "P0",
+          "P1",
+          "P2"
+        ],
+        "missingCidsByPath": [
+          [
+            "B0",
+            "B1"
+          ],
+          [
+            "B1"
+          ],
+          [
+            "B2"
+          ]
+        ],
+        "headerRoots": [
+          "R9"
+        ]
+      },
+      "expected": {
+        "result": "one deduplicated request round before relookup",
+        "requestedBodyCids": [
+          "B0",
+          "B1",
+          "B2"
+        ],
+        "requestsInRound": 1,
+        "oneRequestPerCid": false,
+        "composedRoots": [
+          "R0"
+        ]
+      }
+    },
+    {
+      "id": "blocks-request-round-64-cap",
+      "area": "getBlocks-header",
+      "given": {
+        "uniqueMissingCids": 65,
+        "enoughSharedBudget": true
+      },
+      "expected": {
+        "result": "two sequential requests in the same discovery round",
+        "requestedCounts": [
+          64,
+          1
+        ],
+        "resetSharedNetworkBudget": false,
+        "composedRoots": [
+          "R0"
+        ]
+      }
+    },
+    {
+      "id": "blocks-full-export-selects-new-root",
+      "area": "getBlocks-header",
+      "given": {
+        "selectedAuthenticatedCommit": "R0",
+        "exactBlockRecovery": "unavailable",
+        "boundedGetRepoAuthenticatedRoot": "R1"
+      },
+      "expected": {
+        "result": "restart whole observation within existing shared limits",
+        "carryR0ProofIntoR1": false,
+        "headerRootOnlyRestart": false,
+        "retargetPreparedSubject": false
+      }
+    }
+  ]
+}

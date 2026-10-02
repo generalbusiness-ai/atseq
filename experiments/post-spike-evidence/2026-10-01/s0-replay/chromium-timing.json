@@ -1,0 +1,345 @@
+{
+  "metadata": {
+    "capturedAt": "2026-10-02T02:58:07.318Z",
+    "exactHead": "7ae19979b72f735ffe6f08012a5e9185b6dc04e4",
+    "node": "v26.10.0",
+    "chromium": "153.0.8010.12",
+    "inputSha256": "53c4b6b3c76548d9678d81037972506fcb75d02e544b00350e209d3e017be88a",
+    "inputBytes": 7315389,
+    "bundleSha256": "a8b59696fcf63d0d3988dbd6983e2709fcf5f7df50a370e8c4b3d815c3ab2023",
+    "bundleBytes": 1207307,
+    "sourceHashes": {
+      "prepare.ts": "abf5fc9a9251d78aa0689667953c6db5499035d56d51537f98b1a226318bd3b0",
+      "replay.ts": "6a8ee4dc4819aba65e7c35159f719f1ce824b7e7a6595f958881f661548e984b",
+      "browser-run.mjs": "da7f247e6ecb8843cad27471c06052b4925df58a702ac418d7203b8dccc3190d"
+    },
+    "method": "Actual portable Folder in a foreground Chromium page. Every timed span starts at frontier zero and interprets all N distinct entries once using catchUpVerifiedStatus. Browser/source loading, input transfer, signature/history verification, ten-entry warmup and final state/query/oracle checking are outside timing. No native/durable/checkpoint/worker-transfer claims."
+  },
+  "samples": 2,
+  "warmupEntriesPerCell": 10,
+  "captures": [
+    {
+      "name": "row-array-100",
+      "family": "row-array",
+      "n": 100,
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 4380.0999999940395
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 4393.4000000059605
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreif3dwkzypjvtdfkkxv3hpakuq4bnqaqql276efo5bi4uphrh3q6pm"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "revision": 0
+        },
+        "queryValue": {
+          "count": 1000,
+          "total": 1000000000
+        }
+      }
+    },
+    {
+      "name": "taskboard-100",
+      "family": "taskboard",
+      "n": 100,
+      "initialStateBytes": 130172,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 6526.100000023842
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 6600.4000000059605
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreifx4eub7c4tpj2txto54xrwtbv77uq6xyamudb3lxbn6tbjwwyshi"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "completed": 1000
+        },
+        "queryValue": {
+          "completed": 1000,
+          "count": 1000
+        }
+      }
+    },
+    {
+      "name": "guitar-selection-100",
+      "family": "guitar-selection",
+      "n": 100,
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 5608.699999988079
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 5606.5999999940395
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreifxf725ykvhkylemg5eogothv7rzuxeewxi37omptheloqz5xc3qa"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "selected": "r00999"
+        },
+        "queryValue": {
+          "selected": "r00999"
+        }
+      }
+    },
+    {
+      "name": "ledger-100",
+      "family": "ledger",
+      "n": 100,
+      "initialStateBytes": 126022,
+      "finalStateBytes": 131072,
+      "initialRows": 900,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 6073.799999982119
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 6116.200000017881
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreiakocffy33vq6zy7frbqehuhxpazawrnqo6e3lv7syeu6pc6bie44"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "independentlySummedMinor": 0,
+          "currency": "GBP"
+        },
+        "queryValue": {
+          "balanceMinor": 0,
+          "count": 1000,
+          "currency": "GBP"
+        }
+      }
+    },
+    {
+      "name": "row-array-1000",
+      "family": "row-array",
+      "n": 1000,
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 46771.79999998212
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 47893.80000001192
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreiceliztzx54xhlop47l2d6fc3f67nh5eavz5uqglhfoefdkljk2be"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "revision": 0
+        },
+        "queryValue": {
+          "count": 1000,
+          "total": 1000000000
+        }
+      }
+    },
+    {
+      "name": "taskboard-1000",
+      "family": "taskboard",
+      "n": 1000,
+      "initialStateBytes": 122073,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 65039
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 62429.59999999404
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreienuns4lvlxsrx4kr4fqvv5b7vre6hn5tl4o4jbwgqf2ecbkbvdxa"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "completed": 1000
+        },
+        "queryValue": {
+          "completed": 1000,
+          "count": 1000
+        }
+      }
+    },
+    {
+      "name": "guitar-selection-1000",
+      "family": "guitar-selection",
+      "n": 1000,
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 57007.40000000596
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 56098.20000001788
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreidrqzd7duvdt74ks54qbvnuau4dcvxljnezckgkbdvxq6qaxijaje"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "selected": "r00999"
+        },
+        "queryValue": {
+          "selected": "r00999"
+        }
+      }
+    },
+    {
+      "name": "ledger-1000",
+      "family": "ledger",
+      "n": 1000,
+      "initialStateBytes": 48,
+      "finalStateBytes": 131072,
+      "initialRows": 0,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 31865.70000001788
+        },
+        {
+          "sample": 1,
+          "repetitions": 1,
+          "entriesInterpreted": 1000,
+          "elapsedMs": 32173.69999998808
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 1000,
+          "entry": {
+            "$link": "bafyreic3tcbfe72353nqnm4agplhcnpo7scg5pot4pbqoijfp73b7wbqz4"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "independentlySummedMinor": 0,
+          "currency": "GBP"
+        },
+        "queryValue": {
+          "balanceMinor": 0,
+          "count": 1000,
+          "currency": "GBP"
+        }
+      }
+    }
+  ],
+  "failures": []
+}

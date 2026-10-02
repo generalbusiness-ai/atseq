@@ -1,0 +1,93 @@
+{
+  "format": "atseq-design-packet-manifest",
+  "version": 1,
+  "date": "2026-10-01",
+  "examinedAt": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+  "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:373638c4a1c444592b6f8055d1641bc1a83bae4f",
+  "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6752d5d6dde29d779387fcae880f8fd598c586a0",
+  "artifacts": {
+    "notes/2026-10-01-atseq-retry-prefix-boundary.md": {
+      "bytes": 21927,
+      "sha256": "5ea3e7d4bd5b16eae5c85f259060e18933dcf46169831f3472b93f76a916f4a6"
+    },
+    "experiments/post-spike-evidence/2026-10-01/retry-prefix-boundary/decision-vectors.json": {
+      "bytes": 12753,
+      "sha256": "28ddbbcaea2807709097735e260380ee4e2fd1d2fd486a1422e1df306fa52fda"
+    }
+  },
+  "unchangedApprovedInputs": {
+    "notes/2026-10-01-atseq-retry-uniqueness.md": {
+      "bytes": 24732,
+      "sha256": "fd787d9016a2043388781552816f8cce7bc53c48f89bb43ca062467a0bfde7b3"
+    },
+    "notes/2026-10-01-atseq-incremental-reader-requirements.md": {
+      "bytes": 20081,
+      "sha256": "38578365ac6e16e5ed90f5556b2a5ecb78f6644ae43f299e7d5c09ba93e5b091"
+    },
+    "notes/2026-10-01-atseq-materialized-checkpoints.md": {
+      "bytes": 30429,
+      "sha256": "5832c7ea6b9e1c1599d7694b8ce228721076205ffa31ea394af7c9bb3f41edd6"
+    },
+    "notes/2026-10-01-atseq-checkpoint-policy-bytes.md": {
+      "bytes": 20406,
+      "sha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69"
+    },
+    "notes/2026-10-01-atseq-native-wire-contract.md": {
+      "bytes": 64385,
+      "sha256": "b5aa4cc662f98940519daba2dafa882694da08f01bf0dbf2ac9f339f3e8c255b"
+    },
+    "src/protocol/native-wire.ts": {
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    "src/protocol/native-proof.ts": {
+      "bytes": 18104,
+      "sha256": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9"
+    },
+    "src/protocol/checkpoint-data.ts": {
+      "bytes": 19142,
+      "sha256": "5366c092187892a7975e4965da0d867b4e53d5bac6474e62043d0dbf00e4e6b2"
+    },
+    "src/application/native-authority.ts": {
+      "bytes": 19024,
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    "src/application/native-authority-evidence.ts": {
+      "bytes": 12775,
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    "src/application/native-authority-data.ts": {
+      "bytes": 10799,
+      "sha256": "63323985bdfee3ee5620405d83e6dc5fb31c1eba913aec115431777771fe412a"
+    },
+    "src/core/local-generations.ts": {
+      "bytes": 5382,
+      "sha256": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a"
+    },
+    "src/host/local-generations.ts": {
+      "bytes": 10527,
+      "sha256": "82e251d0a99c799495c15db332fa37d78f6c021b378956630b2dcea61825ef6f"
+    },
+    "src/browser/local-generations.ts": {
+      "bytes": 12712,
+      "sha256": "5fcc3ba0ab63b5056fb443da37e4ef58eb34c0eefbaff52de4e62db83c6f6eed"
+    },
+    "scripts/check-layers.mjs": {
+      "bytes": 5118,
+      "sha256": "e0d7baa0082c80da53a67a7aa0a5b6d0141679e86a5506b1a744fec93837c5e2"
+    }
+  },
+  "validation": {
+    "expectationScenarios": 36,
+    "runtimeCasesExecuted": 0,
+    "uniqueScenarioIds": true,
+    "closedScenarioShape": true,
+    "resolvedNoteLinks": 6,
+    "approvedInputByteEquality": true
+  },
+  "limits": [
+    "Static packet validation only. No implementation, runtime conformance, build, persistence, native PDS or benchmark execution.",
+    "Independent review must settle the evidence split, fixed-view ownership, installation trust seam and writer policy before implementation.",
+    "No workroom mutation, dependency change, public support registration or historical-source modification."
+  ]
+}

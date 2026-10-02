@@ -1,0 +1,30 @@
+{
+  "format": "atseq-accepted-continuation-publication-validation",
+  "version": 1,
+  "basis": "65e7042a01184f4d755bf0a7853e92411e6dee9f",
+  "sourceFiles": 50,
+  "sourceBytes": 3394609,
+  "exactCopyEquality": true,
+  "packetHashChecks": 46,
+  "exactGitSourcePins": 66,
+  "installedMaintainedPins": 5,
+  "literalExcerptChecks": 18,
+  "symbolicUnexecutedScenarios": {
+    "observer": 30,
+    "coordinator": 53,
+    "retryOriginal": 36,
+    "retryRevised": 47
+  },
+  "predecessorFilesPreserved": 3,
+  "s0PublicInputBytes": 7315389,
+  "s0PublicInputSha256": "53c4b6b3c76548d9678d81037972506fcb75d02e544b00350e209d3e017be88a",
+  "retainedReplaySpans": 32,
+  "retainedInterpretedEntries": 17600,
+  "retainedStatisticsAndFinalReferencesExact": true,
+  "localNoteLinksChecked": 45,
+  "changesOnlyNewNotesAndExperiments": true,
+  "runtimeDependenciesProfilesExportsPriorEvidenceUnchanged": true,
+  "timingsRerun": false,
+  "buildInstallRuntimeServiceProviderTestsRun": false,
+  "limit": "Source and retained-observation checks only. No native, durable, bootstrap, authority or checkpoint trust admission."
+}

@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "capturedAt": "2026-10-02T02:32:40.416Z",
+    "exactHead": "c242ca20e823ea510e3939a8466a608f3ab860ba",
+    "node": "v26.10.0",
+    "chromium": "153.0.8010.12",
+    "inputSha256": "1365b7cc6fdfef7ded73ada30f2af2e7c4ede0da490b1d41a8a1f4b0b3878e3e",
+    "inputBytes": 7315417,
+    "bundleSha256": "a8b59696fcf63d0d3988dbd6983e2709fcf5f7df50a370e8c4b3d815c3ab2023",
+    "bundleBytes": 1207307,
+    "sourceHashes": {
+      "prepare.ts": "a16c97fb9ec83ff5220125ee3cdcce37c6419728b48e49d2fa4540054af47405",
+      "replay.ts": "6a8ee4dc4819aba65e7c35159f719f1ce824b7e7a6595f958881f661548e984b",
+      "browser-run.mjs": "da7f247e6ecb8843cad27471c06052b4925df58a702ac418d7203b8dccc3190d"
+    },
+    "method": "Actual portable Folder in a foreground Chromium page. Every timed span starts at frontier zero and interprets all N distinct entries once using catchUpVerifiedStatus. Browser/source loading, input transfer, signature/history verification, ten-entry warmup and final state/query/oracle checking are outside timing. No native/durable/checkpoint/worker-transfer claims."
+  },
+  "samples": 1,
+  "warmupEntriesPerCell": 10,
+  "captures": [
+    {
+      "name": "row-array-100",
+      "family": "row-array",
+      "n": 100,
+      "initialStateBytes": 131072,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 7823.9000000059605
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreif3dwkzypjvtdfkkxv3hpakuq4bnqaqql276efo5bi4uphrh3q6pm"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "revision": 0
+        },
+        "queryValue": {
+          "count": 1000,
+          "total": 1000000000
+        }
+      }
+    },
+    {
+      "name": "taskboard-100",
+      "family": "taskboard",
+      "n": 100,
+      "initialStateBytes": 130172,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 12682.09999999404
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreifx4eub7c4tpj2txto54xrwtbv77uq6xyamudb3lxbn6tbjwwyshi"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "completed": 1000
+        },
+        "queryValue": {
+          "completed": 1000,
+          "count": 1000
+        }
+      }
+    },
+    {
+      "name": "guitar-selection-100",
+      "family": "guitar-selection",
+      "n": 100,
+      "initialStateBytes": 131066,
+      "finalStateBytes": 131072,
+      "initialRows": 1000,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 11154.5
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreifxf725ykvhkylemg5eogothv7rzuxeewxi37omptheloqz5xc3qa"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "selected": "r00999"
+        },
+        "queryValue": {
+          "selected": "r00999"
+        }
+      }
+    },
+    {
+      "name": "ledger-100",
+      "family": "ledger",
+      "n": 100,
+      "initialStateBytes": 126022,
+      "finalStateBytes": 131072,
+      "initialRows": 900,
+      "finalRows": 1000,
+      "rows": [
+        {
+          "sample": 0,
+          "repetitions": 1,
+          "entriesInterpreted": 100,
+          "elapsedMs": 13513
+        }
+      ],
+      "reference": {
+        "frontier": {
+          "$type": "ai.generalbusiness.atseq.defs#cursor",
+          "position": 100,
+          "entry": {
+            "$link": "bafyreiakocffy33vq6zy7frbqehuhxpazawrnqo6e3lv7syeu6pc6bie44"
+          }
+        },
+        "domainAudit": {
+          "rows": 1000,
+          "independentlySummedMinor": 0,
+          "currency": "GBP"
+        },
+        "queryValue": {
+          "balanceMinor": 0,
+          "count": 1000,
+          "currency": "GBP"
+        }
+      }
+    }
+  ],
+  "failures": []
+}

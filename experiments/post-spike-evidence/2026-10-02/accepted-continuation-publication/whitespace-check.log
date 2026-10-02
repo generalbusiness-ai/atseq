@@ -1,0 +1,5 @@
+Command: git diff 65e7042a01184f4d755bf0a7853e92411e6dee9f --check
+Exit code: 2
+Disposition: preserve the sole diagnostic in the exact historical capture; no authored whitespace failure.
+stdout (JSON encoded to preserve the trailing-space diagnostic without duplicating its whitespace):
+"experiments/post-spike-evidence/2026-10-01/s0-replay/build.log:5: trailing whitespace.\n+[plugin builtin:vite-reporter] \n"
