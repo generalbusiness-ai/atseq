@@ -31,14 +31,14 @@ export async function nativeApplicationFaultBundle(): Promise<string> {
               '      if ((globalThis as any).__nativeApplicationStoredFault) throw (globalThis as any).__nativeApplicationStoredFault;\n' +
                 marker,
             );
-            const first = '      const data = authenticatedAuthorityEntry(authenticated);';
+            const first = '      const data = authenticatedAuthorityEntry(authenticated, base.authority);';
             assert.ok(code.includes(first));
             code = code.replace(
               first,
               '      if ((globalThis as any).__nativeApplicationStaleBeforeCommit) { this.#current = Object.freeze({ ...base }); this.#same(base); }\n' +
                 first,
             );
-            const persisted = '        await this.persist(this.#projection(next, row));';
+            const persisted = '        await this.#persist(this.#projection(next, row));';
             assert.ok(code.includes(persisted));
             return code.replace(
               persisted,

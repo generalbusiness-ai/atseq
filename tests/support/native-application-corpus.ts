@@ -38,7 +38,7 @@ export async function applicationReplayContext(
   options: {
     persist?: Parameters<typeof openNativeApplication>[0]['persist'];
     sourceFault?: (cid: string) => void;
-    evidenceFault?: () => void;
+    evidenceFault?: (cid: string) => void;
   } = {},
 ) {
   const anchor = await NativeAnchor.from(fixture.genesis, { app: fixture.genesis.app, genesis: fixture.genesisCid });
@@ -70,7 +70,7 @@ export async function applicationReplayContext(
       }),
       reader: {
         async get(cid: string) {
-          options.evidenceFault?.();
+          options.evidenceFault?.(cid);
           const raw = retained.get(cid);
           if (!raw) throw new AtseqError('content_unavailable', 'Missing evidence');
           return new Uint8Array(raw);
@@ -130,6 +130,11 @@ export async function nativeApplicationCorpus(fixture: ApplicationFixture): Prom
     const prior = healthy.app.snapshot();
     const repeated = {
       ...healthy.inputs.at(-1)!,
+      appRepo: await authenticateRepo({
+        carBytes: new Uint8Array(fixture.duplicateCar),
+        expectedDid: fixture.genesis.app,
+        trustedSigningKeyDid: fixture.appKey,
+      }),
       entry: {
         ...fixture.vectors.at(-1)!.entry,
         position: prior.authority.frontier.position + 1,
@@ -222,7 +227,9 @@ export async function nativeApplicationCorpus(fixture: ApplicationFixture): Prom
           () => context.app.process(context.inputs[i]!),
           (error) => error === missing,
         );
-        equal(context.app.snapshot(), prior);
+        const after = context.app.snapshot();
+        equal({ ...after, publication: null }, { ...prior, publication: null });
+        assert(after.publication?.head.position === i + 1 && after.authority.frontier.position === i);
         unavailable = false;
       }
       await context.app.process(context.inputs[i]!);

@@ -10,6 +10,7 @@ import { replayAuthorityFixtures } from './support/native-authority-corpus.ts';
 import { nativeRef, NATIVE_NSID } from '../src/protocol/native-schema.ts';
 import {
   nativeAuthoritySnapshot,
+  nativeAuthorityHistory,
   interpretNativeAuthority,
   type NativeAuthorityState,
 } from '../src/application/native-authority.ts';
@@ -21,6 +22,8 @@ import {
 import { encodeBlock, decodeBlock, contentCid, link, bytes } from '../src/protocol/wire.ts';
 import {
   nativeEntryPath,
+  nativeHeadPath,
+  nativeHeadAt,
   nativeGenesisPath,
   type NativeEntry,
   type NativeContent,
@@ -368,7 +371,7 @@ test('native participant authority, role revisions and recovery use authenticate
     ),
     effective,
   );
-  await readNativeAuthoritySnapshot(nativeAuthoritySnapshot(h.state), h.anchor);
+  await readNativeAuthoritySnapshot(nativeAuthorityHistory(h.state), h.anchor);
   await h.append(
     'whole-map replacement equality ignores object property insertion order',
     await h.signed(
@@ -389,10 +392,13 @@ test('native participant authority, role revisions and recovery use authenticate
   assert.throws(() => interpretNativeAuthority({} as NativeAuthorityState, {} as AuthenticatedAuthorityEntry), {
     code: 'envelope',
   });
-  await assert.rejects(() => readNativeAuthoritySnapshot({ ...snapshot, trusted: true }, h.anchor), {
-    code: 'envelope',
-  });
-  const malformed = nativeAuthoritySnapshot(h.state);
+  await assert.rejects(
+    () => readNativeAuthoritySnapshot({ ...nativeAuthorityHistory(h.state), trusted: true }, h.anchor),
+    {
+      code: 'envelope',
+    },
+  );
+  const malformed = nativeAuthorityHistory(h.state);
   malformed.grants[0]!.cid = h.anchor.cid;
   await assert.rejects(() => readNativeAuthoritySnapshot(malformed, h.anchor), { code: 'envelope' });
   const first = h.vectors[0]!,
@@ -481,6 +487,10 @@ test('native participant authority, role revisions and recovery use authenticate
     [`${NATIVE_NSID.content}/${changedCid}`, encodeBlock(changed)],
     [nativeEntryPath(h.anchor.cid, changedEntry.position), encodeBlock(changedEntry)],
   ]);
+  changedPublication.set(
+    nativeHeadPath(h.anchor.cid),
+    encodeBlock(await nativeHeadAt(h.anchor, changedEntry.position, await contentCid(changedEntry))),
+  );
   const changedRepo = await authorityRepo(h.app.principal, h.app.key, changedPublication, 201);
   h.hostile.push({
     name: 'authentic app publication cannot rebind descriptor subject',
@@ -502,6 +512,10 @@ test('native participant authority, role revisions and recovery use authenticate
       };
     const records = new Map(h.appRecords);
     records.set(nativeEntryPath(state.genesis, entry.position), encodeBlock(entry));
+    records.set(
+      nativeHeadPath(state.genesis),
+      encodeBlock(await nativeHeadAt(h.anchor, entry.position, await contentCid(entry))),
+    );
     const repo = await authorityRepo(h.app.principal, h.app.key, records, 202);
     return { entry: [...encodeBlock(entry)], appCar: [...repo.car] };
   }

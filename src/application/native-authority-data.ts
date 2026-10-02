@@ -11,7 +11,12 @@ import {
   type NativeAnchor,
 } from '../protocol/native-wire.ts';
 import { contentCid, link, bytes } from '../protocol/wire.ts';
-import type { NativeAuthoritySnapshot } from './native-authority.ts';
+import type { NativeAuthoritySnapshot as CompactNativeAuthoritySnapshot } from './native-authority.ts';
+export interface NativeAuthoritySnapshot extends CompactNativeAuthoritySnapshot {
+  requests: string[];
+  retries: string[];
+  consumedObservations: string[];
+}
 function fail(message: string): never {
   throw new ProtocolError('envelope', message);
 }
