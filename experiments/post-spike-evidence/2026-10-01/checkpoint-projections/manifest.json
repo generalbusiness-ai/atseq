@@ -1,0 +1,124 @@
+{
+  "format": "atseq-checkpoint-projection-evidence",
+  "version": 1,
+  "date": "2026-10-01",
+  "sourceHead": "267635fa35b6be9d9084b4830b63d20b0dfd2b81",
+  "predecessorSourceHead": "b55c9273c23c5c75962020f632a3112d51f08e34",
+  "base": "20f72a8557e0d78bbb59664a3b5313ad7e8a02a9",
+  "generator": {
+    "file": "experiments/checkpoint-projections/generate.mjs",
+    "sha256": "6f6d73d77c6c8a1dd7c14716bf9f3d89274196767ab155240a1ca636a84fdadd"
+  },
+  "i2Source": "d08104ddae3e737b8de9e13a3e89116e65d84afc",
+  "i2ModuleHashes": {
+    "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+    "src/protocol/wire.ts": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+    "src/protocol/native-schema.ts": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4",
+    "src/protocol/native-wire.ts": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+    "src/application/native-authority.ts": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455",
+    "src/application/native-authority-snapshot.ts": "c27d38aad6083f3f1965eb9ef74192e0f892e4d0102dcb8626dc4b4faa7882a6"
+  },
+  "framingReport": "a75f950a",
+  "originalOuterSource": "2fec4532bb316906c2c6e183cb2179546a9628a8",
+  "originalOuterSha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69",
+  "rawInputSha256": "a6ca8f0aa56a1986e6fc4e39f13da8b6609d3a6829c1349e94487c9496e4e019",
+  "rawInputBytes": 23114637,
+  "mechanicalCases": [
+    "exact I2 genesis/disabled-role/retired-epoch/recovery authority projections remain parsed data",
+    "13 original entries retain signatures/nonces and unsigned CID identity; disabled role uses unsigned CID",
+    "head indexes reconstruct exact temporary I2 data at frontier without minting authority; compact omits duplicate arrays",
+    "standalone native source row preserves supplied nonalphabetic file order and unused binary asset",
+    "stalled outer literal binds strictly later head and exact first uninterpreted entry",
+    "native deterministic chunk framing covers empty/exact32KiB/two-chunk boundary"
+  ],
+  "authorityOptions": [
+    {
+      "position": 0,
+      "fullI2Bytes": 896,
+      "compactBytes": 847,
+      "omittedIndexBytes": 49,
+      "manifest": "bafyreidvpvj37mdnb2qy2jxzjmzwdgncxwlewvvpwlhmkucpbzi53zuawu"
+    },
+    {
+      "position": 1,
+      "fullI2Bytes": 2155,
+      "compactBytes": 1984,
+      "omittedIndexBytes": 171,
+      "manifest": "bafyreidifr675547lqf6ivmvr62e32ftz2mouqfmr5dibgzdim5cxzg2uu"
+    },
+    {
+      "position": 2,
+      "fullI2Bytes": 2411,
+      "compactBytes": 1985,
+      "omittedIndexBytes": 426,
+      "manifest": "bafyreicrxq7ewduk6yz7ghw2mljaujq5nrom677btmddrmqg7iq5fojxcm"
+    },
+    {
+      "position": 12,
+      "fullI2Bytes": 5164,
+      "compactBytes": 2838,
+      "omittedIndexBytes": 2326,
+      "manifest": "bafyreihronafyc4jhvfphfm5b7pumgjs3m3ga37ktihu2pmrvq6pqezn54"
+    },
+    {
+      "position": 13,
+      "fullI2Bytes": 5461,
+      "compactBytes": 3011,
+      "omittedIndexBytes": 2450,
+      "manifest": "bafyreifv5xt54cdtaciqm2ibeumxwxkvkeqzo472x6z5fli2e5avc5c4au"
+    },
+    {
+      "position": 20,
+      "fullI2Bytes": 7347,
+      "compactBytes": 3703,
+      "omittedIndexBytes": 3644,
+      "manifest": "bafyreiai4aq7zccx3dkcs3ud3cb65hr5yqy2nabdzd5uogmbo6dgvvipre"
+    }
+  ],
+  "noCheckpointAdmission": true,
+  "noPrivateKeysRetained": true,
+  "limitations": [
+    "I2 fixture uses unsupported semantic/source placeholder",
+    "source table example is not the active placeholder definition",
+    "claimed provenance inventories are framing examples only",
+    "no caller-accepted publication or local-restore admission has run",
+    "No P4 runtime parser, factory, browser admission, benchmark, PDS or trusted-local restore implementation tested"
+  ],
+  "commands": [
+    "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node --conditions atseq-source --import /Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/loader.mjs experiments/checkpoint-projections/generate.mjs /Users/hughpyle/play/atseq-worktrees/native-authority",
+    "/opt/homebrew/bin/node --conditions atseq-source --import /Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/loader.mjs experiments/checkpoint-projections/generate.mjs /Users/hughpyle/play/atseq-worktrees/native-authority"
+  ],
+  "archiveMembers": 475,
+  "files": [
+    {
+      "file": "vectors.tar.gz",
+      "bytes": 322641,
+      "sha256": "138e05bd9bc19cd8f16d1b6f07df386d6c5cfca765f33ec1d9b75db739aeaf4f"
+    },
+    {
+      "file": "vectors.json",
+      "bytes": 177020,
+      "sha256": "9ac0cdeffbe296e7e54fa1e1e9198d4f411deff5de17ebe5489cc06eefa5eddb"
+    },
+    {
+      "file": "i2-public-vectors.json.gz",
+      "bytes": 1933520,
+      "sha256": "12091376fb35284eb64990edca4ad9a30cda0c4a186167b331d41188c02e08f0"
+    },
+    {
+      "file": "original-outer-note.md",
+      "bytes": 20406,
+      "sha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69"
+    },
+    {
+      "file": "node22.log",
+      "bytes": 177,
+      "sha256": "09066e4cb578bb7bc45b71af9d4ab2a02c0dc5ced9f0f4d691c99d295793754c"
+    },
+    {
+      "file": "node26.log",
+      "bytes": 177,
+      "sha256": "f35b2d41fb5c20bebad3713c17ff9b9264d763116cbe14e55d717329e6ce4f6b"
+    }
+  ]
+}

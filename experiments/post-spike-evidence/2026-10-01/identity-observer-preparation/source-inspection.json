@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-01",
+  "observerBasis": "9c345e8fb5e27b29265c69614d9d9ddfb52de301",
+  "nativeWireBasis": "cf2dc095",
+  "authorityBasis": "d08104dd",
+  "fixtureLockSha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd",
+  "versions": {
+    "pds": "0.5.31",
+    "repo": "0.10.12"
+  },
+  "files": [
+    {
+      "path": "node_modules/@atproto/pds/dist/api/com/atproto/sync/getRecord.js",
+      "sha256": "3ff8d947b01e00c0eae663997313c9109bd7cfc26ab5b8a7fd506864c5f1078e"
+    },
+    {
+      "path": "node_modules/@atproto/pds/dist/api/com/atproto/sync/getBlocks.js",
+      "sha256": "e8f7accb6d88a58e22baa43e0c590bd1efc2ba8f1c527e197f83119ee802792a"
+    },
+    {
+      "path": "node_modules/@atproto/repo/dist/sync/provider.js",
+      "sha256": "4ea13369b23e0aaa36589d0ebbe5620a09bffdc2e82d3c5df5f76fa3f896a0cb"
+    },
+    {
+      "path": "node_modules/@atproto/repo/dist/car.js",
+      "sha256": "4043db9c078f5bf221923cf3ba5e0af3d077ccd173f9fa210ff0e5ac018c429b"
+    }
+  ],
+  "primarySources": [
+    "https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getRecord.json",
+    "https://github.com/bluesky-social/atproto/blob/main/lexicons/com/atproto/sync/getBlocks.json",
+    "https://atproto.com/specs/sync"
+  ],
+  "findings": {
+    "getRecordSelectsStorageCurrentRoot": true,
+    "getRecordHasNoRevisionParameter": true,
+    "getBlocksWritesEmptyRoots": true,
+    "getBlocksDoesNotSelectCommit": true,
+    "p1RequiresOneRootAndCommitInEveryAuthenticationInput": true
+  },
+  "runtimeTestsRun": false,
+  "dependenciesChanged": false
+}

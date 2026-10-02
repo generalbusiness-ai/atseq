@@ -13,3 +13,6 @@ experiments/acceptance-logs/
 experiments/evidence/
 experiments/generated/
 experiments/*.json
+
+# Keep the independently reviewed source-only generator byte-exact.
+experiments/checkpoint-projections/generate.mjs

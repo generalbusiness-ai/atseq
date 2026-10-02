@@ -1,7 +1,8 @@
 ---
 date: 2026-10-01
 status: independently assessed; concurrent followups requested
-examined_at: 824527132a6cfc6099d57685d37320e37f99ee4e
+examined_at: c242ca20e823ea510e3939a8466a608f3ab860ba
+status_observed_at: 2026-10-02T02:40:02.144925+00:00
 request: 47004674
 ---
 
@@ -128,41 +129,83 @@ future contract or implementation.
 
 ## Current disposition after the foundation deliveries
 
-The finding map above describes the examined revision. The
-[current programme](2026-10-01-atseq-implementation-programme.md) now records
-landed P0/P1 and fixture/CI work separately from design and runtime gates.
+The finding map above retains the original examined revision. This current
+snapshot records pushed main through `c242ca20`, from publication basis
+`eec0c8e8`; the [programme](2026-10-01-atseq-implementation-programme.md) and
+[continuation report](2026-10-01-atseq-continuation-publication-results.md) separate
+shipped internal foundations, accepted designs and remaining integration.
 
 F2 has measured growing-state evidence and an independently reviewed
 [options note](2026-10-01-atseq-effects-transaction-options.md). Keep the current
-128 KiB complete-state contract with V0 and checkpoints as the default. The
-186-second growing replay is the total for 10,000 actions, not one-action latency.
-A new effects contract waits for a concrete beyond-cap application requirement
-and at-cap Node/Chromium measurements. S1 concurrently removes full outcome-history
-copies from routine reads without changing the state contract. F3 has an adopted
-[actor-discovery direction](2026-10-01-atseq-actor-discovery.md), with I2's final
-enforced role interface and implementation still open. F4 has adopted
-[per-action compatibility](2026-10-01-atseq-activation-compatibility.md), with N1/I2
-wire and runtime work open. F5's reviewed
-[account admission](2026-10-01-atseq-account-admission-design.md) and
-[authority](2026-10-01-atseq-account-authority-design.md) notes now specify retained
-PLC history and weaker web observation, grants/reset/revocation and appointed
-control. F8 still needs native incremental reads, materialization and checkpoints;
-P1's shipped proofs and corrected PB1-R1 capacity classification are foundations.
-The reviewed [reader requirements](2026-10-01-atseq-incremental-reader-requirements.md)
-and [checkpoint design](2026-10-01-atseq-materialized-checkpoints.md) distinguish
-rapid trusted restore and native publication from independent replay audit.
+128 KiB complete-state contract with V0, S1 and checkpoints as the default.
+The 186-second growing replay is the total for 10,000 actions, not one-action
+latency. E1-K1's `940f0ad0` measurement delivery is independently approved;
+it is shipped at `c242ca20` and its
+[matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36947475821)
+passed Node 22.19/24/26. It characterizes 21 legal state fixtures
+with 13 warm kernels in Node and Chromium. Size alone does not predict cost,
+and these kernels are not integrated replay or a worst-case bound. A new effects
+contract still needs a concrete application requirement beyond the cap and a
+separate reviewed decision. Existing archives already replay legal 128 KiB
+states; future checkpoints must use byte chunks across the 64 KiB block limit.
+S0-M1 is preparing realistic-N total replay characterization without an effects
+prototype or latency threshold.
+
+F3 has an adopted [actor-discovery direction](2026-10-01-atseq-actor-discovery.md).
+I2-F1 now ships authenticated authority transitions, but ordinary actions still
+need source-derived eligibility, followed by C1's enforced discovery interface.
+F4 has adopted [per-action compatibility](2026-10-01-atseq-activation-compatibility.md)
+and [source admission](2026-10-01-atseq-native-source-admission.md).
+N1-D3's source-only literal identities and stage-specific reasons/precedence
+are accepted. N1-F2 is implementing the private source owner; native actions and
+activation still need eligible execution and atomic integration.
+
+F5 has shipped I1-F1's retained PLC/web interpreter and guarded host transport,
+N1-F1's native wire framing, and I2-F1's pure grants, epochs, roles and appointed
+control. Their [identity](2026-10-01-atseq-identity-evidence-r2-results.md),
+[wire](2026-10-01-atseq-native-wire-integration-results.md) and
+[authority](2026-10-01-atseq-native-authority-integration-results.md) reports retain
+actual evidence. The accepted [observer design](2026-10-01-atseq-native-observer-preparation.md)
+still needs implementation, native linkage and provider trials. Full authenticated
+participation and ordering are open; did:web observation retains its stated
+trust/currentness limits. OAuth candidate `7807cd9a` needs the adopted transient
+failure and callback-state corrections; A1-F2 is implementing the integrated successor. A1-D2's accepted
+supported-store design fixes limits and consent lifetime; its bounded stores
+are not implemented by the original foundation. A2 still owns production
+provisioning, recovery and shared deployment admission.
+
+F8 now has P3-F1's reviewed SQLite/IndexedDB raw storage and
+[deletion-marker correction](2026-10-01-atseq-local-generation-tombstone-results.md).
+It does not restore trusted interpreted state. The accepted
+[checkpoint projection successor](2026-10-01-atseq-checkpoint-projections.md)
+uses one portable history table, deriving request/retry/descriptor indexes, with
+exact public predecessor and successor packets. P4-F1's DATA parser is
+independently approved, with landing in progress. P2's native reader, R1's retained
+retry/receipt lookup, coherent application persistence, caller-accepted publication, suffix verification,
+independent genesis replay and provenance-bound restore remain open.
+
 F9 authoring is shipped, including the v2 source-document contract, actual
 viewless/browser/CLI flows, reviewed sample aggregate bounds and the B1 typed
 malformed-byte correction. F10 adopts the existing
-[public scope](2026-10-01-atseq-confidentiality-direction.md); no speculative
-confidential mode is implemented. The listed concurrent tasks remain distinct
-from their downstream implementation completion.
+[public scope](2026-10-01-atseq-confidentiality-direction.md); no confidential
+mode has been selected. These concurrent decisions do not close their downstream
+implementation or disclosure work.
 
-The [native wire](2026-10-01-atseq-native-wire-contract.md) and
-[enrolment design](2026-10-01-atseq-account-enrolment-design.md) make the remaining
-identity interfaces concrete. Recovery authority is adopted; literal byte vectors,
-installed OAuth costs and real provider trials remain explicit gates. Internal
-PLC/web/network verification is a foundation; it does not complete authenticated
-participation or native app ordering. M0's narrow shipped patch and N0's generated
-attribution check replace the initial advisory observation above for current
-maintenance status; N2's explicit locale comparator is part of identity review.
+M0's narrow runtime patch and N0's generated attribution check replace the initial
+advisory observation above. I1's shipped graph refresh pins attribution sorting
+explicitly. M1's fixture assessment and MF1/MF2 maintenance remain distinct from
+the production graph.
+
+The pushed I1 and N1 matrices passed Node 22.19/24/26. P3's
+[run](https://github.com/generalbusiness-ai/atseq/actions/runs/36940311459) passed
+Node 22.19/26, while Node 24 passed 444 of 445 ordinary tests and reproduced the
+shared-dist package/browser race. T1-H1's isolated package build is independently
+approved, landed and pushed at `b0a5d066`; its
+[matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36945783974)
+passed Node 22.19/24/26. I2's later [matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36942802499)
+passed all three versions and the separate 20,000-entry gate; that success does
+not erase the reproduced race or prove an unfinished native runtime.
+
+Full I1/I2/N1/P2/P3/P4/R1/A1/A2/S0/E1/T1/C1 integration remains open. The existing
+workroom requests cover the followups; no duplicate task or new design decision
+is introduced by this status refresh.

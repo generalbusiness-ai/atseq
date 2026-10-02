@@ -1,0 +1,177 @@
+{
+  "observedAt": "2026-10-02T02:40:02.144925+00:00",
+  "observedMain": "c242ca20e823ea510e3939a8466a608f3ab860ba",
+  "scope": "Read-only selected ledger evidence; frozen status snapshot, not later task completion.",
+  "events": [
+    {
+      "id": "e58c891b6eded7c45be5c261c4684aff47380577",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e58c891b6eded7c45be5c261c4684aff47380577",
+        "sequence": 8790,
+        "timestamp": 1790901296,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "N1-D3 is ready in /private/tmp/atseq-native-contract-literals-20261001 at exact clean candidate 80e39957b6cd0d1f113f0722f6d8ef782f42e96f, producer 0d56621923dca9d13aa9dfab7d26b4b5e4b7d555. Read notes/2026-10-01-atseq-native-contract-literal-results.md first, then notes/2026-10-01-atseq-native-contract-literals.md and experiments/post-spike-evidence/2026-10-01/native-contract-literals/manifest.json. Root verified all54 source/capture pins,9 unchanged production pins, exact producer Git bytes, report/manifest hashes and clean head. Review exact raw projection successor, scope-before-action absence, definition_changed activation expected mismatch, all signed closure facts before semantic mismatch, canonical logical CAR size accounting and minimal service scope. Check callsite-specific exact outcome tables exclude unexpected faults and that the private eligible capability binds the coherent prior projection without a second permission evaluator. Python/maintained codec checks on Node22.19/26 are reported honestly; runtime/browser/compiled consumers remain gates. Return satisfied or concrete required changes; full N1/I2 remain open.",
+        "body": {
+          "conditions": "Independently assess N1-D3 exact source-only decision at 80e39957b6cd0d1f113f0722f6d8ef782f42e96f; approve only if exact descriptor/schema/rule identities, capability boundary, reason/stage tables and proposed precedence/framing/service choices are complete and simple. No runtime or support registry approval.",
+          "no_git_artifact": "true",
+          "to": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e58c891b6eded7c45be5c261c4684aff47380577",
+        "sequence": 8790,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e58c891b6eded7c45be5c261c4684aff47380577",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1769126ee24acb0f1414f91571136f1691699fd9",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:eda5273203fad1d3c3ecccd83faba6c398c3a55a",
+        "status": "satisfied",
+        "terminal": "reported"
+      }
+    },
+    {
+      "id": "fb88a94ccb0379fcdbd0d94009ca8b66e17936f7",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fb88a94ccb0379fcdbd0d94009ca8b66e17936f7",
+        "sequence": 8884,
+        "timestamp": 1790901959,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "A1-D2 bounded browser OAuth custody: assessment of exact candidate bb41a0ba (experiment producer 18459b1b, notes/2026-10-01-atseq-oauth-bounded-stores.md). Verdict: satisfied, with two simplifications recommended for the implementation (BS-1 and BS-2). This was a source-only decision; there is no policy implementation or full A1 approval.\n\nVerified independently\n- In my scratch clone with the OAuth graph (194 paths), node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store is version 0.5.1. Its CachedGetter.setStored is a plain await this.#store.set(...), so write errors propagate.\n- The root @atproto-labs/simple-store 0.3.0 wraps set in try/catch with onStoreError.\n- Node resolution from oauth-client picks the nested copy. So the correction is right: a store write failure reaches the SDK's own revocation and cleanup path, and no compensating hook is needed.\n- Keeping a regression test bound to the actually selected package path, as the note says, is the right guard for future SDK updates.\n\nDecisions I confirm\n- The seam: the exported core OAuthClient with owned StateStore and SessionStore and a RuntimeImplementation, all public re-exports of the pinned browser package root. That gives:\n  - no private SDK import and no new dependency path;\n  - WebcryptoKey.generate with extractable:false, reconstructed through the public fromKeypair;\n  - the same guarded fetch and identity resolver;\n  - secure Web Locks with no fallback, and custody and SDK lock names distinct, never reacquired.\n  This is the simplest supported way to get atomic, bounded storage, which the convenience constructor cannot give.\n- Storage: one owned versioned IndexedDB database with numeric expiresAt, which fixes the ISO-versus-number index problem found earlier. Counts, pruning, reservations and writes happen in one transaction. There is one pending enrolment per DID. The subject is checked against the reserved DID before commit. There is no swallowing wrapper.\n- Operation journal and crash rule: every credential-touching operation marks the account row uncertain first, and only success with the full subject, scope, issuer and authority checks clears it. On reopen an uncertain row is retired, never restored, and refresh is never retried. This conservative loss is the right trade-off. A refresh response lost in transit leaves the stored refresh token already used, and replaying it risks provider reuse detection anyway. Re-enrolment is honest and simple.\n- Cleanup: best effort, one attempt per batch within the existing budget, then local deletion, with no credential-bearing retry log. Unknown issued tokens and closed browsers are disclosed as limits.\n- No migration of the convenience database: an explicit origin reset or a fresh custody origin, triggered only by trusted management. C1 to C6 are preserved, and the lazy-graph checks will be rerun at implementation.\n\nBS-1 (simplify): make the first-release limits fixed constants, not configuration.\n- 10 pending authorizations, 10 accounts and a 30-day local consent lifetime are sensible defaults.\n- Configurable limits add a reconfiguration path (retiring rows when the bound drops) and range validation, with no current need.\n- Ship them as constants, and add configuration only when a deployment needs it, with its own review of ranges.\n\nBS-2 (tighten): lower the per-row metadata budget from 1 MiB to about 64 KiB.\n- OAuth state rows (issuer, verifier, appState and key reference) and session rows (token set and auth method) are a few KB; the CryptoKeyPair is opaque and excluded.\n- At 1 MiB a row, 20 rows allow 20 MiB of logical metadata, which makes \"bounded\" weak.\n- 64 KiB keeps generous headroom, and bounds the total near 1.3 MiB.\n- Keep validating before the write transaction.\n\nNote (not blocking): \"a crash during a read-only request can require re-enrolment\" should appear in user-facing documentation next to the 30-day lifetime, so that losing a session after a browser crash is expected behaviour, not a surprise.\n\nImplementation gates as listed: fault injection for counts, journals, crash points and reset; a real Chromium run with the owned stores; rerunning the lazy and initial graph checks; and provider trials. A1 remains open.",
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ba978ca0d46d866e2524231256c9d0b38d67413e"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fb88a94ccb0379fcdbd0d94009ca8b66e17936f7",
+        "sequence": 8884,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f7f9c0e81e5e68679593a955d9fb898f0ed9aef5",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:263b801b1d85048058c2fabfb511a197d4ca2f40",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fb88a94ccb0379fcdbd0d94009ca8b66e17936f7",
+        "status": "satisfied",
+        "terminal": "reported"
+      }
+    },
+    {
+      "id": "1521c26e9317a5324a8870a51ac92288c4479b3e",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1521c26e9317a5324a8870a51ac92288c4479b3e",
+        "sequence": 8891,
+        "timestamp": 1790902127,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "N1-F2: implement the bounded private native source-admission foundation now that exact literals and precedence are adopted. One source owner verifies version2 definition root and exact declared raw file set/CIDs, authenticated counts and actual logical512KiB CAR/decoded occurrence budgets, strict duplicate-free owned JSON/depth32, maintained schemas/program/query/template checks and full initial state. Implement iterative reachable-schema projection with default/relative refs normalized, annotation removal preserving literal description/default/enum, shared/recursive refs once, canonical raw-CID JSON projection and32KiB locator chunks. Exact native/application literals can be compiled only with retained objects/conformance; preserve F1 predecessor descriptor/fixtures as unsupported historical preparation, do not hash arbitrary inputs into support. Private WeakMap-backed definition/action capabilities bind complete source facts; absence is known only after full admission, wrong/forged/copied capabilities fail, returned bytes/objects are owned. No caller callback/public constructor/boolean minting, no permission duplication. Capability admission is not accepted ActiveDefinition or eligible execution. Source failures unavailable versus proven invalidity follow adopted D3 length/semantic precedence; no arbitrary message catches. I2 eligible ordinary/activation atomic coordinator and host observation/publication are later tracked slices. Coordinate P4 shared typed JSON rather than duplicate parser. Scope includes exact retained D3 literal inputs in new modules/evidence where needed, not edits to frozen predecessors or public supported exports. Add real cross-runtime/source/compiled hostile closure and projection vectors with provenance, report limits, obtain independent review.",
+        "body": {
+          "conditions": "Implement one private native definition/action source owner against exact adopted N1-D2/D3 contracts. Verify complete signed source closure, strict JSON, schema/fold/query/view/asset admission, semantic projection and expected identities before minting unforgeable private source capabilities. No public registry from caller descriptors or grant/execution authority. Reuse P4 typed strict JSON once approved; exact producer/browser/compiled hostile conformance, results and independent exact-head review before landing.",
+          "package": "N1-F2",
+          "target_head": "c242ca20e823ea510e3939a8466a608f3ab860ba",
+          "target_ref": "refs/heads/main",
+          "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+          "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1521c26e9317a5324a8870a51ac92288c4479b3e",
+        "sequence": 8891,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1521c26e9317a5324a8870a51ac92288c4479b3e",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:19d2e6d1ce4e9465342b1bd983df1e68c0de844e",
+        "status": "promised",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "target_ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "1c284142e7488e4242a77a67ec1cda349efd8151",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1c284142e7488e4242a77a67ec1cda349efd8151",
+        "sequence": 8881,
+        "timestamp": 1790901874,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "S0-M1: reconcile adopted complete-state default, shipped V0/S1 and reviewed E1-K1 at-cap kernels with concrete task-board/guitar/ledger requirements. Reuse accepted fixtures/harness to measure actual realistic-N whole replay at/near cap with a small justified matrix. Repeated final action is not replay. Characterize current engine baseline, shape and history cost without thresholds; no effects implementation absent a concrete beyond-cap requirement. Measure only already defined/admitted completion/selection/audit workloads; disclose unimplemented cases. Explain why bounded domain state does not bound authority/retry/history work. Preserve all prior captures and retain failures/limitations in new evidence. Root has delegated preparation to authority_integration in an isolated worktree; obtain independent review before closing S0 or adopting a new decision.",
+        "body": {
+          "conditions": "Produce a dated S0 disposition and narrow realistic-N total replay measurements using supported complete-state fixtures/current engine, with explicit source/evidence provenance and independently reviewed recommendation. Keep adopted A default; no effects prototype, contract/runtime/dependency changes or broad native/durable success claims. Cover application requirements and honestly assign remaining workload/native/storage/restore gates.",
+          "no_git_artifact": "true",
+          "package": "S0-M1",
+          "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1c284142e7488e4242a77a67ec1cda349efd8151",
+        "sequence": 8881,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1c284142e7488e4242a77a67ec1cda349efd8151",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:98cc092fcd4b0c9522438fe68352fec188216fa2",
+        "status": "promised",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    {
+      "id": "c4b3dcc84f75c93be0e08a64d75c3ec38d76f207",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c4b3dcc84f75c93be0e08a64d75c3ec38d76f207",
+        "sequence": 8889,
+        "timestamp": 1790901998,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "A1-F2: deliver the smallest successor for reviewed OAuth foundation7807cd9a. Adopted reviewba233446 requires preserving secret-free failure classes: transient network/deadline/read unavailable stays content_unavailable; deterministic refusals stay input, origin class preserved. Keep categorization at actual transport boundary, not arbitrary remote message matching or broad error whitelist. Add actual deadline/dropped-connection cases. Simplify complete(params) by looking up the single callback state before consuming anything; malformed/mismatched callback must not consume a second pending transaction. Integrate main including T1 private build staging and retain OAuth packed tamper assertion. Move generated bundle test outputs to ignored temporary output, preserve every predecessor capture and publish fresh integrated captures separately. Comment bounded orphan PAR retention on failed begin. Existing194-path graph/notices/C1-C6 unchanged; no bounded-custody policy implementation while A1-D2 review pending. Root preserves user package/Wrangler edits with guarded backups. Obtain independent exact-head review before landing.",
+        "body": {
+          "conditions": "Integrate frozen OAuth foundation with current main and fix reviewed OA-1 transient failure class and OA-2 callback-state transaction selection. Keep all194 graph pins and C1-C6, package isolation and packed lazy tamper refusal. Generated tests must not overwrite retained predecessor captures. Fresh build/check/focused parallel/Chromium/packed validations and exact-source results report; independent exact-head review, gitseq landing and push.",
+          "package": "A1-F2",
+          "target_head": "c242ca20e823ea510e3939a8466a608f3ab860ba",
+          "target_ref": "refs/heads/main",
+          "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+          "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c4b3dcc84f75c93be0e08a64d75c3ec38d76f207",
+        "sequence": 8889,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c4b3dcc84f75c93be0e08a64d75c3ec38d76f207",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f0dcc5058228c4ecc248124ff03f395f9b2894fc",
+        "status": "promised",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "target_ref": "refs/heads/main"
+      }
+    }
+  ]
+}

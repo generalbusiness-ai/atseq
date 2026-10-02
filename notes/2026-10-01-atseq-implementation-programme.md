@@ -1,7 +1,8 @@
 ---
 date: 2026-10-01
 status: implementation started; full programme open
-examined_at: 781732f47f02d26332942147bfbe8f4e95526231
+examined_at: c242ca20e823ea510e3939a8466a608f3ab860ba
+status_observed_at: 2026-10-02T02:40:02.144925+00:00
 request: cbafc791
 ---
 
@@ -65,8 +66,22 @@ Request hashes below use the same repository prefix
 | B1      | `05ba889d` | Preserve typed malformed source-document byte errors              | Shipped; exact-head review                    |
 | S1      | `d91eddf6` | Avoid full outcome-history copies in routine reads                | Shipped; exact-head review                    |
 | F3      | `4851a077` | Publish continuation assessments and corrected notes              | Exact-head documentation review              |
-| N1-F1   | `1012e4e2` | Deliver isolated native wire framing and conformance preparation  | Exact-head review; parent N1 remains open      |
-| I1-F1   | `de0005d3` | Deliver internal retained identity/network verification foundations | Exact-head review; parent I1 remains open   |
+| N1-F1   | `1012e4e2` | Deliver isolated native wire framing and conformance preparation  | Shipped; parent N1 remains open      |
+| I1-F1   | `de0005d3` | Deliver internal retained identity/network verification foundations | Shipped; parent I1 remains open   |
+| I2-F1 | `bb56eebd` | Deliver internal authenticated authority transitions | Shipped; full I2 remains open |
+| P3-F1 | `0a53491d` | Deliver raw atomic local generation storage | Shipped; full P3 remains open |
+| N1-D2 | `d67d1668` | Decide native source admission and common outcome provenance | Accepted; N1-D3 literals settled; runtime open |
+| I1-D2 | `78f93cda` | Decide bounded native observer orchestration | Decision complete; observer implementation open |
+| P4-D2 | `b6bdfc6f` | Decide closed checkpoint projections and one history table | Accepted successor; runtime admission open |
+| E1-K1 | `4a7a21e8` | Measure complete-state kernels through the 128 KiB cap | Shipped at c242ca20; CI passed |
+| T1-H1 | `d10cec26` | Isolate package-test builds from shared dist | Reviewed, landed and pushed; CI passed |
+| N1-D3 | `fe02ea5e` | Freeze literal contracts, outcome reasons and stage precedence | Source-only decision accepted; runtime open |
+| P4-F1 | `d882d0d2` | Read owned checkpoint data without creating trust capabilities | Independently approved; landing in progress |
+| A1-D2 | `66af6bdf` | Decide bounded browser OAuth retention and supported stores | Source-only decision accepted; implementation open |
+| N1-F2 | `1521c26e` | Implement the private source owner and source capabilities | Active; no eligible execution or accepted definition |
+| A1-F2 | `c4b3dcc8` | Integrate OAuth and correct transient/callback-state boundaries | Active; exact review required |
+| S0-M1 | `1c284142` | Measure realistic-N complete replay and reconcile state requirements | Preparation active; no effects implementation |
+| F4 | `901c0885` | Publish accepted notes, exact evidence and current gates | Exact-head documentation review |
 
 ## Completion and reports
 
@@ -100,8 +115,9 @@ Do not weaken evidence requirements or mark required cases done when unrun.
 
 ## Current results and remaining work
 
-The workroom remains the current ledger; this snapshot distinguishes shipped
-foundations from accepted designs and unfinished integration.
+The workroom remains the current ledger. This publication starts from `eec0c8e8`
+and records pushed main through `c242ca20`, distinguishing shipped foundations
+from accepted designs and unfinished integration.
 
 - **P0 is shipped.** The [performance baseline](2026-10-01-atseq-performance-baseline-results.md)
   and [dimension results](2026-10-01-atseq-performance-dimensions-results.md)
@@ -130,26 +146,45 @@ foundations from accepted designs and unfinished integration.
   matrices at `ab309023` ([run `36909739355`](https://github.com/generalbusiness-ai/atseq/actions/runs/36909739355))
   and `2a6870ca` ([run `36910654142`](https://github.com/generalbusiness-ai/atseq/actions/runs/36910654142)).
   S1 passed the pushed-main matrix at `781732f4` ([run `36914299375`](https://github.com/generalbusiness-ai/atseq/actions/runs/36914299375)).
-- **I1, I2, N1, R0 and C1 have reviewed directions.** Their
-  [admission](2026-10-01-atseq-account-admission-design.md),
-  [authority](2026-10-01-atseq-account-authority-design.md),
-  [ordering](2026-10-01-atseq-native-ordering-requirements.md),
-  [retry](2026-10-01-atseq-retry-uniqueness.md) and
-  [discovery](2026-10-01-atseq-actor-discovery.md) notes do not constitute shipped
-  account identity or native Atseq ordering. Final operation/certificate bytes,
-  enforced role interface, profile identity, runtime integration and actual
-  provider permissions remain gates. I1's planned maintained transport requires
-  an explicit Node minimum change from 22.13 to 22.19, together with support docs,
-  CI and real host private-address/DNS-rebinding checks.
-  Original internal foundation candidate `412b0c9b` received required corrections
-  in review `d1d1d9a9`. Successor `2b9e255c` resolved first-ID selection, but review `b3ec610b` found
-  a remaining TCP-reset body failure. The host-only phase-boundary correction
-  and prescribed Node support-line checks are underway under I1-F1. No approval
-  or landing is assumed. It retains a completed serial 380-test suite, 57 shared
-  Node/Chromium/installed-consumer identity cases and actual guarded-dispatch
-  network checks. Its interrupted parallel attempt is retained separately.
-  Observer orchestration, descriptor/native record linkage, admission floors,
-  retention, assurance display/export and provider trials remain parent I1 work.
+- **I1-F1 is shipped at `3a40d2c5`.** The [identity R2 result](2026-10-01-atseq-identity-evidence-r2-results.md)
+  records the independently approved retained PLC/web interpreter and guarded
+  host network boundary, including Node 22.19 minimum support and TCP-reset body
+  classification. Its [pushed-main matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36922875534)
+  passed Node 22.19/24/26. The accepted [observer design](2026-10-01-atseq-native-observer-preparation.md)
+  adds bounded batched root-proof capture and distinct stable source refusals;
+  it is a design decision, not an implemented observer or live-provider result.
+- **N1-F1 is shipped at `fc8e2093`.** The [wire integration result](2026-10-01-atseq-native-wire-integration-results.md)
+  records strict closed framing, exact paths/bytes/signatures, retry context and
+  retained independent vectors. Its [pushed-main matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36935261684)
+  passed Node 22.19/24/26. Its preparation descriptor does not enable supported
+  native interpretation. Accepted [source admission](2026-10-01-atseq-native-source-admission.md)
+  and [outcome provenance](2026-10-01-atseq-native-outcome-provenance.md) designs
+  now have N1-D3's accepted source-only decision `eda52732`, which settles literal
+  contracts and stage-specific reasons/precedence. Reviewed conformance and
+  runtime enforcement remain gates; N1-F2 is
+  implementing the private source owner without accepted ActiveDefinition or
+  execution eligibility.
+- **P3-F1 is shipped at `1bb122ec`.** The [deletion-marker fix](2026-10-01-atseq-local-generation-tombstone-results.md)
+  preserves pinned reads and atomic accounting while reclaiming redundant
+  tombstones in SQLite and IndexedDB. This stores opaque bytes; it supplies no
+  accepted authority or trusted checkpoint restoration. Its [pushed-main run](https://github.com/generalbusiness-ai/atseq/actions/runs/36940311459)
+  passed Node 22.19/26; Node 24 passed 444 of 445 ordinary tests and failed the
+  reproduced shared-dist package/browser race. T1-H1's isolated package build
+  is independently approved at `4be60f1b`, landed and pushed at `b0a5d066`;
+  its [matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36945783974)
+  passed Node 22.19/24/26.
+  A later green run does not erase that reproduced race.
+- **I2-F1 is shipped at `eec0c8e8`.** The [authority integration result](2026-10-01-atseq-native-authority-integration-results.md)
+  records authenticated entry capabilities, immutable grants, revocation,
+  epochs, roles, appointed governance/recovery and deterministic pure authority
+  transitions. Its [pushed-main matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36942802499)
+  passed Node 22.19/24/26, including the separately run 20,000-entry gate.
+  Ordinary actions and activation still refuse without source-derived
+  eligibility; parsing an authority snapshot creates data, not accepted state.
+  Observer, atomic application integration, publication and checkpoint restore
+  remain full I1/I2/N1 work. The [retry](2026-10-01-atseq-retry-uniqueness.md)
+  and [discovery](2026-10-01-atseq-actor-discovery.md) directions still need
+  enforced native interfaces and actual provider permissions.
 - **B0 and B1 are shipped.** The [authoring result](2026-10-01-atseq-authoring-bundle-results.md)
   retains the explicit v2 log/application profile, source-document/CAR identities,
   opt-in complete source, actual CLI/host/viewless-browser flows and installed
@@ -168,7 +203,7 @@ foundations from accepted designs and unfinished integration.
   records the narrow brace patch, separately identified attribution refresh,
   unchanged profile CIDs and actual acceptance. The [notice check](2026-10-01-atseq-notice-check-results.md)
   validates generated output in CI without writing. N2 pins the comparator's
-  locale in the upcoming identity attribution refresh.
+  locale in the shipped identity attribution refresh.
 
 The [native wire note](2026-10-01-atseq-native-wire-contract.md) records accepted
 encoding/source decisions and the corrected recovery hierarchy. Corrected
@@ -181,19 +216,44 @@ reuse a current boundary without claiming an interior audit. The
 separates trusted local atomic restore, native publication assertions and
 independent genesis replay. The [checkpoint byte note](2026-10-01-atseq-checkpoint-policy-bytes.md) adopts
 reviewed outer-shape simplifications: local reader mode, version-implied native
-publication, derived pending history and no duplicated constant claims. Joint
-closed row schemas and literal native payload vectors remain gates. These designs are not shipped native ordering or persistence.
+publication, derived pending history and no duplicated constant claims. The accepted
+[projection successor](2026-10-01-atseq-checkpoint-projections.md) uses one portable
+history table and derives request/retry/descriptor indexes. Its exact source-only
+vectors cover 147 payloads and 288 native records; earlier packets remain intact.
+P4-F1's owned DATA parser is independently approved and its landing is in
+progress. It mints no publication, replay, restore or writer capability. Full
+native ordering, coherent interpreted persistence, assertion admission, suffix verification and independent replay
+remain gates.
 
 The [OAuth comparison](2026-10-01-atseq-oauth-client-comparison.md) measures
 installed closure, standalone bundles and actual browser transport/storage hooks.
 The [review disposition](2026-10-01-atseq-oauth-client-review-disposition.md) adopts
 both official clients as one family, with isolated credential custody, guarded
 network edges, unconditional callback issuer/expected DID, bounded single-use
-transactions, shared locks and lazy enrolment/session imports. Neither lazy-load
-startup benefit nor provider success has been established.
+transactions, shared locks and lazy enrolment/session imports. The internal OAuth
+candidate `7807cd9a` received required corrections in review
+`ba233446`: preserve transient failure classes and select the callback
+transaction from its own state. A1-F2 is implementing the integrated successor;
+no foundation approval or landing is assumed. The browser SDK's numeric cleanup
+bound does not select its ISO-string expiry rows, and refresh-token sessions have no finite catalog
+limit in this slice. Logical callback expiry does not guarantee physical
+retention bounds. A1-D2's accepted supported-store decision adopts fixed
+10 pending authorizations, 10 accounts, 10-minute pending expiry, 30-day local
+consent and 64 KiB row metadata, with uncertain-crash re-enrolment. Implementation,
+real enrolment, production lifecycle and provider trials remain gates.
 
-P2/P3/P4, R1, A1/A2, E1 and T1 remain open. Account reuse needs pair-scoped state,
-collection-scoped OAuth publication and demonstrated provider behavior; dedicated
+E1-K1's exact `940f0ad0` delivery is independently approved as a measurement:
+21 legal fixtures, 13 operations and seven samples per operation in Node and
+Chromium. These are warm kernels, not native end-to-end catch-up or a worst-case
+bound. Keep complete state, V0, S1 and checkpoints as the default; the results do
+not justify an effects prototype. The measurement is shipped at `c242ca20`; its
+[matrix](https://github.com/generalbusiness-ai/atseq/actions/runs/36947475821)
+passed Node 22.19/24/26. S0-M1 is preparing realistic-N total replay
+characterization. The [continuation report](2026-10-01-atseq-continuation-publication-results.md) records
+approval and the remaining gates.
+
+Full I1/I2/N1/P2/P3/P4/R1/A1/A2/S0/E1/T1/C1 integration remains open. Account reuse
+needs pair-scoped state, collection-scoped OAuth publication and demonstrated provider behavior; dedicated
 accounts are recommended for production or busy repositories. Native ordering
 custody includes every credential holder able to write the Atseq collections.
 No accepted design supplies unseen non-equivocation or independently proves

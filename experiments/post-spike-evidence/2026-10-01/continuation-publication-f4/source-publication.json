@@ -1,0 +1,231 @@
+{
+  "format": "atseq-exact-source-publication",
+  "version": 1,
+  "date": "2026-10-01",
+  "basis": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+  "request": "901c088573f58880fbe66e4667f3fac8e54d6e9b",
+  "promise": "d9878e1c3261acf1edc89cc2c75238f2aa8ffe70",
+  "files": [
+    {
+      "source": "b029720fc965303f662165554a35bace79f29e1c",
+      "sourcePath": "notes/2026-10-01-atseq-native-source-admission.md",
+      "publishedPath": "notes/2026-10-01-atseq-native-source-admission.md",
+      "bytes": 28565,
+      "sourceSha256": "1e5a67bfe32252f964845145b8a6ad891d3c45a0d65ba6fbba60a914bda3f2e3",
+      "publishedSha256": "1e5a67bfe32252f964845145b8a6ad891d3c45a0d65ba6fbba60a914bda3f2e3",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "4ad0d904950a3f8898d765d9fe47fd637bca9707",
+      "sourcePath": "notes/2026-10-01-atseq-native-outcome-provenance.md",
+      "publishedPath": "notes/2026-10-01-atseq-native-outcome-provenance.md",
+      "bytes": 8636,
+      "sourceSha256": "cd215b9926431736c2b2c7bbba1cd5a9366efb751c51bccf738193b4d138b4fb",
+      "publishedSha256": "cd215b9926431736c2b2c7bbba1cd5a9366efb751c51bccf738193b4d138b4fb",
+      "copy": "exact",
+      "reviewedAt": "b029720f"
+    },
+    {
+      "source": "daade18c86018638509ee5f491aa1aafddd1afc7",
+      "sourcePath": "notes/2026-10-01-atseq-native-observer-preparation.md",
+      "publishedPath": "notes/2026-10-01-atseq-native-observer-preparation.md",
+      "bytes": 18274,
+      "sourceSha256": "c35cb110d2a6778de44b49d3fd1067153ff22b9de38e71960d5a79314e8b43bb",
+      "publishedSha256": "c35cb110d2a6778de44b49d3fd1067153ff22b9de38e71960d5a79314e8b43bb",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "daade18c86018638509ee5f491aa1aafddd1afc7",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/identity-observer-preparation/source-inspection.json",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/identity-observer-preparation/source-inspection.json",
+      "bytes": 1581,
+      "sourceSha256": "77049b950aaa9217e32ca8809ce1a4951bc62156a1d4d42cb28bdc716406d183",
+      "publishedSha256": "77049b950aaa9217e32ca8809ce1a4951bc62156a1d4d42cb28bdc716406d183",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "notes/2026-10-01-atseq-checkpoint-projections.md",
+      "publishedPath": "notes/2026-10-01-atseq-checkpoint-projections.md",
+      "bytes": 36397,
+      "sourceSha256": "60514d01fc33f203306109fe56a29e31ed1bd470df40285eb413fa1a5d8c4555",
+      "publishedSha256": "60514d01fc33f203306109fe56a29e31ed1bd470df40285eb413fa1a5d8c4555",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "notes/2026-10-01-atseq-checkpoint-policy-bytes.md",
+      "publishedPath": "notes/2026-10-01-atseq-checkpoint-policy-bytes.md",
+      "bytes": 21650,
+      "sourceSha256": "b616665ef90c96975c4376105b489a62393a523dba9f21acb6308c2f58d7d0bd",
+      "publishedSha256": "b616665ef90c96975c4376105b489a62393a523dba9f21acb6308c2f58d7d0bd",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/checkpoint-projections/generate.mjs",
+      "publishedPath": "experiments/checkpoint-projections/generate.mjs",
+      "bytes": 19858,
+      "sourceSha256": "b0e5fb7c10b5f458285cb33304f100d31e2a1775f3c1e03c00275fb7a8006454",
+      "publishedSha256": "b0e5fb7c10b5f458285cb33304f100d31e2a1775f3c1e03c00275fb7a8006454",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/manifest.json",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/manifest.json",
+      "bytes": 6784,
+      "sourceSha256": "9824133ba3077ff6fa85050b693a8a1419c19d872fb79c7ec9f280d421e51272",
+      "publishedSha256": "9824133ba3077ff6fa85050b693a8a1419c19d872fb79c7ec9f280d421e51272",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/node22.log",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/node22.log",
+      "bytes": 177,
+      "sourceSha256": "df85403e18e0de98760fad57657147320f78a85220e00d5e2ef34ec29880eda4",
+      "publishedSha256": "df85403e18e0de98760fad57657147320f78a85220e00d5e2ef34ec29880eda4",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/node26.log",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/node26.log",
+      "bytes": 177,
+      "sourceSha256": "74a016db969a790bab4b23b7d4923ddf663a67244cbd4e90d21d8089fcd254fb",
+      "publishedSha256": "74a016db969a790bab4b23b7d4923ddf663a67244cbd4e90d21d8089fcd254fb",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/predecessor-generator.mjs",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/predecessor-generator.mjs",
+      "bytes": 17321,
+      "sourceSha256": "6f6d73d77c6c8a1dd7c14716bf9f3d89274196767ab155240a1ca636a84fdadd",
+      "publishedSha256": "6f6d73d77c6c8a1dd7c14716bf9f3d89274196767ab155240a1ca636a84fdadd",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/predecessor-policy-note.md",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/predecessor-policy-note.md",
+      "bytes": 21245,
+      "sourceSha256": "c752aeb30c3864af0f8e54bcfa889420c4fb79be5d1e12854e5e60e790d45cc8",
+      "publishedSha256": "c752aeb30c3864af0f8e54bcfa889420c4fb79be5d1e12854e5e60e790d45cc8",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/predecessor-projections-note.md",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/predecessor-projections-note.md",
+      "bytes": 32115,
+      "sourceSha256": "f65f48a46683a1d371a549a3181e6addd7cc6838cb1dc78dcfbc406c6e20ecf5",
+      "publishedSha256": "f65f48a46683a1d371a549a3181e6addd7cc6838cb1dc78dcfbc406c6e20ecf5",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/vectors.json",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/vectors.json",
+      "bytes": 166644,
+      "sourceSha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517",
+      "publishedSha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/vectors.tar.gz",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-history-projections/vectors.tar.gz",
+      "bytes": 311628,
+      "sourceSha256": "e10967d7b6c807671b271c41ec9832e27a76ab311f25a29753b6a0a5f0738b24",
+      "publishedSha256": "e10967d7b6c807671b271c41ec9832e27a76ab311f25a29753b6a0a5f0738b24",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/i2-public-vectors.json.gz",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/i2-public-vectors.json.gz",
+      "bytes": 1933520,
+      "sourceSha256": "12091376fb35284eb64990edca4ad9a30cda0c4a186167b331d41188c02e08f0",
+      "publishedSha256": "12091376fb35284eb64990edca4ad9a30cda0c4a186167b331d41188c02e08f0",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/manifest.json",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/manifest.json",
+      "bytes": 5355,
+      "sourceSha256": "1307e749e77b1006060bfbb5009a700652f879b25da4be85b3bad165c47645e3",
+      "publishedSha256": "1307e749e77b1006060bfbb5009a700652f879b25da4be85b3bad165c47645e3",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/node22.log",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/node22.log",
+      "bytes": 177,
+      "sourceSha256": "09066e4cb578bb7bc45b71af9d4ab2a02c0dc5ced9f0f4d691c99d295793754c",
+      "publishedSha256": "09066e4cb578bb7bc45b71af9d4ab2a02c0dc5ced9f0f4d691c99d295793754c",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/node26.log",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/node26.log",
+      "bytes": 177,
+      "sourceSha256": "f35b2d41fb5c20bebad3713c17ff9b9264d763116cbe14e55d717329e6ce4f6b",
+      "publishedSha256": "f35b2d41fb5c20bebad3713c17ff9b9264d763116cbe14e55d717329e6ce4f6b",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/original-outer-note.md",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/original-outer-note.md",
+      "bytes": 20406,
+      "sourceSha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69",
+      "publishedSha256": "197a06f219ad7606a3c257beafaf8baa1ee392a01e475f69174d7f4c390cdd69",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/vectors.json",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/vectors.json",
+      "bytes": 177020,
+      "sourceSha256": "9ac0cdeffbe296e7e54fa1e1e9198d4f411deff5de17ebe5489cc06eefa5eddb",
+      "publishedSha256": "9ac0cdeffbe296e7e54fa1e1e9198d4f411deff5de17ebe5489cc06eefa5eddb",
+      "copy": "exact",
+      "reviewedAt": null
+    },
+    {
+      "source": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+      "sourcePath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/vectors.tar.gz",
+      "publishedPath": "experiments/post-spike-evidence/2026-10-01/checkpoint-projections/vectors.tar.gz",
+      "bytes": 322641,
+      "sourceSha256": "138e05bd9bc19cd8f16d1b6f07df386d6c5cfca765f33ec1d9b75db739aeaf4f",
+      "publishedSha256": "138e05bd9bc19cd8f16d1b6f07df386d6c5cfca765f33ec1d9b75db739aeaf4f",
+      "copy": "exact",
+      "reviewedAt": null
+    }
+  ],
+  "scope": "Exact accepted source notes and source-only evidence. Historical status wording is unchanged; later dispositions are recorded in the separate continuation report. No runtime or checkpoint admission."
+}

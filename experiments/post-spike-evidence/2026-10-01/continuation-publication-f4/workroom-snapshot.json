@@ -1,0 +1,435 @@
+{
+  "format": "atseq-workroom-status-snapshot",
+  "version": 1,
+  "scope": "Read-only selective inspection for F4 publication; no workroom mutation.",
+  "request": {
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:901c088573f58880fbe66e4667f3fac8e54d6e9b",
+      "sequence": 8684,
+      "timestamp": 1790899020,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "F4: bring accepted source/observer/checkpoint design notes and their exact public evidence into the repository and refresh the human-readable implementation ledger. N1-D2 and I1-D2 narrow decisions are complete, and P4-D2's one-history-table successor is accepted with independently reproduced exact vectors. Main eec0c8e8 now includes independently reviewed I1/N1/P3/I2 foundations; broader native integration remains open. T1-H1 has a tested packaging-race fix under review and OAuth is an internal foundation pending review. Publish dated results and clear remaining gates, with byte-pinned provenance rather than edited old captures.",
+      "body": {
+        "conditions": "F4: publish independently accepted N1-D2 source/common-outcome notes at b029720f/unchanged4ad0d904, I1-D2 observer note at daade18c, and accepted P4-D2 one-history-table notes/generator/public evidence at8e7dc9a2. Preserve exact reviewed source bytes and predecessor capture bytes with mechanically checked hashes/source refs; never rewrite raw historical evidence. Update dated programme/gap/status reports to distinguish shipped I1/N1/P3/I2 foundations, accepted designs, measured E1-K1 approval, pending T1-H1/OAuth deliveries and new N1-D3/P4-F1 tasks from full parent completion. Include actual pushed-main CI outcomes, including reproduced package race, without inferring unrun/provider/restore/native-support success. Produce one plain-English dated continuation report with recommendations and remaining implementation gates. Own documentation/experiments only; no production/package/profile/support/runtime change or new design decision. Every delivery path independently reviewed at exact head before merge/push. Scope remains project notes/, not plans/.",
+        "target_head": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+        "target_ref": "refs/heads/main",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:901c088573f58880fbe66e4667f3fac8e54d6e9b",
+      "sequence": 8684,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:901c088573f58880fbe66e4667f3fac8e54d6e9b",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d9878e1c3261acf1edc89cc2c75238f2aa8ffe70",
+      "status": "promised",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main"
+    }
+  },
+  "acceptedDesigns": [
+    {
+      "id": "438a983f1bfc2148e24117d468c75c1f1f41730f",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:438a983f1bfc2148e24117d468c75c1f1f41730f",
+        "sequence": 8252,
+        "timestamp": 1790888411,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "N1-D2 design task completed: initial exact4ad assessment62d65485 adopted; source-only successorb029 records raw projection CID/manifest locator, common schema-position editorial stripping, authenticated normative-bound precedence, and invalid genesis/no-instance. Common outcome notecd215b99 unchanged. Independent successor36a8c36b satisfied and ratified9d9bd422. Preserve untrusted-length caveat; implementation adds streamed hash-verified oversized raw-file/local-small-capacity vector. No code/profile/expected semantic CID or literal rules implementation approved; fullN1 and downstreamI2/P4 remain open. Source publication is separately tracked.",
+        "body": {
+          "head": "b029720fc965303f662165554a35bace79f29e1c",
+          "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:83c7b891f6051624c17147ef47879e4202da79db"
+        },
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:46578dd5d5942a9970b04913679d079006ac61d9"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:438a983f1bfc2148e24117d468c75c1f1f41730f",
+        "sequence": 8252,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d67d16683c2b6eae0f036ea8c87c6d225cdf746d",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:83c7b891f6051624c17147ef47879e4202da79db",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:438a983f1bfc2148e24117d468c75c1f1f41730f",
+        "status": "satisfied",
+        "terminal": "reported"
+      }
+    },
+    {
+      "id": "a9324f4492c6a4921a8e716f0090530bedc4c9cc",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:a9324f4492c6a4921a8e716f0090530bedc4c9cc",
+        "sequence": 8324,
+        "timestamp": 1790893815,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "I1-D2 design complete: initial3141a573 and successorce120e64 independently assess observer proposal, both ratified. Exactsource daade18c adopts64-CID batched discovery rounds/64-block responses, sharedreservation/rotation/root-only restarts, typed nonretryable stable selected-root absence/replacement after one method comparison, unchanged fullPLC verifier and busy-pruning liveness limits. Original8ab inspection/history preserved. No implementation, supported profile, opaque I2 integration or provider success claimed; fullI1 remains open.",
+        "body": {
+          "head": "daade18c86018638509ee5f491aa1aafddd1afc7",
+          "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:cc8b5a9ef438fb4ea3d8874a264a8524aed32a53"
+        },
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:799d0cd64ef4fda7d242d156eabac55d595a97a6"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:a9324f4492c6a4921a8e716f0090530bedc4c9cc",
+        "sequence": 8324,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:78f93cda6b29274d80616afe4fe1fef4bb97f10e",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:cc8b5a9ef438fb4ea3d8874a264a8524aed32a53",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:a9324f4492c6a4921a8e716f0090530bedc4c9cc",
+        "status": "satisfied",
+        "terminal": "reported"
+      }
+    },
+    {
+      "id": "448abd6aa4db74779ce90c872f4671d636c9145f",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:448abd6aa4db74779ce90c872f4671d636c9145f",
+        "sequence": 8649,
+        "timestamp": 1790898581,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "P4-D2 source-only row/projection decision is complete at exact candidate 8e7dc9a23693d356db84a7dfc82b8ecde5613767, tested generator/notes source c1e28a55d8ddcb21f08aacc1961f2415ad718a69. Independent successor assessment 78c3a674733d808be4841c4838ce474a5751594d is satisfied and ratified by 7f9a52edbf74c4bb10ed4d154442070e17df4c65. Adopt one portable history row with actor/null, deriving request/retry/descriptor indexes; compact authority omits duplicate arrays. Complete-prefix versus head indexes, deferred unresolved absence, publication-asserted/replayed/writer capabilities, recovered retained epoch forests and complete-or-null outcomes stay distinct. Exact Node22.19/26 inventories agree; reviewer independently reproduced7 cases/147payloads/288native records. Root verified all436 archive members, original fixture and source/capture pins. Same13entry history/index framing changes21 to8 payloads,11525 to6338canonical bytes. Original predecessor evidence retained. No runtime/parser/private factory/native support/provider/performance approval. Publication, runtime conformance and joint I2/P2 admission API remain future implementation. Parent P4 1f13a0dc and programme remain open.",
+        "body": {
+          "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3594f3b7f317ef8e2cd6ef3154d1af1ab55bbad7"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:448abd6aa4db74779ce90c872f4671d636c9145f",
+        "sequence": 8649,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b6bdfc6f74b8d3c9504ffd01cc93b8cc1d54de8d",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3594f3b7f317ef8e2cd6ef3154d1af1ab55bbad7",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:448abd6aa4db74779ce90c872f4671d636c9145f",
+        "status": "reported",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    }
+  ],
+  "currentTasks": [
+    {
+      "id": "fe02ea5e55c6da05d9d30c1cc1039f10302babcf",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fe02ea5e55c6da05d9d30c1cc1039f10302babcf",
+        "sequence": 8679,
+        "timestamp": 1790898802,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "N1-D3: settle literal contracts and stage-specific outcomes before implementing native source admission, ordinary acts and activation. I2-F1 is now independently approved and shipped at main eec0c8e8. Read-only assessment found reusable source/authority/coordinator boundaries, two exact precedence/reason choices still to freeze, and raw source CID versus transport locator length ambiguity. Simplicity remains the goal: one source owner, one I2 authority gate and one atomic coherent coordinator; do not create a second permission evaluator or compatibility layer. This request tracks the concrete independent design decision and literal conformance preparation, not completion of native runtime support.",
+        "body": {
+          "conditions": "N1-D3: prepare dated notes and exact source-only native/application/service descriptor and conformance inputs that make native interpretation implementable. Preserve adopted NW0/N1-D2/C0/I2 decisions, separate source/execution semantics from build dependencies and routine service identity, replace F1 actionContract.closure link with reviewed raw projection CID in the proposal, and never self-register supported profiles. Freeze complete exact authority/action/activation framework reason and fold_failed code tables plus precedence at actual stages, including known-action absence versus role/execution and stale activation.expected. Verify literal expected identities through independent encoders/retained exact schema lists/rule objects and demonstrate no self-cycles. Include exact source-CID versus unpinned locator lengths and bounded stream/hash source preflight classification. Do not alter supported registries, current runtime/evaluator or old captures before independent design review. Submit source-only proposal/evidence to atseq-reviewer; unresolved choices require explicit review, not caller flags. Report exact source and outstanding runtime gates; parents N1/I2 remain open.",
+          "no_git_artifact": "true",
+          "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fe02ea5e55c6da05d9d30c1cc1039f10302babcf",
+        "sequence": 8679,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fe02ea5e55c6da05d9d30c1cc1039f10302babcf",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:248e0fed586215814889417c7db90624629d4855",
+        "status": "promised",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    {
+      "id": "d882d0d250488079f7afaf53fcb7e41ecfb720ca",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d882d0d250488079f7afaf53fcb7e41ecfb720ca",
+        "sequence": 8681,
+        "timestamp": 1790898870,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "P4-F1: begin the independently closed checkpoint data-reader foundation while N1-D3 settles literal execution contracts. Accepted P4-D2 now has one portable history table and distinct publication-asserted versus replayed authority. Implement owned framing/table/history/source/evidence and compact authority DATA checks only. This does not authenticate publication or admit executable source/state. Pure typed JSON extraction and small I2 data-validator sharing keep one implementation and preserve existing consumers. This slice is independent of final action/outcome contracts, which remain gates.",
+        "body": {
+          "conditions": "P4-F1: implement only internal owned checkpoint DATA reading and exact conformance for accepted one-history-table P4-D2 source8e7dc9a2. Extract a pure typed strict duplicate-free JSON parser from I1 while preserving I1 error semantics and all existing cases; checkpoint normative page128KiB/depth32 differ from smaller operational unavailable limits. Reuse native byteManifest/chunk reconstruction, exact canonical JSON/CBOR and closed table/history/source/evidence projections; share I2 intrinsic DATA validators through a small extraction, preserving legal disconnected recovery forests and immutable original grant/epoch bytes. Separate whole-history counts/chain/identity indexes from intrinsic parsing; derive temporary I2 indexes only through interpreted frontier, retain head-index distinction. Missing bytes and valid packages over local capacity remain unavailable; malformed normative/shape/hash faults remain distinct; unexpected runtime errors are not folded into denials. Never mint accepted/replayed/published/restore/writer capabilities, invent missing index absence, add caller support registries or enable public native support. Leave outcome-row exact parsing gated on N1-D3's reviewed framework reason/code table; leave full assertion admission/suffix/audit/restore factories for joint review. Meaningful shared Node22.19/26 and actual Chromium cases from frozen public vectors plus hostile mutations; real compiled build/check and retained source hashes. Report narrow results/limits and independent exact-head review before landing; full P4 stays open.",
+          "target_head": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+          "target_ref": "refs/heads/main",
+          "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+          "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d882d0d250488079f7afaf53fcb7e41ecfb720ca",
+        "sequence": 8681,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d882d0d250488079f7afaf53fcb7e41ecfb720ca",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c89c3d3896e59e4b06aefe131c2ffce84a80772e",
+        "status": "promised",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "target_ref": "refs/heads/main"
+      }
+    },
+    {
+      "id": "66af6bdfd0bcd7f2f4c09c81b7b4194301df7e18",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:66af6bdfd0bcd7f2f4c09c81b7b4194301df7e18",
+        "sequence": 8686,
+        "timestamp": 1790899148,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "A1-D2: settle the demonstrated physical retention and swallowed persistence-failure issues in the pinned official browser SDK. The current A1-F1 foundation discloses these limits and does not claim finished production enrolment. Read-only inspection found public core/store/runtime exports in the same official package, while the convenience browser constructor omits custom stores. Investigate the smallest supported route and lifecycle policy with independent review; do not patch private SDK storage or silently weaken custody/network/adoption constraints.",
+        "body": {
+          "conditions": "A1-D2: produce dated independent-review design note/evidence for bounded browser OAuth state/session storage within adopted official family and existing194-path graph. Analyze pinned0.5.8 public exported core OAuthClient, WebcryptoKey, RuntimeImplementation, StateStore/SessionStore versus convenience client's private database. Prefer smallest supported extension; no private database patch/new dependency graph/unrequested upstream contact. Recommend concrete configurable local session count/lifetime/retention policy, preserving pending10/10min limits, no silent live-session eviction or automatic consent-lifetime restart on refresh. Specify atomic IndexedDB record bounds, numeric expiry, startup/active pruning, nonextractable CryptoKeyPair custody and Web Locks ordering. CachedGetter swallows store-write failures: prove a supported fail-closed callback/refresh commit verification route, bounded best-effort revocation without recursive refresh locking, durable crash recovery and preservation of issuer/DID/scope/authority checks. Distinguish local deletion/logical expiry/live-record bounds from database file-size/forensic erasure/exact closed-browser expiry/guaranteed remote revocation. Prior compatibility is not a goal; explicit re-enrolment can replace private migration. Retain exact pinned source inspection hashes and public synthetic experiments where needed, no credentials/private keys in evidence. Submit concrete proposal to atseq-reviewer before changing runtime/adopted client construction; report unresolved API failures honestly. FullA1 remains open.",
+          "no_git_artifact": "true",
+          "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:66af6bdfd0bcd7f2f4c09c81b7b4194301df7e18",
+        "sequence": 8686,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:66af6bdfd0bcd7f2f4c09c81b7b4194301df7e18",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b55b6b77c69320e160dfdfa6a9780240e88ec307",
+        "status": "promised",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    {
+      "id": "788175dbdc6c61251ee5fcff13a886fc9461b775",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:788175dbdc6c61251ee5fcff13a886fc9461b775",
+        "sequence": 8492,
+        "timestamp": 1790896293,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "E1-K1 complete-state cap kernels: exact-head review of 940f0ad0. Primary: results note 6c1bf004. This review rests on all 42 artifacts, one per path changed against approved 3a40d2c5. Verdict: approved, as a measurement delivery. The broader E1 matrix stays open.\n\nWhat I checked\n- Scope: git diff 3a40d2c5..940f0ad0 touches only experiments/, the retained evidence and three notes. There is no change to src, package.json or npm-shrinkwrap.json, so no runtime, profile or API change.\n- Recomputed statistics: I parsed node-timing.json and chromium-timing.json directly.\n  - Each has 1,911 rows (21 fixtures × 13 operations × 7), and every operation has exactly 7 samples.\n  - The at-cap admitSuccessor and queryCaptureAndValidate median, minimum and maximum, for all seven families in both environments, equal the note's two tables exactly. For example, ledger admit in Node is 26.03 [24.38–27.68] and in Chromium 66.1 [45.0–75.3].\n- statistics.json records referenceEquality true, 27 strict controls and 28 wire refusals per environment, 7 samples and 2 warmups, and states its method (no trimming, gates or reruns).\n- Kernels (experiments/complete-state-cap/kernels.ts):\n  - admitSuccessor is action-schema validation, then the supported fold, then state-schema validation on an effective result, from an admitted predecessor. That is as described.\n  - queryCaptureAndValidate is structuredClone(state), query-parameter validation, evaluate, then result validation. That mirrors S1's Folder.query state path.\n  - Wire kernels return {refused:'wire_size'} only for that error code and rethrow everything else. So the 196 refusal spans are labelled, and the note keeps them apart from successful encodes.\n\nArchitecture: sound methodology, and the claims are honestly scoped.\n- These are warm single-call kernels from a prepared predecessor; source loading, fixture building and warmups are outside the clock.\n- There is no subtraction of medians to attribute stages, and no extrapolation.\n- Near-cap medians exceeding at-cap ones are not claimed as a trend.\n- Refusal durations are not presented as successful large-state work.\n- The note shows that size alone does not predict cost (scalar 13 versus primitive-array 32,765 token charges). It also shows that ineffective duplicate-ID folds still scan complete state.\n\nSecurity: no runtime change. Strict controls confirm that no state over 128 KiB, no 1,001-row table and no 121-character text is accepted.\n\nSimplification\n- The recommendations are right and minimal: keep complete state with V0, S1 and checkpoints as the default, and start no effects prototype.\n- Investigate repeated full walks and copies only for a concrete application, with a separate equivalence review.\n\nNote (not blocking): every near-cap and at-cap state is legal under the 128 KiB state cap, yet exceeds the 64 KiB single-block CBOR limit. That is fine today, because archives replay state rather than storing it. But any future checkpoint or state export must use the chunked byte framing (P4) for state payloads, never a single native block. The note says this and should keep saying it.",
+        "body": {
+          "artifact": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6c1bf004b8961cf508cb5a542cf5dc6afb67f256",
+          "binding": "assigned",
+          "head": "940f0ad09281180ff3e915d683050648b6bc8bb0",
+          "head_news_acknowledged": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6b342fe370da2ddea1dc6247d7b7d7bfa94c0a59\"]",
+          "implementations": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:aeb8063544e179bbb74555356d5c6f5c633af0bc\"]",
+          "review_frontier": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6b342fe370da2ddea1dc6247d7b7d7bfa94c0a59",
+          "review_path": "reviewguard@1",
+          "verdict": "approved"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:788175dbdc6c61251ee5fcff13a886fc9461b775",
+        "sequence": 8492,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:cf9bcd653cba0ac5a2c27ec392a34877e0a8b22a",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6b342fe370da2ddea1dc6247d7b7d7bfa94c0a59",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:788175dbdc6c61251ee5fcff13a886fc9461b775",
+        "status": "reported",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    {
+      "id": "5446d8f24dba4ed6a818a2951940d383bd5a63f2",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5446d8f24dba4ed6a818a2951940d383bd5a63f2",
+        "sequence": 8677,
+        "timestamp": 1790898743,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "request",
+        "lifecycle": "request",
+        "satisfier": "none",
+        "text": "T1-H1 exact-head review at4be60f1ba85f94ba6a22f14cebb064a2e3f746b1; notes/2026-10-01-atseq-package-test-isolation-results.md reporting artifact first. Only tests/package.test.ts and new tests/helpers/package-build.ts change source: copy actual build inputs and real dependency tree into private stage, copy unchanged hidden npm lock last, run unchanged production build/pack there, preserve shared dist sentinel/integrity bytes, and verify actual build-source/installed-output provenance. Final check,71 focused parallel tests,443 ordinary parallel tests with CI20k exclusion,219 packed cases twice and Node22.19 owned-copy probe passed. Root verified10 source/input pins,23 captures, both116-source provenance sets and clean frozen head. Deterministic red run, seven omitted changelog diagnostic and all sandbox/path failures retained. No runtime/package/profile/source-run/global serialization change. Since freeze, pushed storage main1bb122ec CI36940311459 independently reproduced the original shared-dist race: native-wire Vite missing #atseq-integrity,444/445 passed. Current main eec0c8e8 additionally contains reviewed P3/I2 modules; exact T1 delta remains disjoint. Review narrow landing; fullT1 open. Pending OAuth packed tamper assertion must survive later integration. Conclude satisfied, changes requested or exceptional approval.",
+        "body": {
+          "artifact": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:77bebea8117ef44b0aa5d5cda9997f546ce467d2",
+          "branch": "fix/package-isolation",
+          "conditions": "Independent exact-head review of 4be60f1b…3f746b1 with explicit Architecture, Security and Simplification conclusions, filed with gs review naming git:sha1…ce467d2 first and resting on all 27 artifacts.",
+          "head": "4be60f1ba85f94ba6a22f14cebb064a2e3f746b1",
+          "no_git_artifact": "true",
+          "to": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5446d8f24dba4ed6a818a2951940d383bd5a63f2",
+        "sequence": 8677,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5446d8f24dba4ed6a818a2951940d383bd5a63f2",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2dd9c8673e4184a12f90e9491ac74942af8da97b",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3fcd8d7aa01a9c291116d02421786a89576b198e",
+        "status": "reported",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    {
+      "id": "c3c62d293ed4e5015f974dd9b9f77a9bfac59f60",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c3c62d293ed4e5015f974dd9b9f77a9bfac59f60",
+        "sequence": 8409,
+        "timestamp": 1790895800,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "P3-F1 L1 successor: exact-head re-review of 0d6eebce against my review 564e5046. Primary: tombstone results note ea2d55b9. This review rests on all 45 artifacts, one per path changed against 3a40d2c5. Verdict: approved.\n\nWhat I ran. I used a scratch clone at 0d6eebce with npm ci and a build, on Node 26.10.0.\n- My original L1 probe, policy {rows: 50}, distinct create/delete cycles:\n  - at ff4a30c4 it wedged at generation 99 with 49 markers;\n  - it now completes 200 cycles (generation 400) with 0 deletion markers left.\n- My pinned variant:\n  - pin g1 holding history/p = [7], delete p, then advance three generations;\n  - the pinned generation reads [7] and the current generation reads undefined, so the marker after a retained live value survives;\n  - after release and one more commit, history/p is fully gone (0 history rows, 0 markers);\n  - accounting ends at exactly the 4 live rows and 96 bytes.\n- tests/local-generations.test.ts passed, and npm run check passed.\n- I did not rerun Chromium. The IndexedDB change is the same rule, checked by reading the code.\n\nArchitecture: sound.\n- Both pruneKey (SQLite) and the IndexedDB collect apply one rule in a single ordered pass: keep a version only if it is visible to some kept generation, and either is live or follows a retained live value.\n- A leading marker equals absence for every read (row and page select at or before id), so reads are unchanged.\n- A marker after a retained live value is kept, which is necessary while an older pin sees that value.\n- It sits in the same transaction and accounting path as before, and ordinary retirement still visits only keys changed in the previous generation.\n\nSecurity: no change in trust surface.\n- This remains raw local storage with no authority.\n- The fix removes a deterministic self-wedge (permanent quota) that ordinary churn could trigger.\n\nSimplification: none needed. The fix is a few lines, mirrored in both adapters. The earlier minor point (sharing the page byte arithmetic) remains optional.\n\nFull P3 stays open, as the note says.",
+        "body": {
+          "artifact": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ea2d55b97c1dce2bfb8fb1450cdd45f1e814025c",
+          "binding": "assigned",
+          "head": "0d6eebcefb75868bf6610f796634cd41c81f4161",
+          "head_news_acknowledged": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:989003f2f92683eda05a267e94563abc6f0584b1\"]",
+          "implementations": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:92a2d479167aa6975a3f85adb0f6be7911b13324\"]",
+          "review_frontier": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:989003f2f92683eda05a267e94563abc6f0584b1",
+          "review_path": "reviewguard@1",
+          "verdict": "approved"
+        },
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b4be6abe5745d99c7b9bff5b6fab7d0c08b8e823"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c3c62d293ed4e5015f974dd9b9f77a9bfac59f60",
+        "sequence": 8409,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ed9023036e68e216da38089fd649cba97ad4dfc4",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:989003f2f92683eda05a267e94563abc6f0584b1",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c3c62d293ed4e5015f974dd9b9f77a9bfac59f60",
+        "status": "satisfied",
+        "terminal": "reported"
+      }
+    },
+    {
+      "id": "9080a2679b110877f11598298f30fa210ce6ff34",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9080a2679b110877f11598298f30fa210ce6ff34",
+        "sequence": 8444,
+        "timestamp": 1790896001,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "I2-F1 authority-only foundation: exact-head review of 29f5b2cd. Primary: integration results note 97c8bfff. This review rests on all 31 artifacts, one per path changed against approved fc8e2093. Verdict: approved, as an internal foundation only. Full I2 stays open.\n\nWhat I ran. I used a scratch clone at 29f5b2cd with npm ci and a build, on Node 26.10.0.\n- tests/native-authority.test.ts plus tests/native-wire.test.ts passed 55/55.\n- The retained-fixture replay (replay-retained.mjs over public-vectors.json.gz) produced JSON exactly equal to the retained node26-retained.json: the same 54 cases, the same fixture hashes, and whole snapshots and outcomes.\n- The change adds only the three application authority modules, tests and evidence. There is no graph, package or export change against fc8e2093.\n- I did not rerun Chromium or Node 22.19; they are retained evidence.\n\nArchitecture: sound and matches the adopted NW0, I2 and N1 decisions.\n- Capability boundary:\n  - accepted state and authenticated entries are WeakMap brands minted only by openNativeAuthority, interpretNativeAuthority and authenticateAuthorityEntry;\n  - nativeAuthoritySnapshot returns an owned clone, and nothing parses a snapshot back into a brand;\n  - interpretNativeAuthority works on a clone and mints new state only on return, so any thrown missing, invalid or runtime fault leaves the prior state intact.\n- Ordinary act and activate throw content_unavailable, so no eligibility exists without source admission. There is no caller callback.\n- Context and uniqueness (assertNativeAuthorityContext):\n  - the exact next position and predecessor;\n  - unique request CIDs;\n  - unique retry tuples for signed requests;\n  - single-use descriptors.\n  These are checked both before authentication and again during interpretation.\n- Control precedence follows NW0 and its D5 correction:\n  - a context or tip that is stale, then the signer is not appointed, then a missing power;\n  - recover is required for setRecovery, recoverGovernance and recoverParticipant, and govern for everything else;\n  - setControl can neither add recover nor alter or remove any recover-containing pair (its exact powers are preserved);\n  - setRecovery is non-empty (schema minimum 1) and replaces only recover bits, keeping lower powers;\n  - recoverGovernance needs the immutable genesis flag and replaces only govern bits;\n  - more than 16 pairs gives control_map_limit;\n  - the tip advances only on an effective change.\n- Roles follow G/null/disabled:\n  - genesis roles start enabled with revision G;\n  - never-assigned roles have expected revision null;\n  - a disable keeps its intent CID;\n  - a no-op gives role_unchanged;\n  - assignRole needs a live grant (admitted, matching CID, not revoked, current epoch, matching signer), the owner, and the role in scope.\n- Account operations:\n  - the floor advances even when the change is ineffective, with rollback and conflict detected by TID order and root;\n  - expectation gives authority_stale;\n  - revocation before admission produces the null-CID revoked row, and later admission gives grant_revoked;\n  - epoch progress needs a chain whose oldest new transition's previous is the current epoch, with no reused CIDs or IDs.\n- Evidence authentication (native-authority-evidence.ts):\n  - the appointed observation policy, and the app's before and after identity bound to the publication repository key, with web only when policy allows it;\n  - genesis and entry bytes proven under the authenticated app root;\n  - the descriptor's exact app, genesis, position, predecessor and subject (nativeObservationSubject);\n  - method routing fixed by the policy (PLC directory path or the hostname did:web URL), with the I1 binding unchanged from before to after;\n  - proof CARs authenticated under the observed key and the expected root;\n  - exactly the required subject paths, nothing unrelated;\n  - an epoch walk from the current pointer to the expected anchor, bounded by the 16-record schema cap and refusing cycles;\n  - authenticated absence is invalid, and a missing block is unavailable.\n- Appointed recovery replaces a participant floor only with never-accepted epochs and the exact prior expectation. A failed recovery mutates nothing. This matches the documented and adopted rule.\n\nSecurity\n- No public constructor, fromJSON, trust boolean or permission callback.\n- The publication key must equal the retained app method binding.\n- A parsed snapshot is data only, and failures preserve the prior state.\n- The trust limits are disclosed: web fabrication by the app PDS, single-recover-key replacement, and possibly blocked rotation at map pressure.\n\nSimplification: none required.\n- Minor: authenticateAuthorityEntry checks the observation-policy shape twice (configuredPolicy, then policy). Drop the second check.\n- For P4 (my P4D2-1): the snapshot's requests, retries and consumedObservations arrays are exactly what the checkpoint compact projection proposes to derive from history. Keep the I2 snapshot format as is. The compact checkpoint shape is a separate projection.\n\nRemaining, as stated: source admission and eligibility, activation, atomic Folder integration, publication, the observer, checkpoint restore and a fresh Chromium run on this base.",
+        "body": {
+          "artifact": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:97c8bfff91fa02c6c939a200541bdd87ff7e47cd",
+          "binding": "assigned",
+          "head": "29f5b2cd9b640e882992f2b01df79f913352c2fb",
+          "head_news_acknowledged": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7677d409f4fa944caf74660f66816c95931e185f\"]",
+          "implementations": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7536eddb9e665e11084aa863d84dd902e9686cd3\"]",
+          "review_frontier": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:93fc0944b0a6ae79ab87bb4757c0e824ac5ed4d5",
+          "review_path": "reviewguard@1",
+          "verdict": "approved"
+        },
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b250e2b41943e45b93fa3644833d01163639669d"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9080a2679b110877f11598298f30fa210ce6ff34",
+        "sequence": 8444,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:70c2530d268c61dce2b31c728da5d24134918b3a",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7677d409f4fa944caf74660f66816c95931e185f",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9080a2679b110877f11598298f30fa210ce6ff34",
+        "status": "satisfied",
+        "terminal": "reported"
+      }
+    },
+    {
+      "id": "3fcd8d7aa01a9c291116d02421786a89576b198e",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3fcd8d7aa01a9c291116d02421786a89576b198e",
+        "sequence": 8683,
+        "timestamp": 1790898933,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "T1-H1 package test isolation: exact-head review of 4be60f1b. Primary: results note 77bebea8. This review rests on all 27 artifacts, one per path changed against approved fc8e2093. Verdict: approved.\n\nWhat I ran. I used a scratch clone at 4be60f1b with npm ci and npm run setup, on Node 26.10.0.\n- I ran tests/package.test.ts in parallel (--test-concurrency=4) with all three browser test files (browser-sessions, identity-evidence-browser, native-proof-browser), which are the race the change fixes.\n- 17/17 passed, and dist/src/integrity/browser.js still exists afterwards. The test's own sentinel and adapter assertions passed, so the shared dist survived the staged production build.\n- Source scope: only tests/package.test.ts and the new tests/helpers/package-build.ts. The production build, package, approvals and runner are unchanged.\n\nArchitecture: sound and minimal.\n- The real cause (npm run build removes the shared dist while parallel Vite tests resolve #atseq-integrity from it) is removed by building and packing in a private copied root with the unchanged production commands.\n- The fresh consumer stays separate.\n- The test now proves its own guarantee:\n  - a unique sentinel file in the shared dist and the unchanged browser integrity adapter bytes are asserted after the build;\n  - the deterministic red run, with cwd set back to root, retains the ENOENT failure;\n  - the staged build's provenance sourceHashes are checked against the original checkout files;\n  - outputHashes are checked against the installed consumer.\n- The hidden-lock finding is correct and well handled. npm's node_modules/.package-lock.json is trusted only when it is newer than the package directories. Copying its unchanged bytes last keeps the source installation's metadata cache valid. The staged tarball then matches the original 12,172 paths exactly, which the file-list comparison records.\n\nSecurity: no change to the integrity checks.\n- Both the staged build and the fresh consumer verify the copied and installed dependency trees.\n- verbatimSymlinks keeps .bin links relative inside the stage and never follows them out.\n- The sentinel is removed in finally.\n\nSimplification\n- Copying the whole installed toolchain is the simplest correct route; there is no second install or partial closure.\n- Two non-blocking robustness points:\n  1. The fixed copy list (scripts, src, lexicons, docs, README, CONTRIBUTING, LICENSE and so on) must track package.json \"files\" and the build inputs. If a future packaged path is added only to \"files\", the stage would silently omit it. Cheap guard: assert that every package.json \"files\" entry exists in the stage before packing, or derive the list from \"files\" plus the fixed build inputs.\n  2. The test now needs an existing dist/src/integrity/browser.js in the checkout, because it reads it before building. Before, it built dist itself. That is fine under CI's setup step, but say so in the test comment or the contributing notes, so that \"npm test\" on a fresh clone fails clearly rather than with a bare ENOENT.\n- When integrating with the pending OAuth candidate, keep its packed-consumer tampering case, as the note says.",
+        "body": {
+          "artifact": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:77bebea8117ef44b0aa5d5cda9997f546ce467d2",
+          "binding": "assigned",
+          "head": "4be60f1ba85f94ba6a22f14cebb064a2e3f746b1",
+          "head_news_acknowledged": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2dd9c8673e4184a12f90e9491ac74942af8da97b\"]",
+          "implementations": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8ed7aadce34a1a1387ef569661277495a7685733\"]",
+          "review_frontier": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c89c3d3896e59e4b06aefe131c2ffce84a80772e",
+          "review_path": "reviewguard@1",
+          "verdict": "approved"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3fcd8d7aa01a9c291116d02421786a89576b198e",
+        "sequence": 8683,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "commitment": {
+        "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5446d8f24dba4ed6a818a2951940d383bd5a63f2",
+        "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2dd9c8673e4184a12f90e9491ac74942af8da97b",
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3fcd8d7aa01a9c291116d02421786a89576b198e",
+        "status": "reported",
+        "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    }
+  ]
+}

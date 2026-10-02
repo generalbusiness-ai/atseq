@@ -1,0 +1,141 @@
+{
+  "format": "atseq-checkpoint-history-projection-evidence",
+  "version": 1,
+  "date": "2026-10-01",
+  "sourceHead": "c1e28a55d8ddcb21f08aacc1961f2415ad718a69",
+  "predecessorHead": "72e0965bbdd4be15b59f50d420f06fd7e66ba562",
+  "request": "b6bdfc6f74b8d3c9504ffd01cc93b8cc1d54de8d",
+  "promise": "3594f3b7f317ef8e2cd6ef3154d1af1ab55bbad7",
+  "assessment": "07f50c71449b62353d6a7e9f87a14a422213d6e3",
+  "assessmentRatification": "4b753d0",
+  "i2Source": "d08104ddae3e737b8de9e13a3e89116e65d84afc",
+  "i2ModuleHashes": {
+    "src/core/values.ts": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+    "src/protocol/wire.ts": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+    "src/protocol/native-schema.ts": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4",
+    "src/protocol/native-wire.ts": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+    "src/application/native-authority.ts": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455",
+    "src/application/native-authority-snapshot.ts": "c27d38aad6083f3f1965eb9ef74192e0f892e4d0102dcb8626dc4b4faa7882a6",
+    "src/application/native-authority-evidence.ts": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+  },
+  "input": {
+    "file": "../checkpoint-projections/i2-public-vectors.json.gz",
+    "rawSha256": "a6ca8f0aa56a1986e6fc4e39f13da8b6609d3a6829c1349e94487c9496e4e019",
+    "rawBytes": 23114637
+  },
+  "predecessorVectorsSha256": "9ac0cdeffbe296e7e54fa1e1e9198d4f411deff5de17ebe5489cc06eefa5eddb",
+  "vectorsSha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517",
+  "cases": [
+    "exact I2 genesis/disabled-role/retired-epoch/recovery authority projections remain parsed data",
+    "exact I2 recovery snapshot retains two retired epochs outside fresh current ancestry; no new connectivity rule",
+    "13 original entries retain signatures/nonces and unsigned CID identity; disabled role uses unsigned CID",
+    "one history reconstructs exact temporary I2 indexes at frontier without minting authority; compact omits duplicate arrays",
+    "standalone native source row preserves supplied nonalphabetic file order and unused binary asset",
+    "stalled outer literal binds strictly later head and exact first uninterpreted entry",
+    "native deterministic chunk framing covers empty/exact32KiB/two-chunk boundary"
+  ],
+  "comparison": {
+    "predecessor": "72e0965bbdd4be15b59f50d420f06fd7e66ba562",
+    "predecessorVectorsSha256": "9ac0cdeffbe296e7e54fa1e1e9198d4f411deff5de17ebe5489cc06eefa5eddb",
+    "fixtureHistoryRows": 13,
+    "old": {
+      "historyAndIndexPayloads": 21,
+      "historyAndIndexBytes": 11525,
+      "payloads": 160,
+      "payloadBytes": 763250,
+      "nativeRecords": 314,
+      "nativeRecordBytes": 772912
+    },
+    "replacement": {
+      "historyAndIndexPayloads": 8,
+      "historyAndIndexBytes": 6338,
+      "payloads": 147,
+      "payloadBytes": 757616,
+      "nativeRecords": 288,
+      "nativeRecordBytes": 763629
+    },
+    "notes": [
+      "Canonical UTF-8 payload sums and deduplicated native CBOR inventory sums are separate measurements.",
+      "Corpus includes full-I2 baselines and non-admissible structural examples; this is not a production checkpoint size or latency estimate.",
+      "Original entry/request CBOR and compact authority bytes are unchanged; only history projection/table and outer assertion bytes change."
+    ]
+  },
+  "epochBoundary": {
+    "fixturePosition": 20,
+    "current": "bafyreib4huqxofsm5bctcgkm3t2xcewekim35zup5btppm2eqemd3w6sbe",
+    "previous": null,
+    "retainedEpochs": 3,
+    "retiredEpochsOutsideCurrentAncestry": 2,
+    "snapshotReaderChecksWholeForestConnectivityOrAcyclicity": false,
+    "evidenceTraversalCycleCheck": true,
+    "normalAdvanceRequiresConnectionToPriorCurrent": true,
+    "recoveryRequiresConnectionToPriorCurrent": false
+  },
+  "noCheckpointAdmission": true,
+  "noPrivateKeysRetained": true,
+  "noRuntimeChanges": true,
+  "limitations": [
+    "I2 fixture uses unsupported semantic/source placeholder",
+    "source table example is not the active placeholder definition",
+    "claimed provenance inventories are framing examples only",
+    "no caller-accepted publication or local-restore admission has run",
+    "No P4 runtime parser, private factory, Chromium admission, PDS operation, timing or trusted-local restore ran.",
+    "All original predecessor evidence files remain byte-identical; copied predecessor notes/generator retain the source-only proposal before consolidation."
+  ],
+  "commands": [
+    "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node --conditions atseq-source --import /Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/loader.mjs experiments/checkpoint-projections/generate.mjs /Users/hughpyle/play/atseq-worktrees/native-authority",
+    "/opt/homebrew/bin/node --conditions atseq-source --import /Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/loader.mjs experiments/checkpoint-projections/generate.mjs /Users/hughpyle/play/atseq-worktrees/native-authority"
+  ],
+  "archiveMembers": 436,
+  "sourceFiles": [
+    {
+      "file": "experiments/checkpoint-projections/generate.mjs",
+      "sha256": "b0e5fb7c10b5f458285cb33304f100d31e2a1775f3c1e03c00275fb7a8006454"
+    },
+    {
+      "file": "notes/2026-10-01-atseq-checkpoint-projections.md",
+      "sha256": "60514d01fc33f203306109fe56a29e31ed1bd470df40285eb413fa1a5d8c4555"
+    },
+    {
+      "file": "notes/2026-10-01-atseq-checkpoint-policy-bytes.md",
+      "sha256": "b616665ef90c96975c4376105b489a62393a523dba9f21acb6308c2f58d7d0bd"
+    }
+  ],
+  "files": [
+    {
+      "file": "node22.log",
+      "bytes": 177,
+      "sha256": "df85403e18e0de98760fad57657147320f78a85220e00d5e2ef34ec29880eda4"
+    },
+    {
+      "file": "node26.log",
+      "bytes": 177,
+      "sha256": "74a016db969a790bab4b23b7d4923ddf663a67244cbd4e90d21d8089fcd254fb"
+    },
+    {
+      "file": "predecessor-generator.mjs",
+      "bytes": 17321,
+      "sha256": "6f6d73d77c6c8a1dd7c14716bf9f3d89274196767ab155240a1ca636a84fdadd"
+    },
+    {
+      "file": "predecessor-policy-note.md",
+      "bytes": 21245,
+      "sha256": "c752aeb30c3864af0f8e54bcfa889420c4fb79be5d1e12854e5e60e790d45cc8"
+    },
+    {
+      "file": "predecessor-projections-note.md",
+      "bytes": 32115,
+      "sha256": "f65f48a46683a1d371a549a3181e6addd7cc6838cb1dc78dcfbc406c6e20ecf5"
+    },
+    {
+      "file": "vectors.json",
+      "bytes": 166644,
+      "sha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517"
+    },
+    {
+      "file": "vectors.tar.gz",
+      "bytes": 311628,
+      "sha256": "e10967d7b6c807671b271c41ec9832e27a76ab311f25a29753b6a0a5f0738b24"
+    }
+  ]
+}

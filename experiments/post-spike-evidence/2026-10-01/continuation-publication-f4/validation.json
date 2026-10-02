@@ -1,0 +1,231 @@
+{
+  "format": "atseq-continuation-publication-validation",
+  "version": 1,
+  "checkedAt": "2026-10-02T03:00:02.661571+00:00",
+  "basis": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+  "statusObservedAt": "2026-10-02T02:40:02.144925+00:00",
+  "observedMain": "c242ca20e823ea510e3939a8466a608f3ab860ba",
+  "exactPublishedFiles": 22,
+  "publishedBytes": 3150348,
+  "archives": [
+    {
+      "packet": "checkpoint-projections",
+      "members": 475,
+      "payloads": 160,
+      "nativeRecords": 314,
+      "vectorsSha256": "9ac0cdeffbe296e7e54fa1e1e9198d4f411deff5de17ebe5489cc06eefa5eddb",
+      "archiveSha256": "138e05bd9bc19cd8f16d1b6f07df386d6c5cfca765f33ec1d9b75db739aeaf4f"
+    },
+    {
+      "packet": "checkpoint-history-projections",
+      "members": 436,
+      "payloads": 147,
+      "nativeRecords": 288,
+      "vectorsSha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517",
+      "archiveSha256": "e10967d7b6c807671b271c41ec9832e27a76ab311f25a29753b6a0a5f0738b24"
+    }
+  ],
+  "fixtureRawBytes": 23114637,
+  "fixtureRawSha256": "a6ca8f0aa56a1986e6fc4e39f13da8b6609d3a6829c1349e94487c9496e4e019",
+  "freshSourceOnlyGeneratorRuns": [
+    {
+      "node": "v22.19.0",
+      "cases": 7,
+      "payloads": 147,
+      "nativeRecords": 288,
+      "vectorsSha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517",
+      "noCheckpointAdmission": true
+    },
+    {
+      "node": "v26.10.0",
+      "cases": 7,
+      "payloads": 147,
+      "nativeRecords": 288,
+      "vectorsSha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517",
+      "noCheckpointAdmission": true
+    }
+  ],
+  "predecessorNotesAndGeneratorExact": true,
+  "pinnedI2SourceFiles": 7,
+  "pinnedI2Source": "d08104ddae3e737b8de9e13a3e89116e65d84afc",
+  "currentGenerationInputHashes": [
+    {
+      "path": "src/core/values.ts",
+      "frozenSourceSha256": "c531e785c4b7cc6317977cd7bd95696a4757d6034ef7e8f931a8e67e8907d258",
+      "examinedMainSha256": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f",
+      "byteIdentical": false
+    },
+    {
+      "path": "src/protocol/wire.ts",
+      "frozenSourceSha256": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+      "examinedMainSha256": "7ed8ad9ac83b9f5aa333e6e007d760c79cd027672d93ac5be08ad196de614fb5",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/protocol/native-schema.ts",
+      "frozenSourceSha256": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4",
+      "examinedMainSha256": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/protocol/native-wire.ts",
+      "frozenSourceSha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+      "examinedMainSha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/application/native-authority.ts",
+      "frozenSourceSha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455",
+      "examinedMainSha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/application/native-authority-snapshot.ts",
+      "frozenSourceSha256": "c27d38aad6083f3f1965eb9ef74192e0f892e4d0102dcb8626dc4b4faa7882a6",
+      "examinedMainSha256": "c27d38aad6083f3f1965eb9ef74192e0f892e4d0102dcb8626dc4b4faa7882a6",
+      "byteIdentical": true
+    },
+    {
+      "path": "src/application/native-authority-evidence.ts",
+      "frozenSourceSha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e",
+      "examinedMainSha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e",
+      "byteIdentical": true
+    }
+  ],
+  "generationBasisLimit": "Fresh exact reproduction used the original d08104dd source in the read-only native-authority checkout. Examined main retains the separately reviewed V0 canonical-token optimization; one historical source file differs. No fresh generator execution against changed production input is claimed.",
+  "noteLinksChecked": 137,
+  "changesRestrictedToNotesExperimentsAndExactFormatException": true,
+  "formatException": {
+    "path": "experiments/checkpoint-projections/generate.mjs",
+    "scopeExtension": "2b3e8086676174aeb082ac705491aba00989182e",
+    "originalStyleExitCode": 1,
+    "afterNarrowExceptionExitCode": 0,
+    "reviewedSourceBytesUnchanged": true
+  },
+  "approvedRuntimeInputsUnchanged": true,
+  "productionBytesIdenticalThroughObservedMain": true,
+  "ci": [
+    {
+      "run": 36922875534,
+      "head": "3a40d2c5e230cd7698f9cd4b9e8e9729054be33e",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "check (26)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (24)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (22.19.0)",
+          "conclusion": "success"
+        }
+      ],
+      "url": "https://github.com/generalbusiness-ai/atseq/actions/runs/36922875534"
+    },
+    {
+      "run": 36935261684,
+      "head": "fc8e20936c849d20e8e28be688afa08b29ce02ed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "check (26)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (22.19.0)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (24)",
+          "conclusion": "success"
+        }
+      ],
+      "url": "https://github.com/generalbusiness-ai/atseq/actions/runs/36935261684"
+    },
+    {
+      "run": 36940311459,
+      "head": "1bb122ec394faead097139bd416bcde9f1c3b542",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "check (22.19.0)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (24)",
+          "conclusion": "failure"
+        },
+        {
+          "name": "check (26)",
+          "conclusion": "success"
+        }
+      ],
+      "url": "https://github.com/generalbusiness-ai/atseq/actions/runs/36940311459"
+    },
+    {
+      "run": 36942802499,
+      "head": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "check (24)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (26)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (22.19.0)",
+          "conclusion": "success"
+        }
+      ],
+      "url": "https://github.com/generalbusiness-ai/atseq/actions/runs/36942802499"
+    },
+    {
+      "run": 36945783974,
+      "head": "b0a5d0668e670bd41050cd61536f37f4cea00ca2",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "check (26)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (22.19.0)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (24)",
+          "conclusion": "success"
+        }
+      ],
+      "url": "https://github.com/generalbusiness-ai/atseq/actions/runs/36945783974"
+    },
+    {
+      "run": 36947475821,
+      "head": "c242ca20e823ea510e3939a8466a608f3ab860ba",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "check (26)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (24)",
+          "conclusion": "success"
+        },
+        {
+          "name": "check (22.19.0)",
+          "conclusion": "success"
+        }
+      ],
+      "url": "https://github.com/generalbusiness-ai/atseq/actions/runs/36947475821"
+    }
+  ],
+  "noCheckpointAdmission": true,
+  "scope": "Documentation copies and source-only projection reproduction; no full suite, provider, trusted restore, checkpoint runtime parser or native support execution."
+}
