@@ -1,0 +1,58 @@
+{
+  "old": "781732f47f02d26332942147bfbe8f4e95526231",
+  "approvedMain": "3a40d2c5e230cd7698f9cd4b9e8e9729054be33e",
+  "oldRuntimePaths": 135,
+  "approvedRuntimePaths": 147,
+  "retainedOldPackageVersionsAndIntegrityEqual": true,
+  "retainedOldPackageFileHashesEqual": true,
+  "retainedOldPackageFileCount": 10913,
+  "newPaths": [
+    "node_modules/@atcute/did-plc",
+    "node_modules/@atcute/identity",
+    "node_modules/@atcute/util-fetch",
+    "node_modules/@atproto-labs/fetch-node",
+    "node_modules/@atproto-labs/fetch-node/node_modules/@atproto-labs/fetch",
+    "node_modules/@atproto-labs/fetch-node/node_modules/@atproto-labs/pipe",
+    "node_modules/ipaddr.js",
+    "node_modules/jsonc-parser",
+    "node_modules/undici_v6",
+    "node_modules/undici_v7",
+    "node_modules/undici_v8",
+    "node_modules/valibot"
+  ],
+  "changedApprovalMetadataForOldPaths": {
+    "node_modules/fdir": {
+      "old": {
+        "version": "6.5.0",
+        "integrity": "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==",
+        "peerDependencies": {
+          "picomatch": "^3 || ^4"
+        }
+      },
+      "approved": {
+        "version": "6.5.0",
+        "integrity": "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==",
+        "peerDependencies": {
+          "picomatch": "^3 || ^4"
+        },
+        "peerDependenciesMeta": {
+          "picomatch": {
+            "optional": true
+          }
+        }
+      }
+    }
+  },
+  "unchangedSourceHashes": {
+    "src/core/values.ts": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/definition/load.ts": "58f47a238bfc90d6f1cef4e4c6e41730ea4cb59584f6df8b0dac7f8394b9327b",
+    "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+    "src/application/folder.ts": "de87ce34a4062417c933ce8b7b7eb273f992a37ac3c8afc3bbe3be664b2111f0",
+    "src/core/contracts.ts": "376d27a2dfcb2cd902f4181642c983f94cc33d76d6c38fc64170cc1768e9613e",
+    "testdata/source-documents/taskboard.atseq.json": "bf2c631de02840922a58d61f921e6c3d3ddd7367ed05f21ec05c85651c03df20",
+    "testdata/source-documents/guitar.atseq.json": "1d1a5163f18f53e7eeae178f90fda440fee0efe42e6f8bcf5de7f1952dce9643",
+    "testdata/source-documents/ledger.atseq.json": "f0b35532e77430223b076a1b33b9cffebdab09ea02971f4275d12154ac615f82"
+  }
+}

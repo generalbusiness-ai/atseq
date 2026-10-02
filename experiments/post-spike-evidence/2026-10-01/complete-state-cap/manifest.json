@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-01",
+  "request": "4a7a21e824fbd864a25e9e4baeaf7105dc52b720",
+  "promise": "aeb8063544e179bbb74555356d5c6f5c633af0bc",
+  "phase": "untimed preparation; quiet-window timing pending",
+  "basis": "781732f47f02d26332942147bfbe8f4e95526231",
+  "structuralSourceHead": "fb5943354259b57837c0cc3f497d6e0155990a12",
+  "functionalSourceHead": "630c4216e8ceb0b9705fc4ae414e8671da5e9e71",
+  "sourceHashes": {
+    "experiments/complete-state-cap/node-run.ts": "208020d2c69874a073b250326c19c7fd73f9df3e485217cfa2550e11bf83aa67",
+    "experiments/complete-state-cap/fixtures.ts": "e018ee6b18b4c9c66c95936b505b9e18ab91b377a26e7f837ecf7683f29d9c98",
+    "experiments/complete-state-cap/browser-run.mjs": "ccfac6f86c158dcf434d2f6b7b8a3d948cd78b9b3452328a173430410b635ab3",
+    "experiments/complete-state-cap/kernels.ts": "c757bd6ca485896f4fdb07d5430736c073504dd08ca610ca28170f7dec94f164",
+    "experiments/complete-state-cap/functional-run.ts": "002d4b19353568c304cd86c9d276782d4d5471dcfb33a12b01413cf558682404",
+    "experiments/complete-state-cap/browser.ts": "02effa90a57ffeb92fe1210a74df03f4c81792492d3bac4d28f985507aaaa604",
+    "experiments/complete-state-cap/measure.ts": "dbd629e6261e696f8beb90b32af97e4361651793348d8c1a3f41de0d90718187",
+    "src/core/values.ts": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/definition/load.ts": "58f47a238bfc90d6f1cef4e4c6e41730ea4cb59584f6df8b0dac7f8394b9327b",
+    "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+    "src/application/folder.ts": "de87ce34a4062417c933ce8b7b7eb273f992a37ac3c8afc3bbe3be664b2111f0",
+    "src/archive/archive.ts": "03f7d79bffff9748cc33902aefb32cad62460668351c7faf5382244544680e2c",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+    "src/core/contracts.ts": "376d27a2dfcb2cd902f4181642c983f94cc33d76d6c38fc64170cc1768e9613e",
+    "src/core/dependencies.ts": "baf4564a981e9b6e1994e8a4a831e9843ce300b1c1f8bd9caadb1bee5d258cf5",
+    "src/core/dependencies-approved.json": "8c16a3609bcc15b339b9351adf97ee45150b9b2010db924d8364eaa05b68d747",
+    "src/integrity/files-approved.json": "b93ba3e37afb6e6fd8da563ad78015e5b4ce80e2b76219587a81a1ddc5331621",
+    "package.json": "728915abb62eff2d32cf251c32ccaff31957dba14dfc140786b514f79e10aa31",
+    "npm-shrinkwrap.json": "5017272a6fbd7bcc1b2d3a460a071f0d519a61749ff31cc17104995a3e27d54b",
+    "tests/support/pds/package-lock.json": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd"
+  },
+  "unchangedFromBasis": [
+    "src/core/values.ts",
+    "src/core/profile.ts",
+    "src/definition/load.ts",
+    "src/definition/schemas.ts",
+    "src/application/folder.ts",
+    "src/archive/archive.ts",
+    "src/runtime/evaluator.ts",
+    "src/core/contracts.ts",
+    "src/core/dependencies.ts",
+    "src/core/dependencies-approved.json",
+    "src/integrity/files-approved.json",
+    "package.json",
+    "npm-shrinkwrap.json",
+    "tests/support/pds/package-lock.json"
+  ],
+  "retainedHashes": {
+    "functional-results.json": "cdbb44f6e0f283b54444d2db8f37e7da25f0da92056cfaebd6c3f73f46045448",
+    "chromium-structural.log": "ae5fe743e2c6907580ed17c07693fa7f76934df1d2b2c6eecce29c2652f5809e",
+    "fixtures.json.gz": "b457b9391456608ba1ef7816b005067db105a40c4dd3cd257a4624d0d2ef2004",
+    "chromium-structural.json": "fcfdeb550ae2e8c92785d880c970d45fc6346044654c6a54fdd43c2f561c02b3",
+    "pds-install.log": "7e4b4cf6946de35e0367b5fd62d457f5de097efe5d2d84f3a38e4edbe9f11df1",
+    "functional-public-inputs.json.gz": "5f48bacbb5004383c5e92d14b289669359cb5a1c10e3cc2a0c6d9737799a1049",
+    "functional.log": "1d16418524e4411a70ab4c1468d0a1a1147ffcd25fd5ba394128c5e139b02c36",
+    "node-structural.json": "4ab5adbc04b3b15f9d91242f4a0384de19a46fee8f348a5efa2d99e5a530f3ff",
+    "check.log": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+    "install.log": "19476af133bce82bbea57e39b5b93e96baea979878968ec5e1923c36f298e803",
+    "node-structural.log": "0b0cb26b335fe8286c6d887a967c5464846d4b9047d3fab5c9b0c238b7ea991b",
+    "build.log": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+  },
+  "compressedPublicInputs": {
+    "fixtures.json": {
+      "bytes": 8733307,
+      "sha256": "bc0ead4ddb710a1a5c3cb5d1d3836d19a60b33360f8ca36d0138a37aac663b4d",
+      "compressedBytes": 284202,
+      "compressedSha256": "b457b9391456608ba1ef7816b005067db105a40c4dd3cd257a4624d0d2ef2004"
+    },
+    "functional-public-inputs.json": {
+      "bytes": 1618038,
+      "sha256": "c46abc66447646113c3d9a37fea506c6b094babb25512a8073500e418a6cda95",
+      "compressedBytes": 64178,
+      "compressedSha256": "5f48bacbb5004383c5e92d14b289669359cb5a1c10e3cc2a0c6d9737799a1049"
+    }
+  },
+  "profileCids": [
+    {
+      "name": "atseq-log-v2",
+      "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+      "role": "log"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+      "role": "evaluator"
+    },
+    {
+      "name": "atseq-app-v2",
+      "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+      "role": "application"
+    }
+  ],
+  "fixtures": 21,
+  "operationsPerFixture": 13,
+  "matchingNodeChromiumStructuralResults": true,
+  "node": "v26.10.0",
+  "chromium": "153.0.8010.12",
+  "functionalAtCapFlows": 7,
+  "controls": {
+    "strictOvercapInitialState": 7,
+    "strictOvercapFoldInput": 7,
+    "strictOvercapCanonicalState": 7,
+    "sampleRows1001": 3,
+    "sampleText121": 3,
+    "wireCborAndCidRefusalFor14LegalNearOrAtCapStates": 28
+  },
+  "commands": {
+    "prepareNode": "node scripts/source-run.mjs experiments/complete-state-cap/node-run.ts",
+    "prepareChromium": "node experiments/complete-state-cap/browser-run.mjs",
+    "functionalNode": "node scripts/source-run.mjs experiments/complete-state-cap/functional-run.ts",
+    "build": "npm run build",
+    "check": "npm run check",
+    "timingNodeHeld": "node scripts/source-run.mjs experiments/complete-state-cap/node-run.ts --measure",
+    "timingChromiumHeld": "node experiments/complete-state-cap/browser-run.mjs --measure"
+  },
+  "proposedTimingMatrix": {
+    "environments": [
+      "Node26.10",
+      "Chromium153"
+    ],
+    "fixtures": 21,
+    "operations": 13,
+    "samples": 7,
+    "repetitionsPerSpan": 1,
+    "warmupsPerOperation": 2,
+    "timedSpansPerEnvironment": 1911,
+    "warmupInvocationsPerEnvironment": 546,
+    "order": "Node then Chromium, sequential; per-fixture operation order rotated across samples",
+    "schedulingAllowanceMinutes": 5,
+    "allowanceIsNotMeasuredLatency": true
+  },
+  "limitations": [
+    "No timed measurements have been run.",
+    "Diagnostic rawCID(canonicalJSON) is a fingerprint, not an admitted native state/block identity.",
+    "CBOR byte counts use the maintained encoder diagnostically; supported protocol encoder still refuses blocks over64KiB.",
+    "Current one-action Folder/archive flows are not native vNext/checkpoint/I1-I2 host/network integration.",
+    "Direct preparation and one final append are not a full growing-prefix replay.",
+    "Hooks count encoder/validator/clone calls and bytes, not heap, peak memory or exclusive replay work."
+  ]
+}

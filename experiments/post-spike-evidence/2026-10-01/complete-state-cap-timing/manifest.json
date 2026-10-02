@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-01",
+  "request": "4a7a21e824fbd864a25e9e4baeaf7105dc52b720",
+  "promise": "aeb8063544e179bbb74555356d5c6f5c633af0bc",
+  "phase": "coordinated project pause; retained noisy-machine single-call kernel measurements",
+  "timedSourceHead": "0be27cc73f01dfe7379f05d31563d52ff0f95a1e",
+  "approvedMain": "3a40d2c5e230cd7698f9cd4b9e8e9729054be33e",
+  "runtimePaths": 147,
+  "currentPreparationManifest": "../complete-state-cap-current/manifest.json",
+  "historicalPreparationCandidate": "56b3dca3b79b06b8a48e6a2f1298e4da33cb5c69",
+  "historicalFunctionalSource": "630c4216e8ceb0b9705fc4ae414e8671da5e9e71",
+  "fixtureReuse": {
+    "path": "../complete-state-cap/fixtures.json.gz",
+    "rawSha256": "bc0ead4ddb710a1a5c3cb5d1d3836d19a60b33360f8ca36d0138a37aac663b4d",
+    "bytes": 8733307
+  },
+  "profiles": [
+    {
+      "name": "atseq-log-v2",
+      "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+      "role": "log"
+    },
+    {
+      "name": "atseq-jsonata-v1",
+      "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+      "role": "evaluator"
+    },
+    {
+      "name": "atseq-app-v2",
+      "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+      "role": "application"
+    }
+  ],
+  "machine": {
+    "platform": "darwin",
+    "release": "27.0.0",
+    "arch": "arm64",
+    "cpu": "Apple M5 Max",
+    "logicalCpus": 18,
+    "totalMemoryBytes": 68719476736
+  },
+  "node": "v26.10.0",
+  "chromium": "153.0.8010.12",
+  "processSnapshotBoundsUtc": [
+    "2026-10-01T20:44:55.260041+00:00",
+    "2026-10-01T20:48:32.412778+00:00"
+  ],
+  "fixtures": 21,
+  "operationsPerFixture": 13,
+  "samplesPerOperation": 7,
+  "warmupsPerOperation": 2,
+  "repetitionsPerSample": 1,
+  "timedSpansPerEnvironment": 1911,
+  "warmupCallsPerEnvironment": 546,
+  "strictControlsPerEnvironment": 27,
+  "wireSizeRefusalsPerEnvironment": 28,
+  "wireRefusalTimedSpansPerEnvironment": 196,
+  "completedTimedSpansPerEnvironment": 1715,
+  "checks": {
+    "node": 0,
+    "chromium": 0,
+    "referencesEqualNodeChromiumAndCurrentUntimed": true,
+    "sourceHashesStillEqualMeasuredHead": true,
+    "statisticsProtocolValidation": true
+  },
+  "commands": {
+    "node": "node scripts/source-run.mjs experiments/complete-state-cap/node-run.ts --measure",
+    "chromium": "node experiments/complete-state-cap/browser-run.mjs --measure",
+    "summary": "python3 experiments/complete-state-cap/summarize.py experiments/post-spike-evidence/2026-10-01/complete-state-cap-timing --output experiments/post-spike-evidence/2026-10-01/complete-state-cap-timing/statistics.json"
+  },
+  "sourceHashes": {
+    "experiments/complete-state-cap/fixtures.ts": "e018ee6b18b4c9c66c95936b505b9e18ab91b377a26e7f837ecf7683f29d9c98",
+    "experiments/complete-state-cap/kernels.ts": "c757bd6ca485896f4fdb07d5430736c073504dd08ca610ca28170f7dec94f164",
+    "experiments/complete-state-cap/measure.ts": "dbd629e6261e696f8beb90b32af97e4361651793348d8c1a3f41de0d90718187",
+    "experiments/complete-state-cap/node-run.ts": "208020d2c69874a073b250326c19c7fd73f9df3e485217cfa2550e11bf83aa67",
+    "experiments/complete-state-cap/browser.ts": "02effa90a57ffeb92fe1210a74df03f4c81792492d3bac4d28f985507aaaa604",
+    "experiments/complete-state-cap/browser-run.mjs": "ccfac6f86c158dcf434d2f6b7b8a3d948cd78b9b3452328a173430410b635ab3",
+    "experiments/complete-state-cap/functional-run.ts": "002d4b19353568c304cd86c9d276782d4d5471dcfb33a12b01413cf558682404",
+    "src/core/values.ts": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f",
+    "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+    "src/definition/load.ts": "58f47a238bfc90d6f1cef4e4c6e41730ea4cb59584f6df8b0dac7f8394b9327b",
+    "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+    "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+    "src/application/folder.ts": "de87ce34a4062417c933ce8b7b7eb273f992a37ac3c8afc3bbe3be664b2111f0",
+    "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+    "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+    "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+    "src/integrity/files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149",
+    "testdata/source-documents/taskboard.atseq.json": "bf2c631de02840922a58d61f921e6c3d3ddd7367ed05f21ec05c85651c03df20",
+    "testdata/source-documents/guitar.atseq.json": "1d1a5163f18f53e7eeae178f90fda440fee0efe42e6f8bcf5de7f1952dce9643",
+    "testdata/source-documents/ledger.atseq.json": "f0b35532e77430223b076a1b33b9cffebdab09ea02971f4275d12154ac615f82"
+  },
+  "statisticsHelperSha256": "39525d8e7edbd570155a68d0a2e645bde72ff8fc13f453ece808c54d5fa07144",
+  "retainedHashes": {
+    "chromium-timing.json": "e668a4df74671c3b780854e5d6ad7cf1734d98e7316093fd5727ddf7ce3f3952",
+    "chromium-timing.log": "c3f1958c322e0363b0da00d37dec6f3148fb5623d8c50bf4250732830d5024b7",
+    "node-timing.json": "7be8f751e3b4abd9b6174f2549c972450a1961590f1067492501e923e5dbd4d6",
+    "node-timing.log": "8ba97719fde121e7a521d8684ab5381c628912b6b8c5fc53f4fd6b8e4f0a03ae",
+    "process-after.json": "ea20dafeae144843f9b1f8b071e10a8c7512b8267c360cd3965c8a6dd32a5118",
+    "process-before.json": "6b6fdf9dadf03bf94e9b2e390c08a66c1d6496366571c47fd0ca41992e594b7d",
+    "statistics.json": "64f60d398bee8281b934fdc35ae46e85ca3bad3cca94908c46b592ab83bb58c6"
+  },
+  "activity": "Project agents paused heavy work. Before ps: gs reader24.1%, WindowServer22.6%, iTerm220.5%. After ps: unrelated gs reader87.5%, user Chrome renderer40.5%, WindowServer25.3%. Earlier substantial Spotlight activity was observed by root; retained snapshots include Spotlight rows. ps CPU is reported process accounting, not an interval utilization sample. No process interference, trimming, repeated measurements or machine-pristine claim.",
+  "limits": "Separate warm kernels only; no cold loader/build/install, signing/native verification/order, host/network/storage/checkpoint/worker-transfer, integrated replay/end-to-end or worst-case claim. Existing seven functional archive captures remain historical135graph evidence. Wire refusals are not successful state CIDs; canonical raw CID is a diagnostic fingerprint only."
+}

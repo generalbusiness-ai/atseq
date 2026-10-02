@@ -1,0 +1,4335 @@
+{
+  "metadata": {
+    "format": "atseq-complete-state-cap",
+    "version": 1,
+    "phase": "untimed-correctness-and-structural-counts",
+    "capturedAt": "2026-10-01T20:37:48.199Z",
+    "exactHead": "21ee448fc3ea3ff7cb269e02ca45b68bcc989b98",
+    "node": "v26.10.0",
+    "machine": {
+      "platform": "darwin",
+      "release": "27.0.0",
+      "arch": "arm64",
+      "cpu": "Apple M5 Max",
+      "logicalCpus": 18,
+      "totalMemoryBytes": 68719476736
+    },
+    "fixtureSha256": "bc0ead4ddb710a1a5c3cb5d1d3836d19a60b33360f8ca36d0138a37aac663b4d",
+    "fixtureBytes": 8733307,
+    "profiles": [
+      {
+        "name": "atseq-log-v2",
+        "cid": "bafyreia3v3wcbtdnmvomgim66hnmnndtdfprcdjqxmdpavnkrsrnccsbui",
+        "role": "log"
+      },
+      {
+        "name": "atseq-jsonata-v1",
+        "cid": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm",
+        "role": "evaluator"
+      },
+      {
+        "name": "atseq-app-v2",
+        "cid": "bafyreihjm5qgtokmfkgrwa5lagznvhybbuox4sif4oqtbwjzdpgwcpfnsu",
+        "role": "application"
+      }
+    ],
+    "sourceHashes": {
+      "experiments/complete-state-cap/fixtures.ts": "e018ee6b18b4c9c66c95936b505b9e18ab91b377a26e7f837ecf7683f29d9c98",
+      "experiments/complete-state-cap/kernels.ts": "c757bd6ca485896f4fdb07d5430736c073504dd08ca610ca28170f7dec94f164",
+      "experiments/complete-state-cap/measure.ts": "dbd629e6261e696f8beb90b32af97e4361651793348d8c1a3f41de0d90718187",
+      "experiments/complete-state-cap/node-run.ts": "208020d2c69874a073b250326c19c7fd73f9df3e485217cfa2550e11bf83aa67",
+      "experiments/complete-state-cap/browser.ts": "02effa90a57ffeb92fe1210a74df03f4c81792492d3bac4d28f985507aaaa604",
+      "experiments/complete-state-cap/browser-run.mjs": "ccfac6f86c158dcf434d2f6b7b8a3d948cd78b9b3452328a173430410b635ab3",
+      "experiments/complete-state-cap/functional-run.ts": "002d4b19353568c304cd86c9d276782d4d5471dcfb33a12b01413cf558682404",
+      "src/core/values.ts": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f",
+      "src/core/profile.ts": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+      "src/definition/load.ts": "58f47a238bfc90d6f1cef4e4c6e41730ea4cb59584f6df8b0dac7f8394b9327b",
+      "src/definition/schemas.ts": "bbcb48b74e687243bba4bb0e72170bc4f12207d2e7b75498a65271c073c6f9ac",
+      "src/runtime/evaluator.ts": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+      "src/application/folder.ts": "de87ce34a4062417c933ce8b7b7eb273f992a37ac3c8afc3bbe3be664b2111f0",
+      "package.json": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a",
+      "npm-shrinkwrap.json": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468",
+      "src/core/dependencies-approved.json": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a",
+      "src/integrity/files-approved.json": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149",
+      "testdata/source-documents/taskboard.atseq.json": "bf2c631de02840922a58d61f921e6c3d3ddd7367ed05f21ec05c85651c03df20",
+      "testdata/source-documents/guitar.atseq.json": "1d1a5163f18f53e7eeae178f90fda440fee0efe42e6f8bcf5de7f1952dce9643",
+      "testdata/source-documents/ledger.atseq.json": "f0b35532e77430223b076a1b33b9cffebdab09ea02971f4275d12154ac615f82"
+    },
+    "limitations": [
+      "Separate complete-state kernels, not exclusive components of replay or native catch-up.",
+      "No signing, ordering, host/network/storage/checkpoint/worker-transfer timing.",
+      "Generic definitions are experimental fixtures under current limits; sample source documents are unchanged.",
+      "Structural hooks run only outside timing and count actual calls/encoded bytes, not heap allocations or a universal work bound."
+    ]
+  },
+  "results": [
+    {
+      "name": "scalar-small",
+      "family": "scalar",
+      "size": "small",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreibymgivslyv6omdy4d2mpd3drz52pdso7svhukcanjybx2zyq25xi",
+      "rowCount": 0,
+      "stateJsonBytes": 4096,
+      "predecessorJsonBytes": 4095,
+      "diagnosticCborBytes": 4086,
+      "stateCanonicalRawCid": "bafkreiaco6t226jozmmdoyskb6mazgs6ntarjad7gj2bqncgszelmm5j4m",
+      "shape": {
+        "objects": 1,
+        "arrays": 0,
+        "objectKeys": 3,
+        "arrayElements": 0,
+        "strings": 1,
+        "scalarValues": 3,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 0
+      },
+      "canonicalTokenCharges": 13,
+      "canonicalChargedBytes": 4096,
+      "expectedQuery": {
+        "value": 1000000,
+        "revision": 0
+      },
+      "queryCid": "bafyreibghd2ydchiv66hhvwf24yqkav4t5bjcyckizqw2os7itzvpp5xja",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 4081,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 4081,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 4081,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 4081,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 12243,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 6,
+            "encodedBytes": 27,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 60,
+            "encodedBytes": 41127,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 21,
+          "inspectedBytes": 32767
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 70,
+            "encodedBytes": 49297,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiajxw4qkc4ndvj5mt3ieqc5irn64lvgkcrhvqy25uece6iqi7xb24"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 61,
+            "encodedBytes": 45208,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreidgc25ctahvbrv4mtw3fcuaeeshs6a33xczx7weiidn6j6e4womdy"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 88,
+            "encodedBytes": 61567,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiajxw4qkc4ndvj5mt3ieqc5irn64lvgkcrhvqy25uece6iqi7xb24"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 21,
+            "encodedBytes": 12357,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 9,
+          "inspectedBytes": 8259
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 27,
+            "encodedBytes": 12408,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          },
+          "evaluationSteps": 9,
+          "inspectedBytes": 8259
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "scalar-near-cap",
+      "family": "scalar",
+      "size": "near-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreic4pprgfqqyvvbtkihgyvwwxhyknt7ltwgsfhbn6bmsnwe2zv5mee",
+      "rowCount": 0,
+      "stateJsonBytes": 126976,
+      "predecessorJsonBytes": 126975,
+      "diagnosticCborBytes": 126968,
+      "stateCanonicalRawCid": "bafkreiaohzwmhds4ndvi246lc6sq33bpe73axbxtklljuk4u4jc7td6wnq",
+      "shape": {
+        "objects": 1,
+        "arrays": 0,
+        "objectKeys": 3,
+        "arrayElements": 0,
+        "strings": 1,
+        "scalarValues": 3,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 0
+      },
+      "canonicalTokenCharges": 13,
+      "canonicalChargedBytes": 126976,
+      "expectedQuery": {
+        "value": 1000000,
+        "revision": 0
+      },
+      "queryCid": "bafyreibghd2ydchiv66hhvwf24yqkav4t5bjcyckizqw2os7itzvpp5xja",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 126961,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 126961,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 126961,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 126961,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 380883,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 6,
+            "encodedBytes": 27,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 60,
+            "encodedBytes": 1269927,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 21,
+          "inspectedBytes": 1015807
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 70,
+            "encodedBytes": 1523857,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiauicumdtsy4tnngp3spp5h6jvgtgcirwoc6zs6dpf7yuyr6svq4a"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 61,
+            "encodedBytes": 1396888,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreic6uxee5werh5pedjvd3zgaohyze5xv7cfvfiukbm44rwha45bjv4"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 88,
+            "encodedBytes": 1904767,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiauicumdtsy4tnngp3spp5h6jvgtgcirwoc6zs6dpf7yuyr6svq4a"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 21,
+            "encodedBytes": 380997,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 9,
+          "inspectedBytes": 254019
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 27,
+            "encodedBytes": 381048,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          },
+          "evaluationSteps": 9,
+          "inspectedBytes": 254019
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "scalar-at-cap",
+      "family": "scalar",
+      "size": "at-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreiffrentetvw5dse42xue2tsinfte7ymlb74b7btf57dt3efl2dmse",
+      "rowCount": 0,
+      "stateJsonBytes": 131072,
+      "predecessorJsonBytes": 131071,
+      "diagnosticCborBytes": 131064,
+      "stateCanonicalRawCid": "bafkreiekjlvnbnr47hczaoebi54p7bjjpdxms74mypkmsc7g72jopb3d3i",
+      "shape": {
+        "objects": 1,
+        "arrays": 0,
+        "objectKeys": 3,
+        "arrayElements": 0,
+        "strings": 1,
+        "scalarValues": 3,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 0
+      },
+      "canonicalTokenCharges": 13,
+      "canonicalChargedBytes": 131072,
+      "expectedQuery": {
+        "value": 1000000,
+        "revision": 0
+      },
+      "queryCid": "bafyreibghd2ydchiv66hhvwf24yqkav4t5bjcyckizqw2os7itzvpp5xja",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 131057,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 131057,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 131057,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 131057,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 393171,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 6,
+            "encodedBytes": 27,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 60,
+            "encodedBytes": 1310887,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 21,
+          "inspectedBytes": 1048575
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 70,
+            "encodedBytes": 1573009,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreidcmu3fswwjw4k2ryiqaglml5mnyjciiqqogvnns34endxqpt2zse"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 61,
+            "encodedBytes": 1441944,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreigcq5nrxui3rqjamachnzsa63im43u3ll6dybgzc2xq2nf45b6wom"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 88,
+            "encodedBytes": 1966207,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreidcmu3fswwjw4k2ryiqaglml5mnyjciiqqogvnns34endxqpt2zse"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 21,
+            "encodedBytes": 393285,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 9,
+          "inspectedBytes": 262211
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 27,
+            "encodedBytes": 393336,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          },
+          "evaluationSteps": 9,
+          "inspectedBytes": 262211
+        }
+      ],
+      "controls": {
+        "overcapState": "value_bytes",
+        "overcapFoldInput": "value_bytes",
+        "overcapInitialSource": "value_bytes"
+      }
+    },
+    {
+      "name": "primitive-array-small",
+      "family": "primitive-array",
+      "size": "small",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreig3utaydta2odosiuuapgvzj5m6dimvdng74otcicx5e3m22uumcm",
+      "rowCount": 504,
+      "stateJsonBytes": 4096,
+      "predecessorJsonBytes": 4088,
+      "diagnosticCborBytes": 2577,
+      "stateCanonicalRawCid": "bafkreifqpyka46coay3nqzfk46txfxjeaia3kxfnly3m4l2upovc5pkcri",
+      "shape": {
+        "objects": 1,
+        "arrays": 1,
+        "objectKeys": 3,
+        "arrayElements": 504,
+        "strings": 1,
+        "scalarValues": 506,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 504
+      },
+      "canonicalTokenCharges": 1021,
+      "canonicalChargedBytes": 4096,
+      "expectedQuery": {
+        "count": 504,
+        "total": 504000000
+      },
+      "queryCid": "bafyreibk2qmjq6r25fdtzh5ankdxlp5l7lbvkjhzagctvufygbirbtj5oq",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 165,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 3,
+            "encodedBytes": 21,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 55,
+            "encodedBytes": 843,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 22,
+          "inspectedBytes": 32722
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 64,
+            "encodedBytes": 960,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreibwkwgebylqjy56fcmv4b3244iuhvya5rdizcfsbxfgd6zpqsdp3q"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 61,
+            "encodedBytes": 922,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreibqelue3wqxme5sagkxy2ghgv42fh67d6rcfj2uz4vmeknxhd7wpm"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 79,
+            "encodedBytes": 1146,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreibwkwgebylqjy56fcmv4b3244iuhvya5rdizcfsbxfgd6zpqsdp3q"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 21,
+            "encodedBytes": 279,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 24381
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 27,
+            "encodedBytes": 321,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 24381
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "primitive-array-near-cap",
+      "family": "primitive-array",
+      "size": "near-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreidfp2usycar3cadifogyztu754524boaznjq23ujfegukzz4iuusq",
+      "rowCount": 15864,
+      "stateJsonBytes": 126976,
+      "predecessorJsonBytes": 126968,
+      "diagnosticCborBytes": 79377,
+      "stateCanonicalRawCid": "bafkreihj3htaqg4rxo62gwd7aa5xfmlv2q2pyimvjtywwbudsh6r7utumi",
+      "shape": {
+        "objects": 1,
+        "arrays": 1,
+        "objectKeys": 3,
+        "arrayElements": 15864,
+        "strings": 1,
+        "scalarValues": 15866,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 15864
+      },
+      "canonicalTokenCharges": 31741,
+      "canonicalChargedBytes": 126976,
+      "expectedQuery": {
+        "count": 15864,
+        "total": 15864000000
+      },
+      "queryCid": "bafyreietthbvghla5t2j3jalrsckn4nwfsl4wq4fthsestpnfg45uzh5jq",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 165,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 3,
+            "encodedBytes": 21,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 55,
+            "encodedBytes": 843,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 22,
+          "inspectedBytes": 1015762
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 64,
+            "encodedBytes": 960,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreigjnkmcjuujvuq3ff7tql6rp3rfudlvvxwvunzlp24xxc75cgfdoi"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 61,
+            "encodedBytes": 922,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreigood2opobklzfgx4lb5cj37elyaxszt37bosxwxqpd6unpe3blca"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 79,
+            "encodedBytes": 1146,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreigjnkmcjuujvuq3ff7tql6rp3rfudlvvxwvunzlp24xxc75cgfdoi"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 21,
+            "encodedBytes": 279,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 761669
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 27,
+            "encodedBytes": 321,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 761669
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "primitive-array-at-cap",
+      "family": "primitive-array",
+      "size": "at-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreib6j3jwngl4olgjzul4435uoqwpogrkzkjqjjorgdlx4jewehhmli",
+      "rowCount": 16376,
+      "stateJsonBytes": 131072,
+      "predecessorJsonBytes": 131064,
+      "diagnosticCborBytes": 81937,
+      "stateCanonicalRawCid": "bafkreih4xzyatuu4cjz2yoyoh635lcezeilnq326nqfwp6eu4mgpd7ywva",
+      "shape": {
+        "objects": 1,
+        "arrays": 1,
+        "objectKeys": 3,
+        "arrayElements": 16376,
+        "strings": 1,
+        "scalarValues": 16378,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 16376
+      },
+      "canonicalTokenCharges": 32765,
+      "canonicalChargedBytes": 131072,
+      "expectedQuery": {
+        "count": 16376,
+        "total": 16376000000
+      },
+      "queryCid": "bafyreihdlj5fbzojo43illp4qllu2fbkdi7tmo7fvm5aaqldkzgrf6acbi",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4,
+            "encodedBytes": 55,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 165,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 3,
+            "encodedBytes": 21,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 55,
+            "encodedBytes": 843,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 22,
+          "inspectedBytes": 1048530
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 64,
+            "encodedBytes": 960,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreifa477esmcypj5a7u5gsl4jwcnaz5d6argjywr47sztfp5xrwj2oe"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 61,
+            "encodedBytes": 922,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreifd77va35gwgsotsvxfrvvdq6e4n5u75ws3hqglledkt7r4e6psm4"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 79,
+            "encodedBytes": 1146,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreifa477esmcypj5a7u5gsl4jwcnaz5d6argjywr47sztfp5xrwj2oe"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 21,
+            "encodedBytes": 279,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 786245
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 27,
+            "encodedBytes": 321,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 786245
+        }
+      ],
+      "controls": {
+        "overcapState": "value_bytes",
+        "overcapFoldInput": "value_bytes",
+        "overcapInitialSource": "value_bytes"
+      }
+    },
+    {
+      "name": "row-array-small",
+      "family": "row-array",
+      "size": "small",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreigakawjqp4kkdcqp7qezsmzuhjfdv333z2fj447buyo6ixzncl4uy",
+      "rowCount": 10,
+      "stateJsonBytes": 4096,
+      "predecessorJsonBytes": 3974,
+      "diagnosticCborBytes": 3958,
+      "stateCanonicalRawCid": "bafkreidztw7eesjxwsrvhri7re2ckptrzedjhqc556bh2yixfwrk7edi7e",
+      "shape": {
+        "objects": 11,
+        "arrays": 1,
+        "objectKeys": 33,
+        "arrayElements": 10,
+        "strings": 21,
+        "scalarValues": 32,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 10
+      },
+      "canonicalTokenCharges": 153,
+      "canonicalChargedBytes": 4096,
+      "expectedQuery": {
+        "count": 10,
+        "total": 10000000
+      },
+      "queryCid": "bafyreifuhlyjpb3jmbjgjo7sjmsafznimmzgd5jzusg4ynyze7y65nvcne",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 3937,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 3937,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 3937,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 3937,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 162,
+            "encodedBytes": 11811,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 321,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 538,
+            "encodedBytes": 36510,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 21,
+          "inspectedBytes": 29551
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 646,
+            "encodedBytes": 44384,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreihbbsyww2xu6foxvcuzc45g7dz5nhtyelrxw46olrcd6cmr5vzale"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 611,
+            "encodedBytes": 43624,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreihnhscatxq25qxm2fx25fvkq2sbpukv2u5lwc7srer4ukrr2evyfa"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 823,
+            "encodedBytes": 56516,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreihbbsyww2xu6foxvcuzc45g7dz5nhtyelrxw46olrcd6cmr5vzale"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 321,
+            "encodedBytes": 15141,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 23,
+          "inspectedBytes": 12059
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 327,
+            "encodedBytes": 15183,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          },
+          "evaluationSteps": 23,
+          "inspectedBytes": 12059
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "row-array-near-cap",
+      "family": "row-array",
+      "size": "near-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreigqxxnjmdo55s5dm7vtpbyzyjvrj56as45dikq5hq25dfuqzechs4",
+      "rowCount": 1000,
+      "stateJsonBytes": 126976,
+      "predecessorJsonBytes": 126854,
+      "diagnosticCborBytes": 113970,
+      "stateCanonicalRawCid": "bafkreifvf6qm2337xp5w23cyiqrtntmge4hdbva2i2betzirjtoflxtyz4",
+      "shape": {
+        "objects": 1001,
+        "arrays": 1,
+        "objectKeys": 3003,
+        "arrayElements": 1000,
+        "strings": 2001,
+        "scalarValues": 3002,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 14013,
+      "canonicalChargedBytes": 126976,
+      "expectedQuery": {
+        "count": 1000,
+        "total": 1000000000
+      },
+      "queryCid": "bafyreic2nqrr7xg67wnde7mt7ke7h6qsayct5gayalgp3kfnvyclhg3dbi",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 111967,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 111967,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 111967,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 111967,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 15012,
+            "encodedBytes": 335901,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 321,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 50038,
+            "encodedBytes": 1114710,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 21,
+          "inspectedBytes": 1010491
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 60046,
+            "encodedBytes": 1338644,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreif3einu2f7bsomjs2dlraiovxnv4gldvv4dewao7zgzmhps7xhxz4"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 55061,
+            "encodedBytes": 1231954,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiccf7l3z3qz4tozdll6ozumnu7flcrmhqtitjct7tytrwco56nfay"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 75073,
+            "encodedBytes": 1674866,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreif3einu2f7bsomjs2dlraiovxnv4gldvv4dewao7zgzmhps7xhxz4"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 30021,
+            "encodedBytes": 657021,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 1013,
+          "inspectedBytes": 635017
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 30027,
+            "encodedBytes": 657063,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          },
+          "evaluationSteps": 1013,
+          "inspectedBytes": 635017
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "row-array-at-cap",
+      "family": "row-array",
+      "size": "at-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreid4tqt572qou76gf26mz4dh7ozli34rxqnyw6nw6tehih5la6j75e",
+      "rowCount": 1000,
+      "stateJsonBytes": 131072,
+      "predecessorJsonBytes": 130950,
+      "diagnosticCborBytes": 118066,
+      "stateCanonicalRawCid": "bafkreic5suvknd65flln2ue2g2dybrskuf7ttssyubwwskrxzdjqkaycye",
+      "shape": {
+        "objects": 1001,
+        "arrays": 1,
+        "objectKeys": 3003,
+        "arrayElements": 1000,
+        "strings": 2001,
+        "scalarValues": 3002,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 14013,
+      "canonicalChargedBytes": 131072,
+      "expectedQuery": {
+        "count": 1000,
+        "total": 1000000000
+      },
+      "queryCid": "bafyreic2nqrr7xg67wnde7mt7ke7h6qsayct5gayalgp3kfnvyclhg3dbi",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 116063,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 116063,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 116063,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 116063,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 15012,
+            "encodedBytes": 348189,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 321,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 50038,
+            "encodedBytes": 1151574,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 21,
+          "inspectedBytes": 1039163
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 60046,
+            "encodedBytes": 1383700,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreifj6p35fwhgyachhizndxpzd4k4mr4eynsdszzmyf42jzgxsz5xsa"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 55061,
+            "encodedBytes": 1277010,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreibqj3fk3bqmd6pyb5s24zgavgoilorkvhmsh6flae4wsicrhel7wm"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 75073,
+            "encodedBytes": 1732210,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreifj6p35fwhgyachhizndxpzd4k4mr4eynsdszzmyf42jzgxsz5xsa"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 30021,
+            "encodedBytes": 669309,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 1013,
+          "inspectedBytes": 643209
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 30027,
+            "encodedBytes": 669351,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          },
+          "evaluationSteps": 1013,
+          "inspectedBytes": 643209
+        }
+      ],
+      "controls": {
+        "overcapState": "value_bytes",
+        "overcapFoldInput": "value_bytes",
+        "overcapInitialSource": "value_bytes"
+      }
+    },
+    {
+      "name": "wide-object-small",
+      "family": "wide-object",
+      "size": "small",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreic22hkd5i73warx5l44nvh4aj6u2tvmtjq7xr6fpriti2okhkir7m",
+      "rowCount": 128,
+      "stateJsonBytes": 4096,
+      "predecessorJsonBytes": 4079,
+      "diagnosticCborBytes": 3449,
+      "stateCanonicalRawCid": "bafkreif7h5tqc3vyinfe6io2c57qmleysbkxlhd5rczqqvecqfc62cvoji",
+      "shape": {
+        "objects": 2,
+        "arrays": 0,
+        "objectKeys": 131,
+        "arrayElements": 0,
+        "strings": 1,
+        "scalarValues": 130,
+        "maximumObjectWidth": 128,
+        "maximumArrayLength": 0
+      },
+      "canonicalTokenCharges": 525,
+      "canonicalChargedBytes": 4096,
+      "expectedQuery": {
+        "value": 1000000,
+        "revision": 0
+      },
+      "queryCid": "bafyreibghd2ydchiv66hhvwf24yqkav4t5bjcyckizqw2os7itzvpp5xja",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 132,
+            "encodedBytes": 2935,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 132,
+            "encodedBytes": 2935,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 132,
+            "encodedBytes": 2935,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 132,
+            "encodedBytes": 2935,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 396,
+            "encodedBytes": 8805,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 9,
+            "encodedBytes": 57,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 1467,
+            "encodedBytes": 28840,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 27,
+          "inspectedBytes": 33085
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 1733,
+            "encodedBytes": 34721,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreicxgrqnf56sbwui7m5mvvv7o6mgwg2bejldljgjnstv233uaxg7om"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 1469,
+            "encodedBytes": 32602,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreig6ewfrpbcibjp6flr4fy4cbvay3qeb46duo7njvcle2olgueupfi"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 2138,
+            "encodedBytes": 43583,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreicxgrqnf56sbwui7m5mvvv7o6mgwg2bejldljgjnstv233uaxg7om"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 662,
+            "encodedBytes": 10993,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 12,
+          "inspectedBytes": 12614
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 668,
+            "encodedBytes": 11044,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 4096
+          },
+          "evaluationSteps": 12,
+          "inspectedBytes": 12614
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "wide-object-near-cap",
+      "family": "wide-object",
+      "size": "near-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreiftjqg6xho7ancroozkmbepva5d2oqlyi4id72y23t43nlc6vjsi4",
+      "rowCount": 4096,
+      "stateJsonBytes": 126976,
+      "predecessorJsonBytes": 126959,
+      "diagnosticCborBytes": 106490,
+      "stateCanonicalRawCid": "bafkreihkytbphpok4veup77nns6dqjfube2noqqk6dqrj5efq22np56mg4",
+      "shape": {
+        "objects": 2,
+        "arrays": 0,
+        "objectKeys": 4099,
+        "arrayElements": 0,
+        "strings": 1,
+        "scalarValues": 4098,
+        "maximumObjectWidth": 4096,
+        "maximumArrayLength": 0
+      },
+      "canonicalTokenCharges": 16397,
+      "canonicalChargedBytes": 126976,
+      "expectedQuery": {
+        "value": 1000000,
+        "revision": 0
+      },
+      "queryCid": "bafyreibghd2ydchiv66hhvwf24yqkav4t5bjcyckizqw2os7itzvpp5xja",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 90103,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 90103,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 90103,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 90103,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12300,
+            "encodedBytes": 270309,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 9,
+            "encodedBytes": 57,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 45115,
+            "encodedBytes": 876840,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 27,
+          "inspectedBytes": 1028157
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 53317,
+            "encodedBytes": 1057057,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreid64qwvhtlng7ytesivyhf27rwep4v4vdmoqyhrrtvzsfuzmh6hom"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 45117,
+            "encodedBytes": 991450,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreicrbmt6w3vg5ri5cypuqu47dqnm3pcmhzxses5mycaoidgqbix6re"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 65626,
+            "encodedBytes": 1327423,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreid64qwvhtlng7ytesivyhf27rwep4v4vdmoqyhrrtvzsfuzmh6hom"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 20502,
+            "encodedBytes": 335985,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 12,
+          "inspectedBytes": 393286
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 20508,
+            "encodedBytes": 336036,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          },
+          "evaluationSteps": 12,
+          "inspectedBytes": 393286
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "wide-object-at-cap",
+      "family": "wide-object",
+      "size": "at-cap",
+      "preparation": "generic experimental definition",
+      "sourceCid": "bafyreihv7squn4xvf23wpwydw3qwc2czkchj5er57bh7pis7sk2dzqberm",
+      "rowCount": 4096,
+      "stateJsonBytes": 131072,
+      "predecessorJsonBytes": 131055,
+      "diagnosticCborBytes": 110586,
+      "stateCanonicalRawCid": "bafkreiftssywxtkbequ6l7szbl73lg2fbe7czr2vpwvygowwsgkixdbrrq",
+      "shape": {
+        "objects": 2,
+        "arrays": 0,
+        "objectKeys": 4099,
+        "arrayElements": 0,
+        "strings": 1,
+        "scalarValues": 4098,
+        "maximumObjectWidth": 4096,
+        "maximumArrayLength": 0
+      },
+      "canonicalTokenCharges": 16397,
+      "canonicalChargedBytes": 131072,
+      "expectedQuery": {
+        "value": 1000000,
+        "revision": 0
+      },
+      "queryCid": "bafyreibghd2ydchiv66hhvwf24yqkav4t5bjcyckizqw2os7itzvpp5xja",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 94199,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 94199,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 94199,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4100,
+            "encodedBytes": 94199,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12300,
+            "encodedBytes": 282597,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 9,
+            "encodedBytes": 57,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 45115,
+            "encodedBytes": 913704,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 27,
+          "inspectedBytes": 1056829
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 53317,
+            "encodedBytes": 1102113,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreigvhkobr4pfhg67g65ifg3jtizypewhsimjak623thwdigmgbinfq"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 45117,
+            "encodedBytes": 1036506,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreicdwgwgoicnfdixze6me6lxqk5cl7a2waogrtb73urrfsmq4uh4lu"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 65626,
+            "encodedBytes": 1384767,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreigvhkobr4pfhg67g65ifg3jtizypewhsimjak623thwdigmgbinfq"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 20502,
+            "encodedBytes": 348273,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 12,
+          "inspectedBytes": 401478
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 20508,
+            "encodedBytes": 348324,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          },
+          "evaluationSteps": 12,
+          "inspectedBytes": 401478
+        }
+      ],
+      "controls": {
+        "overcapState": "value_bytes",
+        "overcapFoldInput": "value_bytes",
+        "overcapInitialSource": "value_bytes"
+      }
+    },
+    {
+      "name": "taskboard-small",
+      "family": "taskboard",
+      "size": "small",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "rowCount": 10,
+      "stateJsonBytes": 306,
+      "predecessorJsonBytes": 278,
+      "diagnosticCborBytes": 209,
+      "stateCanonicalRawCid": "bafkreicdxyadbalwyvx3uti6ynxghbyydt5e7rtpd6ydbj4zsxaq2ref4i",
+      "shape": {
+        "objects": 11,
+        "arrays": 2,
+        "objectKeys": 22,
+        "arrayElements": 10,
+        "strings": 20,
+        "scalarValues": 20,
+        "maximumObjectWidth": 2,
+        "maximumArrayLength": 10
+      },
+      "canonicalTokenCharges": 110,
+      "canonicalChargedBytes": 306,
+      "expectedQuery": {
+        "count": 10,
+        "completed": 0
+      },
+      "queryCid": "bafyreif2fgnzb2zdytr52tqywk2ss23yvucefhxbtmz2eqn4fptf625tzi",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 42,
+            "encodedBytes": 238,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 42,
+            "encodedBytes": 238,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 306
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 42,
+            "encodedBytes": 238,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 42,
+            "encodedBytes": 238,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 126,
+            "encodedBytes": 714,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 66,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 584,
+            "encodedBytes": 3706,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 64,
+          "inspectedBytes": 3642
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 668,
+            "encodedBytes": 4182,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiclzdu67mllwn5dcmozhabb6eltsbtp3rvqovs7aoqzj756buzvhu"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 246,
+            "encodedBytes": 1868,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreifztlm7m6womdzm3hrpkefybvyxnotqxwgxyfpjd4o2xte7fa4jwu"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 806,
+            "encodedBytes": 4962,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiclzdu67mllwn5dcmozhabb6eltsbtp3rvqovs7aoqzj756buzvhu"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 215,
+            "encodedBytes": 1289,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 1225
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 221,
+            "encodedBytes": 1343,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 306
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 1225
+        }
+      ],
+      "controls": {
+        "sampleRows": "schema_value",
+        "sampleText": "schema_value"
+      }
+    },
+    {
+      "name": "taskboard-near-cap",
+      "family": "taskboard",
+      "size": "near-cap",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "rowCount": 1000,
+      "stateJsonBytes": 126976,
+      "predecessorJsonBytes": 126948,
+      "diagnosticCborBytes": 118803,
+      "stateCanonicalRawCid": "bafkreihh6unybumbfoqishpyems2mtu6bsrt42axnqcscjyz5jpsj65zz4",
+      "shape": {
+        "objects": 1001,
+        "arrays": 2,
+        "objectKeys": 2002,
+        "arrayElements": 1000,
+        "strings": 2000,
+        "scalarValues": 2000,
+        "maximumObjectWidth": 2,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 10010,
+      "canonicalChargedBytes": 126976,
+      "expectedQuery": {
+        "count": 1000,
+        "completed": 0
+      },
+      "queryCid": "bafyreibfgfv4bm7kry6o5c52rxzxvjwzy255zbu36or2seqll25dpv3umq",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 120968,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 120968,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 120968,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 120968,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12006,
+            "encodedBytes": 362904,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 66,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 55034,
+            "encodedBytes": 1596956,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 4024,
+          "inspectedBytes": 1427702
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 63038,
+            "encodedBytes": 1838892,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreie5ppe64d7shmuw47wdptmclti7p4vctk4nnrpwqg5h5shjymfidy"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 19056,
+            "encodedBytes": 509024,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreifztlm7m6womdzm3hrpkefybvyxnotqxwgxyfpjd4o2xte7fa4jwu"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 75056,
+            "encodedBytes": 2201862,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreie5ppe64d7shmuw47wdptmclti7p4vctk4nnrpwqg5h5shjymfidy"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 20015,
+            "encodedBytes": 604939,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 507909
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 20021,
+            "encodedBytes": 604993,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 507909
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "taskboard-at-cap",
+      "family": "taskboard",
+      "size": "at-cap",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreigpaymvdwooxqitbygilwsqlh4xuwvfrjqdupupe3ll74wfwhr24m",
+      "rowCount": 1000,
+      "stateJsonBytes": 131072,
+      "predecessorJsonBytes": 131044,
+      "diagnosticCborBytes": 122933,
+      "stateCanonicalRawCid": "bafkreiayb6ohnh3queca4ef6utrywitrre3kbympdwopfwyuamvtwvh6yu",
+      "shape": {
+        "objects": 1001,
+        "arrays": 2,
+        "objectKeys": 2002,
+        "arrayElements": 1000,
+        "strings": 2000,
+        "scalarValues": 2000,
+        "maximumObjectWidth": 2,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 10010,
+      "canonicalChargedBytes": 131072,
+      "expectedQuery": {
+        "count": 1000,
+        "completed": 0
+      },
+      "queryCid": "bafyreibfgfv4bm7kry6o5c52rxzxvjwzy255zbu36or2seqll25dpv3umq",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 125064,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 125064,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 125064,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 4002,
+            "encodedBytes": 125064,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 12006,
+            "encodedBytes": 375192,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 12,
+            "encodedBytes": 66,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 55034,
+            "encodedBytes": 1650204,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 4024,
+          "inspectedBytes": 1472758
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 63038,
+            "encodedBytes": 1900332,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreihfhrvlkcabnu46ujz2iswbrtlb5pmnvocmh3k6odbe6pw6kif6ti"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 19056,
+            "encodedBytes": 525408,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreifztlm7m6womdzm3hrpkefybvyxnotqxwgxyfpjd4o2xte7fa4jwu"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 75056,
+            "encodedBytes": 2275590,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreihfhrvlkcabnu46ujz2iswbrtlb5pmnvocmh3k6odbe6pw6kif6ti"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 20015,
+            "encodedBytes": 625419,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 524293
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 20021,
+            "encodedBytes": 625473,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          },
+          "evaluationSteps": 13,
+          "inspectedBytes": 524293
+        }
+      ],
+      "controls": {
+        "overcapState": "value_bytes",
+        "overcapFoldInput": "value_bytes",
+        "overcapInitialSource": "value_bytes"
+      }
+    },
+    {
+      "name": "guitar-small",
+      "family": "guitar",
+      "size": "small",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreibd4esaloqg3yfoui4ndueevdrw45vux7cjdw2wmhht53vjist5sm",
+      "rowCount": 10,
+      "stateJsonBytes": 466,
+      "predecessorJsonBytes": 421,
+      "diagnosticCborBytes": 333,
+      "stateCanonicalRawCid": "bafkreiaodjrfzyuxl7vy4v6wtblnhygtlm5cxobptyh5jerl22vzsdg6ki",
+      "shape": {
+        "objects": 11,
+        "arrays": 1,
+        "objectKeys": 31,
+        "arrayElements": 10,
+        "strings": 20,
+        "scalarValues": 30,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 10
+      },
+      "canonicalTokenCharges": 145,
+      "canonicalChargedBytes": 466,
+      "expectedQuery": {
+        "count": 10,
+        "totalPence": 1000
+      },
+      "queryCid": "bafyreieskgy4g7xyza6ywdet6ijledovysyaa33ub32ucilwexitqp6p7q",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 51,
+            "encodedBytes": 352,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 51,
+            "encodedBytes": 352,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 466
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 51,
+            "encodedBytes": 352,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 51,
+            "encodedBytes": 352,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 153,
+            "encodedBytes": 1056,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 102,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 655,
+            "encodedBytes": 4840,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 60,
+          "inspectedBytes": 4960
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 757,
+            "encodedBytes": 5544,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiacf54jh3rnaxtdp2nxj73nbsbf5sp3aqermixgdz6hstpdzfzafe"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 287,
+            "encodedBytes": 2371,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreidgyny67wcsuua24ft3eccigc2xsjwdbecq5hl6ygwtollq7izjx4"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 925,
+            "encodedBytes": 6702,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreiacf54jh3rnaxtdp2nxj73nbsbf5sp3aqermixgdz6hstpdzfzafe"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 463,
+            "encodedBytes": 3299,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 32,
+          "inspectedBytes": 3795
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 469,
+            "encodedBytes": 3356,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 466
+          },
+          "evaluationSteps": 32,
+          "inspectedBytes": 3795
+        }
+      ],
+      "controls": {
+        "sampleRows": "schema_value",
+        "sampleText": "schema_value"
+      }
+    },
+    {
+      "name": "guitar-near-cap",
+      "family": "guitar",
+      "size": "near-cap",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreibd4esaloqg3yfoui4ndueevdrw45vux7cjdw2wmhht53vjist5sm",
+      "rowCount": 1000,
+      "stateJsonBytes": 126976,
+      "predecessorJsonBytes": 126931,
+      "diagnosticCborBytes": 114664,
+      "stateCanonicalRawCid": "bafkreidjufbweklq4eqizdpvksxki4zmg7zthaoqopu2roccvfd7xgcod4",
+      "shape": {
+        "objects": 1001,
+        "arrays": 1,
+        "objectKeys": 3001,
+        "arrayElements": 1000,
+        "strings": 2000,
+        "scalarValues": 3000,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 14005,
+      "canonicalChargedBytes": 126976,
+      "expectedQuery": {
+        "count": 1000,
+        "totalPence": 100000
+      },
+      "queryCid": "bafyreiecrzk25g3wkvoyq6olepfdutrwv4x5lmkebqwlcasjuugxd6pwvq",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 115972,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 115972,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 115972,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 115972,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 15003,
+            "encodedBytes": 347916,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 102,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 63025,
+            "encodedBytes": 1416040,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 4020,
+          "inspectedBytes": 1300750
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 73027,
+            "encodedBytes": 1647984,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreieneby4dbyrfdioikoopmteuenfqcn73wzmtwtzysvjf5krnagzmu"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 23057,
+            "encodedBytes": 489087,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreidgyny67wcsuua24ft3eccigc2xsjwdbecq5hl6ygwtollq7izjx4"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 88045,
+            "encodedBytes": 1996002,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreieneby4dbyrfdioikoopmteuenfqcn73wzmtwtzysvjf5krnagzmu"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 45013,
+            "encodedBytes": 1043879,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 1022,
+          "inspectedBytes": 1022819
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 45019,
+            "encodedBytes": 1043936,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          },
+          "evaluationSteps": 1022,
+          "inspectedBytes": 1022819
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "guitar-at-cap",
+      "family": "guitar",
+      "size": "at-cap",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreibd4esaloqg3yfoui4ndueevdrw45vux7cjdw2wmhht53vjist5sm",
+      "rowCount": 1000,
+      "stateJsonBytes": 131072,
+      "predecessorJsonBytes": 131027,
+      "diagnosticCborBytes": 118794,
+      "stateCanonicalRawCid": "bafkreibcvjz7abyx47mv7fwkwho36tjqe2aecq2mqke6xyw3cyowtph63q",
+      "shape": {
+        "objects": 1001,
+        "arrays": 1,
+        "objectKeys": 3001,
+        "arrayElements": 1000,
+        "strings": 2000,
+        "scalarValues": 3000,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 14005,
+      "canonicalChargedBytes": 131072,
+      "expectedQuery": {
+        "count": 1000,
+        "totalPence": 100000
+      },
+      "queryCid": "bafyreiecrzk25g3wkvoyq6olepfdutrwv4x5lmkebqwlcasjuugxd6pwvq",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 120068,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 120068,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 120068,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 5001,
+            "encodedBytes": 120068,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 15003,
+            "encodedBytes": 360204,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 102,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 63025,
+            "encodedBytes": 1465192,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 4020,
+          "inspectedBytes": 1341710
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 73027,
+            "encodedBytes": 1705328,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreickdne4gl3eso5uyxnv3gt3xmmqhaxu6vvzrmkhmzodmtzuxtnqwe"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 23057,
+            "encodedBytes": 505471,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreidgyny67wcsuua24ft3eccigc2xsjwdbecq5hl6ygwtollq7izjx4"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 88045,
+            "encodedBytes": 2065634,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreickdne4gl3eso5uyxnv3gt3xmmqhaxu6vvzrmkhmzodmtzuxtnqwe"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 45013,
+            "encodedBytes": 1080743,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 1022,
+          "inspectedBytes": 1055587
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 45019,
+            "encodedBytes": 1080800,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          },
+          "evaluationSteps": 1022,
+          "inspectedBytes": 1055587
+        }
+      ],
+      "controls": {
+        "overcapState": "value_bytes",
+        "overcapFoldInput": "value_bytes",
+        "overcapInitialSource": "value_bytes"
+      }
+    },
+    {
+      "name": "ledger-small",
+      "family": "ledger",
+      "size": "small",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "rowCount": 10,
+      "stateJsonBytes": 552,
+      "predecessorJsonBytes": 501,
+      "diagnosticCborBytes": 417,
+      "stateCanonicalRawCid": "bafkreicjybqaqgokbgyhrqtexde5sakybwp5c2yanbyc3nota4xfo7xdb4",
+      "shape": {
+        "objects": 11,
+        "arrays": 1,
+        "objectKeys": 33,
+        "arrayElements": 10,
+        "strings": 21,
+        "scalarValues": 32,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 10
+      },
+      "canonicalTokenCharges": 153,
+      "canonicalChargedBytes": 552,
+      "expectedQuery": {
+        "count": 10,
+        "balanceMinor": 0,
+        "currency": "GBP"
+      },
+      "queryCid": "bafyreibifgimoxprkbrzas4btvjt6lgnczwasf4wdgxuqyyj4wsawkx4ia",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 448,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 448,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 552
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 448,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 54,
+            "encodedBytes": 448,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 162,
+            "encodedBytes": 1344,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 123,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 786,
+            "encodedBytes": 6831,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 72,
+          "inspectedBytes": 6780
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 894,
+            "encodedBytes": 7727,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreih5kdbcc45iswxuv2o2wmstci7hohar6rrw6l7z42nefzxiopazfy"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 296,
+            "encodedBytes": 2838,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreidbtbkzen3yeo4ecx7p4wsbwma2ngtc2htc4kenaunbuyfhbvg4oe"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 1071,
+            "encodedBytes": 9194,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreih5kdbcc45iswxuv2o2wmstci7hohar6rrw6l7z42nefzxiopazfy"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 332,
+            "encodedBytes": 2832,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 15,
+          "inspectedBytes": 2763
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 344,
+            "encodedBytes": 2940,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 552
+          },
+          "evaluationSteps": 15,
+          "inspectedBytes": 2763
+        }
+      ],
+      "controls": {
+        "sampleRows": "schema_value",
+        "sampleText": "schema_value"
+      }
+    },
+    {
+      "name": "ledger-near-cap",
+      "family": "ledger",
+      "size": "near-cap",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "rowCount": 1000,
+      "stateJsonBytes": 126976,
+      "predecessorJsonBytes": 126925,
+      "diagnosticCborBytes": 115111,
+      "stateCanonicalRawCid": "bafkreift6deb53oqw2ow7ljr3uitdydwe7sh5zh5wpz33kvuchukytkcye",
+      "shape": {
+        "objects": 1001,
+        "arrays": 1,
+        "objectKeys": 3003,
+        "arrayElements": 1000,
+        "strings": 2001,
+        "scalarValues": 3002,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 14013,
+      "canonicalChargedBytes": 126976,
+      "expectedQuery": {
+        "count": 1000,
+        "balanceMinor": 0,
+        "currency": "GBP"
+      },
+      "queryCid": "bafyreibdrsqvljqcxuf4aim5rdcd3weti7lccrajwgoyncbotwzglmeywm",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 117467,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 117467,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 117467,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 117467,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 15012,
+            "encodedBytes": 352401,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 123,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 73056,
+            "encodedBytes": 1668857,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 4032,
+          "inspectedBytes": 1554558
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 83064,
+            "encodedBytes": 1903791,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreibdoltwscyqodiimut5c2iydhdvxvgr6zcwapxdafdgntu5sewwdq"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 23066,
+            "encodedBytes": 495150,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreidbtbkzen3yeo4ecx7p4wsbwma2ngtc2htc4kenaunbuyfhbvg4oe"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 98091,
+            "encodedBytes": 2256315,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreibdoltwscyqodiimut5c2iydhdvxvgr6zcwapxdafdgntu5sewwdq"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 30032,
+            "encodedBytes": 704946,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 15,
+          "inspectedBytes": 634887
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 30044,
+            "encodedBytes": 705054,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 126976
+          },
+          "evaluationSteps": 15,
+          "inspectedBytes": 634887
+        }
+      ],
+      "controls": {}
+    },
+    {
+      "name": "ledger-at-cap",
+      "family": "ledger",
+      "size": "at-cap",
+      "preparation": "unchanged sample definition",
+      "sourceCid": "bafyreig4gzkof6mdz44ny43y32nsb2okzh2vgtmejbex2gp67z3ombrpv4",
+      "rowCount": 1000,
+      "stateJsonBytes": 131072,
+      "predecessorJsonBytes": 131021,
+      "diagnosticCborBytes": 119241,
+      "stateCanonicalRawCid": "bafkreigwbqmaqajxisqq33tlzyycqqdwopennuacikadu2ocjffs6regwq",
+      "shape": {
+        "objects": 1001,
+        "arrays": 1,
+        "objectKeys": 3003,
+        "arrayElements": 1000,
+        "strings": 2001,
+        "scalarValues": 3002,
+        "maximumObjectWidth": 3,
+        "maximumArrayLength": 1000
+      },
+      "canonicalTokenCharges": 14013,
+      "canonicalChargedBytes": 131072,
+      "expectedQuery": {
+        "count": 1000,
+        "balanceMinor": 0,
+        "currency": "GBP"
+      },
+      "queryCid": "bafyreibdrsqvljqcxuf4aim5rdcd3weti7lccrajwgoyncbotwzglmeywm",
+      "operations": [
+        {
+          "name": "canonicalState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 121563,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "jsonCopyState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 121563,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "structuredCloneState",
+          "counts": {
+            "encoderCalls": 0,
+            "encodedBytes": 0,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          }
+        },
+        {
+          "name": "cborEncodeState",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 121563,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateCid",
+          "counts": {
+            "encoderCalls": 5004,
+            "encodedBytes": 121563,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "refused": "wire_size"
+        },
+        {
+          "name": "stateSchema",
+          "counts": {
+            "encoderCalls": 15012,
+            "encodedBytes": 364689,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "actionSchema",
+          "counts": {
+            "encoderCalls": 15,
+            "encodedBytes": 123,
+            "lexiconValidateCalls": 1,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          }
+        },
+        {
+          "name": "evaluateGrowing",
+          "counts": {
+            "encoderCalls": 73056,
+            "encodedBytes": 1726201,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 4032,
+          "inspectedBytes": 1603710
+        },
+        {
+          "name": "foldGrowing",
+          "counts": {
+            "encoderCalls": 83064,
+            "encodedBytes": 1969327,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreickli3ke3wuvgeofl32qaw2omytp5flhuh6u3kyyrplhvpoopr54m"
+        },
+        {
+          "name": "foldBounded",
+          "counts": {
+            "encoderCalls": 23066,
+            "encodedBytes": 511534,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "ineffective",
+          "outputCanonicalRawCid": "bafkreidbtbkzen3yeo4ecx7p4wsbwma2ngtc2htc4kenaunbuyfhbvg4oe"
+        },
+        {
+          "name": "admitSuccessor",
+          "counts": {
+            "encoderCalls": 98091,
+            "encodedBytes": 2334139,
+            "lexiconValidateCalls": 2,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "result": "effective",
+          "outputCanonicalRawCid": "bafkreickli3ke3wuvgeofl32qaw2omytp5flhuh6u3kyyrplhvpoopr54m"
+        },
+        {
+          "name": "queryEvaluate",
+          "counts": {
+            "encoderCalls": 30032,
+            "encodedBytes": 729522,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 0,
+            "lexiconQueryResultCalls": 0,
+            "structuredCloneCalls": 0,
+            "cloneArgumentJsonBytes": 0
+          },
+          "evaluationSteps": 15,
+          "inspectedBytes": 655367
+        },
+        {
+          "name": "queryCaptureAndValidate",
+          "counts": {
+            "encoderCalls": 30044,
+            "encodedBytes": 729630,
+            "lexiconValidateCalls": 0,
+            "lexiconQueryParamsCalls": 1,
+            "lexiconQueryResultCalls": 1,
+            "structuredCloneCalls": 1,
+            "cloneArgumentJsonBytes": 131072
+          },
+          "evaluationSteps": 15,
+          "inspectedBytes": 655367
+        }
+      ],
+      "controls": {
+        "overcapState": "value_bytes",
+        "overcapFoldInput": "value_bytes",
+        "overcapInitialSource": "value_bytes"
+      }
+    }
+  ]
+}

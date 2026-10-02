@@ -1,0 +1,509 @@
+{
+  "capturedAtUtc": "2026-10-01T20:48:32.412778+00:00",
+  "method": "One ps snapshot; percentCPU is ps reported process accounting, not an interval utilization sample. Command arguments/environment omitted. Top30 retained; no processes altered.",
+  "processCount": 879,
+  "top30": [
+    {
+      "pid": 81817,
+      "elapsed": "00:14",
+      "state": "R",
+      "cpuPercent": 87.5,
+      "executable": "/Users/hughpyle/play/gitseq-reader-02090-artroom/gs"
+    },
+    {
+      "pid": 10388,
+      "elapsed": "09:04:09",
+      "state": "R",
+      "cpuPercent": 40.5,
+      "executable": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 609,
+      "elapsed": "02-08:26:30",
+      "state": "Ss",
+      "cpuPercent": 25.3,
+      "executable": "/System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer"
+    },
+    {
+      "pid": 1269,
+      "elapsed": "02-08:26:04",
+      "state": "S",
+      "cpuPercent": 17.6,
+      "executable": "/Applications/iTerm.app/Contents/MacOS/iTerm2"
+    },
+    {
+      "pid": 82402,
+      "elapsed": "00:00",
+      "state": "S",
+      "cpuPercent": 5.6,
+      "executable": "/Library/Developer/CommandLineTools/usr/bin/git"
+    },
+    {
+      "pid": 1271,
+      "elapsed": "02-08:26:04",
+      "state": "S",
+      "cpuPercent": 5.1,
+      "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    },
+    {
+      "pid": 11929,
+      "elapsed": "09:00:11",
+      "state": "S",
+      "cpuPercent": 3.1,
+      "executable": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 35749,
+      "elapsed": "01-23:51:07",
+      "state": "S",
+      "cpuPercent": 2.9,
+      "executable": "/System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/ContextStoreAgent"
+    },
+    {
+      "pid": 1502,
+      "elapsed": "02-08:26:00",
+      "state": "S",
+      "cpuPercent": 2.5,
+      "executable": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 47282,
+      "elapsed": "07:32",
+      "state": "S",
+      "cpuPercent": 1.9,
+      "executable": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 1501,
+      "elapsed": "02-08:26:00",
+      "state": "S",
+      "cpuPercent": 1.7,
+      "executable": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 90876,
+      "elapsed": "06:30:48",
+      "state": "S+",
+      "cpuPercent": 1.4,
+      "executable": "claude"
+    },
+    {
+      "pid": 803,
+      "elapsed": "02-08:26:28",
+      "state": "Ss",
+      "cpuPercent": 1.3,
+      "executable": "/System/Library/DriverExtensions/AppleCentauriAlpha.dext/AppleCentauriAlpha"
+    },
+    {
+      "pid": 77751,
+      "elapsed": "04:52:42",
+      "state": "S+",
+      "cpuPercent": 1.2,
+      "executable": "codex"
+    },
+    {
+      "pid": 537,
+      "elapsed": "02-08:26:30",
+      "state": "Ss",
+      "cpuPercent": 1.1,
+      "executable": "/usr/libexec/logd"
+    },
+    {
+      "pid": 579,
+      "elapsed": "02-08:26:30",
+      "state": "Ss",
+      "cpuPercent": 1.1,
+      "executable": "/usr/libexec/opendirectoryd"
+    },
+    {
+      "pid": 1114,
+      "elapsed": "02-08:26:10",
+      "state": "S",
+      "cpuPercent": 1.1,
+      "executable": "/System/Library/CoreServices/WindowManager.app/Contents/MacOS/WindowManager"
+    },
+    {
+      "pid": 13646,
+      "elapsed": "19:00:19",
+      "state": "S+",
+      "cpuPercent": 0.9,
+      "executable": "codex"
+    },
+    {
+      "pid": 76197,
+      "elapsed": "01-04:04:47",
+      "state": "S",
+      "cpuPercent": 0.8,
+      "executable": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/154.0.8037.58/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 3936,
+      "elapsed": "02:03:21",
+      "state": "S",
+      "cpuPercent": 0.5,
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node"
+    },
+    {
+      "pid": 1275,
+      "elapsed": "02-08:26:04",
+      "state": "S",
+      "cpuPercent": 0.4,
+      "executable": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder"
+    },
+    {
+      "pid": 81726,
+      "elapsed": "00:16",
+      "state": "S",
+      "cpuPercent": 0.4,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 82031,
+      "elapsed": "21:55:19",
+      "state": "S+",
+      "cpuPercent": 0.4,
+      "executable": "gs"
+    },
+    {
+      "pid": 1,
+      "elapsed": "02-08:27:28",
+      "state": "Ss",
+      "cpuPercent": 0.3,
+      "executable": "/sbin/launchd"
+    },
+    {
+      "pid": 905,
+      "elapsed": "02-08:26:21",
+      "state": "Ss",
+      "cpuPercent": 0.3,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores"
+    },
+    {
+      "pid": 603,
+      "elapsed": "02-08:26:30",
+      "state": "Ss",
+      "cpuPercent": 0.2,
+      "executable": "/usr/sbin/notifyd"
+    },
+    {
+      "pid": 686,
+      "elapsed": "02-08:26:29",
+      "state": "Ss",
+      "cpuPercent": 0.2,
+      "executable": "/usr/libexec/syspolicyd"
+    },
+    {
+      "pid": 1044,
+      "elapsed": "02-08:26:19",
+      "state": "S",
+      "cpuPercent": 0.2,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd"
+    },
+    {
+      "pid": 22537,
+      "elapsed": "20:52:23",
+      "state": "Ss",
+      "cpuPercent": 0.2,
+      "executable": "/Users/hughpyle/.codex/packages/app-server-daemon/releases/0.159.3-aarch64-apple-darwin/bin/codex"
+    },
+    {
+      "pid": 42876,
+      "elapsed": "01-20:06:49",
+      "state": "S",
+      "cpuPercent": 0.2,
+      "executable": "/System/Applications/Utilities/Activity Monitor.app/Contents/MacOS/Activity Monitor"
+    }
+  ],
+  "projectExecutableRows": [
+    {
+      "pid": 81817,
+      "elapsed": "00:14",
+      "state": "R",
+      "cpuPercent": 87.5,
+      "executable": "/Users/hughpyle/play/gitseq-reader-02090-artroom/gs"
+    },
+    {
+      "pid": 3936,
+      "elapsed": "02:03:21",
+      "state": "S",
+      "cpuPercent": 0.5,
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node"
+    },
+    {
+      "pid": 82031,
+      "elapsed": "21:55:19",
+      "state": "S+",
+      "cpuPercent": 0.4,
+      "executable": "gs"
+    },
+    {
+      "pid": 13655,
+      "elapsed": "19:00:19",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 13657,
+      "elapsed": "19:00:19",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 13659,
+      "elapsed": "19:00:19",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 14687,
+      "elapsed": "06:06:12",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 15854,
+      "elapsed": "06:05:29",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 16242,
+      "elapsed": "06:05:26",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 42994,
+      "elapsed": "17:15:12",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node"
+    },
+    {
+      "pid": 45544,
+      "elapsed": "05:50:48",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 47567,
+      "elapsed": "05:20:36",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 75888,
+      "elapsed": "04:54:40",
+      "state": "SN",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq-reader-02090-artroom/gs"
+    },
+    {
+      "pid": 77767,
+      "elapsed": "04:52:40",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 77781,
+      "elapsed": "04:52:40",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 77783,
+      "elapsed": "04:52:40",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 77884,
+      "elapsed": "04:52:40",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 77885,
+      "elapsed": "04:52:40",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 77888,
+      "elapsed": "04:52:40",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 85313,
+      "elapsed": "04:47:12",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 86412,
+      "elapsed": "06:36:21",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 86413,
+      "elapsed": "06:36:21",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 86416,
+      "elapsed": "06:36:21",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 95261,
+      "elapsed": "05:34:54",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 95266,
+      "elapsed": "05:34:54",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 98390,
+      "elapsed": "06:21:35",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 9132,
+      "elapsed": "02-06:44:00",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 9133,
+      "elapsed": "02-06:44:00",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 90893,
+      "elapsed": "06:30:47",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 90894,
+      "elapsed": "06:30:47",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 95637,
+      "elapsed": "21:28:00",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 95638,
+      "elapsed": "21:28:00",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 76378,
+      "elapsed": "01:31:45",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 76380,
+      "elapsed": "01:31:45",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "/Users/hughpyle/play/gitseq/bin/gitseq-mcp"
+    },
+    {
+      "pid": 12537,
+      "elapsed": "06:07:42",
+      "state": "S+",
+      "cpuPercent": 0.0,
+      "executable": "gs"
+    }
+  ],
+  "spotlightRows": [
+    {
+      "pid": 81726,
+      "elapsed": "00:16",
+      "state": "S",
+      "cpuPercent": 0.4,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 905,
+      "elapsed": "02-08:26:21",
+      "state": "Ss",
+      "cpuPercent": 0.3,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores"
+    },
+    {
+      "pid": 567,
+      "elapsed": "02-08:26:30",
+      "state": "Ss",
+      "cpuPercent": 0.0,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds"
+    },
+    {
+      "pid": 78258,
+      "elapsed": "00:53",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 82154,
+      "elapsed": "00:06",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 82155,
+      "elapsed": "00:06",
+      "state": "S",
+      "cpuPercent": 0.0,
+      "executable": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    }
+  ],
+  "limitation": "Project heavy work coordinated paused; unrelated user/OS/reviewer work and earlier Spotlight indexing remain uncontrolled."
+}
