@@ -1,0 +1,16 @@
+{"actualReferencePDS":true,"syntheticAS":true,"loopbackBearerBridge":true,"inputMIME":"application/octet-stream","actualInputBytes":524288,"returnedMIME":"application/octet-stream","returnedSize":524288,"status":200}
+{"actualReferencePDS":true,"syntheticAS":true,"loopbackBearerBridge":true,"inputMIME":"application/octet-stream","actualInputBytes":68,"returnedMIME":"image/png","returnedSize":68,"status":200}
+/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/transport/native-account-writer.ts:190
+        throw new PdsError(502, 'InvalidResponse');
+              ^
+
+PdsError: PDS 502: InvalidResponse
+    at <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/transport/native-account-writer.ts:190:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async NativeAccountWriter.#reply (/private/tmp/atseq-native-account-writer-aw-f2-20261002/src/transport/native-account-writer.ts:102:14)
+    at async <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix-observed.ts:79:19) {
+  status: 502,
+  code: 'InvalidResponse'
+}
+
+Node.js v26.10.0

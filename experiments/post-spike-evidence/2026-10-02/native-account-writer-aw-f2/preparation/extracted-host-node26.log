@@ -1,0 +1,19 @@
+✔ host procedures require a retained owner-only token; reads remain public (627.96225ms)
+✔ draft cache evicts least recently used previews within count and byte budgets (76.13425ms)
+✔ incomplete creations consume application quota before an account is provisioned (5.047834ms)
+✔ a corrupt lease database keeps its SQLite diagnostic instead of claiming contention (1.076958ms)
+✔ only a PDS RecordNotFound response becomes a missing source (4.681625ms)
+✔ only definite invalid input is final; integrity and host availability errors use 503 (0.1425ms)
+✔ actual native proof limits remain unavailable and nonpermanent through host HTTP (25.166333ms)
+✔ expiry renews once across concurrent JSON, blob and upload calls (33.230667ms)
+✔ missing, rejected or repeatedly expired session credentials have a permanent authentication code (3.740542ms)
+✔ complete-prefix limits and nonce conflicts have stable permanent codes (0.118041ms)
+✔ authorization refusal does not permanently disable a valid PDS credential (2.143375ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1356.452666

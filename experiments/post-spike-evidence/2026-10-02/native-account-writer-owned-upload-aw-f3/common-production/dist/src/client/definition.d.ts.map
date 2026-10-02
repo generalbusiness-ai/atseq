@@ -1,0 +1,1 @@
+{"version":3,"file":"definition.d.ts","sourceRoot":"","sources":["../../../src/client/definition.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,8BAA8B,CAAC;AACnE,OAAO,EACL,kBAAkB,EAClB,sBAAsB,EACtB,aAAa,EACb,KAAK,cAAc,GACpB,MAAM,8BAA8B,CAAC;AACtC,wBAAgB,aAAa,CAAC,IAAI,EAAE,cAAc,EAAE,GAAG,EAAE,MAAM,EAAE,OAAO,CAAC,EAAE,MAAM,GAAG,GAAG,CAMtF"}

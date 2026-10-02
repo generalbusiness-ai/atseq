@@ -1,0 +1,125 @@
+{
+  "status": "unexecuted-source-only",
+  "rows": [
+    {
+      "id": "genuine-node-refresh-overflow",
+      "setup": "Actual maintained Node native upload 512KiB receives invalid_token; encoded stored refresh form exceeds 64KiB.",
+      "expected": "input/invalid_input and exact fixed recovery instruction; zero refresh dispatch; one resource send; no automatic retry.",
+      "executed": false
+    },
+    {
+      "id": "genuine-browser-live",
+      "setup": "Actual maintained Chromium flow hits the same outgoing refresh overflow.",
+      "expected": "Exact instruction, no token witness; existing live row remains; no permanent retirement.",
+      "executed": false
+    },
+    {
+      "id": "browser-reload-repeat",
+      "setup": "Close/reopen actual Chromium context using existing custody store, restore the oversized credential and repeat native operation.",
+      "expected": "Same bounded instruction; no stale handoff poisoning, no hidden retry; custody remains governed live.",
+      "executed": false
+    },
+    {
+      "id": "fresh-reauthorization",
+      "setup": "Perform genuinely new maintained authorization returning bounded refresh credential after the refusal.",
+      "expected": "Existing A1 route replaces credential; subsequent native operation succeeds; no new recovery API.",
+      "executed": false
+    },
+    {
+      "id": "reauthorization-large-again",
+      "setup": "Synthetic AS returns another oversized refresh credential after a new authorization.",
+      "expected": "Same bounded refusal; do not claim reauthorization guarantees an AS-issued size.",
+      "executed": false
+    },
+    {
+      "id": "genuine-dispatched-token-failure",
+      "setup": "Actual maintained browser refresh reaches transport then fails.",
+      "expected": "Existing actual dispatch witness and CF-1 retirement preserved; no overflow recovery text inferred.",
+      "executed": false
+    },
+    {
+      "id": "native-read-refresh",
+      "setup": "Actual maintained native get/list/latest operation triggers oversized refresh.",
+      "expected": "Same fixed recovery instruction through private read marker; outgoing cap remains 64KiB.",
+      "executed": false
+    },
+    {
+      "id": "generic-a1-unchanged",
+      "setup": "Public ordinary A1 request encounters the same swallowed oversized refresh.",
+      "expected": "Existing sanitized generic/SDK response behavior unchanged; no native recovery tag.",
+      "executed": false
+    },
+    {
+      "id": "authorized-resource-form",
+      "setup": "Private native resource request uses form Content-Type and Authorization and exceeds its actual resource cap.",
+      "expected": "Ordinary owned input; no credential recovery instruction.",
+      "executed": false
+    },
+    {
+      "id": "native-json-and-blob-oversize",
+      "setup": "Actual apply or upload body exceeds fixed 1MiB.",
+      "expected": "Deterministic local input before dispatch, no credential recovery instruction.",
+      "executed": false
+    },
+    {
+      "id": "incoming-response-cap",
+      "setup": "Actual incoming resource or credential response exceeds 1MiB.",
+      "expected": "Ordinary input, no recovery instruction; incoming caps unchanged.",
+      "executed": false
+    },
+    {
+      "id": "pool-and-request-both",
+      "setup": "Maintained nested credential form crosses both per-body64KiB and cumulative32MiB.",
+      "expected": "Original pool refusal and generic sanitized input; no specific credential recovery instruction.",
+      "executed": false
+    },
+    {
+      "id": "count-and-pool",
+      "setup": "Owned request-count64 or cumulative32MiB refusal without per-body overflow.",
+      "expected": "Original category/message; no credential recovery instruction.",
+      "executed": false
+    },
+    {
+      "id": "shape-negatives",
+      "setup": "Hostile configured SDK noauth non-POST or non-form, authorized form, and identity-resolver requests exceed ordinary cap.",
+      "expected": "No fixed recovery instruction; negative dispatch probes never establish SDK provenance.",
+      "executed": false
+    },
+    {
+      "id": "first-before-cleanup",
+      "setup": "First owned input/origin/network failure is followed by oversized revoke cleanup.",
+      "expected": "First category/message wins; later credential overflow cannot replace it.",
+      "executed": false
+    },
+    {
+      "id": "overflow-before-deadline",
+      "setup": "Credential per-body overflow is captured before expiry; later SDK/custody cleanup crosses operation deadline.",
+      "expected": "Original input and exact recovery instruction preserved.",
+      "executed": false
+    },
+    {
+      "id": "deadline-first",
+      "setup": "Original owned request edge is already expired before later body overflow.",
+      "expected": "content_unavailable, no credential recovery instruction.",
+      "executed": false
+    },
+    {
+      "id": "swallowed-success-and-cleanup",
+      "setup": "Hostile configured SDK swallows credential-overflow failure, returns200, throws later or attempts another resource send.",
+      "expected": "First owned instruction wins; no later authenticated resource transport send.",
+      "executed": false
+    },
+    {
+      "id": "next-operation-cleanup",
+      "setup": "After overflow, run another native operation and an ordinary public request with bounded valid bodies.",
+      "expected": "No stale recovery tag, allowance or first-failure state.",
+      "executed": false
+    },
+    {
+      "id": "credential-text-sanitized",
+      "setup": "Synthetic refresh/revoke form contains secrets and hostile AS text around actual overflow.",
+      "expected": "Only fixed recovery instruction; no credentials, SDK/AS text or body retained in reports/errors.",
+      "executed": false
+    }
+  ]
+}

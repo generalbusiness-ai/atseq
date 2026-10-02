@@ -1,0 +1,272 @@
+TAP version 13
+# Subtest: hostile configured SDK dispatch cannot widen the private native resource allowance
+    # Subtest: origin
+    ok 1 - origin
+      ---
+      duration_ms: 842.548916
+      type: 'test'
+      ...
+    # Subtest: path
+    ok 2 - path
+      ---
+      duration_ms: 1.2245
+      type: 'test'
+      ...
+    # Subtest: query
+    ok 3 - query
+      ---
+      duration_ms: 1.071666
+      type: 'test'
+      ...
+    # Subtest: encoded-path
+    ok 4 - encoded-path
+      ---
+      duration_ms: 0.765416
+      type: 'test'
+      ...
+    # Subtest: method
+    ok 5 - method
+      ---
+      duration_ms: 1.164583
+      type: 'test'
+      ...
+    # Subtest: body
+    ok 6 - body
+      ---
+      duration_ms: 0.66325
+      type: 'test'
+      ...
+    # Subtest: retry-body
+    ok 7 - retry-body
+      ---
+      duration_ms: 4.494167
+      type: 'test'
+      ...
+    # Subtest: token
+    ok 8 - token
+      ---
+      duration_ms: 0.789208
+      type: 'test'
+      ...
+    # Subtest: refresh
+    ok 9 - refresh
+      ---
+      duration_ms: 2.351334
+      type: 'test'
+      ...
+    # Subtest: revoke
+    ok 10 - revoke
+      ---
+      duration_ms: 0.54375
+      type: 'test'
+      ...
+    # Subtest: PAR
+    ok 11 - PAR
+      ---
+      duration_ms: 0.463625
+      type: 'test'
+      ...
+    # Subtest: discovery
+    ok 12 - discovery
+      ---
+      duration_ms: 0.481125
+      type: 'test'
+      ...
+    # Subtest: same-path-no-authorization
+    ok 13 - same-path-no-authorization
+      ---
+      duration_ms: 0.603791
+      type: 'test'
+      ...
+    # Subtest: count
+    ok 14 - count
+      ---
+      duration_ms: 4.737459
+      type: 'test'
+      ...
+    # Subtest: pool
+    ok 15 - pool
+      ---
+      duration_ms: 9.601583
+      type: 'test'
+      ...
+    # Subtest: deadline
+    ok 16 - deadline
+      ---
+      duration_ms: 30001.985333
+      type: 'test'
+      ...
+    1..16
+ok 1 - hostile configured SDK dispatch cannot widen the private native resource allowance
+  ---
+  duration_ms: 30874.7595
+  type: 'test'
+  ...
+# Subtest: private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes
+    # Subtest: input-sdk-success
+    ok 1 - input-sdk-success
+      ---
+      duration_ms: 847.284375
+      type: 'test'
+      ...
+    # Subtest: input-sdk-throw
+    ok 2 - input-sdk-throw
+      ---
+      duration_ms: 5.772958
+      type: 'test'
+      ...
+    # Subtest: origin
+    ok 3 - origin
+      ---
+      duration_ms: 7.764083
+      type: 'test'
+      ...
+    # Subtest: unavailable
+    ok 4 - unavailable
+      ---
+      duration_ms: 7.457208
+      type: 'test'
+      ...
+    # Subtest: no-second-resource
+    ok 5 - no-second-resource
+      ---
+      duration_ms: 5.063625
+      type: 'test'
+      ...
+    # Subtest: first-before-revoke
+    ok 6 - first-before-revoke
+      ---
+      duration_ms: 5.291333
+      type: 'test'
+      ...
+    # Subtest: credential-sdk-success
+    ok 7 - credential-sdk-success
+      ---
+      duration_ms: 3.867917
+      type: 'test'
+      ...
+    # Subtest: credential-sdk-throw
+    ok 8 - credential-sdk-throw
+      ---
+      duration_ms: 3.910583
+      type: 'test'
+      ...
+    # Subtest: non-post
+    ok 9 - non-post
+      ---
+      duration_ms: 4.697459
+      type: 'test'
+      ...
+    # Subtest: non-form
+    ok 10 - non-form
+      ---
+      duration_ms: 3.666959
+      type: 'test'
+      ...
+    # Subtest: identity-form
+    ok 11 - identity-form
+      ---
+      duration_ms: 3.637875
+      type: 'test'
+      ...
+    # Subtest: authorized-form
+    ok 12 - authorized-form
+      ---
+      duration_ms: 4.127958
+      type: 'test'
+      ...
+    # Subtest: response
+    ok 13 - response
+      ---
+      duration_ms: 7.767875
+      type: 'test'
+      ...
+    # Subtest: count
+    ok 14 - count
+      ---
+      duration_ms: 6.087334
+      type: 'test'
+      ...
+    # Subtest: pool
+    ok 15 - pool
+      ---
+      duration_ms: 13.595042
+      type: 'test'
+      ...
+    # Subtest: pool-plus-body
+    ok 16 - pool-plus-body
+      ---
+      duration_ms: 9.32125
+      type: 'test'
+      ...
+    # Subtest: cancel
+    ok 17 - cancel
+      ---
+      duration_ms: 3.263
+      type: 'test'
+      ...
+    # Subtest: custody-throw
+    ok 18 - custody-throw
+      ---
+      duration_ms: 3.106167
+      type: 'test'
+      ...
+    # Subtest: unknown-sdk
+    ok 19 - unknown-sdk
+      ---
+      duration_ms: 3.065958
+      type: 'test'
+      ...
+    1..19
+ok 2 - private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes
+  ---
+  duration_ms: 950.178291
+  type: 'test'
+  ...
+# Subtest: native first failure preserves its original deadline and fixed recovery through later finalization
+    # Subtest: input-late-deadline
+    ok 1 - input-late-deadline
+      ---
+      duration_ms: 30111.690625
+      type: 'test'
+      ...
+    # Subtest: origin-late-deadline
+    ok 2 - origin-late-deadline
+      ---
+      duration_ms: 30111.71775
+      type: 'test'
+      ...
+    # Subtest: recovery-late-deadline
+    ok 3 - recovery-late-deadline
+      ---
+      duration_ms: 30111.035708
+      type: 'test'
+      ...
+    # Subtest: deadline
+    ok 4 - deadline
+      ---
+      duration_ms: 30002.250416
+      type: 'test'
+      ...
+    1..4
+ok 3 - native first failure preserves its original deadline and fixed recovery through later finalization
+  ---
+  duration_ms: 30112.049584
+  type: 'test'
+  ...
+# {"node":"v22.19.0","cases":["maintained-callback-and-restore-owned-writer","constructor-prototype-clone-forgery-and-public-method-mutation-refused","standard-get-and-explicit-102-record-pages-bounded-input","mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry","owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal","bounded-returned-blob-MIME-size-RAW-CID-shapes-refused-without-provider-text","large-conditional-JSON-and-whole-batch-local-cap","maintained-exact-1MiB-conditional-body-and-one-byte-over-local-refusal","default-request-stays-64KiB-after-native-success","malformed-record-and-page-shapes-account-key-CID-cursor-refused","closed-provider-codes-local-auth-separation-and-counted-response-error-limits","lost-response-single-send-cancel-and-error-allowance-cleanup","fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write","maintained-subject-missing-and-extra-scope-refused-before-mint","genuine-admitted-source-authority-evaluator-entry-head-and-two-content-chunks-unchanged-JSON","genuine-maintained-all-native-methods-encoded-refresh-overflow-fixed-text-no-dispatch-generic-401-and-fresh-reauthorization","pre-authority-automatic-refresh-remains-original-A1-generic-input-outside-native-marker"],"nativeBatch":{"selectedFixtureVector":"activate authored denial","payloadJSONBytes":0,"entryCBORBytes":1187,"entryHeadJSONBytes":2304,"entryHeadAndChunkJSONBytes":90308},"credentialRecovery":{"message":"OAuth credential request exceeds the byte limit; reauthorization is required","rawRefreshTokenBytes":21864,"actualCountedEncodedRefreshBytes":65656},"realNetwork":[{"path":"/drop","code":"content_unavailable","elapsedMs":9.61762500000009},{"path":"/body-drop","code":"content_unavailable","elapsedMs":14.935584000000063},{"path":"/deadline","code":"content_unavailable","elapsedMs":30000.6915}],"dispatcherCalls":449,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false}
+# Subtest: owned native writer uses genuine maintained Node OAuth and finite bounded standard operations
+ok 4 - owned native writer uses genuine maintained Node OAuth and finite bounded standard operations
+  ---
+  duration_ms: 31770.808917
+  type: 'test'
+  ...
+1..4
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 31813.465875

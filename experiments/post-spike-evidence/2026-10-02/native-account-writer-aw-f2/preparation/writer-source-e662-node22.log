@@ -1,0 +1,132 @@
+TAP version 13
+# Subtest: hostile configured SDK dispatch cannot widen the private native resource allowance
+    # Subtest: origin
+    ok 1 - origin
+      ---
+      duration_ms: 877.550792
+      type: 'test'
+      ...
+    # Subtest: path
+    ok 2 - path
+      ---
+      duration_ms: 1.272541
+      type: 'test'
+      ...
+    # Subtest: query
+    ok 3 - query
+      ---
+      duration_ms: 0.994375
+      type: 'test'
+      ...
+    # Subtest: encoded-path
+    ok 4 - encoded-path
+      ---
+      duration_ms: 0.688625
+      type: 'test'
+      ...
+    # Subtest: method
+    ok 5 - method
+      ---
+      duration_ms: 1.347125
+      type: 'test'
+      ...
+    # Subtest: body
+    ok 6 - body
+      ---
+      duration_ms: 0.8905
+      type: 'test'
+      ...
+    # Subtest: retry-body
+    ok 7 - retry-body
+      ---
+      duration_ms: 6.687208
+      type: 'test'
+      ...
+    # Subtest: token
+    ok 8 - token
+      ---
+      duration_ms: 1.078167
+      type: 'test'
+      ...
+    # Subtest: refresh
+    ok 9 - refresh
+      ---
+      duration_ms: 1.322417
+      type: 'test'
+      ...
+    # Subtest: revoke
+    ok 10 - revoke
+      ---
+      duration_ms: 1.419667
+      type: 'test'
+      ...
+    # Subtest: PAR
+    ok 11 - PAR
+      ---
+      duration_ms: 2.967875
+      type: 'test'
+      ...
+    # Subtest: discovery
+    ok 12 - discovery
+      ---
+      duration_ms: 0.6875
+      type: 'test'
+      ...
+    # Subtest: same-path-no-authorization
+    ok 13 - same-path-no-authorization
+      ---
+      duration_ms: 1.257792
+      type: 'test'
+      ...
+    # Subtest: count
+    ok 14 - count
+      ---
+      duration_ms: 6.824375
+      type: 'test'
+      ...
+    # Subtest: pool
+    ok 15 - pool
+      ---
+      duration_ms: 16.504792
+      type: 'test'
+      ...
+    # Subtest: deadline
+    not ok 16 - deadline
+      ---
+      duration_ms: 9.621875
+      type: 'test'
+      location: '/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/native-account-writer-dispatch.test.ts:1:764'
+      failureType: 'cancelledByParent'
+      error: 'Promise resolution is still pending but the event loop has already resolved'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        process.emit (node:events:519:28)
+      ...
+    1..16
+not ok 1 - hostile configured SDK dispatch cannot widen the private native resource allowance
+  ---
+  duration_ms: 932.95575
+  type: 'test'
+  location: '/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/native-account-writer-dispatch.test.ts:1:468'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+  ...
+# {"node":"v22.19.0","cases":["maintained-callback-and-restore-owned-writer","constructor-prototype-clone-forgery-and-public-method-mutation-refused","standard-get-and-explicit-102-record-pages-bounded-input","mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry","owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal","large-conditional-JSON-and-whole-batch-local-cap","accepted-native-action-at-32KiB-cap-entry-head-chunk-batch-genuine-signature-unchanged-JSON","default-request-stays-64KiB-after-native-success","malformed-record-and-page-shapes-account-key-CID-cursor-refused","closed-provider-codes-local-auth-separation-and-counted-response-error-limits","lost-response-single-send-cancel-and-error-allowance-cleanup","fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write","maintained-subject-missing-and-extra-scope-refused-before-mint"],"nativeBatch":{"payloadJSONBytes":32768,"entryCBORBytes":33652,"entryHeadJSONBytes":34622,"entryHeadAndChunkJSONBytes":78580},"dispatcherCalls":238,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false}
+# Subtest: owned native writer uses genuine maintained Node OAuth and finite bounded standard operations
+ok 2 - owned native writer uses genuine maintained Node OAuth and finite bounded standard operations
+  ---
+  duration_ms: 1681.021917
+  type: 'test'
+  ...
+1..2
+# tests 18
+# suites 0
+# pass 16
+# fail 0
+# cancelled 2
+# skipped 0
+# todo 0
+# duration_ms 1806.748583

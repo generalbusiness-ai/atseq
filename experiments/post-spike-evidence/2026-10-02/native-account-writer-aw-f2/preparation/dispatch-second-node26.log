@@ -1,0 +1,26 @@
+▶ hostile configured SDK dispatch cannot widen the private native resource allowance
+  ✔ origin (692.3015ms)
+  ✔ path (0.992542ms)
+  ✔ query (0.958125ms)
+  ✔ encoded-path (0.639541ms)
+  ✔ method (0.610375ms)
+  ✔ body (0.560125ms)
+  ✔ retry-body (4.118416ms)
+  ✔ token (0.595584ms)
+  ✔ refresh (0.541625ms)
+  ✔ revoke (0.561ms)
+  ✔ PAR (0.548291ms)
+  ✔ discovery (0.586291ms)
+  ✔ same-path-no-authorization (0.45875ms)
+  ✔ count (5.347458ms)
+  ✔ pool (16.072875ms)
+  ✔ deadline (30000.291375ms)
+✔ hostile configured SDK dispatch cannot widen the private native resource allowance (30726.665167ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31252.915708

@@ -1,0 +1,95 @@
+{
+  "head": "ea30f527fe33c30f012cd5c4e3f76736819cd333",
+  "GitChangedPaths": 394,
+  "manifestPins": 392,
+  "missingGitRetainedInputs": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-client.js",
+      "bytes": 13216,
+      "sha256": "caff70d770559e359c68fca345024b01065487c64f99d18f4bfc812fe0c2c93c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-server-agent.js",
+      "bytes": 7739,
+      "sha256": "bc4f644df77e7e180e711f5b8a7a118f5d06dcf9457933bb088a3562cc321b74"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-session.js",
+      "bytes": 5208,
+      "sha256": "d95fbbc2fe26d7704d236a7b3fc17754b811c060ef81ed40d4a630e6baf0d631"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/package.json",
+      "bytes": 1392,
+      "sha256": "13a0a08dd3c36e62cb66259c8cc55f84d7fa981203e1eeb4faac6464db8119fc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-browser/package.json",
+      "bytes": 1158,
+      "sha256": "38ae559a12d1b328451d3e66f12fbfa7b1ef4e1ed8bdbbc5db152d014a4ef330"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-node/package.json",
+      "bytes": 1085,
+      "sha256": "752660817b58a6176591d0c84f4c3046b6d0a89a81b19931142bd474e810abb7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@ts-morph/common/package.json",
+      "bytes": 2006,
+      "sha256": "faef4d4f45c3c5f46d7aca9c1265eb9f4a7111987ff9f73d023b164e8c9719d1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/lib/main.js",
+      "bytes": 97463,
+      "sha256": "61ec0ba144ff93f4bf0e96ad6fab6f430ede0aa13e27ace8063ed63ba416b3cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/package.json",
+      "bytes": 3980,
+      "sha256": "9d0bc453f4e791553c4cc2298ba023b409241fd9801e494741666eb0f6051490"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/ts-morph/package.json",
+      "bytes": 3568,
+      "sha256": "2c5af3ce2bc65a99b6878045446a45e36097e67861fffd066ef6e9251e7671c6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/dist/loader.mjs",
+      "bytes": 743,
+      "sha256": "7e3dba3b9b862a5fa1c741d54fc921ee8b17fc7a4d0087fa64e42a32142cf03d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/package.json",
+      "bytes": 1601,
+      "sha256": "3ace2493a0acd26fc72a8433a38113ee04d5a1976910a3f40815f9e779d5c426"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/typescript/package.json",
+      "bytes": 3087,
+      "sha256": "3722b30210616a13a3213ded11575ba6b2dbab10c32a5ef67afca8513e27017e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/actor-store/blob/transactor.js",
+      "bytes": 12909,
+      "sha256": "9e78e78a90d9d719596f30888dcdb72ae80c0d13354e977d4275b445651ab115"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/api/com/atproto/repo/uploadBlob.js",
+      "bytes": 2337,
+      "sha256": "f60c8a83786dcc750027ecc2a1a7f257b8b0d0543bba83a126d32d8b81d6bc56"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/package.json",
+      "bytes": 3977,
+      "sha256": "f44e8d5cd75e762e539f68a5c1354c82c33dd0d695c3f6a2d5733bba55bea947"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/better-sqlite3/package.json",
+      "bytes": 1436,
+      "sha256": "4665126292eff5dffe6c0ffabf98c4de18e479aa0b53edd775028eb567b3ecc1"
+    }
+  ],
+  "allManifestLocalHashesExact": true,
+  "all394ChangedGitBytesExact": true,
+  "claim": "17 locally present manifest inputs absent from frozen Git candidate; clean clone cannot reproduce packet checker."
+}

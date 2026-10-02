@@ -1,0 +1,39 @@
+{
+  "head": "ddf9bf5620b3c2a48e2e66e206bac8d40e38ff7f",
+  "checkout": "/private/tmp/atseq-aw-retained-source-first-clean-20261002",
+  "initialClean": true,
+  "finalClean": true,
+  "installedDependenciesPresent": false,
+  "originalIgnoredFilesCopied": false,
+  "python": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "pythonBinary": "/opt/homebrew/Cellar/python@3.14/3.14.8/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+  "pythonBinarySha256": "7ebde552773a4045532637b114d645a313e045ac07b26f5e520bf039f1e34063",
+  "gitVersion": "git version 2.54.0 (Apple Git-157)",
+  "gitBinary": "/usr/bin/git",
+  "gitBinarySha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+  "runs": [
+    {
+      "label": "old",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/verify-results.py"
+      ],
+      "startedUTC": "2026-10-02T18:42:32.863633+00:00",
+      "seconds": 1.8238569580134936,
+      "exit": 0,
+      "scriptSha256": "3144a697e57649b0a484c779bec48893f8757a473052edf1fca58a71a10b8339"
+    },
+    {
+      "label": "new",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/check.py"
+      ],
+      "startedUTC": "2026-10-02T18:42:34.687814+00:00",
+      "seconds": 11.565687417052686,
+      "exit": 0,
+      "scriptSha256": "8dddd87edca1b96837a803afadaa69f88f1a62673d0234b80e6d437a5279899f"
+    }
+  ],
+  "newProductionRuntimeExecuted": false
+}

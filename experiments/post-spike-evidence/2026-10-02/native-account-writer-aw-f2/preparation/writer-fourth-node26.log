@@ -1,0 +1,10 @@
+{"node":"v26.10.0","cases":["maintained-callback-and-restore-owned-writer","constructor-prototype-clone-forgery-and-public-method-mutation-refused","standard-get-and-explicit-102-record-pages-bounded-input","mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry","owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal","large-conditional-JSON-and-whole-batch-local-cap","default-request-stays-64KiB-after-native-success","malformed-record-and-page-shapes-account-key-CID-cursor-refused","closed-provider-codes-local-auth-separation-and-counted-response-error-limits","lost-response-single-send-cancel-and-error-allowance-cleanup","fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write","maintained-subject-missing-and-extra-scope-refused-before-mint"],"dispatcherCalls":234,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false}
+✔ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (1339.964709ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1455.171834

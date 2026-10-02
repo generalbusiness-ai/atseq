@@ -57,13 +57,20 @@ interface Budget {
   readonly signal: AbortSignal;
   requests: number;
   bytes: number;
-  readonly failures: WeakMap<Error, boolean>;
+  readonly failures: WeakMap<Error, { readonly deadline: boolean; readonly recovery?: 'reauthorization_required' }>;
+  native?: { first?: AtseqError };
+}
+/** Local byte-count evidence only; no provider text or credential is retained. */
+class OAuthBodyByteLimit extends AtseqError {
+  constructor(readonly maximum: number) {
+    super('input', 'OAuth HTTP body exceeds budget');
+  }
 }
 function refuse(message: string): never {
   throw new AtseqError('input', message);
 }
 /** Keep only trusted failure codes through SDK cause wrappers, never their text. */
-function operationFailure(error: unknown, deadline = false): AtseqError {
+function operationFailure(error: unknown, deadline = false, recovery?: 'reauthorization_required'): AtseqError {
   if (deadline) return new AtseqError('content_unavailable', 'OAuth operation is unavailable');
   const pending = [error],
     seen = new Set<unknown>();
@@ -79,7 +86,12 @@ function operationFailure(error: unknown, deadline = false): AtseqError {
     pending.push(next.cause);
     if (next instanceof AggregateError) pending.push(...next.errors.slice(0, 32));
   }
-  return new AtseqError('input', 'OAuth operation failed');
+  return new AtseqError(
+    'input',
+    recovery === 'reauthorization_required'
+      ? 'OAuth credential request exceeds the byte limit; reauthorization is required'
+      : 'OAuth operation failed',
+  );
 }
 /** Wrap the native fetch edge, outside host policy checks and SDK parsing. */
 export function oauthTransport(fetch: typeof globalThis.fetch): typeof globalThis.fetch {
@@ -145,7 +157,8 @@ async function bodyBytes(
       if (done) break;
       size += value.length;
       budget.bytes += value.length;
-      if (size > maximum || budget.bytes > OAUTH_LIMITS.totalBytes) refuse('OAuth HTTP body exceeds budget');
+      if (budget.bytes > OAUTH_LIMITS.totalBytes) refuse('OAuth HTTP body exceeds budget');
+      if (size > maximum) throw new OAuthBodyByteLimit(maximum);
       chunks.push(value);
     }
     const bytes = new Uint8Array(size);
@@ -169,6 +182,21 @@ export interface OAuthSessionInfo {
   readonly issuer: string;
   readonly pds: string;
   readonly scopes: readonly string[];
+}
+const NATIVE_ACCOUNT_RESOURCE_BYTES = 1024 * 1024;
+/** Internal lookup only: there is no caller registration or positive trust flag. */
+export interface OwnedOAuthSession {
+  readonly did: string;
+  readonly info: () => Promise<OAuthSessionInfo>;
+  readonly request: (path: string, init?: RequestInit) => Promise<Response>;
+  readonly apply: (body: Uint8Array, signal?: AbortSignal) => Promise<Response>;
+  readonly upload: (body: Uint8Array, mimeType: string, signal?: AbortSignal) => Promise<Response>;
+}
+const ownedSessions = new WeakMap<OAuthSessionHandle, OwnedOAuthSession>();
+export function ownedOAuthSession(handle: OAuthSessionHandle): OwnedOAuthSession {
+  const owned = ownedSessions.get(handle);
+  if (!owned) refuse('Native account writer requires an owned OAuth session');
+  return owned;
 }
 /** Credentials stay in maintained-client stores and JS private fields, never JSON output. */
 export class OAuthSessionHandle {
@@ -203,6 +231,7 @@ export class OAuthAdapter {
   #client: Promise<OAuthCustodyClient> | undefined;
   #budget: Budget | undefined;
   #resourceCheck: ((request: Request) => Promise<void>) | undefined;
+  #resourceAllowance: { readonly url: string; readonly bytes: Uint8Array } | undefined;
   constructor(
     options: OAuthAdapterOptions,
     transactions: OAuthTransactionStore,
@@ -223,7 +252,28 @@ export class OAuthAdapter {
   }
   readonly #fetch: typeof globalThis.fetch = (input, init) => this.#guardedFetch(input, init, true);
   readonly #identityFetch: typeof globalThis.fetch = (input, init) => this.#guardedFetch(input, init, false);
+  #captureNativeFailure(error: unknown): void {
+    const budget = this.#budget;
+    if (!budget?.native || budget.native.first || !(error instanceof AtseqError)) return;
+    const original = budget.failures.get(error);
+    const deadline = original?.deadline ?? budget.signal.aborted;
+    const failure = operationFailure(error, deadline, original?.recovery);
+    budget.failures.set(failure, { deadline, recovery: original?.recovery });
+    budget.native.first = failure;
+  }
   async #guardedFetch(
+    input: Parameters<typeof fetch>[0],
+    init: Parameters<typeof fetch>[1],
+    maintained: boolean,
+  ): Promise<Response> {
+    try {
+      return await this.#dispatchFetch(input, init, maintained);
+    } catch (error) {
+      this.#captureNativeFailure(error);
+      throw this.#budget?.native?.first ?? error;
+    }
+  }
+  async #dispatchFetch(
     input: Parameters<typeof fetch>[0],
     init: Parameters<typeof fetch>[1],
     maintained: boolean,
@@ -234,9 +284,45 @@ export class OAuthAdapter {
     const request = new Request(input, init);
     oauthUrl(request.url);
     await this.#resourceCheck?.(request);
+    if (request.headers.has('authorization') && budget.native?.first) throw budget.native.first;
     if (request.headers.has('cookie')) refuse('OAuth HTTP cookie header is forbidden');
     const signal = AbortSignal.any([budget.signal, request.signal]);
-    const bytes = await bodyBytes(request.body, OAUTH_LIMITS.requestBytes, budget, signal);
+    const allowance = this.#resourceAllowance;
+    const allowed = maintained && request.headers.has('authorization') && allowance && request.url === allowance.url;
+    if (allowed && request.method !== 'POST') refuse('Native resource method differs from captured operation');
+    let bytes: Uint8Array<ArrayBuffer> | null;
+    try {
+      bytes = await bodyBytes(
+        request.body,
+        allowed ? NATIVE_ACCOUNT_RESOURCE_BYTES : OAUTH_LIMITS.requestBytes,
+        budget,
+        signal,
+      );
+    } catch (error) {
+      if (
+        budget.native &&
+        maintained &&
+        request.method === 'POST' &&
+        !request.headers.has('authorization') &&
+        request.headers.get('content-type')?.split(';', 1)[0]?.trim().toLowerCase() ===
+          'application/x-www-form-urlencoded' &&
+        error instanceof OAuthBodyByteLimit &&
+        error.maximum === OAUTH_LIMITS.requestBytes
+      ) {
+        const deadline = budget.signal.aborted;
+        const failure = operationFailure(error, deadline, 'reauthorization_required');
+        budget.failures.set(failure, { deadline, recovery: 'reauthorization_required' });
+        throw failure;
+      }
+      throw error;
+    }
+    if (
+      allowed &&
+      (!bytes ||
+        bytes.length !== allowance.bytes.length ||
+        bytes.some((value, index) => value !== allowance.bytes[index]))
+    )
+      refuse('Native resource body differs from captured operation');
     const headers = new Headers(request.headers);
     headers.delete('content-length');
     const guarded = new Request(request.url, {
@@ -293,7 +379,7 @@ export class OAuthAdapter {
         bytes: 0,
         failures: new WeakMap(),
       };
-      let failure: { error: unknown; deadline: boolean } | undefined;
+      let failure: { error: unknown; deadline: boolean; recovery?: 'reauthorization_required' } | undefined;
       try {
         assertDependencies();
         this.#client ??= this.#factory(this.#fetch, {
@@ -313,10 +399,11 @@ export class OAuthAdapter {
           successful = true;
           return result;
         } catch (error) {
+          const classified = error instanceof Error ? this.#budget!.failures.get(error) : undefined;
           failure = {
             error,
-            deadline:
-              (error instanceof Error ? this.#budget!.failures.get(error) : undefined) ?? this.#budget!.signal.aborted,
+            deadline: classified?.deadline ?? this.#budget!.signal.aborted,
+            recovery: classified?.recovery,
           };
           throw error;
         } finally {
@@ -328,8 +415,10 @@ export class OAuthAdapter {
         }
       } catch (error) {
         // Library/server error descriptions may contain codes, tokens or request bodies.
-        throw operationFailure(error, failure?.deadline ?? this.#budget.signal.aborted);
+        throw operationFailure(error, failure?.deadline ?? this.#budget.signal.aborted, failure?.recovery);
       } finally {
+        this.#resourceCheck = undefined;
+        this.#resourceAllowance = undefined;
         this.#budget = undefined;
       }
     });
@@ -387,7 +476,7 @@ export class OAuthAdapter {
         if (state !== transactionId) refuse('OAuth transaction differs from callback');
         const info = await this.#verify(client, session, transaction, false);
         if (oauthUrl(info.issuer).href !== issuer) refuse('OAuth issuer differs from callback');
-        return new OAuthSessionHandle(this, session, transaction);
+        return this.#mint(session, transaction);
       } catch (error) {
         return this.#verificationFailure(session, error);
       }
@@ -408,8 +497,55 @@ export class OAuthAdapter {
       }
       const expected = Object.freeze({ id: crypto.randomUUID(), did, scopes: requested, expiresAt: 0 });
       await this.#verify(client, session, expected, false);
-      return new OAuthSessionHandle(this, session, expected);
+      return this.#mint(session, expected);
     });
+  }
+  #mint(session: OAuthSession, expected: OAuthTransaction): OAuthSessionHandle {
+    const captured = Object.freeze({ ...expected, scopes: Object.freeze([...expected.scopes]) });
+    const handle = new OAuthSessionHandle(this, session, captured);
+    // The configured A1 factory is trusted. This map proves the verified A1
+    // handoff; it is not a classifier for arbitrary configured SDK factories.
+    ownedSessions.set(
+      handle,
+      Object.freeze({
+        did: captured.did,
+        info: () => this.#sessionInfo(session, captured, false),
+        request: (path: string, init?: RequestInit) =>
+          this.#sessionRequest(session, captured, path, init, undefined, true),
+        apply: (body: Uint8Array, signal?: AbortSignal) =>
+          this.#nativeResourceRequest(
+            session,
+            captured,
+            'com.atproto.repo.applyWrites',
+            body,
+            'application/json',
+            signal,
+          ),
+        upload: (body: Uint8Array, mimeType: string, signal?: AbortSignal) =>
+          this.#nativeResourceRequest(session, captured, 'com.atproto.repo.uploadBlob', body, mimeType, signal),
+      }),
+    );
+    return handle;
+  }
+  #nativeResourceRequest(
+    session: OAuthSession,
+    expected: OAuthTransaction,
+    method: 'com.atproto.repo.applyWrites' | 'com.atproto.repo.uploadBlob',
+    body: Uint8Array,
+    mimeType: string,
+    signal?: AbortSignal,
+  ): Promise<Response> {
+    if (!(body instanceof Uint8Array) || body.length > NATIVE_ACCOUNT_RESOURCE_BYTES)
+      refuse('Native resource body exceeds byte limit');
+    const captured = new Uint8Array(body);
+    return this.#sessionRequest(
+      session,
+      expected,
+      `/xrpc/${method}`,
+      { method: 'POST', headers: { 'content-type': mimeType }, body: new Uint8Array(captured), signal },
+      captured,
+      true,
+    );
   }
   async #verify(
     client: OAuthClient,
@@ -446,7 +582,7 @@ export class OAuthAdapter {
     if (error instanceof AtseqError && budget.failures.has(error)) throw error;
     const deadline = budget.signal.aborted;
     const failure = operationFailure(error, deadline);
-    budget.failures.set(failure, deadline);
+    budget.failures.set(failure, { deadline });
     if (failure.code !== 'content_unavailable' || !this.#custody) {
       try {
         await session.signOut();
@@ -472,16 +608,29 @@ export class OAuthAdapter {
     return granted;
   }
   sessionInfo(session: OAuthSession, expected: OAuthTransaction, refresh: boolean): Promise<OAuthSessionInfo> {
+    return this.#sessionInfo(session, expected, refresh);
+  }
+  #sessionInfo(session: OAuthSession, expected: OAuthTransaction, refresh: boolean): Promise<OAuthSessionInfo> {
     return this.#run(async (client) => {
       await this.#custody?.touch(expected.did, refresh);
       return this.#verify(client, session, expected, refresh);
     });
   }
-  async sessionRequest(
+  sessionRequest(
     session: OAuthSession,
     expected: OAuthTransaction,
     path: string,
     init?: RequestInit,
+  ): Promise<Response> {
+    return this.#sessionRequest(session, expected, path, init);
+  }
+  async #sessionRequest(
+    session: OAuthSession,
+    expected: OAuthTransaction,
+    path: string,
+    init?: RequestInit,
+    nativeBody?: Uint8Array,
+    native = false,
   ): Promise<Response> {
     if (
       !path.startsWith('/xrpc/') ||
@@ -493,10 +642,16 @@ export class OAuthAdapter {
       await this.#custody?.touch(expected.did);
       const authority = await this.#verify(client, session, expected, 'auto');
       const resource = new URL(path, authority.pds).href;
+      // This marker begins after fresh authority verification. Earlier A1
+      // verification/refresh classification remains the original owner.
+      const operation: { first?: AtseqError } | undefined = native ? {} : undefined;
+      this.#budget!.native = operation;
+      if (nativeBody) this.#resourceAllowance = { url: resource, bytes: nativeBody };
       // The maintained fetch can refresh again on a resource 401. Recheck the
       // updated token before either credential-bearing dispatch, not after a write.
       this.#resourceCheck = async (request) => {
         if (!request.headers.has('authorization')) return;
+        if (operation?.first) throw operation.first;
         try {
           const token = await session.getTokenInfo(false);
           this.#checkToken(token, session, expected);
@@ -507,13 +662,20 @@ export class OAuthAdapter {
           )
             refuse('OAuth resource authority changed during dispatch');
         } catch (error) {
+          this.#captureNativeFailure(error);
           return this.#verificationFailure(session, error);
         }
       };
       try {
-        return await session.fetchHandler(path, init);
+        const response = await session.fetchHandler(path, init);
+        if (operation?.first) throw operation.first;
+        return response;
+      } catch (error) {
+        throw operation?.first ?? error;
       } finally {
         this.#resourceCheck = undefined;
+        this.#resourceAllowance = undefined;
+        this.#budget!.native = undefined;
       }
     });
   }

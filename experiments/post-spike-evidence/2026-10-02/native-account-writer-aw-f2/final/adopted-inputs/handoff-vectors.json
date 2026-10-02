@@ -1,0 +1,107 @@
+{
+  "status": "all-proposed-fix-vectors-unexecuted",
+  "runtimeFixCasesExecuted": 0,
+  "count": 25,
+  "vectors": [
+    {
+      "id": "genuine-refresh-size-first-input",
+      "status": "unexecuted"
+    },
+    {
+      "id": "genuine-native-read-refresh-size",
+      "status": "unexecuted"
+    },
+    {
+      "id": "generic-request-original-401-unchanged",
+      "status": "unexecuted"
+    },
+    {
+      "id": "genuine-normal-DPoP-retry-CAS-identical-body",
+      "status": "unexecuted"
+    },
+    {
+      "id": "first-input-later-SDK-200",
+      "status": "unexecuted"
+    },
+    {
+      "id": "first-input-later-SDK-exception",
+      "status": "unexecuted"
+    },
+    {
+      "id": "first-origin-later-exception",
+      "status": "unexecuted"
+    },
+    {
+      "id": "first-unavailable-later-input",
+      "status": "unexecuted"
+    },
+    {
+      "id": "input-before-later-finalization-deadline",
+      "status": "unexecuted"
+    },
+    {
+      "id": "origin-before-later-finalization-deadline",
+      "status": "unexecuted"
+    },
+    {
+      "id": "actual-deadline-first-unavailable",
+      "status": "unexecuted"
+    },
+    {
+      "id": "no-resource-dispatch-after-retained-failure",
+      "status": "unexecuted"
+    },
+    {
+      "id": "token-dispatch-witness-not-invented-for-blocked-refresh",
+      "status": "unexecuted"
+    },
+    {
+      "id": "dispatched-token-retirement-unchanged",
+      "status": "unexecuted"
+    },
+    {
+      "id": "ordinary-HTTP-CAS-and-provider-code-separation",
+      "status": "unexecuted"
+    },
+    {
+      "id": "local-error-body-size-input",
+      "status": "unexecuted"
+    },
+    {
+      "id": "outgoing-body-count-pool-cancellation-swallowed",
+      "status": "unexecuted"
+    },
+    {
+      "id": "real-native-fetch-socket-drop",
+      "status": "unexecuted"
+    },
+    {
+      "id": "real-native-body-drop",
+      "status": "unexecuted"
+    },
+    {
+      "id": "native-success-cleanup-next-generic-64KiB",
+      "status": "unexecuted"
+    },
+    {
+      "id": "native-failure-cleanup-next-native-and-generic",
+      "status": "unexecuted"
+    },
+    {
+      "id": "first-failure-custody-cleanup-order",
+      "status": "unexecuted"
+    },
+    {
+      "id": "exact-authority-method-URL-body-guard-unchanged",
+      "status": "unexecuted"
+    },
+    {
+      "id": "Node22-24-26-source-and-emitted",
+      "status": "unexecuted"
+    },
+    {
+      "id": "compiled-Chromium-custody-and-packed-import",
+      "status": "unexecuted"
+    }
+  ]
+}

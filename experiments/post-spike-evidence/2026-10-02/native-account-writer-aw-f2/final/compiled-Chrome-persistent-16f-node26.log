@@ -1,0 +1,10 @@
+{"browser":"153.0.8010.12","entry":".atseq-local/writer-compiled-final-16f-node26/tests/support/native-account-writer-browser-probe.js","compiledProduction":true,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false,"bundledBytes":1508966,"bundleHashes":{"writer.js":"c8ce85829e75130fe24d50d2939656e892e67c0268f556b7367f14051b8c8389","dist-Q6ZHUMY6.js":"910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8","chunk-4UJAH5YT.js":"05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736","oauth-adapter-J4P7XZDC.js":"71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94","chunk-WK77AKTB.js":"70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159","chunk-CZ7CSFO4.js":"0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01"},"resources":20,"credentialRecovery":{"message":"OAuth credential request exceeds the byte limit; reauthorization is required","storedMetadataBytes":22358,"actualCountedEncodedRefreshBytes":65656,"maintainedMethods":5,"reloadLive":true,"actualPersistentContextClosedAndReopened":true,"boundedReauthorization":true,"actualDispatchedFailureRetired":true}}
+✔ Chromium persistent context close/reopen preserves native overflow live custody and reauthorization (1267.448917ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1473.473625

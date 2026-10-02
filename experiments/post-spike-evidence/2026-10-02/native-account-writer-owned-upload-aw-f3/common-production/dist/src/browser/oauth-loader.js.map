@@ -1,0 +1,1 @@
+{"version":3,"file":"oauth-loader.js","sourceRoot":"","sources":["../../../src/browser/oauth-loader.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,kBAAkB,EAAE,MAAM,yBAAyB,CAAC;AAG7D,sFAAsF;AACtF,MAAM,CAAC,KAAK,UAAU,uBAAuB,CAAC,OAA4B;IACxE,kBAAkB,EAAE,CAAC;IACrB,MAAM,EAAE,mBAAmB,EAAE,GAAG,MAAM,MAAM,CAAC,oBAAoB,CAAC,CAAC;IACnE,OAAO,mBAAmB,CAAC,OAAO,CAAC,CAAC;AACtC,CAAC"}

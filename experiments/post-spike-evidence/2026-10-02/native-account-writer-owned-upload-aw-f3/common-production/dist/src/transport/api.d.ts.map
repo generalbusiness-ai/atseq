@@ -1,0 +1,1 @@
+{"version":3,"file":"api.d.ts","sourceRoot":"","sources":["../../../src/transport/api.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,QAAQ,EAAyC,MAAM,kBAAkB,CAAC;AAUnF,eAAO,MAAM,cAAc,UAST,CAAC;AACnB,eAAO,MAAM,UAAU,QAAwB,CAAC;AAChD,6EAA6E;AAC7E,qBAAa,kBAAmB,SAAQ,KAAK;CAAG;AAChD,wBAAsB,aAAa,CAAC,QAAQ,EAAE,QAAQ,EAAE,KAAK,SAAa,oCAwBzE"}

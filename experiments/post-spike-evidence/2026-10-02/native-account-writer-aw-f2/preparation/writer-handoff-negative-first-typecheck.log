@@ -1,0 +1,5 @@
+tests/native-account-writer-handoff.test.ts(146,9): error TS1005: ';' expected.
+tests/native-account-writer-handoff.test.ts(147,3): error TS1128: Declaration or statement expected.
+tests/native-account-writer-handoff.test.ts(147,5): error TS1005: 'try' expected.
+tests/native-account-writer-handoff.test.ts(148,1): error TS1128: Declaration or statement expected.
+tests/native-account-writer-handoff.test.ts(148,2): error TS1128: Declaration or statement expected.

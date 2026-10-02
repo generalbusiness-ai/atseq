@@ -1,0 +1,152 @@
+{
+  "status": "all-unexecuted",
+  "runtimeConformanceCasesExecuted": 0,
+  "count": 29,
+  "vectors": [
+    {
+      "id": "source-524288",
+      "status": "unexecuted",
+      "expectation": "Actual maintained native writer uploads exact512KiB source bytes unchanged; no base64"
+    },
+    {
+      "id": "near-cap-entry-head",
+      "status": "unexecuted",
+      "expectation": "Actual maintained writer sends accepted near64KiBCBOR entry plus head JSON beyondold64KiB cap unchanged"
+    },
+    {
+      "id": "outgoing-1048576",
+      "status": "unexecuted",
+      "expectation": "Native apply/upload actual counted bodyexact1MiB admitted subject to cumulative/count/authority"
+    },
+    {
+      "id": "outgoing-1048577",
+      "status": "unexecuted",
+      "expectation": "1MiB+1 refused locally asinput before network; Content-Length irrelevant"
+    },
+    {
+      "id": "default-65536",
+      "status": "unexecuted",
+      "expectation": "Ordinary A1 request remains64KiB; exactlimit/adverseonebyteover tested"
+    },
+    {
+      "id": "nested-token-cap",
+      "status": "unexecuted",
+      "expectation": "Oversized syntheticSDK/AS token request duringnativeoperation stays64KiB and refuses beforedispatch"
+    },
+    {
+      "id": "nested-refresh-cap",
+      "status": "unexecuted",
+      "expectation": "Refresh body retains64KiB insideprivate1MiBnativeoperation"
+    },
+    {
+      "id": "nested-revoke-cap",
+      "status": "unexecuted",
+      "expectation": "Revoke body retains64KiB including failure cleanup insideprivateoperation"
+    },
+    {
+      "id": "nested-par-discovery-cap",
+      "status": "unexecuted",
+      "expectation": "PAR/discovery/metadata bodies retain64KiB; fixednativepolicy notwholeoperationcap"
+    },
+    {
+      "id": "samepath-malicious-as",
+      "status": "unexecuted",
+      "expectation": "Token/revoke endpoint claimingresourcepath doesnotgain allowance without exactcredentialboundpublicbody"
+    },
+    {
+      "id": "different-origin",
+      "status": "unexecuted",
+      "expectation": "Wrong origin body cannot receiveallowance or credentials"
+    },
+    {
+      "id": "different-path-query",
+      "status": "unexecuted",
+      "expectation": "Wrong/encodedpath/query body cannot receiveallowance"
+    },
+    {
+      "id": "different-method",
+      "status": "unexecuted",
+      "expectation": "Other than exactPOST cannot receiveallowance"
+    },
+    {
+      "id": "different-body",
+      "status": "unexecuted",
+      "expectation": "Modifiedbody rejected locally beforedispatch, includingSDKretry"
+    },
+    {
+      "id": "immutable-input",
+      "status": "unexecuted",
+      "expectation": "Writer capturesserializedbatch/bytecopy beforeawait; caller mutation hasnoeffect"
+    },
+    {
+      "id": "maintained-401-samebody",
+      "status": "unexecuted",
+      "expectation": "Realmaintained401/DPoPretry carries exactsamepublicbody/condition and freshauthoritychecks"
+    },
+    {
+      "id": "allowance-cleanup-success",
+      "status": "unexecuted",
+      "expectation": "Laterdefaultrequest keeps64KiB aftersuccessfulnativewrite"
+    },
+    {
+      "id": "allowance-cleanup-error",
+      "status": "unexecuted",
+      "expectation": "Laterdefaultrequest keeps64KiB afterrefusal/throw/cancellation"
+    },
+    {
+      "id": "cumulative-32MiB",
+      "status": "unexecuted",
+      "expectation": "Everyactualrequest/response/retry body sharesoriginal32MiBpool"
+    },
+    {
+      "id": "http-count64",
+      "status": "unexecuted",
+      "expectation": "Metadata/refresh/retry/resource together shareoriginal64HTTPcap"
+    },
+    {
+      "id": "deadline30s",
+      "status": "unexecuted",
+      "expectation": "Actualoperationnetwork deadline remains30s; locks/IDB disclosuresunchanged"
+    },
+    {
+      "id": "caller-cancel",
+      "status": "unexecuted",
+      "expectation": "Existing signal remains effective and sanitizedcontent_unavailable"
+    },
+    {
+      "id": "response1MiB-over",
+      "status": "unexecuted",
+      "expectation": "Overincoming1MiB body deterministicallyinput, actualnetwork/body/deadline content_unavailable"
+    },
+    {
+      "id": "error-body64KiB-over",
+      "status": "unexecuted",
+      "expectation": "Locallycounted errorbodylimit deterministicinput distinctfrombodyreadfailure"
+    },
+    {
+      "id": "explicit-page-lowering",
+      "status": "unexecuted",
+      "expectation": "Noautomaticpage retry; futurecollector canexplicitlystartconservativefittingpage"
+    },
+    {
+      "id": "local-auth-code",
+      "status": "unexecuted",
+      "expectation": "LegacyAuthenticationUnavailable stillmapslocalauthfailure; providerstringmapsRequestFailed"
+    },
+    {
+      "id": "publisher-preflight",
+      "status": "unexecuted",
+      "expectation": "Trackedpublisher preflights actualbody/blob before signing/enqueue; fixed-widthfieldsaccounted; nooversize retry/split"
+    },
+    {
+      "id": "three-node-browser",
+      "status": "unexecuted",
+      "expectation": "Node22/24/26 +actualChromium applicableownedboundary/hash/importgates"
+    },
+    {
+      "id": "honest-provider-labels",
+      "status": "unexecuted",
+      "expectation": "SyntheticSDKnegative/SyntheticASmaintainedpositive/referencePDSbridge/publicproviderunexecuted labelsdistinct"
+    }
+  ]
+}

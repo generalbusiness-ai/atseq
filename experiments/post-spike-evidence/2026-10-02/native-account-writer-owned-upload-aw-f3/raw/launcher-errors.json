@@ -1,0 +1,19 @@
+{
+  "producer": "c5870ce6",
+  "gateIndices": [
+    7,
+    8,
+    9,
+    10
+  ],
+  "gates": [
+    "source-original-corpus-node26",
+    "emitted-original-corpus-node26",
+    "chromium-emitted-node26",
+    "emitted-identical-root-probe-node26"
+  ],
+  "error": "exec_command failed: CreateProcess { message: \"Rejected(\\\"Failed to create unified exec process: Too many open files (os error 24)\\\")\" }",
+  "executed": false,
+  "approvalPrompt": false,
+  "willRetryWithLowerParallelism": true
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"native-authority-snapshot.d.ts","sourceRoot":"","sources":["../../../src/application/native-authority-snapshot.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,4BAA4B,CAAC;AAC/D,OAAO,KAAK,EAAE,uBAAuB,EAAE,MAAM,4BAA4B,CAAC;AAC1E,wBAAgB,2BAA2B,CACzC,KAAK,EAAE,OAAO,EACd,MAAM,EAAE,YAAY,EACpB,YAAY,SAAmB,GAC9B,OAAO,CAAC,uBAAuB,CAAC,CAElC"}

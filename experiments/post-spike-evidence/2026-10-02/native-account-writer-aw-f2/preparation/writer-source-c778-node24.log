@@ -1,0 +1,28 @@
+▶ hostile configured SDK dispatch cannot widen the private native resource allowance
+  ✔ origin (4215.58175ms)
+  ✔ path (1.781583ms)
+  ✔ query (3.408208ms)
+  ✔ encoded-path (1.404542ms)
+  ✔ method (1.495791ms)
+  ✔ body (1.210542ms)
+  ✔ retry-body (7.450583ms)
+  ✔ token (1.055666ms)
+  ✔ refresh (1.024875ms)
+  ✔ revoke (1.039334ms)
+  ✔ PAR (0.803333ms)
+  ✔ discovery (0.925375ms)
+  ✔ same-path-no-authorization (0.814208ms)
+  ✔ count (15.025666ms)
+  ✔ pool (80.859083ms)
+  ✔ deadline (30001.371ms)
+✔ hostile configured SDK dispatch cannot widen the private native resource allowance (34337.5305ms)
+{"node":"v24.21.0","cases":["maintained-callback-and-restore-owned-writer","constructor-prototype-clone-forgery-and-public-method-mutation-refused","standard-get-and-explicit-102-record-pages-bounded-input","mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry","owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal","large-conditional-JSON-and-whole-batch-local-cap","maintained-exact-1MiB-conditional-body-and-one-byte-over-local-refusal","accepted-native-action-at-32KiB-cap-entry-head-chunk-batch-genuine-signature-unchanged-JSON","default-request-stays-64KiB-after-native-success","malformed-record-and-page-shapes-account-key-CID-cursor-refused","closed-provider-codes-local-auth-separation-and-counted-response-error-limits","lost-response-single-send-cancel-and-error-allowance-cleanup","fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write","maintained-subject-missing-and-extra-scope-refused-before-mint"],"nativeBatch":{"payloadJSONBytes":32768,"entryCBORBytes":33652,"entryHeadJSONBytes":34622,"entryHeadAndChunkJSONBytes":78580},"realNetwork":[{"path":"/drop","code":"content_unavailable","elapsedMs":16.65166699999918},{"path":"/body-drop","code":"content_unavailable","elapsedMs":19.75170900000012},{"path":"/deadline","code":"content_unavailable","elapsedMs":30001.364125}],"dispatcherCalls":296,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false}
+✔ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (37586.563875ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37848.864084

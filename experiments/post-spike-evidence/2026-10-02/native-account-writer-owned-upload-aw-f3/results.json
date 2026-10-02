@@ -1,0 +1,335 @@
+{
+  "request": "d4bab820884cef22b766353b61634d0bd1e3f0df",
+  "promise": "426e3b24f3475a9ccdcc1728ac26d3bb9a07537e",
+  "executableProducer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+  "rows": [
+    {
+      "runtime": "Node22",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-ownership-node22.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node22",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-ownership-node22.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node22",
+      "mode": "real-installed",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/real-installed-final-ownership-node22.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node22",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-original-corpus-node22.log",
+      "groupedCases": 17,
+      "actualNetworkSchedules": 3,
+      "result": "PASS"
+    },
+    {
+      "runtime": "Node22",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-original-corpus-node22.log",
+      "groupedCases": 17,
+      "actualNetworkSchedules": 3,
+      "result": "PASS"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-ownership-node24.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-ownership-node24.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "real-installed",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/real-installed-final-ownership-node24.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-original-corpus-node24.log",
+      "groupedCases": 17,
+      "actualNetworkSchedules": 3,
+      "result": "PASS"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-original-corpus-node24.log",
+      "groupedCases": 17,
+      "actualNetworkSchedules": 3,
+      "result": "PASS"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-ownership-node26.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-ownership-node26.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "real-installed",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/real-installed-final-ownership-node26.log",
+      "cases": 26,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-original-corpus-node26.log",
+      "groupedCases": 17,
+      "actualNetworkSchedules": 3,
+      "result": "PASS"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-original-corpus-node26.log",
+      "groupedCases": 17,
+      "actualNetworkSchedules": 3,
+      "result": "PASS"
+    },
+    {
+      "runtime": "153.0.8010.12",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/chromium-final-source-node26.log",
+      "cases": 23,
+      "result": "PASS",
+      "sharedStorageBrowser": "unavailable under tested origin; Node vector executed",
+      "crossRealmSupported": false
+    },
+    {
+      "runtime": "153.0.8010.12",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/chromium-final-emitted-node26.log",
+      "cases": 23,
+      "result": "PASS",
+      "sharedStorageBrowser": "unavailable under tested origin; Node vector executed",
+      "crossRealmSupported": false
+    },
+    {
+      "runtime": "Node22",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-suite43-node22.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node22",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-suite43-node22.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-suite43-node24.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-suite43-node24.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-suite43-node26.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-suite43-node26.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    }
+  ],
+  "old117Vectors": "unchanged original attribution, not relabelled",
+  "fullA1A2P3Claim": false,
+  "linuxExecuted": false,
+  "legacyAndReferencePds": [
+    {
+      "kind": "legacy",
+      "runtime": "Node22",
+      "mode": "source",
+      "capture": "raw/source-legacy35-node22.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node22",
+      "mode": "source",
+      "capture": "raw/source-PDS6-node22.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node22",
+      "mode": "emitted",
+      "capture": "raw/emitted-legacy35-node22.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node22",
+      "mode": "emitted",
+      "capture": "raw/emitted-PDS6-node22.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node24",
+      "mode": "source",
+      "capture": "raw/source-legacy35-node24.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node24",
+      "mode": "source",
+      "capture": "raw/source-PDS6-node24.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node24",
+      "mode": "emitted",
+      "capture": "raw/emitted-legacy35-node24.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node24",
+      "mode": "emitted",
+      "capture": "raw/emitted-PDS6-node24.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node26",
+      "mode": "source",
+      "capture": "raw/source-legacy35-node26.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node26",
+      "mode": "source",
+      "capture": "raw/source-final-PDS6-node26.log",
+      "cases": 6,
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node26",
+      "mode": "emitted",
+      "capture": "raw/emitted-legacy35-node26.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node26",
+      "mode": "emitted",
+      "capture": "raw/emitted-final-PDS6-node26.log",
+      "cases": 6,
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    }
+  ]
+}

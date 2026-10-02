@@ -1,0 +1,44 @@
+✔ host procedures require a retained owner-only token; reads remain public (560.671541ms)
+✔ draft cache evicts least recently used previews within count and byte budgets (57.216167ms)
+✔ incomplete creations consume application quota before an account is provisioned (4.925625ms)
+✔ a corrupt lease database keeps its SQLite diagnostic instead of claiming contention (1.086083ms)
+✔ only a PDS RecordNotFound response becomes a missing source (4.309542ms)
+✔ only definite invalid input is final; integrity and host availability errors use 503 (0.149083ms)
+✔ actual native proof limits remain unavailable and nonpermanent through host HTTP (17.081959ms)
+✔ expiry renews once across concurrent JSON, blob and upload calls (34.049958ms)
+✔ missing, rejected or repeatedly expired session credentials have a permanent authentication code (3.099209ms)
+✔ complete-prefix limits and nonce conflicts have stable permanent codes (0.131ms)
+✔ authorization refusal does not permanently disable a valid PDS credential (1.884209ms)
+▶ real disposable PDS persistence and recovery
+  ✔ genesis and initial head are a verified empty prefix (8.477209ms)
+  ✔ provisioning refuses to replace an existing application log (14.89275ms)
+  ✔ source blobs are retained and recovered by exact CID (12.036625ms)
+  ✔ reset refuses a live or unmarked directory (1.14425ms)
+  ✔ two concurrent submissions receive one contiguous order (60.503ms)
+  ✔ same intent and a new valid signature return original receipt (17.529667ms)
+  ✔ second local writer is refused while the lease is held (0.262791ms)
+  ✔ official PDS process crash preserves acknowledged history and blobs (677.743625ms)
+  ✔ a rejected conditional batch leaves entry and head unchanged (40.195541ms)
+  ✔ malformed commit replies cannot remove an append or provision condition (43.412209ms)
+  ✔ an unrelated repo write races the append and is reconciled (72.801375ms)
+  ✔ lost HTTP response after commit resolves to one original receipt (40.378333ms)
+  ✔ a different writer process cannot acquire the same local lease (702.0285ms)
+  ✔ writer crash after commit but before acknowledgment recovers one receipt (835.348166ms)
+  ✔ writer crash after acknowledgment keeps receipt and no domain effect claim (781.331208ms)
+  ✔ XRPC rejects a foreign receipt anchor and malformed submission (12.866667ms)
+  ✔ bootstrap at a chosen head catches up without notifications (72.100375ms)
+  ✔ repository CAR contains retention references but blobs require explicit export (7.751666ms)
+  ✔ missing and tampered source references fail, then recover by exact content (24.062208ms)
+  ✔ missing or corrupted physical blob bytes never satisfy a source CID (6.836667ms)
+  ✔ a retained verified head refuses repository rollback and signed-entry corruption (75.992709ms)
+  ✔ chosen-head catch-up verifies a prefix spanning real PDS pages (218.116959ms)
+  ✔ PDS compare-and-swap excludes competing writers even with the local lease bypassed (473.027959ms)
+✔ real disposable PDS persistence and recovery (6719.011166ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7007.358375

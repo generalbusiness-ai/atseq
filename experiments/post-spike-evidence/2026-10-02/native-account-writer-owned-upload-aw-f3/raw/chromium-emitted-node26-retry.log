@@ -1,0 +1,10 @@
+{"browser":"153.0.8010.12","entry":".atseq-local/writer-compiled-final-aw-f3-node26/tests/support/native-account-writer-browser-probe.js","compiledProduction":true,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false,"bundledBytes":1513579,"bundleHashes":{"writer.js":"c5cc587ab4fa2b85bbfd23c2338b980a99b841644508759064c6fc535faf6f1e","dist-Q6ZHUMY6.js":"910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8","chunk-4UJAH5YT.js":"05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736","oauth-adapter-J4P7XZDC.js":"71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94","chunk-WK77AKTB.js":"70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159","chunk-CZ7CSFO4.js":"0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01"},"resources":29,"uploadOwnership":{"cases":["valid-owned-plain","valid-owned-length-zero","valid-owned-byte-properties-throw","valid-owned-methods-constructor-iterator-tag-throw","valid-owned-subclass","valid-owned-offset","valid-owned-zero-byte-length-spoof","local-refusal-oversize-length-zero","local-refusal-prototype-fake","local-refusal-proxy","local-refusal-data-view","local-refusal-clamped-view","local-refusal-uint16-view","local-refusal-array-buffer","local-refusal-ordinary-array","local-refusal-null","local-refusal-undefined","local-refusal-detached","explicit-cross-realm-refusal-before-any-HTTP","root-17-sent-own-length-zero-malformed-size-zero-refused","valid-reply-after-malformed-refusal"],"sharedStorageAvailable":false,"crossRealmSupported":false},"credentialRecovery":{"message":"OAuth credential request exceeds the byte limit; reauthorization is required","storedMetadataBytes":22358,"actualCountedEncodedRefreshBytes":65656,"maintainedMethods":5,"reloadLive":true,"boundedReauthorization":true,"actualDispatchedFailureRetired":true}}
+✔ Chromium native writer uses maintained browser OAuth and actual guarded fetch with bounded custody (1315.196ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1590.805084

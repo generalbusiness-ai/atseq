@@ -1,0 +1,703 @@
+TAP version 13
+# Subtest: hostile configured SDK dispatch cannot widen the private native resource allowance
+    # Subtest: origin
+    ok 1 - origin
+      ---
+      duration_ms: 1052.289042
+      type: 'test'
+      ...
+    # Subtest: path
+    ok 2 - path
+      ---
+      duration_ms: 1.085208
+      type: 'test'
+      ...
+    # Subtest: query
+    ok 3 - query
+      ---
+      duration_ms: 1.186458
+      type: 'test'
+      ...
+    # Subtest: encoded-path
+    ok 4 - encoded-path
+      ---
+      duration_ms: 0.938042
+      type: 'test'
+      ...
+    # Subtest: method
+    ok 5 - method
+      ---
+      duration_ms: 1.402542
+      type: 'test'
+      ...
+    # Subtest: body
+    ok 6 - body
+      ---
+      duration_ms: 0.918208
+      type: 'test'
+      ...
+    # Subtest: retry-body
+    ok 7 - retry-body
+      ---
+      duration_ms: 5.211334
+      type: 'test'
+      ...
+    # Subtest: token
+    ok 8 - token
+      ---
+      duration_ms: 0.997791
+      type: 'test'
+      ...
+    # Subtest: refresh
+    ok 9 - refresh
+      ---
+      duration_ms: 0.963916
+      type: 'test'
+      ...
+    # Subtest: revoke
+    ok 10 - revoke
+      ---
+      duration_ms: 0.623083
+      type: 'test'
+      ...
+    # Subtest: PAR
+    ok 11 - PAR
+      ---
+      duration_ms: 1.675417
+      type: 'test'
+      ...
+    # Subtest: discovery
+    ok 12 - discovery
+      ---
+      duration_ms: 0.531875
+      type: 'test'
+      ...
+    # Subtest: same-path-no-authorization
+    ok 13 - same-path-no-authorization
+      ---
+      duration_ms: 0.490708
+      type: 'test'
+      ...
+    # Subtest: count
+    ok 14 - count
+      ---
+      duration_ms: 6.191708
+      type: 'test'
+      ...
+    # Subtest: pool
+    ok 15 - pool
+      ---
+      duration_ms: 11.36425
+      type: 'test'
+      ...
+    # Subtest: deadline
+    ok 16 - deadline
+      ---
+      duration_ms: 30002.503375
+      type: 'test'
+      ...
+    1..16
+ok 1 - hostile configured SDK dispatch cannot widen the private native resource allowance
+  ---
+  duration_ms: 31089.968167
+  type: 'test'
+  ...
+# Subtest: private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes
+    # Subtest: input-sdk-success
+    ok 1 - input-sdk-success
+      ---
+      duration_ms: 1056.344583
+      type: 'test'
+      ...
+    # Subtest: input-sdk-throw
+    ok 2 - input-sdk-throw
+      ---
+      duration_ms: 6.702
+      type: 'test'
+      ...
+    # Subtest: origin
+    ok 3 - origin
+      ---
+      duration_ms: 7.785792
+      type: 'test'
+      ...
+    # Subtest: unavailable
+    ok 4 - unavailable
+      ---
+      duration_ms: 9.079541
+      type: 'test'
+      ...
+    # Subtest: no-second-resource
+    ok 5 - no-second-resource
+      ---
+      duration_ms: 5.319458
+      type: 'test'
+      ...
+    # Subtest: first-before-revoke
+    ok 6 - first-before-revoke
+      ---
+      duration_ms: 6.488834
+      type: 'test'
+      ...
+    # Subtest: credential-sdk-success
+    ok 7 - credential-sdk-success
+      ---
+      duration_ms: 5.143333
+      type: 'test'
+      ...
+    # Subtest: credential-sdk-throw
+    ok 8 - credential-sdk-throw
+      ---
+      duration_ms: 5.718541
+      type: 'test'
+      ...
+    # Subtest: non-post
+    ok 9 - non-post
+      ---
+      duration_ms: 5.819792
+      type: 'test'
+      ...
+    # Subtest: non-form
+    ok 10 - non-form
+      ---
+      duration_ms: 5.834667
+      type: 'test'
+      ...
+    # Subtest: identity-form
+    ok 11 - identity-form
+      ---
+      duration_ms: 4.862334
+      type: 'test'
+      ...
+    # Subtest: authorized-form
+    ok 12 - authorized-form
+      ---
+      duration_ms: 4.52975
+      type: 'test'
+      ...
+    # Subtest: response
+    ok 13 - response
+      ---
+      duration_ms: 8.288833
+      type: 'test'
+      ...
+    # Subtest: count
+    ok 14 - count
+      ---
+      duration_ms: 9.733792
+      type: 'test'
+      ...
+    # Subtest: pool
+    ok 15 - pool
+      ---
+      duration_ms: 21.832916
+      type: 'test'
+      ...
+    # Subtest: pool-plus-body
+    ok 16 - pool-plus-body
+      ---
+      duration_ms: 14.133458
+      type: 'test'
+      ...
+    # Subtest: cancel
+    ok 17 - cancel
+      ---
+      duration_ms: 4.36925
+      type: 'test'
+      ...
+    # Subtest: custody-throw
+    ok 18 - custody-throw
+      ---
+      duration_ms: 4.307791
+      type: 'test'
+      ...
+    # Subtest: unknown-sdk
+    ok 19 - unknown-sdk
+      ---
+      duration_ms: 4.109917
+      type: 'test'
+      ...
+    1..19
+ok 2 - private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes
+  ---
+  duration_ms: 1192.379458
+  type: 'test'
+  ...
+# Subtest: native first failure preserves its original deadline and fixed recovery through later finalization
+    # Subtest: input-late-deadline
+    ok 1 - input-late-deadline
+      ---
+      duration_ms: 30110.197125
+      type: 'test'
+      ...
+    # Subtest: origin-late-deadline
+    ok 2 - origin-late-deadline
+      ---
+      duration_ms: 30110.569334
+      type: 'test'
+      ...
+    # Subtest: recovery-late-deadline
+    ok 3 - recovery-late-deadline
+      ---
+      duration_ms: 30109.099583
+      type: 'test'
+      ...
+    # Subtest: deadline
+    ok 4 - deadline
+      ---
+      duration_ms: 30003.322333
+      type: 'test'
+      ...
+    1..4
+ok 3 - native first failure preserves its original deadline and fixed recovery through later finalization
+  ---
+  duration_ms: 30111.126916
+  type: 'test'
+  ...
+# {"node":"v22.19.0","cases":["maintained-callback-and-restore-owned-writer","constructor-prototype-clone-forgery-and-public-method-mutation-refused","standard-get-and-explicit-102-record-pages-bounded-input","mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry","owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal","large-conditional-JSON-and-whole-batch-local-cap","maintained-exact-1MiB-conditional-body-and-one-byte-over-local-refusal","default-request-stays-64KiB-after-native-success","malformed-record-and-page-shapes-account-key-CID-cursor-refused","closed-provider-codes-local-auth-separation-and-counted-response-error-limits","lost-response-single-send-cancel-and-error-allowance-cleanup","fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write","maintained-subject-missing-and-extra-scope-refused-before-mint","genuine-admitted-source-authority-evaluator-entry-head-and-two-content-chunks-unchanged-JSON","genuine-maintained-all-native-methods-encoded-refresh-overflow-fixed-text-no-dispatch-generic-401-and-fresh-reauthorization","pre-authority-automatic-refresh-remains-original-A1-generic-input-outside-native-marker"],"nativeBatch":{"selectedFixtureVector":"activate authored denial","payloadJSONBytes":0,"entryCBORBytes":1187,"entryHeadJSONBytes":2304,"entryHeadAndChunkJSONBytes":90308},"credentialRecovery":{"message":"OAuth credential request exceeds the byte limit; reauthorization is required","rawRefreshTokenBytes":21864,"actualCountedEncodedRefreshBytes":65656},"realNetwork":[{"path":"/drop","code":"content_unavailable","elapsedMs":10.338333000000148},{"path":"/body-drop","code":"content_unavailable","elapsedMs":15.913457999999991},{"path":"/deadline","code":"content_unavailable","elapsedMs":30003.004541000002}],"dispatcherCalls":421,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false}
+# Subtest: owned native writer uses genuine maintained Node OAuth and finite bounded standard operations
+ok 4 - owned native writer uses genuine maintained Node OAuth and finite bounded standard operations
+  ---
+  duration_ms: 32269.564916
+  type: 'test'
+  ...
+# {"node":"v22.19.0","cases":["actual-maintained-PAR-PKCE-DPoP-nonce-refresh-resource-revoke","duplicate-callback-single-exchange","opaque-session-and-adapter-serialization","missing-issuer","oversized-callback","duplicate-issuer","wrong-subject","wrong-scopes","extra-scopes","wrong-callback-issuer","changed-authority","refresh-extra-scopes-before-resource-retry","scope-refusal-before-resource","resource-path-escape","oversized-outgoing-body","caller-aborted-request","unsafe-token-url","oversized-resource","refused-token","refused-refresh","refused-resource","refused-revoke","callback-state-selects-one-of-two-pending-transactions","secret-free-identity-content_unavailable-class","secret-free-identity-origin-class","actual-native-fetch/drop-transient","actual-native-fetch/body-drop-transient","actual-native-fetch/deadline-transient","failed-PAR-state-count-bounded","expired-transaction-before-token-exchange","expired-callback-leaves-later-live-transaction-usable","new-volatile-Node-instance-refuses-abandoned-callback","identity-request-count-budget","identity-cumulative-byte-budget","path-based-issuer-binding-preserved"],"dispatcherCalls":446,"providerSuccess":false,"syntheticOnly":true}
+# Subtest: actual Node OAuth adapter uses maintained client, guarded edges, races and private custody
+ok 5 - actual Node OAuth adapter uses maintained client, guarded edges, races and private custody
+  ---
+  duration_ms: 31538.480583
+  type: 'test'
+  ...
+# Subtest: browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments
+ok 6 - browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments
+  ---
+  duration_ms: 0.309625
+  type: 'test'
+  ...
+# Subtest: storage finalization crossing the network deadline preserves the original work failure
+ok 7 - storage finalization crossing the network deadline preserves the original work failure
+  ---
+  duration_ms: 827.489709
+  type: 'test'
+  ...
+# Subtest: definitive verification failure retains its class when awaited signout crosses the network deadline
+ok 8 - definitive verification failure retains its class when awaited signout crosses the network deadline
+  ---
+  duration_ms: 0.634625
+  type: 'test'
+  ...
+# {"case":"actual-bfcache-housekeeping","chromium":"153.0.8010.12","compiled":true,"nativeTLS":true,"requestInterception":false,"restorations":3,"initial":{"instance":"b22a0c80-dcb7-4eb3-9a01-b468b36e0128","events":[{"event":"pageshow","persisted":false}],"activeTimers":1,"fires":0},"final":{"instance":"b22a0c80-dcb7-4eb3-9a01-b468b36e0128","events":[{"event":"pageshow","persisted":false},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true}],"activeTimers":1,"fires":1},"actualMinuteTimerFired":true,"idleReservedRowsPurged":true,"providerSuccess":false}
+# Subtest: actual BFCache restores exactly one custody timer, which performs idle cleanup after repeated restores
+ok 9 - actual BFCache restores exactly one custody timer, which performs idle cleanup after repeated restores
+  ---
+  duration_ms: 60810.00675
+  type: 'test'
+  ...
+# {"custodyCase":"counts-consent-expiry","pendingCap":10,"accountCap":10,"onePendingPerDid":true,"refreshDoesNotExtendConsent":true,"expiredNeverRefreshes":true}
+# Subtest: owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime
+ok 10 - owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime
+  ---
+  duration_ms: 688.689417
+  type: 'test'
+  ...
+# {"custodyCase":"actual-write-abort","callbackAndRefreshRejected":true,"selectedSdkRevocation":true,"localPurge":true}
+# Subtest: actual IDB session abort propagates and selected SDK revokes new refresh token
+ok 11 - actual IDB session abort propagates and selected SDK revokes new refresh token
+  ---
+  duration_ms: 328.061875
+  type: 'test'
+  ...
+# {"custodyCase":"read-crash","realDocumentClosed":true,"uncertainNotRestored":true,"noRefreshRetry":true,"oneBestEffortRevoke":true}
+# Subtest: crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry
+ok 12 - crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry
+  ---
+  duration_ms: 356.114875
+  type: 'test'
+  ...
+# {"custodyCase":"callback-after-commit-crash","actualCommittedCredential":true,"authorityChecksUnfinished":true,"noReturnedHandle":true,"noRefreshRetry":true}
+# Subtest: committed callback is not live before fresh authority checks; closing document retires it
+ok 13 - committed callback is not live before fresh authority checks; closing document retires it
+  ---
+  duration_ms: 331.197916
+  type: 'test'
+  ...
+# {"custodyCase":"cross-document-lock-key","actualWebLocks":true,"reloadedNonextractablePrivateKey":true,"distinctLockPrefixes":true}
+# Subtest: two documents serialize custody and distinct SDK locks without a process local fallback
+ok 14 - two documents serialize custody and distinct SDK locks without a process local fallback
+  ---
+  duration_ms: 462.215375
+  type: 'test'
+  ...
+# {"custodyCase":"actual-browser-quota","chromiumQuotaOverride":1,"writeRejected":true,"physicalCountsPreserved":true,"recoveredAfterQuotaRestored":true}
+# Subtest: browser quota refusal aborts real owned writes without exceeding physical slot counts
+ok 15 - browser quota refusal aborts real owned writes without exceeding physical slot counts
+  ---
+  duration_ms: 244.39575
+  type: 'test'
+  ...
+# {"custodyCase":"purge-failure-reset","actualDeleteTransactionAborts":true,"countedWhileUnusable":true,"noRefreshRetry":true,"repairAndTrustedResetReenrollment":true}
+# Subtest: failed local purge remains counted and unusable until storage repair or trusted explicit reset
+ok 16 - failed local purge remains counted and unusable until storage repair or trusted explicit reset
+  ---
+  duration_ms: 282.015083
+  type: 'test'
+  ...
+# {"custodyCase":"remote-refusal","localDeletionIndependent":true,"noDurableRemoteRetryQueue":true}
+# Subtest: remote revocation refusal cannot prevent local purge
+ok 17 - remote revocation refusal cannot prevent local purge
+  ---
+  duration_ms: 256.676167
+  type: 'test'
+  ...
+# {"custodyCase":"legacy-origin-reset","legacyRefused":true,"explicitDeletionWithoutDecoding":true,"freshEnrollment":true}
+# Subtest: legacy private SDK origin is refused until trusted reset; no private database migration
+ok 18 - legacy private SDK origin is refused until trusted reset; no private database migration
+  ---
+  duration_ms: 226.513
+  type: 'test'
+  ...
+# {"custodyCase":"exact-metadata-ceiling","utf8Bytes":65536,"oneByteOverRejected":true,"opaquePairExcluded":true,"journalIncluded":true}
+# Subtest: 64 KiB logical UTF-8 metadata ceiling includes the account journal while opaque keypair is excluded
+ok 19 - 64 KiB logical UTF-8 metadata ceiling includes the account journal while opaque keypair is excluded
+  ---
+  duration_ms: 292.119041
+  type: 'test'
+  ...
+# {"custodyCase":"refresh-issued-before-commit-crash","realTokenResponsePrepared":true,"oldCredentialUncertain":true,"noOneUseRefreshRetry":true,"actualDistinctSdkAndCustodyLocks":true}
+# Subtest: refresh response issued before local commit leaves the old credential uncertain and never retries it on reopen
+ok 20 - refresh response issued before local commit leaves the old credential uncertain and never retries it on reopen
+  ---
+  duration_ms: 323.401125
+  type: 'test'
+  ...
+# {"custodyCase":"final-live-commit-abort","actualFinalTransactionAborted":true,"noAcceptedHandle":true,"committedCredentialRetiredOnReopen":true}
+# Subtest: final live-marker transaction abort returns no handle and retains committed uncertain credential for cleanup
+ok 21 - final live-marker transaction abort returns no handle and retains committed uncertain credential for cleanup
+  ---
+  duration_ms: 311.921167
+  type: 'test'
+  ...
+# {"custodyCase":"journal-first","actualMarkerAbort":true,"noCredentialDispatchBeforeCommit":true,"untouchedLiveConsentPreserved":true}
+# Subtest: journal write must commit before any credential read, refresh or resource request
+ok 22 - journal write must commit before any credential read, refresh or resource request
+  ---
+  duration_ms: 245.443333
+  type: 'test'
+  ...
+# {"custodyCase":"subject-and-401","foreignSubjectNeverAllocated":true,"implicitRefreshJournalRetained":true,"consentNotExtended":true,"changedScopeRefusedBeforeSecondResourceDispatch":true}
+# Subtest: subject mismatch cannot allocate another account and resource 401 refresh retains the journal and checks exact scopes
+ok 23 - subject mismatch cannot allocate another account and resource 401 refresh retains the journal and checks exact scopes
+  ---
+  duration_ms: 276.321416
+  type: 'test'
+  ...
+# {"custodyCase":"plain-reset-keeps-consent","originalUnavailableError":true,"unchangedDeadline":true,"noRefreshOrRevoke":true,"nextRequestSucceeded":true}
+# Subtest: plain resource transport reset preserves live consent, deadline and next successful request without refresh or revocation
+ok 24 - plain resource transport reset preserves live consent, deadline and next successful request without refresh or revocation
+  ---
+  duration_ms: 244.408667
+  type: 'test'
+  ...
+# {"custodyCase":"resource-form-not-token","normalizedPostBody":true,"authorizationProvenanceSeparatesResource":true,"consentPreserved":true}
+# Subtest: an authenticated resource form cannot masquerade as a maintained token request
+ok 25 - an authenticated resource form cannot masquerade as a maintained token request
+  ---
+  duration_ms: 245.365667
+  type: 'test'
+  ...
+# {"custodyCase":"lost-401-refresh-response","actualPreparedTokenResponseLost":true,"sdkInitial401Preserved":true,"uncertainRetired":true,"noOneUseRetry":true}
+# Subtest: lost 401 refresh response retires uncertainty even when the maintained resource helper returns its initial 401
+ok 26 - lost 401 refresh response retires uncertainty even when the maintained resource helper returns its initial 401
+  ---
+  duration_ms: 234.017375
+  type: 'test'
+  ...
+# {"custodyCase":"token-dispatch-normalized-form","publicSdkFetchDecoratorOnly":true,"optionalFieldsAccepted":true,"mixedCaseCharsetAccepted":true,"lostResponseRetired":true}
+# Subtest: token dispatch marker accepts maintained normalized form with extra fields and mixed-case media type with charset
+ok 27 - token dispatch marker accepts maintained normalized form with extra fields and mixed-case media type with charset
+  ---
+  duration_ms: 244.62675
+  type: 'test'
+  ...
+# {"custodyCase":"safe-finalization-abort","actualTransactionAbort":true,"originalTransientErrorPreserved":true,"uncertainNotUsable":true,"noRefreshRetry":true}
+# Subtest: safe failure finalization must commit; aborted live marker leaves uncertainty and preserves original transient error
+ok 28 - safe failure finalization must commit; aborted live marker leaves uncertainty and preserves original transient error
+  ---
+  duration_ms: 325.795333
+  type: 'test'
+  ...
+# {"custodyCase":"plain-caller-abort","existingConsentLive":true,"noTokenOrRevoke":true,"originalUnavailableClass":true}
+# Subtest: plain caller abort without token dispatch preserves existing consent and original unavailable class
+ok 29 - plain caller abort without token dispatch preserves existing consent and original unavailable class
+  ---
+  duration_ms: 249.623583
+  type: 'test'
+  ...
+# {"custodyCase":"token-handoff-sync-rejection","markedBeforeTransport":true,"noServerTokenResponseRequiredForConservativeRetirement":true,"noAutomaticRetry":true}
+# Subtest: token handoff is marked before transport can synchronously reject, retaining conservative no-retry semantics
+ok 30 - token handoff is marked before transport can synchronously reject, retaining conservative no-retry semantics
+  ---
+  duration_ms: 253.05025
+  type: 'test'
+  ...
+# {"custodyCase":"fresh-verification-reset","stage":"identity","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+# Subtest: fresh verification identity reset preserves unchanged resource consent and permits next request
+ok 31 - fresh verification identity reset preserves unchanged resource consent and permits next request
+  ---
+  duration_ms: 260.027417
+  type: 'test'
+  ...
+# {"custodyCase":"fresh-verification-reset","stage":"identity","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+# Subtest: fresh verification identity reset preserves unchanged info consent and permits next request
+ok 32 - fresh verification identity reset preserves unchanged info consent and permits next request
+  ---
+  duration_ms: 249.300667
+  type: 'test'
+  ...
+# {"custodyCase":"fresh-verification-reset","stage":"identity","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+# Subtest: fresh verification identity reset preserves unchanged restore consent and permits next request
+ok 33 - fresh verification identity reset preserves unchanged restore consent and permits next request
+  ---
+  duration_ms: 235.042375
+  type: 'test'
+  ...
+# {"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+# Subtest: fresh verification discovery reset preserves unchanged resource consent and permits next request
+ok 34 - fresh verification discovery reset preserves unchanged resource consent and permits next request
+  ---
+  duration_ms: 248.132708
+  type: 'test'
+  ...
+# {"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+# Subtest: fresh verification discovery reset preserves unchanged info consent and permits next request
+ok 35 - fresh verification discovery reset preserves unchanged info consent and permits next request
+  ---
+  duration_ms: 259.722583
+  type: 'test'
+  ...
+# {"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+# Subtest: fresh verification discovery reset preserves unchanged restore consent and permits next request
+ok 36 - fresh verification discovery reset preserves unchanged restore consent and permits next request
+  ---
+  duration_ms: 246.370333
+  type: 'test'
+  ...
+# {"custodyCase":"definitive-verification-mismatch","mismatch":"issuer","retired":true,"tokenDelta":0,"resourceDelta":0,"revokeDelta":0}
+# Subtest: definitive fresh issuer mismatch retires unchanged credentials before resource dispatch
+ok 37 - definitive fresh issuer mismatch retires unchanged credentials before resource dispatch
+  ---
+  duration_ms: 305.024834
+  type: 'test'
+  ...
+# {"custodyCase":"definitive-verification-mismatch","mismatch":"scope","retired":true,"tokenDelta":0,"resourceDelta":0,"revokeDelta":1}
+# Subtest: definitive fresh scope mismatch retires unchanged credentials before resource dispatch
+ok 38 - definitive fresh scope mismatch retires unchanged credentials before resource dispatch
+  ---
+  duration_ms: 306.439708
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"identity","status":500,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP500 identity resource outage preserves exact consent and permits healthy retry
+ok 39 - unauthenticated HTTP500 identity resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 234.23525
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"identity","status":500,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP500 identity restore outage preserves exact consent and permits healthy retry
+ok 40 - unauthenticated HTTP500 identity restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 231.413791
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"identity","status":503,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP503 identity resource outage preserves exact consent and permits healthy retry
+ok 41 - unauthenticated HTTP503 identity resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 262.150916
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"identity","status":503,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP503 identity restore outage preserves exact consent and permits healthy retry
+ok 42 - unauthenticated HTTP503 identity restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 242.070917
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"identity","status":429,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP429 identity resource outage preserves exact consent and permits healthy retry
+ok 43 - unauthenticated HTTP429 identity resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 234.634958
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"identity","status":429,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP429 identity restore outage preserves exact consent and permits healthy retry
+ok 44 - unauthenticated HTTP429 identity restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 245.887375
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":500,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP500 discovery resource outage preserves exact consent and permits healthy retry
+ok 45 - unauthenticated HTTP500 discovery resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 237.654875
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":500,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP500 discovery restore outage preserves exact consent and permits healthy retry
+ok 46 - unauthenticated HTTP500 discovery restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 237.248583
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":503,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP503 discovery resource outage preserves exact consent and permits healthy retry
+ok 47 - unauthenticated HTTP503 discovery resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 260.004709
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":503,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP503 discovery restore outage preserves exact consent and permits healthy retry
+ok 48 - unauthenticated HTTP503 discovery restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 285.018958
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":429,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP429 discovery resource outage preserves exact consent and permits healthy retry
+ok 49 - unauthenticated HTTP429 discovery resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 277.962875
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":429,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP429 discovery restore outage preserves exact consent and permits healthy retry
+ok 50 - unauthenticated HTTP429 discovery restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 261.190958
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":500,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP500 protected-resource resource outage preserves exact consent and permits healthy retry
+ok 51 - unauthenticated HTTP500 protected-resource resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 277.063833
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":500,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP500 protected-resource restore outage preserves exact consent and permits healthy retry
+ok 52 - unauthenticated HTTP500 protected-resource restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 278.626166
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":503,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP503 protected-resource resource outage preserves exact consent and permits healthy retry
+ok 53 - unauthenticated HTTP503 protected-resource resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 255.110375
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":503,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP503 protected-resource restore outage preserves exact consent and permits healthy retry
+ok 54 - unauthenticated HTTP503 protected-resource restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 248.864416
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":429,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP429 protected-resource resource outage preserves exact consent and permits healthy retry
+ok 55 - unauthenticated HTTP429 protected-resource resource outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 263.214542
+  type: 'test'
+  ...
+# {"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":429,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+# Subtest: unauthenticated HTTP429 protected-resource restore outage preserves exact consent and permits healthy retry
+ok 56 - unauthenticated HTTP429 protected-resource restore outage preserves exact consent and permits healthy retry
+  ---
+  duration_ms: 259.823041
+  type: 'test'
+  ...
+# {"custodyCase":"authenticated-http-response","status":500,"unchangedResponseStatusAndBody":true,"exactAccountUnchanged":true,"tokenDelta":0,"revokeDelta":0,"nextSucceeded":true}
+# Subtest: authenticated resource HTTP500 remains a response and leaves exact consent live
+ok 57 - authenticated resource HTTP500 remains a response and leaves exact consent live
+  ---
+  duration_ms: 257.309
+  type: 'test'
+  ...
+# {"custodyCase":"token-http-outage","status":500,"operation":"explicit-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+# Subtest: dispatched token HTTP500 explicit-refresh failure retires credentials without automatic retry
+ok 58 - dispatched token HTTP500 explicit-refresh failure retires credentials without automatic retry
+  ---
+  duration_ms: 258.946625
+  type: 'test'
+  ...
+# {"custodyCase":"token-http-outage","status":500,"operation":"resource-401-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+# Subtest: dispatched token HTTP500 resource-401-refresh failure retires credentials without automatic retry
+ok 59 - dispatched token HTTP500 resource-401-refresh failure retires credentials without automatic retry
+  ---
+  duration_ms: 250.715
+  type: 'test'
+  ...
+# {"custodyCase":"authenticated-http-response","status":503,"unchangedResponseStatusAndBody":true,"exactAccountUnchanged":true,"tokenDelta":0,"revokeDelta":0,"nextSucceeded":true}
+# Subtest: authenticated resource HTTP503 remains a response and leaves exact consent live
+ok 60 - authenticated resource HTTP503 remains a response and leaves exact consent live
+  ---
+  duration_ms: 261.605584
+  type: 'test'
+  ...
+# {"custodyCase":"token-http-outage","status":503,"operation":"explicit-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+# Subtest: dispatched token HTTP503 explicit-refresh failure retires credentials without automatic retry
+ok 61 - dispatched token HTTP503 explicit-refresh failure retires credentials without automatic retry
+  ---
+  duration_ms: 266.395875
+  type: 'test'
+  ...
+# {"custodyCase":"token-http-outage","status":503,"operation":"resource-401-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+# Subtest: dispatched token HTTP503 resource-401-refresh failure retires credentials without automatic retry
+ok 62 - dispatched token HTTP503 resource-401-refresh failure retires credentials without automatic retry
+  ---
+  duration_ms: 263.465667
+  type: 'test'
+  ...
+# {"custodyCase":"authenticated-http-response","status":429,"unchangedResponseStatusAndBody":true,"exactAccountUnchanged":true,"tokenDelta":0,"revokeDelta":0,"nextSucceeded":true}
+# Subtest: authenticated resource HTTP429 remains a response and leaves exact consent live
+ok 63 - authenticated resource HTTP429 remains a response and leaves exact consent live
+  ---
+  duration_ms: 265.4285
+  type: 'test'
+  ...
+# {"custodyCase":"token-http-outage","status":429,"operation":"explicit-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+# Subtest: dispatched token HTTP429 explicit-refresh failure retires credentials without automatic retry
+ok 64 - dispatched token HTTP429 explicit-refresh failure retires credentials without automatic retry
+  ---
+  duration_ms: 295.519959
+  type: 'test'
+  ...
+# {"custodyCase":"token-http-outage","status":429,"operation":"resource-401-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+# Subtest: dispatched token HTTP429 resource-401-refresh failure retires credentials without automatic retry
+ok 65 - dispatched token HTTP429 resource-401-refresh failure retires credentials without automatic retry
+  ---
+  duration_ms: 307.755292
+  type: 'test'
+  ...
+# {"custodyCase":"explicit-signout-http-outage","remoteFailureSuppressedBySDK":true,"status":503,"tokenDelta":0,"revokeDelta":1,"retiredLocally":true,"nextRequestRefused":true}
+# Subtest: explicit signout HTTP503 still retires locally without token mutation or automatic retry
+ok 66 - explicit signout HTTP503 still retires locally without token mutation or automatic retry
+  ---
+  duration_ms: 263.706792
+  type: 'test'
+  ...
+1..66
+# tests 105
+# suites 0
+# pass 105
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 61005.334041

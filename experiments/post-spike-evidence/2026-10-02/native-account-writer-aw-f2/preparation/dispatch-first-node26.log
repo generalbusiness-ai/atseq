@@ -1,0 +1,44 @@
+▶ hostile configured SDK dispatch cannot widen the private native resource allowance
+  ✔ origin (555.914667ms)
+  ✔ path (0.729125ms)
+  ✔ query (0.567ms)
+  ✔ encoded-path (0.358459ms)
+  ✔ method (2.730333ms)
+  ✖ body (1.19675ms)
+  ✔ retry-body (4.408125ms)
+  ✔ token (0.516167ms)
+  ✔ refresh (0.49825ms)
+  ✔ revoke (0.492333ms)
+  ✔ PAR (0.470583ms)
+  ✔ discovery (0.510042ms)
+  ✔ same-path-no-authorization (0.409708ms)
+  ✔ count (6.071375ms)
+  ✔ pool (22.690792ms)
+  ✔ deadline (30000.948375ms)
+✖ hostile configured SDK dispatch cannot widen the private native resource allowance (30599.84425ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 15
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31045.161375
+
+✖ failing tests:
+
+test at tests/native-account-writer-dispatch.test.ts:1:764
+✖ body (1.19675ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/native-account-writer-dispatch.test.ts:87:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/native-account-writer-dispatch.test.ts:20:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

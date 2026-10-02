@@ -1,0 +1,30 @@
+✖ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (1343.0605ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1459.76075
+
+✖ failing tests:
+
+test at tests/native-account-writer.test.ts:1:113
+✖ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (1343.0605ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(result.cases.length >= 12)
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/native-account-writer.test.ts:8:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

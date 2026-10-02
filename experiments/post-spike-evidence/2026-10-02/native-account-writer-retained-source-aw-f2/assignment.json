@@ -1,0 +1,49 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected assert at depth 13458: decision effective, 2 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "695bcbd8a36c52dc04d525b899525eb4ad5b5040",
+      "depth": 13458
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:695bcbd8a36c52dc04d525b899525eb4ad5b5040",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:695bcbd8a36c52dc04d525b899525eb4ad5b5040",
+      "sequence": 13458,
+      "timestamp": 1790966165,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "assert",
+      "lifecycle": "none",
+      "satisfier": "role:ratifier",
+      "text": "Root found incomplete retained-source Git delivery in immutable account-writer candidate ea30. All392 local manifest hashes agree and all394 changed Git paths agree, but17 retained maintained-source files under ignored node_modules paths are absent from the frozen Git tree. A clean clone cannot run that packet checker. Preserve original ea30/production16f/runtime evidence. Prepare an isolated source-only successor that retains those exact17 files, gives a complete Git delivery inventory and an additive dated correction report, and verifies a clean checkout without the original ignored tree. No production, dependency, public-export or runtime-claim change. Continue P3-F3 independently; root will review the complete successor before independent exact-head implementation review.",
+      "body": {
+        "assignment": "accepted_publication_f6",
+        "finding": "missing_git_retained_source",
+        "full_aw_complete": "false",
+        "head": "ea30f527fe33c30f012cd5c4e3f76736819cd333",
+        "promise": "3baf258ad443641e4d1323c27c8fa4721ad4030c",
+        "request": "b8d9ec1eab341d9fd412d527b001917404d82d33",
+        "stale_bases": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3baf258ad443641e4d1323c27c8fa4721ad4030c, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b8d9ec1eab341d9fd412d527b001917404d82d33 stale; retired bases: git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:005de060a210f5e706cd48cb8ae04e5a00c4e1a7, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:00d5360e0cf9c83c2bef16fc76ccf9dba42cc67c, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02409e2640ad4fb4d48814ba4f06a8952c3bc7b4, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0258af2e6b5110f193d143bfb2a08b88bee488f8 and 351 more"
+      },
+      "stale": true,
+      "stale_because": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9153f18a533aaed390b564b3890890b363ecd056",
+      "stale_because_path": "notes/2026-10-02-atseq-oauth-http-outage-results.md"
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:695bcbd8a36c52dc04d525b899525eb4ad5b5040",
+      "sequence": 13458,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b8d9ec1eab341d9fd412d527b001917404d82d33",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3baf258ad443641e4d1323c27c8fa4721ad4030c"
+    ]
+  },
+  "isError": false
+}

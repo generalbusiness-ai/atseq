@@ -1,0 +1,222 @@
+{
+  "status": "all-unexecuted",
+  "runtimeCasesExecuted": 0,
+  "count": 43,
+  "vectors": [
+    {
+      "id": "owned-callback",
+      "status": "unexecuted",
+      "expectation": "actual maintained A1 callback mints handle; exact expectedDID opens writer"
+    },
+    {
+      "id": "owned-restore",
+      "status": "unexecuted",
+      "expectation": "actual maintained A1 restore mints owned handle; exact expectedDID opens writer"
+    },
+    {
+      "id": "public-constructor-forgery",
+      "status": "unexecuted",
+      "expectation": "new OAuthSessionHandle with fabricated flow refused before fake methods run"
+    },
+    {
+      "id": "prototype-forgery",
+      "status": "unexecuted",
+      "expectation": "prototype-shaped handle refused"
+    },
+    {
+      "id": "cloned-handle",
+      "status": "unexecuted",
+      "expectation": "structured clone and copied public properties refused"
+    },
+    {
+      "id": "handle-method-mutation",
+      "status": "unexecuted",
+      "expectation": "owned handle public methods replaced after mint/open cannot replace captured transport"
+    },
+    {
+      "id": "writer-did-mutation",
+      "status": "unexecuted",
+      "expectation": "writer DID immutable; snapshots/results contain no credentials/PDS substitute"
+    },
+    {
+      "id": "wrong-expected-did",
+      "status": "unexecuted",
+      "expectation": "valid owned handle with different expectedDID refused"
+    },
+    {
+      "id": "wrong-subject",
+      "status": "unexecuted",
+      "expectation": "maintained token subject mismatch prevents owned handle"
+    },
+    {
+      "id": "wrong-scope",
+      "status": "unexecuted",
+      "expectation": "missing/excess scope or resource401 refresh escalation prevents credential-bearing resource dispatch"
+    },
+    {
+      "id": "changed-pds",
+      "status": "unexecuted",
+      "expectation": "fresh A1 binding mismatch refuses old writer"
+    },
+    {
+      "id": "changed-issuer",
+      "status": "unexecuted",
+      "expectation": "fresh A1 issuer mismatch refuses old writer"
+    },
+    {
+      "id": "get-exact-uri",
+      "status": "unexecuted",
+      "expectation": "get reply URI requires exact account/collection/rkey; malformedCID/shape refused"
+    },
+    {
+      "id": "list-page",
+      "status": "unexecuted",
+      "expectation": "one page only, ascending100; returned records/cursor retained without completeness claim"
+    },
+    {
+      "id": "list-two-pages-explicit",
+      "status": "unexecuted",
+      "expectation": "two caller operations have separate A1 budgets; no hidden traversal"
+    },
+    {
+      "id": "list-limit-input",
+      "status": "unexecuted",
+      "expectation": "0,101,fractional,NaN,string limit refused before dispatch"
+    },
+    {
+      "id": "list-cursor-input",
+      "status": "unexecuted",
+      "expectation": "nonstring/empty/over8192UTF8bytes cursor refused"
+    },
+    {
+      "id": "list-cursor-response",
+      "status": "unexecuted",
+      "expectation": "empty/nonstring/over8192UTF8bytes remote cursor refused"
+    },
+    {
+      "id": "list-records-shape",
+      "status": "unexecuted",
+      "expectation": "nonarray/>requestedlimit/malformedURI/CID/foreignaccount/collection refused"
+    },
+    {
+      "id": "latest-commit",
+      "status": "unexecuted",
+      "expectation": "nonempty syntax-validCID/rev required; remote candidate not proof"
+    },
+    {
+      "id": "mandatory-swap",
+      "status": "unexecuted",
+      "expectation": "undefined/empty/nonstring/malformedCID condition refused before dispatch"
+    },
+    {
+      "id": "same-conditional-body",
+      "status": "unexecuted",
+      "expectation": "capture JSON before await; caller mutations and maintained401 retry cannot change body/condition"
+    },
+    {
+      "id": "apply-response",
+      "status": "unexecuted",
+      "expectation": "remote apply reply transport candidate only; malformedrequiredshape refused"
+    },
+    {
+      "id": "upload-copy",
+      "status": "unexecuted",
+      "expectation": "capture typed bytecopy before await; caller mutation cannot change uploaded bytes"
+    },
+    {
+      "id": "upload-65536",
+      "status": "unexecuted",
+      "expectation": "exact65536byte body allowed subject to owned A1 request budget"
+    },
+    {
+      "id": "upload-65537",
+      "status": "unexecuted",
+      "expectation": "over64KiB refused before resource dispatch; no implicit chunk/retry"
+    },
+    {
+      "id": "apply-json-boundary",
+      "status": "unexecuted",
+      "expectation": "entire UTF8JSON body cap64KiB; wiremax expansion disclosed, no batch splitting"
+    },
+    {
+      "id": "response-one-MiB",
+      "status": "unexecuted",
+      "expectation": "A1 exact1MiB accepted if valid; over1MiB rejected with sanitized input"
+    },
+    {
+      "id": "error-body-cap",
+      "status": "unexecuted",
+      "expectation": "over64KiB XRPC error body refused by bounded shared reader"
+    },
+    {
+      "id": "typed-input",
+      "status": "unexecuted",
+      "expectation": "real owned A1 deterministic refusal preserved input"
+    },
+    {
+      "id": "typed-unavailable",
+      "status": "unexecuted",
+      "expectation": "actual native transport/body drop or caller cancellation preserved content_unavailable"
+    },
+    {
+      "id": "typed-origin",
+      "status": "unexecuted",
+      "expectation": "real owned A1 custody/refusal boundary preserves origin without remote text"
+    },
+    {
+      "id": "remote-error-secrets",
+      "status": "unexecuted",
+      "expectation": "secret-bearing provider error/message/code sanitizes to knowncode or RequestFailed"
+    },
+    {
+      "id": "http-cas-refusal",
+      "status": "unexecuted",
+      "expectation": "InvalidSwap status remains sanitized PdsError; no emptyrepo/transport recategorization"
+    },
+    {
+      "id": "lost-conditional-reply",
+      "status": "unexecuted",
+      "expectation": "writer sends once; no automatic retry/re-sign/newnonce/reallocation"
+    },
+    {
+      "id": "official-pds-basic",
+      "status": "unexecuted",
+      "expectation": "actual officialPDS get/latest/upload/exactbytes/CAS with syntheticAS bridge labeled honestly"
+    },
+    {
+      "id": "official-pds-pagination",
+      "status": "unexecuted",
+      "expectation": "101+ officialPDS records use explicit pages; old spike collector retains all records"
+    },
+    {
+      "id": "official-pds-stale-cas",
+      "status": "unexecuted",
+      "expectation": "actual unrelated write invalidates swap; rejectedbatch leaves intended records/head unchanged"
+    },
+    {
+      "id": "legacy-pds-predicates",
+      "status": "unexecuted",
+      "expectation": "all prior actual officialPDS persistence/recovery/refresh/account/record source predicates remain"
+    },
+    {
+      "id": "portable-import",
+      "status": "unexecuted",
+      "expectation": "portable native writer/shared operation imports have no Node, OAuthSDK credential owner or newdependencies"
+    },
+    {
+      "id": "packed-compiled",
+      "status": "unexecuted",
+      "expectation": "actual compiled and packedconsumer import/operation gates, source/output hashes"
+    },
+    {
+      "id": "three-node-and-browser",
+      "status": "unexecuted",
+      "expectation": "same positive/hostile operation predicates Node22/24/26 and applicable realChromium"
+    },
+    {
+      "id": "no-public-provider-claim",
+      "status": "unexecuted",
+      "expectation": "syntheticAS, officialPDS bridge and unexecutedexternalprovider clearly separate"
+    }
+  ]
+}

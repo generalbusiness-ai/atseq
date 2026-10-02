@@ -1,0 +1,33 @@
+▶ real disposable PDS persistence and recovery
+  ✔ genesis and initial head are a verified empty prefix (7.159958ms)
+  ✔ provisioning refuses to replace an existing application log (13.902ms)
+  ✔ source blobs are retained and recovered by exact CID (11.282334ms)
+  ✔ reset refuses a live or unmarked directory (0.771125ms)
+  ✔ two concurrent submissions receive one contiguous order (45.0975ms)
+  ✔ same intent and a new valid signature return original receipt (13.415666ms)
+  ✔ second local writer is refused while the lease is held (0.218917ms)
+  ✔ official PDS process crash preserves acknowledged history and blobs (619.305834ms)
+  ✔ a rejected conditional batch leaves entry and head unchanged (32.204833ms)
+  ✔ malformed commit replies cannot remove an append or provision condition (29.048834ms)
+  ✔ an unrelated repo write races the append and is reconciled (50.565542ms)
+  ✔ lost HTTP response after commit resolves to one original receipt (31.026084ms)
+  ✔ a different writer process cannot acquire the same local lease (1042.245958ms)
+  ✔ writer crash after commit but before acknowledgment recovers one receipt (1153.613917ms)
+  ✔ writer crash after acknowledgment keeps receipt and no domain effect claim (1131.770833ms)
+  ✔ XRPC rejects a foreign receipt anchor and malformed submission (16.754625ms)
+  ✔ bootstrap at a chosen head catches up without notifications (77.319375ms)
+  ✔ repository CAR contains retention references but blobs require explicit export (7.968458ms)
+  ✔ missing and tampered source references fail, then recover by exact content (24.861666ms)
+  ✔ missing or corrupted physical blob bytes never satisfy a source CID (7.727958ms)
+  ✔ a retained verified head refuses repository rollback and signed-entry corruption (78.882ms)
+  ✔ chosen-head catch-up verifies a prefix spanning real PDS pages (220.237417ms)
+  ✔ PDS compare-and-swap excludes competing writers even with the local lease bypassed (476.373209ms)
+✔ real disposable PDS persistence and recovery (9015.061625ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10209.400708

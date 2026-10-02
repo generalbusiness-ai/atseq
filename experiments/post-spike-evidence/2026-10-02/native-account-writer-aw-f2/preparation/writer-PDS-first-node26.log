@@ -1,0 +1,21 @@
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'r000'
+- undefined
+
+    at <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/native-account-writer-pds-probe.ts:73:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'r000',
+  expected: undefined,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.10.0

@@ -1,0 +1,95 @@
+import { create, CODEC_RAW, CODEC_DCBOR, toString } from '@atcute/cid';
+import { encode } from '@atcute/cbor';
+import { OAuthFixture } from "./oauth-fixture.js";
+const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json' } });
+// Synthetic standard PDS records can exceed Atseq's native-record wire cap.
+const contentCid = async (value) => toString(await create(CODEC_DCBOR, encode(value)));
+export const WRITER_COLLECTION = 'ai.generalbusiness.atseq.synthetic';
+/** Synthetic AS/resource replies only; the OAuth client itself is maintained. */
+export class NativeWriterFixture extends OAuthFixture {
+    // The base constructor initializes its fetch before these subclass fields.
+    baseFetch = this.fetch;
+    commit = '';
+    records = new Map();
+    bodies = [];
+    paths = [];
+    refreshPadding = 0;
+    refreshCharacter = 'x';
+    tokenExpiresIn;
+    overrideResponse;
+    fetch = async (input, init) => {
+        const request = new Request(input, init);
+        const path = new URL(request.url).pathname;
+        const resource = path.startsWith('/xrpc/');
+        const body = resource ? new Uint8Array(await request.clone().arrayBuffer()) : new Uint8Array();
+        if (resource) {
+            this.bodies.push(body);
+            this.paths.push(path);
+        }
+        const base = await this.baseFetch(request);
+        if (!resource && path === '/token' && base.ok && (this.refreshPadding || this.tokenExpiresIn !== undefined)) {
+            const token = await base.json();
+            if (this.refreshPadding)
+                token.refresh_token = 'synthetic-refresh-' + this.refreshCharacter.repeat(this.refreshPadding);
+            if (this.tokenExpiresIn !== undefined)
+                token.expires_in = this.tokenExpiresIn;
+            return json(token);
+        }
+        if (!resource || !base.ok || this.resourceBytes)
+            return base;
+        if (this.overrideResponse)
+            return this.overrideResponse(request, body);
+        const url = new URL(request.url);
+        if (path.endsWith('getLatestCommit'))
+            return json({ cid: this.commit, rev: 'synthetic-rev' });
+        if (path.endsWith('getRecord')) {
+            const rkey = url.searchParams.get('rkey');
+            const value = this.records.get(rkey);
+            if (value === undefined)
+                return json({ error: 'RecordNotFound' }, 400);
+            return json({ uri: `at://${this.tokenDid}/${WRITER_COLLECTION}/${rkey}`, cid: await contentCid(value), value });
+        }
+        if (path.endsWith('listRecords')) {
+            const start = Number(url.searchParams.get('cursor') ?? 0);
+            const limit = Number(url.searchParams.get('limit'));
+            const all = [...this.records].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+            const records = await Promise.all(all.slice(start, start + limit).map(async ([rkey, value]) => ({
+                uri: `at://${this.tokenDid}/${WRITER_COLLECTION}/${rkey}`,
+                cid: await contentCid(value),
+                value,
+            })));
+            return json({ records, ...(start + limit < all.length ? { cursor: String(start + limit) } : {}) });
+        }
+        if (path.endsWith('applyWrites')) {
+            const value = JSON.parse(new TextDecoder().decode(body));
+            if (value.repo !== this.tokenDid || value.swapCommit !== this.commit)
+                return json({ error: 'InvalidSwap' }, 400);
+            for (const write of value.writes)
+                this.records.set(write.rkey, write.value);
+            this.commit = await contentCid({ previous: this.commit, writes: value.writes });
+            return json({
+                commit: { cid: this.commit, rev: 'synthetic-rev' },
+                results: await Promise.all(value.writes.map(async (write) => ({
+                    $type: 'com.atproto.repo.applyWrites#createResult',
+                    uri: `at://${this.tokenDid}/${write.collection}/${write.rkey}`,
+                    cid: await contentCid(write.value),
+                }))),
+            });
+        }
+        if (path.endsWith('uploadBlob'))
+            return json({
+                blob: {
+                    $type: 'blob',
+                    ref: { $link: toString(await create(CODEC_RAW, body)) },
+                    mimeType: request.headers.get('content-type'),
+                    size: body.length,
+                },
+            });
+        return base;
+    };
+    async initialize() {
+        this.commit = await contentCid({ synthetic: 'initial-commit' });
+        this.records.set('first', { $type: WRITER_COLLECTION, text: 'first' });
+        return this;
+    }
+}

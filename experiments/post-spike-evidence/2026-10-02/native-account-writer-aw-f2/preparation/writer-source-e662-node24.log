@@ -1,0 +1,28 @@
+▶ hostile configured SDK dispatch cannot widen the private native resource allowance
+  ✔ origin (756.815542ms)
+  ✔ path (0.867667ms)
+  ✔ query (0.927333ms)
+  ✔ encoded-path (0.504166ms)
+  ✔ method (0.636458ms)
+  ✔ body (0.67825ms)
+  ✔ retry-body (4.152292ms)
+  ✔ token (0.571375ms)
+  ✔ refresh (0.55325ms)
+  ✔ revoke (0.585708ms)
+  ✔ PAR (0.453083ms)
+  ✔ discovery (0.628375ms)
+  ✔ same-path-no-authorization (0.553583ms)
+  ✔ count (3.985125ms)
+  ✔ pool (23.585375ms)
+  ✔ deadline (30000.66825ms)
+✔ hostile configured SDK dispatch cannot widen the private native resource allowance (30797.442541ms)
+{"node":"v24.21.0","cases":["maintained-callback-and-restore-owned-writer","constructor-prototype-clone-forgery-and-public-method-mutation-refused","standard-get-and-explicit-102-record-pages-bounded-input","mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry","owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal","large-conditional-JSON-and-whole-batch-local-cap","accepted-native-action-at-32KiB-cap-entry-head-chunk-batch-genuine-signature-unchanged-JSON","default-request-stays-64KiB-after-native-success","malformed-record-and-page-shapes-account-key-CID-cursor-refused","closed-provider-codes-local-auth-separation-and-counted-response-error-limits","lost-response-single-send-cancel-and-error-allowance-cleanup","fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write","maintained-subject-missing-and-extra-scope-refused-before-mint"],"nativeBatch":{"payloadJSONBytes":32768,"entryCBORBytes":33652,"entryHeadJSONBytes":34622,"entryHeadAndChunkJSONBytes":78580},"dispatcherCalls":238,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false}
+✔ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (1600.200708ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31308.872875

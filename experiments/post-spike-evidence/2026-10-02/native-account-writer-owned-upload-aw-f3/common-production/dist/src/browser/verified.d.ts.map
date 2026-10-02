@@ -1,0 +1,1 @@
+{"version":3,"file":"verified.d.ts","sourceRoot":"","sources":["../../../src/browser/verified.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,oBAAoB,CAAC;AACtD,OAAO,KAAK,EAAE,aAAa,EAAE,MAAM,uBAAuB,CAAC;AAC3D,mGAAmG;AACnG,wBAAgB,cAAc,CAAC,KAAK,EAAE,IAAI,CAAC,WAAW,EAAE,QAAQ,CAAC,EAAE,KAAK,EAAE,aAAa,EAAE,OAAO,CAAC,EAAE,MAAM,OAAO,0BAgB/G"}

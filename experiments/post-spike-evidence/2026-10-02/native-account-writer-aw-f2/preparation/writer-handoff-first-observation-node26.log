@@ -1,0 +1,18 @@
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(error instanceof PdsError)
+
+    at <anonymous> (/private/tmp/atseq-native-account-writer-aw-f2-20261002/experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/swallowed-refresh-observation.ts:19:10) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v26.10.0
