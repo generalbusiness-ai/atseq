@@ -17,8 +17,9 @@ export interface NativeAccountRecord {
 const mint = Object.freeze({});
 const utf8 = new TextEncoder();
 const byteLength = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(Uint8Array.prototype), 'byteLength')!.get!;
+const byteKind = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(Uint8Array.prototype), Symbol.toStringTag)!.get!;
 function ownUpload(content: Uint8Array): Uint8Array {
-  if (!(content instanceof Uint8Array)) input('Invalid account blob input');
+  if (!(content instanceof Uint8Array) || byteKind.call(content) !== 'Uint8Array') input('Invalid account blob input');
   let size: number;
   try {
     size = byteLength.call(content);
