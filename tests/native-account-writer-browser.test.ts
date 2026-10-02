@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { build } from 'esbuild';
-import { relative, resolve } from 'node:path';
+import { relative, resolve, join, dirname } from 'node:path';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { chromium } from '@playwright/test';
 import { NativeWriterFixture, WRITER_COLLECTION } from './support/native-account-writer-fixture.ts';
 import { OAUTH_CUSTODY, OAUTH_DID } from './support/oauth-fixture.ts';
@@ -23,6 +25,26 @@ test('Chromium native writer uses maintained browser OAuth and actual guarded fe
     metafile: true,
   });
   const files = new Map(built.outputFiles.map((file) => ['/' + relative(output, file.path), file.contents]));
+  const bundleHashes = Object.fromEntries(
+    built.outputFiles.map((file) => [
+      relative(output, file.path),
+      createHash('sha256').update(file.contents).digest('hex'),
+    ]),
+  );
+  // Capture the actual executable bytes before Chromium receives any of them.
+  const capture = process.env.ATSEQ_WRITER_BROWSER_CAPTURE;
+  if (capture) {
+    await mkdir(capture, { recursive: true });
+    for (const file of built.outputFiles) {
+      const target = join(capture, 'bundle', relative(output, file.path));
+      await mkdir(dirname(target), { recursive: true });
+      await writeFile(target, file.contents);
+    }
+    await writeFile(
+      join(capture, 'bundle-pins.json'),
+      JSON.stringify({ entry, bundleHashes, metafile: built.metafile }, null, 2) + '\n',
+    );
+  }
   const fixture = await new NativeWriterFixture().initialize();
   for (let index = 0; index < 101; index++) fixture.records.set('r' + index, { $type: WRITER_COLLECTION, index });
   const browser = await chromium.launch();
@@ -126,6 +148,7 @@ test('Chromium native writer uses maintained browser OAuth and actual guarded fe
         syntheticASAndResource: true,
         publicProviderExecuted: false,
         bundledBytes: built.outputFiles.reduce((size, file) => size + file.contents.length, 0),
+        bundleHashes,
         resources: fixture.paths.length,
       }),
     );
