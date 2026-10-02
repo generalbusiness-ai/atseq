@@ -1,5 +1,6 @@
 /** Internal checkpoint DATA only. No publication, replay, restore or writer authority. */
 import { canonicalJson } from '../core/values.ts';
+import { readNativeOutcome, type NativeOutcomeData } from './native-outcome.ts';
 import { AtseqError, ProtocolError } from '../core/errors.ts';
 import { parseStrictJson, StrictJsonError } from './strict-json.ts';
 import { link, encodeBlock, decodeBlock, contentCid } from './wire.ts';
@@ -59,6 +60,11 @@ export interface CheckpointSourceRow {
 export interface CheckpointEvidenceRow {
   cid: string;
   bytes: string;
+}
+export interface CheckpointOutcomeRow {
+  position: number;
+  entry: string;
+  outcome: NativeOutcomeData;
 }
 export interface CheckpointIndexesData {
   requests: string[];
@@ -187,6 +193,8 @@ export function readCheckpointTable(
   }
   if (count !== value.rows || (value.rows === 0) !== (value.pages.length === 0)) fail('Checkpoint page counts differ');
   if (value.kind === 'history' && value.rows !== value.through.position) fail('History count differs from head');
+  if (value.kind === 'outcomes' && value.rows !== value.through.position)
+    fail('Outcome count differs from interpreted frontier');
   return value;
 }
 async function rawCid(value: string, genesis: string): Promise<void> {
@@ -196,6 +204,13 @@ function ordered(values: string[]): void {
   if (values.some((value, index) => index > 0 && values[index - 1]! >= value))
     fail('Checkpoint rows must be sorted and unique');
 }
+export async function readCheckpointPage(
+  raw: Uint8Array,
+  kind: 'outcomes',
+  scope: CheckpointPin,
+  maximumBytes: number,
+  maximumRows: number,
+): Promise<CheckpointOutcomeRow[]>;
 export async function readCheckpointPage(
   raw: Uint8Array,
   kind: 'history',
@@ -223,14 +238,14 @@ export async function readCheckpointPage(
   scope: CheckpointPin,
   maximumBytes: number,
   maximumRows: number,
-): Promise<CheckpointHistoryRow[] | CheckpointSourceRow[] | CheckpointEvidenceRow[]> {
+): Promise<CheckpointHistoryRow[] | CheckpointSourceRow[] | CheckpointEvidenceRow[] | CheckpointOutcomeRow[]> {
   pin(scope);
   budget(maximumRows);
   const rows: any = readCheckpointJson(raw, maximumBytes, true);
   if (!Array.isArray(rows) || !rows.length) fail('Checkpoint pages must contain rows');
   if (rows.length > maximumRows) unavailable('Checkpoint rows exceed local budget');
-  if (kind === 'outcomes') unavailable('Exact outcome-row contract is not supported by this data foundation');
-  if (!['history', 'sources', 'evidence'].includes(kind)) throw new ProtocolError('input', 'Unsupported table kind');
+  if (!['history', 'sources', 'evidence', 'outcomes'].includes(kind))
+    throw new ProtocolError('input', 'Unsupported table kind');
   for (const row of rows) {
     if (kind === 'history') {
       checkpointClosed(row, ['position', 'entry', 'request', 'actor', 'entryBytes', 'requestBytes', 'observations']);
@@ -246,6 +261,11 @@ export async function readCheckpointPage(
       }
       if (!Array.isArray(row.observations) || row.observations.length > 1) fail('Unsupported observation use list');
       row.observations.forEach(link);
+    } else if (kind === 'outcomes') {
+      checkpointClosed(row, ['position', 'entry', 'outcome']);
+      integer(row.position, true);
+      link(row.entry);
+      row.outcome = readNativeOutcome(row.outcome);
     } else if (kind === 'sources') {
       checkpointClosed(row, ['definition', 'manifest', 'files']);
       link(row.definition);
@@ -277,9 +297,10 @@ export async function readCheckpointPage(
       }
     }
   }
-  if (kind === 'history') {
+  if (kind === 'history' || kind === 'outcomes') {
     for (let index = 1; index < rows.length; index++)
-      if (rows[index].position !== rows[index - 1].position + 1) fail('Nonconsecutive history page');
+      if (rows[index].position !== rows[index - 1].position + 1)
+        fail(kind === 'history' ? 'Nonconsecutive history page' : 'Nonconsecutive outcome page');
   } else ordered(rows.map((row: any) => (kind === 'sources' ? row.definition : row.cid)));
   return rows;
 }
@@ -377,6 +398,14 @@ export async function checkCheckpointEvidenceRecord(row: CheckpointEvidenceRow, 
 export async function readCompleteCheckpointTable(
   tableRaw: Uint8Array,
   pageBytes: readonly Uint8Array[],
+  kind: 'outcomes',
+  scope: CheckpointPin,
+  maximumBytes: number,
+  maximumRows: number,
+): Promise<{ table: CheckpointTableData; rows: CheckpointOutcomeRow[] }>;
+export async function readCompleteCheckpointTable(
+  tableRaw: Uint8Array,
+  pageBytes: readonly Uint8Array[],
   kind: 'history',
   scope: CheckpointPin,
   maximumBytes: number,
@@ -401,7 +430,7 @@ export async function readCompleteCheckpointTable(
 export async function readCompleteCheckpointTable(
   tableRaw: Uint8Array,
   pageBytes: readonly Uint8Array[],
-  kind: 'history' | 'sources' | 'evidence',
+  kind: 'history' | 'sources' | 'evidence' | 'outcomes',
   scope: CheckpointPin,
   maximumBytes: number,
   maximumRows: number,
@@ -420,7 +449,9 @@ export async function readCompleteCheckpointTable(
         ? await readCheckpointPage(raw, 'history', scope, Math.max(0, maximumBytes - used), maximumRows)
         : kind === 'sources'
           ? await readCheckpointPage(raw, 'sources', scope, Math.max(0, maximumBytes - used), maximumRows)
-          : await readCheckpointPage(raw, 'evidence', scope, Math.max(0, maximumBytes - used), maximumRows);
+          : kind === 'evidence'
+            ? await readCheckpointPage(raw, 'evidence', scope, Math.max(0, maximumBytes - used), maximumRows)
+            : await readCheckpointPage(raw, 'outcomes', scope, Math.max(0, maximumBytes - used), maximumRows);
     const reference = table.pages[index]!;
     await payloadMatches(reference.payload, raw);
     if (page.length !== reference.rows) fail('Page count differs from inventory');
@@ -428,12 +459,12 @@ export async function readCompleteCheckpointTable(
     used += raw.length;
   }
   if (rows.length !== table.rows) fail('Complete table row count differs');
-  if (kind === 'history') {
+  if (kind === 'history' || kind === 'outcomes') {
     if (
       rows.some((row, index) => row.position !== index + 1) ||
       (rows.length && rows.at(-1)!.entry !== table.through.entry)
     )
-      fail('History positions/boundary differ');
+      fail(kind === 'history' ? 'History positions/boundary differ' : 'Outcome positions/boundary differ');
   } else ordered(rows.map((row) => (kind === 'sources' ? row.definition : row.cid)));
   return { table, rows };
 }
@@ -454,4 +485,27 @@ export async function readCompleteCheckpointHistory(
     maximumRows,
   );
   return { table, rows, indexes: deriveCheckpointIndexes(rows, scope, frontier) };
+}
+
+/** Non-null outcomes are complete through interpreted frontier; still asserted DATA. */
+export async function readCompleteCheckpointOutcomes(
+  tableRaw: Uint8Array,
+  pageBytes: readonly Uint8Array[],
+  scope: CheckpointPin,
+  frontier: CheckpointThrough,
+  history: readonly CheckpointHistoryRow[],
+  maximumBytes: number,
+  maximumRows: number,
+): Promise<{ table: CheckpointTableData; rows: CheckpointOutcomeRow[] }> {
+  through(frontier, scope.genesis);
+  if (frontier.position > history.length) unavailable('Outcome comparison requires additional history data');
+  if (history.some((row, index) => row.position !== index + 1)) fail('Nonconsecutive supplied history data');
+  const result = await readCompleteCheckpointTable(tableRaw, pageBytes, 'outcomes', scope, maximumBytes, maximumRows);
+  if (
+    result.table.through.position !== frontier.position ||
+    result.table.through.entry !== frontier.entry ||
+    result.rows.some((row) => row.entry !== history[row.position - 1]?.entry)
+  )
+    fail('Outcomes differ from interpreted frontier/history');
+  return result;
 }

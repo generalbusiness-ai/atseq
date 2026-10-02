@@ -401,15 +401,16 @@ export async function checkpointDataCorpus(fixture: CheckpointFixture): Promise<
   await reject('history-page-identity-mismatch-malformed', 'envelope', () =>
     readCompleteCheckpointHistory(tableRaw, [...pageBytes].reverse(), fixture.scope, 13, 128 * 1024, 20),
   );
-  await reject('outcome-exact-contract-still-gated', 'content_unavailable', () =>
-    (readCheckpointPage as any)(
+  await pass('outcome-row-uses-shared-closed-data-parser', async () => {
+    const rows = await readCheckpointPage(
       encode([{ position: 1, entry: table.through.entry, outcome: { decision: 'effective' } }]),
       'outcomes',
       fixture.scope,
       128 * 1024,
       20,
-    ),
-  );
+    );
+    equal(rows[0]!.outcome, { decision: 'effective' });
+  });
   await reject('compact-null-row-malformed', 'envelope', () =>
     readCheckpointAuthorityData(encode({ ...compact13, roles: [null] }), anchor, 32768),
   );

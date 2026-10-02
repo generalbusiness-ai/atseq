@@ -1,0 +1,16 @@
+{
+  "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb",
+  "outcomeCases": 103,
+  "checkpointCases": 91,
+  "exactOutcomeCaseListsAgree": true,
+  "exactCheckpointCaseListsAgree": true,
+  "compiledModuleBytesMatchFreshBuild": true,
+  "chromium": "153.0.8010.12",
+  "nodeVersions": [
+    "v22.19.0",
+    "v26.10.0"
+  ],
+  "outcomeCaseListSha256": "06daaba80d5e8216e8b5f724077f4a855a0ee73006ab4bdbe702f252f5310c03",
+  "checkpointCaseListSha256": "dd8275151c946a9301d651a7782706c73e7f3b02a9709ca36a8d1eb6a50e76ec",
+  "noAdmission": true
+}

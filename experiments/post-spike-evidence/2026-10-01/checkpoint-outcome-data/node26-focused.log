@@ -1,0 +1,12 @@
+{"node":"v26.10.0","cases":91,"noAdmission":true}
+✔ exact retained checkpoint DATA and hostile corpus, without admission capabilities (629.513458ms)
+{"node":"v26.10.0","cases":103,"noAdmission":true}
+✔ shared exact adopted native outcome and checkpoint outcome DATA corpus (563.093208ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1060.584167
