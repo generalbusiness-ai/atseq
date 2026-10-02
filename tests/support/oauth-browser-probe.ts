@@ -25,8 +25,8 @@ export async function complete(encoded: string) {
 export async function info(refresh = false) {
   return session.info(refresh);
 }
-export async function resource() {
-  return (await session.request('/xrpc/ai.generalbusiness.atseq.synthetic')).json();
+export async function resource(init?: RequestInit) {
+  return (await session.request('/xrpc/ai.generalbusiness.atseq.synthetic', init)).json();
 }
 export async function restore() {
   session = await adapter.restore(OAUTH_DID, OAUTH_SCOPE);
@@ -153,4 +153,58 @@ export async function manage(action: string, value?: any) {
   } finally {
     db.close();
   }
+}
+
+let tokenTransportFailure = false;
+export function setTokenTransportFailure(value: boolean) {
+  tokenTransportFailure = value;
+}
+export async function tokenVariant() {
+  const { OAuthAdapter, oauthTransport } = await import('../../src/protocol/oauth.ts');
+  const { BrowserOAuthCustody } = await import('../../src/browser/oauth-custody.ts');
+  const { OAuthClient, WebcryptoKey } = await import('@atproto/oauth-client-browser');
+  const fixture = new OAuthFixture(),
+    custody = new BrowserOAuthCustody(WebcryptoKey);
+  class Client extends OAuthClient {
+    async readApplicationState(nonce: string) {
+      return (await this.stateStore.get(nonce))?.appState;
+    }
+  }
+  adapter = new OAuthAdapter(
+    fixture.options(),
+    custody.transactions,
+    (work) => navigator.locks.request('atseq.oauth.custody:' + location.origin, work),
+    oauthTransport(async (input, init) => {
+      const request = new Request(input, init);
+      if (tokenTransportFailure && new URL(request.url).pathname === '/token')
+        throw new TypeError('Synthetic handed-off transport failure');
+      return globalThis.fetch(request);
+    }),
+    async (fetch, identityResolver) => {
+      const variant: typeof fetch = async (input, init) => {
+        const request = new Request(input, init);
+        if (request.method === 'POST' && new URL(request.url).pathname === '/token') {
+          const form = new URLSearchParams(await request.text());
+          form.append('resource', 'optional-public-fixture-field');
+          const headers = new Headers(request.headers);
+          headers.set('Content-Type', 'Application/X-Www-Form-Urlencoded; Charset=UTF-8');
+          return fetch(
+            new Request(request.url, { method: 'POST', headers, body: form.toString(), signal: request.signal }),
+          );
+        }
+        return fetch(request);
+      };
+      return new Client({
+        clientMetadata: oauthMetadata,
+        responseMode: 'query',
+        fetch: variant,
+        identityResolver,
+        stateStore: custody.stateStore,
+        sessionStore: custody.sessionStore,
+        runtimeImplementation: custody.runtime(),
+      });
+    },
+    custody,
+  );
+  await adapter.cleanupCustody();
 }

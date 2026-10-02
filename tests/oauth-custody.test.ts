@@ -29,7 +29,9 @@ async function environment() {
                   contents: (await readFile(args.path, 'utf8'))
                     .replaceAll('../../src/browser/', '../../dist/src/browser/')
                     .replaceAll('oauth-loader.ts', 'oauth-loader.js')
-                    .replaceAll('oauth-adapter.ts', 'oauth-adapter.js'),
+                    .replaceAll('oauth-adapter.ts', 'oauth-adapter.js')
+                    .replaceAll('oauth-custody.ts', 'oauth-custody.js')
+                    .replaceAll('../../src/protocol/oauth.ts', '../../dist/src/protocol/oauth.js'),
                   loader: 'ts',
                 };
               });
@@ -45,6 +47,8 @@ async function environment() {
   const pages: Page[] = [];
   let hold: ((url: URL) => Promise<void>) | undefined;
   let afterResponse: ((url: URL) => Promise<void>) | undefined;
+  let abortBefore: ((url: URL) => boolean) | undefined;
+  let abortAfter: ((url: URL) => boolean) | undefined;
   await context.route('https://**/*', async (route) => {
     const req = route.request(),
       url = new URL(req.url());
@@ -68,6 +72,10 @@ async function environment() {
       });
       return;
     }
+    if (abortBefore?.(url)) {
+      await route.abort('connectionreset');
+      return;
+    }
     await hold?.(url);
     const response = await fixture.fetch(
       new Request(req.url(), {
@@ -80,6 +88,10 @@ async function environment() {
       }),
     );
     await afterResponse?.(url);
+    if (abortAfter?.(url)) {
+      await route.abort('connectionreset');
+      return;
+    }
     await route
       .fulfill({
         status: response.status,
@@ -125,6 +137,12 @@ async function environment() {
     enroll,
     rows,
     manage,
+    setAbortBefore: (fn: typeof abortBefore) => {
+      abortBefore = fn;
+    },
+    setAbortAfter: (fn: typeof abortAfter) => {
+      abortAfter = fn;
+    },
     setAfterResponse: (fn: typeof afterResponse) => {
       afterResponse = fn;
     },
@@ -645,6 +663,232 @@ test('subject mismatch cannot allocate another account and resource 401 refresh 
         implicitRefreshJournalRetained: true,
         consentNotExtended: true,
         changedScopeRefusedBeforeSecondResourceDispatch: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('plain resource transport reset preserves live consent, deadline and next successful request without refresh or revocation', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await e.enroll(p);
+    const initial = (await e.rows(p)).accounts[0],
+      tokens = e.fixture.count('/token'),
+      revokes = e.fixture.count('/revoke');
+    e.setAbortBefore((url) => url.pathname.startsWith('/xrpc/'));
+    await assert.rejects(
+      () => p.evaluate(() => (globalThis as any).probe.resource()),
+      /OAuth operation is unavailable/,
+    );
+    const row = (await e.rows(p)).accounts[0];
+    assert.equal(row.phase, 'live');
+    assert.equal(row.expiresAt, initial.expiresAt);
+    assert.equal(e.fixture.count('/token'), tokens);
+    assert.equal(e.fixture.count('/revoke'), revokes);
+    e.setAbortBefore(undefined);
+    assert.deepEqual(await p.evaluate(() => (globalThis as any).probe.resource()), { accepted: true });
+    assert.equal(e.fixture.count('/token'), tokens);
+    assert.equal(e.fixture.count('/revoke'), revokes);
+    console.log(
+      JSON.stringify({
+        custodyCase: 'plain-reset-keeps-consent',
+        originalUnavailableError: true,
+        unchangedDeadline: true,
+        noRefreshOrRevoke: true,
+        nextRequestSucceeded: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('an authenticated resource form cannot masquerade as a maintained token request', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await e.enroll(p);
+    e.setAbortBefore((url) => url.pathname.startsWith('/xrpc/'));
+    const tokens = e.fixture.count('/token'),
+      revokes = e.fixture.count('/revoke');
+    await assert.rejects(
+      () =>
+        p.evaluate(() => {
+          const form = new URLSearchParams({
+            grant_type: 'refresh_token',
+            client_id: location.origin + '/oauth.json',
+            refresh_token: 'synthetic-arbitrary-resource-field',
+          });
+          return (globalThis as any).probe.resource({
+            method: 'POST',
+            headers: { 'Content-Type': 'Application/X-Www-Form-Urlencoded; Charset=UTF-8' },
+            body: form.toString(),
+          });
+        }),
+      /OAuth operation is unavailable/,
+    );
+    assert.equal((await e.rows(p)).accounts[0].phase, 'live');
+    assert.equal(e.fixture.count('/token'), tokens);
+    assert.equal(e.fixture.count('/revoke'), revokes);
+    e.setAbortBefore(undefined);
+    await p.evaluate(() => (globalThis as any).probe.resource());
+    console.log(
+      JSON.stringify({
+        custodyCase: 'resource-form-not-token',
+        normalizedPostBody: true,
+        authorizationProvenanceSeparatesResource: true,
+        consentPreserved: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('lost 401 refresh response retires uncertainty even when the maintained resource helper returns its initial 401', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await e.enroll(p);
+    e.fixture.invalidTokenOnce = true;
+    e.setAbortAfter((url) => url.pathname === '/token');
+    const tokens = e.fixture.count('/token');
+    assert.deepEqual(await p.evaluate(() => (globalThis as any).probe.resource()), { error: 'invalid_token' });
+    assert.equal(e.fixture.count('/token'), tokens + 1);
+    assert.equal((await e.rows(p)).accounts.length, 0);
+    e.setAbortAfter(undefined);
+    await assert.rejects(() => p.evaluate(() => (globalThis as any).probe.resource()));
+    assert.equal(e.fixture.count('/token'), tokens + 1);
+    console.log(
+      JSON.stringify({
+        custodyCase: 'lost-401-refresh-response',
+        actualPreparedTokenResponseLost: true,
+        sdkInitial401Preserved: true,
+        uncertainRetired: true,
+        noOneUseRetry: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('token dispatch marker accepts maintained normalized form with extra fields and mixed-case media type with charset', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await p.evaluate(() => (globalThis as any).probe.tokenVariant());
+    await e.enroll(p);
+    e.fixture.invalidTokenOnce = true;
+    e.setAbortAfter((url) => url.pathname === '/token');
+    const tokens = e.fixture.count('/token');
+    await p.evaluate(() => (globalThis as any).probe.resource());
+    assert.equal(e.fixture.count('/token'), tokens + 1);
+    assert.equal((await e.rows(p)).accounts.length, 0);
+    console.log(
+      JSON.stringify({
+        custodyCase: 'token-dispatch-normalized-form',
+        publicSdkFetchDecoratorOnly: true,
+        optionalFieldsAccepted: true,
+        mixedCaseCharsetAccepted: true,
+        lostResponseRetired: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('safe failure finalization must commit; aborted live marker leaves uncertainty and preserves original transient error', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page(),
+      observer = await e.page();
+    await e.enroll(p);
+    e.setAbortBefore((url) => url.pathname.startsWith('/xrpc/'));
+    await e.manage(p, 'fault', { store: 'accounts', phase: 'live' });
+    await assert.rejects(
+      () => p.evaluate(() => (globalThis as any).probe.resource()),
+      /OAuth operation is unavailable/,
+    );
+    assert.equal(await e.manage(p, 'clearFault'), true);
+    assert.equal((await e.rows(p)).accounts[0].phase, 'uncertain');
+    e.setAbortBefore(undefined);
+    const tokens = e.fixture.count('/token');
+    await assert.rejects(() => observer.evaluate(() => (globalThis as any).probe.restore()));
+    assert.equal(e.fixture.count('/token'), tokens);
+    assert.equal((await e.rows(observer)).accounts.length, 0);
+    console.log(
+      JSON.stringify({
+        custodyCase: 'safe-finalization-abort',
+        actualTransactionAbort: true,
+        originalTransientErrorPreserved: true,
+        uncertainNotUsable: true,
+        noRefreshRetry: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('plain caller abort without token dispatch preserves existing consent and original unavailable class', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await e.enroll(p);
+    const tokens = e.fixture.count('/token'),
+      revokes = e.fixture.count('/revoke');
+    await assert.rejects(
+      () =>
+        p.evaluate(() => {
+          const controller = new AbortController();
+          controller.abort();
+          return (globalThis as any).probe.resource({ signal: controller.signal });
+        }),
+      /OAuth operation is unavailable/,
+    );
+    assert.equal((await e.rows(p)).accounts[0].phase, 'live');
+    assert.equal(e.fixture.count('/token'), tokens);
+    assert.equal(e.fixture.count('/revoke'), revokes);
+    await p.evaluate(() => (globalThis as any).probe.resource());
+    console.log(
+      JSON.stringify({
+        custodyCase: 'plain-caller-abort',
+        existingConsentLive: true,
+        noTokenOrRevoke: true,
+        originalUnavailableClass: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('token handoff is marked before transport can synchronously reject, retaining conservative no-retry semantics', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await p.evaluate(() => (globalThis as any).probe.tokenVariant());
+    await e.enroll(p);
+    await p.evaluate(() => (globalThis as any).probe.setTokenTransportFailure(true));
+    e.fixture.invalidTokenOnce = true;
+    const tokens = e.fixture.count('/token');
+    await p.evaluate(() => (globalThis as any).probe.resource());
+    assert.equal((await e.rows(p)).accounts.length, 0);
+    assert.equal(e.fixture.count('/token'), tokens);
+    await p.evaluate(() => (globalThis as any).probe.setTokenTransportFailure(false));
+    await assert.rejects(() => p.evaluate(() => (globalThis as any).probe.resource()));
+    assert.equal(e.fixture.count('/token'), tokens);
+    console.log(
+      JSON.stringify({
+        custodyCase: 'token-handoff-sync-rejection',
+        markedBeforeTransport: true,
+        noServerTokenResponseRequiredForConservativeRetirement: true,
+        noAutomaticRetry: true,
       }),
     );
   } finally {

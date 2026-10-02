@@ -71,7 +71,8 @@ export async function browserOAuthAdapter(input: BrowserOAuthOptions): Promise<O
     },
     {
       prepare: (client) => owner().prepare(client),
-      touch: (did) => owner().touch(did),
+      touch: (did, conservative) => owner().touch(did, conservative),
+      tokenRequestDispatched: () => owner().tokenRequestDispatched(),
       finish: (client, successful) => owner().finish(client, successful),
     },
   );

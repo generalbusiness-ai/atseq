@@ -57,7 +57,9 @@ test(
                   contents: (await readFile(args.path, 'utf8'))
                     .replaceAll('../../src/browser/', '../../dist/src/browser/')
                     .replaceAll('oauth-loader.ts', 'oauth-loader.js')
-                    .replaceAll('oauth-adapter.ts', 'oauth-adapter.js'),
+                    .replaceAll('oauth-adapter.ts', 'oauth-adapter.js')
+                    .replaceAll('oauth-custody.ts', 'oauth-custody.js')
+                    .replaceAll('../../src/protocol/oauth.ts', '../../dist/src/protocol/oauth.js'),
                   loader: 'ts',
                 }));
               },

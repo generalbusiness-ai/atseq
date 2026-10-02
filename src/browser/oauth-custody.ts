@@ -37,6 +37,9 @@ interface Context {
   readonly pending?: string;
   readonly explicit: boolean;
   readonly authorization: boolean;
+  readonly conservative: boolean;
+  mayHaveChanged: boolean;
+  pendingTokenRequest: boolean;
 }
 function refuse(): never {
   throw new AtseqError('input', 'OAuth credential custody is unavailable');
@@ -189,6 +192,9 @@ export class BrowserOAuthCustody implements OAuthCustodyLifecycle {
         pending: transaction.id,
         explicit: true,
         authorization: true,
+        conservative: true,
+        mayHaveChanged: false,
+        pendingTokenRequest: false,
       };
       await this.#transaction('readwrite', async (pending, accounts) => {
         if (await request(pending.index('did').get(transaction.did))) refuse();
@@ -214,7 +220,16 @@ export class BrowserOAuthCustody implements OAuthCustodyLifecycle {
         if (!row || row.consumed || row.expiresAt <= Date.now()) return undefined;
         const account = await request<Account | undefined>(accounts.get(row.did));
         if (!account) refuse();
-        context = { id: crypto.randomUUID(), did: row.did, pending: row.id, explicit: true, authorization: false };
+        context = {
+          id: crypto.randomUUID(),
+          did: row.did,
+          pending: row.id,
+          explicit: true,
+          authorization: false,
+          conservative: true,
+          mayHaveChanged: false,
+          pendingTokenRequest: false,
+        };
         row.consumed = true;
         account.phase = 'uncertain';
         account.operation = context.id;
@@ -277,6 +292,7 @@ export class BrowserOAuthCustody implements OAuthCustodyLifecycle {
     set: async (did, value) => {
       const context = this.#context;
       if (!context || context.authorization || context.did !== did || value.tokenSet.sub !== did) refuse();
+      context.mayHaveChanged = true;
       const encoded = await this.#encode(value);
       await this.#transaction('readwrite', async (_pending, accounts) => {
         const row = await request<Account | undefined>(accounts.get(did));
@@ -285,10 +301,12 @@ export class BrowserOAuthCustody implements OAuthCustodyLifecycle {
         metadata(row);
         await request(accounts.put(row));
       });
+      context.pendingTokenRequest = false;
     },
     del: async (did) => {
       const context = this.#context;
       if (!context || context.did !== did) refuse();
+      context.mayHaveChanged = true;
       await this.#transaction('readwrite', async (_pending, accounts) => {
         const row = await request<Account | undefined>(accounts.get(did));
         if (!row || row.operation !== context.id) return;
@@ -297,9 +315,23 @@ export class BrowserOAuthCustody implements OAuthCustodyLifecycle {
       });
     },
   };
-  async touch(did: string): Promise<void> {
+  tokenRequestDispatched(): void {
+    const context = this.#context;
+    if (!context) refuse();
+    context.mayHaveChanged = true;
+    context.pendingTokenRequest = true;
+  }
+  async touch(did: string, conservative = false): Promise<void> {
     if (this.#context) refuse();
-    const context: Context = { id: crypto.randomUUID(), did, explicit: false, authorization: false };
+    const context: Context = {
+      id: crypto.randomUUID(),
+      did,
+      explicit: false,
+      authorization: false,
+      conservative,
+      mayHaveChanged: false,
+      pendingTokenRequest: false,
+    };
     await this.#transaction('readwrite', async (_pending, accounts) => {
       const row = await request<Account | undefined>(accounts.get(did));
       if (!row?.value || row.phase !== 'live' || row.expiresAt <= Date.now()) refuse();
@@ -380,6 +412,16 @@ export class BrowserOAuthCustody implements OAuthCustodyLifecycle {
           });
           return;
         }
+        if (context.conservative || context.mayHaveChanged) {
+          await this.#retire(client, context.did);
+          return;
+        }
+        // The current live operation knows no credential mutation was attempted.
+        // A reopened document has no such context and still retires uncertainty.
+      }
+      if (successful && context.pendingTokenRequest) {
+        // Maintained resource fetch can swallow a failed 401 refresh and return
+        // its initial response. That cannot make an unsettled one-use token live.
         await this.#retire(client, context.did);
         return;
       }

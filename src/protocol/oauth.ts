@@ -48,7 +48,8 @@ export interface OAuthTransactionStore {
 /** Private platform custody lifecycle; absent on the existing Node adapter. */
 export interface OAuthCustodyLifecycle {
   prepare(client: OAuthCustodyClient): Promise<void>;
-  touch(did: string): Promise<void>;
+  touch(did: string, conservative?: boolean): Promise<void>;
+  tokenRequestDispatched(): void;
   finish(client: OAuthCustodyClient, successful: boolean): Promise<void>;
 }
 export type OAuthLock = <T>(work: () => Promise<T>) => Promise<T>;
@@ -219,7 +220,13 @@ export class OAuthAdapter {
     this.#factory = factory;
     this.#custody = custody;
   }
-  readonly #fetch: typeof globalThis.fetch = async (input, init) => {
+  readonly #fetch: typeof globalThis.fetch = (input, init) => this.#guardedFetch(input, init, true);
+  readonly #identityFetch: typeof globalThis.fetch = (input, init) => this.#guardedFetch(input, init, false);
+  async #guardedFetch(
+    input: Parameters<typeof fetch>[0],
+    init: Parameters<typeof fetch>[1],
+    maintained: boolean,
+  ): Promise<Response> {
     const budget = this.#budget;
     if (!budget) refuse('OAuth HTTP request outside an adapter operation');
     if (++budget.requests > OAUTH_LIMITS.requests) refuse('OAuth HTTP request count exceeds budget');
@@ -240,6 +247,26 @@ export class OAuthAdapter {
       cache: 'no-store',
       signal,
     });
+    // The pinned public SDK always adds Authorization to resource requests.
+    // Its token form is therefore distinct even when an app submits the same
+    // form fields to its resource endpoint. Resolver-owned fetches are separate.
+    if (
+      maintained &&
+      this.#custody &&
+      guarded.method === 'POST' &&
+      !guarded.headers.has('authorization') &&
+      guarded.headers.get('content-type')?.split(';', 1)[0]?.trim().toLowerCase() ===
+        'application/x-www-form-urlencoded'
+    ) {
+      const form = new URLSearchParams(new TextDecoder().decode(bytes ?? new Uint8Array()));
+      if (
+        form.getAll('client_id').includes(this.#options.metadata.client_id!) &&
+        form.getAll('grant_type').some((value) => value === 'refresh_token' || value === 'authorization_code')
+      ) {
+        signal.throwIfAborted();
+        this.#custody.tokenRequestDispatched();
+      }
+    }
     const response = await this.#transport(guarded);
     if (response.redirected || response.status === 0) refuse('OAuth redirect or opaque response is forbidden');
     if (response.url && oauthUrl(response.url).href !== oauthUrl(request.url).href)
@@ -249,7 +276,7 @@ export class OAuthAdapter {
     resultHeaders.delete('content-length');
     resultHeaders.delete('content-encoding');
     return new Response(content, { status: response.status, statusText: response.statusText, headers: resultHeaders });
-  };
+  }
   async #run<T>(work: (client: OAuthCustodyClient) => Promise<T>): Promise<T> {
     return this.#lock(async () => {
       this.#budget = { signal: AbortSignal.timeout(OAUTH_LIMITS.operationMs), requests: 0, bytes: 0 };
@@ -258,21 +285,29 @@ export class OAuthAdapter {
         this.#client ??= this.#factory(this.#fetch, {
           resolve: (identifier, options) =>
             this.#options.resolveIdentity(identifier, {
-              fetch: this.#fetch,
+              fetch: this.#identityFetch,
               signal: AbortSignal.any([this.#budget!.signal, ...(options?.signal ? [options.signal] : [])]),
             }),
         });
         const client = await this.#client;
         await this.#custody?.prepare(client);
         let successful = false;
+        let failure: { error: unknown } | undefined;
         try {
           const result = await work(client);
           if (this.#budget!.signal.aborted)
             throw new AtseqError('content_unavailable', 'OAuth operation is unavailable');
           successful = true;
           return result;
+        } catch (error) {
+          failure = { error };
+          throw error;
         } finally {
-          await this.#custody?.finish(client, successful);
+          try {
+            await this.#custody?.finish(client, successful);
+          } catch (error) {
+            throw failure ? failure.error : error;
+          }
         }
       } catch (error) {
         // Library/server error descriptions may contain codes, tokens or request bodies.
@@ -406,7 +441,7 @@ export class OAuthAdapter {
   }
   sessionInfo(session: OAuthSession, expected: OAuthTransaction, refresh: boolean): Promise<OAuthSessionInfo> {
     return this.#run(async (client) => {
-      await this.#custody?.touch(expected.did);
+      await this.#custody?.touch(expected.did, refresh);
       return this.#verify(client, session, expected, refresh);
     });
   }
@@ -453,7 +488,7 @@ export class OAuthAdapter {
   }
   sessionRevoke(session: OAuthSession): Promise<void> {
     return this.#run(async () => {
-      await this.#custody?.touch(session.did);
+      await this.#custody?.touch(session.did, true);
       await session.signOut();
     });
   }
