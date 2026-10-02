@@ -1,5 +1,6 @@
 import { AtseqError } from '../../src/core/errors.ts';
 import { canonicalJson } from '../../src/core/values.ts';
+import { contentCid, decodeBlock } from '../../src/protocol/wire.ts';
 import { NativeAnchor } from '../../src/protocol/native-wire.ts';
 import {
   readCheckpointBytes,
@@ -326,7 +327,7 @@ export async function checkpointDataCorpus(fixture: CheckpointFixture): Promise<
   );
   await reject('unsigned-versus-signed-wrapper-identity', 'envelope', async () => {
     const row = structuredClone(complete.rows[1]!);
-    row.request = row.entry;
+    row.request = await contentCid(decodeBlock(await payload('request-2.cbor')));
     await checkCheckpointHistoryRecord(
       row,
       await payload('entry-2.cbor'),
