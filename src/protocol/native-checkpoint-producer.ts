@@ -211,6 +211,11 @@ export async function produceNativeCheckpoint(
     );
   // Existing sole DATA index derivation checks complete positions and cross-page identities.
   deriveCheckpointIndexes(history, scope, captured.frontier.position);
+  if (
+    captured.frontier.entry !==
+    (captured.frontier.position === 0 ? scope.genesis : history[captured.frontier.position - 1]?.entry)
+  )
+    fail('Checkpoint frontier differs from complete history');
   if (captured.stall !== null && captured.stall.entry !== history[captured.frontier.position]?.entry)
     fail('Checkpoint stall differs from first pending history entry');
   async function table(

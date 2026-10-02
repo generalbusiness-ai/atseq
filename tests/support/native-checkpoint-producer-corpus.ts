@@ -201,6 +201,38 @@ export async function nativeCheckpointProducerCorpus(fixture: CheckpointFixture,
       equal(table.pages, []);
     }
   });
+
+  await pass('pending-stall-exact-history-boundary', async () => {
+    const pendingInput = {
+      ...(await nativeCheckpointProducerFixture(fixture, 12)),
+      history: input.history,
+      stall: {
+        position: 13,
+        entry: JSON.parse(new TextDecoder().decode(input.history[12])).entry,
+        diagnostic: 'Source bytes unavailable',
+      },
+    };
+    const pending = await produceNativeCheckpoint(pendingInput);
+    const parsed = readCheckpointAssertion(pending.assertion.bytes, input.scope, 32 * 1024 * 1024);
+    ok(parsed.frontier.position === 12 && parsed.head.position === 13 && parsed.stall?.position === 13);
+  });
+  const falsifiedAuthority: any = readCheckpointJson(input.authority, input.authority.length);
+  falsifiedAuthority.frontier = { ...input.frontier, entry: input.scope.genesis };
+  await reject('omitted-outcomes-frontier-history-mismatch', 'envelope', () =>
+    produceNativeCheckpoint({
+      ...input,
+      frontier: falsifiedAuthority.frontier,
+      authority: encode(falsifiedAuthority),
+      outcomes: null,
+    }),
+  );
+  await reject('stall-wrong-first-pending-entry', 'envelope', async () =>
+    produceNativeCheckpoint({
+      ...(await nativeCheckpointProducerFixture(fixture, 12)),
+      history: input.history,
+      stall: { position: 13, entry: input.scope.genesis, diagnostic: 'Wrong entry' },
+    }),
+  );
   await pass('synchronous-owned-input-capture-before-await', async () => {
     const source = input.state.slice();
     const rows = input.history.slice();
