@@ -1,0 +1,8 @@
+file:///private/tmp/atseq-checkpoint-outcome-data-20261001/experiments/checkpoint-outcome-data/compiled-probe.mjs:13
+  compilerOptions: { target: ts.ScriptTarget.ESNext, module: ts.ModuleKind.ESNext },
+                                             ^
+
+TypeError: Cannot read properties of undefined (reading 'ESNext')
+    at file:///private/tmp/atseq-checkpoint-outcome-data-20261001/experiments/checkpoint-outcome-data/compiled-probe.mjs:13:46
+
+Node.js v22.19.0
