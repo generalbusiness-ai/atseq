@@ -1,0 +1,406 @@
+{
+  "format": "atseq-checkpoint-data-foundation-evidence",
+  "version": 1,
+  "date": "2026-10-01",
+  "request": "d882d0d250488079f7afaf53fcb7e41ecfb720ca",
+  "promise": "c89c3d3896e59e4b06aefe131c2ffce84a80772e",
+  "parentRequest": "1f13a0dcbbae3fd55a08049416ef16175a66c72d",
+  "base": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+  "sourceHead": "bc340cceb1469f44b3caead00e404e3c9ef6b3ed",
+  "initialSourceHead": "0c8a5777c551c5a78c5d22f5c0cca72000761b75",
+  "acceptedProjectionHead": "8e7dc9a23693d356db84a7dfc82b8ecde5613767",
+  "sourceVectorsSha256": "175a20c68b576cbd76e1a9db7b740de788d93ec08dca777705ccd22d1e685517",
+  "fixtureRawBytes": 1055377,
+  "fixtureRawSha256": "885826c82e93de564330c1b1ca3f601b387642a9d5b719a20217e853092d9b41",
+  "sourceFiles": [
+    {
+      "file": "experiments/checkpoint-data-foundation/compare-data-readers.mjs",
+      "bytes": 3735,
+      "sha256": "a6c588cafb784448c3ffe7b580c3cbf1682fbba5c0e580380b758a28e80e5d21"
+    },
+    {
+      "file": "experiments/checkpoint-data-foundation/retain-fixture.mjs",
+      "bytes": 1998,
+      "sha256": "59515dccf3fff34dcb3f5dc5f7306b7c13f20ad91e4ff4fd480ddca3845e2fcb"
+    },
+    {
+      "file": "src/application/checkpoint-authority-data.ts",
+      "bytes": 3378,
+      "sha256": "0f6b3154998163c391a7acecb7af81b8aac56013b77d3fe4a5427525b06a9a05"
+    },
+    {
+      "file": "src/application/native-authority-data.ts",
+      "bytes": 10799,
+      "sha256": "63323985bdfee3ee5620405d83e6dc5fb31c1eba913aec115431777771fe412a"
+    },
+    {
+      "file": "src/application/native-authority-snapshot.ts",
+      "bytes": 501,
+      "sha256": "1a86946e28a49154d55db71f055bbe13184631bfa544bda55664b2752ca14dcb"
+    },
+    {
+      "file": "src/protocol/checkpoint-data.ts",
+      "bytes": 19142,
+      "sha256": "5366c092187892a7975e4965da0d867b4e53d5bac6474e62043d0dbf00e4e6b2"
+    },
+    {
+      "file": "src/protocol/identity-json.ts",
+      "bytes": 1557,
+      "sha256": "5af38024d0bfedbb3015f30ac76fcb77ea67a8f3347589d072abafbf691ad51b"
+    },
+    {
+      "file": "src/protocol/strict-json.ts",
+      "bytes": 2458,
+      "sha256": "434b65e3b390ef559f7a177a200a96f0880d6afa351fbbe4c51a316196ce117c"
+    },
+    {
+      "file": "tests/checkpoint-data-browser.test.ts",
+      "bytes": 2927,
+      "sha256": "f32e11dc7706e4079297a4a9011291d67ed788f2ea6fda300affb643db607e7f"
+    },
+    {
+      "file": "tests/checkpoint-data.test.ts",
+      "bytes": 1221,
+      "sha256": "f116427173fabdce0264749c7f4645b877061e18fe87b71db2387be8333eda74"
+    },
+    {
+      "file": "tests/support/checkpoint-data-browser.ts",
+      "bytes": 68,
+      "sha256": "32fb7e2c21c78cb3cca35831a93c42fcce4ea6ffb59c9bbee591166f7423e6f8"
+    },
+    {
+      "file": "tests/support/checkpoint-data-corpus.ts",
+      "bytes": 18848,
+      "sha256": "61e505644f7337292f98cc4b5563e2ad764fced6068ddcb3d82f2fe6ba771193"
+    },
+    {
+      "file": "tests/vectors/checkpoint-data.json.gz",
+      "bytes": 261585,
+      "sha256": "8ed3a7618dae045ba427ccbb4699157dd91460ebd5cee7d722131b88a2205714"
+    }
+  ],
+  "unchangedFiles": [
+    {
+      "file": "package.json",
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a"
+    },
+    {
+      "file": "npm-shrinkwrap.json",
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    },
+    {
+      "file": "src/core/dependencies.ts",
+      "sha256": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4"
+    },
+    {
+      "file": "src/core/dependencies-approved.json",
+      "sha256": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a"
+    },
+    {
+      "file": "src/integrity/files-approved.json",
+      "sha256": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+    },
+    {
+      "file": "src/application/native-authority.ts",
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    {
+      "file": "src/application/native-authority-evidence.ts",
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    {
+      "file": "src/protocol/native-wire.ts",
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "file": "src/protocol/native-schema.ts",
+      "sha256": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4"
+    },
+    {
+      "file": "src/protocol/index.ts",
+      "sha256": "5f8910165f62eb6aff7122e58e6d8804c1a2afe45364135e5969389e18f424e6"
+    },
+    {
+      "file": "src/application/index.ts",
+      "sha256": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2"
+    },
+    {
+      "file": "src/api/index.ts",
+      "sha256": "f8187ac0fc7b8128e08bd267577873253b31543969d7ba3b454daa47b496e680"
+    },
+    {
+      "file": "src/core/profile.ts",
+      "sha256": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f"
+    }
+  ],
+  "report": {
+    "file": "notes/2026-10-01-atseq-checkpoint-data-foundation-results.md",
+    "sha256": "b865710f66624a54eb7345824249246f1db906931545369d487d416d7a9af8b6"
+  },
+  "validation": {
+    "checkpointCases": 91,
+    "sharedCheckpointCaseNames": [
+      "authority-0-exact-data",
+      "authority-1-exact-data",
+      "authority-2-exact-data",
+      "authority-12-exact-data",
+      "authority-13-exact-data",
+      "authority-20-exact-data",
+      "complete-13-history-exact-indexes",
+      "head13-frontier2-restricted-I2-data",
+      "head13-frontier12-restricted-I2-data",
+      "head13-frontier13-restricted-I2-data",
+      "original-entry-request-1",
+      "original-entry-request-2",
+      "original-entry-request-3",
+      "original-entry-request-4",
+      "original-entry-request-5",
+      "original-entry-request-6",
+      "original-entry-request-7",
+      "original-entry-request-8",
+      "original-entry-request-9",
+      "original-entry-request-10",
+      "original-entry-request-11",
+      "original-entry-request-12",
+      "original-entry-request-13",
+      "source-order-unused-binary-exact-bytes",
+      "evidence-exact-hashes-separate-root-context",
+      "native-chunk-boundary-0",
+      "native-chunk-boundary-32768",
+      "native-chunk-boundary-32769",
+      "duplicate-decoded-names",
+      "BOM",
+      "bad-UTF8",
+      "trailing-comma",
+      "comments",
+      "whitespace",
+      "negative-zero",
+      "unsafe-number",
+      "unpaired-surrogate",
+      "unsorted-keys",
+      "normative-page-depth33-malformed",
+      "normative-page128KiB-plus1-malformed",
+      "smaller-local-byte-budget-unavailable",
+      "I1-depth-unchanged-unavailable",
+      "pure-parser-typed-depth-fact",
+      "table-extra-field",
+      "table-old-request-kind",
+      "table-scope-swap",
+      "table-zero-page-count",
+      "table-count-mismatch",
+      "table-count-overflow",
+      "table-genesis-position-mismatch",
+      "history-missing-actor",
+      "history-extra-field",
+      "history-gap",
+      "history-zero-position",
+      "history-invalid-nonce",
+      "history-device-account-confusion",
+      "history-two-descriptors",
+      "local-page-row-budget-unavailable",
+      "missing-complete-page-unavailable",
+      "missing-native-bytes-unavailable",
+      "unexpected-reader-fault-preserved",
+      "cross-page-request-duplicate",
+      "cross-page-retry-duplicate",
+      "cross-page-descriptor-duplicate",
+      "cross-page-position-gap",
+      "compact-no-invented-index-arrays",
+      "compact-recovery-policy-immutable",
+      "compact-epoch-id-reused",
+      "compact-epoch-immutable-cid",
+      "compact-current-epoch-missing",
+      "compact-grant-tombstone-mismatch",
+      "compact-historical-revision-needs-coverage",
+      "compact-floor-needs-descriptor-coverage",
+      "compact-genesis-exact-initialization",
+      "unsigned-versus-signed-wrapper-identity",
+      "original-request-bytes-unmodified",
+      "original-entry-chain-exact",
+      "source-file-order-not-normalized",
+      "source-original-binary-hash",
+      "complete-source-table-exact",
+      "sources-cross-page-duplicate",
+      "evidence-cross-page-duplicate",
+      "unexpected-extra-history-page-malformed",
+      "global-history-row-budget-unavailable",
+      "global-history-byte-budget-unavailable",
+      "history-page-identity-mismatch-malformed",
+      "outcome-exact-contract-still-gated",
+      "compact-null-row-malformed",
+      "source-duplicate-path-malformed",
+      "compact-false-frontier-mapping-malformed",
+      "owned-returned-data-cannot-change-retained-bytes"
+    ],
+    "identityCases": 60,
+    "authorityCases": 54,
+    "node": [
+      "22.19.0",
+      "26.10.0"
+    ],
+    "chromium": "153.0.8010.12",
+    "differentialJsonCasesPerNode": 72,
+    "differentialFullAuthorityCasesPerNode": 84,
+    "differentialDifferences": 0,
+    "compiledBuild": "passed",
+    "check": "passed",
+    "noFullSuiteClaim": true
+  },
+  "commands": [
+    "ATSEQ_P4_CAPTURE_PATH=.atseq-local/p4-data-node26-final.json node scripts/source-run.mjs --test tests/checkpoint-data.test.ts tests/identity-evidence.test.ts tests/native-authority.test.ts",
+    "ATSEQ_P4_CAPTURE_PATH=.atseq-local/p4-data-node22-final.json /Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node scripts/source-run.mjs --test tests/checkpoint-data.test.ts tests/identity-evidence.test.ts tests/native-authority.test.ts",
+    "node scripts/source-run.mjs --test tests/checkpoint-data-browser.test.ts tests/identity-evidence-browser.test.ts tests/native-authority-browser.test.ts",
+    "node --conditions atseq-source --import tsx experiments/checkpoint-data-foundation/compare-data-readers.mjs",
+    "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node --conditions atseq-source --import tsx experiments/checkpoint-data-foundation/compare-data-readers.mjs",
+    "npm run build",
+    "npm run check"
+  ],
+  "earlierCaptures": {
+    "preparation-79": "Historical untimed preparation before expanded 91-case source; no final source closure claim.",
+    "source-0c8a5777": "Passed 91-case source and extraction regressions before making the signed-wrapper CID mutation exact; runtime source bytes unchanged in final bc340cce."
+  },
+  "boundaries": [
+    "Owned data only; no publication, admitted source/state, accepted authority, restore, audit, writer or supported profile capability.",
+    "Exact outcome-row parsing remains unavailable in this foundation; accepted N1-D3 literal tables80e39957 require followup shared parser integration.",
+    "Complete supplied history establishes asserted coverage and intrinsic consistency, not native membership, independent replay or authenticated prior absence.",
+    "Operational complete-table bytes count reconstructed JSON header/page bytes; fetch/native framing/storage limits belong to their adapters.",
+    "No full ordinary suite, pack, live PDS/provider, benchmark or checkpoint admission."
+  ],
+  "files": [
+    {
+      "file": "build.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "file": "check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "file": "chromium-authority.json",
+      "bytes": 4270,
+      "sha256": "d554224e45fa668288957b0cbe2f290aa404277626b7b4ecb433dc8c580fb417"
+    },
+    {
+      "file": "chromium-checkpoint.json",
+      "bytes": 3518,
+      "sha256": "ab31d7fd55ea24568e531fc323622bca64eba4137df0beef702096041b73efb8"
+    },
+    {
+      "file": "chromium-identity.json",
+      "bytes": 39084,
+      "sha256": "2cd17ea7c5d28c27e26ed58b3e6adee73d12a94175376fc0f6f07a05036ae0d9"
+    },
+    {
+      "file": "differential-node22.log",
+      "bytes": 387,
+      "sha256": "8efb51167b92253b3fa969feeab8ddce3caa6f6c9504310d2254fc6ec8c70022"
+    },
+    {
+      "file": "differential-node26.log",
+      "bytes": 387,
+      "sha256": "ef47738371d7610e745ca905ef0f882f8aa5db52113a24207634c2720a3d998e"
+    },
+    {
+      "file": "final-chromium.log",
+      "bytes": 9974,
+      "sha256": "95fbd618437687654e742a438821e84930464e4fdd90c09b82b591655f4541f2"
+    },
+    {
+      "file": "final-node22.log",
+      "bytes": 7091,
+      "sha256": "4d9eabdfcf8e0247dc7bd5d795588d08ddf8d31d554e07eba03ddf8635fcac0d"
+    },
+    {
+      "file": "final-node26.log",
+      "bytes": 6694,
+      "sha256": "ec6adcd5393190f334409ab1a25db929c25e0686a56bc0009399786e4e6f68f6"
+    },
+    {
+      "file": "node22-cases.json",
+      "bytes": 3343,
+      "sha256": "e4cc4afb783420eb08c28d47ee3ac794327dec1f46ff808ddae6f38e26cb392f"
+    },
+    {
+      "file": "node26-cases.json",
+      "bytes": 3343,
+      "sha256": "b9793414364a0c549e619353e76af897dee1e7e29fcaa39caf9dfe2fbfc77214"
+    },
+    {
+      "file": "preparation-79/chromium.log",
+      "bytes": 9524,
+      "sha256": "3607f5cd0046e3200492d4b959a918d529a4d590a22ca3044dfd97fefa5e903a"
+    },
+    {
+      "file": "preparation-79/node22.log",
+      "bytes": 7090,
+      "sha256": "1d36bc29092513b81c961c43a8f4dc608576bd12940d3fdbc71d97f370701fe2"
+    },
+    {
+      "file": "preparation-79/node26.log",
+      "bytes": 6696,
+      "sha256": "cf9da55b757ff869ceb8b829ce0a5bc41da1c8b92ccfba154467854a99c6ef8e"
+    },
+    {
+      "file": "source-0c8a5777/build.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "file": "source-0c8a5777/check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "file": "source-0c8a5777/chromium-authority.json",
+      "bytes": 4270,
+      "sha256": "6d443fcd9e0a9216d7d6e5b43b2110bab01f233a392b5d3397575c7419dad750"
+    },
+    {
+      "file": "source-0c8a5777/chromium-checkpoint.json",
+      "bytes": 3518,
+      "sha256": "4f6cde148c06d51c69a07761261cce3f658bf14f19f5d5ff62068c710774a692"
+    },
+    {
+      "file": "source-0c8a5777/chromium-identity.json",
+      "bytes": 39040,
+      "sha256": "33d966631202f587d62cd7edfd06ad3f3428c9bdd192b56134af0dec72d6ff93"
+    },
+    {
+      "file": "source-0c8a5777/differential-node22.log",
+      "bytes": 387,
+      "sha256": "8efb51167b92253b3fa969feeab8ddce3caa6f6c9504310d2254fc6ec8c70022"
+    },
+    {
+      "file": "source-0c8a5777/differential-node26.log",
+      "bytes": 387,
+      "sha256": "ef47738371d7610e745ca905ef0f882f8aa5db52113a24207634c2720a3d998e"
+    },
+    {
+      "file": "source-0c8a5777/final-chromium.log",
+      "bytes": 9977,
+      "sha256": "c19e5d942b3ff190e3d291f9aeef774740a604a6e651adabb803ffe0bafbba4b"
+    },
+    {
+      "file": "source-0c8a5777/final-node22.log",
+      "bytes": 7093,
+      "sha256": "6cf1eaea31682357d80b92ef6f97b966e25fb25a7e11b94e4026d7b80f6623af"
+    },
+    {
+      "file": "source-0c8a5777/final-node26.log",
+      "bytes": 6699,
+      "sha256": "ffc5233388b78d39667a7623a040c261990bcf57ff39e7b819062ae8c0ad79c3"
+    },
+    {
+      "file": "source-0c8a5777/node22-cases.json",
+      "bytes": 3343,
+      "sha256": "e4cc4afb783420eb08c28d47ee3ac794327dec1f46ff808ddae6f38e26cb392f"
+    },
+    {
+      "file": "source-0c8a5777/node26-cases.json",
+      "bytes": 3343,
+      "sha256": "b9793414364a0c549e619353e76af897dee1e7e29fcaa39caf9dfe2fbfc77214"
+    }
+  ]
+}
