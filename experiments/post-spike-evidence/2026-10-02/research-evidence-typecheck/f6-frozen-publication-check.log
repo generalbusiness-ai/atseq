@@ -1,0 +1,92 @@
+{
+  "result": "passed",
+  "baseline": "526111bfd51172dfb3c06aa3557b3beb0a5d8964",
+  "cutoff": "2026-10-02T05:51:30Z",
+  "copiedGitBlobs": 56,
+  "copiedBytes": 609948,
+  "oauthHarnessFiles": 6,
+  "oauthEvidenceFiles": 19,
+  "oauthCaptureHashes": 13,
+  "physicalSdkPins": 24,
+  "sdkDependencyPaths": 194,
+  "storedPublicCoreCasesPerEnvironment": 6,
+  "storedPublicCoreEnvironments": 4,
+  "retainedFailedCaptures": 5,
+  "officialSourceCopies": 18,
+  "localGitPins": 25,
+  "literalObservations": 14,
+  "predecessorFilesUnchanged": 25,
+  "originalUnexecutedVectors": 44,
+  "successorUnexecutedVectors": 12,
+  "researchReferenceUrls": 6,
+  "recordedReviewAndAdoptionScopes": 5,
+  "checkedLocalLinks": [
+    {
+      "note": "notes/2026-10-01-atseq-oauth-bounded-stores.md",
+      "target": "../experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/manifest.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-boundary.md",
+      "target": "2026-10-01-atseq-native-authority-decision.md"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-boundary.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/source-inspection.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-boundary.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/acceptance-vectors.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-results.md",
+      "target": "2026-10-02-atseq-app-provisioning-boundary.md"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-results.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/manifest.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-review-clarification.md",
+      "target": "2026-10-02-atseq-app-provisioning-boundary.md"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-review-clarification.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/app-provisioning-review-clarification/acceptance-vectors.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-review-clarification.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/app-provisioning-review-clarification/manifest.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-review-results.md",
+      "target": "2026-10-02-atseq-app-provisioning-review-clarification.md"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-app-provisioning-review-results.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/app-provisioning-review-clarification/manifest.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-accepted-custody-provisioning-publication-results.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/accepted-custody-provisioning-publication/manifest.json"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-accepted-custody-provisioning-publication-results.md",
+      "target": "2026-10-01-atseq-oauth-bounded-stores.md"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-accepted-custody-provisioning-publication-results.md",
+      "target": "2026-10-02-atseq-app-provisioning-boundary.md"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-accepted-custody-provisioning-publication-results.md",
+      "target": "2026-10-02-atseq-app-provisioning-review-clarification.md"
+    },
+    {
+      "note": "notes/2026-10-02-atseq-accepted-custody-provisioning-publication-results.md",
+      "target": "../experiments/post-spike-evidence/2026-10-02/accepted-custody-provisioning-publication/verification.json"
+    }
+  ],
+  "runtimeExperimentsExecuted": false,
+  "providerOperationsExecuted": false,
+  "timingExperimentsExecuted": false
+}

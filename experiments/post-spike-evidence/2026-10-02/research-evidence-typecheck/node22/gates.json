@@ -1,0 +1,28 @@
+{
+  "node": "v22.19.0",
+  "nodeExecutable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+  "sourceCommit": "f7a22dcb57db0598d9d7e8d80dc2f64075221b8a",
+  "results": [
+    {
+      "name": "check",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.8380749225616455
+    },
+    {
+      "name": "compiler-inputs",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "--listFiles"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.3097648620605469
+    }
+  ]
+}

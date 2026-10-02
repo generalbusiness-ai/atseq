@@ -1,0 +1,12 @@
+{
+  "existingEvidenceFilesChecked": 811,
+  "allExistingEvidenceBytesUnchanged": true,
+  "allThreeRuntimeCompilerInputsEqual": true,
+  "unchangedLiveInputCounts": {
+    "src": 116,
+    "scripts": 20,
+    "tests": 114,
+    "experiments": 19
+  },
+  "finalSourceCommit": "f7a22dcb57db0598d9d7e8d80dc2f64075221b8a"
+}

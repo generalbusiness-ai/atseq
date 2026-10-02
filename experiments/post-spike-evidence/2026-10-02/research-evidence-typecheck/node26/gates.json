@@ -1,0 +1,28 @@
+{
+  "node": "v26.10.0",
+  "nodeExecutable": "/opt/homebrew/bin/node",
+  "sourceCommit": "f7a22dcb57db0598d9d7e8d80dc2f64075221b8a",
+  "results": [
+    {
+      "name": "check",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.989624977111816
+    },
+    {
+      "name": "compiler-inputs",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "--listFiles"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.3240368366241455
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "officialSources": [
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "bytes": 10506,
+      "sha256": "926cee9b33f5de6f74c0d9e54a1bcf010673e820ac3b85610824e45cac718fe8"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "bytes": 1396,
+      "sha256": "1fd53104a866f73974fdb9e9eb21e87a01d169bf3b17a95ebb243667942e1922"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "bytes": 1461,
+      "sha256": "c5fb3bbfd7b50b0f4d4ce4583a53d1cc44e82041889ae9527029dbfff838980f"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/auth-verifier.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/auth-verifier.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/auth-verifier.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/auth-verifier.ts",
+      "bytes": 20346,
+      "sha256": "d6b3a9db07b09a8e0aeae1d5b52338afb5043a49c2575310c11e78d13169a659"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "bytes": 3490,
+      "sha256": "05382f7c5622c74e3b1798fea7ed5a1e9e0dfaf6528dbf84b342948fe688a542"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/config/env.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/config/env.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/config/env.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/config/env.ts",
+      "bytes": 6120,
+      "sha256": "da1c264938108429ca022a3d9b5c7f5cc44e6c31a1e16c367ece944d48d19554"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/xrpc-server/src/auth.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/xrpc-server/src/auth.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/xrpc-server/src/auth.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/xrpc-server/src/auth.ts",
+      "bytes": 6538,
+      "sha256": "df7b181bca12d367fd1bf13db22328b15c157391dceb63edcc62b52939003f3d"
+    }
+  ],
+  "retainedProducerAndDeliveryManifest": "experiments/post-spike-evidence/2026-10-02/accepted-custody-provisioning-publication/manifest.json",
+  "producerSources": [
+    {
+      "base": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "addedFiles": 27
+    },
+    {
+      "base": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "addedFiles": 29
+    }
+  ]
+}
