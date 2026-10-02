@@ -1,0 +1,11 @@
+
+> atseq@0.1.0 check
+> tsc --noEmit && npm run format:check && npm run check:layers && npm run check:dependencies
+
+
+> atseq@0.1.0 format:check
+> prettier --check src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json tsconfig.build.json CONTRIBUTING.md .prettierrc.json .github
+
+Checking formatting...
+[warn] experiments/native-authority-floor/compiled-conformance.mjs
+[warn] Code style issues found in the above file. Run Prettier with --write to fix.

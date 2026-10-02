@@ -1,0 +1,133 @@
+{
+  "scope": "Preserved initial mislabeled directory attempt; process.version in each capture is authoritative",
+  "archive": "first-matrix.tar.gz",
+  "sha256": "ee949cda9f0dd8d2b737748853c88d69c73cc6ffbe1c23c8375a953787c146a8",
+  "members": [
+    {
+      "path": "first-matrix-node22-authority-fixture.json.gz",
+      "bytes": 1949895,
+      "sha256": "fead80a4ba3c0805b097cc66e8d05a40fe346a5ac877d23626b69c501979b44d",
+      "uncompressedBytes": 23185395,
+      "uncompressedSha256": "2dc3a7cb992ee21d7deb96017c33f187fddfd537eee62b6938efaac2f142e1b7"
+    },
+    {
+      "path": "first-matrix-node22-checkpoint-data.json",
+      "bytes": 3351,
+      "sha256": "a70ced753e819c6cd15738ee108c8abf2e06c863d9b6346c7391266cf010f743"
+    },
+    {
+      "path": "first-matrix-node22-compiled-fixture.json",
+      "bytes": 2963,
+      "sha256": "0d3a4869d84a67a526f0c3cea0ff0961e5911384e620f75dbacacb187996fb34"
+    },
+    {
+      "path": "first-matrix-node22-compiled.json",
+      "bytes": 4004,
+      "sha256": "54a298c6b61ab4dd6333810423bd48d7ed4945ff3a6bd53558d82241d29623ae"
+    },
+    {
+      "path": "first-matrix-node22-compiled.log",
+      "bytes": 3389,
+      "sha256": "90761c7dd6d912ecb34bb4c21ac413c377184233475aa0fceced1ed538b1b98e"
+    },
+    {
+      "path": "first-matrix-node22-source-fixture.json",
+      "bytes": 2963,
+      "sha256": "e05f7ec001895f7694efff6d0a4f3b9e5d6ea9e73e1084d65078dfcb4d9a14c2"
+    },
+    {
+      "path": "first-matrix-node22-source.json",
+      "bytes": 567,
+      "sha256": "524222cf611881487b02e49f3f3ba0dbaaf45e825aacd22d19aca3ca02f43ebc"
+    },
+    {
+      "path": "first-matrix-node22-source.log",
+      "bytes": 4760,
+      "sha256": "3e1cfafa40d2b1ff77c615dca7141bccc30de26d827a15da91a0331ecc5fc654"
+    },
+    {
+      "path": "first-matrix-node24-authority-fixture.json.gz",
+      "bytes": 1936148,
+      "sha256": "8891e5118e51b8967aced3819121748982c0d38cc46d1aa88fc19e960d718346",
+      "uncompressedBytes": 23171583,
+      "uncompressedSha256": "2cbc1f96a5b5ef8218b023d54cb18f1e19efeeca0f5c75a4a3792acc14dfb673"
+    },
+    {
+      "path": "first-matrix-node24-checkpoint-data.json",
+      "bytes": 3351,
+      "sha256": "b4430a1fc02c7a02d59cf92d37c89cc52dd0e704f1d0ab7d760e7b78464c88db"
+    },
+    {
+      "path": "first-matrix-node24-compiled-fixture.json",
+      "bytes": 2963,
+      "sha256": "46b4002f5bad8e266e3ac56855b0158420fd32536bc6915b262b8341886877ba"
+    },
+    {
+      "path": "first-matrix-node24-compiled.json",
+      "bytes": 4004,
+      "sha256": "62fed6dc9dced9126b95d7ffbc0b5391ad92a0e32e122610655823cd95290b8c"
+    },
+    {
+      "path": "first-matrix-node24-compiled.log",
+      "bytes": 3389,
+      "sha256": "03aeda5f43da06f62a380d9d57fb6dc7c83d2f24555ad4f7a1f5113fddfdb654"
+    },
+    {
+      "path": "first-matrix-node24-source-fixture.json",
+      "bytes": 2963,
+      "sha256": "c0d1ccbdcc3c340fb33d2b59dd82332f1caa3f910ae65eec3905c28d6bdb49e5"
+    },
+    {
+      "path": "first-matrix-node24-source.json",
+      "bytes": 567,
+      "sha256": "4cbf78621ca26655da8362fc2e815d69b037e6b2ba6eaacbb7bae5ff88c99bb8"
+    },
+    {
+      "path": "first-matrix-node24-source.log",
+      "bytes": 5183,
+      "sha256": "5a72f45d8c245735038dd77444bfa232fc92ff7f0f167519ff46ebc1f6c2f9d2"
+    },
+    {
+      "path": "first-matrix-node26-authority-fixture.json.gz",
+      "bytes": 1946975,
+      "sha256": "34b71b20cc8dd55c64ea36e141c89f53a2d54a9c7cea881ce4c46ee49b6c40e7",
+      "uncompressedBytes": 23464797,
+      "uncompressedSha256": "aef705eb46d3132d6e7b14b7f68ef91aaad0dd85b879b89a5c9bcdcac6cc08ab"
+    },
+    {
+      "path": "first-matrix-node26-checkpoint-data.json",
+      "bytes": 3351,
+      "sha256": "52b73cccbb2b8b5b0a093744d8f4b95ff8907f6eafb80306ebf7f39a47723fa9"
+    },
+    {
+      "path": "first-matrix-node26-compiled-fixture.json",
+      "bytes": 2963,
+      "sha256": "3b65440c60d48e8637bdb169f5d30fbb53476a667579b9a70d7166a660f8b097"
+    },
+    {
+      "path": "first-matrix-node26-compiled.json",
+      "bytes": 4004,
+      "sha256": "ab83bf17a65086e3f927080a12f14d8e14bf8ec728b84e8ffe72a15eb42f8b69"
+    },
+    {
+      "path": "first-matrix-node26-compiled.log",
+      "bytes": 3389,
+      "sha256": "7ef0f0d24040c4a7cd274e7eff9702008b07b2629b8cbfa8362a3dfc197201b4"
+    },
+    {
+      "path": "first-matrix-node26-source-fixture.json",
+      "bytes": 2963,
+      "sha256": "2e109fdda2f017a9cccc96d6785f6d9698bea3fb9c43b59cb1eaa3a900ec134b"
+    },
+    {
+      "path": "first-matrix-node26-source.json",
+      "bytes": 567,
+      "sha256": "ff2ada9145f1dff25b0e3e7d14e365a2da8367337f007fea1084e3f6b3d655fd"
+    },
+    {
+      "path": "first-matrix-node26-source.log",
+      "bytes": 4760,
+      "sha256": "c01796cf006cc24abd85f9b38d3af7aab12c1b6a4e59cba2fe318a1479a1daa9"
+    }
+  ]
+}
