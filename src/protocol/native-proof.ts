@@ -1,7 +1,7 @@
 import * as CAR from '@atcute/car';
 import * as CBOR from '@atcute/cbor';
 import * as CID from '@atcute/cid';
-import { decode as decodeVarint } from '@atcute/varint';
+import { decode as decodeVarint, encodingLength } from '@atcute/varint';
 import { isCommit } from '@atcute/repo';
 import {
   NodeStore,
@@ -143,7 +143,9 @@ export type NativeLookup =
   | { kind: 'missing'; cid: string };
 export type NativeTree = { kind: 'complete'; records: number; nodeLoads: number } | { kind: 'missing'; cid: string };
 const brand: unique symbol = Symbol('authenticated native root');
-const authenticatedRoots = new WeakSet<object>();
+type ExtractRequest = { path: string; expectedCid?: string };
+type ExtractOperation = (requests: readonly ExtractRequest[], signal?: AbortSignal) => Promise<Uint8Array>;
+const authenticatedRoots = new WeakMap<object, ExtractOperation>();
 export function assertAuthenticatedRepo(value: unknown): asserts value is AuthenticatedRepo {
   if (!value || typeof value !== 'object' || !authenticatedRoots.has(value))
     fail('Repository capability must be issued by root authentication');
@@ -283,6 +285,7 @@ export class VerifiedRepoBlocks {
         constructor(
           readonly maximum: number,
           readonly scope: 'path' | 'tree',
+          readonly collect?: (cid: string, bytes: Uint8Array) => void,
         ) {
           super(store);
         }
@@ -301,6 +304,7 @@ export class VerifiedRepoBlocks {
             value.e.some((entry) => Object.keys(entry).some((key) => !['p', 'k', 'v', 't'].includes(key)))
           )
             fail('Unknown canonical MST node field');
+          this.collect?.(cid, bytes);
           return super.get(cid);
         }
       }
@@ -313,6 +317,46 @@ export class VerifiedRepoBlocks {
         intervals(walker);
         if (walker.stack.size > limits.pathLoads) limit('MST path depth exceeds budget');
       }
+      // One checked walk serves lookup and extraction. The collector is private
+      // to this issuing operation; it cannot change walked predicates or cleanup.
+      async function lookupPath(
+        path: string,
+        expectedCid?: string,
+        collect?: (cid: string, bytes: Uint8Array) => void,
+      ): Promise<NativeLookup> {
+        if (typeof path !== 'string') fail('Expected repository path');
+        let walker: NodeWalker | undefined;
+        try {
+          // Protocol syntax/maxima precede stricter local resource policy.
+          assertMstKey(path);
+          if (path.length > limits.pathCharacters) limit('Repository path characters exceed budget');
+          if (expectedCid !== undefined) expectedCid = cborCid(expectedCid);
+          walker = await NodeWalker.create(new BoundedNodes(limits.pathLoads, 'path', collect), data);
+          const found = await walker.findRpath(path);
+          ranges(walker);
+          if (found === null) return { kind: 'absent' };
+          const cid = cborCid(found.$link);
+          if (expectedCid !== undefined && cid !== expectedCid) fail('Record CID differs from expected record');
+          const bytes = cache.#get(cid);
+          if (bytes) collect?.(cid, bytes);
+          // Only the private extraction caller consumes this unexposed result;
+          // its collector already made a bounded owned copy. Public lookup
+          // always takes the ordinary copied-byte branch.
+          return bytes
+            ? { kind: 'found', cid, bytes: collect ? bytes : new Uint8Array(bytes) }
+            : { kind: 'missing', cid };
+        } catch (error) {
+          // Already walked structural evidence outranks missing/limited
+          // evidence. Never run the depth policy during failed-walk cleanup.
+          if (
+            walker &&
+            (error instanceof MissingBlockError || (error instanceof AtseqError && error.code === 'native_proof_limit'))
+          )
+            intervals(walker);
+          if (error instanceof MissingBlockError) return { kind: 'missing', cid: error.cid };
+          rethrowNativeInput(error);
+        }
+      }
       const capability: AuthenticatedRepo = {
         [brand]: true,
         root,
@@ -321,34 +365,8 @@ export class VerifiedRepoBlocks {
         rev: commit.rev,
         data,
         signingKey: trustedKey,
-        async lookup(path, expectedCid) {
-          if (typeof path !== 'string') fail('Expected repository path');
-          let walker: NodeWalker | undefined;
-          try {
-            // Protocol syntax/maxima precede stricter local resource policy.
-            assertMstKey(path);
-            if (path.length > limits.pathCharacters) limit('Repository path characters exceed budget');
-            if (expectedCid !== undefined) expectedCid = cborCid(expectedCid);
-            walker = await NodeWalker.create(new BoundedNodes(limits.pathLoads, 'path'), data);
-            const found = await walker.findRpath(path);
-            ranges(walker);
-            if (found === null) return { kind: 'absent' };
-            const cid = cborCid(found.$link);
-            if (expectedCid !== undefined && cid !== expectedCid) fail('Record CID differs from expected record');
-            const bytes = cache.#get(cid);
-            return bytes ? { kind: 'found', cid, bytes: new Uint8Array(bytes) } : { kind: 'missing', cid };
-          } catch (error) {
-            // Already walked structural evidence outranks missing/limited
-            // evidence. Never run the depth policy during failed-walk cleanup.
-            if (
-              walker &&
-              (error instanceof MissingBlockError ||
-                (error instanceof AtseqError && error.code === 'native_proof_limit'))
-            )
-              intervals(walker);
-            if (error instanceof MissingBlockError) return { kind: 'missing', cid: error.cid };
-            rethrowNativeInput(error);
-          }
+        lookup(path, expectedCid) {
+          return lookupPath(path, expectedCid);
         },
         async validateTree() {
           const nodes = new BoundedNodes(limits.treeLoads, 'tree');
@@ -378,7 +396,106 @@ export class VerifiedRepoBlocks {
           }
         },
       };
-      authenticatedRoots.add(capability);
+      authenticatedRoots.set(capability, async (requests, signal) => {
+        try {
+          if (!Array.isArray(requests)) fail('Expected native extraction requests');
+          if (signal !== undefined) {
+            if (!(signal instanceof AbortSignal)) fail('Expected native extraction signal');
+            try {
+              Object.getOwnPropertyDescriptor(AbortSignal.prototype, 'aborted')!.get!.call(signal);
+            } catch {
+              fail('Expected native extraction signal');
+            }
+          }
+          const requestCount = requests.length;
+          if (requestCount > Math.min(limits.carBlocks, NATIVE_PROOF_LIMITS.carBlocks))
+            limit('Native extraction request count exceeds budget');
+          const captured: ExtractRequest[] = [];
+          let requestBytes = 2; // JSON tuple-array brackets; this is local resource accounting.
+          const encoder = new TextEncoder();
+          for (let index = 0; index < requestCount; index++) {
+            const row = requests[index];
+            if (
+              !row ||
+              typeof row !== 'object' ||
+              Array.isArray(row) ||
+              !Object.hasOwn(row, 'path') ||
+              Reflect.ownKeys(row).some((name) => name !== 'path' && name !== 'expectedCid')
+            )
+              fail('Invalid native extraction request');
+            const path = row.path,
+              expectedCid = row.expectedCid;
+            if (typeof path !== 'string') fail('Expected repository path');
+            assertMstKey(path);
+            if (expectedCid !== undefined) cborCid(expectedCid);
+            if (path.length > limits.pathCharacters) limit('Repository path characters exceed budget');
+            requestBytes +=
+              (captured.length ? 1 : 0) + encoder.encode(JSON.stringify([path, expectedCid ?? null])).length;
+            if (requestBytes > NATIVE_CACHE_BROWSER.bytes) limit('Native extraction request bytes exceed budget');
+            captured.push(expectedCid === undefined ? { path } : { path, expectedCid });
+          }
+          const active = () => {
+            if (signal) AbortSignal.prototype.throwIfAborted.call(signal);
+          };
+          active();
+          const commitBytes = cache.#get(root);
+          if (!commitBytes) throw new ProtocolError('content_unavailable', 'Selected commit bytes are unavailable');
+          const headerPart = await CAR.writeCarStream([{ $link: root }], []).next();
+          if (headerPart.done) throw Error('Native CAR writer omitted header');
+          const header = headerPart.value;
+          active();
+          const maximumBytes = Math.min(limits.carBytes, NATIVE_CACHE_BROWSER.bytes),
+            maximumBlocks = Math.min(limits.carBlocks, NATIVE_CACHE_BROWSER.blocks);
+          const outputBlocks = new Map<string, { cid: Uint8Array; bytes: Uint8Array }>();
+          let outputBytes = header.length,
+            overflow = outputBytes > maximumBytes;
+          function collect(cid: string, bytes: Uint8Array) {
+            if (overflow || outputBlocks.has(cid)) return;
+            const encoded = CID.fromString(cid).bytes,
+              entryBytes = encoded.length + bytes.length,
+              framedBytes = encodingLength(entryBytes) + entryBytes;
+            if (
+              bytes.length > limits.blockBytes ||
+              outputBlocks.size + 1 > maximumBlocks ||
+              outputBytes + framedBytes > maximumBytes
+            ) {
+              overflow = true;
+              return; // No oversized copy; finish only this bounded checked walk.
+            }
+            outputBlocks.set(cid, { cid: new Uint8Array(encoded), bytes: new Uint8Array(bytes) });
+            outputBytes += framedBytes;
+          }
+          collect(root, commitBytes);
+          if (overflow) limit('Native extracted CAR exceeds budget');
+          for (const row of captured) {
+            active();
+            const result = await lookupPath(row.path, row.expectedCid, collect);
+            if (result.kind === 'missing')
+              throw new ProtocolError('content_unavailable', 'Native extraction proof is unavailable');
+            // The checked walk's exposed structural/missing verdicts precede
+            // collection policy. Do not start another path after overflow.
+            if (overflow) limit('Native extracted CAR exceeds budget');
+            active();
+          }
+          const output = new Uint8Array(outputBytes);
+          let offset = 0;
+          const sorted = [...outputBlocks].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+          for await (const chunk of CAR.writeCarStream(
+            [{ $link: root }],
+            sorted.map(([, block]) => ({ cid: block.cid, data: block.bytes })),
+          )) {
+            active();
+            if (offset + chunk.length > outputBytes) throw Error('Native CAR writer exceeded preflight');
+            output.set(chunk, offset);
+            offset += chunk.length;
+          }
+          if (offset !== outputBytes) throw Error('Native CAR writer differed from preflight');
+          active();
+          return output;
+        } catch (error) {
+          rethrowNativeInput(error);
+        }
+      });
       return Object.freeze(capability);
     } catch (error) {
       rethrowNativeInput(error);
@@ -389,4 +506,14 @@ export function authenticateRepo(options: AuthenticateRepoOptions): Promise<Auth
   const blocks = options.blocks ?? new VerifiedRepoBlocks();
   // Invoke the issuing implementation even when a caller supplies a subclass.
   return VerifiedRepoBlocks.prototype.authenticate.call(blocks, options);
+}
+
+/** Internal operation over the original issuer; intentionally absent from the supported barrel. */
+export function extractNativeRepoPaths(
+  repo: AuthenticatedRepo,
+  requests: readonly { path: string; expectedCid?: string }[],
+  signal?: AbortSignal,
+): Promise<Uint8Array> {
+  assertAuthenticatedRepo(repo);
+  return authenticatedRoots.get(repo)!(requests, signal);
 }
