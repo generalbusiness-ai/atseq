@@ -45,9 +45,11 @@
       "sha256": "d0947ce44c909084bebaf72323be437c397b21e2ff4745388be8b61266cae18a"
     },
     {
-      "path": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/build.log",
-      "bytes": 494,
-      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+      "path": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/build.log.gz",
+      "bytes": 341,
+      "sha256": "441e4aaeed6a150c494f4aca1d47fbbb4e485f9acf337f03340533c6f8ba74ab",
+      "uncompressedBytes": 494,
+      "uncompressedSha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
     },
     {
       "path": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/check.log",

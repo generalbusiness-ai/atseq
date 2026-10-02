@@ -2,7 +2,7 @@
   "result": "PASS",
   "baseline": "316439928e0c0d41965b086f2dace19a9249dba7",
   "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
-  "manifestSha256": "9de86921523f1af2ee437c3e5d12183d27442d3a34493fa29d4e753d3aa7f872",
+  "manifestSha256": "1cc424ed5e628f479b8782bfabd265e13100c653c810a3f7a7f393bdf55ead6b",
   "exactSourcePins": 27,
   "literalObservations": 9,
   "retainedAttemptMembers": 24,
