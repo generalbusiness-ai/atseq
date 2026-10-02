@@ -91,10 +91,17 @@ async function environment() {
     const status = httpStatus?.(url);
     if (status !== undefined) {
       await response.body?.cancel();
-      response = new Response(JSON.stringify({ syntheticHttpOutage: status }), {
-        status,
-        headers: { 'content-type': 'application/json' },
-      });
+      response = new Response(
+        url.hostname === 'identity.atseq-probe.net'
+          ? 'Synthetic identity service unavailable'
+          : JSON.stringify({ syntheticHttpOutage: status }),
+        {
+          status,
+          headers: {
+            'content-type': url.hostname === 'identity.atseq-probe.net' ? 'text/plain' : 'application/json',
+          },
+        },
+      );
     }
     await afterResponse?.(url);
     if (abortAfter?.(url)) {
