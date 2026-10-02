@@ -130,6 +130,20 @@ export async function runNativeWriterCorpus(
     'input',
   );
   results.push('large-conditional-JSON-and-whole-batch-local-cap');
+  const capCondition = fixture.commit;
+  const capWrites = [{ ...writes[0], value: { text: '' } }];
+  const envelopeBytes = new TextEncoder().encode(
+    JSON.stringify({ repo: OAUTH_DID, validate: false, writes: capWrites, swapCommit: capCondition }),
+  ).length;
+  capWrites[0]!.value.text = 'x'.repeat(1048576 - envelopeBytes);
+  await writer.applyConditional(capWrites, capCondition);
+  check(fixture.bodies.at(-1)!.length === 1048576, 'Actual apply body at exact 1 MiB');
+  const overCondition = fixture.commit;
+  capWrites[0]!.value.text += 'x';
+  const beforeOver = fixture.paths.length;
+  await refused(() => writer.applyConditional(capWrites, overCondition), 'input');
+  check(fixture.paths.length === beforeOver, 'Exact 1 MiB plus one apply refused before resource transport');
+  results.push('maintained-exact-1MiB-conditional-body-and-one-byte-over-local-refusal');
   const native = await largeNativeBatch();
   const condition = fixture.commit;
   const nativeWrites = [...native.entryHeadWrites, native.chunkWrite];

@@ -101,11 +101,18 @@ test('hostile configured SDK dispatch cannot widen the private native resource a
       const handle = await adapter.restore(OAUTH_DID, OAUTH_SCOPE);
       const writer = await NativeAccountWriter.open(handle, OAUTH_DID);
       const started = performance.now();
-      await assert.rejects(
-        () => writer.upload(new Uint8Array(524288)),
-        (error: unknown) =>
-          error instanceof AtseqError && error.code === (mode === 'deadline' ? 'content_unavailable' : 'input'),
-      );
+      // Unlike a real open HTTP socket, this synthetic empty stream owns no
+      // event-loop handle. Keep it alive without replacing the actual 30 s clock.
+      const keepAlive = mode === 'deadline' ? setInterval(() => {}, 1000) : undefined;
+      try {
+        await assert.rejects(
+          () => writer.upload(new Uint8Array(524288)),
+          (error: unknown) =>
+            error instanceof AtseqError && error.code === (mode === 'deadline' ? 'content_unavailable' : 'input'),
+        );
+      } finally {
+        clearInterval(keepAlive);
+      }
       if (mode === 'deadline') assert.ok(performance.now() - started >= 29900);
       if (mode === 'count') assert.equal(sent, 64);
       else if (mode === 'pool') assert.equal(sent, 33);
