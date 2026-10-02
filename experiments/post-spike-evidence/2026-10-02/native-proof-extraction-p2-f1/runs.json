@@ -1,0 +1,221 @@
+{
+  "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+  "platform": "Darwin",
+  "machine": "arm64",
+  "runs": [
+    {
+      "kind": "source",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node": "v22.19.0",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "--test-concurrency=1",
+        "tests/native-proof-extraction.test.ts",
+        "tests/native-proof-extraction-workload.test.ts",
+        "tests/native-proof.test.ts",
+        "tests/native-prefix.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_EXTRACTION_CAPTURE_DIR": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source",
+        "ATSEQ_NATIVE_PREFIX_CAPTURE_DIR": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/r1-source",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/.atseq-local/native-proof-extraction-attempts/prefix-fixture.json"
+      },
+      "log": "node22/source.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:53:00.325936+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "extraction-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node": "v22.19.0",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "experiments/native-proof-extraction/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/workload-fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_COMPILED_CAPTURE": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/emitted.json"
+      },
+      "log": "node22/extraction-emitted.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:53:34.654905+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "r1-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node": "v22.19.0",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/.atseq-local/native-proof-extraction-attempts/prefix-fixture.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/r1-emitted.json"
+      },
+      "log": "node22/r1-emitted.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:53:51.879963+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "source",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node": "v24.21.0",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "--test-concurrency=1",
+        "tests/native-proof-extraction.test.ts",
+        "tests/native-proof-extraction-workload.test.ts",
+        "tests/native-proof.test.ts",
+        "tests/native-prefix.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_EXTRACTION_CAPTURE_DIR": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/source",
+        "ATSEQ_NATIVE_PREFIX_CAPTURE_DIR": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/r1-source",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/.atseq-local/native-proof-extraction-attempts/prefix-fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/workload-fixture.json"
+      },
+      "log": "node24/source.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:53:55.670422+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "extraction-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node": "v24.21.0",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "experiments/native-proof-extraction/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/source/fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/source/workload-fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_COMPILED_CAPTURE": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/emitted.json"
+      },
+      "log": "node24/extraction-emitted.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:54:26.121343+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "r1-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node": "v24.21.0",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/.atseq-local/native-proof-extraction-attempts/prefix-fixture.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/r1-emitted.json"
+      },
+      "log": "node24/r1-emitted.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:54:44.288422+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "source",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "--test-concurrency=1",
+        "tests/native-proof-extraction.test.ts",
+        "tests/native-proof-extraction-workload.test.ts",
+        "tests/native-proof.test.ts",
+        "tests/native-prefix.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_EXTRACTION_CAPTURE_DIR": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/source",
+        "ATSEQ_NATIVE_PREFIX_CAPTURE_DIR": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/r1-source",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/.atseq-local/native-proof-extraction-attempts/prefix-fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/workload-fixture.json"
+      },
+      "log": "node26/source.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:54:47.182010+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "extraction-emitted",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "experiments/native-proof-extraction/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/source/fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/source/workload-fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_COMPILED_CAPTURE": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/emitted.json"
+      },
+      "log": "node26/extraction-emitted.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:55:38.329279+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "r1-emitted",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/.atseq-local/native-proof-extraction-attempts/prefix-fixture.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/r1-emitted.json"
+      },
+      "log": "node26/r1-emitted.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:56:06.879127+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    },
+    {
+      "kind": "chromium",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "--test-concurrency=1",
+        "tests/native-proof-extraction-browser.test.ts",
+        "tests/native-prefix-browser.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/workload-fixture.json",
+        "ATSEQ_NATIVE_EXTRACTION_BROWSER_CAPTURE_DIR": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/chromium",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-proof-extraction-p2-f1-20261002/.atseq-local/native-proof-extraction-attempts/prefix-fixture.json"
+      },
+      "log": "node26/chromium.log",
+      "source": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+      "started": "2026-10-02T15:56:11.035148+00:00",
+      "launchRetries": [],
+      "exitCode": 0
+    }
+  ]
+}

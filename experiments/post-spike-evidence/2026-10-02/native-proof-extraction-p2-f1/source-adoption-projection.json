@@ -1,0 +1,27 @@
+{
+  "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:97be58fccdd42286efa5feb38796f5791aa989b0",
+  "statement": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:97be58fccdd42286efa5feb38796f5791aa989b0",
+    "sequence": 12596,
+    "timestamp": 1790954858,
+    "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "kind": "assert",
+    "lifecycle": "none",
+    "satisfier": "role:ratifier",
+    "text": "Adopt independently satisfied P2-D5 exacte08c10f API1-API4 as proposed: same issuer registry/internal CAR-only extraction and explicit unchanged7runtime/4type exports; selected commit from existing cache with eviction unavailable; shared bounded CAR parser/exact set/physical64block beforededup and same-cache fixedroot/DID/key atomic genuine admission. No separate output rows are owed. Conservative all-lineage poison/pendingFault cursor withholding baseline remains; floor-fact-only alternative needs separate reviewed seam. All18PX+12CI proposed runtime vectors andfullP2original36/12obligations remain implementation work. Assign distinct P1 extraction and CAR intake owners; observer/lifetime/cursor/PD2/P3P4joins/fullintegratedmatrix/PDS/offline/restart/platform remain open. Source decision only, no implementation or merge approval.",
+    "body": {
+      "decision": "adopt reviewed source choices; retain complete original implementation obligations"
+    }
+  },
+  "decision": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:97be58fccdd42286efa5feb38796f5791aa989b0",
+    "sequence": 12596,
+    "verdict": "effective",
+    "reason": "statement recorded"
+  },
+  "provenance_bases": [
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fea8c97826aad8e2ffa1041185cffe323b1cee1c",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:04804437aa57133a67f1bbef8f4c1c450b79f02c",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3a7f6bb3d6c1c763619b6082558d83056a0ef7b2"
+  ]
+}

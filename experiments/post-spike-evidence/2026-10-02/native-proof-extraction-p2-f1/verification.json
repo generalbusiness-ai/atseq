@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "sourceHead": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+  "gitPins": 22,
+  "preservedAcceptedSourceFiles": 16,
+  "extractionCaseGroups": 17,
+  "addressedPX": 18,
+  "originalP1Cases": 51,
+  "originalR1Cases": 29,
+  "actualRuntimeInvocations": 10,
+  "actualChromium": "153.0.8010.12",
+  "buildSources": 146,
+  "actualBuildOutputs": 472,
+  "physicalRuntimePackages": 194,
+  "physicalRuntimeFiles": 14234,
+  "originalHistoricalUNEXECUTEDVectors": 36,
+  "originalObligations": 12,
+  "fullP2Closed": false,
+  "links": 9,
+  "negativeControls": [
+    "changed-file",
+    "full-P2-upgrade",
+    "changed-source-pin",
+    "accepted-source-file-dropped",
+    "failed-runtime-promoted",
+    "actual-browser-omitted",
+    "complete-replay-upgrade",
+    "PX-obligation-dropped",
+    "natural-retreat-invented",
+    "unknown-work-counter-zeroed"
+  ],
+  "conformanceRerunByChecker": false
+}

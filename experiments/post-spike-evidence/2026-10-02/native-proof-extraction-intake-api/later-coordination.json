@@ -1,0 +1,51 @@
+{
+  "schema": "atseq-p2-later-coordination-v1",
+  "date": "2026-10-02",
+  "relation": "later status preserves original source-inspection cutoff",
+  "review": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8ef8823469718221b7c06a18a88b919f9c6b1446",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8ef8823469718221b7c06a18a88b919f9c6b1446",
+      "sequence": 12397,
+      "timestamp": 1790952675,
+      "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+      "kind": "report",
+      "lifecycle": "report",
+      "satisfier": "originating-requester",
+      "text": "Approved: P2-I1 private negative-only preservation audit at exact head 48a5634a89bc1aef535e1689bfc2ba54e8d3499c (base main 31643992, 58 paths in 9 artifacts). It implements PD-1 as specified in the P2-D4 follow-up I assessed in ff8331fb. One production file changed. No changes required.\n\nProduction (src/application/native-prefix.ts):\n- auditRetainedPaths(repo, owner, boundary) is the loop factored out of stageRows. stageRows now calls it and adds the same count to reusedEntries and publicationLookups, so its predicates and counters are unchanged.\n- assertNativePrefixPreserved(prefix, repo) works as follows:\n  - It resolves the owner from any genuine view, including an old one, and reads the owner's current accepted view and observed floor, not the handle's head.\n  - It requires a genuine P1 repo for the same app DID.\n  - It proves genesis against the pin and reads the selected head. The head must be at or above both known boundaries; an equal position with a different entry CID is invalid.\n  - It proves the exact entry CID at each nonzero accepted-head and floor position, deduplicating when the two are equal, and then audits every retained interior path.\n  - Owner contradiction or pendingFault, and changes to current or floor, are checked before and after the awaits.\n  - It returns void and changes nothing: no rows, views, floors, indexes, cursor, reader, descriptor, I1 or actor crypto. Missing blocks are unavailable; absence, a changed CID, a lower head or the wrong DID are invalid.\n- The supported barrel is unchanged. This is an internal export only.\n\nWhat I ran, in a clean clone at the full SHA (npm ci and build, Node 26.10.0, real Chromium):\n- preserved and prefix tests, Node and Chromium: 4 of 4 passed;\n- npm run check passed;\n- full npm test: 475 of 475 passed.\n\nI read the 32-case corpus names and the concurrency and poison cases. They cover:\n- an old view auditing the current boundary and every interior path;\n- a higher discarded floor being required;\n- an unrelated large or unavailable suffix, and an unavailable authority descriptor, not blocking the audit (the PD-1 motivation);\n- absent, changed and missing cases for genesis, head, boundary, floor and interior;\n- concurrent higher floor, acceptance, contradiction, pending fault and same-head new view all withholding completion;\n- failed audits not raising the floor, and existing poison not being cleared.\n\nNote (not blocking, for P2 integration): an owner with an exposed contradiction or pending fault makes this audit invalid. Account rollback recovery will therefore withhold the shared account cursor for every app while any registered lineage is contradicted. A contradiction does not change that lineage's floor facts, so this is an availability coupling, not a safety gap. It is conservative, but please make it an explicit, documented decision (or check only the floor facts for a contradicted owner) when the account recovery caller is built.\n\nEvidence: I did not rerun the Node 22/24, compiled-dist or 100,001-head captures; those rest on the committed packet. Full P2 remains open: the remaining six gates and all 36 design vectors are unexecuted, as stated.",
+      "body": {
+        "artifact": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ab462a30b58854d89379cbdd4236959a1ef8859c",
+        "binding": "assigned",
+        "head": "48a5634a89bc1aef535e1689bfc2ba54e8d3499c",
+        "head_news_acknowledged": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2ec7c931aae1dbefce55e3e73d958dfa74a98caa\"]",
+        "implementations": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c47764b47fbe5868d5a70c562373921aab5a7ad7\"]",
+        "review_frontier": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8ccdf6c4f00180a0b4a7b7d117897e155a34cd91",
+        "review_path": "reviewguard@1",
+        "verdict": "approved"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8ef8823469718221b7c06a18a88b919f9c6b1446",
+      "sequence": 12397,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b3e9c2f60f4b4c309dbbc24053294b8a56ad5023",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2ec7c931aae1dbefce55e3e73d958dfa74a98caa",
+      "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8ef8823469718221b7c06a18a88b919f9c6b1446",
+      "status": "reported",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    }
+  },
+  "rootCoordination": "Root reported no changes required; ratification/merge queued behind live C1 merge. This is a message-time status, not a claim of later adoption or merge.",
+  "observerRecoveryDecision": {
+    "status": "OPEN; separate future observer/recovery source decision before caller",
+    "baseline": "Current approved PD1 audit refuses contradiction or pendingFault; any poisoned registered lineage withholds the shared account cursor for all apps.",
+    "safety": "The lineage floor facts are unchanged; this is conservative availability coupling, not an identified safety gap.",
+    "alternative": "Floor-fact-only audit for contradicted owner requires a separately reviewed private seam and genuine recovery/concurrency/no-effects tests; not chosen or implemented here.",
+    "scope": "No changes to frozen48a audit semantics, API1–API4, observer implementation or restored origin."
+  }
+}

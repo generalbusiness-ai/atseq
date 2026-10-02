@@ -1,0 +1,72 @@
+[
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/build-provenance.json.gz",
+    "decodedBytes": 67387,
+    "decodedSha256": "2e113eeb25101d9b571a32f6a80e171d439dacbf6dbdbcbcfa0fc43758414573"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/installed-runtime.json.gz",
+    "decodedBytes": 1332889,
+    "decodedSha256": "ef27f8e7b20c75894df1a3e01828bc5bec5be9539eacc7859fdf7ac8b2d3d265"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/r1-source/fixture.json.gz",
+    "decodedBytes": 18729265,
+    "decodedSha256": "1a44730d998a549c3f3825b9773a60e7f4536bffef63341ff48d2b37a251f90a"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/fixture.json.gz",
+    "decodedBytes": 212283,
+    "decodedSha256": "ec9335406975923e8f75b189afc4cd38146d6d92c68176082a30ad4c44c990f0"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node22/source/workload-fixture.json.gz",
+    "decodedBytes": 26253530,
+    "decodedSha256": "83616ce9c354367e5667d8cc192f001566445912f01ca9363b8b7a17fc299a79"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/r1-source/fixture.json.gz",
+    "decodedBytes": 18729265,
+    "decodedSha256": "1a44730d998a549c3f3825b9773a60e7f4536bffef63341ff48d2b37a251f90a"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/source/fixture.json.gz",
+    "decodedBytes": 212283,
+    "decodedSha256": "ec9335406975923e8f75b189afc4cd38146d6d92c68176082a30ad4c44c990f0"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node24/source/workload-fixture.json.gz",
+    "decodedBytes": 26253530,
+    "decodedSha256": "83616ce9c354367e5667d8cc192f001566445912f01ca9363b8b7a17fc299a79"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/r1-source/fixture.json.gz",
+    "decodedBytes": 18729265,
+    "decodedSha256": "1a44730d998a549c3f3825b9773a60e7f4536bffef63341ff48d2b37a251f90a"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/source/fixture.json.gz",
+    "decodedBytes": 212283,
+    "decodedSha256": "ec9335406975923e8f75b189afc4cd38146d6d92c68176082a30ad4c44c990f0"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/node26/source/workload-fixture.json.gz",
+    "decodedBytes": 26253530,
+    "decodedSha256": "83616ce9c354367e5667d8cc192f001566445912f01ca9363b8b7a17fc299a79"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/attempts/build-current.log.gz",
+    "decodedBytes": 494,
+    "decodedSha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/attempts/build-draft.log.gz",
+    "decodedBytes": 494,
+    "decodedSha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-p2-f1/chromium/probe.js.gz",
+    "decodedBytes": 1398218,
+    "decodedSha256": "a9b3f89024ed179995d3b32d13b546aad39973b891b26175bcc70d36620f7cdd"
+  }
+]

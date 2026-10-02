@@ -1,0 +1,115 @@
+[
+  {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:261f4bd98074d54e269844ba21c478db73f824cc",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:261f4bd98074d54e269844ba21c478db73f824cc",
+      "sequence": 11269,
+      "timestamp": 1790940673,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "P2-D4: specify retained native blocks, bounded diffs and portable path evidence. Source-only dated P2 note/results and exact source-pinned vectors/checker for privately owned selected-root source/evidence handoff. Reuse P1 VerifiedRepoBlocks/native proof/MST parser, I1 method observation/budget, R1 genuine prefix and pair floors. Selected-commit+new-block admissions avoid whole retained-map CAR recomposition/rehash on each warm fill; exact response-set atomic admission, same root/binding throughout retries, eviction means missing not absence. Narrow selected-root traversed path evidence extraction inside existing issuing owner supports actual standalone receipt/archive evidence; a revision diff plus retained cache alone is not portable proof. Advisory revisions, delta reuse versus current-prefix/whole-tree audit, cold and recovery budgets explicit. No new tree/cache/verifier/index/key/permission owner or production/package/profile edits. Independently review before code; actual integrated10k/delta/realPDS/Node/Chromium/mixed-root/pruning/fork/restore/offline gates stay full P2 obligations.",
+      "body": {
+        "conditions": "Source-only dated P2 note/results and exact source-pinned vectors/checker for privately owned selected-root source/evidence handoff. Reuse P1 VerifiedRepoBlocks/native proof/MST parser, I1 method observation/budget, R1 genuine prefix and pair floors. Selected-commit+new-block admissions avoid whole retained-map CAR recomposition/rehash on each warm fill; exact response-set atomic admission, same root/binding throughout retries, eviction means missing not absence. Narrow selected-root traversed path evidence extraction inside existing issuing owner supports actual standalone receipt/archive evidence; a revision diff plus retained cache alone is not portable proof. Advisory revisions, delta reuse versus current-prefix/whole-tree audit, cold and recovery budgets explicit. No new tree/cache/verifier/index/key/permission owner or production/package/profile edits. Independently review before code; actual integrated10k/delta/realPDS/Node/Chromium/mixed-root/pruning/fork/restore/offline gates stay full P2 obligations.",
+        "no_git_artifact": "true",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:261f4bd98074d54e269844ba21c478db73f824cc",
+      "sequence": 11269,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:261f4bd98074d54e269844ba21c478db73f824cc",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:edaec0d48bfda92f0514e0bd41d5d026edf052c2",
+      "status": "promised",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9f591c28f9fb14e0dba2f0e1086aa2d65a54a406"
+    ]
+  },
+  {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3a7f6bb3d6c1c763619b6082558d83056a0ef7b2",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3a7f6bb3d6c1c763619b6082558d83056a0ef7b2",
+      "sequence": 5766,
+      "timestamp": 1790860228,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "P2: Implement verified incremental native reads. Retain verified boundary and extend selected head with authenticated native membership and app chain without O(N) re-verification. Choose keyed/paged suffix or retained native tree based on actual native authority proof requirements. Keep repo root/revision, app head and interpreted frontier separate; bound validated key caches/concurrency without weakening canonical-key/low-S checks. Test gaps/forks/rollback, old mutations, source/key-only changes, stale/mixed-root replies, concurrent appends and disconnected recovery; full replay equivalence.",
+      "body": {
+        "conditions": "Retain verified boundary and extend selected head with authenticated native membership and app chain without O(N) re-verification. Choose keyed/paged suffix or retained native tree based on actual native authority proof requirements. Keep repo root/revision, app head and interpreted frontier separate; bound validated key caches/concurrency without weakening canonical-key/low-S checks. Test gaps/forks/rollback, old mutations, source/key-only changes, stale/mixed-root replies, concurrent appends and disconnected recovery; full replay equivalence. Deliver code/tests plus a dated notes/ results report and raw evidence where appropriate. Report actual results, recommendation, trust/functional limits and unrun cases. Review any unsettled contract decision before implementing it; obtain atseq-reviewer exact-head architecture/security/simplification approval, then merge through gitseq and push main. No latency threshold or spike compatibility requirement.",
+        "dependencies": "P1, N1, I2",
+        "package": "P2",
+        "target_head": "824527132a6cfc6099d57685d37320e37f99ee4e",
+        "target_ref": "refs/heads/main",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3a7f6bb3d6c1c763619b6082558d83056a0ef7b2",
+      "sequence": 5766,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3a7f6bb3d6c1c763619b6082558d83056a0ef7b2",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9f591c28f9fb14e0dba2f0e1086aa2d65a54a406",
+      "status": "promised",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main"
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:cbafc791d2d69bed46e5c104bc8cfd886240cc6d",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:00d3dcd5f510390c9169e4697de819df1b9f999e",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fea766bc0c93b73199c016d1a402ef251e0d42f5",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0e55c16dc2d5fb359e3e033c1b901fd97cb2cb6e"
+    ]
+  },
+  {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ff8331fbfd07cff9f4b23f2dcea53817bead9e9f",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ff8331fbfd07cff9f4b23f2dcea53817bead9e9f",
+      "sequence": 11937,
+      "timestamp": 1790948090,
+      "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+      "kind": "report",
+      "lifecycle": "report",
+      "satisfier": "originating-requester",
+      "text": "P2-D4 PD-1/PD-2 follow-up at exact head c015a39f85698654135bd724f0c1bc44ff240dd7 (source producer e70a7ee4, predecessor 682fe24d): satisfied. Both conditions from my report 0e044c2c are now specified well enough to implement. No further changes are required.\n\nWhat I checked (source only; nothing proposed was executed):\n- In a separate clean clone I ran check-packet.py --repo . --self-test. The output is identical to the committed check-source.json except for the Python version (3.14.5 here, 3.14.8 there).\n- 36 vectors, all UNEXECUTED. The original 28 are byte-for-byte equal to the predecessor's list, and the original P2 conditions and obligations are unchanged; only the schema name differs. The predecessor packet directory is unmodified.\n- The design note diff touches only the status/front matter, the PD-1/PD-2 text, the P4 join, the counter and error rules, and the pin paths.\n\nPD-1 is specified as I asked:\n- One private assertNativePrefixPreserved(prefix, repo) inside the existing R1 owner. It takes only the genuine owner handle and a genuine P1 repo for the same app DID. It takes no reader, identity inputs, caller floor or flag, and returns no numbers or token.\n- It reads the owner's current accepted head and observed floor privately, not the registered handle's older head.\n- It proves genesis and the selected head, and requires the head to be at or above both. It proves the exact entry CID at each nonzero accepted-head and floor position. Position 0 is genesis.\n- It runs the same retained-path audit loop, factored out of stageRows rather than copied.\n- No signatures, descriptors, reader calls or I1 work, and no rows, views, indexes, coverage or floors are created. Nothing changes on success or refusal.\n- A missing block is unavailable; absence, a wrong CID, a wrong DID or genesis, or a lower head is invalid. Both withhold the cursor, and cache admission alone cannot install it.\n- Owner, current head, floor and registry are captured before the awaits and rechecked before the cursor handoff. A concurrent higher floor withholds the result, with no silent retry.\n- The requested app still goes through normal staging and the coordinator commit. Poison and confirmed-abort behaviour are untouched.\n- The vectors cover the cases that motivated PD-1:\n  - other-suffix-descriptor-independent: an unrelated gap no longer blocks recovery;\n  - other-floor-withhold;\n  - readonly-no-effects;\n  - preservation-refusal-inventory.\n\nPD-2 is specified as I asked:\n- publication(capture) validates the genuine owner and capture kind, then deletes the WeakMap entry before returning the owned input.\n- A second call, a clone, a parsed object or a foreign capture refuses. readCapture stays encoded DATA and cannot recreate the registration.\n- Vector capture-one-use covers it.\n\nP4 join: the native-publication branch uses the same owner and machinery. It never passes a complete-from-genesis brand, and unknown deferred coverage stays unavailable. This is consistent with my P4-D4 report (c986be4f).\n\nAlso good: unavailable instrumentation reports unknown/null rather than zero, and foreign errors keep their identity (vectors unknown-work-counters and foreign-error-identity).\n\nNote (not blocking): the O(N) retained-path audit now runs once per registered app on account rollback. That is correct and stated. The P2 matrix should measure it with several apps under one account.\n\nScope: narrow source-only follow-up. The 12 original obligations and all 36 vectors remain open, as do full P2 runtime, restore, export and PDS work and the exact-head implementation review. This report approves no merge.",
+      "ratified": true,
+      "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:dc827268d05f67fc8eaecd1eb9a0aef02feefc4d"
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ff8331fbfd07cff9f4b23f2dcea53817bead9e9f",
+      "sequence": 11937,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:07d4f3122f0ddc9dc2f5c0c661a133f20cb5d560",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c20784ac17d94f22786ceb44af40ae4e853717f0",
+      "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ff8331fbfd07cff9f4b23f2dcea53817bead9e9f",
+      "status": "satisfied",
+      "terminal": "reported"
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c20784ac17d94f22786ceb44af40ae4e853717f0",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:07d4f3122f0ddc9dc2f5c0c661a133f20cb5d560"
+    ]
+  }
+]

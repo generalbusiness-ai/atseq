@@ -1,0 +1,59 @@
+import * as CID from '@atcute/cid';
+import { BlockMismatchError, MissingBlockError } from './errors.js';
+import { MSTNode } from './node.js';
+import LRUCache from './utils/lru.js';
+/** manages caching and storage of MST nodes with LRU eviction */
+export class NodeStore {
+    /** underlying block store for persistent storage */
+    store;
+    /** LRU cache for recently accessed nodes */
+    cache = new LRUCache(1024);
+    constructor(store) {
+        this.store = store;
+    }
+    /**
+     * retrieves an MST node by its CID, using cache when available
+     *
+     * @param cid the CID of the node to retrieve, or null for empty node
+     * @returns the MST node
+     * @throws {MissingBlockError} if the node cannot be found in the store
+     * @throws {BlockMismatchError} if the stored bytes do not hash to `cid`
+     */
+    async get(cid) {
+        let node = this.cache.get(cid);
+        if (node === undefined) {
+            if (cid === null) {
+                node = MSTNode.empty();
+                this.cache.put((await node.cid()).$link, node);
+            }
+            else {
+                const bytes = await this.store.get(cid);
+                if (bytes === null) {
+                    throw new MissingBlockError(cid, 'MST node');
+                }
+                // check before decoding so CID mismatches take precedence over malformed nodes
+                const actual = CID.toCidLink(CID.createSync(0x71, bytes));
+                if (actual.$link !== cid) {
+                    throw new BlockMismatchError(cid, actual.$link);
+                }
+                node = await MSTNode.deserialize(bytes);
+                node._bytes = bytes;
+                node._cid = actual;
+            }
+            this.cache.put(cid, node);
+        }
+        return node;
+    }
+    /**
+     * stores an MST node in both the cache and the underlying block store
+     *
+     * @param node the node to store
+     * @returns the same node that was passed in
+     */
+    async put(node) {
+        const cid = (await node.cid()).$link;
+        this.cache.put(cid, node);
+        await this.store.put(cid, await node.serialize());
+        return node;
+    }
+}
