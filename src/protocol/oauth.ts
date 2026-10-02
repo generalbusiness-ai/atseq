@@ -41,9 +41,15 @@ export interface OAuthTransaction {
 }
 /** Non-secret transaction custody; the platform adapter serializes all access. */
 export interface OAuthTransactionStore {
-  list(): readonly OAuthTransaction[];
-  set(transaction: OAuthTransaction): void;
-  take(id: string): OAuthTransaction | undefined;
+  list(): readonly OAuthTransaction[] | Promise<readonly OAuthTransaction[]>;
+  set(transaction: OAuthTransaction): void | Promise<void>;
+  take(id: string): OAuthTransaction | undefined | Promise<OAuthTransaction | undefined>;
+}
+/** Private platform custody lifecycle; absent on the existing Node adapter. */
+export interface OAuthCustodyLifecycle {
+  prepare(client: OAuthCustodyClient): Promise<void>;
+  touch(did: string): Promise<void>;
+  finish(client: OAuthCustodyClient, successful: boolean): Promise<void>;
 }
 export type OAuthLock = <T>(work: () => Promise<T>) => Promise<T>;
 interface Budget {
@@ -187,6 +193,7 @@ export class OAuthSessionHandle {
 /** Maintained OAuth performs PKCE/PAR/DPoP. This adapter adds custody and operation policy. */
 export class OAuthAdapter {
   readonly #options: OAuthAdapterOptions;
+  readonly #custody: OAuthCustodyLifecycle | undefined;
   readonly #transactions: OAuthTransactionStore;
   readonly #lock: OAuthLock;
   readonly #transport: typeof globalThis.fetch;
@@ -200,6 +207,7 @@ export class OAuthAdapter {
     lock: OAuthLock,
     transport: typeof globalThis.fetch,
     factory: (fetch: typeof globalThis.fetch, identity: OAuthIdentityResolver) => Promise<OAuthCustodyClient>,
+    custody?: OAuthCustodyLifecycle,
   ) {
     oauthUrl(options.metadata.client_id!);
     if (options.metadata.token_endpoint_auth_method !== 'none') refuse('This adapter requires a public OAuth client');
@@ -209,6 +217,7 @@ export class OAuthAdapter {
     this.#lock = lock;
     this.#transport = transport;
     this.#factory = factory;
+    this.#custody = custody;
   }
   readonly #fetch: typeof globalThis.fetch = async (input, init) => {
     const budget = this.#budget;
@@ -253,7 +262,18 @@ export class OAuthAdapter {
               signal: AbortSignal.any([this.#budget!.signal, ...(options?.signal ? [options.signal] : [])]),
             }),
         });
-        return await work(await this.#client);
+        const client = await this.#client;
+        await this.#custody?.prepare(client);
+        let successful = false;
+        try {
+          const result = await work(client);
+          if (this.#budget!.signal.aborted)
+            throw new AtseqError('content_unavailable', 'OAuth operation is unavailable');
+          successful = true;
+          return result;
+        } finally {
+          await this.#custody?.finish(client, successful);
+        }
       } catch (error) {
         // Library/server error descriptions may contain codes, tokens or request bodies.
         throw operationFailure(error, this.#budget.signal.aborted);
@@ -261,6 +281,10 @@ export class OAuthAdapter {
         this.#budget = undefined;
       }
     });
+  }
+  /** Internal credential-shell housekeeping, under the same guarded operation. */
+  cleanupCustody(): Promise<void> {
+    return this.#run(async () => {});
   }
   async begin(
     did: string,
@@ -271,18 +295,18 @@ export class OAuthAdapter {
       allowed = scopes(this.#options.metadata.scope ?? '');
     if (requested.some((scope) => !allowed.includes(scope))) refuse('OAuth scope exceeds configured consent');
     return this.#run(async (client) => {
-      for (const transaction of this.#transactions.list())
-        if (Date.now() >= transaction.expiresAt) this.#transactions.take(transaction.id);
-      if (this.#transactions.list().length >= OAUTH_LIMITS.pending) refuse('Too many OAuth transactions');
+      for (const transaction of await this.#transactions.list())
+        if (Date.now() >= transaction.expiresAt) await this.#transactions.take(transaction.id);
+      if ((await this.#transactions.list()).length >= OAUTH_LIMITS.pending) refuse('Too many OAuth transactions');
       const transaction = Object.freeze({
         id: crypto.randomUUID(),
         did,
         scopes: requested,
         expiresAt: Date.now() + OAUTH_LIMITS.transactionMs,
       });
-      this.#transactions.set(transaction);
-      // A failed begin can leave maintained PAR state. Keeping its transaction
-      // counts that orphan against the same 10-entry cap until 10-minute expiry.
+      await this.#transactions.set(transaction);
+      // Volatile Node custody retains failed PAR transactions against its cap.
+      // Owned browser custody purges its pending reservation on failure.
       const url = await client.authorize(did, { scope: requested.join(' '), state: transaction.id });
       oauthUrl(url);
       return Object.freeze({ transactionId: transaction.id, authorizationUrl: url.href });
@@ -304,7 +328,7 @@ export class OAuthAdapter {
       // without consuming either transaction or exposing keys/credentials.
       const transactionId = await client.readApplicationState(callbackState);
       if (typeof transactionId !== 'string' || transactionId.length !== 36) refuse('Unknown OAuth callback state');
-      const transaction = this.#transactions.take(transactionId);
+      const transaction = await this.#transactions.take(transactionId);
       if (!transaction || Date.now() >= transaction.expiresAt) refuse('Unknown or expired OAuth transaction');
       const { session, state } = await client.callback(copy);
       try {
@@ -324,6 +348,7 @@ export class OAuthAdapter {
       allowed = scopes(this.#options.metadata.scope ?? '');
     if (requested.some((scope) => !allowed.includes(scope))) refuse('OAuth scope exceeds configured consent');
     return this.#run(async (client) => {
+      await this.#custody?.touch(did);
       const session = await client.restore(did, false);
       const expected = Object.freeze({ id: crypto.randomUUID(), did, scopes: requested, expiresAt: 0 });
       try {
@@ -380,7 +405,10 @@ export class OAuthAdapter {
     return granted;
   }
   sessionInfo(session: OAuthSession, expected: OAuthTransaction, refresh: boolean): Promise<OAuthSessionInfo> {
-    return this.#run((client) => this.#verify(client, session, expected, refresh));
+    return this.#run(async (client) => {
+      await this.#custody?.touch(expected.did);
+      return this.#verify(client, session, expected, refresh);
+    });
   }
   async sessionRequest(
     session: OAuthSession,
@@ -395,6 +423,7 @@ export class OAuthAdapter {
     )
       refuse('OAuth resource path must name an XRPC operation');
     return this.#run(async (client) => {
+      await this.#custody?.touch(expected.did);
       const authority = await this.#verify(client, session, expected, 'auto');
       const resource = new URL(path, authority.pds).href;
       // The maintained fetch can refresh again on a resource 401. Recheck the
@@ -423,6 +452,9 @@ export class OAuthAdapter {
     });
   }
   sessionRevoke(session: OAuthSession): Promise<void> {
-    return this.#run(() => session.signOut());
+    return this.#run(async () => {
+      await this.#custody?.touch(session.did);
+      await session.signOut();
+    });
   }
 }

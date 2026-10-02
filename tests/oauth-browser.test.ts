@@ -3,7 +3,14 @@ import assert from 'node:assert/strict';
 import { build } from 'esbuild';
 import { relative, resolve } from 'node:path';
 import { chromium } from '@playwright/test';
-import { OAuthFixture, OAUTH_CUSTODY, OAUTH_DID, OAUTH_SCOPE, oauthMetadata } from './support/oauth-fixture.ts';
+import {
+  OAuthFixture,
+  OAUTH_CUSTODY,
+  OAUTH_DID,
+  OAUTH_OTHER_DID,
+  OAUTH_SCOPE,
+  oauthMetadata,
+} from './support/oauth-fixture.ts';
 
 test('Chromium exercises maintained OAuth, custody origin, reload, cross-document consume and non-extractable key', async () => {
   const output = resolve('.atseq-local/oauth-browser');
@@ -171,7 +178,7 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
     // Malformed/unknown callback state must leave both pending enrolments usable.
     await winner.evaluate(() => (globalThis as any).probe.begin());
     const firstPending = fixture.callback();
-    await winner.evaluate(() => (globalThis as any).probe.begin());
+    await winner.evaluate((did) => (globalThis as any).probe.begin(did), OAUTH_OTHER_DID);
     const secondPending = fixture.callback();
     const beforePending = fixture.count('/token');
     for (const mode of ['unknown', 'duplicate', 'malformed'] as const) {
@@ -184,8 +191,14 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
       );
     }
     assert.equal(fixture.count('/token'), beforePending);
-    for (const pending of [secondPending, firstPending])
+    for (const [pending, did] of [
+      [secondPending, OAUTH_OTHER_DID],
+      [firstPending, OAUTH_DID],
+    ] as const) {
+      fixture.tokenDid = did;
       await winner.evaluate((params) => (globalThis as any).probe.complete(params), pending.toString());
+    }
+    fixture.tokenDid = OAUTH_DID;
     assert.equal(fixture.count('/token'), beforePending + 2);
     abortPath = '/xrpc/ai.generalbusiness.atseq.synthetic';
     await assert.rejects(
@@ -193,6 +206,8 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
       /OAuth operation is unavailable/,
     );
     abortPath = '';
+    await winner.evaluate(() => (globalThis as any).probe.begin());
+    await winner.evaluate((params) => (globalThis as any).probe.complete(params), fixture.callback().toString());
     fixture.redirectResource = true;
     // Fetch redirect:error rejects at the native edge, indistinguishably from network failure.
     await assert.rejects(
@@ -201,9 +216,13 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
     );
     assert.equal(fixture.count('/redirect-target'), 0);
     fixture.redirectResource = false;
+    await winner.evaluate(() => (globalThis as any).probe.begin());
+    await winner.evaluate((params) => (globalThis as any).probe.complete(params), fixture.callback().toString());
     fixture.resourceBytes = 1024 * 1024 + 1;
     await assert.rejects(() => winner.evaluate(() => (globalThis as any).probe.resource()), /OAuth operation failed/);
     fixture.resourceBytes = 0;
+    await winner.evaluate(() => (globalThis as any).probe.begin());
+    await winner.evaluate((params) => (globalThis as any).probe.complete(params), fixture.callback().toString());
     fixture.refuse = '/token';
     await assert.rejects(() => winner.evaluate(() => (globalThis as any).probe.info(true)), /OAuth operation failed/);
     fixture.refuse = '';
@@ -236,14 +255,26 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
       /Synthetic storage denial/,
     );
     await initialize(winner);
-    await winner.evaluate(() => localStorage.setItem('atseq.oauth.transactions.v1', 'not-json'));
-    await assert.rejects(() => winner.evaluate(() => (globalThis as any).probe.begin()), /OAuth operation failed/);
-    await winner.evaluate(() => localStorage.removeItem('atseq.oauth.transactions.v1'));
     await winner.evaluate(() => (globalThis as any).probe.begin());
-    await winner.evaluate(() => {
-      const rows = JSON.parse(localStorage.getItem('atseq.oauth.transactions.v1')!);
-      rows[0].expiresAt = Date.now() - 1;
-      localStorage.setItem('atseq.oauth.transactions.v1', JSON.stringify(rows));
+    await winner.evaluate(async () => {
+      const open = indexedDB.open('atseq.oauth.custody.v1');
+      const db = await new Promise<IDBDatabase>((resolve) => {
+        open.onsuccess = () => resolve(open.result);
+      });
+      const tx = db.transaction('pending', 'readwrite');
+      const store = tx.objectStore('pending');
+      const rows = store.getAll();
+      rows.onsuccess = () => {
+        for (const row of rows.result) {
+          row.expiresAt = Date.now() - 1;
+          store.put(row);
+        }
+      };
+      await new Promise<void>((resolve, reject) => {
+        tx.oncomplete = () => resolve();
+        tx.onabort = () => reject(tx.error);
+      });
+      db.close();
     });
     const beforeExpired = fixture.count('/token');
     await assert.rejects(

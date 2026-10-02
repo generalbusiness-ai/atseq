@@ -37,6 +37,7 @@ export class OAuthFixture {
   challenge = false;
   refuse = '';
   resourceBytes = 0;
+  tokenPadding = 0;
   #rotation = 0;
   readonly fetch: typeof globalThis.fetch = async (input, init) => {
     const request = new Request(input, init);
@@ -89,7 +90,7 @@ export class OAuthFixture {
     }
     if (path === '/token')
       return json({
-        access_token: 'synthetic-access-' + ++this.#rotation,
+        access_token: 'synthetic-access-' + ++this.#rotation + 'a'.repeat(this.tokenPadding),
         refresh_token: 'synthetic-refresh-' + this.#rotation,
         token_type: 'DPoP',
         scope: this.tokenScope,
