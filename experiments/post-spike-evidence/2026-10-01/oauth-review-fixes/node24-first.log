@@ -1,0 +1,69 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 1
+
+    at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0
+✖ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (1286.509458ms)
+✔ browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments (0.309709ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1922.50775
+
+✖ failing tests:
+
+test at tests/oauth-adapter.test.ts:1:160
+✖ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (1286.509458ms)
+  Error: Command failed: /Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node --conditions=atseq-source --import tsx tests/support/oauth-node-probe.ts
+  node:internal/modules/run_main:107
+      triggerUncaughtException(
+      ^
+  
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+  
+  Node.js v24.21.0
+  
+      at genericNodeError (node:internal/errors:986:15)
+      at wrappedFn (node:internal/errors:540:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/oauth-adapter.test.ts:7:15)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 1,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.21.0\n" ],
+    pid: 89978,
+    stdout: '',
+    stderr: "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 1,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.21.0\n"
+  }

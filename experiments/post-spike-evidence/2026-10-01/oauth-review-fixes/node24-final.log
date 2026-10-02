@@ -1,0 +1,11 @@
+{"node":"v24.21.0","cases":["actual-maintained-PAR-PKCE-DPoP-nonce-refresh-resource-revoke","duplicate-callback-single-exchange","opaque-session-and-adapter-serialization","missing-issuer","oversized-callback","duplicate-issuer","wrong-subject","wrong-scopes","extra-scopes","wrong-callback-issuer","changed-authority","refresh-extra-scopes-before-resource-retry","scope-refusal-before-resource","resource-path-escape","oversized-outgoing-body","caller-aborted-request","unsafe-token-url","oversized-resource","refused-token","refused-refresh","refused-resource","refused-revoke","callback-state-selects-one-of-two-pending-transactions","secret-free-identity-content_unavailable-class","secret-free-identity-origin-class","actual-native-fetch/drop-transient","actual-native-fetch/body-drop-transient","actual-native-fetch/deadline-transient","failed-PAR-state-count-bounded","expired-transaction-before-token-exchange","expired-callback-leaves-later-live-transaction-usable","new-volatile-Node-instance-refuses-abandoned-callback","identity-request-count-budget","identity-cumulative-byte-budget","path-based-issuer-binding-preserved"],"dispatcherCalls":446,"providerSuccess":false,"syntheticOnly":true}
+✔ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (31440.69525ms)
+✔ browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments (0.5735ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31858.602625

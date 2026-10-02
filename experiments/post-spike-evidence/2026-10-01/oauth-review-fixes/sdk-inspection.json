@@ -1,0 +1,29 @@
+{
+  "method": "Exact installed maintained SDK bytes inspected through declared APIs; hash pins checked against approved file catalog, not provider observations",
+  "files": {
+    "node_modules/@atproto/oauth-client/dist/oauth-client.js": {
+      "bytes": 13216,
+      "sha256": "caff70d770559e359c68fca345024b01065487c64f99d18f4bfc812fe0c2c93c"
+    },
+    "node_modules/@atproto/oauth-client/dist/oauth-client.d.ts": {
+      "bytes": 17598,
+      "sha256": "d4a13488b84f1f459fe0a13da5f53ea382412a9b8416a11219b61f7dc5d3c7bd"
+    },
+    "node_modules/@atproto/oauth-client-node/dist/node-oauth-client.d.ts": {
+      "bytes": 1740,
+      "sha256": "fe6674c33eab96f3d18bfe23a69e84d58dbabe3f0c14148c104abd8632105711"
+    },
+    "node_modules/@atproto/oauth-client-browser/dist/browser-oauth-client.d.ts": {
+      "bytes": 3392,
+      "sha256": "e9bc56ad9a8bd59b6b7216a57b8d20c06fa466c549dbeb63c05f38a86cb401da"
+    },
+    "node_modules/@atproto-labs/fetch-node/dist/safe.js": {
+      "bytes": 5262,
+      "sha256": "84c56432a2e939db8b4dbed8c3dd0cd5a0fef8b940073010d9fc4a4900c9b15e"
+    },
+    "node_modules/@atproto-labs/fetch/dist/fetch-response.js": {
+      "bytes": 9581,
+      "sha256": "a4f90a3ce1bd25c169a7c594c4b0d31f175528f93e32de88671e5e440f7efe18"
+    }
+  }
+}

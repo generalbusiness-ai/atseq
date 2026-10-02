@@ -1,0 +1,23 @@
+TAP version 13
+# {"node":"v22.19.0","cases":["actual-maintained-PAR-PKCE-DPoP-nonce-refresh-resource-revoke","duplicate-callback-single-exchange","opaque-session-and-adapter-serialization","missing-issuer","oversized-callback","duplicate-issuer","wrong-subject","wrong-scopes","extra-scopes","wrong-callback-issuer","changed-authority","refresh-extra-scopes-before-resource-retry","scope-refusal-before-resource","resource-path-escape","oversized-outgoing-body","caller-aborted-request","unsafe-token-url","oversized-resource","refused-token","refused-refresh","refused-resource","refused-revoke","callback-state-selects-one-of-two-pending-transactions","secret-free-identity-content_unavailable-class","secret-free-identity-origin-class","actual-native-fetch/drop-transient","actual-native-fetch/body-drop-transient","actual-native-fetch/deadline-transient","failed-PAR-state-count-bounded","expired-transaction-before-token-exchange","expired-callback-leaves-later-live-transaction-usable","new-volatile-Node-instance-refuses-abandoned-callback","identity-request-count-budget","identity-cumulative-byte-budget","path-based-issuer-binding-preserved"],"dispatcherCalls":446,"providerSuccess":false,"syntheticOnly":true}
+# Subtest: actual Node OAuth adapter uses maintained client, guarded edges, races and private custody
+ok 1 - actual Node OAuth adapter uses maintained client, guarded edges, races and private custody
+  ---
+  duration_ms: 31608.065625
+  type: 'test'
+  ...
+# Subtest: browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments
+ok 2 - browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments
+  ---
+  duration_ms: 0.277208
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 32073.46275
