@@ -12,7 +12,8 @@ let dispatcherCalls = 0;
 globalThis.fetch = async (input, init) => {
   assert.equal(typeof (init as RequestInit & { dispatcher: { dispatch: unknown } }).dispatcher.dispatch, 'function');
   dispatcherCalls++;
-  const request = new Request(input, init);
+  // Inspect an existing request without transferring its body a second time.
+  const request = input instanceof Request ? input : new Request(input, init);
   if (networkFaultURL && new URL(request.url).pathname.startsWith('/xrpc/'))
     // No OAuth headers or key material reach the test-owned local fault server.
     return nativeFetch(networkFaultURL, { signal: request.signal, redirect: 'error' });
