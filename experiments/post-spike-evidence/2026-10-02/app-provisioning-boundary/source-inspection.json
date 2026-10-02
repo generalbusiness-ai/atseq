@@ -1,0 +1,343 @@
+{
+  "schema": "atseq-a2-d1-source-inspection-v1",
+  "retrievedAt": "2026-10-02",
+  "baseline": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+  "scope": "source inspection only; no configuration, accounts, secrets, builds or provider tests",
+  "official": [
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/server/createAccount.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/server/createAccount.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/server/createAccount.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/createAccount.json",
+      "bytes": 2690,
+      "sha256": "e05e794757311175199ec9a7c8fe37a9d240f3a538c6eec032edc86438f2bb05"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/server/getServiceAuth.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/server/getServiceAuth.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/server/getServiceAuth.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/getServiceAuth.json",
+      "bytes": 1509,
+      "sha256": "3a623f89b9d7dc39f7a13a10e13e797cd12ee97ea2a08f793e30ff6aeb1ee3d0"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/server/describeServer.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/server/describeServer.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/server/describeServer.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/describeServer.json",
+      "bytes": 2018,
+      "sha256": "bfe9afbd9bd7b6e758720a3744470c94fc2bb7d611d6b46b39abccf5ad1eff88"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/identity/getRecommendedDidCredentials.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/identity/getRecommendedDidCredentials.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/identity/getRecommendedDidCredentials.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/getRecommendedDidCredentials.json",
+      "bytes": 901,
+      "sha256": "f222de8a6a87aa75760b658fc0d061ad8b533cf49eb4e52631043f3d9a9300d3"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/identity/signPlcOperation.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/identity/signPlcOperation.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/identity/signPlcOperation.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/signPlcOperation.json",
+      "bytes": 1249,
+      "sha256": "33595630e559b08cb1d421ab2d3cfb8787a200ffd30676c338fd0a08ba2da266"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/identity/submitPlcOperation.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/identity/submitPlcOperation.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/identity/submitPlcOperation.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/submitPlcOperation.json",
+      "bytes": 561,
+      "sha256": "85b03138ecb20308d468ca492332e95d9765c100b88694493600139ee4d13753"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/repo/importRepo.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/repo/importRepo.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/repo/importRepo.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/repo/importRepo.json",
+      "bytes": 306,
+      "sha256": "242a447ae3932f87839a358464cc2980fff4b02f9b61b80550cac6c757337444"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "lexicons/com/atproto/repo/applyWrites.json",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/repo/applyWrites.json",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/lexicons/com/atproto/repo/applyWrites.json",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/repo/applyWrites.json",
+      "bytes": 4175,
+      "sha256": "ee3d49d4b289200d2a6d48c931dc19956ed2e5fb937ec341ebbf023c35697aa9"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "bytes": 10506,
+      "sha256": "926cee9b33f5de6f74c0d9e54a1bcf010673e820ac3b85610824e45cac718fe8"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "bytes": 1396,
+      "sha256": "1fd53104a866f73974fdb9e9eb21e87a01d169bf3b17a95ebb243667942e1922"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "bytes": 1461,
+      "sha256": "c5fb3bbfd7b50b0f4d4ce4583a53d1cc44e82041889ae9527029dbfff838980f"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/auth-verifier.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/auth-verifier.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/auth-verifier.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/auth-verifier.ts",
+      "bytes": 20346,
+      "sha256": "d6b3a9db07b09a8e0aeae1d5b52338afb5043a49c2575310c11e78d13169a659"
+    },
+    {
+      "repository": "bluesky-social/pds",
+      "commit": "d02a23e5ba60b403728697bd50f7be15c69aeb66",
+      "sourcePath": "sample.env",
+      "url": "https://raw.githubusercontent.com/bluesky-social/pds/d02a23e5ba60b403728697bd50f7be15c69aeb66/sample.env",
+      "githubUrl": "https://github.com/bluesky-social/pds/blob/d02a23e5ba60b403728697bd50f7be15c69aeb66/sample.env",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/pds/sample.env",
+      "bytes": 562,
+      "sha256": "db15db444fdbf2b1faf36d2065200e9930dce5ffc5e72558a9e335c05a8dd32c"
+    },
+    {
+      "repository": "bluesky-social/pds",
+      "commit": "d02a23e5ba60b403728697bd50f7be15c69aeb66",
+      "sourcePath": "compose.yaml",
+      "url": "https://raw.githubusercontent.com/bluesky-social/pds/d02a23e5ba60b403728697bd50f7be15c69aeb66/compose.yaml",
+      "githubUrl": "https://github.com/bluesky-social/pds/blob/d02a23e5ba60b403728697bd50f7be15c69aeb66/compose.yaml",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/pds/compose.yaml",
+      "bytes": 901,
+      "sha256": "533c995fedf523ac893ef8d3e52a009769e4c3c1989608cc712af6ca5827487c"
+    },
+    {
+      "repository": "did-method-plc/did-method-plc",
+      "commit": "9c8ea2fe23b89a5c1011246cbb4957dad9dbf7db",
+      "sourcePath": "website/spec/v0.1/did-plc.md",
+      "url": "https://raw.githubusercontent.com/did-method-plc/did-method-plc/9c8ea2fe23b89a5c1011246cbb4957dad9dbf7db/website/spec/v0.1/did-plc.md",
+      "githubUrl": "https://github.com/did-method-plc/did-method-plc/blob/9c8ea2fe23b89a5c1011246cbb4957dad9dbf7db/website/spec/v0.1/did-plc.md",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/did-method-plc/did-method-plc/website/spec/v0.1/did-plc.md",
+      "bytes": 30180,
+      "sha256": "7346e2ba9d186fa13d65466942f29136f2d3e2281a8a6dd08d689eda2c99af79"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "bytes": 3490,
+      "sha256": "05382f7c5622c74e3b1798fea7ed5a1e9e0dfaf6528dbf84b342948fe688a542"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/config/env.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/config/env.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/pds/src/config/env.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/config/env.ts",
+      "bytes": 6120,
+      "sha256": "da1c264938108429ca022a3d9b5c7f5cc44e6c31a1e16c367ece944d48d19554"
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/xrpc-server/src/auth.ts",
+      "url": "https://raw.githubusercontent.com/bluesky-social/atproto/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/xrpc-server/src/auth.ts",
+      "githubUrl": "https://github.com/bluesky-social/atproto/blob/3cd9fa6013efad3ab57704ae804952be097e5d26/packages/xrpc-server/src/auth.ts",
+      "retainedPath": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/xrpc-server/src/auth.ts",
+      "bytes": 6538,
+      "sha256": "df7b181bca12d367fd1bf13db22328b15c157391dceb63edcc62b52939003f3d"
+    }
+  ],
+  "local": [
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/accounts.ts",
+      "bytes": 2231,
+      "sha256": "69dfe7c28d71e8dab4a13d6681d2911522829d9bd3028f45e2854e9e456aa6f5"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/pds.ts",
+      "bytes": 9658,
+      "sha256": "8c1f6bdc2f95dd28092111264d0d4692532bfffff824e820e40c217a10af0cc7"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/application.ts",
+      "bytes": 15445,
+      "sha256": "5b24a6f83ccb7ad3fcc7b254fd5fecb770741b4aaaffa6bce13fda268f967953"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/http.ts",
+      "bytes": 7821,
+      "sha256": "0510bd49c87f8f4d59709dc066f5eac31b9c9de16fe4c109f118cc4a54616882"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/main.ts",
+      "bytes": 1860,
+      "sha256": "b5534854e999f0cc63350b0bc7b6c91141f09280dca7d3f57454bf586c8d051f"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/token.ts",
+      "bytes": 878,
+      "sha256": "a14d2f74644ed4be52c3e85b6afef8acea03cd3d9ba446894e14f165ce0af73b"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/identity-fetch.ts",
+      "bytes": 3980,
+      "sha256": "6e17c6ca6a97180089a774a00d291dba7081d3ad5c56af242aab785a85a758cb"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/protocol/identity-binding.ts",
+      "bytes": 3971,
+      "sha256": "f485f06544cbb17ec5fc7a2cc11ac5f2d1bd574020386d67e4e50363bf9db806"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/protocol/identity-plc.ts",
+      "bytes": 7074,
+      "sha256": "67e29c6d4a15836b102f2929b0fcfdee383a4deef0d14c57c5df2fcad0d2481d"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/protocol/native-wire.ts",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/application/native-authority.ts",
+      "bytes": 19024,
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "notes/2026-10-01-atseq-native-authority-decision.md",
+      "bytes": 14097,
+      "sha256": "d14d87d3d9cc1540959fb58e63b38b8a435fb77612c98f4022c9a01a421147d9"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "notes/2026-10-01-atseq-account-admission-design.md",
+      "bytes": 40912,
+      "sha256": "d5324cdf380eb1624180fdd9221d119bf6d75fbf688f322be73f4179ed23b5f7"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "notes/2026-10-01-atseq-account-authority-design.md",
+      "bytes": 42625,
+      "sha256": "895c3c30a0c2c3e0af6f2592836ff3729fa5637374a94e0b57004f971275b50c"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "notes/2026-10-01-atseq-account-enrolment-design.md",
+      "bytes": 13001,
+      "sha256": "13cd7c5008198a30ad06452961bb4eb75a16fce64d47270bb880c86d67fbe712"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "notes/2026-10-01-atseq-identity.md",
+      "bytes": 35197,
+      "sha256": "3fb0d914579d799564946c1e46c32bf146a96b70a06ce8de857c9ddc9c45c7f1"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "notes/2026-10-01-atseq-oauth-client-review-disposition.md",
+      "bytes": 9115,
+      "sha256": "f30bbba7ce61ea48778965b77abe9eafef312f25ff84b3fd293eeabb2447795a"
+    },
+    {
+      "commit": "022404f525131318ebe450f7ee20bed64a8b0408",
+      "sourcePath": "src/protocol/oauth.ts",
+      "status": "unreviewed A1-F2 source candidate, dependency gate only",
+      "bytes": 17872,
+      "sha256": "ba775957f9e1fe56dad0a1da70115be3a62c11fdc0c7c9d695d5f07f9d100e18"
+    },
+    {
+      "commit": "022404f525131318ebe450f7ee20bed64a8b0408",
+      "sourcePath": "src/host/oauth-adapter.ts",
+      "status": "unreviewed A1-F2 source candidate, dependency gate only",
+      "bytes": 3885,
+      "sha256": "5b7296060726431dbaecf2cc84f99371c495fa063e7f8052eb11f3598bad8877"
+    },
+    {
+      "commit": "022404f525131318ebe450f7ee20bed64a8b0408",
+      "sourcePath": "src/browser/oauth-adapter.ts",
+      "status": "unreviewed A1-F2 source candidate, dependency gate only",
+      "bytes": 3818,
+      "sha256": "62f93734f470a2ba8894a101ceb9d2a26e9c8684591d490f6579caeb2b9d4c39"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/protocol/native-schema.ts",
+      "bytes": 11444,
+      "sha256": "e5532006d79db36e7b7f2be4a7f6f8fa253bcbd20639d7034d67e3cecf8e8be4"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/files.ts",
+      "bytes": 60,
+      "sha256": "1628797b453df41f7754ad4d4b1dac9e7fde8e639831b09b4d08c09d06b09333"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/storage/private.ts",
+      "bytes": 1776,
+      "sha256": "1631ee951a7f2ff2637fff7100560cafcd7cbc542896e710eefc567cd8f5a831"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/host/lease.ts",
+      "bytes": 1495,
+      "sha256": "5166f53e017044b1b69113f1a440ba516dfea7eb9669c367f43c56f3485a4484"
+    },
+    {
+      "commit": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "sourcePath": "src/core/queue.ts",
+      "bytes": 380,
+      "sha256": "9c7a41f579380c0b9f9161d2c494dba187b96d61a2912442d05193a5564d75fd"
+    }
+  ]
+}

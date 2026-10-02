@@ -1,0 +1,35 @@
+{
+  "schema": "atseq-a2-d1-research-references-v1",
+  "references": [
+    {
+      "url": "https://atproto.com/specs/did",
+      "checkedAt": "2026-10-02",
+      "status": "primary-source reading only; no provider operations"
+    },
+    {
+      "url": "https://atproto.com/specs/oauth",
+      "checkedAt": "2026-10-02",
+      "status": "primary-source reading only; no provider operations"
+    },
+    {
+      "url": "https://atproto.com/specs/permission",
+      "checkedAt": "2026-10-02",
+      "status": "primary-source reading only; no provider operations"
+    },
+    {
+      "url": "https://atproto.com/guides/account-migration",
+      "checkedAt": "2026-10-02",
+      "status": "primary-source reading only; no provider operations"
+    },
+    {
+      "url": "https://atproto.com/guides/account-recovery",
+      "checkedAt": "2026-10-02",
+      "status": "primary-source reading only; no provider operations"
+    },
+    {
+      "url": "https://identity.foundation/didwebvh/v1.0/",
+      "checkedAt": "2026-10-02",
+      "status": "primary-source reading only; no provider operations"
+    }
+  ]
+}

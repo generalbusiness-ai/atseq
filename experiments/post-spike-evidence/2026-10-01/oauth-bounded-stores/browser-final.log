@@ -1,0 +1,92 @@
+{
+  "browser": "153.0.8010.12",
+  "hooks": {
+    "environment": "Chromium public core + actual IndexedDB/Web Locks",
+    "syntheticOnly": true,
+    "providerSuccess": false,
+    "cases": [
+      {
+        "name": "state-write-refusal",
+        "passed": true,
+        "sessionRows": 0,
+        "revocationRequests": 0,
+        "hookCalls": 0,
+        "refreshRevoked": false,
+        "accessRevoked": false
+      },
+      {
+        "name": "session-write-refusal",
+        "passed": true,
+        "sessionRows": 0,
+        "revocationRequests": 2,
+        "hookCalls": 0,
+        "refreshRevoked": true,
+        "accessRevoked": false
+      },
+      {
+        "name": "callback-hook-refusal",
+        "passed": true,
+        "sessionRows": 0,
+        "revocationRequests": 2,
+        "hookCalls": 1,
+        "refreshRevoked": true,
+        "accessRevoked": true
+      },
+      {
+        "name": "refresh-write-refusal",
+        "passed": true,
+        "sessionRows": 0,
+        "revocationRequests": 1,
+        "hookCalls": 1,
+        "refreshRevoked": true,
+        "accessRevoked": false
+      },
+      {
+        "name": "refresh-write-refusal-revoke-refused",
+        "passed": true,
+        "sessionRows": 0,
+        "revocationRequests": 1,
+        "hookCalls": 1,
+        "refreshRevoked": true,
+        "accessRevoked": false
+      },
+      {
+        "name": "successful-commit-hook",
+        "passed": true,
+        "sessionRows": 1,
+        "revocationRequests": 0,
+        "hookCalls": 1,
+        "refreshRevoked": false,
+        "accessRevoked": false
+      }
+    ]
+  },
+  "expiry": {
+    "expiredIsoRows": 1,
+    "numericUpperBoundMatches": 0,
+    "isoUpperBoundMatches": 1,
+    "SDKPrivateDatabaseAccess": false
+  },
+  "created": {
+    "subjectMatches": true,
+    "privateExtractable": false,
+    "publicExtractable": true,
+    "sessionRows": 1,
+    "refreshRequests": 1
+  },
+  "restored": {
+    "subjectMatches": true,
+    "privateExtractable": false,
+    "publicExtractable": true,
+    "sessionRows": 1,
+    "refreshRequests": 1
+  },
+  "selectedStore": "../atseq-oauth-adapters-20261001/node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/index.js",
+  "crossDocumentLock": {
+    "sdkLockHeld": true,
+    "sdkLockPending": true,
+    "restoreCompletedAfterRelease": true
+  },
+  "syntheticOnly": true,
+  "providerSuccess": false
+}

@@ -1,0 +1,3 @@
+(node:46882) [DEP0204] DeprecationWarning: Passing a non-extractable CryptoKey to KeyObject.from() is deprecated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"failed":true,"errorType":"Error"}

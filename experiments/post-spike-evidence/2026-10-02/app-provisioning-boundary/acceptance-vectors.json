@@ -1,0 +1,315 @@
+{
+  "schema": "atseq-a2-d1-symbolic-vectors-v1",
+  "executionStatus": "unexecuted",
+  "meaning": "Proposed acceptance scenarios only. No account, provider, DNS, TLS, OAuth, browser, runtime or recovery result is asserted.",
+  "vectors": [
+    {
+      "id": "A2D1-01",
+      "name": "existing-no-domain",
+      "given": "Existing PLC account and hosted PDS, no owned hostname",
+      "expected": "Authorize exact DID and open writer without creating an account or requiring a domain.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-02",
+      "name": "wrong-oauth-account",
+      "given": "Returned OAuth subject differs from selected app DID",
+      "expected": "A1 refuses; no account writer or app allocation.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-03",
+      "name": "changed-issuer",
+      "given": "PDS/issuer changes after authorization",
+      "expected": "A1 authority recheck refuses stale custody; require fresh authorization.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-04",
+      "name": "insufficient-scope",
+      "given": "Provider grants different or broader scope than declared exact consent",
+      "expected": "A1 refuses; no silent unrestricted scope fallback.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-05",
+      "name": "foreign-genesis",
+      "given": "Selected app account contains a different native singleton genesis",
+      "expected": "Refuse app creation; preserve both account data and configured pin.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-06",
+      "name": "unavailable-genesis-proof",
+      "given": "Genesis membership/absence proof is missing",
+      "expected": "Unavailable; do not treat account as empty.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-07",
+      "name": "same-genesis-restart",
+      "given": "Lost app publication reply; exact pinned genesis already exists",
+      "expected": "Verify existing publication and restore, no second app/genesis.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-08",
+      "name": "cas-loser",
+      "given": "Another writer advances repository after preparation",
+      "expected": "Conditional append fails; reconcile using native publisher/R1, no unconditional retry.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-09",
+      "name": "lost-account-reply",
+      "given": "createAccount succeeded but reply was lost",
+      "expected": "Reconcile recorded handle/DID through account management; no new account allocation.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-10",
+      "name": "unknown-allocation",
+      "given": "Provider outcome cannot be safely reconciled",
+      "expected": "Report uncertainty; retain setup journal and do not allocate again.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-11",
+      "name": "recovery-key-accepted",
+      "given": "New PLC signup accepts public independent recovery key before PDS key",
+      "expected": "Verify actual complete signed history and priority before independent-recovery claim.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-12",
+      "name": "recovery-key-refused",
+      "given": "Provider refuses supplied recovery key or omits it",
+      "expected": "Report unsupported independent app recovery; A2 condition unsatisfied.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-13",
+      "name": "recommendation-drops-key",
+      "given": "PDS recommendation omits independent recovery key",
+      "expected": "Preserve reviewed actual custody; never blindly replace PLC rotation list.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-14",
+      "name": "forged-recovery-claim",
+      "given": "Unsigned setup metadata claims highest-priority recovery key",
+      "expected": "Reject claim; only verified PLC history establishes public priority.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-15",
+      "name": "web-import-valid",
+      "given": "Hostname web DID with matching temporary key and destination-method service JWT",
+      "expected": "Create deactivated account, rotate public document to destination key, activate with account management, then OAuth.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-16",
+      "name": "web-path-did",
+      "given": "Requested web DID has path components",
+      "expected": "Unsupported ATproto account; no path-based fallback.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-17",
+      "name": "web-port-production",
+      "given": "Requested production web DID contains a port",
+      "expected": "Refuse unsupported production route; development exception does not waive policy.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-18",
+      "name": "web-key-format",
+      "given": "PDS canonical did:key string is inserted directly as publicKeyMultibase",
+      "expected": "Refuse malformed document; maintained decoding must produce proper Multikey bytes.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-19",
+      "name": "wrong-service-audience",
+      "given": "Import JWT audience names app DID instead of destination service DID",
+      "expected": "Reference service auth rejects; no staged account completion claim.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-20",
+      "name": "wrong-service-method",
+      "given": "Import JWT is not bound to createAccount",
+      "expected": "Refuse token/setup; no method-less token fallback.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-21",
+      "name": "wrong-service-issuer",
+      "given": "createAccount did differs from verified service-auth issuer",
+      "expected": "Reference PDS refuses imported-DID account creation.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-22",
+      "name": "expired-import-jwt",
+      "given": "Temporary import authorization expires",
+      "expected": "Refresh only explicit private setup token and retry after reconciling allocation; do not expose token.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-23",
+      "name": "inactive-oauth",
+      "given": "OAuth attempted before destination activation",
+      "expected": "Unavailable/refused provider flow; no OAuth-success claim.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-24",
+      "name": "oauth-activation",
+      "given": "OAuth credentials used for reference activateAccount",
+      "expected": "Reference handler refuses; use separate account-management path.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-25",
+      "name": "web-readback-mismatch",
+      "given": "Public DID readback differs from staged PDS key/service",
+      "expected": "Stop activation/use; retained settings do not certify public binding.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-26",
+      "name": "web-hosting-loss",
+      "given": "Hostname registration/hosting transfers to another controller",
+      "expected": "Disclose loss of identity root; no automatic same-DID recovery claim.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-27",
+      "name": "web-ssrf",
+      "given": "DID/PDS/metadata request resolves to forbidden private address or redirects",
+      "expected": "Existing guarded transport refuses; no new unsafe resolver.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-28",
+      "name": "callback-replay",
+      "given": "Reused or unknown OAuth callback nonce among concurrent flows",
+      "expected": "A1 refuses without consuming another transaction.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-29",
+      "name": "public-operator-route",
+      "given": "Public metadata/callback origin attempts management procedure",
+      "expected": "Loopback Host/Origin/token boundary remains enforced; public route supplies no management access.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-30",
+      "name": "credential-leak",
+      "given": "Setup logs/errors/archives include token/password/private key",
+      "expected": "Fail acceptance; retain sanitized outcomes and public bytes only.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-31",
+      "name": "cooperative-plc-migration",
+      "given": "Old PDS service auth plus destination import and signed PLC change",
+      "expected": "Verify same app DID, canonical new binding, complete old prefix/floors; activate, reauthorize and append.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-32",
+      "name": "plc-recovery-window",
+      "given": "Compromised lower-priority PLC operation within/outside nullification window",
+      "expected": "Maintained directory/verifier owns exact result; no indefinite-undo claim.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-33",
+      "name": "same-key-plc-tip",
+      "given": "PLC canonical tip changes without repo key change during observation",
+      "expected": "I1 restarts/checks tip under shared budget; equal key alone is not stability.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-34",
+      "name": "missing-migration-content",
+      "given": "Replacement PDS lacks a previously retained app entry/blob",
+      "expected": "Unavailable or fork/integrity refusal as genuine prefix gate determines; no blank app recreation.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-35",
+      "name": "conflicting-migration-prefix",
+      "given": "Replacement PDS offers a different same-genesis history below local floor",
+      "expected": "Fail closed; retain newer floor/evidence; explicit new trust/genesis needed.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-36",
+      "name": "lost-write-credentials",
+      "given": "OAuth session lost but repo/control/actor keys remain",
+      "expected": "Reauthorize exact account; do not revoke grants or rotate other keys as side effect.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-37",
+      "name": "lost-repository-key",
+      "given": "PDS repo private key lost while independent DID recovery remains",
+      "expected": "Stage/rebind replacement account and restore exact accepted prefix before append.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-38",
+      "name": "lost-governance-key",
+      "given": "All appointed control keys lost but account/DNS access available",
+      "expected": "No manufactured appointment; explicit new trust/genesis needed.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-39",
+      "name": "participant-reset-behind-floor",
+      "given": "Recovered participant account cannot extend accepted epoch/floor",
+      "expected": "Only appointed I2 participant recovery may reset future anchor; account possession alone insufficient.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-40",
+      "name": "stale-local-backup",
+      "given": "Restored operator directory contains older app/history/identity floors",
+      "expected": "Trusted restore/R1 validates installed provenance and preserves newer floors; no auto-lowering.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-41",
+      "name": "webvh-unanchored",
+      "given": "Web DID advertises a WebVH alias controlled by same host without external anchor",
+      "expected": "No assurance upgrade; baseline web observation remains explicit.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-42",
+      "name": "webvh-export-drift",
+      "given": "Pinned companion history and parallel web export disagree",
+      "expected": "Future conditional adapter must refuse/detect downgrade; no baseline runtime claim.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-43",
+      "name": "webvh-portability",
+      "given": "WebVH history moves host with same SCID",
+      "expected": "ATproto exported web principal changes; no automatic account/app identity migration.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1-44",
+      "name": "offline-recovery-replay",
+      "given": "Archive replay after key migration with network disabled",
+      "expected": "Consume retained accepted binding/root/authority evidence; never fetch current identity or credentials.",
+      "executionStatus": "unexecuted"
+    }
+  ]
+}

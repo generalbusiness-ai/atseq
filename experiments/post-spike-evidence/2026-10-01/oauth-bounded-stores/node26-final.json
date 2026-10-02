@@ -1,0 +1,62 @@
+{
+  "node": "v26.10.0",
+  "environment": "Node public core + memory stores",
+  "syntheticOnly": true,
+  "providerSuccess": false,
+  "cases": [
+    {
+      "name": "state-write-refusal",
+      "passed": true,
+      "sessionRows": 0,
+      "revocationRequests": 0,
+      "hookCalls": 0,
+      "refreshRevoked": false,
+      "accessRevoked": false
+    },
+    {
+      "name": "session-write-refusal",
+      "passed": true,
+      "sessionRows": 0,
+      "revocationRequests": 2,
+      "hookCalls": 0,
+      "refreshRevoked": true,
+      "accessRevoked": false
+    },
+    {
+      "name": "callback-hook-refusal",
+      "passed": true,
+      "sessionRows": 0,
+      "revocationRequests": 2,
+      "hookCalls": 1,
+      "refreshRevoked": true,
+      "accessRevoked": true
+    },
+    {
+      "name": "refresh-write-refusal",
+      "passed": true,
+      "sessionRows": 0,
+      "revocationRequests": 1,
+      "hookCalls": 1,
+      "refreshRevoked": true,
+      "accessRevoked": false
+    },
+    {
+      "name": "refresh-write-refusal-revoke-refused",
+      "passed": true,
+      "sessionRows": 0,
+      "revocationRequests": 1,
+      "hookCalls": 1,
+      "refreshRevoked": true,
+      "accessRevoked": false
+    },
+    {
+      "name": "successful-commit-hook",
+      "passed": true,
+      "sessionRows": 1,
+      "revocationRequests": 0,
+      "hookCalls": 1,
+      "refreshRevoked": false,
+      "accessRevoked": false
+    }
+  ]
+}
