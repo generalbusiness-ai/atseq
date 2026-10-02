@@ -1,0 +1,317 @@
+{
+  "baseline": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+  "source": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+  "basis": "3a40d2c5e230cd7698f9cd4b9e8e9729054be33e",
+  "fixture": {
+    "path": "tests/vectors/oauth-predecessor.json.gz",
+    "bytes": 530152,
+    "sha256": "5decbad7dbfca3686542f5d8d775613fd3a78de5322a53f95873b6b9964b4bca",
+    "decodedBytes": 1574925
+  },
+  "historicalFiles": [
+    {
+      "path": "src/core/dependencies.ts",
+      "bytes": 26219,
+      "sha256": "6f95e2cd5c2949a4300e32c80617a44bca0c9b4ddb3ce0b3569e1a887e81fce4"
+    },
+    {
+      "path": "src/core/dependencies-approved.json",
+      "bytes": 43395,
+      "sha256": "d48211fd3e9d83e960ef8541d44ed1ac27965e69152bfd7ba9eaf295e9b8bd8a"
+    },
+    {
+      "path": "src/integrity/files-approved.json",
+      "bytes": 1160851,
+      "sha256": "340939f059fb454c3c9d102dc2def65be21c0d24f2f05018a4916fa2d2ecd149"
+    },
+    {
+      "path": "src/archive/notices.json",
+      "bytes": 138960,
+      "sha256": "e66b54bde4a1b0894b2b6876aa38b2a92f0d4d769300895032cc88f1867a9b30"
+    },
+    {
+      "path": "package.json",
+      "bytes": 4267,
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a"
+    },
+    {
+      "path": "npm-shrinkwrap.json",
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    }
+  ],
+  "historicalBytes": 1492050,
+  "packages": {
+    "previous": 147,
+    "current": 194,
+    "added": 47,
+    "removed": 0,
+    "changedPrevious": 0
+  },
+  "existingTestBodiesByteIdentical": true,
+  "sourcePins": [
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "tests/oauth-bundle.test.ts",
+      "bytes": 10717,
+      "sha256": "0ad426bb3f1216ce6a41beb5faf978252bbec0633033e6bbb0176114b6c9774d"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "tests/vectors/oauth-predecessor.json.gz",
+      "bytes": 530152,
+      "sha256": "5decbad7dbfca3686542f5d8d775613fd3a78de5322a53f95873b6b9964b4bca"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "scripts/source-run.mjs",
+      "bytes": 507,
+      "sha256": "0b453aaf5049038e8e02a33640b39f57d30bb3c3dff3c8b7ea2ffacaeb222e08"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/core/dependencies.ts",
+      "bytes": 36431,
+      "sha256": "35885964c3bbfca8faafa1780773314916ab1f38e2ca09756aadc6d6ba1637ba"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/core/dependencies-approved.json",
+      "bytes": 59339,
+      "sha256": "1355b4a37500bbb95cd58e0c8dafd593bb152ba38ad29e576c0771da6f0edbb6"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/integrity/files-approved.json",
+      "bytes": 1419517,
+      "sha256": "18a3dadff6cbf97aecb19a61e491a2138de273e85d287ebfec9f1c10760e6fe4"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/archive/notices.json",
+      "bytes": 152328,
+      "sha256": "97a1ac3be51234729bfa974ad2b4d9a5cb2f84680f8258adfa7eb94cf2d93176"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "package.json",
+      "bytes": 4425,
+      "sha256": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "npm-shrinkwrap.json",
+      "bytes": 143687,
+      "sha256": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": ".github/workflows/check.yml",
+      "bytes": 1035,
+      "sha256": "9ea4bf1f5e027e69ca786bc54ff6a87c216a507097d1a23315ecbb214a3ff911"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/browser/main.ts",
+      "bytes": 29840,
+      "sha256": "608a362bb63772ae1788519bc3923c589e2d6980fc28fba0b76cc99eb890b2dc"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/browser/worker.ts",
+      "bytes": 8952,
+      "sha256": "cc763e68d48378d27e8a77aafe3b58d85fe584026ff8293042ca013f06610ef6"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/protocol/index.ts",
+      "bytes": 242,
+      "sha256": "5f8910165f62eb6aff7122e58e6d8804c1a2afe45364135e5969389e18f424e6"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/cli/main.ts",
+      "bytes": 14719,
+      "sha256": "5d2cb87934b91d58601eebfb0f24585135623899cbc2d3f2e12374bac682f6d4"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/host/main.ts",
+      "bytes": 1860,
+      "sha256": "b5534854e999f0cc63350b0bc7b6c91141f09280dca7d3f57454bf586c8d051f"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/browser/oauth-loader.ts",
+      "bytes": 426,
+      "sha256": "224d50a40b447cd00422d0b3fd33aa1bce5ef8c81a6d31b65e6083203ce90a2b"
+    },
+    {
+      "commit": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+      "path": "src/host/oauth-loader.ts",
+      "bytes": 424,
+      "sha256": "ad0d94fbdd7ea3faa8919e29bdb95329f9901b084e63e2d1a5ed9032bb62f6c9"
+    }
+  ],
+  "unchanged": [
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "src/core/dependencies.ts",
+      "bytes": 36431,
+      "sha256": "35885964c3bbfca8faafa1780773314916ab1f38e2ca09756aadc6d6ba1637ba"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "src/core/dependencies-approved.json",
+      "bytes": 59339,
+      "sha256": "1355b4a37500bbb95cd58e0c8dafd593bb152ba38ad29e576c0771da6f0edbb6"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "src/integrity/files-approved.json",
+      "bytes": 1419517,
+      "sha256": "18a3dadff6cbf97aecb19a61e491a2138de273e85d287ebfec9f1c10760e6fe4"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "src/archive/notices.json",
+      "bytes": 152328,
+      "sha256": "97a1ac3be51234729bfa974ad2b4d9a5cb2f84680f8258adfa7eb94cf2d93176"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "package.json",
+      "bytes": 4425,
+      "sha256": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "npm-shrinkwrap.json",
+      "bytes": 143687,
+      "sha256": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": ".github/workflows/check.yml",
+      "bytes": 1035,
+      "sha256": "9ea4bf1f5e027e69ca786bc54ff6a87c216a507097d1a23315ecbb214a3ff911"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "tests/support/pds/package.json",
+      "bytes": 296,
+      "sha256": "a029e6d0c25f6a481e3527163464131d7a0575c5ad001f9e1ba06785d58fe0c6"
+    },
+    {
+      "commit": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+      "path": "tests/support/pds/package-lock.json",
+      "bytes": 295370,
+      "sha256": "762b412e3aa383b3e094bc1d2f6a0cc4389df7444ef0726f693cb026788b3dcd"
+    }
+  ],
+  "sixCaptureGraphsEqualExceptGzipMeasurements": true,
+  "allGeneratedJavaScriptAndMetafilesByteIdentical": true,
+  "runtimes": [
+    {
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "versions": {
+        "node": "22.19.0",
+        "acorn": "8.15.0",
+        "ada": "2.9.2",
+        "amaro": "1.1.0",
+        "ares": "1.34.5",
+        "brotli": "1.1.0",
+        "cjs_module_lexer": "2.1.0",
+        "cldr": "47.0",
+        "icu": "77.1",
+        "llhttp": "9.3.0",
+        "modules": "127",
+        "napi": "10",
+        "nbytes": "0.1.1",
+        "ncrypto": "0.0.1",
+        "nghttp2": "1.64.0",
+        "openssl": "3.0.17",
+        "simdjson": "3.13.0",
+        "simdutf": "6.4.2",
+        "sqlite": "3.50.4",
+        "tz": "2025b",
+        "undici": "6.21.2",
+        "unicode": "16.0",
+        "uv": "1.51.0",
+        "uvwasi": "0.0.21",
+        "v8": "12.4.254.21-node.29",
+        "zlib": "1.3.1-470d3a2",
+        "zstd": "1.5.7"
+      }
+    },
+    {
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "versions": {
+        "node": "24.21.0",
+        "acorn": "8.18.0",
+        "ada": "4.0.0",
+        "amaro": "1.1.11",
+        "ares": "1.34.8",
+        "brotli": "1.2.0",
+        "cldr": "48.0",
+        "icu": "78.3",
+        "llhttp": "9.4.3",
+        "merve": "1.2.2",
+        "modules": "137",
+        "napi": "10",
+        "nbytes": "0.1.4",
+        "ncrypto": "0.0.1",
+        "nghttp2": "1.70.0",
+        "nghttp3": "",
+        "ngtcp2": "",
+        "openssl": "3.5.8",
+        "simdjson": "4.6.7",
+        "simdutf": "6.4.0",
+        "sqlite": "3.53.4",
+        "tz": "2026c",
+        "undici": "7.29.1",
+        "unicode": "17.0",
+        "uv": "1.52.1",
+        "uvwasi": "0.0.23",
+        "v8": "13.6.233.17-node.53",
+        "zlib": "1.3.2.1-motley-8002e91",
+        "zstd": "1.5.7"
+      }
+    },
+    {
+      "executable": "/opt/homebrew/bin/node",
+      "versions": {
+        "node": "26.10.0",
+        "acorn": "8.18.0",
+        "ada": "4.0.0",
+        "amaro": "1.1.11",
+        "ares": "1.34.8",
+        "brotli": "1.2.0",
+        "cldr": "48.0",
+        "icu": "78.3",
+        "libffi": "3.8.0",
+        "llhttp": "9.4.3",
+        "merve": "1.2.2",
+        "modules": "147",
+        "napi": "10",
+        "nbytes": "0.1.4",
+        "ncrypto": "0.0.1",
+        "nghttp2": "1.70.0",
+        "nghttp3": "",
+        "ngtcp2": "",
+        "openssl": "3.6.5",
+        "simdjson": "4.6.11",
+        "simdutf": "9.2.1",
+        "sqlite": "3.53.4",
+        "tz": "2026a",
+        "undici": "8.10.2",
+        "unicode": "17.0",
+        "uv": "1.53.0",
+        "uvwasi": "0.0.23",
+        "v8": "14.6.202.34-node.35",
+        "zlib": "1.2.12",
+        "zstd": "1.5.7"
+      }
+    }
+  ]
+}

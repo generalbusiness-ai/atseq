@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "baseline": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+  "source": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+  "request": "6088d8d5a65da02e58905ec8f06d753d35816839",
+  "promise": "46db0c167fcc15ea2703353c3635c1409cf2857a",
+  "status": "ready for independent exact-head review; Linux CI after integration pending; wider T1 open",
+  "files": [
+    {
+      "path": "tests/oauth-bundle.test.ts",
+      "bytes": 10717,
+      "sha256": "0ad426bb3f1216ce6a41beb5faf978252bbec0633033e6bbb0176114b6c9774d"
+    },
+    {
+      "path": "tests/vectors/oauth-predecessor.json.gz",
+      "bytes": 530152,
+      "sha256": "5decbad7dbfca3686542f5d8d775613fd3a78de5322a53f95873b6b9964b4bca"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-oauth-bundle-shallow-results.md",
+      "bytes": 5224,
+      "sha256": "325a01299c0529f41133891d42865ac28a324abfeede715163532f37d64da34f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bundle-shallow-h3/capture-inventory.json",
+      "bytes": 7176,
+      "sha256": "db0d5254a0a06e2746acd4692d9211687e8692fe52adf0255c5ad3631b2a3a4d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bundle-shallow-h3/raw-captures.tar.gz",
+      "bytes": 376954,
+      "sha256": "8871ca6022327f2a8d37d54a11fafb19d9e434bc7cebc188a3463dabe6104ee4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bundle-shallow-h3/runs.json",
+      "bytes": 3006,
+      "sha256": "7daa3ebb8f3f4f7a465b668d74965a3aba53ca5c7b006286cb90f0259d85a709"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bundle-shallow-h3/verification.json",
+      "bytes": 10144,
+      "sha256": "afd947aabe310a7e1698dcca5cac2121e5c8964392262e4d9e50912b46616e60"
+    }
+  ]
+}
