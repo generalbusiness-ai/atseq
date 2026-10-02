@@ -1,0 +1,294 @@
+{
+  "schema": "atseq-native-prefix-preserved-p2-i1-evidence-v1",
+  "baseline": "316439928e0c0d41965b086f2dace19a9249dba7",
+  "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+  "request": "edfbae3904aae489c18c2f7557c5a2e558f514e6",
+  "promise": "c47764b47fbe5868d5a70c562373921aab5a7ad7",
+  "productionChanged": [
+    "src/application/native-prefix.ts"
+  ],
+  "supportedExportsChanged": false,
+  "fullP2Closed": false,
+  "files": [
+    {
+      "path": "experiments/native-prefix-preserved/compiled-conformance.mjs",
+      "bytes": 2666,
+      "sha256": "fcbbab8c920ea53f71de128535408c29cdd3882f107303273ebda040f9cd8118"
+    },
+    {
+      "path": "experiments/native-prefix-preserved/run-matrix.py",
+      "bytes": 3855,
+      "sha256": "867b9cbf9353ec249c3c14836b5e1993c245436a9eef00944d621e8744ff17d3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/build-provenance.json",
+      "bytes": 66835,
+      "sha256": "7db1de2c0f62f25f749bba5a82b397a374cbef85f68467d9c9f3b3e49e2c68c0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/build.log.gz",
+      "bytes": 341,
+      "sha256": "441e4aaeed6a150c494f4aca1d47fbbb4e485f9acf337f03340533c6f8ba74ab"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/check.log.gz",
+      "bytes": 378,
+      "sha256": "2e1e91086214ff3ce218ea0b772d1f6653d8fac41d71c58b9458afbed7f87e56"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/compression.json",
+      "bytes": 1448,
+      "sha256": "8a1b0363b97aa5a8b9acf99fc998b31f103477b662792738618d6ed338ee9fea"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/exploratory/initial-failures.json",
+      "bytes": 844,
+      "sha256": "9d4f6c421134ff6b7bcf937cbf2fc5eb8872fa170dfb5f8be1939ba51df26227"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/exploratory/source-descriptor.log",
+      "bytes": 4993,
+      "sha256": "99fa7950111361731b22fc5fe7e87f7e23baf2e079df2112f022e06b36fa8a1e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/exploratory/source-initial-fixed.log",
+      "bytes": 1463,
+      "sha256": "22d68832264fafd1fabb1dd9154bfc57e116ce266553e20eac73c7b5339d4e0b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/exploratory/source-second-fixed.log",
+      "bytes": 4213,
+      "sha256": "200d75fd00a56d8edad09d3c83ab638c195273a71f53a6f2b5902bcb553941ae"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/fixtures/r1-prefix.json.gz",
+      "bytes": 1309707,
+      "sha256": "ee957776432a94ed04f65bbe1c726d52808032e95e525e3c22ad652cdbabe867"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/forced-installed-check.json",
+      "bytes": 90,
+      "sha256": "47874a6eb6c7f2f2d84a959b3f66b95247c088fd08be49a42248a5b4727de65f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/installed-runtime.json.gz",
+      "bytes": 560129,
+      "sha256": "81cd6e3e7e606d43ae5d298315d4b92db7d69454707f031c1909879bf6897715"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/native-prefix-browser.json",
+      "bytes": 4533,
+      "sha256": "f49b0072c539ae641a135eefc19241243bc14bee55c0e47a443f9255fcd60ffa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/native-prefix-preserved-browser.json",
+      "bytes": 5793,
+      "sha256": "c7201acb8c9827edc1c4f7b35f037072ee6638554618f1714fd33506b28098fc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-emitted.json",
+      "bytes": 6672,
+      "sha256": "63b2bee218da2dd393d09cbe3a44e2de53bb4df3668997b471bafc0b25edbf5d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-emitted.log",
+      "bytes": 5779,
+      "sha256": "dda1b27061ac7984437c4d297bf15078028af98262dc06a1f3f17317a61b50cc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-source/fixture.json.gz",
+      "bytes": 26783,
+      "sha256": "beeaf04dd28ef46f91c98c5f500d059c23e795a5578d5fbccbfbf40f24f53636"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-source/result.json",
+      "bytes": 5538,
+      "sha256": "ffbc93492fe53d4ff6d5d88134d3a8c4a54d62ff77bafd2cdccedb742368b206"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/r1-emitted.json",
+      "bytes": 6404,
+      "sha256": "ebcedf2b7f72c696eb6aac2998e5a9d1317ebe2322a98a5c67223b6723e2867f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/r1-emitted.log",
+      "bytes": 5366,
+      "sha256": "6ade3ba11e30d10960c5ce76d024d31cb80b5d652da10feb482afd8e12abee96"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/r1-source/fixture.json.gz",
+      "bytes": 1309695,
+      "sha256": "7ae3b67b8123821e4049a67081a5ea612525bd47380bd4d503d0aaf65c6dc15b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/r1-source/result.json",
+      "bytes": 4275,
+      "sha256": "12a27403d2ba885ac17d11829fba2e17932775f4438c35c33129fa3c4613d39b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/source.log",
+      "bytes": 9029,
+      "sha256": "953b59f0ff199be4c3797774b37ba2feaeb6aa2296e86bedee1654804daf690d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/preserved-emitted.json",
+      "bytes": 6672,
+      "sha256": "de1e56d99650da8ea1c0f840eeb8b00a04ed8e7cedaa7af6a44e5fc8fba28293"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/preserved-emitted.log",
+      "bytes": 5779,
+      "sha256": "9292c78cd9479cbc97a7c6167a3260575da65997d22dc3381834290b34c52b6c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/preserved-source/fixture.json.gz",
+      "bytes": 26783,
+      "sha256": "beeaf04dd28ef46f91c98c5f500d059c23e795a5578d5fbccbfbf40f24f53636"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/preserved-source/result.json",
+      "bytes": 5538,
+      "sha256": "19eecfd96bd337dfe4ae16d2fb4b3f12883224f0c0b30facc37acf867cf529f2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/r1-emitted.json",
+      "bytes": 6404,
+      "sha256": "8c19e514ba1458152ea51e5c18302e264f2963224842a3df0aebd70d2a314bea"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/r1-emitted.log",
+      "bytes": 5366,
+      "sha256": "1ea2021ab72a22893a1751338e6640a0c92508ebe29677d5b9377211bae0d7a7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/r1-source/fixture.json.gz",
+      "bytes": 1309695,
+      "sha256": "7ae3b67b8123821e4049a67081a5ea612525bd47380bd4d503d0aaf65c6dc15b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/r1-source/result.json",
+      "bytes": 4275,
+      "sha256": "d5afaafc4e379af69b3d914b61a8263bb3c9936fecbeba2f1c30781ef2410327"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/source.log",
+      "bytes": 8742,
+      "sha256": "f20f2985eb91a6879fa7437137fb1476d972a46dbe53f52c10e27b769fbe7282"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/chromium.log",
+      "bytes": 9217,
+      "sha256": "bf98e90e3ce1a822baa4eda891cf7a840ba6efb2a0806466b496ab1d97b7f043"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/preserved-emitted.json",
+      "bytes": 6672,
+      "sha256": "b966c94495baa5c0d5333963e64e6288e4e60ae43e98cfaf69222b4fd79fa142"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/preserved-emitted.log",
+      "bytes": 5779,
+      "sha256": "c70f19d24ece43cba8b753e5136a2f4a8002580119accadb1b079d958eb81076"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/preserved-source/fixture.json.gz",
+      "bytes": 26783,
+      "sha256": "beeaf04dd28ef46f91c98c5f500d059c23e795a5578d5fbccbfbf40f24f53636"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/preserved-source/result.json",
+      "bytes": 5538,
+      "sha256": "fb5fe62fea53a7935ad367694628cbc59c3e78e3862ddf77ec5aee581dbc2193"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/r1-emitted.json",
+      "bytes": 6404,
+      "sha256": "e7f0eb2d7cc7c5a883fa4ee70648a6a26d797d5516019c94e403a265aab08cad"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/r1-emitted.log",
+      "bytes": 5366,
+      "sha256": "6d6f604a99813329baa95ccc67d256449f0993db5a8cd41c18455e95dfc6c362"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/r1-source/fixture.json.gz",
+      "bytes": 1309695,
+      "sha256": "7ae3b67b8123821e4049a67081a5ea612525bd47380bd4d503d0aaf65c6dc15b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/r1-source/result.json",
+      "bytes": 4275,
+      "sha256": "a3c87cfff033d5c733c7df40c3a0c04a6eb69e4ec44ac36b7528a183c359eb58"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/source.log",
+      "bytes": 8743,
+      "sha256": "07f9054b3e341952f13600ea69c50243cf2a1031bd8daa0fe96322f66f3254ed"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/npm-ci-tool-stdout.log",
+      "bytes": 143,
+      "sha256": "7c90405629dcb52dc3bfbfa3b82677fc01a282a9b2c72fe71453f538492dc928"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/pds-npm-ci-tool-stdout.log",
+      "bytes": 776,
+      "sha256": "cd98f0424d76964873905b7dc0f2ab79534714df440949ff2fad1ab1f7f36fc2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/remaining-gates.json",
+      "bytes": 1445,
+      "sha256": "52d9bee127f56d63b5c4303efb62eb3940089a9058e54ff79d3555f1c18c17f3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/request-projection.json",
+      "bytes": 4562,
+      "sha256": "32c9344899d24c2d0a159b014ead812b15a3aa1e8bdd8747c4486ed3ebc8bdb9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/runs.json",
+      "bytes": 10531,
+      "sha256": "fc67458d82b82555cf080a497024e1923a96cebaa78d5ed72079c058b3c09503"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/source-inspection.json",
+      "bytes": 10612,
+      "sha256": "35ce0beae449871e789be044b92a996d5604a108c7cfdeab19f97239817c7268"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/verify-packet.py",
+      "bytes": 9418,
+      "sha256": "cdb6a11b2563e9b1812205ae2f3cfbe16881ab462de15ace9cfd97085bec97a8"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-native-prefix-preservation-results.md",
+      "bytes": 10326,
+      "sha256": "48e16448cb79cdcc85e7089aa5ec46c383afa42e09d833274b6c89f6aefe6149"
+    },
+    {
+      "path": "src/application/native-prefix.ts",
+      "bytes": 25288,
+      "sha256": "661d800ba99ca502fc4c3b7c659540d9d4b499a61d59bc76fcf5479b3dae1c36"
+    },
+    {
+      "path": "tests/native-prefix-preserved-browser.test.ts",
+      "bytes": 3090,
+      "sha256": "c4560ddc4735a44013ec485ac0ef6ccbf92bb5ed7b54b7f0b766d56cbd11cf4b"
+    },
+    {
+      "path": "tests/native-prefix-preserved.test.ts",
+      "bytes": 1125,
+      "sha256": "b5b37728c218db1966f58a0c69a8add95d8e7f144d8f366683a7ab5fda023433"
+    },
+    {
+      "path": "tests/support/native-prefix-preserved-corpus.ts",
+      "bytes": 14751,
+      "sha256": "2d2e01681ea0060da00dd8eeda41658b8d538992d3811d1f4733d38d7ae2d374"
+    },
+    {
+      "path": "tests/support/native-prefix-preserved-fixture.ts",
+      "bytes": 6706,
+      "sha256": "ed4c08d8841e34ef8cb519e9cf82f035d9277a7957136df3c62c5c0f1af9352f"
+    }
+  ]
+}

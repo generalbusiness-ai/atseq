@@ -1,0 +1,42 @@
+[
+  {
+    "path": "build.log.gz",
+    "uncompressedBytes": 494,
+    "uncompressedSha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+  },
+  {
+    "path": "check.log.gz",
+    "uncompressedBytes": 689,
+    "uncompressedSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  {
+    "path": "node22/preserved-source/fixture.json.gz",
+    "uncompressedBytes": 666136,
+    "uncompressedSha256": "2decc824c204325e2cae505b9bab0009d23b011bb6eaa199ac0e26907803b5f1"
+  },
+  {
+    "path": "node22/r1-source/fixture.json.gz",
+    "uncompressedBytes": 18729265,
+    "uncompressedSha256": "1a44730d998a549c3f3825b9773a60e7f4536bffef63341ff48d2b37a251f90a"
+  },
+  {
+    "path": "node24/preserved-source/fixture.json.gz",
+    "uncompressedBytes": 666136,
+    "uncompressedSha256": "2decc824c204325e2cae505b9bab0009d23b011bb6eaa199ac0e26907803b5f1"
+  },
+  {
+    "path": "node24/r1-source/fixture.json.gz",
+    "uncompressedBytes": 18729265,
+    "uncompressedSha256": "1a44730d998a549c3f3825b9773a60e7f4536bffef63341ff48d2b37a251f90a"
+  },
+  {
+    "path": "node26/preserved-source/fixture.json.gz",
+    "uncompressedBytes": 666136,
+    "uncompressedSha256": "2decc824c204325e2cae505b9bab0009d23b011bb6eaa199ac0e26907803b5f1"
+  },
+  {
+    "path": "node26/r1-source/fixture.json.gz",
+    "uncompressedBytes": 18729265,
+    "uncompressedSha256": "1a44730d998a549c3f3825b9773a60e7f4536bffef63341ff48d2b37a251f90a"
+  }
+]

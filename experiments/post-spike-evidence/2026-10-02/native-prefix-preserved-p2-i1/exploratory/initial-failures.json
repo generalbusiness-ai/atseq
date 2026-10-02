@@ -1,0 +1,7 @@
+{
+  "commands": [
+    {"command":"./node_modules/.bin/tsc --noEmit", "exit":1, "output":"tests/support/native-prefix-preserved-fixture.ts(114,29): error TS2739: Type 'CidLink' is missing the following properties from type 'Cid': version, codec, digest, bytes\n"},
+    {"command":"node scripts/source-run.mjs --test tests/native-prefix-preserved.test.ts", "exit":1, "failure":"InterpretationError wire_value: $/entries/0/provenance/appIdentity/after/auditBytes: expected plain object", "stage":"test snapshot canonicalizer rejected genuine Uint8Array provenance", "capture":"Selected exact diagnostic from tool output; full stdout was not redirected on this exploratory attempt"}
+  ],
+  "resolution":"Use the CAR root CidLink directly; normalize typed-array provenance to exact numeric arrays in the test snapshot only. Production unchanged."
+}

@@ -1,0 +1,42 @@
+{
+  "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:edfbae3904aae489c18c2f7557c5a2e558f514e6",
+  "statement": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:edfbae3904aae489c18c2f7557c5a2e558f514e6",
+    "sequence": 11944,
+    "timestamp": 1790949212,
+    "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "kind": "request",
+    "lifecycle": "request",
+    "satisfier": "none",
+    "text": "Implement P2-I1 private read-only floor-preservation audit, the first safe production stage after independent P2-D4 followup reportff8331fb satisfied PD-1/PD-2 and ratificationdc827268. Work in an isolated worktree from main3164399, preserve frozen c015 design and R1-F2/P3/P4/E1/CF1/C1 candidates. Reuse the existing owner and retained audit without calling staging or adding trust/index/public floor APIs. Actual guarded regressions and production/browser conformance are owed. This stage prepares observer recovery but does not install a cursor or close full P2. Root owns all workroom publication, independent review, merge and push; user authorization already covers the work.",
+    "body": {
+      "conditions": "P2-I1 first production stage implements independently satisfied PD-1 at c015a39f85698654135bd724f0c1bc44ff240dd7 on reviewed main3164399. One internal read-only assertNativePrefixPreserved(genuine prefix, genuine same-DID repo) inside existing R1 owner; factor exact existing retained-path audit shared with stageRows once; private CURRENT accepted boundary and observed floor including higher verified/unaccepted boundary; exact genesis/selected-head/required nonzero boundary membership and owner/current/floor/poison post-await recheck. Return no numbers/tokens/new capability, no exported floor or new trust/index owner, no supported public export change. Do not call publication/stageRows or perform I1/signature/descriptor/reader/suffix acceptance; no rows/views/floor/receipt mutations. Missing proof unavailable; proved absent/changed/wrong DID/genesis/rollback invalid; caller remains responsible for later registry/cursor recheck, with no current account cursor installation in this stage. Preserve genuine P4 origin refusal until its real constructor exists; no complete-from-genesis assurance upgrade. Genuine adversarial regression fixtures cover higher discarded floor, current-vs-old view, zero/genesis, altered boundary/interior, missing exact proof, unrelated descriptor gaps, concurrent current/floor/poison changes and no-effects/refusal inventory. Appropriate actual Node22/24/26 source/emitted and Chromium with unchanged R1 corpus; exact build/provenance/failed captures and dated notes/results. Root independently reviews/publishes, requests atseq-reviewer exact-head code review, then merges/pushes approved fixes. All36 vectors/full12 P2 obligations and P1/CAR/observer/registry/PD2/restore/export/PDS matrix remain tracked open beyond this stage.",
+      "target_head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "target_ref": "refs/heads/main",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    }
+  },
+  "decision": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:edfbae3904aae489c18c2f7557c5a2e558f514e6",
+    "sequence": 11944,
+    "verdict": "effective",
+    "reason": "statement recorded"
+  },
+  "commitment": {
+    "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:edfbae3904aae489c18c2f7557c5a2e558f514e6",
+    "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c47764b47fbe5868d5a70c562373921aab5a7ad7",
+    "status": "promised",
+    "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+    "target_ref": "refs/heads/main"
+  },
+  "provenance_bases": [
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:9f591c28f9fb14e0dba2f0e1086aa2d65a54a406",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ff8331fbfd07cff9f4b23f2dcea53817bead9e9f",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:dc827268d05f67fc8eaecd1eb9a0aef02feefc4d",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:633c3581e48f9cb41b24122e2abb32ab05e081d9"
+  ]
+}

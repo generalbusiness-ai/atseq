@@ -1,0 +1,37 @@
+{
+  "parentRequest": "3a7f6bb3d6c1c763619b6082558d83056a0ef7b2",
+  "parentPromise": "9f591c28f9fb14e0dba2f0e1086aa2d65a54a406",
+  "originalDesignVectorsRemainHistoricalUNEXECUTED": 36,
+  "vectors": [
+    {
+      "id": "P1-extraction",
+      "status": "UNEXECUTED",
+      "acceptance": "Owned exact path bytes and standalone offline CAR with bounded visited node/record inventory"
+    },
+    {
+      "id": "exact-CAR-intake",
+      "status": "UNEXECUTED",
+      "acceptance": "Atomic requested/returned physical block validation and retained selected commit, avoiding full retained CAR reconstruction"
+    },
+    {
+      "id": "observer-PD2",
+      "status": "UNEXECUTED",
+      "acceptance": "Installed shared transport lifetime and all-known-lineage registry/cursor rechecks plus genuine one-use publication capture"
+    },
+    {
+      "id": "P4-origin",
+      "status": "UNEXECUTED",
+      "acceptance": "Genuine checked asserted-origin construction, exact boundary and deferred coverage; no complete-from-genesis upgrade"
+    },
+    {
+      "id": "P3-restore",
+      "status": "UNEXECUTED",
+      "acceptance": "Real accepted execution/installed provenance, private restore and actual SQLite/IDB generation CAS"
+    },
+    {
+      "id": "PDS-and-E1",
+      "status": "UNEXECUTED",
+      "acceptance": "Real reference PDS and full cold/warm 100/1k/10k plus delta 0/1/100, native replay equivalence and full runtime/platform gates"
+    }
+  ]
+}

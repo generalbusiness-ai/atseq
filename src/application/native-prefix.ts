@@ -169,6 +169,48 @@ function identityAt(index: Map<string, number>, key: string, boundary: number): 
   const position = index.get(key);
   return position !== undefined && position <= boundary ? position : null;
 }
+/** Exact retained paths; the caller separately checks the final boundary. */
+async function auditRetainedPaths(repo: AuthenticatedRepo, owner: Owner, boundary: number): Promise<number> {
+  for (let position = 1; position < boundary; position++) {
+    const row = owner.rows[position - 1]!;
+    await membership(repo, nativeEntryPath(owner.anchor.cid, position), row.entryCid);
+  }
+  return Math.max(0, boundary - 1);
+}
+/** Internal negative-only recovery check. Completion neither accepts a prefix nor installs a cursor. */
+export async function assertNativePrefixPreserved(prefix: NativePrefix, repo: AuthenticatedRepo): Promise<void> {
+  const owner = view(prefix).owner,
+    current = owner.current,
+    accepted = view(current),
+    floor = owner.observedFloor,
+    anchor = owner.anchor;
+  assertAuthenticatedRepo(repo);
+  if (repo.did !== anchor.genesis.app) invalid('Recovery repository differs from pinned application');
+  function unchanged(): void {
+    if (owner.contradiction || owner.pendingFault)
+      invalid('Native prefix has exposed contradictory interpretation evidence');
+    if (owner.current !== current || owner.observedFloor !== floor)
+      invalid('Native prefix knowledge changed while checking preservation');
+  }
+  unchanged();
+  const genesis = await membership(repo, nativeGenesisPath(anchor.cid), anchor.cid);
+  if (!sameBytes(genesis.bytes, encodeBlock(anchor.genesis))) invalid('Published genesis differs from external pin');
+  const rawHead = await membership(repo, nativeHeadPath(anchor.cid)),
+    head = await readNativeHead(decodeBlock(rawHead.bytes), anchor);
+  if (head.position < Math.max(accepted.head.position, floor.position))
+    invalid('Selected native head lowers known application floor');
+  if (
+    (head.position === accepted.head.position && head.entry.$link !== accepted.head.entry.$link) ||
+    (head.position === floor.position && head.entry.$link !== floor.entry)
+  )
+    invalid('Selected native head changes known application floor');
+  if (accepted.head.position)
+    await membership(repo, nativeEntryPath(anchor.cid, accepted.head.position), accepted.head.entry.$link);
+  if (floor.position && floor.position !== accepted.head.position)
+    await membership(repo, nativeEntryPath(anchor.cid, floor.position), floor.entry);
+  await auditRetainedPaths(repo, owner, accepted.head.position);
+  unchanged();
+}
 async function stageRows(target: View, base: View | null, maximumDelta = 10_000): Promise<Extension> {
   if (!Number.isSafeInteger(maximumDelta) || maximumDelta < 0) invalid('Invalid native prefix delta budget');
   const owner = target.owner,
@@ -204,12 +246,9 @@ async function stageRows(target: View, base: View | null, maximumDelta = 10_000)
     base &&
     (target.repo.rev < base.repo.rev || (target.repo.rev === base.repo.rev && target.repo.root !== base.repo.root))
   ) {
-    for (let position = 1; position < start; position++) {
-      const row = owner.rows[position - 1]!;
-      await membership(target.repo, nativeEntryPath(anchor.cid, position), row.entryCid);
-      counts.reusedEntries++;
-      counts.publicationLookups++;
-    }
+    const audited = await auditRetainedPaths(target.repo, owner, start);
+    counts.reusedEntries += audited;
+    counts.publicationLookups += audited;
   }
   const rows: Row[] = [],
     requests = new Set<string>(),

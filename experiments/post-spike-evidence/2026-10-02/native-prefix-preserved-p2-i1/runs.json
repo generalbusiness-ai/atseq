@@ -1,0 +1,194 @@
+{
+  "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+  "platform": "Darwin",
+  "machine": "arm64",
+  "runs": [
+    {
+      "kind": "source",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node": "v22.19.0",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-prefix-preserved.test.ts",
+        "tests/native-prefix.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PRESERVED_CAPTURE_DIR": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-source",
+        "ATSEQ_NATIVE_PREFIX_CAPTURE_DIR": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/r1-source",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/.atseq-local/p2-i1-attempts/r1-prefix.json"
+      },
+      "log": "node22/source.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:17.565610+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "preserved-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node": "v22.19.0",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "experiments/native-prefix-preserved/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PRESERVED_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-source/fixture.json",
+        "ATSEQ_NATIVE_PRESERVED_COMPILED_CAPTURE": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-emitted.json"
+      },
+      "log": "node22/preserved-emitted.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:20.697777+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "r1-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node": "v22.19.0",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/.atseq-local/p2-i1-attempts/r1-prefix.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/r1-emitted.json"
+      },
+      "log": "node22/r1-emitted.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:21.674474+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "source",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node": "v24.21.0",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-prefix-preserved.test.ts",
+        "tests/native-prefix.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PRESERVED_CAPTURE_DIR": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/preserved-source",
+        "ATSEQ_NATIVE_PREFIX_CAPTURE_DIR": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/r1-source",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/.atseq-local/p2-i1-attempts/r1-prefix.json",
+        "ATSEQ_NATIVE_PRESERVED_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-source/fixture.json"
+      },
+      "log": "node24/source.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:24.122631+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "preserved-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node": "v24.21.0",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "experiments/native-prefix-preserved/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PRESERVED_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/preserved-source/fixture.json",
+        "ATSEQ_NATIVE_PRESERVED_COMPILED_CAPTURE": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/preserved-emitted.json"
+      },
+      "log": "node24/preserved-emitted.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:27.948584+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "r1-emitted",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node": "v24.21.0",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/.atseq-local/p2-i1-attempts/r1-prefix.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node24/r1-emitted.json"
+      },
+      "log": "node24/r1-emitted.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:29.098180+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "source",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-prefix-preserved.test.ts",
+        "tests/native-prefix.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PRESERVED_CAPTURE_DIR": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/preserved-source",
+        "ATSEQ_NATIVE_PREFIX_CAPTURE_DIR": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/r1-source",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/.atseq-local/p2-i1-attempts/r1-prefix.json",
+        "ATSEQ_NATIVE_PRESERVED_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-source/fixture.json"
+      },
+      "log": "node26/source.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:32.068767+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "preserved-emitted",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "experiments/native-prefix-preserved/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PRESERVED_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/preserved-source/fixture.json",
+        "ATSEQ_NATIVE_PRESERVED_COMPILED_CAPTURE": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/preserved-emitted.json"
+      },
+      "log": "node26/preserved-emitted.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:35.772518+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "r1-emitted",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/.atseq-local/p2-i1-attempts/r1-prefix.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node26/r1-emitted.json"
+      },
+      "log": "node26/r1-emitted.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:37.019745+00:00",
+      "exitCode": 0
+    },
+    {
+      "kind": "chromium",
+      "executable": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "node": "v26.10.0",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-prefix-preserved-browser.test.ts",
+        "tests/native-prefix-browser.test.ts"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_PRESERVED_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix-preserved-p2-i1/node22/preserved-source/fixture.json",
+        "ATSEQ_NATIVE_PREFIX_FIXTURE_PATH": "/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/.atseq-local/p2-i1-attempts/r1-prefix.json"
+      },
+      "log": "node26/chromium.log",
+      "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "started": "2026-10-02T14:07:39.721747+00:00",
+      "exitCode": 0
+    }
+  ]
+}
