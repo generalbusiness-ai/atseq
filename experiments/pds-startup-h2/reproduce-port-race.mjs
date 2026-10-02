@@ -55,6 +55,7 @@ async function probe(path, expectRace) {
     if (expectRace) {
       assert.equal(observation, 'competitor acquired released port');
       assert.match(failure?.message ?? '', /Official PDS exited during startup.*EADDRINUSE/s);
+      console.log(failure.message);
       console.log('Baseline: actual competitor took the released port; official PDS startup failed with EADDRINUSE.');
     } else {
       assert.equal(failure, undefined);
