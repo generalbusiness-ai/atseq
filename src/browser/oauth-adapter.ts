@@ -36,14 +36,24 @@ export async function browserOAuthAdapter(input: BrowserOAuthOptions): Promise<O
   // An existing one requires trusted reset or a newly provisioned custody origin.
   if ((await indexedDB.databases()).some((database) => database.name === '@atproto-oauth-client'))
     throw new AtseqError('origin', 'OAuth custody requires explicit origin reset or re-enrolment on a fresh origin');
-  const { OAuthClient, WebcryptoKey } = await import('@atproto/oauth-client-browser');
-  const custody = new BrowserOAuthCustody(WebcryptoKey);
+  let custody: BrowserOAuthCustody | undefined;
+  const owner = () => {
+    if (!custody) throw new AtseqError('input', 'OAuth custody is not initialized');
+    return custody;
+  };
   const adapter = new OAuthAdapter(
     options,
-    custody.transactions,
+    {
+      list: () => owner().transactions.list(),
+      set: (transaction) => owner().transactions.set(transaction),
+      take: (id) => owner().transactions.take(id),
+    },
     lock,
     oauthTransport(globalThis.fetch.bind(globalThis)),
     async (fetch, identityResolver) => {
+      // Import maintained credential machinery only after the shared dependency check.
+      const { OAuthClient, WebcryptoKey } = await import('@atproto/oauth-client-browser');
+      custody = new BrowserOAuthCustody(WebcryptoKey);
       class CustodyClient extends OAuthClient {
         async readApplicationState(callbackState: string) {
           return (await this.stateStore.get(callbackState))?.appState;
@@ -59,8 +69,13 @@ export async function browserOAuthAdapter(input: BrowserOAuthOptions): Promise<O
         runtimeImplementation: custody.runtime(),
       });
     },
-    custody,
+    {
+      prepare: (client) => owner().prepare(client),
+      touch: (did) => owner().touch(did),
+      finish: (client, successful) => owner().finish(client, successful),
+    },
   );
+  await adapter.cleanupCustody();
   // Housekeeping runs only while this shell/document remains active.
   const cleanup = setInterval(() => {
     void adapter.cleanupCustody().catch(() => {

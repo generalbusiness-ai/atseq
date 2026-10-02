@@ -26,10 +26,10 @@ async function environment() {
               builder.onLoad({ filter: /oauth-browser-probe\.ts$/ }, async (args) => {
                 const { readFile } = await import('node:fs/promises');
                 return {
-                  contents: (await readFile(args.path, 'utf8')).replaceAll(
-                    '../../src/browser/',
-                    '../../dist/src/browser/',
-                  ),
+                  contents: (await readFile(args.path, 'utf8'))
+                    .replaceAll('../../src/browser/', '../../dist/src/browser/')
+                    .replaceAll('oauth-loader.ts', 'oauth-loader.js')
+                    .replaceAll('oauth-adapter.ts', 'oauth-adapter.js'),
                   loader: 'ts',
                 };
               });
@@ -611,6 +611,40 @@ test('journal write must commit before any credential read, refresh or resource 
         actualMarkerAbort: true,
         noCredentialDispatchBeforeCommit: true,
         untouchedLiveConsentPreserved: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});
+
+test('subject mismatch cannot allocate another account and resource 401 refresh retains the journal and checks exact scopes', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await e.begin(p);
+    e.fixture.tokenDid = did(1);
+    await assert.rejects(() => e.complete(p, did(1)));
+    assert.equal((await e.rows(p)).accounts.length, 0);
+    e.fixture.tokenDid = OAUTH_DID;
+    await e.enroll(p);
+    const initial = (await e.rows(p)).accounts[0].expiresAt;
+    e.fixture.invalidTokenOnce = true;
+    await p.evaluate(() => (globalThis as any).probe.resource());
+    assert.equal((await e.rows(p)).accounts[0].expiresAt, initial);
+    e.fixture.invalidTokenOnce = true;
+    e.fixture.tokenScope = OAUTH_SCOPE + ' repo:extra';
+    const before = e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic');
+    await assert.rejects(() => p.evaluate(() => (globalThis as any).probe.resource()));
+    assert.equal(e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic'), before + 1);
+    assert.equal((await e.rows(p)).accounts.length, 0);
+    console.log(
+      JSON.stringify({
+        custodyCase: 'subject-and-401',
+        foreignSubjectNeverAllocated: true,
+        implicitRefreshJournalRetained: true,
+        consentNotExtended: true,
+        changedScopeRefusedBeforeSecondResourceDispatch: true,
       }),
     );
   } finally {
