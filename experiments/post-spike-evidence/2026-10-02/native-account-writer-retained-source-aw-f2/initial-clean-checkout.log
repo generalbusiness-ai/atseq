@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/private/tmp/atseq-aw-retained-source-initial-clean-20261002/experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/verify-results.py", line 13, in <module>
+    data = (root / item['path']).read_bytes()
+  File "/opt/homebrew/Cellar/python@3.14/3.14.8/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.8/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/atseq-aw-retained-source-initial-clean-20261002/experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-client.js'

@@ -1,0 +1,21 @@
+{
+  "startedUTC": "2026-10-02T18:38:46.131409+00:00",
+  "seconds": 0.05633337498875335,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/verify-results.py"
+  ],
+  "cwd": "/private/tmp/atseq-aw-retained-source-initial-clean-20261002",
+  "head": "ea30f527fe33c30f012cd5c4e3f76736819cd333",
+  "exit": 1,
+  "initialClean": true,
+  "ignoredRetainedFilesPresent": 0,
+  "installedDependenciesPresent": false,
+  "python": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "pythonBinary": "/opt/homebrew/Cellar/python@3.14/3.14.8/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+  "pythonBinarySha256": "7ebde552773a4045532637b114d645a313e045ac07b26f5e520bf039f1e34063",
+  "gitVersion": "git version 2.54.0 (Apple Git-157)",
+  "gitBinary": "/usr/bin/git",
+  "gitBinarySha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+  "verifierSha256": "3144a697e57649b0a484c779bec48893f8757a473052edf1fca58a71a10b8339"
+}

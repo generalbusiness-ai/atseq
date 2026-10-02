@@ -1,0 +1,2988 @@
+{
+  "format": "atseq-account-writer-complete-git-delivery",
+  "version": 1,
+  "originalHead": "ea30f527fe33c30f012cd5c4e3f76736819cd333",
+  "programmeBase": "5006a5c6489ce348944a85d158dfe89fd979099c",
+  "sourceProducer": "16f36988179a0ccacf1189eeb7b2b0e3453d6836",
+  "request": "b8d9ec1eab341d9fd412d527b001917404d82d33",
+  "promise": "3baf258ad443641e4d1323c27c8fa4721ad4030c",
+  "counts": {
+    "originalChangedGitPaths": 394,
+    "originalManifestPins": 392,
+    "formerlyIgnoredRetainedFiles": 17,
+    "additiveCorrectionFiles": 13,
+    "completeDeliveryPaths": 424
+  },
+  "originalChangedPathsOutsideOldManifest": [
+    "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/manifest.json",
+    "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/verify.stdout.log",
+    "notes/2026-10-02-atseq-native-account-writer-mint-scope-question.md",
+    "src/host/pds.ts",
+    "src/protocol/oauth.ts",
+    "src/transport/api.ts",
+    "src/transport/native-account-writer.ts",
+    "src/transport/pds-operations.ts",
+    "tests/native-account-writer-browser.test.ts",
+    "tests/native-account-writer-dispatch.test.ts",
+    "tests/native-account-writer-handoff.test.ts",
+    "tests/native-account-writer.test.ts",
+    "tests/support/native-account-writer-browser-probe.ts",
+    "tests/support/native-account-writer-byte-observation.ts",
+    "tests/support/native-account-writer-corpus.ts",
+    "tests/support/native-account-writer-fixture.ts",
+    "tests/support/native-account-writer-native-batch.ts",
+    "tests/support/native-account-writer-node-probe.ts",
+    "tests/support/native-account-writer-pds-probe.ts"
+  ],
+  "gitClosedSelfReferences": [
+    "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/delivery-inventory.json",
+    "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/clean-checkout-results.json",
+    "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/old-verifier.log",
+    "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/new-verifier.log"
+  ],
+  "selfReferenceTreatment": "Exact bytes of these four paths are checked against frozen HEAD Git blobs and recorded in the external full ready inventory; hashes are intentionally not recursive.",
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-input-pins.json",
+      "classification": "original changed Git path",
+      "bytes": 1891,
+      "sha256": "56e57d291b623249d8275def54021dc260530a33dd95c3c888ce51b5a7cbcc2d",
+      "originalGitBlob": "c7ce6d052ce51cf0447d546fa48aa929b8fc19ab"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/design-vectors.json",
+      "classification": "original changed Git path",
+      "bytes": 7500,
+      "sha256": "9da94c6b5f7cb33e0a537ae474cd258f002d7dcc8c60e9e09ebfd7032bfe78c6",
+      "originalGitBlob": "2f2525570d4687e16eeacfe9eefd07fa98edfa63"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/handoff-vectors.json",
+      "classification": "original changed Git path",
+      "bytes": 2491,
+      "sha256": "d71864fb0ed9eed64cb091d8de323ed64819f203ae497a0bcf45f09649d10d1c",
+      "originalGitBlob": "ae201d9a8bc69e73be3480bf480f1d1a639abde3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/recovery-vectors.json",
+      "classification": "original changed Git path",
+      "bytes": 5778,
+      "sha256": "cc8ec8851b879114facc5a2cc6720991c7231ca195604f12cde712b6b5846b30",
+      "originalGitBlob": "738a572841fc6030e29ea917ac40a59ba4e440bd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/adopted-inputs/resource-vectors.json",
+      "classification": "original changed Git path",
+      "bytes": 5267,
+      "sha256": "7d1ee4c933fc86f9804b0e87bf7fba2a012241f148623518437d9e38e8decd89",
+      "originalGitBlob": "ae36fbff3a9a3123f4ac85ea353063618a43143f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle-pins.json",
+      "classification": "original changed Git path",
+      "bytes": 523114,
+      "sha256": "d8aeff36cc17f3f347bad817025ae0a3497aecbc8b482b8af050bc63435871eb",
+      "originalGitBlob": "9b1b71f09f351ced2ef50573bec3e8d2b5cb3b8d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/chunk-4UJAH5YT.js",
+      "classification": "original changed Git path",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736",
+      "originalGitBlob": "d2ec0f94eb74fd9ca83695cf49ab4197900982cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/chunk-CZ7CSFO4.js",
+      "classification": "original changed Git path",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01",
+      "originalGitBlob": "a9399b69a9b80bc90d2a2f2f5fb1fd413d2d4065"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/chunk-WK77AKTB.js",
+      "classification": "original changed Git path",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159",
+      "originalGitBlob": "c5354fd5bf49f8e8aaf8c3c89d9160fd50e2250e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/dist-Q6ZHUMY6.js",
+      "classification": "original changed Git path",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8",
+      "originalGitBlob": "895785dc4deb7092bb7ad2f17b8cae0ec40f2267"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/oauth-adapter-J4P7XZDC.js",
+      "classification": "original changed Git path",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94",
+      "originalGitBlob": "91f4ccf438c509f0963fb4f35996087b0c616f26"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node22/bundle/writer.js",
+      "classification": "original changed Git path",
+      "bytes": 195489,
+      "sha256": "e14ce758670b51ed18460351716012489867a8c367e44efe8491ecb3e4204a84",
+      "originalGitBlob": "8dd7df45bb3f90fdeb366c307afaf7cb7dc0ef2c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle-pins.json",
+      "classification": "original changed Git path",
+      "bytes": 523114,
+      "sha256": "f516fe389b1bf1a7b06ae5a5665980d2d1d78f351f5973bfce2ddcc3427bac16",
+      "originalGitBlob": "75aa84c685faaccf580582464a8a4ad3b41a8251"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/chunk-4UJAH5YT.js",
+      "classification": "original changed Git path",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736",
+      "originalGitBlob": "d2ec0f94eb74fd9ca83695cf49ab4197900982cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/chunk-CZ7CSFO4.js",
+      "classification": "original changed Git path",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01",
+      "originalGitBlob": "a9399b69a9b80bc90d2a2f2f5fb1fd413d2d4065"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/chunk-WK77AKTB.js",
+      "classification": "original changed Git path",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159",
+      "originalGitBlob": "c5354fd5bf49f8e8aaf8c3c89d9160fd50e2250e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/dist-Q6ZHUMY6.js",
+      "classification": "original changed Git path",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8",
+      "originalGitBlob": "895785dc4deb7092bb7ad2f17b8cae0ec40f2267"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/oauth-adapter-J4P7XZDC.js",
+      "classification": "original changed Git path",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94",
+      "originalGitBlob": "91f4ccf438c509f0963fb4f35996087b0c616f26"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node24/bundle/writer.js",
+      "classification": "original changed Git path",
+      "bytes": 195489,
+      "sha256": "bfa3de0e4de146c46babac507c59c1769a700145d4ac200e1a77f210c5ddb5e5",
+      "originalGitBlob": "65cb6e7a702acb524d4ae7a7b767b177d45ff144"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle-pins.json",
+      "classification": "original changed Git path",
+      "bytes": 523114,
+      "sha256": "aa2f4d0405a6b2804fb06a44bfaa369f814e47100f04055124efbc0191d0c96b",
+      "originalGitBlob": "ad8ecd02a85f5242ce406aeea3df4d3a28a29265"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/chunk-4UJAH5YT.js",
+      "classification": "original changed Git path",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736",
+      "originalGitBlob": "d2ec0f94eb74fd9ca83695cf49ab4197900982cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/chunk-CZ7CSFO4.js",
+      "classification": "original changed Git path",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01",
+      "originalGitBlob": "a9399b69a9b80bc90d2a2f2f5fb1fd413d2d4065"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/chunk-WK77AKTB.js",
+      "classification": "original changed Git path",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159",
+      "originalGitBlob": "c5354fd5bf49f8e8aaf8c3c89d9160fd50e2250e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/dist-Q6ZHUMY6.js",
+      "classification": "original changed Git path",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8",
+      "originalGitBlob": "895785dc4deb7092bb7ad2f17b8cae0ec40f2267"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/oauth-adapter-J4P7XZDC.js",
+      "classification": "original changed Git path",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94",
+      "originalGitBlob": "91f4ccf438c509f0963fb4f35996087b0c616f26"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-16f-node26/bundle/writer.js",
+      "classification": "original changed Git path",
+      "bytes": 195489,
+      "sha256": "c8ce85829e75130fe24d50d2939656e892e67c0268f556b7367f14051b8c8389",
+      "originalGitBlob": "1ac0e737694b07e78536cfc304fdb723ed459ce3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle-pins.json",
+      "classification": "original changed Git path",
+      "bytes": 523114,
+      "sha256": "aa2f4d0405a6b2804fb06a44bfaa369f814e47100f04055124efbc0191d0c96b",
+      "originalGitBlob": "ad8ecd02a85f5242ce406aeea3df4d3a28a29265"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/chunk-4UJAH5YT.js",
+      "classification": "original changed Git path",
+      "bytes": 121227,
+      "sha256": "05675dd62c1375c1d92056464d66c099c8f6c4c2724932c2cba34b2bd9e4e736",
+      "originalGitBlob": "d2ec0f94eb74fd9ca83695cf49ab4197900982cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/chunk-CZ7CSFO4.js",
+      "classification": "original changed Git path",
+      "bytes": 1549,
+      "sha256": "0638f4510b6c8992fea95bfddbbccf9f3c9b2931a09bc893ef2511320ff0fc01",
+      "originalGitBlob": "a9399b69a9b80bc90d2a2f2f5fb1fd413d2d4065"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/chunk-WK77AKTB.js",
+      "classification": "original changed Git path",
+      "bytes": 763599,
+      "sha256": "70bee60b740fa299639247d65c6e7455673f825532bc3463fe173f62c6f02159",
+      "originalGitBlob": "c5354fd5bf49f8e8aaf8c3c89d9160fd50e2250e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/dist-Q6ZHUMY6.js",
+      "classification": "original changed Git path",
+      "bytes": 422565,
+      "sha256": "910364cc1199425b3e44f51a0e496cd963bdd4785028eb325017a148f08d65b8",
+      "originalGitBlob": "895785dc4deb7092bb7ad2f17b8cae0ec40f2267"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/oauth-adapter-J4P7XZDC.js",
+      "classification": "original changed Git path",
+      "bytes": 4537,
+      "sha256": "71d5810de5873f8e573ce4197d917d7ef9b11f51bab630fc01a416f6f3eb6e94",
+      "originalGitBlob": "91f4ccf438c509f0963fb4f35996087b0c616f26"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/browser-persistent-16f-node26/bundle/writer.js",
+      "classification": "original changed Git path",
+      "bytes": 195489,
+      "sha256": "c8ce85829e75130fe24d50d2939656e892e67c0268f556b7367f14051b8c8389",
+      "originalGitBlob": "1ac0e737694b07e78536cfc304fdb723ed459ce3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023",
+      "originalGitBlob": "7d6513547202ba8995765712c333dec931fe1e91"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "originalGitBlob": "dad7e1b48f3269b7acebeedfd1ff6ca68ce6d4d2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "originalGitBlob": "dad7e1b48f3269b7acebeedfd1ff6ca68ce6d4d2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-7ec-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023",
+      "originalGitBlob": "7d6513547202ba8995765712c333dec931fe1e91"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-16f-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "67872050456920a3d934a26410c35a9044f19dc8b40112a1b9ac1e86116a89c8",
+      "originalGitBlob": "9718377f59ffb1f1f8c735bb3aa1a3d61e9c0ea3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-16f-node24.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "3354b05e56e7b552f20b91d5c4db9d3071b8b4df2e607d604d31dbc0a1c1fb95",
+      "originalGitBlob": "06934afc2cdffb1b26c6299dcb01948cee027f36"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "9e46e69767c630a2288d9668f88de94aff0d827a76b763a87dd6d4808b9e85b4",
+      "originalGitBlob": "8784128887d65f64b89744253fdbe2b7683fcab0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/build-provenance-7ec-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "8ea98645d5846b63b589f29b1d08d9470642093410e7df680ec2ddee7a9d18ac",
+      "originalGitBlob": "d48fa6629cf460fb5c46a3af66b8cceeed229248"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-7ec-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-7ec-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/check-7ec-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 2169,
+      "sha256": "fd18fff071efa5cff19ea518eabc661a74203fb2ae720473d1110d42a430f3c7",
+      "originalGitBlob": "5fc05d4984eb030f2bec761015dc85c6e7a0638b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 2169,
+      "sha256": "6f64281fde0ed7997f371d9c0f335c9bd7f27af34173c7db28bf697e4da9d126",
+      "originalGitBlob": "00d7761146b0cd88ce597243f18362be5dd66d81"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 2169,
+      "sha256": "b13e64859b6c15975690a4e62b690569db10642ef99256e6e4421c3911a05ff3",
+      "originalGitBlob": "0e04ec13230ce06615a6a55c8519350dab135e45"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compile-7ec-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 2169,
+      "sha256": "b7b3ce0b2a43a0d2d4155074420e51e0feed4f2cecf49f045cfe9c9de5697313",
+      "originalGitBlob": "0cd9d9a9ab41162c161c93c1ffec64cfefed9cd2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 38398,
+      "sha256": "d746bd42998f4ee3c2a2771e072736398ce8bbfe0cc7f44f743a491bf0da9b40",
+      "originalGitBlob": "725d9daff07f58dcb7c3dbf0338526774e21f2a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 25310,
+      "sha256": "9bf08eeebbb06b60fdd8f41058a151f562cb3c297f490a64c15aa34ff999802c",
+      "originalGitBlob": "47fdc1b1dcb79ecc4eee60c1646d732ab9375cac"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 25322,
+      "sha256": "4f22777b2e847e200ccd9c2fa89bbfe0f3b78006adc629769d49e4aa704002ac",
+      "originalGitBlob": "3e26e606723218f3c5948dcc86e62c4aa09d1449"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-7ec-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 38342,
+      "sha256": "36f8d4ceb7218d94429fd6b7c6257bc57e284728798836f3b14aef021f76897e",
+      "originalGitBlob": "6aead0cc2d158036657e8db6bb4be68a519aaad5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 1504,
+      "sha256": "dbace04ff2fb767097d363e0529035d5329cad8a32b6a9185e388bea9bd27be4",
+      "originalGitBlob": "1495c969029226b4d2850d420d6b8ddc86a6dafe"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 1347,
+      "sha256": "7553741a8ee0ebdeabcf4b8f15c5f006141b8ab858f6a89d7dd446b7265b1c19",
+      "originalGitBlob": "25a63f674012e2b82354e6be8ab5cfb77c8192e0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1347,
+      "sha256": "5e93187f186dd99e474d6cd3b1f65222644fd7a61cebc8cc4012762b821385aa",
+      "originalGitBlob": "040cc2634e81b7888df5c33f082d22727c8d436c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-Chrome-persistent-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1397,
+      "sha256": "262369646a2666c787887045dcaaeb76d11d215c0d2b0a913b6fa05659b5e650",
+      "originalGitBlob": "65c2a80422a952d3e7c9c654f015da28165b7387"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-PDS-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 742,
+      "sha256": "33e4014139e1641bf55ed9d0d7dbbf6b3ca03cf14d72f38089fc56a5d620e73b",
+      "originalGitBlob": "3a902f90e60b192c8f494e58fb47b8a359bd66a5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-PDS-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 742,
+      "sha256": "aad780d49310a169e42241eed6304c38973eb4c5bf4728760340f9bcd33df9b2",
+      "originalGitBlob": "b3ff83d8b194a2d1007aad6b893ddeb35e0dddef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-PDS-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 742,
+      "sha256": "ebfc61524486ff229b3fc90a4b88b93f05354c8bbf7cab20e7e8711cc932f93f",
+      "originalGitBlob": "06ea2b98f3caeb7effacb2c5f0383777dff71927"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-legacy-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 8262,
+      "sha256": "de83749c13419ddea3be3ede315d280a52ca918591017e5e5afe75e985136ed3",
+      "originalGitBlob": "48a40d0077310fae1563cbd30e988a87400c6ad9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-legacy-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 3213,
+      "sha256": "f19402a6f1769b27c22d6d8189f7822b29f5326366481a1d9336a246581a8e57",
+      "originalGitBlob": "af029a2d0f3dc2b69efa4450cf6fdfce7c36abbc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-legacy-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 3220,
+      "sha256": "954de51ce6ef7b961bb411a4bf9a861ab0b43338dac56d1106149906a298c5f9",
+      "originalGitBlob": "963c92adb1850ed0051c7c6376defcf756913c88"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/testdata/apps/fixtures.js",
+      "classification": "original changed Git path",
+      "bytes": 5772,
+      "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50",
+      "originalGitBlob": "5cdf5f40d97abf2417ebb34e280176d789647ebe"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/pds-faults.js",
+      "classification": "original changed Git path",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+      "originalGitBlob": "e59940ff1adbaceaf64282273ecd9c312a6df643"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/writer-child.js",
+      "classification": "original changed Git path",
+      "bytes": 1116,
+      "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82",
+      "originalGitBlob": "9fdecbd34529e2c047c96e23608595a2709d812f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/helpers/writer-process.js",
+      "classification": "original changed Git path",
+      "bytes": 1448,
+      "sha256": "1fb98eb65d0d3ff42c2f012906290a3df106541ff4348f040fada88287823f60",
+      "originalGitBlob": "1f1cba8b7666c9227b8ce4ab938c9c037ad9417b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/host-availability.test.js",
+      "classification": "original changed Git path",
+      "bytes": 15478,
+      "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7",
+      "originalGitBlob": "5ea21f3d25b81bf75846c989ce1bbd04fb9092d1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-browser.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+      "originalGitBlob": "b5c10cc20d87efba1ba6e4e4ba9c1ea3a2da39dd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-dispatch.test.js",
+      "classification": "original changed Git path",
+      "bytes": 6245,
+      "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33",
+      "originalGitBlob": "dbeaf9f4ad924b6828f58c6efe48c36b8a295d2e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer-handoff.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11038,
+      "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921",
+      "originalGitBlob": "110eab55cec6de0980ae8c8bb510eaf97c742d59"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/native-account-writer.test.js",
+      "classification": "original changed Git path",
+      "bytes": 691,
+      "sha256": "64e05ae22d125a92c0bb399f198c1190fcc8b36a1b14c885f1ad95046cef0eea",
+      "originalGitBlob": "298ec4243d04af4305e842c8403732810c77d2fa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-adapter.test.js",
+      "classification": "original changed Git path",
+      "bytes": 4687,
+      "sha256": "8f62e1655b4c0d6d8a09fc828877d6b83ab883a760197a59b22b9afce0c05f9b",
+      "originalGitBlob": "6090398737a1d1fbbdbb52d96b6bdef96af1f762"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-custody-lifecycle.test.js",
+      "classification": "original changed Git path",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+      "originalGitBlob": "ecf86086475a82398c4263a10f61d2a1733d7ca9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/oauth-custody.test.js",
+      "classification": "original changed Git path",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+      "originalGitBlob": "4353ada27127903dfd6c7aac0192ebc1f6506450"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/pds.test.js",
+      "classification": "original changed Git path",
+      "bytes": 28160,
+      "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2",
+      "originalGitBlob": "f3da1c1971c46409a0c0ed51ef9917b1a8a46a6a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/identity-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 18942,
+      "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332",
+      "originalGitBlob": "329f739a8386d46644f11220a0ed7b187429af42"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-browser-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 5839,
+      "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae",
+      "originalGitBlob": "c9e45b5bce04151f896eef80b9b606db6336f08b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-byte-observation.js",
+      "classification": "original changed Git path",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+      "originalGitBlob": "5539ac1b2a29346359a10f0f257ba5012bd9862c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19036,
+      "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1",
+      "originalGitBlob": "c38e32c09da92e87452412204255bc4e1784fd4d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+      "originalGitBlob": "27aa6ac2503f0ae674256521dedf2f9bd250657f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-native-batch.js",
+      "classification": "original changed Git path",
+      "bytes": 2803,
+      "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9",
+      "originalGitBlob": "a1882b6022898949c3fc172fa5aff88765ca4631"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 3375,
+      "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c",
+      "originalGitBlob": "bf9921395c0b152a1fa83f6730821506e1de809d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-account-writer-pds-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 8072,
+      "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f",
+      "originalGitBlob": "f9ecb1ff892ffb75643d22d5f25195674d6fe225"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-application-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 19889,
+      "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db",
+      "originalGitBlob": "333b4ccf7d5d3b8264655a2b7e522fab4148e662"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-authority-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 15535,
+      "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35",
+      "originalGitBlob": "2745f715628b577efa27f3e7ad175e5e4bfef13b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/native-proof-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 29660,
+      "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8",
+      "originalGitBlob": "f54c1c7a2bb619ea489ec9f1e746e4d7620cf1d6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/oauth-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+      "originalGitBlob": "7c3fe01ce97333640b906f22d5a88ec89eb9674c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/oauth-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 15222,
+      "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57",
+      "originalGitBlob": "50bed36e3779b8cee78b017a3fcd27a0177e309a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node22/tests/support/sequencer-service.js",
+      "classification": "original changed Git path",
+      "bytes": 4096,
+      "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd",
+      "originalGitBlob": "09c05806483362ae8089afe3a25f46d7c431b843"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/testdata/apps/fixtures.js",
+      "classification": "original changed Git path",
+      "bytes": 5772,
+      "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50",
+      "originalGitBlob": "5cdf5f40d97abf2417ebb34e280176d789647ebe"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/pds-faults.js",
+      "classification": "original changed Git path",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+      "originalGitBlob": "e59940ff1adbaceaf64282273ecd9c312a6df643"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/writer-child.js",
+      "classification": "original changed Git path",
+      "bytes": 1116,
+      "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82",
+      "originalGitBlob": "9fdecbd34529e2c047c96e23608595a2709d812f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/helpers/writer-process.js",
+      "classification": "original changed Git path",
+      "bytes": 1448,
+      "sha256": "2ee54a5a553dfda994a042a367fefca106ba7d41df116701a9299de7919e7b5e",
+      "originalGitBlob": "8b0d62b0a6c503196a44eac26fa16519b7bb469f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/host-availability.test.js",
+      "classification": "original changed Git path",
+      "bytes": 15478,
+      "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7",
+      "originalGitBlob": "5ea21f3d25b81bf75846c989ce1bbd04fb9092d1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-browser.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+      "originalGitBlob": "b5c10cc20d87efba1ba6e4e4ba9c1ea3a2da39dd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-dispatch.test.js",
+      "classification": "original changed Git path",
+      "bytes": 6245,
+      "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33",
+      "originalGitBlob": "dbeaf9f4ad924b6828f58c6efe48c36b8a295d2e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer-handoff.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11038,
+      "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921",
+      "originalGitBlob": "110eab55cec6de0980ae8c8bb510eaf97c742d59"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/native-account-writer.test.js",
+      "classification": "original changed Git path",
+      "bytes": 691,
+      "sha256": "360c8a9287b19f631a7a07840c3a19102d68528e4e9581bc163294d6de80c8d2",
+      "originalGitBlob": "9e42075c54f3801f9a4d256cc476cdf80d2f4af2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-adapter.test.js",
+      "classification": "original changed Git path",
+      "bytes": 4687,
+      "sha256": "7f8c41e06360bb318c95caf9fd1fc5a0b9a08995a1d005df010da809b56b5f76",
+      "originalGitBlob": "62dddcb26de531317ec99144b93995cc136c8abb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-custody-lifecycle.test.js",
+      "classification": "original changed Git path",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+      "originalGitBlob": "ecf86086475a82398c4263a10f61d2a1733d7ca9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/oauth-custody.test.js",
+      "classification": "original changed Git path",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+      "originalGitBlob": "4353ada27127903dfd6c7aac0192ebc1f6506450"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/pds.test.js",
+      "classification": "original changed Git path",
+      "bytes": 28160,
+      "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2",
+      "originalGitBlob": "f3da1c1971c46409a0c0ed51ef9917b1a8a46a6a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/identity-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 18942,
+      "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332",
+      "originalGitBlob": "329f739a8386d46644f11220a0ed7b187429af42"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-browser-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 5839,
+      "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae",
+      "originalGitBlob": "c9e45b5bce04151f896eef80b9b606db6336f08b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-byte-observation.js",
+      "classification": "original changed Git path",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+      "originalGitBlob": "5539ac1b2a29346359a10f0f257ba5012bd9862c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19036,
+      "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1",
+      "originalGitBlob": "c38e32c09da92e87452412204255bc4e1784fd4d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+      "originalGitBlob": "27aa6ac2503f0ae674256521dedf2f9bd250657f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-native-batch.js",
+      "classification": "original changed Git path",
+      "bytes": 2803,
+      "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9",
+      "originalGitBlob": "a1882b6022898949c3fc172fa5aff88765ca4631"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 3375,
+      "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c",
+      "originalGitBlob": "bf9921395c0b152a1fa83f6730821506e1de809d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-account-writer-pds-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 8072,
+      "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f",
+      "originalGitBlob": "f9ecb1ff892ffb75643d22d5f25195674d6fe225"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-application-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 19889,
+      "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db",
+      "originalGitBlob": "333b4ccf7d5d3b8264655a2b7e522fab4148e662"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-authority-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 15535,
+      "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35",
+      "originalGitBlob": "2745f715628b577efa27f3e7ad175e5e4bfef13b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/native-proof-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 29660,
+      "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8",
+      "originalGitBlob": "f54c1c7a2bb619ea489ec9f1e746e4d7620cf1d6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/oauth-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+      "originalGitBlob": "7c3fe01ce97333640b906f22d5a88ec89eb9674c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/oauth-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 15222,
+      "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57",
+      "originalGitBlob": "50bed36e3779b8cee78b017a3fcd27a0177e309a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node24/tests/support/sequencer-service.js",
+      "classification": "original changed Git path",
+      "bytes": 4096,
+      "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd",
+      "originalGitBlob": "09c05806483362ae8089afe3a25f46d7c431b843"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/testdata/apps/fixtures.js",
+      "classification": "original changed Git path",
+      "bytes": 5772,
+      "sha256": "91187d78b2f8f7bf6aeb64b40d6962395f0d34e31f024aaa4b5476cfe89a7d50",
+      "originalGitBlob": "5cdf5f40d97abf2417ebb34e280176d789647ebe"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/pds-faults.js",
+      "classification": "original changed Git path",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+      "originalGitBlob": "e59940ff1adbaceaf64282273ecd9c312a6df643"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/writer-child.js",
+      "classification": "original changed Git path",
+      "bytes": 1116,
+      "sha256": "edbb8658bae8d1d0774c99e1ccc42eb526888d57a435d9107816584b19243c82",
+      "originalGitBlob": "9fdecbd34529e2c047c96e23608595a2709d812f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/helpers/writer-process.js",
+      "classification": "original changed Git path",
+      "bytes": 1448,
+      "sha256": "ded22c06d8d9bed19d727f2c581f25bdaa2fc6c86ec584e97fd19069855b251f",
+      "originalGitBlob": "b5914ec09052bd7a768004ea72b83126cbffc28d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/host-availability.test.js",
+      "classification": "original changed Git path",
+      "bytes": 15478,
+      "sha256": "fc06f4ceefc934d406422278d284d78b55c53250399d60177494a05e08a65ba7",
+      "originalGitBlob": "5ea21f3d25b81bf75846c989ce1bbd04fb9092d1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-browser.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+      "originalGitBlob": "b5c10cc20d87efba1ba6e4e4ba9c1ea3a2da39dd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-dispatch.test.js",
+      "classification": "original changed Git path",
+      "bytes": 6245,
+      "sha256": "d978c5d069a5ccf7b473b46143d6afc1ed10e4fb5fe6d2bff0636d9bc9fa2e33",
+      "originalGitBlob": "dbeaf9f4ad924b6828f58c6efe48c36b8a295d2e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer-handoff.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11038,
+      "sha256": "4b11a4dfd3713e5c3c27aebc622fd11275f69e51474353035c62e994f4e4d921",
+      "originalGitBlob": "110eab55cec6de0980ae8c8bb510eaf97c742d59"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/native-account-writer.test.js",
+      "classification": "original changed Git path",
+      "bytes": 691,
+      "sha256": "69714bd2808d3c2a9d6eac470e155450f07c6cbf60fbe8605064470a618c6e22",
+      "originalGitBlob": "dd345e0f52035f050f3506193f5f8c34b5d7f356"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-adapter.test.js",
+      "classification": "original changed Git path",
+      "bytes": 4687,
+      "sha256": "6bde46a8307aa65652ff7fa2a6a6fc38eec0c1c0996d687d6c2763a875c196e8",
+      "originalGitBlob": "072f8911eeff8e84710aacb86a61afade44c9fc0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-custody-lifecycle.test.js",
+      "classification": "original changed Git path",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+      "originalGitBlob": "ecf86086475a82398c4263a10f61d2a1733d7ca9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/oauth-custody.test.js",
+      "classification": "original changed Git path",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+      "originalGitBlob": "4353ada27127903dfd6c7aac0192ebc1f6506450"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/pds.test.js",
+      "classification": "original changed Git path",
+      "bytes": 28160,
+      "sha256": "26be9fb08f06d40b86849ea8a4387d275df5615c503c6c29bf7dbd542b603dd2",
+      "originalGitBlob": "f3da1c1971c46409a0c0ed51ef9917b1a8a46a6a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/identity-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 18942,
+      "sha256": "071504a13ec9df92ec9c3bfb8f964247235505ed4066613e4050f1e2c7ae2332",
+      "originalGitBlob": "329f739a8386d46644f11220a0ed7b187429af42"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-browser-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 5839,
+      "sha256": "8b7079fd452b2f2205ea1d227f0ef93f881a56b31526270176b747da015712ae",
+      "originalGitBlob": "c9e45b5bce04151f896eef80b9b606db6336f08b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-byte-observation.js",
+      "classification": "original changed Git path",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+      "originalGitBlob": "5539ac1b2a29346359a10f0f257ba5012bd9862c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19036,
+      "sha256": "9cb916957c14f657a1b975503c26d4f31835fb5c78d9f2ee863ba64794251cf1",
+      "originalGitBlob": "c38e32c09da92e87452412204255bc4e1784fd4d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+      "originalGitBlob": "27aa6ac2503f0ae674256521dedf2f9bd250657f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-native-batch.js",
+      "classification": "original changed Git path",
+      "bytes": 2803,
+      "sha256": "ef3e46fca810fabbedb7aabba1ecb4c01671744629deffaebbc7cafee00bc7d9",
+      "originalGitBlob": "a1882b6022898949c3fc172fa5aff88765ca4631"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 3375,
+      "sha256": "e74b9546a1cd14257698fd55af01303ba6e52bc7d8b721674750eb0e628bcb2c",
+      "originalGitBlob": "bf9921395c0b152a1fa83f6730821506e1de809d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-account-writer-pds-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 8072,
+      "sha256": "242e0eb88ca890ed623e65b3b8f7b4aef2eaad58f07f401c943f62522965f53f",
+      "originalGitBlob": "f9ecb1ff892ffb75643d22d5f25195674d6fe225"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-application-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 19889,
+      "sha256": "2eb475df8edb48a3de7cb174cb035d76cf8b1f96eb57642efe9c8edde954e2db",
+      "originalGitBlob": "333b4ccf7d5d3b8264655a2b7e522fab4148e662"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-authority-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 15535,
+      "sha256": "fbd14012f25fa9e10f2d120fb59e74b5981ccc253ec4b1ecf110cbbd53d76a35",
+      "originalGitBlob": "2745f715628b577efa27f3e7ad175e5e4bfef13b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/native-proof-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 29660,
+      "sha256": "1e8468555dee00cdae70404db8a7dd55d7e94f317282e4ba7bfe8415c0530aa8",
+      "originalGitBlob": "f54c1c7a2bb619ea489ec9f1e746e4d7620cf1d6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/oauth-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+      "originalGitBlob": "7c3fe01ce97333640b906f22d5a88ec89eb9674c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/oauth-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 15222,
+      "sha256": "7b560bcc55d3847fd4e6bb6b6be95071a3a2cdc41484b8c84d2ab0107e6c7e57",
+      "originalGitBlob": "50bed36e3779b8cee78b017a3fcd27a0177e309a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/node26/tests/support/sequencer-service.js",
+      "classification": "original changed Git path",
+      "bytes": 4096,
+      "sha256": "2ffb211a710395b9db2d234a75623b62750d51ea1c1aad744cc0dfee02ebdfbd",
+      "originalGitBlob": "09c05806483362ae8089afe3a25f46d7c431b843"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/testdata/apps/fixtures.js",
+      "classification": "original changed Git path",
+      "bytes": 6028,
+      "sha256": "c099b3ce465be72b45a62d99db9d753af4a027827dbeecdd1db7fefa24ed7c7f",
+      "originalGitBlob": "301b0c5b45045c281468e86ce84169d88857d3ac"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/pds-faults.js",
+      "classification": "original changed Git path",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+      "originalGitBlob": "e59940ff1adbaceaf64282273ecd9c312a6df643"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/writer-child.js",
+      "classification": "original changed Git path",
+      "bytes": 1308,
+      "sha256": "f0ac896e7ddb059c3eb6b424b5eae1c54091b4eeb0dd7b5bab6183dd0a98e65a",
+      "originalGitBlob": "8fe523ea1bf79d9eb34f34caa54191b37039ec93"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/helpers/writer-process.js",
+      "classification": "original changed Git path",
+      "bytes": 1455,
+      "sha256": "58aba8ae258d651c9aab241dbce7c52465163c190e55c81839b53bc62222aac2",
+      "originalGitBlob": "3f1ad951f6cdd83173552cc575bade82cbe9f4eb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/host-availability.test.js",
+      "classification": "original changed Git path",
+      "bytes": 16438,
+      "sha256": "d46cbffe95b6823313f6e009ef4ba64fbefc5de00b78549d4e3b005d0b1bc070",
+      "originalGitBlob": "32154643ec56bcf870c4d4deb48d478eb4a6b5c4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-browser.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+      "originalGitBlob": "b5c10cc20d87efba1ba6e4e4ba9c1ea3a2da39dd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-dispatch.test.js",
+      "classification": "original changed Git path",
+      "bytes": 6437,
+      "sha256": "1ffd5f7daf55f0678c33305824673f9c971ebdfb71230cd920a0c7f2534a1594",
+      "originalGitBlob": "dcff7b665f5c1e3c3a5d9721f3724b2927410ce0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer-handoff.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11230,
+      "sha256": "ffd56c140f10c4dfb5403d865bf679e3de0c7d5bf5f2340e679c898d7fd3ef9f",
+      "originalGitBlob": "3f81b97bae83fa77f78aa14af7d923fab7f3b138"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/native-account-writer.test.js",
+      "classification": "original changed Git path",
+      "bytes": 698,
+      "sha256": "6a82138d1de65624cdbd2b47f42e4b0ec445484d7925c4b13f7795ec4ba8433a",
+      "originalGitBlob": "84456547af05e7b3c1d881e39db4ecc750c6c787"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-adapter.test.js",
+      "classification": "original changed Git path",
+      "bytes": 4822,
+      "sha256": "c2b5b2e62b79e8d70ddf52b6049c0c339ac10b530cd5147e81d095578ce4a1bf",
+      "originalGitBlob": "012f5067538961ec59407f2a0af9b9a772ee764b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-custody-lifecycle.test.js",
+      "classification": "original changed Git path",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+      "originalGitBlob": "ecf86086475a82398c4263a10f61d2a1733d7ca9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/oauth-custody.test.js",
+      "classification": "original changed Git path",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+      "originalGitBlob": "4353ada27127903dfd6c7aac0192ebc1f6506450"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/pds.test.js",
+      "classification": "original changed Git path",
+      "bytes": 28480,
+      "sha256": "374d15f346543b7a976468771efc71078ee1ffedad3f5e85635c1032394a2f17",
+      "originalGitBlob": "6deea72a032528d45afc4998a7f94f3b371f48d5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/identity-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19134,
+      "sha256": "97de7fe6009c671fc17c0aadfadfbbb53acec25d0cbf5184dc3d986d43ced466",
+      "originalGitBlob": "c12b8369a68666b8ee19098cc10fa74fbad2f096"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-browser-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 6095,
+      "sha256": "673951ea407f547db3c1918c612be985e252e4cb1b6f2e524e52f78739f7f02f",
+      "originalGitBlob": "da3cc5993eb17e31313fe28934ef1dd95d37a2e9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-byte-observation.js",
+      "classification": "original changed Git path",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+      "originalGitBlob": "5539ac1b2a29346359a10f0f257ba5012bd9862c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19292,
+      "sha256": "bdb2e425883369e1281f596f8a6cf570dfc1c8ca55459e68409afa85b5d6cf81",
+      "originalGitBlob": "71841ecd2b62f5872680a669eaecad7c79ff83a9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+      "originalGitBlob": "27aa6ac2503f0ae674256521dedf2f9bd250657f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-native-batch.js",
+      "classification": "original changed Git path",
+      "bytes": 2995,
+      "sha256": "44fe4c0bc37037e156615f45c1b863d3433628467e44a1320c1f2c486534de33",
+      "originalGitBlob": "74ff719c6e93523c48c760399374211337abafb7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 3567,
+      "sha256": "5c5c22badc018d3b4d6c7d186e06ccaaa5e3944369694418f84af5c5d8144984",
+      "originalGitBlob": "601a62acadf11f713e8b15064819c219b7331155"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-account-writer-pds-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 8264,
+      "sha256": "b991aa748f42d78e09b098e80927a39ae78aa1daed3221ece8ac59dd042d7a20",
+      "originalGitBlob": "e8f609d1ad3fa3e6d3f25c8cce23a39fd9aec3db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-application-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 20465,
+      "sha256": "f7dc25109110f555388ea749cdae7304828c0147984e73470b373d58f6d4ad5f",
+      "originalGitBlob": "474006ed21755fbd4c8daa5c993f106c5b48dc8b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-authority-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 16175,
+      "sha256": "bad9d71c41e08f4b0d2fda7deafc0aa9fbb50162e38deb9014f30ab67985d183",
+      "originalGitBlob": "301fcc6a9b2811ffb983b251e6b518fe91c21fb7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/native-proof-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 29852,
+      "sha256": "603cfde92733390caecfd2e695893800cd379e473674512ebb078a757cfd3573",
+      "originalGitBlob": "6dcaa572a61bb3e953b89b8abbece24bd66071c3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/oauth-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+      "originalGitBlob": "7c3fe01ce97333640b906f22d5a88ec89eb9674c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/oauth-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 15414,
+      "sha256": "8b79b44bda5b01a5f6fcddffaaa1f420100f3bb35f77e08d48d925f2a3696195",
+      "originalGitBlob": "16a9be06b4608ac35a584bccb96d924a2ab82b7a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node22/tests/support/sequencer-service.js",
+      "classification": "original changed Git path",
+      "bytes": 4416,
+      "sha256": "3fd60d5ed61488f4481b0ecb5cd7237e8512a888a8865a649d891871fd2df91b",
+      "originalGitBlob": "f1d0f9055fcf30013fc0c7805680b9812f982905"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/testdata/apps/fixtures.js",
+      "classification": "original changed Git path",
+      "bytes": 6028,
+      "sha256": "1e71cac2a7cc7f0d4ae36efaf5d016ed12536d8d443d1bbb96cb54e4c2c14212",
+      "originalGitBlob": "9f522f6ec8f290eeaec7b0663be63f2813e3b8c3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/pds-faults.js",
+      "classification": "original changed Git path",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+      "originalGitBlob": "e59940ff1adbaceaf64282273ecd9c312a6df643"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/writer-child.js",
+      "classification": "original changed Git path",
+      "bytes": 1308,
+      "sha256": "bb89cdeeb4946ad844d1a8203321c054ae04f92f19b071b20a777a3670b49748",
+      "originalGitBlob": "406e51b9bf50afd6459e1dc382a5f647479ca008"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/helpers/writer-process.js",
+      "classification": "original changed Git path",
+      "bytes": 1455,
+      "sha256": "16f4ac5b83539d040377c85b16d04f3e422ee4bffeeab19ef362b66fb4e6afce",
+      "originalGitBlob": "bf8d33e70e655e8c908cc2056f35bb56fdbac96e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/host-availability.test.js",
+      "classification": "original changed Git path",
+      "bytes": 16438,
+      "sha256": "3507122ec9a2b184810d290c8d15137be0a161e565abdf4dc427cbc7c55c4da4",
+      "originalGitBlob": "dd3c57f128a44e7f2b033962ddd6a33c1325bdd9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-browser.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+      "originalGitBlob": "b5c10cc20d87efba1ba6e4e4ba9c1ea3a2da39dd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-dispatch.test.js",
+      "classification": "original changed Git path",
+      "bytes": 6437,
+      "sha256": "5c54021eb40e1b0ca97720aeef2fb9f69da02158bcfd4e540783a3500aa72308",
+      "originalGitBlob": "946f05eba6008430bf1abf28da6f14eb7486ff5f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer-handoff.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11230,
+      "sha256": "e42884f37b7edfb0a392497d773dcf3f3589d2cd65ebde54440ce31e58fc419d",
+      "originalGitBlob": "a35c03cb2588c9014e6f6323fc7f09ba878e43d8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/native-account-writer.test.js",
+      "classification": "original changed Git path",
+      "bytes": 698,
+      "sha256": "a3c0dafa10b618299a6929744251b491e6659430a4582513e4c36ce793575aa0",
+      "originalGitBlob": "0edb234ec5a6ce0ea35bd831b314889f7be97d56"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-adapter.test.js",
+      "classification": "original changed Git path",
+      "bytes": 4822,
+      "sha256": "bb80d6ffd561c826d45991d9ce0fac52974bbba71f505314bfb10d2bfbddea18",
+      "originalGitBlob": "1a61dcf0da836389dcbdf5cf8afa238a1f26edac"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-custody-lifecycle.test.js",
+      "classification": "original changed Git path",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+      "originalGitBlob": "ecf86086475a82398c4263a10f61d2a1733d7ca9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/oauth-custody.test.js",
+      "classification": "original changed Git path",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+      "originalGitBlob": "4353ada27127903dfd6c7aac0192ebc1f6506450"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/pds.test.js",
+      "classification": "original changed Git path",
+      "bytes": 28480,
+      "sha256": "51e22d502e322353d94434add9d393e2ef94514a624e0e8e0df56a0630383943",
+      "originalGitBlob": "296c454229fee460a969a90887186bba034003a5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/identity-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19134,
+      "sha256": "11f56a42c31d04e1c78628e19a92bd98af4f52019d82caac1eeddd8305a9133a",
+      "originalGitBlob": "71cb571e42f932d41eae725d058b57d8ebb71599"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-browser-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 6095,
+      "sha256": "26e40714f3e4c864a7d13ecf28e5a8c5d5089416936a36dccc214c53a85848af",
+      "originalGitBlob": "bc7ab23987ebdc052ea36309e4d6549a88698219"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-byte-observation.js",
+      "classification": "original changed Git path",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+      "originalGitBlob": "5539ac1b2a29346359a10f0f257ba5012bd9862c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19292,
+      "sha256": "dea64119d4a92c877b5c69142ef59424cdc37dcc04b61be6938df8968e3714a7",
+      "originalGitBlob": "b483f45a067dc0b16f5fb0158f25b05e92e0b459"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+      "originalGitBlob": "27aa6ac2503f0ae674256521dedf2f9bd250657f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-native-batch.js",
+      "classification": "original changed Git path",
+      "bytes": 2995,
+      "sha256": "11fe8e19d10c921768c025aecba0d18979ef5bfa6c2ccea292f5d16246cf1ad3",
+      "originalGitBlob": "bf21fa58cea48df1d878d18d232deb030fb2abe9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 3567,
+      "sha256": "68171c31272623bd89017da4df3e1488ac837607af40b53bf0f4ab60d6a23d3b",
+      "originalGitBlob": "0b819020d3b68ad18b643c41bdfb91737dd34d1b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-account-writer-pds-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 8264,
+      "sha256": "2cd60ff91ab3a6a2c7cea3a527648432bfcbf678923d6bae4a7079e7c772648a",
+      "originalGitBlob": "b8aaaa72ec9730c08defc4c6926c50dd439af71b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-application-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 20465,
+      "sha256": "45d9ab7994e4d5457151950f4c6ab1cdef4556ed21ba8131d730c84ff0f06602",
+      "originalGitBlob": "4406d5cce32435aec0de62dfdbf1fb01accbbd2f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-authority-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 16175,
+      "sha256": "ff9ee6ef785ee1d63e2959137fe4c8cb7aebcdb1cc6fab98706b68b74a1a52cc",
+      "originalGitBlob": "c855e54dfab875924c545974d03303f03e19ecbb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/native-proof-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 29852,
+      "sha256": "63150850599040a54e499d8820119889ff623af9171c80f0ea03b73ccef81f7a",
+      "originalGitBlob": "8359b9c57d2e3f3974890f4eb47ce515cc2af2cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/oauth-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+      "originalGitBlob": "7c3fe01ce97333640b906f22d5a88ec89eb9674c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/oauth-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 15414,
+      "sha256": "86fca5ddcb175cf7b94abc7b8da6c637fcec35622a4a666bad8276b67352b911",
+      "originalGitBlob": "6d093c31046964ccd9b5778bfed97c95e2fe22b8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node24/tests/support/sequencer-service.js",
+      "classification": "original changed Git path",
+      "bytes": 4416,
+      "sha256": "7f462052a6e89bd78f66b3bf2e9d9959dbd0ede28b1a33c4765cc2a5bff0a9c4",
+      "originalGitBlob": "d9ea894b08159d57b1813b4129d6185a3e73112b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/testdata/apps/fixtures.js",
+      "classification": "original changed Git path",
+      "bytes": 6028,
+      "sha256": "ed1e03135d6f7fb1f698abee11a1ff07c6416a289d88ae85a3ece862eda10c78",
+      "originalGitBlob": "9366c2d702d66791e0f1a1af08c8256af3eceeec"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/pds-faults.js",
+      "classification": "original changed Git path",
+      "bytes": 2700,
+      "sha256": "fae84438bb43da64f34d96e2b82765d80203a5ade5e92e6a08f4d676dc3885ef",
+      "originalGitBlob": "e59940ff1adbaceaf64282273ecd9c312a6df643"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/writer-child.js",
+      "classification": "original changed Git path",
+      "bytes": 1308,
+      "sha256": "067bccdedb9c751da2674bb94cce7cf8c6a58214d3c8a6698414b176ac35e282",
+      "originalGitBlob": "6afa65c6dff23a5a9aa0c44c418c358ea58f3cd4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/helpers/writer-process.js",
+      "classification": "original changed Git path",
+      "bytes": 1455,
+      "sha256": "0483df57cb5c18756b3c969f08e0ac4f84ba81ec352d37f71d35f6407fac0d55",
+      "originalGitBlob": "1a7f9c7a908f293f83dbeb1ec35c0360d3c49a80"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/host-availability.test.js",
+      "classification": "original changed Git path",
+      "bytes": 16438,
+      "sha256": "30e1d71470fe26284b8c2255c671601117ecc53e311a91c5c15b65c170f8a5d2",
+      "originalGitBlob": "a2738ef79b561b74f56d6ba03f8f895769e82302"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-browser.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11851,
+      "sha256": "df1fdac0d48b5d93564255757faa1e1d5304b0570e7e3ab0ed8c875d1b96abb2",
+      "originalGitBlob": "b5c10cc20d87efba1ba6e4e4ba9c1ea3a2da39dd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-dispatch.test.js",
+      "classification": "original changed Git path",
+      "bytes": 6437,
+      "sha256": "3cf7ac7d1a834a466dc212509051b596561855550a120c045b208abc8e1de90b",
+      "originalGitBlob": "c07cbd02a7bd3d5ec5f6930766f25aca4ecd0278"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer-handoff.test.js",
+      "classification": "original changed Git path",
+      "bytes": 11230,
+      "sha256": "e2631bc09993f4c34b72ec62248ef9eafed01007c13b28cb893256a4e27565f1",
+      "originalGitBlob": "75160c481abc18190ae6c7f9e32b7042d99d58a3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/native-account-writer.test.js",
+      "classification": "original changed Git path",
+      "bytes": 698,
+      "sha256": "1c52272e7c88805be1e1f00f3f0db456ee83a69660ec7d07e2134f52b7cfd119",
+      "originalGitBlob": "c29bcdef69067eabb9be1a1aa4228af5c554f50a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-adapter.test.js",
+      "classification": "original changed Git path",
+      "bytes": 4822,
+      "sha256": "092f9c3a0260d0f7cd4888ae7676304746be6736b13788718390c1076f8d1927",
+      "originalGitBlob": "332f4d421c0bed0523b3fca51c7677dac20e80b9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-custody-lifecycle.test.js",
+      "classification": "original changed Git path",
+      "bytes": 9932,
+      "sha256": "2eb54ce9dddb201358eaa0d57e941f68da0aa12e31b050bb30583c04eaf53230",
+      "originalGitBlob": "ecf86086475a82398c4263a10f61d2a1733d7ca9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/oauth-custody.test.js",
+      "classification": "original changed Git path",
+      "bytes": 49265,
+      "sha256": "7ff9035b9e57a3dc82bac35a040ef7eab8f28e328a27fae2a0bf29df9e446467",
+      "originalGitBlob": "4353ada27127903dfd6c7aac0192ebc1f6506450"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/pds.test.js",
+      "classification": "original changed Git path",
+      "bytes": 28480,
+      "sha256": "8c7449f4f017d3c638849927780403b709717e154b08ae43973c957a349c7b2c",
+      "originalGitBlob": "c6689dbfbb0a0dbad89753216c9f0d6b526eab32"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/identity-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19134,
+      "sha256": "14c4f6240aad558c9d516868d3aaab2007c4a4b5a194f23d5e2622068daf894a",
+      "originalGitBlob": "5d55e811f68b7334b85b5ddc733e5cef8926df27"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-browser-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 6095,
+      "sha256": "cda3b79f8744abccde01c2c579af3dcc06a464b03e587299d3be9d729da0c841",
+      "originalGitBlob": "335cad930e4a8a96f3484f5b916d0e9f0db13bf4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-byte-observation.js",
+      "classification": "original changed Git path",
+      "bytes": 958,
+      "sha256": "f9406632317d2b2678c4e6bcae6713216f8d0d57557d9908ee812ef450273bc4",
+      "originalGitBlob": "5539ac1b2a29346359a10f0f257ba5012bd9862c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 19292,
+      "sha256": "96fe1a5995623145dcf257b653625c6f63a56d900f76cd4cc6d884d80ad571bc",
+      "originalGitBlob": "828ff06a1fe7bee9f0770d2020f91d5c402b5394"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 4709,
+      "sha256": "4417d3ad3c8060b5aa38745305df6ec5a68708e6405e866f6d26d0797348f39d",
+      "originalGitBlob": "27aa6ac2503f0ae674256521dedf2f9bd250657f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-native-batch.js",
+      "classification": "original changed Git path",
+      "bytes": 2995,
+      "sha256": "72d6f7ad983ad68a0308c74b6c22142ba5fa7b904eb5aae248d399fdba9182c4",
+      "originalGitBlob": "481e17693e87a10b1768a9174aef2fc1ad46b68b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 3567,
+      "sha256": "1fcbb2cd2f1f96423377f637ff922556e5e52a532c2b14a0835189f323e8c494",
+      "originalGitBlob": "7164c8814a327a5edfc7ffe75951bc6171b093ec"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-account-writer-pds-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 8264,
+      "sha256": "4ca2cac912ba1c967d167d1ca03f321f6e338971d0a233c1e8367056437f0493",
+      "originalGitBlob": "d8675d33d585f3cbaec066abe59c2f9ca92678c2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-application-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 20465,
+      "sha256": "95b39a841eac3eecf7454823f23c732284a84be42c1fa40db0864438c927f3c5",
+      "originalGitBlob": "306464a888553d25274173f2779b718d8f82569c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-authority-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 16175,
+      "sha256": "d0eaba0cada509766d21c7e42e02ebffcb9ee290e86932ed041bc2587ff0ebda",
+      "originalGitBlob": "dba8f3c8b0b14d1a7c384d6a6272cf62e77bbd61"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/native-proof-corpus.js",
+      "classification": "original changed Git path",
+      "bytes": 29852,
+      "sha256": "18418a1b7d89d092d50ead1c9aeb2604991108450ba51a2799ae46640d8d7af7",
+      "originalGitBlob": "676d46b34a0c6afee3709aa8f53b535c27b78085"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/oauth-fixture.js",
+      "classification": "original changed Git path",
+      "bytes": 6425,
+      "sha256": "9231cf4af926ebb1a65bd1ce819445a49c99c428bd38e3f5a7884b038c8090a0",
+      "originalGitBlob": "7c3fe01ce97333640b906f22d5a88ec89eb9674c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/oauth-node-probe.js",
+      "classification": "original changed Git path",
+      "bytes": 15414,
+      "sha256": "845c3cebf86e70e790df681a687afaed0e141cd8fc84f12f817209830b7942a7",
+      "originalGitBlob": "ea17c6ffc5f7581369b8384296af91f09278ff37"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-bytes/packed-node26/tests/support/sequencer-service.js",
+      "classification": "original changed Git path",
+      "bytes": 4416,
+      "sha256": "ff263073bc5caae35b724746107d6d4063c46447eb8e7426023ae5f74a8fbc63",
+      "originalGitBlob": "d611e5b269e2ffeadb35e87fa0346b4b6f34fb71"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-output-retention.json",
+      "classification": "original changed Git path",
+      "bytes": 104610,
+      "sha256": "b3ed716dce9ab84559121e3974f76892c1d275fd1223057526719fd1585ec9fb",
+      "originalGitBlob": "b0c18fa5609141c825b01fb6faa86e6c5f4daee9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 15177,
+      "sha256": "635902b0c56e7f6db3f9ccedf76ad11a4107f8942e9f670c435039474d14fb7d",
+      "originalGitBlob": "71a6af0133129364e814a488ec8dede11aad4f78"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node24.json",
+      "classification": "original changed Git path",
+      "bytes": 15177,
+      "sha256": "16ebe7c83e9b6e6be3d595b7701b59b26c717a1a1b26973838015b25fd1e9abf",
+      "originalGitBlob": "b96c537fc3647fb683f445e71783a5bcccecac5a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 15177,
+      "sha256": "5714cf1d1e6e6b546ec00e7afe61efe9eade64ab132ac4559494b55f86c3b8b2",
+      "originalGitBlob": "13994618d081c966e2f31f50e3d9758fb25ad966"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/compiled-pins-7ec-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 15177,
+      "sha256": "b489285ad322d87fb7755ac5c1697971962c065e939ad34f2b09c7cc94f4e210",
+      "originalGitBlob": "adc5eb01dcee671a8277fda75968e3324dac69e1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-browser/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 1158,
+      "sha256": "38ae559a12d1b328451d3e66f12fbfa7b1ef4e1ed8bdbbc5db152d014a4ef330"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-node/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 1085,
+      "sha256": "752660817b58a6176591d0c84f4c3046b6d0a89a81b19931142bd474e810abb7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-client.js",
+      "classification": "formerly ignored retained source",
+      "bytes": 13216,
+      "sha256": "caff70d770559e359c68fca345024b01065487c64f99d18f4bfc812fe0c2c93c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-server-agent.js",
+      "classification": "formerly ignored retained source",
+      "bytes": 7739,
+      "sha256": "bc4f644df77e7e180e711f5b8a7a118f5d06dcf9457933bb088a3562cc321b74"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-session.js",
+      "classification": "formerly ignored retained source",
+      "bytes": 5208,
+      "sha256": "d95fbbc2fe26d7704d236a7b3fc17754b811c060ef81ed40d4a630e6baf0d631"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 1392,
+      "sha256": "13a0a08dd3c36e62cb66259c8cc55f84d7fa981203e1eeb4faac6464db8119fc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@ts-morph/common/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 2006,
+      "sha256": "faef4d4f45c3c5f46d7aca9c1265eb9f4a7111987ff9f73d023b164e8c9719d1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/lib/main.js",
+      "classification": "formerly ignored retained source",
+      "bytes": 97463,
+      "sha256": "61ec0ba144ff93f4bf0e96ad6fab6f430ede0aa13e27ace8063ed63ba416b3cd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 3980,
+      "sha256": "9d0bc453f4e791553c4cc2298ba023b409241fd9801e494741666eb0f6051490"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/ts-morph/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 3568,
+      "sha256": "2c5af3ce2bc65a99b6878045446a45e36097e67861fffd066ef6e9251e7671c6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/dist/loader.mjs",
+      "classification": "formerly ignored retained source",
+      "bytes": 743,
+      "sha256": "7e3dba3b9b862a5fa1c741d54fc921ee8b17fc7a4d0087fa64e42a32142cf03d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 1601,
+      "sha256": "3ace2493a0acd26fc72a8433a38113ee04d5a1976910a3f40815f9e779d5c426"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/typescript/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 3087,
+      "sha256": "3722b30210616a13a3213ded11575ba6b2dbab10c32a5ef67afca8513e27017e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/actor-store/blob/transactor.js",
+      "classification": "formerly ignored retained source",
+      "bytes": 12909,
+      "sha256": "9e78e78a90d9d719596f30888dcdb72ae80c0d13354e977d4275b445651ab115"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/api/com/atproto/repo/uploadBlob.js",
+      "classification": "formerly ignored retained source",
+      "bytes": 2337,
+      "sha256": "f60c8a83786dcc750027ecc2a1a7f257b8b0d0543bba83a126d32d8b81d6bc56"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 3977,
+      "sha256": "f44e8d5cd75e762e539f68a5c1354c82c33dd0d695c3f6a2d5733bba55bea947"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/better-sqlite3/package.json",
+      "classification": "formerly ignored retained source",
+      "bytes": 1436,
+      "sha256": "4665126292eff5dffe6c0ffabf98c4de18e479aa0b53edd775028eb567b3ecc1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/package-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 358,
+      "sha256": "df4818c5371780b970e991927e67b7ffdee6991b582bb1332d615e8dcf8b677c",
+      "originalGitBlob": "477aab0183c34e6a75a995bf57d02f12cdd2b678"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/package-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 220,
+      "sha256": "a8494014a66699a5f911897207af9067cc0b5b47d8719c14a3617badb7ebe1fe",
+      "originalGitBlob": "eeb98577dc51930f7d59d3889954dbb491c067d7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/package-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 217,
+      "sha256": "d58bc8293510e1e3cc484d6b6f18ed7884201684418621e488fa69c242b196fc",
+      "originalGitBlob": "f65bed29572e2187afd6363aa3c8a3c3f82b4d61"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-build-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d",
+      "originalGitBlob": "8aad2652932cad1fe4b90b17043381b5b92a4b30"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-build-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d",
+      "originalGitBlob": "8aad2652932cad1fe4b90b17043381b5b92a4b30"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-build-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d",
+      "originalGitBlob": "8aad2652932cad1fe4b90b17043381b5b92a4b30"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compile-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 2253,
+      "sha256": "64d74d9e11a8145362751ecf7b385107b938d310455a1f6a1c448923f7ed3b49",
+      "originalGitBlob": "e5923d5c96215f3de02ca44b8ff60e35fc5e9a20"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compile-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 2253,
+      "sha256": "e6664979567cd5c4ab50babebf240b06c049a473e9865f0f90b4480425d41f54",
+      "originalGitBlob": "adc6582d710334f640fcee69058334a4eecb6700"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compile-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 2253,
+      "sha256": "1521c94cfbc98fdf668f9f481504931145931b109c129cd1e3f2f641572fd480",
+      "originalGitBlob": "4180dfad118e8dd5d4659884c99e5a3a396aeaab"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 15523,
+      "sha256": "cbfdc628b5480dab290a29d2ce531bc2ac0f737979dac78d89df85c1117b5fc3",
+      "originalGitBlob": "6e24d02b39ac5324838c2c3abb0f81a81b875f35"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node24.json",
+      "classification": "original changed Git path",
+      "bytes": 15523,
+      "sha256": "bc5fdce1d99fde6ec1bcc11068a9c1b653d419c7dc9c3c07b51efc06fb3c11e3",
+      "originalGitBlob": "a8f180412a6065553e5541a108abb61fbd8e8f95"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-compiled-pins-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 15523,
+      "sha256": "524238abf7670bef0d6cb9897c1232bef1b74b1d242066f3906d5496d752365a",
+      "originalGitBlob": "c7a33ae7cc37dcb511eb5956dba178f5d008d5cb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-execution-pins-16f-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 2041728,
+      "sha256": "c20de3f97b4f586fb9733912b211a429cf1cd9176da5e889614c9735fc9d7432",
+      "originalGitBlob": "5c713cb6c8a4da8b67267d74be8d9afd6ef2adb6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-execution-pins-16f-node24.json",
+      "classification": "original changed Git path",
+      "bytes": 2041728,
+      "sha256": "f1ac16e08d77dcd583b5de764b0d777036df5d57b397a77f670cd73e16e60d11",
+      "originalGitBlob": "8c3ee6934d87ebed4e206f991c21d329312a6a0e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-execution-pins-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 2041703,
+      "sha256": "293ad14803c20650cd6c1e13af02c61389229f5fa5a11a67741478223e54a010",
+      "originalGitBlob": "f5eae94e53c9bf211eb1a3fd46f9c25054a1af27"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 479,
+      "sha256": "fd8eeaf1d10cafead7c5c4e4a6f0a20dbef8bbd7ae7636847fb23f1090b286e0",
+      "originalGitBlob": "63169cd27ec9be2b808b4b738af90dc4c62aa0d4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-published-inputs-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 197,
+      "sha256": "e1896ec456f2d25bd1b471e922af76cb0bd9aa03890c3515b9ffc3c669b81057",
+      "originalGitBlob": "7dca61be9d21c880aaea549d152179d3f25d8473"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-published-inputs-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 197,
+      "sha256": "9025b2ebd012c44eeb0f171cedbb8d1ec9069218512d44c3c5096ad93b7364bd",
+      "originalGitBlob": "0976d6b94915d5f7de34c10f5215cbdfdedc2960"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-gate-published-inputs-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 197,
+      "sha256": "280538630b0bfc63de0b5461cfb1cba07af244f0e4e3713a463340faa9fc3ce7",
+      "originalGitBlob": "2a145488c5cd770a8445be467d9f57d82bb9d4fd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-install-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 24,
+      "sha256": "219780da827085a5c47b7d155caf40097369152aeca61fa778693913bf1d5152",
+      "originalGitBlob": "9d709902ef220d5f5f11ce3cd31eba5189518eba"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-install-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 24,
+      "sha256": "e99b3248526c33934f2106228a4772ca88f1d61278e6e24ebaee384f07f56879",
+      "originalGitBlob": "d4590af20f5028260dd0b806c51561245ae5463e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-install-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 23,
+      "sha256": "ed435fab73a9b746a43a14339ba74fe949add5a81a8c6f3c8b718d53164f5cfd",
+      "originalGitBlob": "fe42f4c9324650cd89b32d37fe1f0846213108d2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-native-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 7758,
+      "sha256": "4429dd1498d972c09ed60f3b236e9f56735560a50de747ceee171ffaf9fe6258",
+      "originalGitBlob": "90e9c6e6c21a1c9062a957f51c4bf08231105e69"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-native-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 4076,
+      "sha256": "d21862371ab454d7ce9cebad3db5504a181bc1811857b0519e295727d58ffde4",
+      "originalGitBlob": "1cc250fc26a9e398b93d28fc76729d41ca4a6097"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-native-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 4073,
+      "sha256": "119750e731435f8034dfcd991068ad18464f211aaa182f4281049e4430cce155",
+      "originalGitBlob": "db78bc243410094082c8a6111cf36f61e0152a1e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-pack-16f-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 2040541,
+      "sha256": "7935e99b0df2322e71b1976e406b2dc18b45dff84a01111124d133d126f454f1",
+      "originalGitBlob": "6b1eabf0fe7bda76d7c4eb22e7e3306112e2d2d5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-pack-16f-node24.json",
+      "classification": "original changed Git path",
+      "bytes": 2040541,
+      "sha256": "275cade796458605be497e2cb7ce8a5ce4780bd0b0d07d33cf096c1da26d23f8",
+      "originalGitBlob": "69b24b9c47304a03d6c124f10f04ddac6fd6d767"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-pack-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 2040541,
+      "sha256": "f5461ba78f0513290ced1f1b7663196defe8e1bdf1909a2f1f3c57bc232cdadd",
+      "originalGitBlob": "50bb2d209f91b0955ac7fa34ae3a4472837295e1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-provenance-16f-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "67872050456920a3d934a26410c35a9044f19dc8b40112a1b9ac1e86116a89c8",
+      "originalGitBlob": "9718377f59ffb1f1f8c735bb3aa1a3d61e9c0ea3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-provenance-16f-node24.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "3354b05e56e7b552f20b91d5c4db9d3071b8b4df2e607d604d31dbc0a1c1fb95",
+      "originalGitBlob": "06934afc2cdffb1b26c6299dcb01948cee027f36"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/packed-provenance-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "9e46e69767c630a2288d9668f88de94aff0d827a76b763a87dd6d4808b9e85b4",
+      "originalGitBlob": "8784128887d65f64b89744253fdbe2b7683fcab0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/persistent-browser-executable-16f-node26.js",
+      "classification": "original changed Git path",
+      "bytes": 12243,
+      "sha256": "efd840fd2ba0b564490323d650485b0dfb5c76c69065b9d24cffa64994d6c263",
+      "originalGitBlob": "1f2addb6e5b1d356fb0657d6fc7985faf8ed93bb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/persistent-browser-wrapper-pins-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 1372,
+      "sha256": "7b7c6bb6c8020fc1e27ba999c46bb7e25c680af6630e09c1d6e8332e116ac2af",
+      "originalGitBlob": "971873049f2a7ee8d0a0408d979e76a37072f575"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/physical-runtime-pins.json",
+      "classification": "original changed Git path",
+      "bytes": 9256,
+      "sha256": "e83c0d4b20b2c6176ba61c818b5b2febe3e9c6df5cfe0045689709b88274c467",
+      "originalGitBlob": "817f79d771bf3347e3205441a720aafef6169c9c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/producer-source-pins.json",
+      "classification": "original changed Git path",
+      "bytes": 53240,
+      "sha256": "253e6171d75b3ebb0314b0cde16fab044cb440dc2949ed6da4f60945deac17b8",
+      "originalGitBlob": "2b79c1072202e12c13504b11218559465e67cfd0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 38401,
+      "sha256": "fc6c2fd91d4d7ab512afd4d0b907d3b6e05e5e47936524fc6481ab8d8c8090d5",
+      "originalGitBlob": "c597396539057202804167cfed29d3731611238d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 25332,
+      "sha256": "23c5f1f27651cc11633d7ed091f0aa06af125f8d94c4f3e42804b37db8814751",
+      "originalGitBlob": "5d39d004bf84482c24365403b11cfffdef10a173"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 25336,
+      "sha256": "75bed77810d67bbf683039271761f972f8e0ddbdab440b09b01a36a7644ea5d0",
+      "originalGitBlob": "f8313590ad6ff77fb2ceb6a869ba4333fd409647"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-7ec-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 38343,
+      "sha256": "4836d55a80b744494289b56e650c8dca8d83108208de870c3c54bf176aee811f",
+      "originalGitBlob": "01024a119f78d8f7e4396a9e6595299d72232a7d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-7ec-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 25268,
+      "sha256": "3e3af8a2ee949e6af460ad6bdb01fa4796e1bfee4780c56298fbf62a8cbfc6bf",
+      "originalGitBlob": "f08974113afe7e09c9491cff52214e058e6e9925"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-7ec-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 25255,
+      "sha256": "332ebeb1f4eaa927a39c74b621c69edbc9b4c60f6deaf52f5672d31e1dbc5bd3",
+      "originalGitBlob": "b48beac9e83b4b93735be6e3df7c6597bfe6ba55"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-PDS-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 742,
+      "sha256": "33e4014139e1641bf55ed9d0d7dbbf6b3ca03cf14d72f38089fc56a5d620e73b",
+      "originalGitBlob": "3a902f90e60b192c8f494e58fb47b8a359bd66a5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-PDS-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 742,
+      "sha256": "aad780d49310a169e42241eed6304c38973eb4c5bf4728760340f9bcd33df9b2",
+      "originalGitBlob": "b3ff83d8b194a2d1007aad6b893ddeb35e0dddef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-PDS-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 742,
+      "sha256": "ebfc61524486ff229b3fc90a4b88b93f05354c8bbf7cab20e7e8711cc932f93f",
+      "originalGitBlob": "06ea2b98f3caeb7effacb2c5f0383777dff71927"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-legacy-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 8262,
+      "sha256": "dee28bc21be50cce8c3ecb19bcf5ed5c8e7cb959c31b44a3cdafa084341fb8ee",
+      "originalGitBlob": "167b167ae4f196e33d44a26e89a19d2bcf411c43"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-legacy-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 3210,
+      "sha256": "030ada823b08e5a187cbe79d727d048777b29f6dcfd3f7b7224af525526fb2a8",
+      "originalGitBlob": "291a1e144817ddead5d043701c1d145e96972401"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/source-legacy-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 3225,
+      "sha256": "579a692f12f81b3751ee6aede29c5f5a2c84165718ec87d5cdfc799814ec6dc8",
+      "originalGitBlob": "6ab282541357b81a188d56d2750042eabdd00569"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-16f-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 1338,
+      "sha256": "d7cd93f07f3715f0a67ddb80f1f0f9d3ab96dc3db66504091d1cd633b987d882",
+      "originalGitBlob": "ec8aa6f4f94a943f072ffde6ac42e0201919c0f5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-16f-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 1338,
+      "sha256": "e67d40dfa86a0450ea9b39dfb06a196ec944a0c3ec8c5f2514b04bdff2ee8500",
+      "originalGitBlob": "2f6a406b559bb2ba0f4f14e8ec9f907336b782c8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1313,
+      "sha256": "e7fc6ad66cd3196a9bbfe323937454ec674012e158ed1505573f3f08244aeebf",
+      "originalGitBlob": "f68faab34715a6815e8fadff2d83644535c48999"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-pins-16f-node22.json",
+      "classification": "original changed Git path",
+      "bytes": 870,
+      "sha256": "6021d309cae4b5771a3e888a152ea249affd89cd58c5a44e5153c5feafa112ca",
+      "originalGitBlob": "9012ce16bf91ca9bc33c77d0f9200c6810e0f2d4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-pins-16f-node24.json",
+      "classification": "original changed Git path",
+      "bytes": 870,
+      "sha256": "302308d86ecc75399a33c1722ff991d934ea78e0efa792591f195ecd17d73de8",
+      "originalGitBlob": "e045527fc779e8128fc98dd80ed867e73a85af51"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/supplemental-pins-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 845,
+      "sha256": "f035ff6d653baab6f2d51209d3fa08b024077839f906d691caad45631d94da4f",
+      "originalGitBlob": "530b1061bcfa31a9371af9d339a32c0e3d4a6f92"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/vector-coverage.json",
+      "classification": "original changed Git path",
+      "bytes": 76121,
+      "sha256": "04fdc92612738c5aa9927d6f500022fe6b208737ffd36c3051584276b0b70f4d",
+      "originalGitBlob": "d1c37c32128ad6ff282b923ab21246244f92eed9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/manifest.json",
+      "classification": "original changed Git path",
+      "bytes": 103422,
+      "sha256": "7cf4f5286ccf6bcadd9d45a5d759687de0246374c5b519905be797b275b9c741",
+      "originalGitBlob": "e3400589b1c9da37464a8de90a03cff1fbf71cfc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/compile-existing-regressions.mjs",
+      "classification": "original changed Git path",
+      "bytes": 2795,
+      "sha256": "9f73bb069466052fd111bdbb5ecab2b6640e5f0acd335ac242bff22ea441d2c3",
+      "originalGitBlob": "cdce3810a4e666efb9a4326a718def607004214c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/compile-writer-gates-file-url-original.mjs",
+      "classification": "original changed Git path",
+      "bytes": 5034,
+      "sha256": "e67580237be7536d54d5c05a3fa44114fbc311849c115e373a00baac725a873b",
+      "originalGitBlob": "55790df651693a345cfc530551886bcc4bc1c86d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/compile-writer-gates.mjs",
+      "classification": "original changed Git path",
+      "bytes": 5800,
+      "sha256": "5c2d5222dd89305549ff9dadfd061af0df9ad4f4cf94277e59eb7e0b40ad79ab",
+      "originalGitBlob": "e875a418519d1de0179574652fa136b221b19c5f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/dispatch-first-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1574,
+      "sha256": "c4e0b9a4cb7a1d542d9220e77749f7ab3ca5c6bfd6741b58168098bd30a23cfe",
+      "originalGitBlob": "a87ac4490baea2959bc8f9f6b2bb89f73832f5a1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/dispatch-second-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 751,
+      "sha256": "556987c453cf5ebc7bd8e0c239311252738dd3033ca10636871558b44f22a146",
+      "originalGitBlob": "7ef3ac2b968e01336d0e114e2329733edfd75327"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-build-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023",
+      "originalGitBlob": "7d6513547202ba8995765712c333dec931fe1e91"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-build-provenance-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 67954,
+      "sha256": "cc0c868a567455721d586e2062b8b240096fffdcc6b185355aa5e1468174f346",
+      "originalGitBlob": "5632cc88692fca40afb5e00719f2a9649c1f53fc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-check-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-compiled-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 3223,
+      "sha256": "9a49b3a6bf9f1d6c5b7bd436a053ad17fd9d0ebb85455df50db270da8d20e571",
+      "originalGitBlob": "fe6d3b94c71a5900a9f20d69814153dd84fadb2e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-compiled-prepare.log",
+      "classification": "original changed Git path",
+      "bytes": 250,
+      "sha256": "aef230098584050a154eec598f5a91c148d33ae9ef2fd672bc7e37cd33097743",
+      "originalGitBlob": "361ecf974dcd2b1c5772d6f831bf225281073e6b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-host-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1154,
+      "sha256": "2740e0b2e9ed4093ab79ddcf00f7722b2f313617e33c8817e9358511825ec3fd",
+      "originalGitBlob": "4efed7398eb38a28cf7741a96516c1e07b2879a1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node22-correct-abi.log",
+      "classification": "original changed Git path",
+      "bytes": 8244,
+      "sha256": "bae89b4ff296a7ee1aadf0e00ab4ddacbe955b9411aae46223cbafdf41d7ee52",
+      "originalGitBlob": "b4b5b97b2dbef673a66de133fbbc94b6dd1e8a37"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 5985,
+      "sha256": "9eed51e392d4a3a29b0946e7530975efda442dc548db074cd1e88cfbaf0f2bbd",
+      "originalGitBlob": "95ae4edd6568572a39baba40831c1dd296f5ac9b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node24-correct-abi.log",
+      "classification": "original changed Git path",
+      "bytes": 3215,
+      "sha256": "d332e4b4d4df4f1368e3580fad79ffb6c6cfbd56f1a5788cbd4956ecf902c1e1",
+      "originalGitBlob": "8f9ab461be7172fa46500bb68e4b0e292b2fda7f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 3275,
+      "sha256": "4d0bd67a51f0319e0971b022307035a61abd63417343b77c3c0c1b2787809399",
+      "originalGitBlob": "88b43d38d047dfc83136299c4683cc2f8fbc33df"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/extracted-pds-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 2179,
+      "sha256": "5926a87bee7852425a83201425c76a1fc0078cb21ed3b52d8fd93517b4981a47",
+      "originalGitBlob": "95c5d9469c78c7ad2aa60ac6efe9a14be30a372e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/first-unpublished-input-packed-build-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 494,
+      "sha256": "9be2c099cb5e5294f93fc6944107a5d226382c0a6123cd57107acdc13e99a45d",
+      "originalGitBlob": "8aad2652932cad1fe4b90b17043381b5b92a4b30"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/first-unpublished-input-packed-install-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 23,
+      "sha256": "ed435fab73a9b746a43a14339ba74fe949add5a81a8c6f3c8b718d53164f5cfd",
+      "originalGitBlob": "fe42f4c9324650cd89b32d37fe1f0846213108d2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/first-unpublished-input-packed-pack-16f-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 2040541,
+      "sha256": "f5461ba78f0513290ced1f1b7663196defe8e1bdf1909a2f1f3c57bc232cdadd",
+      "originalGitBlob": "50bb2d209f91b0955ac7fa34ae3a4472837295e1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/framing-only-32KiB-batch-original.ts",
+      "classification": "original changed Git path",
+      "bytes": 2250,
+      "sha256": "7ac25d337abb297e3c763693e368f9103b0266a85af7d218dd235ccd500d593f",
+      "originalGitBlob": "9f182ee3d3fa4112bff9c716a6453e3dd1101e06"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/packed-unpublished-input-first-16f-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 479,
+      "sha256": "fd8eeaf1d10cafead7c5c4e4a6f0a20dbef8bbd7ae7636847fb23f1090b286e0",
+      "originalGitBlob": "63169cd27ec9be2b808b4b738af90dc4c62aa0d4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/packed-writer-gate-missing-unpublished-input-original.ts",
+      "classification": "original changed Git path",
+      "bytes": 4661,
+      "sha256": "bd1867c42404f1ffe84c9813dd2375d72335b269a6637a35040ed510de8681f1",
+      "originalGitBlob": "fe8443e8337560f27ede210cd97838be768113a8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/packed-writer-gate.ts",
+      "classification": "original changed Git path",
+      "bytes": 4910,
+      "sha256": "0da940fd855c321a7921d9ca5a8f24ece6e0b5bf64137042b1e1e833008a17f2",
+      "originalGitBlob": "7d63f074e26035fe6f8a3df37cdc6b9c76fb8825"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/prepare-persistent-browser.mjs",
+      "classification": "original changed Git path",
+      "bytes": 3213,
+      "sha256": "41f2552849d55dd0f9c724de3e6c0300758c3abc43b7fe863a07b57aed4ff558",
+      "originalGitBlob": "3d5f19fab2e27c423c4eda736fffb64813e8b1ed"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/record-vector-coverage.py",
+      "classification": "original changed Git path",
+      "bytes": 6530,
+      "sha256": "3f996759ea4d06d99753fe5252198c472a80fb0cc87bd403fc0377dd1421a3b1",
+      "originalGitBlob": "d7ba211181764f1b6ddaf998f899a7a37f4b89a8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/refusal-physical-dependencies-correct-loader.log",
+      "classification": "original changed Git path",
+      "bytes": 10,
+      "sha256": "770c2d18aa4ec3159f46da461ef452972949942ff4f6a9771044485faa146398",
+      "originalGitBlob": "417b7b5370df81a7316ee9f983437444afdae432"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/refusal-physical-dependencies.log",
+      "classification": "original changed Git path",
+      "bytes": 1155,
+      "sha256": "27419cb5610d69a8c0970fb728e514c44e4cd22ea031c9461f8bd8b7caa957ee",
+      "originalGitBlob": "65a1e8ea58a5a93c11f69502413485ab1dc5fa3c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/rejected-missing-content-version-input.ts",
+      "classification": "original changed Git path",
+      "bytes": 2141,
+      "sha256": "2303ea2ff8457ee96cdcac4ef14abd7cd9759e0871ff85d8f8b5e324ba12583d",
+      "originalGitBlob": "37c6f25e745766a1b1273b6b16608a95f9486501"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/rejected-near-cap-act-input.ts",
+      "classification": "original changed Git path",
+      "bytes": 1529,
+      "sha256": "b222d48631b0322208965137fac518c2f2cab960e8b280f02b7d755855d50561",
+      "originalGitBlob": "2b68db95fadd70895f3c67cedd67c93ab625f362"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix-7ec-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 815,
+      "sha256": "02271692619c46ade894fcbe211b0e95e7e6b59a01d686a5a6ceb8a600df81f3",
+      "originalGitBlob": "22d50ce75b0f54076973357d304153c417bd8d50"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix-observed-7ec-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1235,
+      "sha256": "f79ede64eb5e72cc2486d46d321b737fba5cfd6fbf047538dc80af51e469f9a4",
+      "originalGitBlob": "2ceaa1fd830727d6702b0db7ce09686d21f4fcca"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix-observed.ts",
+      "classification": "original changed Git path",
+      "bytes": 7495,
+      "sha256": "f0a68ddd58864d26f39bd0513dfce377f0488f5b2680b12e83e3c39f7fc758b4",
+      "originalGitBlob": "a7b11aca009854cca978c5bc596904daa972f20a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sniffed-mime-before-fix.ts",
+      "classification": "original changed Git path",
+      "bytes": 7076,
+      "sha256": "b5b189a8c59c47d28cf0ce2c1977dee8db4037b6b2974408249bafaece975db7",
+      "originalGitBlob": "06b0647c729b768e98a887ba686fed67e3deeaea"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sqlite-node22-setup.log",
+      "classification": "original changed Git path",
+      "bytes": 156,
+      "sha256": "f422371126083710f251f06e6c1b8189646dfc9ee43a65d6dbe733a1b0c42482",
+      "originalGitBlob": "2e0247e3e79a9c7c843fa169682f31fd060f330b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/sqlite-node24-setup.log",
+      "classification": "original changed Git path",
+      "bytes": 156,
+      "sha256": "f422371126083710f251f06e6c1b8189646dfc9ee43a65d6dbe733a1b0c42482",
+      "originalGitBlob": "2e0247e3e79a9c7c843fa169682f31fd060f330b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/supplemental-writer-predicates.mjs",
+      "classification": "original changed Git path",
+      "bytes": 6213,
+      "sha256": "4c1e9f1e151bd5d2182a59e9c1aee033acd3f986d178a05890deba71668760e4",
+      "originalGitBlob": "c6b146c9f6e63170aa67c381bb3557b8ea6aaf94"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/swallowed-refresh-beec-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 227,
+      "sha256": "1c8b92464b05fec20b4d16ffe2ec51f9b26d6d9648424259b7d3956a567d6323",
+      "originalGitBlob": "3c7e6653540ffeaf7e64e767229952fdea3342a9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/swallowed-refresh-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 227,
+      "sha256": "1c8b92464b05fec20b4d16ffe2ec51f9b26d6d9648424259b7d3956a567d6323",
+      "originalGitBlob": "3c7e6653540ffeaf7e64e767229952fdea3342a9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/swallowed-refresh-observation.ts",
+      "classification": "original changed Git path",
+      "bytes": 1515,
+      "sha256": "11bf68ee0f03db65649ca8a5b336e4aae36aeb65ed16960dfbb57e007966e8f3",
+      "originalGitBlob": "fa50b3b9191868319a6057868c25ea7879bb319a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-MIME-correction-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-beec-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 551,
+      "sha256": "00aee1d7c7c2597811729fb7e7f9ad6e4d788c51474c5116c3cd9525557cee3a",
+      "originalGitBlob": "e0a370fe36de19af1a417ed8a2efcfa437a305cb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-beec-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 551,
+      "sha256": "55364a194c08bea6dfa649761ef52f394a830de959148dacd9af7b9e3db09978",
+      "originalGitBlob": "b0ea9d1b98d4b381a2dd044874f8438ef08cc53c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-first-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 558,
+      "sha256": "6cc86cd4b972868d2ca2b8d32e0aeb3b73f81f339b397d060edfd53dd6100a76",
+      "originalGitBlob": "50a94cc2c3f4b34bdf363ac7fcbe874daacb0269"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-PDS-second-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 551,
+      "sha256": "3d874a6f0229d8f1477af84c24c2ecc67a394d658330d5f73bf137d35874adf7",
+      "originalGitBlob": "65fa699ad8558832aaa030fa4225d0a5a8a44ce0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-browser-first.log",
+      "classification": "original changed Git path",
+      "bytes": 475,
+      "sha256": "e355400e53249fcf8e2152a86175e2bf20f82c44f563d5cc0ac859c2378e3b44",
+      "originalGitBlob": "6e56efb2a5d99ee0d5f2f02fb1a494a31bae1761"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-build-c778-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023",
+      "originalGitBlob": "7d6513547202ba8995765712c333dec931fe1e91"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-build-provenance-c778-node26.json",
+      "classification": "original changed Git path",
+      "bytes": 68556,
+      "sha256": "dd4338a04aa6cd4a82ab6533b633791e5dfd91d55e1040a6f2f2363d4df036a0",
+      "originalGitBlob": "7fee334ae1a184abdd94b44408739fa03b53fe98"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-check-d4-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "originalGitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-Chrome-c778-corrected-harness.log",
+      "classification": "original changed Git path",
+      "bytes": 525,
+      "sha256": "a6c1305391b58b2b77981ece355b99e39a985fa54df006fb54ccba7c38a9800a",
+      "originalGitBlob": "6f435b8bdca194359d3f1a4ec72757c9342d17ce"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-Chrome-c778.log",
+      "classification": "original changed Git path",
+      "bytes": 7353,
+      "sha256": "6b13e30e99bf742857391a9520a38462d44477e35db4f47c0cf3dadee748a2d9",
+      "originalGitBlob": "8bdeed837b65caef31868de6a1d9c107497eef85"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-PDS-c778-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 551,
+      "sha256": "3d874a6f0229d8f1477af84c24c2ecc67a394d658330d5f73bf137d35874adf7",
+      "originalGitBlob": "65fa699ad8558832aaa030fa4225d0a5a8a44ce0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-c778-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 2323,
+      "sha256": "b6a03f1aacc1813106e9d8a76be42fd88cc72bd0c8cde679a40a92425f415d00",
+      "originalGitBlob": "7ba2808a50d00c8db8d16b64a0a22ed2e8077e36"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-legacy-c778-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 3197,
+      "sha256": "e6a0ed569f9b83cf37d29dbe6018e4dad6c2b410872a62e6d6a87fcf452a26aa",
+      "originalGitBlob": "8ac010f8df01df0d90f84986d57a078718cc37b2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-prepare-c778-browser-compatible.log",
+      "classification": "original changed Git path",
+      "bytes": 1525,
+      "sha256": "d6426e3626a67a3198dec6ae723791b4f8067c1ba63e171ad71c87307785fcb8",
+      "originalGitBlob": "faed302fb0fa65641215971bdf8bc83b9207e61a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-compiled-prepare-c778-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1429,
+      "sha256": "d2332d178732d158846bfa6893cdb6a14cbe2722ec3795f5dd3d3311dc1de599",
+      "originalGitBlob": "8a5279dbd466e57482ac2823526fdf2cfe439949"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-first-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 5367,
+      "sha256": "44c756de3c8eeb958752d4c131f6bd921bcd8119e5acf3ef9d595c0c95438ff4",
+      "originalGitBlob": "4eb71941932dfb57cb06a649ae8c0966cd46eb5e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-first-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-fourth-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1150,
+      "sha256": "440b123efa85f5ec2261bc1682e3a2c2b3b059a4f284668cf1fd9428224f00f1",
+      "originalGitBlob": "392f23e03ee2fa7e938dc634eb6cb7c932aeb0d3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-first-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 114,
+      "sha256": "e4c68064115faff4ad044d28710cd34dca00c5064b2ca7ed7d3ee307ad2a8bda",
+      "originalGitBlob": "2b892c6f955bf95648f08a1736fa0a489c9a3f3d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-first-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 466,
+      "sha256": "e933e01a6d42f905d916a78074157b25665cfb0ab4170c4357a3f5fd9679eb74",
+      "originalGitBlob": "6518d51ea8b0191107806eba97bd3e5cb1e771fa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-second-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-genuine-fixture-source-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1740,
+      "sha256": "ddfdbfe0133f1dc073111844a8c3b6d088cceb960d02336f493fbd1eba4a7720",
+      "originalGitBlob": "573207b5ee8d714c633736d1b549529524b311e4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-browser-first-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-browser-first.log",
+      "classification": "original changed Git path",
+      "bytes": 1302,
+      "sha256": "edc625a1bdf48421e2080cf54c89e34b5833d3d8c4e365c0e80f07f792f1fc62",
+      "originalGitBlob": "e3cafa5e12d6355f5ee713d6479d1ea0548dfe88"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-byte-observer-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-corpus-first-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1957,
+      "sha256": "23025f94c6d034bf585fde42a5dbcafcbd338838ccb5f4c6c32e711f5fbc320f",
+      "originalGitBlob": "df79363aa8ccc372e468403c8b45102a7e799a60"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-corpus-first-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-first-observation-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 530,
+      "sha256": "9932e9076082b975274688e62d7b78e663e89354a0a44287fe757c0860d95105",
+      "originalGitBlob": "2279bb969416e86a128e11fe449d7ba45e7330fb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-first-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 380,
+      "sha256": "61278a80846a5a76e27f00dfea09699312a78cab3ca6ec77edd21accaa9035a9",
+      "originalGitBlob": "84fa9ca8a7051c4ac581df6d40a75bdacb64825b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-negative-first-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1338,
+      "sha256": "ad2d5ae5eaa27592f415039c6044ba56a8cf5115f1548d124e3136500f686305",
+      "originalGitBlob": "3bb1e9958e5e7b9f0039a72786bf9b5e32de476f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-negative-first-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 465,
+      "sha256": "edf472a2c2a5d08a8dba6117aa90dac11fb8e5ab77b016c5c662e7b2863c58e9",
+      "originalGitBlob": "2e40b21042f139801734ce49a13c68cec825cc69"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-negative-second-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-handoff-second-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-native-cap-second-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 5282,
+      "sha256": "d0dfb98a740d3eb7f0213861a4036328e3d249cbf323f7c534efde3da91370ff",
+      "originalGitBlob": "495e97c9ad454da23e2d62b73a90f7093deac54a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-native-cap-third-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1244,
+      "sha256": "5103a01957e4c0e3563672f0d8b3e3fb9b6df2e04f080cac5063daae940999ed",
+      "originalGitBlob": "69db4106949468820b8f489fb7e647d60c4727a7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-native-measured-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1368,
+      "sha256": "d8587fd8ac8ddff6f997d8513174250f3de8ba96ed51dbf21a28bd5946bd55bc",
+      "originalGitBlob": "9545b3754de4e5eed7231de929e2ea0564c52990"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-near-cap-first-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 7445,
+      "sha256": "11be41562738f2fd7ce79090c80eca8cf2283a7058e8465beb550d9fa3c76e2c",
+      "originalGitBlob": "2d5f7c2cebc80700791f818c5127d314fc82bf8d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-package-dfbd-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 220,
+      "sha256": "9f2df918057bdfdabe644b9216a0920486bd6a0b5f74c7568de5136b32fa3f83",
+      "originalGitBlob": "a6bb4e2fce0fe190e8164fed887d10866a8f2699"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-second-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 6802,
+      "sha256": "8a9968f597d51a21d2dd91bd36dee33dfa3ca6d02793d5a9b1a4ee2d453bac86",
+      "originalGitBlob": "17ead320db01782e61b33c553ac426fd01ed11aa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-second-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 121,
+      "sha256": "5898f189ca92a4d54e0607f109ac64017dc4d6a2840e3aefd25557b14a5da4fd",
+      "originalGitBlob": "e171978894d60c31ff446a00c314b94783b2b579"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-c778-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 3870,
+      "sha256": "777f0b573a0e5f0d415b5cc4f6f22a3ac8daa663ad381e6515b9407622b1f375",
+      "originalGitBlob": "813dbc6e124679342d28b29a7f918cf462384e89"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-c778-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 2329,
+      "sha256": "3f37252bf2fc9a7c094c1a4bba898bfd3c68a99add47e11ee20b7c08be9efc3e",
+      "originalGitBlob": "c7887a5778ef0746ba0c787c66f0e991e67eb036"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-c778-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 2333,
+      "sha256": "7ba06575112cda79624e21e90e6b38e0bb2757c9c94544093b54dc3daba2ce01",
+      "originalGitBlob": "891127f749b42240db19cbdc989244363652b509"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-e662-node22.log",
+      "classification": "original changed Git path",
+      "bytes": 4208,
+      "sha256": "a0d3d9ca1a67d5f603d4d8e0da29d82566141acd7ecf2b4d7a2efae966a674cb",
+      "originalGitBlob": "162e308033c10293c06b1de80e282ce85cb469a5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-source-e662-node24.log",
+      "classification": "original changed Git path",
+      "bytes": 2008,
+      "sha256": "84c0c7f0d300b5674294b12f6000ae9c65ce16d898f0a647a5ce3a560a92fe86",
+      "originalGitBlob": "17e69bd768b3bbb29766af19afffcdc3d4e75896"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-third-node26.log",
+      "classification": "original changed Git path",
+      "bytes": 1060,
+      "sha256": "4d359b5736a1d54966d142f2a6b8b7dc8098566387f8eb60039a0b102e6b40a7",
+      "originalGitBlob": "4c23cc986d575f5a13fcb60763608822425e9f66"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/preparation/writer-third-typecheck.log",
+      "classification": "original changed Git path",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalGitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/verify-results.py",
+      "classification": "original changed Git path",
+      "bytes": 4495,
+      "sha256": "3144a697e57649b0a484c779bec48893f8757a473052edf1fca58a71a10b8339",
+      "originalGitBlob": "b49d6b1182420d61b3a4f2b112b608690800009d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/verify.stdout.log",
+      "classification": "original changed Git path",
+      "bytes": 143,
+      "sha256": "3c187e258252a7c484ccac04557fe8db733dc2bd75cae6fa653fa2a74dfa1287",
+      "originalGitBlob": "480207d0bede16fa9e13ab498063b0ad2cf55981"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/assignment.json",
+      "classification": "additive delivery correction",
+      "bytes": 3414,
+      "sha256": "ca872059c3b2a8a7bea98c3f4ef0cca9d94412173b03db981dfe7f6e8b3d48c8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/check.py",
+      "classification": "additive delivery correction",
+      "bytes": 3930,
+      "sha256": "8dddd87edca1b96837a803afadaa69f88f1a62673d0234b80e6d437a5279899f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/clean-checkout-results.json",
+      "classification": "additive delivery correction",
+      "bytes": null,
+      "sha256": null,
+      "integrity": "frozen Git tree and external ready inventory"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/delivery-inventory.json",
+      "classification": "additive delivery correction",
+      "bytes": null,
+      "sha256": null,
+      "integrity": "frozen Git tree and external ready inventory"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/initial-clean-checkout.json",
+      "classification": "additive delivery correction",
+      "bytes": 1056,
+      "sha256": "34133df7faa2153acb06a630cb890dfa035904cabf85098a5e6adbf745b12af4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/initial-clean-checkout.log",
+      "classification": "additive delivery correction",
+      "bytes": 1058,
+      "sha256": "4d5add768a6f93e38af6ef2f2db7a5a58c8260a5271af72b8e6146eae0ec1b8f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/new-verifier.log",
+      "classification": "additive delivery correction",
+      "bytes": null,
+      "sha256": null,
+      "integrity": "frozen Git tree and external ready inventory"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/old-verifier.log",
+      "classification": "additive delivery correction",
+      "bytes": null,
+      "sha256": null,
+      "integrity": "frozen Git tree and external ready inventory"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/original-git-pins.json",
+      "classification": "additive delivery correction",
+      "bytes": 68165,
+      "sha256": "edb2b5275788ff62be125a51de515955d1fbea138010ed766d523b80c0478f44"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/retained-source-provenance.json",
+      "classification": "additive delivery correction",
+      "bytes": 9784,
+      "sha256": "deb4c00697501f861f1a09bf5c02bbfd0ee392c3bd0e8dc84453b5a034d5eeae"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/root-gap.json",
+      "classification": "additive delivery correction",
+      "bytes": 5099,
+      "sha256": "96d0d5d307348cda9dd38239076fc8aa68d0ea16ed252d3f2780f3a51011670f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-retained-source-aw-f2/verify-clean.py",
+      "classification": "additive delivery correction",
+      "bytes": 2435,
+      "sha256": "f840e584e1cc3a9e9d36185fe49df0a36c486d1fd6ce423fe2cb124c3f028bb7"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-native-account-writer-implementation-results.md",
+      "classification": "original changed Git path",
+      "bytes": 14082,
+      "sha256": "05a47f25d89ba4d55a6c35947dd98bcad216f7a5125749f47accccce4a6b2285",
+      "originalGitBlob": "97e4c3ad0afb6a83cfc8ff56f69a6f91e33f434e"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-native-account-writer-mint-scope-question.md",
+      "classification": "original changed Git path",
+      "bytes": 5148,
+      "sha256": "97300220791bbb889b835f38a415e48564aea775edb537a2602a6ba136a3b16e",
+      "originalGitBlob": "0adb66c9d7a10f6fb918644f1ef991b5fbbedda6"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-native-account-writer-retained-source-results.md",
+      "classification": "additive delivery correction",
+      "bytes": 6586,
+      "sha256": "b8390ea4e4574d6d4c5f22608c67bd80768866f7e4bb5a487bfae308082d6cf1"
+    },
+    {
+      "path": "src/host/pds.ts",
+      "classification": "original changed Git path",
+      "bytes": 7304,
+      "sha256": "2918479a3698609190889f864d8530a7ad246b9c5c473c60cb2efa10387187d8",
+      "originalGitBlob": "648ec2a8e5f852437a98202a52602e914919e61e"
+    },
+    {
+      "path": "src/protocol/oauth.ts",
+      "classification": "original changed Git path",
+      "bytes": 29132,
+      "sha256": "8dec6d11c1aa88984623175ee78ef116bc6c133d25f138555e20d992012c5747",
+      "originalGitBlob": "6fe0910807efce1d4c61a49011c431cba53ec1e9"
+    },
+    {
+      "path": "src/transport/api.ts",
+      "classification": "original changed Git path",
+      "bytes": 2017,
+      "sha256": "5668bdbc987d5e064ded6ba9f8ccac1e91e54d3e9e636938fee5cf448858f0d0",
+      "originalGitBlob": "2c483f548688c4338714f5ba489230dc1ab63f3a"
+    },
+    {
+      "path": "src/transport/native-account-writer.ts",
+      "classification": "original changed Git path",
+      "bytes": 8064,
+      "sha256": "09121c3668651fa3b78baa5273c66115511255150cbdd6c26d50e2d0978c745b",
+      "originalGitBlob": "731cd48b49db5b34f5a98ce9120b2b870bcf27d8"
+    },
+    {
+      "path": "src/transport/pds-operations.ts",
+      "classification": "original changed Git path",
+      "bytes": 4916,
+      "sha256": "5fecb8908c50712f98102d1d10e1d0482b73e97fc3e96e89ed1672f1b4fc1697",
+      "originalGitBlob": "b9c18cb79579d0b8262ee904dc9551137eef6a42"
+    },
+    {
+      "path": "tests/native-account-writer-browser.test.ts",
+      "classification": "original changed Git path",
+      "bytes": 11518,
+      "sha256": "dd767e42eaa8725c907705ea49049de36988983529a94abc4e26aa82b6cc73e2",
+      "originalGitBlob": "9c21c6133edd7c71aabee8fe51d75637193102ed"
+    },
+    {
+      "path": "tests/native-account-writer-dispatch.test.ts",
+      "classification": "original changed Git path",
+      "bytes": 5368,
+      "sha256": "9872789cc090a2493c91ec93a60d62c679d2e2d48bf4d8a5fe0e0987bf79a78a",
+      "originalGitBlob": "876ff7fcdfc98cb679ed8420bba5515e07f5a011"
+    },
+    {
+      "path": "tests/native-account-writer-handoff.test.ts",
+      "classification": "original changed Git path",
+      "bytes": 10191,
+      "sha256": "1f9f93dd6122c1e1bd4e75201e1fc1fe8a1bdebf8a43a3efb2205ecc4d8a3cbf",
+      "originalGitBlob": "58820797243ff046744e6329c710e4cf34261a62"
+    },
+    {
+      "path": "tests/native-account-writer.test.ts",
+      "classification": "original changed Git path",
+      "bytes": 643,
+      "sha256": "55899ae90ad7fa87d2d1d8e008e2f447affc430b0549811fb544483314ddd3d2",
+      "originalGitBlob": "aedb1b544b1882df21d892d4825c09e5c63badb7"
+    },
+    {
+      "path": "tests/support/native-account-writer-browser-probe.ts",
+      "classification": "original changed Git path",
+      "bytes": 5584,
+      "sha256": "f42e16f3249d1c55207d46f00849c30f6661bfc381435994aa65a1f5c3ea2cfb",
+      "originalGitBlob": "8efb4eb873cdc46f5df6d4d84ff13090789171df"
+    },
+    {
+      "path": "tests/support/native-account-writer-byte-observation.ts",
+      "classification": "original changed Git path",
+      "bytes": 966,
+      "sha256": "fab26ee6e9d4bbc462edc61c56b13895513d451c5467e4a57995de73c7ed3be7",
+      "originalGitBlob": "8ac409d58845d8f50b16cabef5c422cbcf8ff95a"
+    },
+    {
+      "path": "tests/support/native-account-writer-corpus.ts",
+      "classification": "original changed Git path",
+      "bytes": 18942,
+      "sha256": "fc4d578f4cdf81ac33dc2c78c96ada4bb923b4a3813f9a2cf07580201e7f2319",
+      "originalGitBlob": "d1d6ad9e779bd00ba878176d03b292bbeeb5f015"
+    },
+    {
+      "path": "tests/support/native-account-writer-fixture.ts",
+      "classification": "original changed Git path",
+      "bytes": 4498,
+      "sha256": "1adf0c3cd202d06b9a21cd0b959ed772a580c06e03b3b4b25be2e7630e871962",
+      "originalGitBlob": "2a2938aed708870f7447bc6cfff65388fd737749"
+    },
+    {
+      "path": "tests/support/native-account-writer-native-batch.ts",
+      "classification": "original changed Git path",
+      "bytes": 2712,
+      "sha256": "eab53b05e8f66761b60c580a30d90f3c7b884022c0025879dde1b45bebbb1859",
+      "originalGitBlob": "153feecdde3e8f648ff6b1dde7656aba2fadaa00"
+    },
+    {
+      "path": "tests/support/native-account-writer-node-probe.ts",
+      "classification": "original changed Git path",
+      "bytes": 3415,
+      "sha256": "1530af58e04ed9be14378e42cf91cba08f7b6acc8bead1f696d9fe68781e0281",
+      "originalGitBlob": "53873a0004a9db4e9b2bbb1f62c8dc22d71a4255"
+    },
+    {
+      "path": "tests/support/native-account-writer-pds-probe.ts",
+      "classification": "original changed Git path",
+      "bytes": 7803,
+      "sha256": "2b520270ffefa15731db2687c6590b5104143fe9e07c9f62f73d08a9b5ed8c47",
+      "originalGitBlob": "b100a9bc021983fc2dc688d8b63ad805b525ee18"
+    }
+  ]
+}
