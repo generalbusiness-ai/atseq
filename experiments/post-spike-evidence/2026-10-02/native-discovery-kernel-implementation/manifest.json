@@ -860,8 +860,8 @@
     },
     {
       "path": "notes/2026-10-02-atseq-native-discovery-kernel-implementation.md",
-      "bytes": 10162,
-      "sha256": "c1fd8cf116f585bf6eab014df821be30f4803105dbc80cffd6c663b4bd50b23f"
+      "bytes": 10180,
+      "sha256": "bddce6e75530239b6595b010d1121c0eb0273968e142c6bcd04908703b98e953"
     },
     {
       "path": "notes/2026-10-02-atseq-native-discovery-kernel-results.md",
