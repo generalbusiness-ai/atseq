@@ -1,6 +1,6 @@
 import { create, CODEC_RAW, CODEC_DCBOR, toString } from '@atcute/cid';
 import { encode } from '@atcute/cbor';
-import { OAuthFixture, OAUTH_DID } from './oauth-fixture.ts';
+import { OAuthFixture } from './oauth-fixture.ts';
 
 const json = (value: unknown, status = 200) =>
   new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json' } });
@@ -40,7 +40,7 @@ export class NativeWriterFixture extends OAuthFixture {
       const rkey = url.searchParams.get('rkey')!;
       const value = this.records.get(rkey);
       if (value === undefined) return json({ error: 'RecordNotFound' }, 400);
-      return json({ uri: `at://${OAUTH_DID}/${WRITER_COLLECTION}/${rkey}`, cid: await contentCid(value), value });
+      return json({ uri: `at://${this.tokenDid}/${WRITER_COLLECTION}/${rkey}`, cid: await contentCid(value), value });
     }
     if (path.endsWith('listRecords')) {
       const start = Number(url.searchParams.get('cursor') ?? 0);
@@ -48,7 +48,7 @@ export class NativeWriterFixture extends OAuthFixture {
       const all = [...this.records].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
       const records = await Promise.all(
         all.slice(start, start + limit).map(async ([rkey, value]) => ({
-          uri: `at://${OAUTH_DID}/${WRITER_COLLECTION}/${rkey}`,
+          uri: `at://${this.tokenDid}/${WRITER_COLLECTION}/${rkey}`,
           cid: await contentCid(value),
           value,
         })),
@@ -57,7 +57,7 @@ export class NativeWriterFixture extends OAuthFixture {
     }
     if (path.endsWith('applyWrites')) {
       const value = JSON.parse(new TextDecoder().decode(body));
-      if (value.repo !== OAUTH_DID || value.swapCommit !== this.commit) return json({ error: 'InvalidSwap' }, 400);
+      if (value.repo !== this.tokenDid || value.swapCommit !== this.commit) return json({ error: 'InvalidSwap' }, 400);
       for (const write of value.writes) this.records.set(write.rkey, write.value);
       this.commit = await contentCid({ previous: this.commit, writes: value.writes });
       return json({
@@ -65,7 +65,7 @@ export class NativeWriterFixture extends OAuthFixture {
         results: await Promise.all(
           value.writes.map(async (write: any) => ({
             $type: 'com.atproto.repo.applyWrites#createResult',
-            uri: `at://${OAUTH_DID}/${write.collection}/${write.rkey}`,
+            uri: `at://${this.tokenDid}/${write.collection}/${write.rkey}`,
             cid: await contentCid(write.value),
           })),
         ),

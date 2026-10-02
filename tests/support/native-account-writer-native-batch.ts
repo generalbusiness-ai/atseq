@@ -1,43 +1,67 @@
-import { P256PrivateKeyExportable } from '@atcute/crypto';
-import vectors from '../vectors/native-foundation.json' with { type: 'json' };
-import { signNativeIntent, readNativeValue } from '../../src/protocol/native-wire.ts';
+import { nativeApplicationFixture } from './native-application-fixture.ts';
+import {
+  NativeAnchor,
+  nativeHeadAt,
+  readNativeValue,
+  nativeEntryPath,
+  nativeHeadPath,
+  type NativeEntry,
+} from '../../src/protocol/native-wire.ts';
 import { NATIVE_NSID, nativeRef } from '../../src/protocol/native-schema.ts';
-import { contentCid, encodeBlock, link, bytes } from '../../src/protocol/wire.ts';
+import { contentCid, encodeBlock, bytes } from '../../src/protocol/wire.ts';
 
-/** Genuine signature and accepted native framing; placeholder roots are not authority proofs. */
+/** Actual fixture entries have passed source admission, identity/repository proofs, authority and evaluator oracles. */
 export async function largeNativeBatch() {
-  const signer = await P256PrivateKeyExportable.createKeypair();
-  const intent: any = structuredClone(vectors.blocks.signed.value.intent);
-  intent.actorKey = await signer.exportPublicKey('did');
-  // Replace null with an empty JSON string, then fill the exact adopted action cap.
-  intent.operation.payload.note = '';
-  const empty = new TextEncoder().encode(JSON.stringify(intent.operation.payload)).length;
-  intent.operation.payload.note = 'x'.repeat(32768 - empty);
-  const request = await signNativeIntent(intent, signer);
-  const entry = await readNativeValue(NATIVE_NSID.entry, { ...structuredClone(vectors.blocks.entry.value), request });
-  const raw = encodeBlock(entry);
-  if (raw.length < 32000 || raw.length > 65536) throw new Error('Large entry framing boundary changed');
-  const head = await readNativeValue(NATIVE_NSID.head, {
-    ...structuredClone(vectors.blocks.head.value),
-    entry: link(await contentCid(entry)),
-  });
-  const chunk = await readNativeValue(NATIVE_NSID.content, {
-    $type: NATIVE_NSID.content,
-    version: 1,
-    body: { $type: nativeRef('byteChunk'), bytes: bytes(new Uint8Array(32768).fill(17)) },
-  });
+  const fixture = await nativeApplicationFixture();
+  const effective = fixture.vectors.filter(
+    (vector) => vector.expected.outcomes.at(-1)?.outcome.decision === 'effective',
+  );
+  if (!effective.length) throw new Error('No genuine effective native fixture entries');
+  const selected = effective.reduce((largest, vector) =>
+    encodeBlock(vector.entry).length > encodeBlock(largest.entry).length ? vector : largest,
+  );
+  const entry = (await readNativeValue(NATIVE_NSID.entry, selected.entry)) as NativeEntry;
+  const anchor = await NativeAnchor.from(fixture.genesis, { app: fixture.genesis.app, genesis: fixture.genesisCid });
+  const head = await nativeHeadAt(anchor, entry.position, await contentCid(entry));
+  const chunks = await Promise.all(
+    [17, 18].map((value) =>
+      readNativeValue(NATIVE_NSID.content, {
+        $type: NATIVE_NSID.content,
+        version: 1,
+        body: { $type: nativeRef('byteChunk'), bytes: bytes(new Uint8Array(32768).fill(value)) },
+      }),
+    ),
+  );
+  const operation = (entry.request as any).intent?.operation;
   return {
-    payloadBytes: new TextEncoder().encode(JSON.stringify(intent.operation.payload)).length,
-    entryBytes: raw.length,
+    app: fixture.genesis.app,
+    vector: selected.name,
+    payloadBytes:
+      operation?.payload === undefined ? 0 : new TextEncoder().encode(JSON.stringify(operation.payload)).length,
+    entryBytes: encodeBlock(entry).length,
     entryHeadWrites: [
-      { $type: 'com.atproto.repo.applyWrites#create', collection: NATIVE_NSID.entry, rkey: 'near-cap', value: entry },
-      { $type: 'com.atproto.repo.applyWrites#update', collection: NATIVE_NSID.head, rkey: 'near-cap', value: head },
+      {
+        $type: 'com.atproto.repo.applyWrites#create',
+        collection: NATIVE_NSID.entry,
+        rkey: nativeEntryPath(fixture.genesisCid, entry.position).split('/')[1],
+        value: entry,
+      },
+      {
+        $type: 'com.atproto.repo.applyWrites#update',
+        collection: NATIVE_NSID.head,
+        rkey: nativeHeadPath(fixture.genesisCid).split('/')[1],
+        value: head,
+      },
     ],
-    chunkWrite: {
-      $type: 'com.atproto.repo.applyWrites#create',
-      collection: NATIVE_NSID.content,
-      rkey: 'transport-chunk',
-      value: chunk,
-    },
+    // Separate valid native content primitives for transport batching. These
+    // chunks do not claim to be the selected application's source closure.
+    chunkWrites: await Promise.all(
+      chunks.map(async (chunk) => ({
+        $type: 'com.atproto.repo.applyWrites#create',
+        collection: NATIVE_NSID.content,
+        rkey: await contentCid(chunk),
+        value: chunk,
+      })),
+    ),
   };
 }

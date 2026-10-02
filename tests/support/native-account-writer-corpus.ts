@@ -25,6 +25,7 @@ export async function runNativeWriterCorpus(
 ): Promise<{
   cases: string[];
   nativeBatch: {
+    selectedFixtureVector: string;
     payloadJSONBytes: number;
     entryCBORBytes: number;
     entryHeadJSONBytes: number;
@@ -144,25 +145,6 @@ export async function runNativeWriterCorpus(
   await refused(() => writer.applyConditional(capWrites, overCondition), 'input');
   check(fixture.paths.length === beforeOver, 'Exact 1 MiB plus one apply refused before resource transport');
   results.push('maintained-exact-1MiB-conditional-body-and-one-byte-over-local-refusal');
-  const native = await largeNativeBatch();
-  const condition = fixture.commit;
-  const nativeWrites = [...native.entryHeadWrites, native.chunkWrite];
-  const expectedBody = JSON.stringify({
-    repo: OAUTH_DID,
-    validate: false,
-    writes: nativeWrites,
-    swapCommit: condition,
-  });
-  check(
-    new TextEncoder().encode(expectedBody).length > 65536,
-    'Accepted native entry/head/chunk batch exceeds old resource cap',
-  );
-  await writer.applyConditional(nativeWrites, condition);
-  check(
-    new TextDecoder().decode(fixture.bodies.at(-1)!) === expectedBody,
-    'Accepted signed native entry/head/chunk body unchanged',
-  );
-  results.push('accepted-native-action-at-32KiB-cap-entry-head-chunk-batch-genuine-signature-unchanged-JSON');
   // A separate genuine restored public handle retains its ordinary 64 KiB policy.
   for (const size of [65536, 65537]) {
     const work = () =>
@@ -248,13 +230,39 @@ export async function runNativeWriterCorpus(
     check(bad.paths.length === 0, 'Subject/scope refusal must precede resource dispatch');
   }
   results.push('maintained-subject-missing-and-extra-scope-refused-before-mint');
+  const native = await largeNativeBatch();
+  const nativeFixture = await new NativeWriterFixture().initialize();
+  nativeFixture.tokenDid = native.app;
+  const nativeAdapter = await createAdapter(nativeFixture);
+  await nativeAdapter.begin(native.app, OAUTH_SCOPE);
+  const nativeHandle = await nativeAdapter.complete(nativeFixture.callback());
+  const nativeWriter = await NativeAccountWriter.open(nativeHandle, native.app);
+  const condition = nativeFixture.commit;
+  const nativeWrites = [...native.entryHeadWrites, ...native.chunkWrites];
+  const expectedBody = JSON.stringify({
+    repo: native.app,
+    validate: false,
+    writes: nativeWrites,
+    swapCommit: condition,
+  });
+  check(
+    new TextEncoder().encode(expectedBody).length > 65536,
+    'Actual accepted entry/head plus two bounded content chunks exceeds old resource cap',
+  );
+  await nativeWriter.applyConditional(nativeWrites, condition);
+  check(
+    new TextDecoder().decode(nativeFixture.bodies.at(-1)!) === expectedBody,
+    'Genuine accepted native entry/head and content chunk body unchanged',
+  );
+  results.push('genuine-admitted-source-authority-evaluator-entry-head-and-two-content-chunks-unchanged-JSON');
   return {
     cases: results,
     nativeBatch: {
+      selectedFixtureVector: native.vector,
       payloadJSONBytes: native.payloadBytes,
       entryCBORBytes: native.entryBytes,
       entryHeadJSONBytes: new TextEncoder().encode(
-        JSON.stringify({ repo: OAUTH_DID, validate: false, writes: native.entryHeadWrites, swapCommit: condition }),
+        JSON.stringify({ repo: native.app, validate: false, writes: native.entryHeadWrites, swapCommit: condition }),
       ).length,
       entryHeadAndChunkJSONBytes: new TextEncoder().encode(expectedBody).length,
     },
