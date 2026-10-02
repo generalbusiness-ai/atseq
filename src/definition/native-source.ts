@@ -190,8 +190,9 @@ export async function admitNativeSourceDefinition(
     programs.add(query.program);
   }
   for (const path of programs) {
+    const source = sourceText(complete.files, path);
     try {
-      await evaluate(sourceText(complete.files, path), { meta: {}, act: {}, params: {}, state: {} });
+      await evaluate(source, { meta: {}, act: {}, params: {}, state: {} });
     } catch (error) {
       if (!(error instanceof InterpretationError) || error.kind !== 'invalid_input' || staticFailures.has(error.code))
         throw error;
