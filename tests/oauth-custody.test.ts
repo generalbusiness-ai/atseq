@@ -1223,3 +1223,33 @@ for (const status of [500, 503, 429]) {
     });
   }
 }
+
+test('explicit signout HTTP503 still retires locally without token mutation or automatic retry', async () => {
+  const e = await environment();
+  try {
+    const p = await e.page();
+    await e.enroll(p);
+    const tokens = e.fixture.count('/token'),
+      revokes = e.fixture.count('/revoke');
+    e.setHttpStatus((url) => (url.pathname === '/revoke' ? 503 : undefined));
+    await assert.rejects(() => p.evaluate(() => (globalThis as any).probe.revoke()), /OAuth operation is unavailable/);
+    assert.equal((await e.rows(p)).accounts.length, 0);
+    assert.equal(e.fixture.count('/token'), tokens);
+    assert.equal(e.fixture.count('/revoke') - revokes, 1);
+    e.setHttpStatus(undefined);
+    await assert.rejects(() => p.evaluate(() => (globalThis as any).probe.resource()));
+    assert.equal(e.fixture.count('/token'), tokens);
+    console.log(
+      JSON.stringify({
+        custodyCase: 'explicit-signout-http-outage',
+        status: 503,
+        tokenDelta: 0,
+        revokeDelta: 1,
+        retiredLocally: true,
+        nextRequestRefused: true,
+      }),
+    );
+  } finally {
+    await e.close();
+  }
+});

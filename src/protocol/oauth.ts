@@ -272,6 +272,13 @@ export class OAuthAdapter {
     if (response.redirected || response.status === 0) refuse('OAuth redirect or opaque response is forbidden');
     if (response.url && oauthUrl(response.url).href !== oauthUrl(request.url).href)
       refuse('OAuth response URL differs from request');
+    // Resolver/metadata error wrappers do not preserve HTTP outage meaning.
+    // Classify our unauthenticated fetch edge before their body/schema parsing.
+    // Authenticated resources remain Responses; token dispatch is already marked.
+    if (!guarded.headers.has('authorization') && (response.status === 429 || response.status >= 500)) {
+      void response.body?.cancel().catch(() => {});
+      throw new AtseqError('content_unavailable', 'OAuth service is unavailable');
+    }
     const content = await bodyBytes(response.body, OAUTH_LIMITS.responseBytes, budget, signal);
     const resultHeaders = new Headers(response.headers);
     resultHeaders.delete('content-length');
