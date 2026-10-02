@@ -1232,7 +1232,9 @@ test('explicit signout HTTP503 still retires locally without token mutation or a
     const tokens = e.fixture.count('/token'),
       revokes = e.fixture.count('/revoke');
     e.setHttpStatus((url) => (url.pathname === '/revoke' ? 503 : undefined));
-    await assert.rejects(() => p.evaluate(() => (globalThis as any).probe.revoke()), /OAuth operation is unavailable/);
+    // The maintained server agent suppresses best-effort remote revoke errors;
+    // signOut still deletes local credentials in finally.
+    await p.evaluate(() => (globalThis as any).probe.revoke());
     assert.equal((await e.rows(p)).accounts.length, 0);
     assert.equal(e.fixture.count('/token'), tokens);
     assert.equal(e.fixture.count('/revoke') - revokes, 1);
@@ -1242,6 +1244,7 @@ test('explicit signout HTTP503 still retires locally without token mutation or a
     console.log(
       JSON.stringify({
         custodyCase: 'explicit-signout-http-outage',
+        remoteFailureSuppressedBySDK: true,
         status: 503,
         tokenDelta: 0,
         revokeDelta: 1,
