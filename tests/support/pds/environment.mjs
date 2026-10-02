@@ -128,7 +128,7 @@ export async function startEnvironment() {
           clearTimeout(timer);
           reject(error);
         });
-        child.send({ start: true }, reservation, { keepOpen: true }, (error) => {
+        child.send({ start: true }, reservation, (error) => {
           if (error) {
             clearTimeout(timer);
             reject(error);
