@@ -9,7 +9,7 @@
   "sourceBytes": 3394609,
   "deliveryFiles": 57,
   "hashedFiles": 56,
-  "hashedBytes": 3441029,
+  "hashedBytes": 3441166,
   "files": [
     {
       "path": "experiments/post-spike-evidence/2026-10-01/native-coordinator-d5/decision-vectors.json",
@@ -213,8 +213,8 @@
     },
     {
       "path": "experiments/post-spike-evidence/2026-10-02/accepted-continuation-publication/whitespace-check.log",
-      "bytes": 275,
-      "sha256": "a0dee239ed23dd9996e1f6c2d26c35499e767cbebf00f5cee604aa75107c04f1"
+      "bytes": 412,
+      "sha256": "957ac188b197d08f1296a9f7602a04c186251b742437154fae0b48516b04e204"
     },
     {
       "path": "experiments/post-spike-evidence/2026-10-02/retry-prefix-boundary/decision-vectors.json",
