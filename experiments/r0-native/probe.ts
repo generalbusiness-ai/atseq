@@ -547,6 +547,7 @@ export async function probe(
   const allocator = await phase('unsupportedCounterDurableAllocatorRaces', () => allocatorProbe(openStore));
   const tableBytes = (table: CostFixture['history']) =>
     raw(table.table).length + table.pages.reduce((n, page) => n + raw(page).length, 0);
+  const nativeBlocks = new Map([...maps.content, ...maps.framed]);
   const componentHashes = await phase('canonicalDataComparisonHashes', async () => {
     const values: any = {
       state: isolatedState,
@@ -576,6 +577,11 @@ export async function probe(
     counts: fixture.counts,
     costs: {
       ...fixture.costs,
+      deduplicatedNativeEvidenceBlocks: nativeBlocks.size,
+      deduplicatedNativeEvidenceBytes: [...nativeBlocks.values()].reduce((n, bytes) => n + bytes.length, 0),
+      retainedAuthorityGrantDiagnosticJsonBytes: encoded(authority.grants).length,
+      retiredAuthorityGrantDiagnosticJsonBytes: encoded(authority.grants.filter((row: any) => row.revoked)).length,
+      authorityEpochDiagnosticJsonBytes: encoded(authority.principals).length,
       historyDataBytes: tableBytes(fixture.history),
       outcomeDataBytes: tableBytes(fixture.outcomes),
       sourceDataBytes: tableBytes(fixture.sourceTable),
