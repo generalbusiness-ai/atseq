@@ -94,16 +94,15 @@ function exactBlocks(raw: Uint8Array, requested: readonly string[]) {
   return parsed.blocks;
 }
 function canonicalCid(value: string, cbor = false) {
-  if (typeof value !== 'string' || value.length > 128) invalid('Expected canonical observation CID');
+  if (typeof value !== 'string' || !/^b[a-z2-7]{57}[aeimquy4]$/.test(value))
+    invalid('Expected canonical observation CID');
   try {
     const cid = CID.fromString(value);
     if (CID.toString(cid) !== value || (cbor && cid.codec !== CID.CODEC_DCBOR))
       invalid('Expected canonical CBOR observation CID');
     return cid;
   } catch (error) {
-    if (error instanceof SyntaxError && error.constructor === SyntaxError && error.message === 'not a valid cid string')
-      invalid('Expected canonical observation CID');
-    throw error;
+    rethrow(error);
   }
 }
 /** Owned selected-commit DATA only; P1 still authenticates its DID, key and signed root. */

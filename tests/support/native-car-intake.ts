@@ -288,19 +288,24 @@ export async function carIntakeCorpus(fixtures: IntakeFixture[], prefixFixture: 
     equal(selectNativeObservationCommit(full).bytes, commit, 'Selected returned-byte mutation leaked');
     selected.bytes = new Uint8Array(commit);
     await refusal(() => exactAdmissionCar(one, requests, { root, bytes: new Uint8Array(commit).fill(0) }), 'input');
-    const foreign = new Error('not a valid cid string'),
-      throwing = Object.defineProperty({ bytes: commit }, 'root', {
+    for (const foreign of [
+      new Error('not a valid cid string'),
+      new SyntaxError('invalid base string'),
+      new RangeError('incorrect cid version (got v0)'),
+    ]) {
+      const throwing = Object.defineProperty({ bytes: commit }, 'root', {
         get() {
           throw foreign;
         },
       });
-    let caught: unknown;
-    try {
-      await exactAdmissionCar(one, requests, throwing as { root: string; bytes: Uint8Array });
-    } catch (error) {
-      caught = error;
+      let caught: unknown;
+      try {
+        await exactAdmissionCar(one, requests, throwing as { root: string; bytes: Uint8Array });
+      } catch (error) {
+        caught = error;
+      }
+      check(caught === foreign, 'Foreign getter runtime error changed identity');
     }
-    check(caught === foreign, 'Foreign getter runtime error changed identity');
     passed(
       'CI5',
       `${label} raw/list/selected DATA captured before await, forged hash refused and foreign error preserved`,
@@ -309,6 +314,23 @@ export async function carIntakeCorpus(fixtures: IntakeFixture[], prefixFixture: 
       await refusal(() => exactAdmissionCar(one, list, selected), 'input');
     const rawCodec = CID.toString(CID.createSync(CID.CODEC_RAW, item[1]));
     await refusal(() => exactAdmissionCar(one, [rawCodec], selected), 'input');
+    for (const bad of ['b' + '!'.repeat(58), item[0].slice(0, -1) + 'b']) {
+      await refusal(() => exactAdmissionCar(one, [bad], selected), 'input');
+      await refusal(() => exactAdmissionCar(one, requests, { root: bad, bytes: commit }), 'input');
+    }
+    const parsedCid = CID.fromString(item[0]);
+    for (const [position, value] of [
+      [0, 0],
+      [1, 0],
+      [2, 0],
+      [3, 31],
+    ] as const) {
+      const bytes = new Uint8Array(parsedCid.bytes);
+      bytes[position] = value;
+      const bad = CID.toString({ ...parsedCid, bytes });
+      await refusal(() => exactAdmissionCar(one, [bad], selected), 'input');
+      await refusal(() => exactAdmissionCar(one, requests, { root: bad, bytes: commit }), 'input');
+    }
     passed('CI6', `${label} canonical CBOR unique request count 1..64`);
 
     const before = { bytes: cache.bytes, size: cache.size },
