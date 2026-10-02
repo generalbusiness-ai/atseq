@@ -12,5 +12,6 @@
     "resolveJsonModule": true,
     "types": ["node", "vite/client"]
   },
-  "include": ["src", "scripts", "tests", "experiments/**/*.ts"]
+  "include": ["src", "scripts", "tests", "experiments/**/*.ts"],
+  "exclude": ["experiments/post-spike-evidence"]
 }
