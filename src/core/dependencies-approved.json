@@ -1,6 +1,6 @@
 {
   "profile": "atseq-app-v2",
-  "approval": "I1 maintained PLC/parser/transport additions under ratified cc21a77c and e00cf34a; exact-head conformance required; atseq-app-v2 unchanged",
+  "approval": "A1 official OAuth Node/browser 0.5.8 family and C1–C6 under ratified f3c65906 and manifest clarification 862135c7; preserved I1 foundation files; exact-head conformance required; semantic contracts unchanged",
   "direct": {
     "@atcute/car": "6.1.0",
     "@atcute/cbor": "2.3.8",
@@ -12,8 +12,12 @@
     "@atcute/repo": "1.1.0",
     "@atcute/varint": "2.0.2",
     "@atproto-labs/fetch-node": "0.4.0",
+    "@atproto/common-web": "0.5.10",
     "@atproto/did": "0.3.0",
     "@atproto/lexicon": "0.7.12",
+    "@atproto/oauth-client-browser": "0.5.8",
+    "@atproto/oauth-client-node": "0.5.8",
+    "@atproto/syntax": "0.7.5",
     "@inlay/core": "0.0.13",
     "@inlay/render": "0.3.1",
     "@noble/secp256k1": "3.2.0",
@@ -214,6 +218,101 @@
       "version": "0.2.4",
       "integrity": "sha512-n67jCcrC+ouAeO10cWkpPzzLMlDi/lDCU30Us+LGqhOPhT6c4t5ASdBLQi9W3jUQtRzQBt3G9zipF+xKWNvVbw=="
     },
+    "node_modules/@atproto-labs/handle-resolver": {
+      "version": "0.4.10",
+      "integrity": "sha512-hsYYvGhi6Tv6f4Fti//i/vllVIb/wrJaOcbT3Yh7oo10VxBKAyxzVaB7mIJcho2YJ5kHd2kbCYYPWLw8pvm/bg==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto-labs/simple-store-memory": "^0.2.6",
+        "@atproto/did": "^0.5.6",
+        "@atproto-labs/simple-store": "^0.5.1"
+      }
+    },
+    "node_modules/@atproto-labs/handle-resolver-node": {
+      "version": "0.2.11",
+      "integrity": "sha512-stwXuolGIs8ULdLRCwr616A4268CP2jTYOKZOlR7rzMLKjMNaxYVFktbqWUtqKq1nqdqaKxSk+MZNTFrqCjaHQ==",
+      "dependencies": {
+        "@atproto-labs/handle-resolver": "^0.4.10",
+        "@atproto-labs/fetch-node": "^0.4.0",
+        "@atproto/did": "^0.5.6"
+      }
+    },
+    "node_modules/@atproto-labs/handle-resolver-node/node_modules/@atproto/did": {
+      "version": "0.5.6",
+      "integrity": "sha512-8bLfOnaoWBmg9S8naqzk5mG8zYAXfSKT4odB5OHcCAd1o7p6RFb0Rk9WGobEgboKtxP2CIeul6mzI5PUT4v6Gg==",
+      "dependencies": {
+        "zod": "^3.23.8"
+      }
+    },
+    "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store": {
+      "version": "0.5.1",
+      "integrity": "sha512-vfvoDhu6ds6BT3Pqe+d2/LBU1WpDRtt69y6zltlfMCoucPm82m1j50/Wb6xTvv+oZ+2j0JyZVXsmXQ12SWYQJg=="
+    },
+    "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto-labs/simple-store-memory": {
+      "version": "0.2.6",
+      "integrity": "sha512-DD1v7MEfYF3BAcEpMTTpzfBLWLoI2HuyBhku2YpjHoqPrRrhCtE1alkxfPHjtjJVIjuU/XNU0cF/wB3+5FiKsA==",
+      "dependencies": {
+        "lru-cache": "^10.2.0",
+        "@atproto-labs/simple-store": "^0.5.1"
+      }
+    },
+    "node_modules/@atproto-labs/handle-resolver/node_modules/@atproto/did": {
+      "version": "0.5.6",
+      "integrity": "sha512-8bLfOnaoWBmg9S8naqzk5mG8zYAXfSKT4odB5OHcCAd1o7p6RFb0Rk9WGobEgboKtxP2CIeul6mzI5PUT4v6Gg==",
+      "dependencies": {
+        "zod": "^3.23.8"
+      }
+    },
+    "node_modules/@atproto-labs/identity-resolver": {
+      "version": "0.4.10",
+      "integrity": "sha512-deKu7csOsM8lnIRnLa97te6ODIUx0Lm3Srxid/Ix+UYQqFKA0sIpfYmHZduAK7B+aTqiPcHjoA9Y/qpJyzgnMw==",
+      "dependencies": {
+        "@atproto-labs/did-resolver": "^0.3.10",
+        "@atproto-labs/handle-resolver": "^0.4.10"
+      }
+    },
+    "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/did-resolver": {
+      "version": "0.3.10",
+      "integrity": "sha512-SPWOcJG/rsqrp2XQZQe8ctC9Y604mivZfXTrCsXbo7dXeAukYSgljPPa/7yWAlTvCbqUSNKScVEWpdCyel/nFw==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto-labs/fetch": "^0.3.6",
+        "@atproto-labs/pipe": "^0.2.4",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto-labs/simple-store-memory": "^0.2.6",
+        "@atproto/did": "^0.5.6"
+      }
+    },
+    "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/fetch": {
+      "version": "0.3.6",
+      "integrity": "sha512-ro/J/cnqIp4bnSzDl8N3SkruvQcE3Pze+1H70mKdFfyFcdhPr+7O4lggl4VCbhI84Yqgz47c0xC6F/Yl39SxDA==",
+      "dependencies": {
+        "@atproto-labs/pipe": "^0.2.4"
+      }
+    },
+    "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/pipe": {
+      "version": "0.2.4",
+      "integrity": "sha512-n67jCcrC+ouAeO10cWkpPzzLMlDi/lDCU30Us+LGqhOPhT6c4t5ASdBLQi9W3jUQtRzQBt3G9zipF+xKWNvVbw=="
+    },
+    "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store": {
+      "version": "0.5.1",
+      "integrity": "sha512-vfvoDhu6ds6BT3Pqe+d2/LBU1WpDRtt69y6zltlfMCoucPm82m1j50/Wb6xTvv+oZ+2j0JyZVXsmXQ12SWYQJg=="
+    },
+    "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto-labs/simple-store-memory": {
+      "version": "0.2.6",
+      "integrity": "sha512-DD1v7MEfYF3BAcEpMTTpzfBLWLoI2HuyBhku2YpjHoqPrRrhCtE1alkxfPHjtjJVIjuU/XNU0cF/wB3+5FiKsA==",
+      "dependencies": {
+        "lru-cache": "^10.2.0",
+        "@atproto-labs/simple-store": "^0.5.1"
+      }
+    },
+    "node_modules/@atproto-labs/identity-resolver/node_modules/@atproto/did": {
+      "version": "0.5.6",
+      "integrity": "sha512-8bLfOnaoWBmg9S8naqzk5mG8zYAXfSKT4odB5OHcCAd1o7p6RFb0Rk9WGobEgboKtxP2CIeul6mzI5PUT4v6Gg==",
+      "dependencies": {
+        "zod": "^3.23.8"
+      }
+    },
     "node_modules/@atproto-labs/pipe": {
       "version": "0.1.1",
       "integrity": "sha512-hdNw2oUs2B6BN1lp+32pF7cp8EMKuIN5Qok2Vvv/aOpG/3tNSJ9YkvfI0k6Zd188LeDDYRUpYpxcoFIcGH/FNg=="
@@ -309,6 +408,35 @@
       "dependencies": {
         "zod": "^3.23.8"
       }
+    },
+    "node_modules/@atproto/jwk": {
+      "version": "0.7.4",
+      "integrity": "sha512-tq7TUDmNfe1yDfpRgdGQMJdl9TUlJmREQNCag9yg5w8Evu+TOiFiLgiOCbo7X4ouRPSgd1DpOzXbUa8UyKKMZA==",
+      "dependencies": {
+        "multiformats": "^13.0.0",
+        "zod": "^3.23.8"
+      }
+    },
+    "node_modules/@atproto/jwk-jose": {
+      "version": "0.2.4",
+      "integrity": "sha512-gzDoA0JTwnc0ZJOBLM7WX9xFxtynRS2K1Bofb8epzoMWDQvyvfbPcfkdPrKFM7NXCFUVpGpBnsCB8KFPTf1rCg==",
+      "dependencies": {
+        "jose": "^5.2.0",
+        "@atproto/jwk": "^0.7.4"
+      }
+    },
+    "node_modules/@atproto/jwk-webcrypto": {
+      "version": "0.3.4",
+      "integrity": "sha512-UsFIUozqnRecXPo6HgKV4PW4FqYHxX1V3iAe0rRV6Q2RSfYD8V2mZ89pv8NpvJynnaqJArBQ7HZlcg0F4tRYhA==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto/jwk": "^0.7.4",
+        "@atproto/jwk-jose": "^0.2.4"
+      }
+    },
+    "node_modules/@atproto/jwk/node_modules/multiformats": {
+      "version": "13.4.2",
+      "integrity": "sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ=="
     },
     "node_modules/@atproto/lex": {
       "version": "0.0.18",
@@ -532,6 +660,201 @@
       "version": "13.4.2",
       "integrity": "sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ=="
     },
+    "node_modules/@atproto/oauth-client": {
+      "version": "0.8.8",
+      "integrity": "sha512-W2T44dtFRBiHlq21JAnailcR7pjkTIlVoYTSxkXTAiycac97KhiXqKPOOfAu2sjkA3FTnKlMMjdjv4UrtDui+w==",
+      "dependencies": {
+        "core-js": "^3.50.0",
+        "multiformats": "^13.0.0",
+        "zod": "^3.23.8",
+        "@atproto-labs/did-resolver": "^0.3.10",
+        "@atproto-labs/handle-resolver": "^0.4.10",
+        "@atproto-labs/fetch": "^0.3.6",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto-labs/identity-resolver": "^0.4.10",
+        "@atproto/did": "^0.5.6",
+        "@atproto/jwk": "^0.7.4",
+        "@atproto-labs/simple-store-memory": "^0.2.6",
+        "@atproto/xrpc": "^0.8.14",
+        "@atproto/oauth-types": "^0.7.7"
+      }
+    },
+    "node_modules/@atproto/oauth-client-browser": {
+      "version": "0.5.8",
+      "integrity": "sha512-bAJ/OtpdKHwtMuro6ZAmKQnD8dzV0wv+DydL04lvtMe828xcZmce9gylMZfpG7wF3Br5OaSsqCAVk4m8rEpuSg==",
+      "dependencies": {
+        "core-js": "^3.50.0",
+        "@atproto-labs/handle-resolver": "^0.4.10",
+        "@atproto-labs/did-resolver": "^0.3.10",
+        "@atproto/did": "^0.5.6",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto/oauth-client": "^0.8.8",
+        "@atproto/jwk": "^0.7.4",
+        "@atproto/jwk-webcrypto": "^0.3.4",
+        "@atproto/oauth-types": "^0.7.7"
+      }
+    },
+    "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/did-resolver": {
+      "version": "0.3.10",
+      "integrity": "sha512-SPWOcJG/rsqrp2XQZQe8ctC9Y604mivZfXTrCsXbo7dXeAukYSgljPPa/7yWAlTvCbqUSNKScVEWpdCyel/nFw==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto-labs/fetch": "^0.3.6",
+        "@atproto-labs/pipe": "^0.2.4",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto-labs/simple-store-memory": "^0.2.6",
+        "@atproto/did": "^0.5.6"
+      }
+    },
+    "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/fetch": {
+      "version": "0.3.6",
+      "integrity": "sha512-ro/J/cnqIp4bnSzDl8N3SkruvQcE3Pze+1H70mKdFfyFcdhPr+7O4lggl4VCbhI84Yqgz47c0xC6F/Yl39SxDA==",
+      "dependencies": {
+        "@atproto-labs/pipe": "^0.2.4"
+      }
+    },
+    "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/pipe": {
+      "version": "0.2.4",
+      "integrity": "sha512-n67jCcrC+ouAeO10cWkpPzzLMlDi/lDCU30Us+LGqhOPhT6c4t5ASdBLQi9W3jUQtRzQBt3G9zipF+xKWNvVbw=="
+    },
+    "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store": {
+      "version": "0.5.1",
+      "integrity": "sha512-vfvoDhu6ds6BT3Pqe+d2/LBU1WpDRtt69y6zltlfMCoucPm82m1j50/Wb6xTvv+oZ+2j0JyZVXsmXQ12SWYQJg=="
+    },
+    "node_modules/@atproto/oauth-client-browser/node_modules/@atproto-labs/simple-store-memory": {
+      "version": "0.2.6",
+      "integrity": "sha512-DD1v7MEfYF3BAcEpMTTpzfBLWLoI2HuyBhku2YpjHoqPrRrhCtE1alkxfPHjtjJVIjuU/XNU0cF/wB3+5FiKsA==",
+      "dependencies": {
+        "lru-cache": "^10.2.0",
+        "@atproto-labs/simple-store": "^0.5.1"
+      }
+    },
+    "node_modules/@atproto/oauth-client-browser/node_modules/@atproto/did": {
+      "version": "0.5.6",
+      "integrity": "sha512-8bLfOnaoWBmg9S8naqzk5mG8zYAXfSKT4odB5OHcCAd1o7p6RFb0Rk9WGobEgboKtxP2CIeul6mzI5PUT4v6Gg==",
+      "dependencies": {
+        "zod": "^3.23.8"
+      }
+    },
+    "node_modules/@atproto/oauth-client-node": {
+      "version": "0.5.8",
+      "integrity": "sha512-Mhs0JlEiZC3iu0RB1XXjmbFodk8rTtyM+27tNm/2dHkTPdBZTbl7smwOoAXdNpa3rjgR4DlCEBLkTqS9XLsjcQ==",
+      "dependencies": {
+        "@atproto-labs/did-resolver": "^0.3.10",
+        "@atproto-labs/handle-resolver-node": "^0.2.11",
+        "@atproto/jwk": "^0.7.4",
+        "@atproto/jwk-jose": "^0.2.4",
+        "@atproto/did": "^0.5.6",
+        "@atproto/oauth-client": "^0.8.8",
+        "@atproto/jwk-webcrypto": "^0.3.4",
+        "@atproto/oauth-types": "^0.7.7",
+        "@atproto-labs/simple-store": "^0.5.1"
+      }
+    },
+    "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/did-resolver": {
+      "version": "0.3.10",
+      "integrity": "sha512-SPWOcJG/rsqrp2XQZQe8ctC9Y604mivZfXTrCsXbo7dXeAukYSgljPPa/7yWAlTvCbqUSNKScVEWpdCyel/nFw==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto-labs/fetch": "^0.3.6",
+        "@atproto-labs/pipe": "^0.2.4",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto-labs/simple-store-memory": "^0.2.6",
+        "@atproto/did": "^0.5.6"
+      }
+    },
+    "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/fetch": {
+      "version": "0.3.6",
+      "integrity": "sha512-ro/J/cnqIp4bnSzDl8N3SkruvQcE3Pze+1H70mKdFfyFcdhPr+7O4lggl4VCbhI84Yqgz47c0xC6F/Yl39SxDA==",
+      "dependencies": {
+        "@atproto-labs/pipe": "^0.2.4"
+      }
+    },
+    "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/pipe": {
+      "version": "0.2.4",
+      "integrity": "sha512-n67jCcrC+ouAeO10cWkpPzzLMlDi/lDCU30Us+LGqhOPhT6c4t5ASdBLQi9W3jUQtRzQBt3G9zipF+xKWNvVbw=="
+    },
+    "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/simple-store": {
+      "version": "0.5.1",
+      "integrity": "sha512-vfvoDhu6ds6BT3Pqe+d2/LBU1WpDRtt69y6zltlfMCoucPm82m1j50/Wb6xTvv+oZ+2j0JyZVXsmXQ12SWYQJg=="
+    },
+    "node_modules/@atproto/oauth-client-node/node_modules/@atproto-labs/simple-store-memory": {
+      "version": "0.2.6",
+      "integrity": "sha512-DD1v7MEfYF3BAcEpMTTpzfBLWLoI2HuyBhku2YpjHoqPrRrhCtE1alkxfPHjtjJVIjuU/XNU0cF/wB3+5FiKsA==",
+      "dependencies": {
+        "lru-cache": "^10.2.0",
+        "@atproto-labs/simple-store": "^0.5.1"
+      }
+    },
+    "node_modules/@atproto/oauth-client-node/node_modules/@atproto/did": {
+      "version": "0.5.6",
+      "integrity": "sha512-8bLfOnaoWBmg9S8naqzk5mG8zYAXfSKT4odB5OHcCAd1o7p6RFb0Rk9WGobEgboKtxP2CIeul6mzI5PUT4v6Gg==",
+      "dependencies": {
+        "zod": "^3.23.8"
+      }
+    },
+    "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/did-resolver": {
+      "version": "0.3.10",
+      "integrity": "sha512-SPWOcJG/rsqrp2XQZQe8ctC9Y604mivZfXTrCsXbo7dXeAukYSgljPPa/7yWAlTvCbqUSNKScVEWpdCyel/nFw==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto-labs/fetch": "^0.3.6",
+        "@atproto-labs/pipe": "^0.2.4",
+        "@atproto-labs/simple-store": "^0.5.1",
+        "@atproto-labs/simple-store-memory": "^0.2.6",
+        "@atproto/did": "^0.5.6"
+      }
+    },
+    "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/fetch": {
+      "version": "0.3.6",
+      "integrity": "sha512-ro/J/cnqIp4bnSzDl8N3SkruvQcE3Pze+1H70mKdFfyFcdhPr+7O4lggl4VCbhI84Yqgz47c0xC6F/Yl39SxDA==",
+      "dependencies": {
+        "@atproto-labs/pipe": "^0.2.4"
+      }
+    },
+    "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/pipe": {
+      "version": "0.2.4",
+      "integrity": "sha512-n67jCcrC+ouAeO10cWkpPzzLMlDi/lDCU30Us+LGqhOPhT6c4t5ASdBLQi9W3jUQtRzQBt3G9zipF+xKWNvVbw=="
+    },
+    "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store": {
+      "version": "0.5.1",
+      "integrity": "sha512-vfvoDhu6ds6BT3Pqe+d2/LBU1WpDRtt69y6zltlfMCoucPm82m1j50/Wb6xTvv+oZ+2j0JyZVXsmXQ12SWYQJg=="
+    },
+    "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store-memory": {
+      "version": "0.2.6",
+      "integrity": "sha512-DD1v7MEfYF3BAcEpMTTpzfBLWLoI2HuyBhku2YpjHoqPrRrhCtE1alkxfPHjtjJVIjuU/XNU0cF/wB3+5FiKsA==",
+      "dependencies": {
+        "lru-cache": "^10.2.0",
+        "@atproto-labs/simple-store": "^0.5.1"
+      }
+    },
+    "node_modules/@atproto/oauth-client/node_modules/@atproto/did": {
+      "version": "0.5.6",
+      "integrity": "sha512-8bLfOnaoWBmg9S8naqzk5mG8zYAXfSKT4odB5OHcCAd1o7p6RFb0Rk9WGobEgboKtxP2CIeul6mzI5PUT4v6Gg==",
+      "dependencies": {
+        "zod": "^3.23.8"
+      }
+    },
+    "node_modules/@atproto/oauth-client/node_modules/multiformats": {
+      "version": "13.4.2",
+      "integrity": "sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ=="
+    },
+    "node_modules/@atproto/oauth-types": {
+      "version": "0.7.7",
+      "integrity": "sha512-HhY0n6BJtFlxHJTOwT34uf7BiMaEluuwiZqHkamWoFvl+Gk7bPgWhPslr4kX2J/7ryFxhdsKVj1tjWjy0AhjTw==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto/did": "^0.5.6",
+        "@atproto/jwk": "^0.7.4"
+      }
+    },
+    "node_modules/@atproto/oauth-types/node_modules/@atproto/did": {
+      "version": "0.5.6",
+      "integrity": "sha512-8bLfOnaoWBmg9S8naqzk5mG8zYAXfSKT4odB5OHcCAd1o7p6RFb0Rk9WGobEgboKtxP2CIeul6mzI5PUT4v6Gg==",
+      "dependencies": {
+        "zod": "^3.23.8"
+      }
+    },
     "node_modules/@atproto/repo": {
       "version": "0.8.13",
       "integrity": "sha512-VS8XHaBMGdq60xwRI5zQmXzsMF1hU7NKPjmkdr65tJdrv2z0VW77mG01Ui19Xh9O0mUc/LG6GEhwVrabB9Txow==",
@@ -600,6 +923,46 @@
         "iso-datestring-validator": "^2.2.2",
         "tslib": "^2.8.1"
       }
+    },
+    "node_modules/@atproto/xrpc": {
+      "version": "0.8.14",
+      "integrity": "sha512-9r3cGbm6Q35SMzfBGaJiHbb1OlznOpf1PwKj9Q8nrSRh01xGl0GgCUDXe47t3IgFth4WJmnEcY2EbyoJF05WCQ==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto/lexicon": "^0.7.15"
+      }
+    },
+    "node_modules/@atproto/xrpc/node_modules/@atproto/common-web": {
+      "version": "0.5.13",
+      "integrity": "sha512-TSVba26vsgeYqeE6BKrvomEbzRJPiRkmVfakfJxqoEWAwxrWfvXvKSwGkPIY57kw5g2gHpKxPIM0v+DqarWKEw==",
+      "dependencies": {
+        "zod": "^3.23.8",
+        "@atproto/lex-data": "^0.1.7",
+        "@atproto/lex-json": "^0.1.6",
+        "@atproto/syntax": "^0.7.6"
+      }
+    },
+    "node_modules/@atproto/xrpc/node_modules/@atproto/lexicon": {
+      "version": "0.7.15",
+      "integrity": "sha512-VAiXSHY12hqFYevassyVlWXDxs88ya9jS6DhGc93QbxOQbKasy8yWtxzG3oMiSLQaN+hOuqZUw4kSySLZgR2/w==",
+      "dependencies": {
+        "multiformats": "^13.0.0",
+        "zod": "^3.23.8",
+        "@atproto/common-web": "^0.5.13",
+        "@atproto/syntax": "^0.7.6"
+      }
+    },
+    "node_modules/@atproto/xrpc/node_modules/@atproto/syntax": {
+      "version": "0.7.6",
+      "integrity": "sha512-luKQTcWw1H1jLmYvX34ldBqNjz2orF082njmcF9fxbWTqVhsO+TpY0FHRKVPoV7dwL0Y3L16DNz1ma0LFGH25g==",
+      "dependencies": {
+        "iso-datestring-validator": "^2.2.2",
+        "tslib": "^2.8.1"
+      }
+    },
+    "node_modules/@atproto/xrpc/node_modules/multiformats": {
+      "version": "13.4.2",
+      "integrity": "sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ=="
     },
     "node_modules/@inlay/core": {
       "version": "0.0.13",
@@ -860,6 +1223,10 @@
     "node_modules/iso-datestring-validator": {
       "version": "2.2.2",
       "integrity": "sha512-yLEMkBbLZTlVQqOnQ4FiMujR6T4DEcCb1xizmvXS+OxuhwcbtynoosRzdMA69zZCShCNAbi+gJ71FxZBBXx1SA=="
+    },
+    "node_modules/jose": {
+      "version": "5.10.0",
+      "integrity": "sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg=="
     },
     "node_modules/jsonata": {
       "version": "2.2.2",
