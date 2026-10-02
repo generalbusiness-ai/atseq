@@ -509,3 +509,75 @@ export async function readCompleteCheckpointOutcomes(
     fail('Outcomes differ from interpreted frontier/history');
   return result;
 }
+
+/** Closed assertion DATA. Publication and execution are checked by separate owners. */
+export interface CheckpointAssertionData extends CheckpointPin {
+  format: 'atseq-checkpoint-assertion';
+  version: 1;
+  head: CheckpointThrough;
+  frontier: CheckpointThrough;
+  definition: string;
+  state: string;
+  authority: string;
+  outcomes: string | null;
+  history: string;
+  sources: string;
+  evidence: string;
+  stall: { position: number; entry: string; diagnostic: string } | null;
+  producer: string;
+}
+export function readCheckpointAssertion(
+  raw: Uint8Array,
+  scope: CheckpointPin,
+  maximumBytes: number,
+): CheckpointAssertionData {
+  pin(scope);
+  const value: any = readCheckpointJson(raw, maximumBytes);
+  checkpointClosed(value, [
+    'format',
+    'version',
+    'app',
+    'genesis',
+    'head',
+    'frontier',
+    'definition',
+    'state',
+    'authority',
+    'outcomes',
+    'history',
+    'sources',
+    'evidence',
+    'stall',
+    'producer',
+  ]);
+  if (
+    value.format !== 'atseq-checkpoint-assertion' ||
+    value.version !== 1 ||
+    value.app !== scope.app ||
+    value.genesis !== scope.genesis
+  )
+    fail('Checkpoint assertion differs from pinned scope/version');
+  through(value.head, scope.genesis);
+  through(value.frontier, scope.genesis);
+  if (
+    value.frontier.position > value.head.position ||
+    (value.frontier.position === value.head.position && value.frontier.entry !== value.head.entry)
+  )
+    fail('Checkpoint assertion frontier differs from head');
+  ['definition', 'state', 'authority', 'history', 'sources', 'evidence', 'producer'].forEach((key) => link(value[key]));
+  if (value.outcomes !== null) link(value.outcomes);
+  if (value.stall !== null) {
+    checkpointClosed(value.stall, ['position', 'entry', 'diagnostic']);
+    integer(value.stall.position, true);
+    link(value.stall.entry);
+    if (
+      value.frontier.position >= value.head.position ||
+      value.stall.position !== value.frontier.position + 1 ||
+      typeof value.stall.diagnostic !== 'string' ||
+      !value.stall.diagnostic.isWellFormed() ||
+      [...value.stall.diagnostic].length > 1024
+    )
+      fail('Checkpoint stall differs from pending boundary');
+  }
+  return value;
+}
