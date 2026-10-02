@@ -1,0 +1,5 @@
+
+> atseq@0.1.0 build
+> node scripts/build.mjs
+
+src/protocol/oauth.ts(300,38): error TS2445: Property 'stateStore' is protected and only accessible within class 'OAuthClient' and its subclasses.

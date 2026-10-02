@@ -1,0 +1,18 @@
+{
+  "capturedAt": "2026-10-02T04:29:52.012810+00:00",
+  "source": "022404f525131318ebe450f7ee20bed64a8b0408",
+  "cwd": "/private/tmp/atseq-oauth-review-fixes-20261001",
+  "system": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "node": "v26.10.0",
+  "node22": "v22.19.0",
+  "node24": "v24.21.0",
+  "chromium": "153.0.8010.12",
+  "approval": "Full Access; no escalation or additional user confirmation requested",
+  "execution": "Default parallel focused and ordinary suites; build completed before check/tests; private package staging never builds shared dist",
+  "providerSuccess": false,
+  "syntheticOAuthProvider": true,
+  "realBrowser": true,
+  "realNativeSocketFaults": true,
+  "actualDeadlineMs": 30000
+}

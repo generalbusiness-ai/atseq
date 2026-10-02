@@ -1,0 +1,85 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ 'input'
+- 'content_unavailable'
+
+    at Object.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:27:12)
+    at expectedException (node:assert:578:17)
+    at expectsError (node:assert:703:21)
+    at strict.rejects (node:assert:769:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async refusedAs (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:25:3)
+    at async <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:243:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'input',
+  expected: 'content_unavailable',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.21.0
+✖ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (1032.579958ms)
+✔ browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments (0.299875ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1458.011417
+
+✖ failing tests:
+
+test at tests/oauth-adapter.test.ts:1:160
+✖ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (1032.579958ms)
+  Error: Command failed: /Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node --conditions=atseq-source --import tsx tests/support/oauth-node-probe.ts
+  node:internal/modules/run_main:107
+      triggerUncaughtException(
+      ^
+  
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'input'
+  - 'content_unavailable'
+  
+      at Object.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:27:12)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async refusedAs (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:25:3)
+      at async <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:243:5) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'input',
+    expected: 'content_unavailable',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+  
+  Node.js v24.21.0
+  
+      at genericNodeError (node:internal/errors:986:15)
+      at wrappedFn (node:internal/errors:540:14)
+      at checkExecSyncError (node:child_process:942:11)
+      at execFileSync (node:child_process:978:15)
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/oauth-adapter.test.ts:7:15)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'input'\n- 'content_unavailable'\n\n    at Object.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:27:12)\n    at expectedException (node:assert:578:17)\n    at expectsError (node:assert:703:21)\n    at strict.rejects (node:assert:769:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async refusedAs (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:25:3)\n    at async <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:243:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 'input',\n  expected: 'content_unavailable',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.21.0\n" ],
+    pid: 97886,
+    stdout: '',
+    stderr: "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'input'\n- 'content_unavailable'\n\n    at Object.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:27:12)\n    at expectedException (node:assert:578:17)\n    at expectsError (node:assert:703:21)\n    at strict.rejects (node:assert:769:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async refusedAs (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:25:3)\n    at async <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:243:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 'input',\n  expected: 'content_unavailable',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.21.0\n"
+  }

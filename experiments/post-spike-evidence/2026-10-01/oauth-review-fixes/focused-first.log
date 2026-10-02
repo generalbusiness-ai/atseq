@@ -1,0 +1,180 @@
+▶ browser sessions retain trust and device work across switches and restarts
+  ✔ CryptoKeys survive IndexedDB reload and private export is refused (124.611791ms)
+  ✔ every app operation rejects mismatched app, genesis and definition (46.659291ms)
+  ✔ a restarted worker replays saved history before a rollback from the host (90.925959ms)
+  ✔ a failed or cancelled first worker load preserves the saved prefix against host rollback (458.59625ms)
+  ✔ an older archive cannot replace saved history for the same genesis (287.366625ms)
+  ✔ a first visit with an invalid host signature does not blame saved device history (263.286041ms)
+  ✔ corrupt saved history has explicit recovery without losing its pin, key or signed work (395.957833ms)
+  ✔ an online event during the saved-prefix decision cannot load a fork before fresh restore (180.009334ms)
+  ✔ a slow A refresh cannot replace offline B or label its query and archive as A (442.333875ms)
+  ✔ a new save during a flush is sent, and only definite refusals require explicit resend (6.935917ms)
+  ✔ an invalid invitation cannot poison the pin and verified pins can be forgotten (249.202375ms)
+  ✔ startup submits retained signed work without a Retry click (68.76975ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+  ✔ a shell update waits and keeps an open tab’s worker assets available offline (530.754292ms)
+✔ browser sessions retain trust and device work across switches and restarts (7205.664375ms)
+{"node":"v26.10.0","chromium":"153.0.8010.12","cases":["authority-0-exact-data","authority-1-exact-data","authority-2-exact-data","authority-12-exact-data","authority-13-exact-data","authority-20-exact-data","complete-13-history-exact-indexes","head13-frontier2-restricted-I2-data","head13-frontier12-restricted-I2-data","head13-frontier13-restricted-I2-data","original-entry-request-1","original-entry-request-2","original-entry-request-3","original-entry-request-4","original-entry-request-5","original-entry-request-6","original-entry-request-7","original-entry-request-8","original-entry-request-9","original-entry-request-10","original-entry-request-11","original-entry-request-12","original-entry-request-13","source-order-unused-binary-exact-bytes","evidence-exact-hashes-separate-root-context","native-chunk-boundary-0","native-chunk-boundary-32768","native-chunk-boundary-32769","duplicate-decoded-names","BOM","bad-UTF8","trailing-comma","comments","whitespace","negative-zero","unsafe-number","unpaired-surrogate","unsorted-keys","normative-page-depth33-malformed","normative-page128KiB-plus1-malformed","smaller-local-byte-budget-unavailable","I1-depth-unchanged-unavailable","pure-parser-typed-depth-fact","table-extra-field","table-old-request-kind","table-scope-swap","table-zero-page-count","table-count-mismatch","table-count-overflow","table-genesis-position-mismatch","history-missing-actor","history-extra-field","history-gap","history-zero-position","history-invalid-nonce","history-device-account-confusion","history-two-descriptors","local-page-row-budget-unavailable","missing-complete-page-unavailable","missing-native-bytes-unavailable","unexpected-reader-fault-preserved","cross-page-request-duplicate","cross-page-retry-duplicate","cross-page-descriptor-duplicate","cross-page-position-gap","compact-no-invented-index-arrays","compact-recovery-policy-immutable","compact-epoch-id-reused","compact-epoch-immutable-cid","compact-current-epoch-missing","compact-grant-tombstone-mismatch","compact-historical-revision-needs-coverage","compact-floor-needs-descriptor-coverage","compact-genesis-exact-initialization","unsigned-versus-signed-wrapper-identity","original-request-bytes-unmodified","original-entry-chain-exact","source-file-order-not-normalized","source-original-binary-hash","complete-source-table-exact","sources-cross-page-duplicate","evidence-cross-page-duplicate","unexpected-extra-history-page-malformed","global-history-row-budget-unavailable","global-history-byte-budget-unavailable","history-page-identity-mismatch-malformed","outcome-exact-contract-still-gated","compact-null-row-malformed","source-duplicate-path-malformed","compact-false-frontier-mapping-malformed","owned-returned-data-cannot-change-retained-bytes"],"fixtureBytes":1055377,"fixtureSha256":"885826c82e93de564330c1b1ca3f601b387642a9d5b719a20217e853092d9b41","bundleBytes":844709,"bundleSha256":"dd50f4fa1cf6a733ba6521e5e1d581d67d4a9dda6492d434ac8604fcf5608086","exactSharedCasesAgree":true,"noAdmission":true}
+✔ Chromium runs exact shared checkpoint DATA corpus without admission (2491.567584ms)
+{"chromium":"153.0.8010.12","identityCases":["strict retained JSON positive","duplicate names","escaped duplicate names","nested duplicate names","comment","trailing comma","trailing value","empty JSON","deep JSON","UTF-8 BOM rejected","fatal UTF-8","response budget before parsing","JSON depth32 accepted","p256 whole-log canonical tip, earlier selection rejected","p256 truncated authenticity is not latestness; before/after compares tips","p256 exact genesis DID and row issuer","p256 signed genesis cannot invent another principal","p256 invalid operation signature","p256 valid-hash high-S signature rejected","p256 canonical unpadded signature encoding","p256 tombstone tip cannot select older active operation","p256 duplicate operation CID","p256 nullification annotations checked","p256 higher-priority recovery and strict timestamp ordering","p256 no lossy signed-field projection","secp256k1 whole-log canonical tip, earlier selection rejected","secp256k1 truncated authenticity is not latestness; before/after compares tips","secp256k1 exact genesis DID and row issuer","secp256k1 signed genesis cannot invent another principal","secp256k1 invalid operation signature","secp256k1 valid-hash high-S signature rejected","secp256k1 canonical unpadded signature encoding","secp256k1 tombstone tip cannot select older active operation","secp256k1 duplicate operation CID","secp256k1 nullification annotations checked","secp256k1 higher-priority recovery and strict timestamp ordering","secp256k1 no lossy signed-field projection","PLC total response budget","PLC row budget","PLC operation array budget","PLC operation byte budget","web observation assurance and ignored unrelated metadata","web exact document DID","ATproto hostname web restriction","typed assurance cannot substitute method","relative and own-DID fragments","web key controller","web controller type is not coerced","HTTPS origin endpoint rules","first matching bad service cannot fall through","first ATproto service ID with bad type cannot fall through","first ATproto key ID with foreign controller cannot fall through","first ATproto key ID with unsupported JsonWebKey2020 cannot fall through","web service array budget","web response byte budget","p256 web legacy/modern canonical key equivalence","p256 web off-curve legacy point rejected","secp256k1 web legacy/modern canonical key equivalence","secp256k1 web off-curve legacy point rejected","legacy genesis exact DID/signature before maintained normalization"],"shared":["did:plc:whjou3kupwrt4o5kk6q4gz4r","did:plc:dimvf73x5fpydqanypb6zzqr"]}
+✔ Chromium runs retained identity corpus and shared Node signed PLC fixtures (408.942209ms)
+{"node":"v26.10.0","chromium":"153.0.8010.12","cases":["initial selected epoch and immutable grant admission","genesis role disable changes revision to unsigned request CID","stale assignment cannot revive disabled role","second immutable grant admission","one referenced grant cannot union another grant role scope","explicit one-grant owner role administration","role no-change retains its effective revision","source grant deletion does not revoke retained device authority","terminal revoke before first grant admission needs no target grant or epoch","never-admitted terminal revoked grant cannot be revived","fresh repeated revoke no-op advances observation floor","same grant path with different CID cannot edit admitted signer","linked epoch reset retires all earlier grants without walking them","queued old-epoch device operation is ineffective","never-seen pre-reset grant cannot enter current epoch","fresh reset epoch needs fresh exact grant admission","copied backup cannot restore a retired epoch","authentic lower repository revision cannot lower ordinary admission floor","greater revision does not repair a conflicting epoch predecessor","appointed recovery permits lower floor only with never-accepted fresh epoch","appointed recovery cannot revive a retired epoch","stale signed recovery consumes descriptor but changes no epoch or floor","govern may explicitly remove owner without revoking devices","routine admission after recovery preserves fresh scope","participation grant does not appoint owner/admin authority","appointed governance assigns domain role without target device grant","govern adds fifteen certify-only pairs while preserving mixed recovery exactly","recovery input bound does not waive sixteen combined-pair capacity","govern cannot alter lower powers on a mixed recover pair","specific capacity route first prunes one non-recover certifier by govern","specific capacity route then rotates recovery preserving old governance","removed recovery signer cannot rotate newly appointed peers","specific capacity route newly appointed recovery replaces governance only","one recovery signer may remove all existing governance without removing certify","one recovery signer may restore a selected governance pair","whole-map replacement equality ignores object property insertion order","claimed-key P1 root cannot substitute for authentic retained app identity","authentic app history truncation changes before/after tip even with unchanged key and PDS","complete selected root proves claimed entry absent: invalid history","missing native tree node stalls without proven absence","missing exact retained method chunk stalls rather than granting authority","invalid device signature stays invalid before delegated checks","authentic app publication cannot rebind descriptor subject","signed published ordinary action stalls without supported source/action derivation and preserves prior","repeated recovery request/descriptor is invalid before missing observation fetch","same actor nonce with changed signed contents is invalid before live-grant denial","unknown app initializes current epoch without replaying pre-app resets; secp256k1 repo and P-256 device","secp256k1 repository key does not change P-256 owner role authorization","hostname web observation/native grant retains weaker assurance class","web account publication still needs a separate P-256 actor signature and owner scope","sixteen mixed recover/certify pairs cannot add a new recovery pair without govern","disabled recovery-to-govern policy cannot manufacture a capacity escape","recover/certify alone cannot prune lower powers through setControl","native app repository key cannot appoint governance by itself"],"fixtureBytes":22646639,"fixtureSha256":"26eb7d129929c28325b588b44e44fd63a7fea50bf9a1ec6742fed4572e5f2c46","bundleBytes":889483,"bundleSha256":"8125479b0991de1ad31a7cf6a41a4ba9a05a62f7d192802582908fa18e1de75a","exactWholeSnapshotsAgree":true}
+✔ Chromium replays exact Node-produced authenticated authority vectors and complete snapshots (13724.978333ms)
+{"browserCases":51,"bundleBytes":584283,"shared":["p256","secp256k1"]}
+✔ Chromium executes native hostile cases and shared Node key/commit fixtures (544.4525ms)
+▶ isolated native foundation agrees with independent fixtures in Node and Chromium
+  ✔ independent exact block disableRoleIntent (0.429833ms)
+  ✔ independent exact block appBinding (0.052ms)
+  ✔ independent exact block receipt (0.022833ms)
+  ✔ independent exact block definition (0.020208ms)
+  ✔ independent exact block policy (0.019167ms)
+  ✔ independent exact block genesis (0.019292ms)
+  ✔ independent exact block epoch (0.023875ms)
+  ✔ independent exact block epochCurrent (0.020084ms)
+  ✔ independent exact block grant (0.028583ms)
+  ✔ independent exact block revoke (0.034958ms)
+  ✔ independent exact block intent (0.017875ms)
+  ✔ independent exact block signed (0.014041ms)
+  ✔ independent exact block entry (0.012208ms)
+  ✔ independent exact block head (0.011542ms)
+  ✔ independent exact block account (0.012291ms)
+  ✔ independent exact block observation (0.011125ms)
+  ✔ independent exact block accountEntry (0.011084ms)
+  ✔ independent exact block chunk0 (0.01075ms)
+  ✔ independent exact block chunk1 (0.011459ms)
+  ✔ independent exact block manifest (0.010791ms)
+  ✔ independent exact block file (0.010583ms)
+  ✔ independent exact block setControl (0.027708ms)
+  ✔ independent exact block setRecovery (0.0105ms)
+  ✔ independent exact block setOwner (0.010167ms)
+  ✔ independent exact block setRole (0.0095ms)
+  ✔ independent exact block activate (0.027209ms)
+  ✔ independent exact block recoverParticipant (0.014083ms)
+  ✔ independent exact block recoverGovernance (0.010791ms)
+  ✔ independent exact block assignRole (0.009542ms)
+  ✔ independent exact block advanceEpoch (0.00825ms)
+  ✔ independent exact block revokeGrant (0.007875ms)
+  ✔ native record canonical keys and exact owned bytes (0.00825ms)
+  ✔ positive safe positions and full genesis paths (0.007541ms)
+  ✔ genesis external pin is exact and required (0.007583ms)
+  ✔ head zero/genesis equivalence and append overflow (0.007666ms)
+  ✔ two valid signatures share unsigned request and retry identity (0.007917ms)
+  ✔ every mutated signed binding fails verification (0.007208ms)
+  ✔ P256 devices and control; dual repository curve representation (0.007417ms)
+  ✔ closed schemas reject extra fields, unknown unions and coercion (0.013458ms)
+  ✔ ordinary entry content needs no extra ordering signature (0.009375ms)
+  ✔ proof-derived outer context mismatch is invalid content (0.008292ms)
+  ✔ observation projection binds everything except observation reference (0.009375ms)
+  ✔ five-field metadata excludes enrolment identity (0.007458ms)
+  ✔ chunked exact bytes keep raw file and native locator identities distinct (0.008875ms)
+  ✔ missing bytes and local limits stay transient (0.008084ms)
+  ✔ chunk tampering and noncanonical chunk lengths fail (0.008209ms)
+  ✔ typed shape remains separate from native authority acceptance (0.008209ms)
+  ✔ account principals use PLC or hostname web throughout (0.00775ms)
+  ✔ retained file-table order and unused assets remain exact identity (0.008625ms)
+  ✔ high-S signatures do not create accepted retry aliases (0.007833ms)
+  ✔ sparse receipt is closed framing, never self-appointed assurance (0.023167ms)
+  ✔ native preparation does not advertise a new supported profile (0.008ms)
+  ✔ native shape returns owned immutable content and bounds enclosing blocks (0.007708ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✔ isolated native foundation agrees with independent fixtures in Node and Chromium (2786.349625ms)
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 1
+
+    at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.10.0
+✖ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (2887.257542ms)
+✔ browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments (0.283292ms)
+✖ Chromium exercises maintained OAuth, custody origin, reload, cross-document consume and non-extractable key (606.031792ms)
+[{"name":"browser-app","delta":{"raw":90436,"gzip":8329},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"browser-worker","delta":{"raw":102686,"gzip":9079},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"portable-verifier","delta":{"raw":90248,"gzip":9457},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"node-cli-start","delta":{"raw":345573,"gzip":95063},"metadataRawBytesInOutput":54967,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"node-host-start","delta":{"raw":333325,"gzip":94487},"metadataRawBytesInOutput":54967,"grouped":{"raw":55001,"gzip":5217,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}}]
+✔ actual ordinary browser/verifier/Node start graphs retain only added OAuth manifests, never executable modules (3403.460167ms)
+[{"platform":"browser","dynamicImports":2,"chunks":[{"path":"oauth-loader.js","rawBytes":213,"gzipBytes":182},{"path":"dist-PBJBG52W.js","rawBytes":254159,"gzipBytes":69204},{"path":"oauth-adapter-HI2EMNYO.js","rawBytes":89794,"gzipBytes":21966},{"path":"chunk-C7IDU5NN.js","rawBytes":414610,"gzipBytes":82263},{"path":"chunk-OOJM4CTU.js","rawBytes":638,"gzipBytes":385}]},{"platform":"node","dynamicImports":2,"chunks":[{"path":"oauth-loader.js","rawBytes":207,"gzipBytes":181},{"path":"dist-BWVBLADZ.js","rawBytes":242020,"gzipBytes":67211},{"path":"oauth-adapter-WJQPMO5S.js","rawBytes":89403,"gzipBytes":21881},{"path":"chunk-3PPTV3RF.js","rawBytes":8311330,"gzipBytes":2142577},{"path":"chunk-2SEI3BXJ.js","rawBytes":1521386,"gzipBytes":478039},{"path":"chunk-IYWUY3VA.js","rawBytes":894,"gzipBytes":503}]}]
+✔ OAuth enrolment loaders retain a dynamic adapter/client chunk boundary (791.868209ms)
+✔ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (34294.824625ms)
+ℹ tests 78
+ℹ suites 0
+ℹ pass 76
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35239.105
+
+✖ failing tests:
+
+test at tests/oauth-adapter.test.ts:1:160
+✖ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (2887.257542ms)
+  Error: Command failed: /opt/homebrew/Cellar/node/26.10.0_1/bin/node --conditions=atseq-source --import tsx tests/support/oauth-node-probe.ts
+  node:internal/modules/run_main:111
+      triggerUncaughtException(
+      ^
+  
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+  
+  Node.js v26.10.0
+  
+      at genericNodeError (node:internal/errors:999:15)
+      at wrappedFn (node:internal/errors:544:14)
+      at checkExecSyncError (node:child_process:943:11)
+      at execFileSync (node:child_process:979:15)
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/oauth-adapter.test.ts:7:15)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    status: 1,
+    signal: null,
+    output: [ null, '', "node:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 1,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.10.0\n" ],
+    pid: 89424,
+    stdout: '',
+    stderr: "node:internal/modules/run_main:111\n    triggerUncaughtException(\n    ^\n\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 1\n\n    at <anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/support/oauth-node-probe.ts:38:8) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 1,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v26.10.0\n"
+  }
+
+test at tests/oauth-browser.test.ts:1:391
+✖ Chromium exercises maintained OAuth, custody origin, reload, cross-document consume and non-extractable key (606.031792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-review-fixes-20261001/tests/oauth-browser.test.ts:119:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
