@@ -1,0 +1,10 @@
+{"node":"v26.10.0","producer":"genuine AuthorityHarness repositories/I1 -> nativeAuthorityHistory live prefix join","cases":["genuine-full-history-join-roundtrip","compact-DATA-without-identity-arrays","RV1-floor-descriptor-missing-exact-rejection","original-export-and-compact-acceptance-unchanged"],"fixtureBytes":2963,"fixtureSha256":"bd1ab3f42cfbbcabfa2df610184fd0496f31f177d0cfc5b313a9e660046ae360","exactError":{"code":"envelope","message":"Floor descriptor was not consumed"},"dataOnly":true}
+✔ RV1 full-history join rejects exactly a missing consumed principal-floor descriptor (624.188708ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1653.710792

@@ -1,0 +1,17 @@
+{
+  "node": "v26.10.0",
+  "producer": "genuine AuthorityHarness repositories/I1 -> nativeAuthorityHistory live prefix join",
+  "cases": [
+    "genuine-full-history-join-roundtrip",
+    "compact-DATA-without-identity-arrays",
+    "RV1-floor-descriptor-missing-exact-rejection",
+    "original-export-and-compact-acceptance-unchanged"
+  ],
+  "fixtureBytes": 2963,
+  "fixtureSha256": "768167f93d93cf20a3d9e3bc839fe6aac9a236d4961510c8c46a7e9924eaae0c",
+  "exactError": {
+    "code": "envelope",
+    "message": "Floor descriptor was not consumed"
+  },
+  "dataOnly": true
+}

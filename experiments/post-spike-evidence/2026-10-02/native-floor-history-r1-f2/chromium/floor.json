@@ -1,0 +1,16 @@
+{
+  "node": "v26.10.0",
+  "chromium": "153.0.8010.12",
+  "cases": [
+    "genuine-full-history-join-roundtrip",
+    "compact-DATA-without-identity-arrays",
+    "RV1-floor-descriptor-missing-exact-rejection",
+    "original-export-and-compact-acceptance-unchanged"
+  ],
+  "fixtureBytes": 2963,
+  "fixtureSha256": "4550dde6330faac7de18279e7b11ff244c4eb7dbaf2442c4a0299612f234e137",
+  "bundleBytes": 805864,
+  "bundleSha256": "e916e7f9d781fd6cabf7076534962fd0e98641537e64f9a77b925f20fba214bb",
+  "exactSharedCasesAgree": true,
+  "dataOnly": true
+}

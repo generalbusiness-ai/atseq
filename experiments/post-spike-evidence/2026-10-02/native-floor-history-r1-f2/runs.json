@@ -1,0 +1,199 @@
+{
+  "baseline": "316439928e0c0d41965b086f2dace19a9249dba7",
+  "buildNode": "v26.10.0",
+  "compiler": "typescript 7.0.2",
+  "platform": "Darwin",
+  "machine": "arm64",
+  "runs": [
+    {
+      "kind": "source",
+      "node": "v22.19.0",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-authority-floor.test.ts",
+        "tests/native-authority.test.ts",
+        "tests/checkpoint-data.test.ts"
+      ],
+      "env": {
+        "ATSEQ_R1_FLOOR_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/source.json",
+        "ATSEQ_R1_FLOOR_FIXTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/source-fixture.json",
+        "ATSEQ_I2_CAPTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/authority-fixture.json",
+        "ATSEQ_P4_CAPTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/checkpoint-data.json"
+      },
+      "log": "node22/source.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "compiled",
+      "node": "v22.19.0",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "experiments/native-authority-floor/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_R1_FLOOR_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/compiled.json",
+        "ATSEQ_R1_FLOOR_FIXTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/compiled-fixture.json"
+      },
+      "log": "node22/compiled.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "authority-compiled",
+      "node": "v22.19.0",
+      "executable": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "executableSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_AUTHORITY_FIXTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/authority-fixture.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node22/authority-compiled.json"
+      },
+      "log": "node22/authority-compiled.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "source",
+      "node": "v24.21.0",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-authority-floor.test.ts",
+        "tests/native-authority.test.ts",
+        "tests/checkpoint-data.test.ts"
+      ],
+      "env": {
+        "ATSEQ_R1_FLOOR_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/source.json",
+        "ATSEQ_R1_FLOOR_FIXTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/source-fixture.json",
+        "ATSEQ_I2_CAPTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/authority-fixture.json",
+        "ATSEQ_P4_CAPTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/checkpoint-data.json"
+      },
+      "log": "node24/source.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "compiled",
+      "node": "v24.21.0",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "experiments/native-authority-floor/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_R1_FLOOR_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/compiled.json",
+        "ATSEQ_R1_FLOOR_FIXTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/compiled-fixture.json"
+      },
+      "log": "node24/compiled.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "authority-compiled",
+      "node": "v24.21.0",
+      "executable": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "executableSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_AUTHORITY_FIXTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/authority-fixture.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node24/authority-compiled.json"
+      },
+      "log": "node24/authority-compiled.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "source",
+      "node": "v26.10.0",
+      "executable": "/opt/homebrew/bin/node",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-authority-floor.test.ts",
+        "tests/native-authority.test.ts",
+        "tests/checkpoint-data.test.ts"
+      ],
+      "env": {
+        "ATSEQ_R1_FLOOR_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/source.json",
+        "ATSEQ_R1_FLOOR_FIXTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/source-fixture.json",
+        "ATSEQ_I2_CAPTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/authority-fixture.json",
+        "ATSEQ_P4_CAPTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/checkpoint-data.json"
+      },
+      "log": "node26/source.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "compiled",
+      "node": "v26.10.0",
+      "executable": "/opt/homebrew/bin/node",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "experiments/native-authority-floor/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_R1_FLOOR_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/compiled.json",
+        "ATSEQ_R1_FLOOR_FIXTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/compiled-fixture.json"
+      },
+      "log": "node26/compiled.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    },
+    {
+      "kind": "authority-compiled",
+      "node": "v26.10.0",
+      "executable": "/opt/homebrew/bin/node",
+      "executableSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "argv": [
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "env": {
+        "ATSEQ_NATIVE_AUTHORITY_FIXTURE_PATH": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/authority-fixture.json",
+        "ATSEQ_NATIVE_PREFIX_COMPILED_CAPTURE": "experiments/post-spike-evidence/2026-10-02/native-floor-history-r1-f2/node26/authority-compiled.json"
+      },
+      "log": "node26/authority-compiled.log",
+      "exitCode": 0,
+      "testSource": "c9f6734e465c076bb25c9393f0a8942c64994a70",
+      "fixtureGzipNote": "Retained large fixtures are .json.gz; reproduce source to regenerate JSON or losslessly expand before compiled authority run."
+    }
+  ],
+  "browser": {
+    "node": "v26.10.0",
+    "chromium": "153.0.8010.12",
+    "argv": [
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/native-authority-floor-browser.test.ts",
+      "tests/native-authority-browser.test.ts",
+      "tests/checkpoint-data-browser.test.ts"
+    ],
+    "log": "chromium/browser.log",
+    "exitCode": 0,
+    "source": "26d1b077d0a91c63d290dcb5082d446b900f5558",
+    "unchangedBrowserSourcesAtTestSource": true
+  },
+  "fullSuiteRerun": false,
+  "providerRun": false,
+  "durableRestoreRun": false,
+  "timingRun": false
+}
