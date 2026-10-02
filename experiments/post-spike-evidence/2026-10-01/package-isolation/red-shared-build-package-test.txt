@@ -36,7 +36,7 @@ test(
       const copyStarted = performance.now(),
         buildRoot = await preparePackageBuild(root, join(directory, 'build')),
         stagingCopyMs = performance.now() - copyStarted;
-      await run('npm', ['run', 'build'], { cwd: buildRoot, env: nativeEnv });
+      await run('npm', ['run', 'build'], { cwd: root, env: nativeEnv });
       // The production build removes its entire dist directory. These checks
       // fail if it ever runs against the shared checkout again.
       assert.deepEqual(await readFile(sentinel), sentinelBytes);
@@ -136,8 +136,6 @@ test(
             node: process.version,
             stagingCopyMs,
             sharedDistPreserved: true,
-            sharedIntegrityAdapterSha256: createHash('sha256').update(originalAdapter).digest('hex'),
-            buildProvenance: provenance,
             buildSourceFilesVerified: Object.keys(provenance.sourceHashes).length,
             installedOutputFilesVerified: Object.keys(provenance.outputHashes).length,
             cases,

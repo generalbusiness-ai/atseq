@@ -1,0 +1,133 @@
+▶ browser sessions retain trust and device work across switches and restarts
+  ✔ CryptoKeys survive IndexedDB reload and private export is refused (126.70925ms)
+  ✔ every app operation rejects mismatched app, genesis and definition (41.748ms)
+  ✔ a restarted worker replays saved history before a rollback from the host (81.248541ms)
+  ✔ a failed or cancelled first worker load preserves the saved prefix against host rollback (439.486541ms)
+  ✔ an older archive cannot replace saved history for the same genesis (285.144541ms)
+  ✔ a first visit with an invalid host signature does not blame saved device history (255.476167ms)
+  ✔ corrupt saved history has explicit recovery without losing its pin, key or signed work (386.006709ms)
+  ✔ an online event during the saved-prefix decision cannot load a fork before fresh restore (168.051667ms)
+  ✔ a slow A refresh cannot replace offline B or label its query and archive as A (428.61825ms)
+  ✔ a new save during a flush is sent, and only definite refusals require explicit resend (5.807125ms)
+  ✔ an invalid invitation cannot poison the pin and verified pins can be forgotten (241.90525ms)
+  ✔ startup submits retained signed work without a Retry click (80.987292ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+  ✔ a shell update waits and keeps an open tab’s worker assets available offline (497.867458ms)
+✔ browser sessions retain trust and device work across switches and restarts (6266.54975ms)
+{"chromium":"153.0.8010.12","identityCases":["strict retained JSON positive","duplicate names","escaped duplicate names","nested duplicate names","comment","trailing comma","trailing value","empty JSON","deep JSON","UTF-8 BOM rejected","fatal UTF-8","response budget before parsing","JSON depth32 accepted","p256 whole-log canonical tip, earlier selection rejected","p256 truncated authenticity is not latestness; before/after compares tips","p256 exact genesis DID and row issuer","p256 signed genesis cannot invent another principal","p256 invalid operation signature","p256 valid-hash high-S signature rejected","p256 canonical unpadded signature encoding","p256 tombstone tip cannot select older active operation","p256 duplicate operation CID","p256 nullification annotations checked","p256 higher-priority recovery and strict timestamp ordering","p256 no lossy signed-field projection","secp256k1 whole-log canonical tip, earlier selection rejected","secp256k1 truncated authenticity is not latestness; before/after compares tips","secp256k1 exact genesis DID and row issuer","secp256k1 signed genesis cannot invent another principal","secp256k1 invalid operation signature","secp256k1 valid-hash high-S signature rejected","secp256k1 canonical unpadded signature encoding","secp256k1 tombstone tip cannot select older active operation","secp256k1 duplicate operation CID","secp256k1 nullification annotations checked","secp256k1 higher-priority recovery and strict timestamp ordering","secp256k1 no lossy signed-field projection","PLC total response budget","PLC row budget","PLC operation array budget","PLC operation byte budget","web observation assurance and ignored unrelated metadata","web exact document DID","ATproto hostname web restriction","typed assurance cannot substitute method","relative and own-DID fragments","web key controller","web controller type is not coerced","HTTPS origin endpoint rules","first matching bad service cannot fall through","first ATproto service ID with bad type cannot fall through","first ATproto key ID with foreign controller cannot fall through","first ATproto key ID with unsupported JsonWebKey2020 cannot fall through","web service array budget","web response byte budget","p256 web legacy/modern canonical key equivalence","p256 web off-curve legacy point rejected","secp256k1 web legacy/modern canonical key equivalence","secp256k1 web off-curve legacy point rejected","legacy genesis exact DID/signature before maintained normalization"],"shared":["did:plc:lpl5j5mzabiqlapbeqcqqqrd","did:plc:iocwkalh44mdvsrmjl7r7egb"]}
+✔ Chromium runs retained identity corpus and shared Node signed PLC fixtures (473.965333ms)
+{"browserCases":51,"bundleBytes":480134,"shared":["p256","secp256k1"]}
+✔ Chromium executes native hostile cases and shared Node key/commit fixtures (535.574958ms)
+▶ isolated native foundation agrees with independent fixtures in Node and Chromium
+  ✔ independent exact block disableRoleIntent (0.41575ms)
+  ✔ independent exact block appBinding (0.054292ms)
+  ✔ independent exact block receipt (0.064583ms)
+  ✔ independent exact block definition (0.036ms)
+  ✔ independent exact block policy (0.026792ms)
+  ✔ independent exact block genesis (0.022875ms)
+  ✔ independent exact block epoch (0.0195ms)
+  ✔ independent exact block epochCurrent (0.050541ms)
+  ✔ independent exact block grant (0.045792ms)
+  ✔ independent exact block revoke (0.044209ms)
+  ✔ independent exact block intent (0.023958ms)
+  ✔ independent exact block signed (0.016292ms)
+  ✔ independent exact block entry (0.043167ms)
+  ✔ independent exact block head (0.019875ms)
+  ✔ independent exact block account (0.01575ms)
+  ✔ independent exact block observation (0.014708ms)
+  ✔ independent exact block accountEntry (0.012291ms)
+  ✔ independent exact block chunk0 (0.011458ms)
+  ✔ independent exact block chunk1 (0.010917ms)
+  ✔ independent exact block manifest (0.021667ms)
+  ✔ independent exact block file (0.065625ms)
+  ✔ independent exact block setControl (0.02025ms)
+  ✔ independent exact block setRecovery (0.011792ms)
+  ✔ independent exact block setOwner (0.009334ms)
+  ✔ independent exact block setRole (0.008625ms)
+  ✔ independent exact block activate (0.007833ms)
+  ✔ independent exact block recoverParticipant (0.0085ms)
+  ✔ independent exact block recoverGovernance (0.008458ms)
+  ✔ independent exact block assignRole (0.007875ms)
+  ✔ independent exact block advanceEpoch (0.007959ms)
+  ✔ independent exact block revokeGrant (0.007334ms)
+  ✔ native record canonical keys and exact owned bytes (0.007625ms)
+  ✔ positive safe positions and full genesis paths (0.008083ms)
+  ✔ genesis external pin is exact and required (0.008ms)
+  ✔ head zero/genesis equivalence and append overflow (0.007458ms)
+  ✔ two valid signatures share unsigned request and retry identity (0.0075ms)
+  ✔ every mutated signed binding fails verification (0.008083ms)
+  ✔ P256 devices and control; dual repository curve representation (0.007917ms)
+  ✔ closed schemas reject extra fields, unknown unions and coercion (0.0075ms)
+  ✔ ordinary entry content needs no extra ordering signature (0.011583ms)
+  ✔ proof-derived outer context mismatch is invalid content (0.025292ms)
+  ✔ observation projection binds everything except observation reference (0.007917ms)
+  ✔ five-field metadata excludes enrolment identity (0.007584ms)
+  ✔ chunked exact bytes keep raw file and native locator identities distinct (0.010292ms)
+  ✔ missing bytes and local limits stay transient (0.007625ms)
+  ✔ chunk tampering and noncanonical chunk lengths fail (0.007916ms)
+  ✔ typed shape remains separate from native authority acceptance (0.02125ms)
+  ✔ account principals use PLC or hostname web throughout (0.007667ms)
+  ✔ retained file-table order and unused assets remain exact identity (0.0075ms)
+  ✔ high-S signatures do not create accepted retry aliases (0.007042ms)
+  ✔ sparse receipt is closed framing, never self-appointed assurance (0.007334ms)
+  ✔ native preparation does not advertise a new supported profile (0.007708ms)
+  ✔ native shape returns owned immutable content and bounds enclosing blocks (0.007708ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✔ isolated native foundation agrees with independent fixtures in Node and Chromium (1018.54375ms)
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (17139.657292ms)
+ℹ tests 71
+ℹ suites 0
+ℹ pass 70
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17759.774792
+
+✖ failing tests:
+
+test at tests/package.test.ts:1:858
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (17139.657292ms)
+  Error: Command failed: /opt/homebrew/Cellar/node/26.10.0_1/bin/node /var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/run.mjs /var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/conformance.json
+  file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:17
+      throw new InterpretationError('dependency_mismatch', message);
+            ^
+  
+  InterpretationError: Dependency file bytes differ: node_modules/@atcute/util-text/node_modules/unicode-segmenter
+      at fail (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:17:11)
+      at checkInstalledDependencies (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:133:13)
+      at verifyInstalledDependencies (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:178:9)
+      at assertDependencies (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/core/dependencies.js:315:9)
+      at encodeBlock (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/protocol/wire.js:74:5)
+      at contentCid (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/protocol/wire.js:197:47)
+      at applicationRuntimeCid (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/protocol/identity.js:5:44)
+      at chartFixture (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/testdata/apps/fixtures.js:49:29)
+      at runRuntimeCorpus (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/tests/support/runtime-corpus.js:86:25)
+      at file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/run.mjs:8:47 {
+    code: 'dependency_mismatch',
+    kind: 'runtime_fault'
+  }
+  
+  Node.js v26.10.0
+  
+      at genericNodeError (node:internal/errors:999:15)
+      at wrappedFn (node:internal/errors:544:14)
+      at ChildProcess.exithandler (node:child_process:417:12)
+      at ChildProcess.emit (node:events:514:20)
+      at maybeClose (node:internal/child_process:1156:16)
+      at ChildProcess._handle.onexit (node:internal/child_process:334:5) {
+    code: 1,
+    killed: false,
+    signal: null,
+    cmd: '/opt/homebrew/Cellar/node/26.10.0_1/bin/node /var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/run.mjs /var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/conformance.json',
+    stdout: '',
+    stderr: "file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:17\n    throw new InterpretationError('dependency_mismatch', message);\n          ^\n\nInterpretationError: Dependency file bytes differ: node_modules/@atcute/util-text/node_modules/unicode-segmenter\n    at fail (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:17:11)\n    at checkInstalledDependencies (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:133:13)\n    at verifyInstalledDependencies (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/integrity/node.js:178:9)\n    at assertDependencies (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/core/dependencies.js:315:9)\n    at encodeBlock (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/protocol/wire.js:74:5)\n    at contentCid (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/protocol/wire.js:197:47)\n    at applicationRuntimeCid (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/dist/src/protocol/identity.js:5:44)\n    at chartFixture (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/testdata/apps/fixtures.js:49:29)\n    at runRuntimeCorpus (file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/tests/support/runtime-corpus.js:86:25)\n    at file:///private/var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-TlcmeS/node_modules/atseq/.conformance/run.mjs:8:47 {\n  code: 'dependency_mismatch',\n  kind: 'runtime_fault'\n}\n\nNode.js v26.10.0\n"
+  }

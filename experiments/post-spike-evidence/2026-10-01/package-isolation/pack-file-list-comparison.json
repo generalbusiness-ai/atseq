@@ -1,0 +1,35 @@
+{
+  "original-root-pack.json": {
+    "rawSha256": "6777ae39c1126895b5013e03c1b7600de9626e99d7fd301cde092b9e69ded76d",
+    "rawBytes": 1623745,
+    "files": 12172,
+    "packedBytes": 13340963,
+    "unpackedBytes": 70172702
+  },
+  "staged-pack.json": {
+    "rawSha256": "21b7a3f8ec1b5626c2ed5977bbb39b13d29509a527e2ab811e9de2486a58ff3f",
+    "rawBytes": 1622902,
+    "files": 12165,
+    "packedBytes": 13311301,
+    "unpackedBytes": 70084467
+  },
+  "staged-pack-lock-last.json": {
+    "rawSha256": "6777ae39c1126895b5013e03c1b7600de9626e99d7fd301cde092b9e69ded76d",
+    "rawBytes": 1623745,
+    "files": 12172,
+    "packedBytes": 13340963,
+    "unpackedBytes": 70172702
+  },
+  "differences": {
+    "beforeLockCopiedLast": [
+      "node_modules/@atcute/util-text/node_modules/unicode-segmenter/CHANGELOG.md",
+      "node_modules/cliui/CHANGELOG.md",
+      "node_modules/color-convert/CHANGELOG.md",
+      "node_modules/unicode-segmenter/CHANGELOG.md",
+      "node_modules/y18n/CHANGELOG.md",
+      "node_modules/yargs-parser/CHANGELOG.md",
+      "node_modules/yargs/CHANGELOG.md"
+    ],
+    "afterLockCopiedLast": []
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "node": "v22.19.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "exactManifest": true,
+  "independentWritableCopy": true,
+  "relativeBinaryResolvesInsideStage": true,
+  "sharedDistExcluded": true,
+  "unchangedHiddenLockBytes": true,
+  "stagedDependencyIntegrity": true,
+  "helperSha256": "d91b5b4b99ae456ee89c2c9e51e172987023fb6b6882190d6ac25ef2c8af6b7b"
+}

@@ -1,0 +1,15 @@
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: false == true
+    at file:///private/tmp/atseq-package-isolation-20261001/experiments/post-spike-evidence/2026-10-01/package-isolation/node22-copy-probe.mjs:19:10 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v22.19.0

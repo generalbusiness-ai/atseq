@@ -1,0 +1,157 @@
+✖ browser sessions retain trust and device work across switches and restarts (7.130583ms)
+✖ Chromium runs retained identity corpus and shared Node signed PLC fixtures (64.447375ms)
+✖ Chromium executes native hostile cases and shared Node key/commit fixtures (69.936417ms)
+▶ isolated native foundation agrees with independent fixtures in Node and Chromium
+  ✔ independent exact block disableRoleIntent (0.278459ms)
+  ✔ independent exact block appBinding (0.03025ms)
+  ✔ independent exact block receipt (0.020291ms)
+  ✔ independent exact block definition (0.020167ms)
+  ✔ independent exact block policy (0.015875ms)
+  ✔ independent exact block genesis (0.01925ms)
+  ✔ independent exact block epoch (0.0195ms)
+  ✔ independent exact block epochCurrent (0.018083ms)
+  ✔ independent exact block grant (0.025ms)
+  ✔ independent exact block revoke (0.031208ms)
+  ✔ independent exact block intent (0.015791ms)
+  ✔ independent exact block signed (0.014375ms)
+  ✔ independent exact block entry (0.010208ms)
+  ✔ independent exact block head (0.009625ms)
+  ✔ independent exact block account (0.009209ms)
+  ✔ independent exact block observation (0.008916ms)
+  ✔ independent exact block accountEntry (0.008667ms)
+  ✔ independent exact block chunk0 (0.008833ms)
+  ✔ independent exact block chunk1 (0.008333ms)
+  ✔ independent exact block manifest (0.008625ms)
+  ✔ independent exact block file (0.008625ms)
+  ✔ independent exact block setControl (0.009209ms)
+  ✔ independent exact block setRecovery (0.008375ms)
+  ✔ independent exact block setOwner (0.008792ms)
+  ✔ independent exact block setRole (0.008209ms)
+  ✔ independent exact block activate (0.016083ms)
+  ✔ independent exact block recoverParticipant (0.010333ms)
+  ✔ independent exact block recoverGovernance (0.008333ms)
+  ✔ independent exact block assignRole (0.007917ms)
+  ✔ independent exact block advanceEpoch (0.00725ms)
+  ✔ independent exact block revokeGrant (0.007208ms)
+  ✔ native record canonical keys and exact owned bytes (0.007417ms)
+  ✔ positive safe positions and full genesis paths (0.007ms)
+  ✔ genesis external pin is exact and required (0.00725ms)
+  ✔ head zero/genesis equivalence and append overflow (0.008916ms)
+  ✔ two valid signatures share unsigned request and retry identity (0.007875ms)
+  ✔ every mutated signed binding fails verification (0.007125ms)
+  ✔ P256 devices and control; dual repository curve representation (0.007375ms)
+  ✔ closed schemas reject extra fields, unknown unions and coercion (0.010333ms)
+  ✔ ordinary entry content needs no extra ordering signature (0.008333ms)
+  ✔ proof-derived outer context mismatch is invalid content (0.008041ms)
+  ✔ observation projection binds everything except observation reference (0.007083ms)
+  ✔ five-field metadata excludes enrolment identity (0.006791ms)
+  ✔ chunked exact bytes keep raw file and native locator identities distinct (0.021875ms)
+  ✔ missing bytes and local limits stay transient (0.007041ms)
+  ✔ chunk tampering and noncanonical chunk lengths fail (0.007208ms)
+  ✔ typed shape remains separate from native authority acceptance (0.00675ms)
+  ✔ account principals use PLC or hostname web throughout (0.006709ms)
+  ✔ retained file-table order and unused assets remain exact identity (0.006833ms)
+  ✔ high-S signatures do not create accepted retry aliases (0.006917ms)
+  ✔ sparse receipt is closed framing, never self-appointed assurance (0.010917ms)
+  ✔ native preparation does not advertise a new supported profile (0.007167ms)
+  ✔ native shape returns owned immutable content and bounds enclosing blocks (0.010167ms)
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✖ isolated native foundation agrees with independent fixtures in Node and Chromium (662.183042ms)
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (7677.455042ms)
+ℹ tests 58
+ℹ suites 0
+ℹ pass 53
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8340.810084
+
+✖ failing tests:
+
+test at tests/browser-sessions.test.ts:1:1175
+✖ browser sessions retain trust and device work across switches and restarts (7.130583ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2368:21)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at tests/identity-evidence-browser.test.ts:1:340
+✖ Chromium runs retained identity corpus and shared Node signed PLC fixtures (64.447375ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2368:21)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at tests/native-proof-browser.test.ts:1:417
+✖ Chromium executes native hostile cases and shared Node key/commit fixtures (69.936417ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2368:21)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at tests/native-wire.test.ts:1:326
+✖ isolated native foundation agrees with independent fixtures in Node and Chromium (662.183042ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2368:21)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
+
+test at tests/package.test.ts:1:858
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (7677.455042ms)
+  Error: Command failed: npm pack --ignore-scripts --json --pack-destination /var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-aXZUPQ
+  npm error code EPERM
+  npm error syscall open
+  npm error path /Users/hughpyle/.npm/_cacache/tmp/***
+  npm error errno -1
+  npm error
+  npm error Your cache folder contains root-owned files, due to a bug in previous versions of npm which has since been addressed.
+  npm error
+  npm error To permanently fix this problem, please run:
+  npm error   sudo chown -R 501:20 "/Users/hughpyle/.npm"
+  npm error Log files were not written due to an error writing to the directory: /Users/hughpyle/.npm/_logs
+  npm error You can rerun the command with `--loglevel=verbose` to see the logs in your terminal
+  
+      at genericNodeError (node:internal/errors:999:15)
+      at wrappedFn (node:internal/errors:544:14)
+      at ChildProcess.exithandler (node:child_process:417:12)
+      at ChildProcess.emit (node:events:514:20)
+      at maybeClose (node:internal/child_process:1156:16)
+      at Socket.<anonymous> (node:internal/child_process:526:11)
+      at Socket.emit (node:events:514:20)
+      at Pipe.<anonymous> (node:net:362:12) {
+    code: 255,
+    killed: false,
+    signal: null,
+    cmd: 'npm pack --ignore-scripts --json --pack-destination /var/folders/2x/wylr59t17ds36l1l7ng25y7w0000gn/T/atseq-package-test-aXZUPQ',
+    stdout: '{\n  "error": {\n    "code": "EPERM",\n    "summary": "Your cache folder contains root-owned files, due to a bug in previous versions of npm which has since been addressed.\\n\\nTo permanently fix this problem, please run:\\n  sudo chown -R 501:20 \\"/Users/hughpyle/.npm\\"",\n    "detail": ""\n  }\n}\n',
+    stderr: 'npm error code EPERM\nnpm error syscall open\nnpm error path /Users/hughpyle/.npm/_cacache/tmp/***\nnpm error errno -1\nnpm error\nnpm error Your cache folder contains root-owned files, due to a bug in previous versions of npm which has since been addressed.\nnpm error\nnpm error To permanently fix this problem, please run:\nnpm error   sudo chown -R 501:20 "/Users/hughpyle/.npm"\nnpm error Log files were not written due to an error writing to the directory: /Users/hughpyle/.npm/_logs\nnpm error You can rerun the command with `--loglevel=verbose` to see the logs in your terminal\n'
+  }
