@@ -2,7 +2,7 @@ import { safeFetchWrap } from '@atproto-labs/fetch-node';
 import { AtseqError } from '../core/errors.ts';
 import { assertDependencies } from '../core/dependencies.ts';
 
-/** One bounded observation attempt. No credentials, redirects or local exception. */
+/** One bounded observation reservation, shared across complete retries. No credentials or redirects. */
 export class IdentityFetch {
   private readonly deadline = AbortSignal.timeout(30_000);
   private readonly fetch: ReturnType<typeof safeFetchWrap>;
@@ -22,6 +22,11 @@ export class IdentityFetch {
       timeout: 30_000,
       responseMaxSize: 32 * 1024 * 1024,
     });
+  }
+  /** Check the same reservation after offline verification or evidence construction. */
+  assertActive(signal?: AbortSignal): void {
+    if (this.deadline.aborted || signal?.aborted)
+      throw new AtseqError('content_unavailable', 'Identity observation deadline or cancellation reached');
   }
   async bytesFrom(url: string | URL, maximumBytes: number, signal?: AbortSignal): Promise<Uint8Array> {
     if (!Number.isSafeInteger(maximumBytes) || maximumBytes < 1 || maximumBytes > 32 * 1024 * 1024)
