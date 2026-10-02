@@ -1,0 +1,46 @@
+✗ Build failed in 115ms
+✖ Chromium runs pure checkpoint producer, exact independent bytes and bounds (129.125333ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1596.947958
+
+✖ failing tests:
+
+test at tests/native-checkpoint-producer-browser.test.ts:1:413
+✖ Chromium runs pure checkpoint producer, exact independent bytes and bounds (129.125333ms)
+  Build failed with 1 error:
+  
+  Error: [vite]: Rolldown failed to resolve import "#atseq-integrity" from "/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/src/core/dependencies.ts".
+  This is most likely unintended because it can break your application at runtime.
+  If you do want to externalize this module explicitly add it to
+  `build.rolldownOptions.external`
+      at viteLog (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:33914:57)
+      at onRollupLog (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:33947:7)
+      at onLog (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:33710:4)
+      at <anonymous> (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/rolldown/dist/shared/create-bundler-option-CjAOgWvM.mjs:48:26)
+      at logger (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/rolldown/dist/shared/create-bundler-option-CjAOgWvM.mjs:39:3)
+      at aggregateBindingErrorsIntoJsError (file:///private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/rolldown/dist/shared/error-BP8lJHle.mjs:48:18)
+      at unwrapBindingResult (file:///private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/rolldown/dist/shared/error-BP8lJHle.mjs:18:128)
+      at #build (file:///private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/rolldown/dist/shared/rolldown-DfXO5K1m.mjs:133:34)
+      at async buildEnvironment (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:33821:66)
+      at async Object.build (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:34242:19)
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/tests/native-checkpoint-producer-browser.test.ts:19:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errors: [
+      Error: [vite]: Rolldown failed to resolve import "#atseq-integrity" from "/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/src/core/dependencies.ts".
+      This is most likely unintended because it can break your application at runtime.
+      If you do want to externalize this module explicitly add it to
+      `build.rolldownOptions.external`
+          at viteLog (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:33914:57)
+          at onRollupLog (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:33947:7)
+          at onLog (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/vite/dist/node/chunks/node.js:33710:4)
+          at <anonymous> (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/rolldown/dist/shared/create-bundler-option-CjAOgWvM.mjs:48:26)
+          at logger (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/node_modules/rolldown/dist/shared/create-bundler-option-CjAOgWvM.mjs:39:3)
+    ]
+  }

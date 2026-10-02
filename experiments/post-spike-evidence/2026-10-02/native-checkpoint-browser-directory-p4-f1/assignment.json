@@ -1,0 +1,48 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected assert at depth 13457: decision effective, 3 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "c62fe17a835a4c9d6e2738971296be48636b86c1",
+      "depth": 13457
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:679bd0ab8eef288e6fb40324e69d1e21f9a7ac87",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:679bd0ab8eef288e6fb40324e69d1e21f9a7ac87",
+      "sequence": 13410,
+      "timestamp": 1790965296,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "assert",
+      "lifecycle": "none",
+      "satisfier": "role:ratifier",
+      "text": "Accept independent H-1 finding: the Chromium pure-producer test must create its own exact capture/bundle directory before writes and pass standalone with the sibling directory absent. Complete this correction under the existing full P4-F1 producer request/promise, assigned accepted_publication_f6 in a new isolated worktree from frozen5bf6; preserve all producer/reader bytes and frozen5bf/5d/13e. Check the owned-input browser harness for the same assumption. Retain actual pre-fix standalone ENOENT and final actual Chromium standalone/default plus owned-input/concurrent producer checks, exact source/build/runtime/input capture attribution and complete original205 evidence pins. No production/dependency/export/quota changes are intended. Reviewer approved production only in substance; exact repaired delivery still needs independent approval before any merge. All106/fullP3/P4 remain open.",
+      "body": {
+        "assigned_worker": "accepted_publication_f6",
+        "decision": "changes-accepted",
+        "finding": "H-1",
+        "head": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "merge_approved": "false",
+        "stale_bases": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7c04c01689b19b3c74cdee8dd333d9d4d7ee0fbb, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d5fb37bfa8621a703ef9b45cd95439f80337af5a, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fff3f4cdac38d1a3e11e98bb85153291639a9e1e stale; retired bases: git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:005de060a210f5e706cd48cb8ae04e5a00c4e1a7, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02409e2640ad4fb4d48814ba4f06a8952c3bc7b4, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0258af2e6b5110f193d143bfb2a08b88bee488f8, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:033a0c44720e3a4f7e3025cfe37de2a493f4955f and 200 more"
+      },
+      "stale": true,
+      "stale_because_truncated": true
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:679bd0ab8eef288e6fb40324e69d1e21f9a7ac87",
+      "sequence": 13410,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fff3f4cdac38d1a3e11e98bb85153291639a9e1e",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d5fb37bfa8621a703ef9b45cd95439f80337af5a",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7c04c01689b19b3c74cdee8dd333d9d4d7ee0fbb"
+    ]
+  },
+  "isError": false
+}

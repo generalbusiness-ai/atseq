@@ -1,0 +1,25 @@
+✖ Chromium runs pure checkpoint producer, exact independent bytes and bounds (62.206125ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 754.579208
+
+✖ failing tests:
+
+test at tests/native-checkpoint-producer-browser.test.ts:1:413
+✖ Chromium runs pure checkpoint producer, exact independent bytes and bounds (62.206125ms)
+  Error: ENOENT: no such file or directory, open '.atseq-local/native-checkpoint-producer/browser-bundle.js'
+      at async open (node:internal/fs/promises:1425:25)
+      at async writeFile (node:internal/fs/promises:2168:14)
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-checkpoint-browser-directory-p4-f1-20261002/tests/native-checkpoint-producer-browser.test.ts:37:3)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '.atseq-local/native-checkpoint-producer/browser-bundle.js'
+  }

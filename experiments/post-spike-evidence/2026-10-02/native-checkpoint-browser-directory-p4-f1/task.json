@@ -1,0 +1,343 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected request at depth 13457: decision effective, 3 provenance bases, 31 related artifacts, 1 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "c62fe17a835a4c9d6e2738971296be48636b86c1",
+      "depth": 13457
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d5fb37bfa8621a703ef9b45cd95439f80337af5a",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d5fb37bfa8621a703ef9b45cd95439f80337af5a",
+      "sequence": 12754,
+      "timestamp": 1790957621,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "P4-F1: encode deterministic native checkpoint assertions and pages as DATA. Implement pure bounded DATA production from supplied owned immutable input bytes, with NO generation acceptance/capture/publication constructor. Existing readers validate exact closed15-field assertion, compact authority/table/page/history/source/evidence/outcome data. Greedy canonical array pages≤128KiB/depth32, positional/canonical existing order and source original unused-file order preserved; empty tables no pages, oversized one row refuses. Existing native32KiB chunks/byteManifest≤1024 chunks32MiB/native64KiB record encoding, exact canonical path/CID/bytes; bounded transient dedup no persistent cache. Complete outcomes non-null every1..frontier; selective partial exports null. Literal vectors frozen from independently attributable implementation and compared source/emitted Node22/24/26/actualChrome. Native content records satisfy adopted original blobs wording; no uploadBlob implementation or new transport union. This task does not claim owned generation capture or published authority.",
+      "body": {
+        "acceptance": "- Exact boundary empty/chunk/page/1024vs1025 limits and canonical Node/Chrome output agreement.\n- Readers round-trip exact generated assertion/pages and reject cross-app/gaps/extra fields/noncanonical/substitution; no brands issued.\n- Producer reports actual new chunk/manifest/page bytes and counters, not available native allocator counters guessed from source.",
+        "conditions": "Implement pure bounded DATA production from supplied owned immutable input bytes, with NO generation acceptance/capture/publication constructor. Existing readers validate exact closed15-field assertion, compact authority/table/page/history/source/evidence/outcome data. Greedy canonical array pages≤128KiB/depth32, positional/canonical existing order and source original unused-file order preserved; empty tables no pages, oversized one row refuses. Existing native32KiB chunks/byteManifest≤1024 chunks32MiB/native64KiB record encoding, exact canonical path/CID/bytes; bounded transient dedup no persistent cache. Complete outcomes non-null every1..frontier; selective partial exports null. Literal vectors frozen from independently attributable implementation and compared source/emitted Node22/24/26/actualChrome. Native content records satisfy adopted original blobs wording; no uploadBlob implementation or new transport union. This task does not claim owned generation capture or published authority.\n\nImplement only this tracked child; keep both full original parent requests open until their entire conditions are executed and independently reviewed. Follow adopted P3 5dd41404, P4 e8cebbb3, J1 22d43897 plus bridge 06881c532f81e23f23da9b91498ab8e559c17fa5 and root-ratified exact review ce96b973. Later J1 choices override earlier structural-only/equivalence/CBOR-envelope proposals. Use one existing application coordinator, private prefix/index owner, source/compact-authority transition engine and installation-owned NativeMaterializationIO cursor. No new tree/cache/index/permission/identity/key owner, public authority constructor, cloned brand, app approval callback/string, dependency/profile/package export, quota increase or spike compatibility layer. Preserve foreign fault identity and observed structural/signature/duplicate precedence over missing/limits. Keep app/genesis pin and original root/method assurance; did:web remains web-observation, webvh not enabled. Local cursor and PDS swapCommit are separate, no cross-store/account atomicity or overall IDB deadline. Fixed caps: store48MiB/100k physical rows/1MiB row/128KiB metadata/4generations/16pins/page1000rows1MiB, generic changes1000, trusted native cold changes100000; payload32MiB/1024x32KiB chunks/native record64KiB; archive48MiB/100kblocks/framing16KiB/block1MiB; portable proof16MiB/50kblocks, P1 input32MiB and existing path/depth limits. All known floors/pending/original consent survive rejection/replay; no silent eviction, resigning, blind resend, assertion-to-replay upgrade, copied inventory acceptance or fictitious durable fact after aborted commit. Deliver code/tests, dated notes/ results, raw first failures plus final captures, exact source/build/runtime/dependency/input hashes, actual results/recommendations/limits/unrun cases. Retain all106 vectors and distinguish source/emitted-production/actualChromium/actualSQLite/actualIDB/nativePDS/offline executions. No arbitrary performance target. Root owns workroom publication, exact-head atseq-reviewer architecture/security/simplification review, governed merge and push. Work isolated; do not mutate main/root user package edits/frozen candidates/workroom or use rm -rf/rm -f. Full access/approval never: omit sandbox_permissions; no routine user confirmation. Report genuine unsettled trust decisions to root for independent design review, not permission questions. Child completion never substitutes for full P3/P4 completion.",
+        "dependencies": "adopted P4/J1; can start immediately after root assignment",
+        "ownership": "{\"ownerRole\": \"pure checkpoint byte producer worker\", \"ownedPaths\": [\"src/protocol/native-checkpoint-producer.ts (new DATA only)\", \"src/protocol/checkpoint-data.ts (only minimal shared DATA utility if needed; coordinate)\", \"tests/native-checkpoint-producer.test.ts (new)\", \"tests/support/native-checkpoint-producer-browser.ts (new)\"]}",
+        "package": "P4",
+        "parent_conditions_verbatim": "{\"P4\": \"Implement ordinary native records plus content-addressed blobs, certified app/genesis/head/frontier/payload/index/evidence commitments and separately bootstrapped certifier authority. Prefer native PDS certification as reviewed under D0; do not let checkpoint self-authorize. Preserve newer floors and two assurance dimensions (state derivation, identity observation). Provide early-use/deferred-audit and full-replay policies, selective historical outcomes, progress and audit-failure recovery; test lying state/authority/index, substitution, missing blocks and post-action audit mismatch. Deliver code/tests plus a dated notes/ results report and raw evidence where appropriate. Report actual results, recommendation, trust/functional limits and unrun cases. Review any unsettled contract decision before implementing it; obtain atseq-reviewer exact-head architecture/security/simplification approval, then merge through gitseq and push main. No latency threshold or spike compatibility requirement.\"}",
+        "parent_requests": "[\"git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1f13a0dcbbae3fd55a08049416ef16175a66c72d\"]",
+        "source_decision": "Resolved by adopted P3/P4/J1; routine implementation spelling/placement does not require another pre-code approval. Exact implementation still independently reviewed.",
+        "stale_bases": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:134b35da2deee677fdd0ddc548b03bf245db04db, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e02aff6a205ba4e1c7e2b1f57a471f98fbedd3be stale; retired bases: git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:005de060a210f5e706cd48cb8ae04e5a00c4e1a7, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02409e2640ad4fb4d48814ba4f06a8952c3bc7b4, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0258af2e6b5110f193d143bfb2a08b88bee488f8, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:033a0c44720e3a4f7e3025cfe37de2a493f4955f and 199 more",
+        "target_head": "1db5e12fbfe8ea2b478ccfacd132abc522284f08",
+        "target_ref": "refs/heads/main",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      },
+      "stale": true,
+      "stale_because_truncated": true
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d5fb37bfa8621a703ef9b45cd95439f80337af5a",
+      "sequence": 12754,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d5fb37bfa8621a703ef9b45cd95439f80337af5a",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7c04c01689b19b3c74cdee8dd333d9d4d7ee0fbb",
+      "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b7445a054f3c353503521694f8259a269e3109c1",
+      "status": "awaiting-review",
+      "stale": true,
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main"
+    },
+    "landing": {
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main",
+      "git": {
+        "measured_at": 1790965745,
+        "state": "unknown",
+        "target_head": "0e34362688bdd709027a90b2084e3b985629d41b",
+        "ref_incorporated": null,
+        "remote": "origin",
+        "remote_ref": "refs/remotes/origin/main",
+        "remote_head": "8e1702b01ab3bf1ef1761857f7199654903f121b",
+        "remote_contains": null,
+        "reason": "no witnessed merge head was supplied; ancestry is unknown"
+      }
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1f13a0dcbbae3fd55a08049416ef16175a66c72d",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:134b35da2deee677fdd0ddc548b03bf245db04db",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e02aff6a205ba4e1c7e2b1f57a471f98fbedd3be"
+    ],
+    "related_artifacts": [
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b7445a054f3c353503521694f8259a269e3109c1",
+        "path": "notes/2026-10-02-atseq-native-checkpoint-owned-input-repair-results.md",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1ccbce1afbcce3f864cd66512dea9c2686f07dfb",
+        "path": "tests/support/native-checkpoint-producer-browser.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2a477fe9c6b57f5eba3f6de3933a3c5be47ad0d7",
+        "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2a622ed965607b65edcbb410fc4c6feb5186d4c5",
+        "path": "tests/support/native-checkpoint-producer-owned-input-corpus.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2d2dc82da566494d4b37e38d26898761f6c231b2",
+        "path": "src/protocol/native-checkpoint-producer.ts",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3a0efa9beb1a0b00d0ae6037dd84e35d80573564",
+        "path": "tests/support/native-checkpoint-producer-corpus.ts",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:3dc63f0262eb15a6da8adcb251db309ea66ea2ed",
+        "path": "tests/support/native-checkpoint-producer-owned-input-emitted.mjs",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:48926265f2309e335653a2dccb1128534c37b042",
+        "path": "tests/vectors/native-checkpoint-producer.json",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:54388649b2e92fc483333d5fb40425fc2238b203",
+        "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-owned-input-p4-f1",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:577c2a98f2e971b9b13566312ccf7889325245fb",
+        "path": "tests/native-checkpoint-producer-browser.test.ts",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5a39f66304eddb9b605c4800d177ea2809f4e1bc",
+        "path": "tests/native-checkpoint-producer.test.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6951858e3001768fe3cf5ffbade24b65900c8e1e",
+        "path": "src/protocol/checkpoint-data.ts",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true,
+        "live_predecessors": 1,
+        "succession_unrecorded": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6cccdfe1cf2aafd1b5fb12ba2be32cbfda601d12",
+        "path": "src/protocol/checkpoint-data.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true,
+        "live_predecessors": 1,
+        "succession_unrecorded": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:76dccc24693615c452c2b786721d3b232876f493",
+        "path": "tests/support/native-checkpoint-producer-emitted.mjs",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7bd79895c88932f899b38e17771d247112b23a4f",
+        "path": "tests/support/native-checkpoint-producer-input.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7ec8554ee075810e60697d97b9006babdad3ea0a",
+        "path": "tests/support/native-checkpoint-producer-owned-input-browser.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:7f9834fe040624dfc5aecf622c91e0af9eae7306",
+        "path": "tests/support/native-checkpoint-producer-oracle.mjs",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:8360024e761fe28d9bf0bffea168e4c6ed233aeb",
+        "path": "tests/native-checkpoint-producer-owned-input.test.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:84c572fc2d894056c484e84db77c5dc7d58d99ec",
+        "path": "tests/vectors/native-checkpoint-producer.json",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:980b1ae144ff1372ff80f857c128166c37fe7ecf",
+        "path": "tests/native-checkpoint-producer.test.ts",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b48d7d77c3bb7d38f410dab183e9d702bcb691fc",
+        "path": "tests/native-checkpoint-producer-browser.test.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b51ae861849649b43fd6dc9b3253bb12a54604cb",
+        "path": "notes/2026-10-02-atseq-native-checkpoint-producer-results.md",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b8dce9ba676dedea111ca5a818c03497371094b8",
+        "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:be3d6ca1ac09db8db585f8e460e5859813b548b1",
+        "path": "tests/support/native-checkpoint-producer-oracle.mjs",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d217a877b6336e251e0a63383b2289406895bd51",
+        "path": "src/protocol/native-checkpoint-producer.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d3bdeca9a62ff1bccda31cb1c25d628a3cbd340f",
+        "path": "tests/support/native-checkpoint-producer-input.ts",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d4ddb17056025dc02e71f35825729e89960312e1",
+        "path": "tests/support/native-checkpoint-producer-browser.ts",
+        "commit": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+        "retired": true,
+        "succeeded": true,
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:dd02f717f10d433116819ebfd78f163d3840f531",
+        "path": "notes/2026-10-02-atseq-native-checkpoint-producer-results.md",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:dec232e730daa03cc268598d5d945cea68557818",
+        "path": "tests/native-checkpoint-producer-owned-input-browser.test.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:e0f10c0de5d3000f6c2ca50662dd7678788bbc7b",
+        "path": "tests/support/native-checkpoint-producer-corpus.ts",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      },
+      {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fef5da6c1b9ff377f44cae6bb1720c1f3f71949d",
+        "path": "tests/support/native-checkpoint-producer-emitted.mjs",
+        "commit": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "stale": true,
+        "stale_because_truncated": true
+      }
+    ],
+    "related_reviews": [
+      {
+        "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fff3f4cdac38d1a3e11e98bb85153291639a9e1e",
+        "timestamp": 1790965072,
+        "reviewer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "verdict": "changes-requested",
+        "head": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+        "artifact": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b7445a054f3c353503521694f8259a269e3109c1",
+        "implementer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "resolved_by": "named",
+        "independence": "independent",
+        "stale": true
+      }
+    ]
+  },
+  "isError": false
+}

@@ -1,0 +1,17 @@
+TAP version 13
+# {"node":"v22.19.0","chromium":"153.0.8010.12","chromiumBinary":"/Users/hughpyle/Library/Caches/ms-playwright/chromium-1243/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing","chromiumBinarySha256":"8319963f6625accf51c0dd4f55091ceaf9f09ed39e7a52fed4fae12b2a6b668a","cases":{"cases":["root-alias-slice-later-mutation-retains-original-state","own-byte-fields-methods-iterator-constructor-never-dispatched","genuine-subclass-copied-without-species-or-slice","original-binary-payload-owned-before-await","original-row-owned-before-await","proxy-byte-view-refused-before-caller-field","forged-byte-prototype-refused","different-typed-array-kind-refused","intrinsic-per-payload-size-cannot-be-hidden","intrinsic-aggregate-byte-charge-cannot-be-hidden","unsafe-row-count--1-number","unsafe-row-count-0-negative-zero","unsafe-row-count-NaN-number","unsafe-row-count-Infinity-number","unsafe-row-count-1.5-number","unsafe-row-count-1-string","unsafe-row-count-null-object","row-count-cap-before-descriptor-enumeration","safe-row-count-captured-once-no-array-iterator","row-accessor-refused-without-executing-getter","foreign-row-length-getter-fault-keeps-identity"],"noAdmission":true,"rootProbe":{"original":"bafyreidhxage47k64gbiv62solpwhzwitjp2xgs3jyjs66kzdksmj7zcxu","mutated":"bafyreibg57tynislqmphmpybcdn4ia6qimlffj2s2sjjlcbhk2m73covra","capturedOriginal":true,"usedLaterMutation":false},"allocatorCounters":null},"fixtureBytes":1055377,"fixtureSha256":"885826c82e93de564330c1b1ca3f601b387642a9d5b719a20217e853092d9b41","bundleBytes":831473,"bundleSha256":"13c83eb15ef60ce2abe728f33cbbefa84d63b1b44079eba6d560afc6e416f442","exactSharedCasesAgree":true,"noAdmission":true}
+# Subtest: Chromium rejects hostile checkpoint byte and count overrides
+ok 1 - Chromium rejects hostile checkpoint byte and count overrides
+  ---
+  duration_ms: 1387.588292
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2101.701917
