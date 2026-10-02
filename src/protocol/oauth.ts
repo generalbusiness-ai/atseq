@@ -280,6 +280,7 @@ export class OAuthAdapter {
   async #run<T>(work: (client: OAuthCustodyClient) => Promise<T>): Promise<T> {
     return this.#lock(async () => {
       this.#budget = { signal: AbortSignal.timeout(OAUTH_LIMITS.operationMs), requests: 0, bytes: 0 };
+      let failure: { error: unknown; deadline: boolean } | undefined;
       try {
         assertDependencies();
         this.#client ??= this.#factory(this.#fetch, {
@@ -292,7 +293,6 @@ export class OAuthAdapter {
         const client = await this.#client;
         await this.#custody?.prepare(client);
         let successful = false;
-        let failure: { error: unknown } | undefined;
         try {
           const result = await work(client);
           if (this.#budget!.signal.aborted)
@@ -300,7 +300,7 @@ export class OAuthAdapter {
           successful = true;
           return result;
         } catch (error) {
-          failure = { error };
+          failure = { error, deadline: this.#budget!.signal.aborted };
           throw error;
         } finally {
           try {
@@ -311,7 +311,7 @@ export class OAuthAdapter {
         }
       } catch (error) {
         // Library/server error descriptions may contain codes, tokens or request bodies.
-        throw operationFailure(error, this.#budget.signal.aborted);
+        throw operationFailure(error, failure?.deadline ?? this.#budget.signal.aborted);
       } finally {
         this.#budget = undefined;
       }
