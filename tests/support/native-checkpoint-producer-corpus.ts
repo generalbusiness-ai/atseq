@@ -231,6 +231,34 @@ export async function nativeCheckpointProducerCorpus(fixture: CheckpointFixture,
       ok(restored.length === size && restored.every((byte, index) => byte === raw[index]));
       metrics.push({ kind: `chunk-${size}`, ...emitted.counters });
     });
+
+  const firstOutcome: any = JSON.parse(new TextDecoder().decode(input.outcomes![0]));
+  for (const [name, outcome] of [
+    ['effective-extra-field', { decision: 'effective', reason: 'extra' }],
+    ['unknown-framework-reason', { decision: 'ineffective', source: 'framework', reason: 'unknown' }],
+    ['oversized-fold-reason', { decision: 'ineffective', source: 'fold', reason: 'x'.repeat(65) }],
+  ])
+    await reject(`outcome-${name}`, 'envelope', () =>
+      produceNativeCheckpoint({
+        ...input,
+        outcomes: [encode({ ...firstOutcome, outcome }), ...input.outcomes!.slice(1)],
+      }),
+    );
+  await reject('outcome-wrong-history-entry', 'envelope', () =>
+    produceNativeCheckpoint({
+      ...input,
+      outcomes: [encode({ ...firstOutcome, entry: input.scope.genesis }), ...input.outcomes!.slice(1)],
+    }),
+  );
+  await reject('outcome-duplicate-position', 'envelope', () =>
+    produceNativeCheckpoint({ ...input, outcomes: [input.outcomes![0]!, input.outcomes![0]!] }),
+  );
+  await reject('complete-outcome-order-gap', 'envelope', () =>
+    produceNativeCheckpoint({
+      ...input,
+      outcomes: [input.outcomes![1]!, input.outcomes![0]!, ...input.outcomes!.slice(2)],
+    }),
+  );
   await reject('chunk-1025-refused', 'envelope', () =>
     produceNativeCheckpoint({ ...input, payloads: [new Uint8Array(32 * 1024 * 1024 + 1)] }),
   );
