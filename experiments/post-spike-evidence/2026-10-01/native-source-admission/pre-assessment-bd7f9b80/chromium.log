@@ -1,0 +1,24 @@
+✖ Chromium runs the same complete native source corpus and approved maintained streaming hash (991.421167ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2032.217584
+
+✖ failing tests:
+
+test at tests/native-source-browser.test.ts:1:345
+✖ Chromium runs the same complete native source corpus and approved maintained streaming hash (991.421167ms)
+  Error: listen EPERM: operation not permitted 127.0.0.1
+      at Server.setupListenHandle [as _listen2] (node:net:2368:21)
+      at listenInCluster (node:net:2499:12)
+      at node:net:2728:7
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    code: 'EPERM',
+    errno: -1,
+    syscall: 'listen',
+    address: '127.0.0.1'
+  }
