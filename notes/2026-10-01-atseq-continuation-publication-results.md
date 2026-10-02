@@ -143,7 +143,7 @@ retained retry/receipt lookup, coherent materialization, accepted checkpoint
 publication, independent genesis replay and provenance-bound restoration.
 Discovery, first-run provisioning/recovery and the native end-to-end performance
 matrix follow those boundaries. App-PDS ordering remains the preferred authority
-model: collection writers can construct another ordering, delete or withhold
+model: the app PDS holding the repository signing key can construct another ordering, delete or withhold
 records; they cannot forge device signatures. No checkpoint supplies unseen
 non-equivocation or independent currentness.
 
