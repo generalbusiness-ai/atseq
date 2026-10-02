@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "gitPins": 32,
+  "newCases": 32,
+  "unchangedR1Cases": 29,
+  "runtimeInvocations": 10,
+  "browser": "153.0.8010.12",
+  "localLinks": 9,
+  "negativeControls": [
+    "changed-inventory-hash",
+    "changed-source-pin",
+    "missing-adversarial-case",
+    "crypto-work-present"
+  ],
+  "runtimeExperimentsRerun": false
+}

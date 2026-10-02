@@ -1,0 +1,107 @@
+{
+  "node": "v24.21.0",
+  "cases": [
+    "zero-genesis-has-no-invented-entry-or-effects",
+    "cloned-or-asserted-DATA-and-fake-repository-cannot-enter-private-owner",
+    "old-view-audits-current-boundary-and-all-retained-interiors",
+    "current-known-boundary-cannot-be-lowered-through-old-view",
+    "higher-discarded-floor-is-required-without-installing-rows",
+    "unrelated-large-unavailable-suffix-is-not-inspected",
+    "genuine-unavailable-authority-descriptor-does-not-block-negative-audit",
+    "absent-genesis-is-invalid-and-inventory-unchanged",
+    "absent-head-is-invalid-and-inventory-unchanged",
+    "absent-interior-is-invalid-and-inventory-unchanged",
+    "absent-boundary-is-invalid-and-inventory-unchanged",
+    "absent-floor-is-invalid-and-inventory-unchanged",
+    "changed-genesis-preserves-P1-invalid-CID-mismatch",
+    "changed-interior-preserves-P1-invalid-CID-mismatch",
+    "changed-boundary-preserves-P1-invalid-CID-mismatch",
+    "changed-floor-preserves-P1-invalid-CID-mismatch",
+    "wrong-head-scope-is-invalid",
+    "changed-head-at-floor-is-invalid",
+    "missing-genesis-is-unavailable-and-inventory-unchanged",
+    "missing-head-is-unavailable-and-inventory-unchanged",
+    "missing-interior-is-unavailable-and-inventory-unchanged",
+    "missing-boundary-is-unavailable-and-inventory-unchanged",
+    "missing-floor-is-unavailable-and-inventory-unchanged",
+    "accepted-equals-floor-deduplicates-boundary",
+    "concurrent-higher-discarded-floor-withholds-completion",
+    "concurrent-current-acceptance-withholds-completion",
+    "concurrent-current-contradiction-withholds-completion",
+    "concurrent-pending-fault-withholds-completion",
+    "concurrent-same-head-new-current-view-is-stale",
+    "failed-audits-do-not-raise-the-observed-floor",
+    "genuine-walker-runtime-fault-keeps-identity-and-no-effects",
+    "existing-poison-is-not-cleared-or-reconciled"
+  ],
+  "work": [
+    {
+      "kind": "zero",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "current-not-old",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "higher-unaccepted",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000003",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "unrelated-suffix",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000003",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "unavailable-descriptor",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000004",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000003"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "deduplicated",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    }
+  ]
+}

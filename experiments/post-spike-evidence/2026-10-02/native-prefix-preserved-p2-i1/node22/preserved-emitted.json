@@ -1,0 +1,138 @@
+{
+  "node": "v22.19.0",
+  "cases": [
+    "zero-genesis-has-no-invented-entry-or-effects",
+    "cloned-or-asserted-DATA-and-fake-repository-cannot-enter-private-owner",
+    "old-view-audits-current-boundary-and-all-retained-interiors",
+    "current-known-boundary-cannot-be-lowered-through-old-view",
+    "higher-discarded-floor-is-required-without-installing-rows",
+    "unrelated-large-unavailable-suffix-is-not-inspected",
+    "genuine-unavailable-authority-descriptor-does-not-block-negative-audit",
+    "absent-genesis-is-invalid-and-inventory-unchanged",
+    "absent-head-is-invalid-and-inventory-unchanged",
+    "absent-interior-is-invalid-and-inventory-unchanged",
+    "absent-boundary-is-invalid-and-inventory-unchanged",
+    "absent-floor-is-invalid-and-inventory-unchanged",
+    "changed-genesis-preserves-P1-invalid-CID-mismatch",
+    "changed-interior-preserves-P1-invalid-CID-mismatch",
+    "changed-boundary-preserves-P1-invalid-CID-mismatch",
+    "changed-floor-preserves-P1-invalid-CID-mismatch",
+    "wrong-head-scope-is-invalid",
+    "changed-head-at-floor-is-invalid",
+    "missing-genesis-is-unavailable-and-inventory-unchanged",
+    "missing-head-is-unavailable-and-inventory-unchanged",
+    "missing-interior-is-unavailable-and-inventory-unchanged",
+    "missing-boundary-is-unavailable-and-inventory-unchanged",
+    "missing-floor-is-unavailable-and-inventory-unchanged",
+    "accepted-equals-floor-deduplicates-boundary",
+    "concurrent-higher-discarded-floor-withholds-completion",
+    "concurrent-current-acceptance-withholds-completion",
+    "concurrent-current-contradiction-withholds-completion",
+    "concurrent-pending-fault-withholds-completion",
+    "concurrent-same-head-new-current-view-is-stale",
+    "failed-audits-do-not-raise-the-observed-floor",
+    "genuine-walker-runtime-fault-keeps-identity-and-no-effects",
+    "existing-poison-is-not-cleared-or-reconciled"
+  ],
+  "work": [
+    {
+      "kind": "zero",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "current-not-old",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "higher-unaccepted",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000003",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "unrelated-suffix",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000003",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "unavailable-descriptor",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000004",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000003"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    },
+    {
+      "kind": "deduplicated",
+      "paths": [
+        "ai.generalbusiness.atseq.genesis/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.head/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000002",
+        "ai.generalbusiness.atseq.entry/bafyreibt2pczsq3vblz57xno7bhwjfsvobcav7qyxqhf7u4ibexdes5nje.0000000000000001"
+      ],
+      "cryptoChecks": 0,
+      "contentReads": 0
+    }
+  ],
+  "fixtureBytes": 666136,
+  "fixtureSha256": "2decc824c204325e2cae505b9bab0009d23b011bb6eaa199ac0e26907803b5f1",
+  "actualProductionModules": [
+    {
+      "path": "dist/src/application/native-prefix.js",
+      "sha256": "ac47425a1852eaff4021140a91d8ba3e5bedaf4da91570fb8843295924ad6a71"
+    },
+    {
+      "path": "dist/src/core/errors.js",
+      "sha256": "f262303819c1ff725fd878fd3de0d0352f52657cb5dafe44f073ddf637e06eb0"
+    },
+    {
+      "path": "dist/src/core/values.js",
+      "sha256": "d3805c888e495c47a5d09e712b5545bb66ac19ba63a9bc844731a26c399a2efe"
+    },
+    {
+      "path": "dist/src/protocol/native-proof.js",
+      "sha256": "f4c86609dfd2cebd4f32acf4cfbba2eb89476a0c626c7ea9ea270361bc3621ad"
+    },
+    {
+      "path": "dist/src/protocol/native-wire.js",
+      "sha256": "9222f8536d0431694bcb2ea56fcde27c04e78802c5f371fdd902af725803b2d5"
+    }
+  ],
+  "compiledTests": [
+    {
+      "name": "native-prefix-preserved-corpus.ts",
+      "sourceSha256": "1e3e93c85615816c0a6898bce76484a9dd0e2bf35b16f70d2ab321f00fe645ee",
+      "outputSha256": "4e68ec2753c1a416095ce5a871df9b7a6ca8d6bf036aedfdcef926f416491cc1"
+    }
+  ]
+}

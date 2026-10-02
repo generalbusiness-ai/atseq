@@ -1,0 +1,23 @@
+✖ private preservation audits genuine current and discarded prefix floors without effects (3109.202083ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5123.291542
+
+✖ failing tests:
+
+test at tests/native-prefix-preserved.test.ts:1:256
+✖ private preservation audits genuine current and discarded prefix floors without effects (3109.202083ms)
+  Error: Unexpected refusal: ProtocolError: Wrong native application scope
+      at assert (/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/tests/support/native-prefix-preserved-corpus.ts:24:21)
+      at refuses (/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/tests/support/native-prefix-preserved-corpus.ts:39:3)
+      at async <anonymous> (/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/tests/support/native-prefix-preserved-corpus.ts:214:7)
+      at async check (/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/tests/support/native-prefix-preserved-corpus.ts:78:5)
+      at async nativePrefixPreservedCorpus (/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/tests/support/native-prefix-preserved-corpus.ts:212:5)
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-prefix-preserved-p2-i1-20261002/tests/native-prefix-preserved.test.ts:13:20)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)

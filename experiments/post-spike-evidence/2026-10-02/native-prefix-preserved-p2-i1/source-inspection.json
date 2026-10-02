@@ -1,0 +1,247 @@
+{
+  "baseline": "316439928e0c0d41965b086f2dace19a9249dba7",
+  "source": "5868ef2a20a58672c2e777268e3e4d006428d143",
+  "design": "c015a39f85698654135bd724f0c1bc44ff240dd7",
+  "independentSourceFollowup": "ff8331fbfd07cff9f4b23f2dcea53817bead9e9f",
+  "sourceRatification": "dc827268d05f67fc8eaecd1eb9a0aef02feefc4d",
+  "captured": "2026-10-02T14:11:35.054882+00:00",
+  "pins": [
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/application/native-prefix.ts",
+      "gitBlob": "52ec9674473013b1272e5a689e62e02c17cd78b7",
+      "bytes": 23032,
+      "sha256": "a59c880077e58b03a0ba5b03fb9aa3c2f2ff99fa079f14337480a3a565bf1af0"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/application/index.ts",
+      "gitBlob": "2477c4e7f81a9727a9f9328a5378acd1acc71270",
+      "bytes": 811,
+      "sha256": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/protocol/native-proof.ts",
+      "gitBlob": "41da60f1cac4cb7d7e1144233647905302647bce",
+      "bytes": 18104,
+      "sha256": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/protocol/native-wire.ts",
+      "gitBlob": "0f781bce6122ef9723ca0b7b6767565ceb162da0",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/host/native-observer.ts",
+      "gitBlob": "7ad6869d1757daa2822dd35b72a767aa5499fc77",
+      "bytes": 27794,
+      "sha256": "456b8dc05cac82945ccf41502b1e6eda6a0f5492a0d2ec4e23827efbe7714b7b"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/protocol/native-observer-car.ts",
+      "gitBlob": "118b15e1b673ca22295327fa3c86d9f789dfdab7",
+      "bytes": 5703,
+      "sha256": "1ce60262ad1d43e0de70db763885e2d7099cb449a380db6af362b6f738a726cc"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "scripts/check-layers.mjs",
+      "gitBlob": "be4444ef6ded385054a7aaeceb738c258b6ec765",
+      "bytes": 5118,
+      "sha256": "e0d7baa0082c80da53a67a7aa0a5b6d0141679e86a5506b1a744fec93837c5e2"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "scripts/source-run.mjs",
+      "gitBlob": "8c6739a23864ebcb35c708a2df570acd36151d90",
+      "bytes": 507,
+      "sha256": "0b453aaf5049038e8e02a33640b39f57d30bb3c3dff3c8b7ea2ffacaeb222e08"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "scripts/build.mjs",
+      "gitBlob": "e5c369d50ec2d8c128016d5e71bc40c7f263767d",
+      "bytes": 4057,
+      "sha256": "7aa085a227eed0cc9d0d5bf564620026273ba084570b87c5c673c2632567a608"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "package.json",
+      "gitBlob": "66b97f536af035c066361ecd65af0bd13bc0524b",
+      "bytes": 4425,
+      "sha256": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "npm-shrinkwrap.json",
+      "gitBlob": "8281fb7c7b262692e0c4201fc1474450adb63471",
+      "bytes": 143687,
+      "sha256": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tsconfig.json",
+      "gitBlob": "31bf89deb38833bd725068a01b8cd805076d524c",
+      "bytes": 501,
+      "sha256": "fbaefd0cf85ddc4b15c3bc59e94ca864846e31f74e5bca560564431e9314dc30"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/integrity/node.ts",
+      "gitBlob": "34ededcad0f1e66439bc8011b749bddc5d2c635e",
+      "bytes": 9161,
+      "sha256": "8edf2222421c76217a295c1e223f3271efe2c48d0280af83b11e616a963d6e41"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/integrity/browser.ts",
+      "gitBlob": "6ba5479449b46077e7640efca5825a83afb23988",
+      "bytes": 268,
+      "sha256": "565c1c4958ea060535e2c3283aa7b85651ae92eec5174f400f5bb71d16613228"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/integrity/files-approved.json",
+      "gitBlob": "1a7523d0ad857a283b6569d4fb3148db8ae56830",
+      "bytes": 1419517,
+      "sha256": "18a3dadff6cbf97aecb19a61e491a2138de273e85d287ebfec9f1c10760e6fe4"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/core/dependencies-approved.json",
+      "gitBlob": "c0bc50a54de2c8435c1e9100c9c5c775190297e6",
+      "bytes": 59339,
+      "sha256": "1355b4a37500bbb95cd58e0c8dafd593bb152ba38ad29e576c0771da6f0edbb6"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/native-prefix.test.ts",
+      "gitBlob": "f00d40a83b3599d507856503140b46dd74fbda15",
+      "bytes": 996,
+      "sha256": "793a2cd6e07cf95a1ebce91e65cba19c5c9b38606bb122a98aa47e16a2f6fd8f"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/native-prefix-browser.test.ts",
+      "gitBlob": "bd4e3b868e9735180b769636b44a10a76570f04e",
+      "bytes": 3065,
+      "sha256": "c5e349e29d30bba74c76d59f45c96367ab18a1c74251a309fc53bf5e91a21993"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/support/native-prefix-corpus.ts",
+      "gitBlob": "b3d141fbfa82e1e458cd9ae6f430db767a12fe29",
+      "bytes": 36191,
+      "sha256": "e388ddbf3f34d31977098ca61d723839a37b76f81615ef099f1e886f02a96db7"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/support/native-prefix-fixture.ts",
+      "gitBlob": "fefb02342c597b32a12ce96948d0b4bfc68c737e",
+      "bytes": 8561,
+      "sha256": "b594ea4603f46689ee053a1787de0a60c930a4a8a858bd465ad51b2ea04cbc07"
+    },
+    {
+      "commit": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "experiments/native-prefix/compiled-conformance.mjs",
+      "gitBlob": "7432cb520458db94c2d4341963543e656f55e159",
+      "bytes": 3017,
+      "sha256": "543323268d9301675cf122c59b64bd251785526c54d13d2e6da3644e88c0e33e"
+    },
+    {
+      "commit": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "path": "src/application/native-prefix.ts",
+      "gitBlob": "9184bb6d49dbb435813186177600311bff09267d",
+      "bytes": 25288,
+      "sha256": "661d800ba99ca502fc4c3b7c659540d9d4b499a61d59bc76fcf5479b3dae1c36"
+    },
+    {
+      "commit": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "path": "tests/native-prefix-preserved.test.ts",
+      "gitBlob": "27d4d88a95adc432edc83ad162b4d340263b7107",
+      "bytes": 1125,
+      "sha256": "b5b37728c218db1966f58a0c69a8add95d8e7f144d8f366683a7ab5fda023433"
+    },
+    {
+      "commit": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "path": "tests/native-prefix-preserved-browser.test.ts",
+      "gitBlob": "6c2b880e6ac6b9b196e25e9e6376f1c9f7630549",
+      "bytes": 3090,
+      "sha256": "c4560ddc4735a44013ec485ac0ef6ccbf92bb5ed7b54b7f0b766d56cbd11cf4b"
+    },
+    {
+      "commit": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "path": "tests/support/native-prefix-preserved-corpus.ts",
+      "gitBlob": "5c8a32f6b7961f771d8188a57de3b27ba2af17d0",
+      "bytes": 14751,
+      "sha256": "2d2e01681ea0060da00dd8eeda41658b8d538992d3811d1f4733d38d7ae2d374"
+    },
+    {
+      "commit": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "path": "tests/support/native-prefix-preserved-fixture.ts",
+      "gitBlob": "3b987e40b90d3a6c668b6222a96daa22e1958cda",
+      "bytes": 6706,
+      "sha256": "ed4c08d8841e34ef8cb519e9cf82f035d9277a7957136df3c62c5c0f1af9352f"
+    },
+    {
+      "commit": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "path": "experiments/native-prefix-preserved/compiled-conformance.mjs",
+      "gitBlob": "afcb5a26e2e58ed993e099043092d1810965508a",
+      "bytes": 2666,
+      "sha256": "fcbbab8c920ea53f71de128535408c29cdd3882f107303273ebda040f9cd8118"
+    },
+    {
+      "commit": "5868ef2a20a58672c2e777268e3e4d006428d143",
+      "path": "experiments/native-prefix-preserved/run-matrix.py",
+      "gitBlob": "63d965de9e960971b3d6c8c08b23cc97225087c1",
+      "bytes": 3855,
+      "sha256": "867b9cbf9353ec249c3c14836b5e1993c245436a9eef00944d621e8744ff17d3"
+    },
+    {
+      "commit": "c015a39f85698654135bd724f0c1bc44ff240dd7",
+      "path": "notes/2026-10-02-atseq-selected-root-read-design.md",
+      "gitBlob": "a6c21c7211ae4404ee2af94f843abee79ba2e5c0",
+      "bytes": 27127,
+      "sha256": "c01da35e30cfbbbc836ea91f15451e8aa084b2b3fafa2a9b748d8ae8725bf155"
+    },
+    {
+      "commit": "c015a39f85698654135bd724f0c1bc44ff240dd7",
+      "path": "experiments/post-spike-evidence/2026-10-02/selected-root-read-review-followup/contract.json",
+      "gitBlob": "e5c4b39dc2d0187cadb6e63b3887face8e21bdf9",
+      "bytes": 2601,
+      "sha256": "c344b80971c902e54052a11563a49b1648b5dc3fa7a429707141e661418d7300"
+    },
+    {
+      "commit": "c015a39f85698654135bd724f0c1bc44ff240dd7",
+      "path": "experiments/post-spike-evidence/2026-10-02/selected-root-read-review-followup/unexecuted-vectors.json",
+      "gitBlob": "ed835e77456a8adc6da176811a7d687e3a8116b3",
+      "bytes": 19978,
+      "sha256": "39e627310e887d916fbb47f0201df7eb860d2bf5ec2c3a8044e2b94b5317c011"
+    },
+    {
+      "commit": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix/fixtures/prefix.json.gz",
+      "gitBlob": "b364825548fd3b2acb4a4424eab7290c5b0ca32f",
+      "bytes": 1309707,
+      "sha256": "ee957776432a94ed04f65bbe1c726d52808032e95e525e3c22ad652cdbabe867"
+    }
+  ],
+  "newOrChangedSource": [
+    "src/application/native-prefix.ts",
+    "tests/native-prefix-preserved.test.ts",
+    "tests/native-prefix-preserved-browser.test.ts",
+    "tests/support/native-prefix-preserved-corpus.ts",
+    "tests/support/native-prefix-preserved-fixture.ts",
+    "experiments/native-prefix-preserved/compiled-conformance.mjs",
+    "experiments/native-prefix-preserved/run-matrix.py"
+  ],
+  "unchangedR1Cases": 29,
+  "newCases": 32,
+  "readOnlyScope": "No account registry/cursor, P1 extraction, CAR intake, observer handoff or checkpoint construction is installed",
+  "P4": "No genuine native-publication prefix constructor exists at this source. DATA cannot mint complete-from-genesis coverage; future asserted branch remains unavailable until P4 checked construction/coverage exists."
+}
