@@ -1,0 +1,62 @@
+{
+  "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+  "consumers": 7,
+  "fixtureBytesUnchanged": true,
+  "validOutputHashesUnchanged": true,
+  "outputs": [
+    {
+      "name": "p256/batch-0",
+      "bytes": 12521,
+      "blocks": 65,
+      "sha256": "3521d93ee6bc9e2be635a89c02053656fe72ae0344f77fb0a88ae784156ceca2"
+    },
+    {
+      "name": "p256/batch-1",
+      "bytes": 15618,
+      "blocks": 65,
+      "sha256": "bcebceb8d048d50bc814f783df8c49a54f6f0cb07741fe2fc2f4042b9eb89784"
+    },
+    {
+      "name": "p256/batch-2",
+      "bytes": 3324,
+      "blocks": 11,
+      "sha256": "b8bb5611922187e41a816bfe231ff869208d63b524e8d644013ac84ddcfb2579"
+    },
+    {
+      "name": "secp256k1/batch-0",
+      "bytes": 12521,
+      "blocks": 65,
+      "sha256": "f259eefb4c09b613b3756b1eed7f436cd85410cde840e63cb0b7dceb264a90f9"
+    },
+    {
+      "name": "secp256k1/batch-1",
+      "bytes": 15618,
+      "blocks": 65,
+      "sha256": "a4c9f68c1b39941a6ad0fdb2246ef9944ca4865d92b719ff78507423da405ddd"
+    },
+    {
+      "name": "secp256k1/batch-2",
+      "bytes": 3324,
+      "blocks": 11,
+      "sha256": "9b2f556b4dc56d09141a00f4aeb22dd6ae7c203628470da9e6f312b741e93266"
+    },
+    {
+      "name": "framed-16MiB",
+      "bytes": 16777216,
+      "blocks": 17,
+      "sha256": "becb7e8b222981acfa9a67e6db46c6592b9dc2be949b11b9fd0acfc4ba32437d"
+    },
+    {
+      "name": "65-unique-with-commit",
+      "bytes": 3037,
+      "blocks": 65,
+      "sha256": "22999209d008b4eb0950eae1ef20eb94a7f73c96acdada3bc982129c64260e2a"
+    }
+  ],
+  "sourceDistChromiumByteEquality": true,
+  "malformedCidAndForeignGetterControlsExecuted": true,
+  "intrinsicByteBudgetControlsExecuted": true,
+  "callerBytePropertiesExecuted": 0,
+  "genuineNodeBufferControlsExecuted": true,
+  "fullP2Complete": false
+}

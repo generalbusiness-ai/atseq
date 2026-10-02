@@ -1,0 +1,7 @@
+{
+  "uncommittedPacketScript": true,
+  "runtimeProducer": "bf290d7018060e4a2ecc1fd0d3964f6eedceaec0",
+  "failure": "Assumed all build output hashes equal; two runtime-labelled shell metadata outputs differ.",
+  "capturedScriptHash": "c228a160ed566369a06f48d675c1b3e2abeed1d1ceaa635ecbeb4ca6b0a632e3",
+  "scriptOnlyLaterChange": "Before this source capture, manifest filename exclusion was narrowed; failing build-comparison predicate is unchanged."
+}

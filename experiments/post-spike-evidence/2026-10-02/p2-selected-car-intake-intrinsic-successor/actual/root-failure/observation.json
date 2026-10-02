@@ -1,0 +1,21 @@
+{
+  "head": "5331281b02167d2e4bffa126ae51f3c8c2901417",
+  "producer": "16a2361108deccc4c8a0317a51ee96639fbd614d",
+  "argv": [
+    "/opt/homebrew/bin/node",
+    "scripts/source-run.mjs",
+    ".atseq-local/root-input-bound/probe.ts"
+  ],
+  "runtime": "v26.10.0",
+  "exitCode": 0,
+  "observed": {
+    "status": "BLOCK_BOUND_BYPASS",
+    "reportedLength": 0,
+    "intrinsicLength": 1048591,
+    "outputBytes": 1048730,
+    "largestBlock": 1048591
+  },
+  "expected": "native_proof_limit before oversized selected-commit copy",
+  "productionSha256": "21d2e98bf6565da610476b029edb87052cbe0215c2f23501011b999d74b03a38",
+  "candidateUnchanged": true
+}

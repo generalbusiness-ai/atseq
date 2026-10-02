@@ -1,0 +1,11 @@
+{
+  "sourceHashesEqual": true,
+  "productionModuleAndBundleHashesEqual": true,
+  "differingRuntimeLabelledMetadata": [
+    "dist/shell/build-provenance.json",
+    "dist/shell/shell-manifest.json"
+  ],
+  "allBuildHashRecordsRetained": true,
+  "allCurrentNode26OutputFilesIndependentlyHashed": true,
+  "earlierNode22And24ShellMetadataBytesRetained": false
+}

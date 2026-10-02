@@ -34,29 +34,11 @@ function rethrow(error: unknown): never {
     invalid('Invalid observation CAR');
   throw error;
 }
-// Capture intrinsics once. Caller properties cannot understate the input budget or
-// dispatch custom copying code. This owns DATA only, before parser classification.
-const OwnedBytes = Uint8Array,
-  typedArrayPrototype = Object.getPrototypeOf(OwnedBytes.prototype),
-  byteKind = Object.getOwnPropertyDescriptor(typedArrayPrototype, Symbol.toStringTag)!.get!,
-  byteLength = Object.getOwnPropertyDescriptor(typedArrayPrototype, 'length')!.get!,
-  copyBytes = OwnedBytes.prototype.set;
-function ownBytes(raw: Uint8Array, maximum: number, expected: string, budget: string) {
-  if (Reflect.apply(byteKind, raw, []) !== 'Uint8Array' || !(raw instanceof OwnedBytes)) invalid(expected);
-  const length: number = Reflect.apply(byteLength, raw, []);
-  if (length > maximum) limited(budget);
-  const owned = new OwnedBytes(length);
-  Reflect.apply(copyBytes, owned, [raw]);
-  return owned;
-}
 function read(raw: Uint8Array, maximumBlocks: number) {
-  const owned = ownBytes(
-    raw,
-    NATIVE_PROOF_LIMITS.carBytes,
-    'Expected observation CAR bytes',
-    'Observation CAR exceeds input budget',
-  );
   try {
+    if (!(raw instanceof Uint8Array)) invalid('Expected observation CAR bytes');
+    if (raw.length > NATIVE_PROOF_LIMITS.carBytes) limited('Observation CAR exceeds input budget');
+    const owned = new Uint8Array(raw);
     const header = decodeVarint(owned, 0, 8);
     if (!Number.isSafeInteger(header.value) || header.value < 1 || header.value > owned.length - header.nextOffset)
       invalid('Invalid observation CAR header');
@@ -112,15 +94,16 @@ function exactBlocks(raw: Uint8Array, requested: readonly string[]) {
   return parsed.blocks;
 }
 function canonicalCid(value: string, cbor = false) {
-  if (typeof value !== 'string' || !/^b[a-z2-7]{57}[aeimquy4]$/.test(value))
-    invalid('Expected canonical observation CID');
+  if (typeof value !== 'string' || value.length > 128) invalid('Expected canonical observation CID');
   try {
     const cid = CID.fromString(value);
     if (CID.toString(cid) !== value || (cbor && cid.codec !== CID.CODEC_DCBOR))
       invalid('Expected canonical CBOR observation CID');
     return cid;
   } catch (error) {
-    rethrow(error);
+    if (error instanceof SyntaxError && error.constructor === SyntaxError && error.message === 'not a valid cid string')
+      invalid('Expected canonical observation CID');
+    throw error;
   }
 }
 /** Owned selected-commit DATA only; P1 still authenticates its DID, key and signed root. */
@@ -134,10 +117,10 @@ export async function exactAdmissionCar(
   requested: readonly string[],
   selectedCommit: { root: string; bytes: Uint8Array },
 ): Promise<Uint8Array<ArrayBuffer>> {
-  if (!Array.isArray(requested)) invalid('Expected one unique bounded block request');
+  if (!Array.isArray(requested) || requested.length < 1 || requested.length > 64)
+    invalid('Expected one unique bounded block request');
   const count = requested.length,
     captured: string[] = [];
-  if (!Number.isSafeInteger(count) || count < 1 || count > 64) invalid('Expected one unique bounded block request');
   for (let i = 0; i < count; i++) {
     const cid = requested[i]!;
     canonicalCid(cid, true);
@@ -147,12 +130,9 @@ export async function exactAdmissionCar(
   const root = selectedCommit.root,
     cid = canonicalCid(root),
     source = selectedCommit.bytes;
-  const commit = ownBytes(
-    source,
-    NATIVE_PROOF_LIMITS.blockBytes,
-    'Expected selected observation commit bytes',
-    'Observation CAR block exceeds budget',
-  );
+  if (!(source instanceof Uint8Array)) invalid('Expected selected observation commit bytes');
+  if (source.length > NATIVE_PROOF_LIMITS.blockBytes) limited('Observation CAR block exceeds budget');
+  const commit = new Uint8Array(source);
   try {
     CAR.verifyBlock(cid, commit);
   } catch (error) {

@@ -1,0 +1,30 @@
+TAP version 13
+# Subtest: caller cancellation during final proof construction prevents account and app capture
+ok 1 - caller cancellation during final proof construction prevents account and app capture
+  ---
+  duration_ms: 630.184041
+  type: 'test'
+  ...
+{"actualReservationMilliseconds":30000,"delayPhase":"final proof construction after both method reads","elapsedMilliseconds":30113.815082999998,"node":"v22.19.0","captureCreated":false,"timeoutReplaced":false}
+# Subtest: the actual existing 30-second reservation expires during final evidence construction
+ok 2 - the actual existing 30-second reservation expires during final evidence construction
+  ---
+  duration_ms: 30118.450666
+  type: 'test'
+  ...
+{"sharedCumulativeBytes":33554432,"oneSignedProofBytes":15213076,"recordDispatches":3,"methodDispatches":5,"finalCapture":false,"perRetryBudgetReset":false}
+# Subtest: complete binding-change retries share the cumulative 32 MiB response reservation
+ok 3 - complete binding-change retries share the cumulative 32 MiB response reservation
+  ---
+  duration_ms: 438.624292
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 31266.732708

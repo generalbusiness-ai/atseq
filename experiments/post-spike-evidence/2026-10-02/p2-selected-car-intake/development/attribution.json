@@ -1,0 +1,25 @@
+{
+  "initialTypecheck": {
+    "uncommittedDraft": true,
+    "fullOriginalTestSourceCaptured": false,
+    "diagnosticsRetained": true,
+    "productionModuleMatchesFinal": true
+  },
+  "runtimeDraft1": {
+    "sourceSnapshot": "failed-draft-1/attribution.json",
+    "expectedPrefixErrorCodeWrong": true
+  },
+  "runtimeDraft2": {
+    "sourceSnapshot": "failed-draft-2/attribution.json",
+    "expectedCaseCountWrong": true
+  },
+  "preparedFixture": {
+    "uncommittedDraft": true,
+    "generationFunctionCapturedIn": "failed-draft-1/native-car-intake.ts"
+  },
+  "setupReadErrors": [
+    "Initial log redirection preceded mkdir; no compiler execution.",
+    "Adopted-source copy requested nonexistent source-pins.json; actual source-inspection.json copied instead."
+  ],
+  "approvalRequested": false
+}
