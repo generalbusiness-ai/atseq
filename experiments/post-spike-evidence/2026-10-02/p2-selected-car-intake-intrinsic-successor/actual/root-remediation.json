@@ -1,0 +1,20 @@
+{
+  "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+  "argv": [
+    "/opt/homebrew/bin/node",
+    "scripts/source-run.mjs",
+    ".atseq-local/root-input-bound/probe.ts"
+  ],
+  "node": "v26.10.0",
+  "exitCode": 0,
+  "seconds": 0.7447811670135707,
+  "probeSha256": "d16b67ecf769ffe1dffa6f0a92873154bda27d0e8519a26eba907ee5fdcec13c",
+  "observed": {
+    "status": "refused",
+    "reportedLength": 0,
+    "intrinsicLength": 1048591,
+    "constructor": "ProtocolError",
+    "code": "native_proof_limit"
+  },
+  "productionSha256": "911cfdec6a65c85090323cdbc23e26e2235441cd81e08c37551055b2ae755738"
+}

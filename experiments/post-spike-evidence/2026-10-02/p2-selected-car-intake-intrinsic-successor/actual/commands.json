@@ -1,0 +1,357 @@
+[
+  {
+    "name": "node22-build",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "scripts/build.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 5.685556625016034,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node22-build.log",
+    "logSha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+  },
+  {
+    "name": "node22-check",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+      "run",
+      "check"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 5.61286995903356,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node22-check.log",
+    "logSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  {
+    "name": "node22-compiler-inputs",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--listFilesOnly"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 0.10958683397620916,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node22-compiler-inputs.log",
+    "logSha256": "43478ebfeea826e2010b4995a85610844e7e446e7bec340eaf808e714fd8b28e"
+  },
+  {
+    "name": "node22-source",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/native-car-intake.test.ts",
+      "tests/native-observer.test.ts"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node22",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node22/observer"
+    },
+    "pathNode": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 2.5773925419780426,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node22-source.log",
+    "logSha256": "90d6c98e3a4cbdb5726b39274537afdbd6a3bdd4876b66c96606b5c0e88d6526"
+  },
+  {
+    "name": "node22-dist",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "experiments/p2-car-intake/compiled-conformance.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_COMPILED_CAPTURE": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node22/compiled.json",
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node22",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node22/observer"
+    },
+    "pathNode": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 1.615183541958686,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node22-dist.log",
+    "logSha256": "40f8ce17d143021f96be20bc6978f76e008271d314b4c219971a0990cccbb2dd"
+  },
+  {
+    "name": "node22-dist-host",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "experiments/native-observer/compiled-conformance.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node22",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node22/observer"
+    },
+    "pathNode": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 1.7487863329588436,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node22-dist-host.log",
+    "logSha256": "b1501a41ad4e2570c25523cb5f506845fa1915a38fbe44b787231aeda0b9ce40"
+  },
+  {
+    "name": "node24-build",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/build.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 3.3540393749717623,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node24-build.log",
+    "logSha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+  },
+  {
+    "name": "node24-check",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+      "run",
+      "check"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 5.221105707983952,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node24-check.log",
+    "logSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  {
+    "name": "node24-compiler-inputs",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--listFilesOnly"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 0.11847241700161248,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node24-compiler-inputs.log",
+    "logSha256": "43478ebfeea826e2010b4995a85610844e7e446e7bec340eaf808e714fd8b28e"
+  },
+  {
+    "name": "node24-source",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/native-car-intake.test.ts",
+      "tests/native-observer.test.ts"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node24",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node24/observer"
+    },
+    "pathNode": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 2.602731125021819,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node24-source.log",
+    "logSha256": "4a04d0dd4e5dc269e1bd24c863c8fc2574014f9b1c4713011511808437a6aed3"
+  },
+  {
+    "name": "node24-dist",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "experiments/p2-car-intake/compiled-conformance.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_COMPILED_CAPTURE": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node24/compiled.json",
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node24",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node24/observer"
+    },
+    "pathNode": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 1.401307917025406,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node24-dist.log",
+    "logSha256": "5981147be0e85bca6c564d63e9f1cc54ee3e914ade06b4f6879365c764af96a1"
+  },
+  {
+    "name": "node24-dist-host",
+    "argv": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "experiments/native-observer/compiled-conformance.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node24",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node24/observer"
+    },
+    "pathNode": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "exitCode": 0,
+    "seconds": 1.7437084580305964,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node24-dist-host.log",
+    "logSha256": "60ef89e9648e18a1980012feea1b2f2c39ea404423160b8ca44f9d520a619099"
+  },
+  {
+    "name": "node26-build",
+    "argv": [
+      "/opt/homebrew/bin/node",
+      "scripts/build.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/opt/homebrew/bin/node",
+    "exitCode": 0,
+    "seconds": 3.5884999579866417,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node26-build.log",
+    "logSha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+  },
+  {
+    "name": "node26-check",
+    "argv": [
+      "/opt/homebrew/bin/node",
+      "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+      "run",
+      "check"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/opt/homebrew/bin/node",
+    "exitCode": 0,
+    "seconds": 5.344785124994814,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node26-check.log",
+    "logSha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  {
+    "name": "node26-compiler-inputs",
+    "argv": [
+      "/opt/homebrew/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--listFilesOnly"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {},
+    "pathNode": "/opt/homebrew/bin/node",
+    "exitCode": 0,
+    "seconds": 0.18917791603598744,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node26-compiler-inputs.log",
+    "logSha256": "43478ebfeea826e2010b4995a85610844e7e446e7bec340eaf808e714fd8b28e"
+  },
+  {
+    "name": "node26-source",
+    "argv": [
+      "/opt/homebrew/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/native-car-intake.test.ts",
+      "tests/native-observer.test.ts"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node26",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node26/observer"
+    },
+    "pathNode": "/opt/homebrew/bin/node",
+    "exitCode": 0,
+    "seconds": 2.969706666946877,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node26-source.log",
+    "logSha256": "0a6d6f6f49a7a7accac2efa8869b1cae273e56c5bef4c512600a1ed3f846ba95"
+  },
+  {
+    "name": "node26-dist",
+    "argv": [
+      "/opt/homebrew/bin/node",
+      "experiments/p2-car-intake/compiled-conformance.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_COMPILED_CAPTURE": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node26/compiled.json",
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node26",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node26/observer"
+    },
+    "pathNode": "/opt/homebrew/bin/node",
+    "exitCode": 0,
+    "seconds": 1.6609874169807881,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node26-dist.log",
+    "logSha256": "4ec8cbc4686d4b8e74734c8b962cf586f8c218cc2ff74434fbb25e55c66d9892"
+  },
+  {
+    "name": "node26-dist-host",
+    "argv": [
+      "/opt/homebrew/bin/node",
+      "scripts/source-run.mjs",
+      "experiments/native-observer/compiled-conformance.mjs"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node26",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/node26/observer"
+    },
+    "pathNode": "/opt/homebrew/bin/node",
+    "exitCode": 0,
+    "seconds": 1.9876625000033528,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/node26-dist-host.log",
+    "logSha256": "170954a26c3c15a83251c91dbefae5fea08b2412affc096c3175f86f922d84ed"
+  },
+  {
+    "name": "chromium",
+    "argv": [
+      "/opt/homebrew/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/native-car-intake-browser.test.ts",
+      "tests/native-observer-browser.test.ts"
+    ],
+    "cwd": "/private/tmp/atseq-p2-car-intrinsic-length-20261002",
+    "producer": "593b3337e620ddd5985301bb08a9a7565d24979a",
+    "environment": {
+      "ATSEQ_CAR_INTAKE_FIXTURES": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/fixtures.json",
+      "ATSEQ_CAR_INTAKE_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor",
+      "ATSEQ_OBSERVER_TEST_OUTPUT": "/private/tmp/atseq-p2-car-intrinsic-length-20261002/.atseq-local/p2-car-intake/intrinsic-successor/observer-browser"
+    },
+    "pathNode": "/opt/homebrew/bin/node",
+    "exitCode": 0,
+    "seconds": 4.054449499992188,
+    "log": ".atseq-local/p2-car-intake/intrinsic-successor/chromium.log",
+    "logSha256": "4c22b6ce26943647266ea9b509776488530a31c8071364706091048b6430c7e0"
+  }
+]
