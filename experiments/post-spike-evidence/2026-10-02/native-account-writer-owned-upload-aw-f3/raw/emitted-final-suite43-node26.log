@@ -1,0 +1,55 @@
+▶ hostile configured SDK dispatch cannot widen the private native resource allowance
+  ✔ origin (769.940334ms)
+  ✔ path (1.046125ms)
+  ✔ query (0.863917ms)
+  ✔ encoded-path (1.159417ms)
+  ✔ method (0.716375ms)
+  ✔ body (0.606042ms)
+  ✔ retry-body (4.38375ms)
+  ✔ token (0.608208ms)
+  ✔ refresh (0.658042ms)
+  ✔ revoke (0.891667ms)
+  ✔ PAR (0.646417ms)
+  ✔ discovery (0.614875ms)
+  ✔ same-path-no-authorization (0.971875ms)
+  ✔ count (4.984334ms)
+  ✔ pool (16.1015ms)
+  ✔ deadline (30001.106542ms)
+✔ hostile configured SDK dispatch cannot widen the private native resource allowance (30806.75025ms)
+▶ private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes
+  ✔ input-sdk-success (772.5685ms)
+  ✔ input-sdk-throw (6.209834ms)
+  ✔ origin (9.542917ms)
+  ✔ unavailable (9.139375ms)
+  ✔ no-second-resource (5.598167ms)
+  ✔ first-before-revoke (5.026917ms)
+  ✔ credential-sdk-success (4.786875ms)
+  ✔ credential-sdk-throw (6.114292ms)
+  ✔ non-post (3.986041ms)
+  ✔ non-form (4.001625ms)
+  ✔ identity-form (4.0465ms)
+  ✔ authorized-form (4.120542ms)
+  ✔ response (8.280333ms)
+  ✔ count (6.716084ms)
+  ✔ pool (15.961209ms)
+  ✔ pool-plus-body (15.002959ms)
+  ✔ cancel (4.216375ms)
+  ✔ custody-throw (4.044208ms)
+  ✔ unknown-sdk (3.809667ms)
+✔ private native first refusal survives hostile SDK success, cleanup and all excluded recovery shapes (894.699458ms)
+▶ native first failure preserves its original deadline and fixed recovery through later finalization
+  ✔ input-late-deadline (30109.155333ms)
+  ✔ origin-late-deadline (30109.231292ms)
+  ✔ recovery-late-deadline (30108.464958ms)
+  ✔ deadline (30001.574958ms)
+✔ native first failure preserves its original deadline and fixed recovery through later finalization (30109.639416ms)
+{"node":"v26.10.0","cases":["maintained-callback-and-restore-owned-writer","constructor-prototype-clone-forgery-and-public-method-mutation-refused","standard-get-and-explicit-102-record-pages-bounded-input","mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry","owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal","bounded-returned-blob-MIME-size-RAW-CID-shapes-refused-without-provider-text","large-conditional-JSON-and-whole-batch-local-cap","maintained-exact-1MiB-conditional-body-and-one-byte-over-local-refusal","default-request-stays-64KiB-after-native-success","malformed-record-and-page-shapes-account-key-CID-cursor-refused","closed-provider-codes-local-auth-separation-and-counted-response-error-limits","lost-response-single-send-cancel-and-error-allowance-cleanup","fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write","maintained-subject-missing-and-extra-scope-refused-before-mint","genuine-admitted-source-authority-evaluator-entry-head-and-two-content-chunks-unchanged-JSON","genuine-maintained-all-native-methods-encoded-refresh-overflow-fixed-text-no-dispatch-generic-401-and-fresh-reauthorization","pre-authority-automatic-refresh-remains-original-A1-generic-input-outside-native-marker"],"nativeBatch":{"selectedFixtureVector":"activate authored denial","payloadJSONBytes":0,"entryCBORBytes":1187,"entryHeadJSONBytes":2304,"entryHeadAndChunkJSONBytes":90308},"credentialRecovery":{"message":"OAuth credential request exceeds the byte limit; reauthorization is required","rawRefreshTokenBytes":21864,"actualCountedEncodedRefreshBytes":65656},"realNetwork":[{"path":"/drop","code":"content_unavailable","elapsedMs":10.988166999999976},{"path":"/body-drop","code":"content_unavailable","elapsedMs":15.985541999999896},{"path":"/deadline","code":"content_unavailable","elapsedMs":30000.561707999997}],"dispatcherCalls":449,"maintainedClient":true,"syntheticASAndResource":true,"publicProviderExecuted":false}
+✔ owned native writer uses genuine maintained Node OAuth and finite bounded standard operations (31629.223833ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31730.331708

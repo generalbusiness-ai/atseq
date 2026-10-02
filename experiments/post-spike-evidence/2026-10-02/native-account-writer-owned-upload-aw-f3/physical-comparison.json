@@ -1,0 +1,161 @@
+{
+  "comparisonTime": "2026-10-02; post-execution comparison, not invented pre-execution capture",
+  "originalPackages": 194,
+  "maintainedSourcePinsCompared": [
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-session.js",
+      "bytes": 5208,
+      "sha256": "d95fbbc2fe26d7704d236a7b3fc17754b811c060ef81ed40d4a630e6baf0d631",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-session.js"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-client.js",
+      "bytes": 13216,
+      "sha256": "caff70d770559e359c68fca345024b01065487c64f99d18f4bfc812fe0c2c93c",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-client.js"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-server-agent.js",
+      "bytes": 7739,
+      "sha256": "bc4f644df77e7e180e711f5b8a7a118f5d06dcf9457933bb088a3562cc321b74",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/dist/oauth-server-agent.js"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/package.json",
+      "bytes": 1392,
+      "sha256": "13a0a08dd3c36e62cb66259c8cc55f84d7fa981203e1eeb4faac6464db8119fc",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client/package.json"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-node/package.json",
+      "bytes": 1085,
+      "sha256": "752660817b58a6176591d0c84f4c3046b6d0a89a81b19931142bd474e810abb7",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-node/package.json"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/package.json",
+      "bytes": 1158,
+      "sha256": "38ae559a12d1b328451d3e66f12fbfa7b1ef4e1ed8bdbbc5db152d014a4ef330",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@atproto/oauth-client-browser/package.json"
+    },
+    {
+      "path": "node_modules/tsx/package.json",
+      "bytes": 1601,
+      "sha256": "3ace2493a0acd26fc72a8433a38113ee04d5a1976910a3f40815f9e779d5c426",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/package.json"
+    },
+    {
+      "path": "node_modules/tsx/dist/loader.mjs",
+      "bytes": 743,
+      "sha256": "7e3dba3b9b862a5fa1c741d54fc921ee8b17fc7a4d0087fa64e42a32142cf03d",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/tsx/dist/loader.mjs"
+    },
+    {
+      "path": "node_modules/esbuild/package.json",
+      "bytes": 3980,
+      "sha256": "9d0bc453f4e791553c4cc2298ba023b409241fd9801e494741666eb0f6051490",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/package.json"
+    },
+    {
+      "path": "node_modules/esbuild/lib/main.js",
+      "bytes": 97463,
+      "sha256": "61ec0ba144ff93f4bf0e96ad6fab6f430ede0aa13e27ace8063ed63ba416b3cd",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/esbuild/lib/main.js"
+    },
+    {
+      "path": "node_modules/typescript/package.json",
+      "bytes": 3087,
+      "sha256": "3722b30210616a13a3213ded11575ba6b2dbab10c32a5ef67afca8513e27017e",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/typescript/package.json"
+    },
+    {
+      "path": "node_modules/ts-morph/package.json",
+      "bytes": 3568,
+      "sha256": "2c5af3ce2bc65a99b6878045446a45e36097e67861fffd066ef6e9251e7671c6",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/ts-morph/package.json"
+    },
+    {
+      "path": "node_modules/@ts-morph/common/package.json",
+      "bytes": 2006,
+      "sha256": "faef4d4f45c3c5f46d7aca9c1265eb9f4a7111987ff9f73d023b164e8c9719d1",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/node_modules/@ts-morph/common/package.json"
+    },
+    {
+      "path": "tests/support/pds/node_modules/@atproto/pds/package.json",
+      "bytes": 3977,
+      "sha256": "f44e8d5cd75e762e539f68a5c1354c82c33dd0d695c3f6a2d5733bba55bea947",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/package.json"
+    },
+    {
+      "path": "tests/support/pds/node_modules/@atproto/pds/dist/actor-store/blob/transactor.js",
+      "bytes": 12909,
+      "sha256": "9e78e78a90d9d719596f30888dcdb72ae80c0d13354e977d4275b445651ab115",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/actor-store/blob/transactor.js"
+    },
+    {
+      "path": "tests/support/pds/node_modules/@atproto/pds/dist/api/com/atproto/repo/uploadBlob.js",
+      "bytes": 2337,
+      "sha256": "f60c8a83786dcc750027ecc2a1a7f257b8b0d0543bba83a126d32d8b81d6bc56",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/@atproto/pds/dist/api/com/atproto/repo/uploadBlob.js"
+    },
+    {
+      "path": "tests/support/pds/node_modules/better-sqlite3/package.json",
+      "bytes": 1436,
+      "sha256": "4665126292eff5dffe6c0ffabf98c4de18e479aa0b53edd775028eb567b3ecc1",
+      "retained": "experiments/post-spike-evidence/2026-10-02/native-account-writer-aw-f2/final/maintained-source/tests/support/pds/node_modules/better-sqlite3/package.json"
+    },
+    {
+      "path": "node_modules/@esbuild/darwin-arm64/bin/esbuild",
+      "bytes": 10590882,
+      "sha256": "10b6243df618d374bb2d5c9cfbe7052e1405f6aa4e53a6164f11a91b9f2e1384",
+      "retainedBytes": false
+    },
+    {
+      "path": "node_modules/@ts-morph/common/dist/typescript.js",
+      "bytes": 9111641,
+      "sha256": "9b15fee10d00493ef19be4c7b04aaadd7dc88e78e57c6e372a90b13560126510",
+      "retainedBytes": false
+    },
+    {
+      "path": "node_modules/ts-morph/dist/ts-morph.js",
+      "bytes": 946854,
+      "sha256": "6539389af77636d82fd3eaafde309e68d4396648487a100b0f0bfec297e1b764",
+      "retainedBytes": false
+    },
+    {
+      "label": "node22",
+      "path": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "bytes": 110712624,
+      "sha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "pinTiming": "Post-capture physical verification; do not substitute this for an earlier unrecorded executable hash."
+    },
+    {
+      "label": "node24",
+      "path": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "bytes": 122129232,
+      "sha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "pinTiming": "Post-capture physical verification; do not substitute this for an earlier unrecorded executable hash."
+    },
+    {
+      "label": "node26",
+      "path": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "bytes": 132848,
+      "sha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "pinTiming": "Post-capture physical verification; do not substitute this for an earlier unrecorded executable hash."
+    },
+    {
+      "label": "chromium",
+      "path": "/Users/hughpyle/Library/Caches/ms-playwright/chromium-1243/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+      "bytes": 52112,
+      "sha256": "8319963f6625accf51c0dd4f55091ceaf9f09ed39e7a52fed4fae12b2a6b668a",
+      "pinTiming": "Post-capture physical verification; do not substitute this for an earlier unrecorded executable hash."
+    }
+  ],
+  "compilerPinsMatched": true,
+  "nativeBindingsAttribution": "raw/preexec-node22-pds-binding.json, raw/preexec-node24-pds-binding.json, raw/preexec-node26-pds-binding.json; original AW-F2 binding paths are not current paths",
+  "normalFinalCheckCapture": "raw/check-final-node26.log",
+  "normalFinalCheckClosureClaim": "Installed runtime closure, dependency edges and integrity pins match reviewed provenance.",
+  "approvedManifestSHA256": "1355b4a37500bbb95cd58e0c8dafd593bb152ba38ad29e576c0771da6f0edbb6",
+  "approvedFilesSHA256": "18a3dadff6cbf97aecb19a61e491a2138de273e85d287ebfec9f1c10760e6fe4",
+  "preExecutionAttribution": "raw/preexec-final-source-and-build.json and wrapper compiled-pins.json retain contemporaneous inputs. This supplemental comparison is post-execution."
+}

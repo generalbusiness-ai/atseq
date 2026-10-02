@@ -157,9 +157,179 @@
       "result": "PASS",
       "sharedStorageBrowser": "unavailable under tested origin; Node vector executed",
       "crossRealmSupported": false
+    },
+    {
+      "runtime": "Node22",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-suite43-node22.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node22",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-suite43-node22.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-suite43-node24.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node24",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-suite43-node24.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "source",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/source-final-suite43-node26.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "source via tsx"
+    },
+    {
+      "runtime": "Node26",
+      "mode": "emitted",
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "capture": "raw/emitted-final-suite43-node26.log",
+      "suiteTests": 43,
+      "result": "PASS",
+      "productionBuild": "common Node26-built final output"
     }
   ],
   "old117Vectors": "unchanged original attribution, not relabelled",
   "fullA1A2P3Claim": false,
-  "linuxExecuted": false
+  "linuxExecuted": false,
+  "legacyAndReferencePds": [
+    {
+      "kind": "legacy",
+      "runtime": "Node22",
+      "mode": "source",
+      "capture": "raw/source-legacy35-node22.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node22",
+      "mode": "source",
+      "capture": "raw/source-PDS6-node22.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node22",
+      "mode": "emitted",
+      "capture": "raw/emitted-legacy35-node22.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node22",
+      "mode": "emitted",
+      "capture": "raw/emitted-PDS6-node22.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node24",
+      "mode": "source",
+      "capture": "raw/source-legacy35-node24.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node24",
+      "mode": "source",
+      "capture": "raw/source-PDS6-node24.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node24",
+      "mode": "emitted",
+      "capture": "raw/emitted-legacy35-node24.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node24",
+      "mode": "emitted",
+      "capture": "raw/emitted-PDS6-node24.log",
+      "cases": 6,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node26",
+      "mode": "source",
+      "capture": "raw/source-legacy35-node26.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node26",
+      "mode": "source",
+      "capture": "raw/source-final-PDS6-node26.log",
+      "cases": 6,
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    },
+    {
+      "kind": "legacy",
+      "runtime": "Node26",
+      "mode": "emitted",
+      "capture": "raw/emitted-legacy35-node26.log",
+      "suiteTests": 35,
+      "producer": "b88de5774ee6ac3f8bd7215446ca63fc24048d2c",
+      "attribution": "Executed before final actual-kind refinement; shared legacy PdsOperations and host PdsClient unchanged."
+    },
+    {
+      "kind": "reference-PDS",
+      "runtime": "Node26",
+      "mode": "emitted",
+      "capture": "raw/emitted-final-PDS6-node26.log",
+      "cases": 6,
+      "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+      "testOnlyLoopbackBearerBridge": true,
+      "officialPDSDPoPAcceptanceClaim": false
+    }
+  ]
 }
