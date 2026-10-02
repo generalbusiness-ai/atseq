@@ -1,0 +1,82 @@
+{
+  "node": "/opt/homebrew/bin/node",
+  "sourceCommit": "f4e2911ac88a0b582332b884e4b231de1a87968a",
+  "results": [
+    {
+      "name": "source-focused",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-prefix.test.ts",
+        "tests/native-authority.test.ts",
+        "tests/native-application.test.ts",
+        "tests/native-observer.test.ts",
+        "tests/native-observer-limits.test.ts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 35.300753116607666
+    },
+    {
+      "name": "source-fixed-authority",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "experiments/native-prefix/replay-authority.ts",
+        "/private/tmp/atseq-native-prefix-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix/fixtures/authority.json",
+        "/private/tmp/atseq-native-prefix-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix/node26/authority-fixed.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.3703320026397705
+    },
+    {
+      "name": "prior-comparison",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "experiments/native-prefix/compare-prior-authority.ts",
+        "/private/tmp/atseq-native-prefix-prior-i2-20261002",
+        "/private/tmp/atseq-native-prefix-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix/fixtures/authority.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 8.232309579849243
+    },
+    {
+      "name": "compiled-prefix",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.394672155380249
+    },
+    {
+      "name": "compiled-application",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "experiments/native-application/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.8682219982147217
+    },
+    {
+      "name": "compiled-observer",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "experiments/native-observer/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.0712177753448486
+    },
+    {
+      "name": "compiled-authority",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.9243929386138916
+    }
+  ]
+}

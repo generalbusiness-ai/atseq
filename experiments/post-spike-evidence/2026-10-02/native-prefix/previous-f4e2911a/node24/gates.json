@@ -1,0 +1,82 @@
+{
+  "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+  "sourceCommit": "f4e2911ac88a0b582332b884e4b231de1a87968a",
+  "results": [
+    {
+      "name": "source-focused",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-prefix.test.ts",
+        "tests/native-authority.test.ts",
+        "tests/native-application.test.ts",
+        "tests/native-observer.test.ts",
+        "tests/native-observer-limits.test.ts"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 35.52396011352539
+    },
+    {
+      "name": "source-fixed-authority",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "experiments/native-prefix/replay-authority.ts",
+        "/private/tmp/atseq-native-prefix-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix/fixtures/authority.json",
+        "/private/tmp/atseq-native-prefix-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix/node24/authority-fixed.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.339415073394775
+    },
+    {
+      "name": "prior-comparison",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "experiments/native-prefix/compare-prior-authority.ts",
+        "/private/tmp/atseq-native-prefix-prior-i2-20261002",
+        "/private/tmp/atseq-native-prefix-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix/fixtures/authority.json"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 8.250200033187866
+    },
+    {
+      "name": "compiled-prefix",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 4.436222791671753
+    },
+    {
+      "name": "compiled-application",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "experiments/native-application/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 2.8463540077209473
+    },
+    {
+      "name": "compiled-observer",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "experiments/native-observer/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.9419257640838623
+    },
+    {
+      "name": "compiled-authority",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "experiments/native-prefix/compiled-conformance.mjs"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 1.8232250213623047
+    }
+  ]
+}
