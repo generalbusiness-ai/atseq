@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import ts from 'typescript';
+import { ts } from 'ts-morph';
 const fixturePath = process.env.ATSEQ_NATIVE_APPLICATION_FIXTURE_PATH ?? '.atseq-local/native-application/fixture.json';
 const raw = await readFile(fixturePath),
   fixture = JSON.parse(raw);
