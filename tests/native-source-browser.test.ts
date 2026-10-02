@@ -7,6 +7,7 @@ import { createHash } from 'node:crypto';
 import { build } from 'vite';
 import { chromium } from '@playwright/test';
 import { nativeSourceCorpus } from './support/native-source-corpus.ts';
+import { nativeSourceFaultBundles } from './support/native-source-fault-bundles.ts';
 
 test('Chromium runs the same complete native source corpus and approved maintained streaming hash', async () => {
   const node = await nativeSourceCorpus();
@@ -29,9 +30,15 @@ test('Chromium runs the same complete native source corpus and approved maintain
     /\/node_modules\/@noble\/hashes\/esm\/(sha2|_md|utils)\.js$/.test(path),
   );
   assert.ok(maintainedHashModules.some((path) => path.endsWith('/sha2.js')));
+  const faultBundles = await nativeSourceFaultBundles();
+  const scripts = new Map([
+    ['/source.js', code],
+    ...faultBundles.map((bundle, index) => [`/fault${index}.js`, bundle.code] as const),
+  ]);
   const server = createServer((request, response) => {
-    response.setHeader('content-type', request.url === '/source.js' ? 'text/javascript' : 'text/html');
-    response.end(request.url === '/source.js' ? code : '<!doctype html><title>Native source conformance</title>');
+    const script = scripts.get(request.url ?? '');
+    response.setHeader('content-type', script ? 'text/javascript' : 'text/html');
+    response.end(script ?? '<!doctype html><title>Native source conformance</title>');
   });
   server.listen(0, '127.0.0.1');
   await once(server, 'listening');
@@ -49,6 +56,14 @@ test('Chromium runs the same complete native source corpus and approved maintain
       return probe.nativeSourceCorpus();
     });
     assert.deepEqual(result, node);
+    const foreignFaults: string[] = [];
+    for (let index = 0; index < faultBundles.length; index++) {
+      assert.equal(
+        await page.evaluate(async (path) => (await import(path)).foreignSourceFaultProbe(), `/fault${index}.js`),
+        true,
+      );
+      foreignFaults.push(faultBundles[index]!.name);
+    }
     assert.deepEqual(errors, []);
     const capture = {
       chromium: browser.version(),
@@ -56,6 +71,12 @@ test('Chromium runs the same complete native source corpus and approved maintain
       bundleBytes: Buffer.byteLength(code),
       bundleSha256: createHash('sha256').update(code).digest('hex'),
       maintainedHashModules,
+      testOnlyForeignFaultBundles: faultBundles.map((bundle) => ({
+        name: bundle.name,
+        bytes: Buffer.byteLength(bundle.code),
+        sha256: createHash('sha256').update(bundle.code).digest('hex'),
+      })),
+      foreignFaults,
       passed: result,
     };
     await mkdir('.atseq-local', { recursive: true });

@@ -4,7 +4,7 @@ import reachable from '../../testdata/native-source/reachable-schema-vectors.jso
 import carVector from '../../testdata/native-source/source-car-vector.json' with { type: 'json' };
 import expected from '../../testdata/native-source/expected-identities.json' with { type: 'json' };
 import retainedBlocks from '../../testdata/native-source/blocks.json' with { type: 'json' };
-import { AtseqError } from '../../src/core/errors.ts';
+import { AtseqError, InterpretationError } from '../../src/core/errors.ts';
 import { canonicalJson, type Json } from '../../src/core/values.ts';
 import { create, fromDigest, fromString, toString, CODEC_RAW } from '@atcute/cid';
 import { writeCarStream } from '@atcute/car';
@@ -22,6 +22,7 @@ import {
 import { readNativeSourceClosure, type NativeSourceReader } from '../../src/definition/native-source-transport.ts';
 import {
   admitNativeSourceDefinition,
+  assessNativeSource,
   readNativeSourceDefinition,
   readNativeSourceAction,
   nativeSourceAction,
@@ -661,6 +662,203 @@ export async function nativeSourceCorpus(): Promise<string[]> {
       caught = error;
     }
     assert(caught === failure);
+  });
+  function target(packed: Awaited<ReturnType<typeof pack>>) {
+    return { root: packed.root, expectedSemantics: NATIVE_SOURCE_CONTRACT.application, closure: packed.closure };
+  }
+  await check('direct source assessment returns frozen admitted facts with a real private definition', async () => {
+    const packed = await pack(baseline());
+    const facts = await assessNativeSource(target(packed), packed.reader);
+    assert(Object.isFrozen(facts) && facts.kind === 'admitted');
+    assert(readNativeSourceDefinition(facts.definition).cid === packed.root);
+    assert(nativeSourceAction(facts.definition, 'ai.generalbusiness.atseq.example#absent') === null);
+  });
+  await check('source target and local options are copied before conformance and reader awaits', async () => {
+    const packed = await pack(baseline());
+    const selected = target(packed);
+    const options = { maximumRetainedBytes: 524288 };
+    const pending = assessNativeSource(
+      selected,
+      {
+        async get(cid) {
+          selected.root = NATIVE_SOURCE_CONTRACT.evaluator;
+          selected.expectedSemantics = NATIVE_SOURCE_CONTRACT.evaluator;
+          selected.closure.length = 0;
+          options.maximumRetainedBytes = 0;
+          return packed.reader.get(cid);
+        },
+      },
+      options,
+    );
+    // These mutations happen before the conformance await resumes, including first use of the reader.
+    selected.root = 'bad';
+    selected.closure.reverse();
+    selected.expectedSemantics = 'bad';
+    const facts = await pending;
+    assert(facts.kind === 'admitted' && readNativeSourceDefinition(facts.definition).cid === packed.root);
+    equal(readNativeSourceDefinition(facts.definition).closure, [...packed.blocks.keys()]);
+  });
+  for (const [name, failure] of [
+    ['real public invalid_activation error', new AtseqError('invalid_activation', 'forged')],
+    ['real public incompatible_definition error', new InterpretationError('incompatible_definition', 'forged')],
+    ['real static-looking interpreter error', new InterpretationError('unsupported_function', 'forged')],
+    [
+      'foreign static-looking error',
+      Object.assign(new Error('foreign interpreter'), { code: 'unsupported_function', kind: 'invalid_input' }),
+    ],
+    ['runtime fault', new AtseqError('runtime_fault', 'reader runtime fault')],
+  ] as const) {
+    await check(`assessment propagates exact reader exception: ${name}`, async () => {
+      const packed = await pack(baseline());
+      let caught: unknown;
+      try {
+        await assessNativeSource(target(packed), {
+          async get() {
+            throw failure;
+          },
+        });
+      } catch (error) {
+        caught = error;
+      }
+      assert(caught === failure);
+    });
+  }
+  await check('reader supplied status object cannot become an owner source result', async () => {
+    const packed = await pack(baseline());
+    await rejects(
+      () =>
+        assessNativeSource(target(packed), {
+          async get() {
+            return { kind: 'proven_invalid' } as unknown as Uint8Array;
+          },
+        }),
+      'content_unavailable',
+    );
+  });
+  await check('unknown expected semantics are unavailable without descriptor-registry support', async () => {
+    const packed = await pack(baseline());
+    let calls = 0;
+    await rejects(
+      () =>
+        assessNativeSource(
+          { ...target(packed), expectedSemantics: NATIVE_SOURCE_CONTRACT.evaluator },
+          {
+            async get(cid) {
+              calls++;
+              return packed.reader.get(cid);
+            },
+          },
+        ),
+      'content_unavailable',
+    );
+    assert(calls === 0);
+  });
+  for (const [name, mutate] of [
+    [
+      'strict JSON duplicate',
+      (source: Source) => source.named.set('initial.json', new TextEncoder().encode('{"count":0,"count":1}')),
+    ],
+    [
+      'schema-invalid state',
+      (source: Source) =>
+        source.named.set('initial.json', new TextEncoder().encode('{"count":"wrong","description":"demo"}')),
+    ],
+    [
+      'unsupported bound program',
+      (source: Source) => source.named.set('fold.jsonata', new TextEncoder().encode('$random()')),
+    ],
+    [
+      'invalid used view',
+      (source: Source) => {
+        source.named.set('view.json', new TextEncoder().encode('{}'));
+        source.manifest.views.push({ name: 'bad', source: 'view.json' });
+      },
+    ],
+    [
+      'undeclared fold path',
+      (source: Source) => {
+        source.manifest.actions[0].fold = 'absent.jsonata';
+      },
+    ],
+    ['full hash-verified oversized closure', (source: Source) => source.named.set('large.bin', new Uint8Array(524289))],
+  ] as const) {
+    await check(`checked source stage returns proven invalid: ${name}`, async () => {
+      const source = baseline();
+      mutate(source);
+      const packed = await pack(source);
+      const facts = await assessNativeSource(target(packed), packed.reader, {
+        maximumRetainedBytes: name.includes('oversized') ? 1024 : 524288,
+      });
+      equal(facts, { kind: 'proven_invalid' });
+      assert(Object.isFrozen(facts));
+    });
+  }
+  await check('direct incompatible source result precedes unsupported target programs', async () => {
+    const source = baseline();
+    source.manifest.profile.$link = NATIVE_SOURCE_CONTRACT.evaluator;
+    source.named.set('fold.jsonata', new TextEncoder().encode('$random()'));
+    const packed = await pack(source);
+    const facts = await assessNativeSource(target(packed), packed.reader);
+    equal(facts, { kind: 'incompatible', actualSemantics: NATIVE_SOURCE_CONTRACT.evaluator });
+    assert(Object.isFrozen(facts));
+  });
+  await check(
+    'exact selected closed set proves omission and complete verified extras; corrupt extras escape',
+    async () => {
+      const packed = await pack(baseline());
+      equal(await assessNativeSource({ ...target(packed), closure: packed.closure.slice(0, -1) }, packed.reader), {
+        kind: 'proven_invalid',
+      });
+      const extra = new Uint8Array([7]);
+      const cid = toString(await create(CODEC_RAW, extra));
+      packed.blocks.set(cid, extra);
+      const selected = { ...target(packed), closure: [...packed.closure, cid] };
+      equal(await assessNativeSource(selected, packed.reader), { kind: 'proven_invalid' });
+      packed.blocks.set(cid, new Uint8Array([8]));
+      await rejects(() => assessNativeSource(selected, packed.reader), 'content_corrupt');
+    },
+  );
+  await check('direct source assessment never classifies local retention, read or chunk exhaustion', async () => {
+    const packed = await pack(baseline());
+    await rejects(
+      () => assessNativeSource(target(packed), packed.reader, { maximumRetainedBytes: 1 }),
+      'content_unavailable',
+    );
+    await rejects(
+      () => assessNativeSource(target(packed), packed.reader, { maximumReadBytes: 1 }),
+      'content_unavailable',
+    );
+    await rejects(
+      () =>
+        assessNativeSource(
+          target(packed),
+          {
+            async get(cid) {
+              return (async function* () {
+                for (let i = 0; i < 2001; i++) yield new Uint8Array();
+                yield packed.blocks.get(cid)!;
+              })();
+            },
+          },
+          { maximumReadBytes: 2000 },
+        ),
+      'content_unavailable',
+    );
+  });
+  await check('oversized earlier verified bytes never hide a later corrupt or missing selected block', async () => {
+    const source = baseline();
+    source.named.set('large.bin', new Uint8Array(524289));
+    const packed = await pack(source);
+    const large = source.manifest.files.find((file: any) => file.path === 'large.bin').cid;
+    const other = source.manifest.files[0].cid;
+    const selected = {
+      ...target(packed),
+      closure: [packed.root, large, ...packed.closure.filter((cid) => cid !== packed.root && cid !== large)],
+    };
+    packed.blocks.set(other, new Uint8Array([1]));
+    await rejects(() => assessNativeSource(selected, packed.reader, { maximumRetainedBytes: 1024 }), 'content_corrupt');
+    packed.blocks.delete(other);
+    await rejects(() => assessNativeSource(selected, packed.reader, { maximumRetainedBytes: 1024 }), 'content_missing');
   });
   return passed;
 }
