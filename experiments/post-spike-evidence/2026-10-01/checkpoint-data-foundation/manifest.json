@@ -135,7 +135,7 @@
   ],
   "report": {
     "file": "notes/2026-10-01-atseq-checkpoint-data-foundation-results.md",
-    "sha256": "dc690705782c9b7cf4d98c2ec39b293b75f4f40f3e15abf3b0dac52aad4d87a4"
+    "sha256": "b865710f66624a54eb7345824249246f1db906931545369d487d416d7a9af8b6"
   },
   "validation": {
     "checkpointCases": 91,

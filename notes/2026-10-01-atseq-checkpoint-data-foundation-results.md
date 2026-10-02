@@ -122,7 +122,7 @@ ran for this narrow slice.
 
 Outcome table headers can be read, but outcome rows remain unavailable in this
 foundation. N1-D3's exact literal tables at `80e39957` were independently accepted
-during this delivery (assessment `a5273203fad1d3c3ecccd83faba6c398c3a55a`,
+during this delivery (assessment `eda5273203fad1d3c3ecccd83faba6c398c3a55a`,
 ratification `8e1cc3ea2497098265eacd04821730022eefd1c8`). A followup must implement
 one shared parser with the native application; these frozen captures do not claim
 that integration. No regex-only framework namespace or caller support
