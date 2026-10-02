@@ -128,6 +128,124 @@ function headerCar(value: unknown) {
   return output;
 }
 
+/** Genuine intrinsic byte budgets, independently of caller length/copy properties. */
+async function byteOwnershipCorpus(
+  raw: Uint8Array,
+  response: Uint8Array,
+  requested: string[],
+  selected: { root: string; bytes: Uint8Array },
+) {
+  const cases: string[] = [],
+    expected = await exactAdmissionCar(response, requested, selected),
+    legacyExpected = await new NativeObserverCar(raw).bytes();
+  let calls = 0;
+  const trap = () => {
+    calls++;
+    throw new RangeError('incorrect cid version (got hostile caller property)');
+  };
+  function hostile(value: Uint8Array, inherited: boolean) {
+    class HostileBytes extends Uint8Array {}
+    const owned = inherited ? new HostileBytes(value) : new Uint8Array(value),
+      target = inherited ? HostileBytes.prototype : owned;
+    Object.defineProperty(target, 'length', {
+      get: () => {
+        calls++;
+        return 0;
+      },
+    });
+    for (const name of [
+      'byteLength',
+      'buffer',
+      'byteOffset',
+      'constructor',
+      'slice',
+      'subarray',
+      'set',
+      Symbol.iterator,
+      Symbol.toStringTag,
+    ])
+      Object.defineProperty(target, name, { get: trap });
+    return owned;
+  }
+  for (const inherited of [false, true]) {
+    const label = inherited ? 'inherited-subclass' : 'own',
+      wrappedRaw = hostile(raw, inherited),
+      wrappedResponse = hostile(response, inherited),
+      wrappedCommit = hostile(selected.bytes, inherited);
+    equal(selectNativeObservationCommit(wrappedRaw).bytes, selected.bytes, label + ' selected bytes changed');
+    equal(await new NativeObserverCar(wrappedRaw).bytes(), legacyExpected, label + ' constructor bytes changed');
+    const legacy = new NativeObserverCar(raw);
+    legacy.addExact(wrappedResponse, requested);
+    const ordinaryLegacy = new NativeObserverCar(raw);
+    ordinaryLegacy.addExact(response, requested);
+    equal(await legacy.bytes(), await ordinaryLegacy.bytes(), label + ' exact add bytes changed');
+    equal(
+      await exactAdmissionCar(wrappedResponse, requested, { root: selected.root, bytes: wrappedCommit }),
+      expected,
+      label + ' admission bytes changed',
+    );
+    const largeRaw = hostile(new Uint8Array(32 * 1024 * 1024 + 1), inherited),
+      largeCommit = paddedBlock(1024 * 1024 + 1, inherited ? 7 : 8),
+      wrappedLargeCommit = hostile(largeCommit[1], inherited);
+    await refusal(() => selectNativeObservationCommit(largeRaw), 'native_proof_limit');
+    await refusal(() => new NativeObserverCar(largeRaw), 'native_proof_limit');
+    await refusal(() => exactAdmissionCar(largeRaw, requested, selected), 'native_proof_limit');
+    await refusal(
+      () => exactAdmissionCar(response, requested, { root: largeCommit[0], bytes: wrappedLargeCommit }),
+      'native_proof_limit',
+    );
+    cases.push(label + ': valid bytes unchanged; real32MiB/raw and1MiB/commit budgets enforced before copying');
+  }
+  check(calls === 0, 'Caller byte properties or copying methods executed');
+  cases.push(
+    'length/byteLength/buffer/byteOffset/constructor/slice/subarray/set/iterator/tag overrides never dispatched',
+  );
+  for (const fake of [
+    new Proxy(new Uint8Array(raw), { get: trap, getPrototypeOf: trap }),
+    Object.create(Uint8Array.prototype),
+    Object.defineProperty({}, Symbol.toStringTag, { get: trap }),
+    new Uint16Array(1),
+    new DataView(new ArrayBuffer(1)),
+  ]) {
+    await refusal(() => selectNativeObservationCommit(fake as Uint8Array), 'input');
+    await refusal(
+      () => exactAdmissionCar(response, requested, { root: selected.root, bytes: fake as Uint8Array }),
+      'input',
+    );
+  }
+  check(calls === 0, 'Proxy/fake properties executed');
+  cases.push('Proxy/fake/other typed views refused without caller property dispatch');
+  const foreign = new RangeError('incorrect cid version (got caller bytes getter)'),
+    throwing = Object.defineProperty({ root: selected.root }, 'bytes', {
+      get() {
+        throw foreign;
+      },
+    });
+  let caught: unknown;
+  try {
+    await exactAdmissionCar(response, requested, throwing as { root: string; bytes: Uint8Array });
+  } catch (error) {
+    caught = error;
+  }
+  check(caught === foreign, 'Foreign selected bytes getter error identity changed');
+  cases.push('foreign selected bytes getter failure identity retained outside parser classifier');
+  const buffer = (globalThis as unknown as { Buffer?: { from(raw: Uint8Array): Uint8Array } }).Buffer;
+  if (buffer) {
+    equal(selectNativeObservationCommit(buffer.from(raw)).bytes, selected.bytes, 'Buffer selected bytes changed');
+    equal(
+      await exactAdmissionCar(buffer.from(response), requested, {
+        root: selected.root,
+        bytes: buffer.from(selected.bytes),
+      }),
+      expected,
+      'Buffer admission bytes changed',
+    );
+    equal(await new NativeObserverCar(buffer.from(raw)).bytes(), legacyExpected, 'Buffer constructor bytes changed');
+    cases.push('genuine Node Buffer accepted with identical selected/legacy/admission bytes');
+  }
+  return { cases, callerPropertiesExecuted: calls, bufferExecuted: !!buffer };
+}
+
 /** Actual public signed fixtures; expected CARs use the maintained writer independently of the helper. */
 export async function carIntakeCorpus(fixtures: IntakeFixture[], prefixFixture: IntakePrefixFixture) {
   const cases: string[] = [],
@@ -398,7 +516,13 @@ export async function carIntakeCorpus(fixtures: IntakeFixture[], prefixFixture: 
     commit = new Uint8Array(first.blocks.find(([cid]) => cid === first.root)![1]),
     selected = { root: first.root, bytes: commit },
     tiny = block(CBOR.encode({ n: 1 })),
-    tinyResponse = await car(first.root, new Map([tiny]), []);
+    tinyResponse = await car(first.root, new Map([tiny]), []),
+    byteOwnership = await byteOwnershipCorpus(
+      await car(first.root, new Map(first.blocks.map(([cid, raw]) => [cid, new Uint8Array(raw)]))),
+      tinyResponse,
+      [tiny[0]],
+      selected,
+    );
   await refusal(() => selectNativeObservationCommit(new Uint8Array(32 * 1024 * 1024 + 1)), 'native_proof_limit');
   await refusal(
     () => exactAdmissionCar(new Uint8Array(32 * 1024 * 1024 + 1), [tiny[0]], selected),
@@ -545,6 +669,7 @@ export async function carIntakeCorpus(fixtures: IntakeFixture[], prefixFixture: 
   );
   return {
     cases,
+    byteOwnership,
     outputs,
     work,
     unobservable: { hashCalls: null, peakMemoryBytes: null, allocations: null },
