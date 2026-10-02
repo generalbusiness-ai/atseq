@@ -128,9 +128,20 @@ export async function nativeApplicationCorpus(fixture: ApplicationFixture): Prom
   });
   await check('second ordered copy is invalid history without identity consumption', async () => {
     const prior = healthy.app.snapshot();
+    const repeated = {
+      ...healthy.inputs.at(-1)!,
+      entry: {
+        ...fixture.vectors.at(-1)!.entry,
+        position: prior.authority.frontier.position + 1,
+        prev: { $link: prior.authority.frontier.entry },
+      },
+    };
     await rejection(
-      () => healthy.app.process(healthy.inputs.at(-1)!),
-      (error) => error instanceof AtseqError && error.code === 'envelope',
+      () => healthy.app.process(repeated),
+      (error) =>
+        error instanceof AtseqError &&
+        error.code === 'envelope' &&
+        error.message === 'A request occurs twice in ordered history',
     );
     equal(healthy.app.snapshot(), prior);
   });
