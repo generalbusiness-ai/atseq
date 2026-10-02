@@ -1,0 +1,110 @@
+{
+  "node": "v26.10.0",
+  "cases": [
+    "initial selected epoch and immutable grant admission",
+    "genesis role disable changes revision to unsigned request CID",
+    "stale assignment cannot revive disabled role",
+    "second immutable grant admission",
+    "one referenced grant cannot union another grant role scope",
+    "explicit one-grant owner role administration",
+    "role no-change retains its effective revision",
+    "source grant deletion does not revoke retained device authority",
+    "terminal revoke before first grant admission needs no target grant or epoch",
+    "never-admitted terminal revoked grant cannot be revived",
+    "fresh repeated revoke no-op advances observation floor",
+    "same grant path with different CID cannot edit admitted signer",
+    "linked epoch reset retires all earlier grants without walking them",
+    "queued old-epoch device operation is ineffective",
+    "never-seen pre-reset grant cannot enter current epoch",
+    "fresh reset epoch needs fresh exact grant admission",
+    "copied backup cannot restore a retired epoch",
+    "authentic lower repository revision cannot lower ordinary admission floor",
+    "greater revision does not repair a conflicting epoch predecessor",
+    "appointed recovery permits lower floor only with never-accepted fresh epoch",
+    "appointed recovery cannot revive a retired epoch",
+    "stale signed recovery consumes descriptor but changes no epoch or floor",
+    "govern may explicitly remove owner without revoking devices",
+    "routine admission after recovery preserves fresh scope",
+    "participation grant does not appoint owner/admin authority",
+    "appointed governance assigns domain role without target device grant",
+    "govern adds fifteen certify-only pairs while preserving mixed recovery exactly",
+    "recovery input bound does not waive sixteen combined-pair capacity",
+    "govern cannot alter lower powers on a mixed recover pair",
+    "specific capacity route first prunes one non-recover certifier by govern",
+    "specific capacity route then rotates recovery preserving old governance",
+    "removed recovery signer cannot rotate newly appointed peers",
+    "specific capacity route newly appointed recovery replaces governance only",
+    "one recovery signer may remove all existing governance without removing certify",
+    "one recovery signer may restore a selected governance pair",
+    "whole-map replacement equality ignores object property insertion order",
+    "claimed-key P1 root cannot substitute for authentic retained app identity",
+    "authentic app history truncation changes before/after tip even with unchanged key and PDS",
+    "complete selected root proves claimed entry absent: invalid history",
+    "missing native tree node stalls without proven absence",
+    "missing exact retained method chunk stalls rather than granting authority",
+    "invalid device signature stays invalid before delegated checks",
+    "authentic app publication cannot rebind descriptor subject",
+    "signed published ordinary action stalls without supported source/action derivation and preserves prior",
+    "repeated recovery request/descriptor is invalid before missing observation fetch",
+    "same actor nonce with changed signed contents is invalid before live-grant denial",
+    "unknown app initializes current epoch without replaying pre-app resets; secp256k1 repo and P-256 device",
+    "secp256k1 repository key does not change P-256 owner role authorization",
+    "hostname web observation/native grant retains weaker assurance class",
+    "web account publication still needs a separate P-256 actor signature and owner scope",
+    "sixteen mixed recover/certify pairs cannot add a new recovery pair without govern",
+    "disabled recovery-to-govern policy cannot manufacture a capacity escape",
+    "recover/certify alone cannot prune lower powers through setControl",
+    "native app repository key cannot appoint governance by itself"
+  ],
+  "fixtureBytes": 23236072,
+  "fixtureSha256": "f4a81097c0a391b5ba0f9325e8c1d17d1704b384b69f0db661d21a3abbb547f6",
+  "actualProductionModules": [
+    {
+      "path": "dist/src/application/native-authority-evidence.js",
+      "sha256": "1cc510541b608334c1ed26e8044a67f9844b821f7111977a6ff1a5232c67e480"
+    },
+    {
+      "path": "dist/src/application/native-authority-snapshot.js",
+      "sha256": "944574881a20ded34fa8255df1efb3598dde322f2fb233b016cd2d2b7ae894be"
+    },
+    {
+      "path": "dist/src/application/native-authority.js",
+      "sha256": "5c6b719a0356f1f009bf0877142e59cb0cfcce08fd3176270a3a0b71a15c2625"
+    },
+    {
+      "path": "dist/src/application/native-prefix.js",
+      "sha256": "b71cfd6a6572d149df3c7abf5c8298ee5d48abbd764cadb35700ac36fe3017fc"
+    },
+    {
+      "path": "dist/src/core/errors.js",
+      "sha256": "f262303819c1ff725fd878fd3de0d0352f52657cb5dafe44f073ddf637e06eb0"
+    },
+    {
+      "path": "dist/src/core/values.js",
+      "sha256": "d3805c888e495c47a5d09e712b5545bb66ac19ba63a9bc844731a26c399a2efe"
+    },
+    {
+      "path": "dist/src/protocol/identity-binding.js",
+      "sha256": "0dade2000c19c638180f49428f16169938cfc5492be6517b73f3c6cbc0b59b5e"
+    },
+    {
+      "path": "dist/src/protocol/native-proof.js",
+      "sha256": "f4c86609dfd2cebd4f32acf4cfbba2eb89476a0c626c7ea9ea270361bc3621ad"
+    },
+    {
+      "path": "dist/src/protocol/native-wire.js",
+      "sha256": "9222f8536d0431694bcb2ea56fcde27c04e78802c5f371fdd902af725803b2d5"
+    },
+    {
+      "path": "dist/src/protocol/wire.js",
+      "sha256": "ba879338de32398dfc2733ed11a75421872ffff2498c3a4b2a0792b2c6d6718b"
+    }
+  ],
+  "compiledTests": [
+    {
+      "name": "native-authority-corpus.ts",
+      "sourceSha256": "110c208f8e7ad1944e30562ad1d5bd4e66d56f8c7f7ebf56f99a4238fba0d240",
+      "outputSha256": "d2750abd7c48ccc1abf50d8efac6aee5d4b6a6049e22d6b39a52e0f66e2d6624"
+    }
+  ]
+}

@@ -29,9 +29,11 @@ import {
 import { contentCid, encodeBlock, bytes, link } from '../protocol/wire.ts';
 import {
   nativeAuthoritySnapshot,
+  nativeAuthorityPrefix,
   type NativeAuthorityState,
   type NativeAuthoritySnapshot,
 } from '../application/native-authority.ts';
+import { nativePrefixHas } from '../application/native-prefix.ts';
 import { IdentityFetch } from './identity-fetch.ts';
 
 interface Policy {
@@ -176,7 +178,8 @@ export class NativeObserver {
       (context.expectedObservation?.$link ?? null) !== (expected?.observation?.cid ?? null)
     )
       invalid('Observation subject differs from captured epoch or floor');
-    if (intent && snapshot.retries.includes(nativeRetryIdentity(intent)))
+    const prefix = nativeAuthorityPrefix(prior);
+    if (intent && prefix && nativePrefixHas(prefix, 'retries', nativeRetryIdentity(intent), snapshot.frontier.position))
       invalid('Actor nonce already occurs in accepted history');
     const preparation = Object.freeze({}) as NativeObservationPreparation;
     preparations.set(preparation, { owner: this, prior, snapshot, subject, principal });
@@ -528,9 +531,12 @@ export class NativeObserver {
           ...(completed as NativeIntent).operation,
           observation: link(descriptor),
         } as NativeIntent['operation'];
+      const prefix = nativeAuthorityPrefix(data.prior);
       if (
-        data.snapshot.consumedObservations.includes(descriptor) ||
-        (account && data.snapshot.requests.includes(await contentCid(completed)))
+        prefix &&
+        (nativePrefixHas(prefix, 'descriptors', descriptor, data.snapshot.frontier.position) ||
+          (account &&
+            nativePrefixHas(prefix, 'requests', await contentCid(completed), data.snapshot.frontier.position)))
       )
         invalid('Completed observation or account request occurs twice in accepted history');
       fetch.assertActive(options.signal);

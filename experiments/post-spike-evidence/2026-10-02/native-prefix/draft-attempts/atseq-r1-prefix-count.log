@@ -1,0 +1,28 @@
+✖ one genuine verified prefix owns retries and compact authority across pending tails (4592.537291ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5121.892542
+
+✖ failing tests:
+
+test at tests/native-prefix.test.ts:1:218
+✖ one genuine verified prefix owns retries and compact authority across pending tails (4592.537291ms)
+  Error [InterpretationError]: $/appIdentity/after/auditBytes: expected plain object
+      at walk (/private/tmp/atseq-native-prefix-f1-20261002/src/core/values.ts:67:15)
+      at walk (/private/tmp/atseq-native-prefix-f1-20261002/src/core/values.ts:78:31)
+      at walk (/private/tmp/atseq-native-prefix-f1-20261002/src/core/values.ts:78:31)
+      at walk (/private/tmp/atseq-native-prefix-f1-20261002/src/core/values.ts:78:31)
+      at canonicalJson (/private/tmp/atseq-native-prefix-f1-20261002/src/core/values.ts:86:10)
+      at equal (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:37:5)
+      at <anonymous> (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:243:7)
+      at check (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:54:11)
+      at nativePrefixCorpus (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:237:9)
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-prefix-f1-20261002/tests/native-prefix.test.ts:10:18) {
+    code: 'wire_value',
+    kind: 'invalid_input'
+  }

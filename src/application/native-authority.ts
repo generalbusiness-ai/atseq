@@ -26,10 +26,9 @@ import {
 } from '../definition/native-source-contract.ts';
 import type { NativeSourceReader, NativeSourceReadOptions } from '../definition/native-source-transport.ts';
 import { AtseqError, ProtocolError } from '../core/errors.ts';
-import { nativeRef } from '../protocol/native-schema.ts';
+import { nativeRef, NATIVE_NSID } from '../protocol/native-schema.ts';
 import {
   NativeAnchor,
-  nativeRetryIdentity,
   type ControlAppointment,
   type ControlPair,
   type NativeAccountOperation,
@@ -80,7 +79,7 @@ export interface AuthorityRoleRow {
   enabled: boolean;
   revision: string;
 }
-/** Closed plain-JSON checkpoint projection. No proof, token, private key or live resolver state. */
+/** Owned compact authority projection. Parsed DATA never accepts live state. */
 export interface NativeAuthoritySnapshot {
   format: 'atseq-native-authority';
   version: 1;
@@ -92,14 +91,27 @@ export interface NativeAuthoritySnapshot {
   roles: AuthorityRoleRow[];
   principals: AuthorityPrincipalRow[];
   grants: AuthorityGrantRow[];
-  consumedObservations: string[];
-  requests: string[];
-  retries: string[];
 }
 declare const stateBrand: unique symbol;
 export interface NativeAuthorityState {
   readonly [stateBrand]: true;
 }
+import {
+  openNativePrefix,
+  stageNativePrefix,
+  acceptNativePrefix,
+  assertNativePrefixExtension,
+  nativePrefixEntry,
+  nativePrefixCandidate,
+  nativePrefixStatus,
+  nativePrefixInventory,
+  lookupNativeRetry,
+  type NativePrefix,
+  type NativePrefixPublication,
+} from './native-prefix.ts';
+import { readNativeValue } from '../protocol/native-wire.ts';
+import { sameBytes, encodeBlock } from '../protocol/wire.ts';
+const statePrefixes = new WeakMap<object, NativePrefix>();
 const states = new WeakMap<object, Readonly<NativeAuthoritySnapshot>>();
 export type NativeAuthorityOutcome = { decision: 'effective' } | { decision: 'ineffective'; reason: string };
 function invalid(message: string): never {
@@ -124,18 +136,16 @@ function grantKey(row: { principal: string; id: string }) {
 function ascii(a: string, b: string) {
   return a < b ? -1 : a > b ? 1 : 0;
 }
-function mint(value: NativeAuthoritySnapshot): NativeAuthorityState {
+function mint(value: NativeAuthoritySnapshot, prefix?: NativePrefix): NativeAuthorityState {
   value.roles.sort((a, b) => ascii(roleKey(a), roleKey(b)));
   value.principals.sort((a, b) => ascii(a.principal, b.principal));
   value.principals.forEach((row) => row.epochs.sort((a, b) => ascii(a.cid, b.cid)));
   value.grants.sort((a, b) => ascii(grantKey(a), grantKey(b)));
   value.control.appointments.sort((a, b) => ascii(key(a), key(b)));
   value.control.appointments.forEach((row) => row.powers.sort(ascii));
-  value.requests.sort(ascii);
-  value.retries.sort(ascii);
-  value.consumedObservations.sort(ascii);
   const capability = Object.freeze({}) as NativeAuthorityState;
   states.set(capability, deepFreeze(value));
+  if (prefix) statePrefixes.set(capability, prefix);
   return capability;
 }
 /** Explicit external app/genesis trust choice; no native publication inferred here. */
@@ -157,9 +167,6 @@ export async function openNativeAuthority(anchor: NativeAnchor): Promise<NativeA
     roles: verified.genesis.roles.map((row) => ({ ...row, enabled: true, revision: verified.cid })),
     principals: [],
     grants: [],
-    consumedObservations: [],
-    requests: [],
-    retries: [],
   });
 }
 /** An owned projection. Changing it cannot change the accepted authority. */
@@ -167,11 +174,7 @@ export function nativeAuthoritySnapshot(state: NativeAuthorityState): NativeAuth
   return structuredClone(stateData(state));
 }
 /** Content/signature must be checked first. This preflight does not authenticate publication. */
-export function assertNativeAuthorityContext(
-  prior: NativeAuthorityState,
-  entry: NativeEntry,
-  requestCid: string,
-): void {
+export function assertNativeAuthorityContext(prior: NativeAuthorityState, entry: NativeEntry): void {
   const state = stateData(prior);
   if (
     entry.app !== state.app ||
@@ -181,18 +184,27 @@ export function assertNativeAuthorityContext(
     entry.prev.$link !== state.frontier.entry
   )
     invalid('Authority entry does not extend accepted frontier');
-  if (state.requests.includes(requestCid)) invalid('A request occurs twice in ordered history');
-  let descriptor: string | undefined;
-  if (entry.request.$type === nativeRef('accountOperation'))
-    descriptor = (entry.request as NativeAccountOperation).observation.$link;
-  else {
-    const intent = (entry.request as NativeSignedRequest).intent;
-    if (state.retries.includes(nativeRetryIdentity(intent))) invalid('Actor nonce occurs twice in ordered history');
-    if (intent.operation.$type === nativeRef('recoverParticipant')) descriptor = intent.operation.observation.$link;
-  }
-  if (descriptor && state.consumedObservations.includes(descriptor))
-    invalid('An observation descriptor is consumed twice');
 }
+export function nativeAuthorityFrontier(state: NativeAuthorityState) {
+  return structuredClone(stateData(state).frontier);
+}
+export function nativeAuthorityPrefix(state: NativeAuthorityState): NativePrefix | null {
+  stateData(state);
+  return statePrefixes.get(state) ?? null;
+}
+/** Explicit full historical DATA export; no acceptance factory. */
+export function nativeAuthorityHistory(state: NativeAuthorityState) {
+  const snapshot = nativeAuthoritySnapshot(state),
+    prefix = nativeAuthorityPrefix(state);
+  if (!prefix && snapshot.frontier.position !== 0) invalid('Authority lacks verified history owner');
+  return {
+    ...snapshot,
+    ...(prefix
+      ? nativePrefixInventory(prefix, snapshot.frontier.position)
+      : { requests: [], retries: [], consumedObservations: [] }),
+  };
+}
+
 function principal(state: NativeAuthoritySnapshot, did: string): AuthorityPrincipalRow {
   let row = state.principals.find((row) => row.principal === did);
   if (!row) {
@@ -446,10 +458,10 @@ export function interpretNativeAuthority(
   state: NativeAuthorityState;
   outcome: NativeAuthorityOutcome;
 } {
-  const data = authenticatedAuthorityEntry(authenticated),
+  const data = authenticatedAuthorityEntry(authenticated, prior),
     next = nativeAuthoritySnapshot(prior),
     entry = data.entry;
-  assertNativeAuthorityContext(prior, entry, data.requestCid);
+  assertNativeAuthorityContext(prior, entry);
   let outcome: NativeAuthorityOutcome;
   if (entry.request.$type === nativeRef('accountOperation')) {
     if (!data.observation) invalid('Account operation lacks authenticated observation');
@@ -470,12 +482,8 @@ function finishAuthority(
   next: NativeAuthoritySnapshot,
   data: ReturnType<typeof authenticatedAuthorityEntry>,
 ): NativeAuthorityState {
-  if (data.entry.request.$type === nativeRef('signedRequest'))
-    next.retries.push(nativeRetryIdentity((data.entry.request as NativeSignedRequest).intent));
-  if (data.observation) next.consumedObservations.push(data.observation.cid);
-  next.requests.push(data.requestCid);
   next.frontier = { position: data.entry.position, entry: data.entryCid };
-  return mint(next);
+  return mint(next, data.prefix);
 }
 export interface NativeApplicationProjection {
   format: 'atseq-native-application';
@@ -485,17 +493,34 @@ export interface NativeApplicationProjection {
   definition: string;
   state: Json;
   authority: NativeAuthoritySnapshot;
+  publication: ReturnType<typeof nativePrefixStatus> | null;
   outcomes: { position: number; entry: string; request: string; outcome: NativeOutcomeData }[];
+}
+/** A trusted local adapter could not determine whether its transaction committed.
+ * This signal only blocks the instance; it cannot authorize restore or acceptance. */
+export class NativePersistenceUncertain extends AtseqError {
+  constructor() {
+    super('persistence_failed', 'Native local commit requires durable inspection');
+  }
 }
 interface ApplicationGeneration {
   source: NativeSourceDefinition;
   domain: Readonly<Json>;
   authority: NativeAuthorityState;
   outcomeBoundary: number;
+  prefix: NativePrefix | null;
 }
-type ProcessInput = Omit<Parameters<typeof authenticateAuthorityEntry>[0], 'anchor' | 'prior'>;
+type ProcessInput = Omit<NativePrefixPublication, 'anchor'> & { entry: unknown };
 export interface NativeApplication {
   snapshot(): NativeApplicationProjection;
+  prefix(): NativePrefix | null;
+  publication(): ReturnType<typeof nativePrefixStatus> | null;
+  retry(request: unknown): Promise<{
+    receipt: Awaited<ReturnType<typeof lookupNativeRetry>>;
+    outcome: NativeOutcomeData | null;
+    frontier: NativeAuthoritySnapshot['frontier'];
+    publication: ReturnType<typeof nativePrefixStatus>;
+  }>;
   process(input: ProcessInput): Promise<{ frontier: { position: number; entry: string }; outcome: NativeOutcomeData }>;
   query(
     name: string,
@@ -531,6 +556,14 @@ class NativeApplicationOwner {
   ) {
     this.#current = initial;
   }
+  async #persist(projection: NativeApplicationProjection): Promise<void> {
+    try {
+      await this.persist?.(projection);
+    } catch (error) {
+      if (error instanceof NativePersistenceUncertain) this.#poisoned = true;
+      throw error;
+    }
+  }
   #healthy(): void {
     if (this.#poisoned) throw new AtseqError('runtime_fault', 'Native application requires durable reconciliation');
   }
@@ -553,10 +586,33 @@ class NativeApplicationOwner {
       definition: readNativeSourceDefinition(generation.source).cid,
       state: jsonCopy(generation.domain, PROFILE.stateBytes),
       authority: nativeAuthoritySnapshot(generation.authority),
+      publication: generation.prefix ? nativePrefixStatus(generation.prefix) : null,
       outcomes,
     });
   }
+  prefix(): NativePrefix | null {
+    this.#healthy();
+    return this.#current.prefix;
+  }
+  publication() {
+    this.#healthy();
+    return this.#current.prefix ? nativePrefixStatus(this.#current.prefix) : null;
+  }
+  async retry(request: unknown) {
+    this.#healthy();
+    const base = this.#current;
+    if (!base.prefix) throw new AtseqError('content_unavailable', 'No verified ordering prefix');
+    const frontier = nativeAuthorityFrontier(base.authority),
+      publication = nativePrefixStatus(base.prefix);
+    const receipt = await lookupNativeRetry(base.prefix, request);
+    this.#healthy();
+    const row = receipt && receipt.position <= base.outcomeBoundary ? this.#rows[receipt.position - 1] : null;
+    if (receipt && receipt.position <= base.outcomeBoundary && !row)
+      throw new AtseqError('runtime_fault', 'Committed outcome coverage has a gap');
+    return { receipt, outcome: row ? structuredClone(row.outcome) : null, frontier, publication };
+  }
   snapshot(): NativeApplicationProjection {
+    this.#healthy();
     return this.#projection(this.#current);
   }
   process(input: ProcessInput): Promise<{ frontier: { position: number; entry: string }; outcome: NativeOutcomeData }> {
@@ -565,173 +621,242 @@ class NativeApplicationOwner {
     return this.#queue.run(async () => {
       this.#healthy();
       const base = this.#current;
-      const authenticated = await authenticateAuthorityEntry({
-        ...captured,
-        anchor: this.anchor,
-        prior: base.authority,
-      });
+      // Untrusted entry is an exact requested publication expectation, never a checked-fact mint.
+      const claimed = { entry: await readNativeValue<NativeEntry>(NATIVE_NSID.entry, captured.entry) };
+      const publication = { ...captured, anchor: this.anchor };
+      const candidate = base.prefix ? await stageNativePrefix(base.prefix, publication) : null;
+      const prefix = candidate ? null : await openNativePrefix(publication);
       this.#same(base);
-      const data = authenticatedAuthorityEntry(authenticated);
-      const nextAuthority = nativeAuthoritySnapshot(base.authority);
-      assertNativeAuthorityContext(base.authority, data.entry, data.requestCid);
-      const domain = jsonCopy(base.domain, PROFILE.stateBytes);
-      let nextDomain = domain,
-        source = base.source,
-        outcome: NativeOutcomeData;
-      if (data.entry.request.$type === nativeRef('accountOperation')) {
-        if (!data.observation) invalid('Account operation lacks authenticated observation');
-        outcome = authorityOutcome(
-          accountOperation(nextAuthority, data.entry.request as NativeAccountOperation, data.observation),
-        );
-      } else {
-        const signed = data.entry.request as NativeSignedRequest;
-        const op = signed.intent.operation;
-        if (op.$type === nativeRef('act')) {
-          const action = op as NativeAct;
-          // One private ordered gate, consumed directly here; no callback or extra token.
-          const grant = liveGrant(nextAuthority, signed, action);
-          if ('decision' in grant) outcome = authorityOutcome(grant);
-          else if (
-            !grant.actions.some(
-              (pair) => pair.action === action.action && pair.execution.$link === action.execution.$link,
-            )
-          )
-            outcome = framework('grant_scope');
-          else {
-            const selected = nativeSourceAction(base.source, action.action);
-            if (!selected) outcome = framework('unknown_action');
-            else {
-              const facts = readNativeSourceAction(selected);
-              const authorization = facts.contract.body as { authorization: { $type: string; role?: string } };
-              const rule = authorization.authorization;
-              if (
-                rule.$type === nativeRef('requiredRole') &&
-                !nextAuthority.roles.some(
-                  (row) => row.principal === signed.intent.principal && row.role === rule.role && row.enabled,
-                )
-              )
-                outcome = framework('role_missing');
-              else if (facts.execution !== action.execution.$link) outcome = framework('execution_changed');
-              else {
-                // Program/metadata retrieval and stored-state ownership are outside every stage catch.
-                const program = nativeSourceActionFold(selected),
-                  metadata = nativeFoldMetadata(data.entry);
-                let inputDenied = false;
-                try {
-                  validateNativeSourceAction(base.source, selected, action.payload);
-                } catch (error) {
-                  if (!stageError(error, Object.keys(NATIVE_FOLD_FAILURE_STAGES.inputSchema))) throw error;
-                  inputDenied = true;
-                }
-                if (inputDenied) outcome = framework('invalid_action');
-                else {
-                  let result: Awaited<ReturnType<typeof fold>> | undefined;
-                  let foldDenied: NativeOutcomeData | undefined;
-                  try {
-                    result = await fold(program, { state: domain, act: action.payload, meta: metadata });
-                  } catch (error) {
-                    if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.evaluateAndFold)) throw error;
-                    foldDenied = framework(`fold_failed/${error.code}`);
-                  }
-                  this.#same(base);
-                  if (foldDenied) outcome = foldDenied;
-                  else if (result!.decision === 'ineffective') {
-                    outcome = deepFreeze(readNativeOutcome({ ...result!, source: 'fold' }));
-                  } else {
-                    let stateDenied: NativeOutcomeData | undefined;
-                    try {
-                      validateNativeSourceState(base.source, result!.state);
-                    } catch (error) {
-                      if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.successorState)) throw error;
-                      stateDenied = framework(`fold_failed/${error.code}`);
-                    }
-                    outcome = stateDenied ?? deepFreeze({ decision: 'effective' });
-                    if (!stateDenied) nextDomain = result!.state;
-                  }
-                }
-              }
-            }
+      const selected = prefix ?? base.prefix!;
+      const evidencePrefix = candidate ? nativePrefixCandidate(candidate) : selected;
+      if (candidate) assertNativePrefixExtension(base.prefix!, candidate);
+      const checkedRow = nativePrefixEntry(evidencePrefix, claimed.entry.position).row;
+      if (!sameBytes(encodeBlock(checkedRow.entry), encodeBlock(claimed.entry)))
+        invalid('Requested entry differs from selected published bytes');
+      assertNativeAuthorityContext(base.authority, checkedRow.entry);
+      const retainOrdering = async () => {
+        if (candidate) assertNativePrefixExtension(base.prefix!, candidate);
+        if (this.persist) {
+          try {
+            await this.#persist(this.#projection(Object.freeze({ ...base, prefix: evidencePrefix })));
+          } catch (error) {
+            if (nativePrefixStatus(evidencePrefix).contradiction) this.#poisoned = true;
+            throw error;
           }
-        } else if (op.$type === nativeRef('activate')) {
-          const denied = controlPrefix(nextAuthority, signed, data.entry);
-          if (denied) outcome = authorityOutcome(denied);
-          else if (op.expected.$link !== nextAuthority.activeDefinition) outcome = framework('definition_changed');
-          else {
-            const assessed = await assessNativeSource(
-              { root: op.definition.$link, expectedSemantics: NATIVE_SOURCE_CONTRACT.application, closure: op.closure },
-              this.reader,
-              this.localOptions,
-            );
+          try {
             this.#same(base);
-            if (assessed.kind === 'proven_invalid') outcome = framework('invalid_activation');
-            else if (assessed.kind === 'incompatible') outcome = framework('incompatible_definition');
-            else {
-              const oldFacts = readNativeSourceDefinition(base.source),
-                newFacts = readNativeSourceDefinition(assessed.definition);
-              if (
-                canonicalJson(oldFacts.stateProjection, PROFILE.definitionBytes) !==
-                canonicalJson(newFacts.stateProjection, PROFILE.definitionBytes)
+            if (candidate) assertNativePrefixExtension(base.prefix!, candidate);
+          } catch (error) {
+            this.#poisoned = true;
+            throw error;
+          }
+        }
+        this.#same(base);
+        const accepted = candidate ? acceptNativePrefix(base.prefix!, candidate) : evidencePrefix;
+        this.#current = Object.freeze({ ...base, prefix: accepted });
+      };
+      let authenticated: AuthenticatedAuthorityEntry;
+      try {
+        authenticated = await authenticateAuthorityEntry({
+          prefix: evidencePrefix,
+          prior: base.authority,
+          reader: captured.reader,
+        });
+      } catch (error) {
+        if (
+          (error instanceof AtseqError && ['content_unavailable', 'native_proof_limit'].includes(error.code)) ||
+          nativePrefixStatus(evidencePrefix).contradiction
+        )
+          await retainOrdering();
+        throw error;
+      }
+      this.#same(base);
+      const data = authenticatedAuthorityEntry(authenticated, base.authority);
+      let publishing = false;
+      try {
+        const nextAuthority = nativeAuthoritySnapshot(base.authority);
+        assertNativeAuthorityContext(base.authority, data.entry);
+        const domain = jsonCopy(base.domain, PROFILE.stateBytes);
+        let nextDomain = domain,
+          source = base.source,
+          outcome: NativeOutcomeData;
+        if (data.entry.request.$type === nativeRef('accountOperation')) {
+          if (!data.observation) invalid('Account operation lacks authenticated observation');
+          outcome = authorityOutcome(
+            accountOperation(nextAuthority, data.entry.request as NativeAccountOperation, data.observation),
+          );
+        } else {
+          const signed = data.entry.request as NativeSignedRequest;
+          const op = signed.intent.operation;
+          if (op.$type === nativeRef('act')) {
+            const action = op as NativeAct;
+            // One private ordered gate, consumed directly here; no callback or extra token.
+            const grant = liveGrant(nextAuthority, signed, action);
+            if ('decision' in grant) outcome = authorityOutcome(grant);
+            else if (
+              !grant.actions.some(
+                (pair) => pair.action === action.action && pair.execution.$link === action.execution.$link,
               )
-                outcome = framework('incompatible_definition');
+            )
+              outcome = framework('grant_scope');
+            else {
+              const selected = nativeSourceAction(base.source, action.action);
+              if (!selected) outcome = framework('unknown_action');
               else {
-                let rejected = false;
-                try {
-                  validateNativeSourceState(assessed.definition, domain);
-                } catch (error) {
-                  if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.successorState)) throw error;
-                  rejected = true;
-                }
-                outcome = rejected ? framework('invalid_activation') : deepFreeze({ decision: 'effective' });
-                if (!rejected) {
-                  source = assessed.definition;
-                  nextAuthority.activeDefinition = newFacts.cid;
-                  nextAuthority.control.tip = data.requestCid;
+                const facts = readNativeSourceAction(selected);
+                const authorization = facts.contract.body as { authorization: { $type: string; role?: string } };
+                const rule = authorization.authorization;
+                if (
+                  rule.$type === nativeRef('requiredRole') &&
+                  !nextAuthority.roles.some(
+                    (row) => row.principal === signed.intent.principal && row.role === rule.role && row.enabled,
+                  )
+                )
+                  outcome = framework('role_missing');
+                else if (facts.execution !== action.execution.$link) outcome = framework('execution_changed');
+                else {
+                  // Program/metadata retrieval and stored-state ownership are outside every stage catch.
+                  const program = nativeSourceActionFold(selected),
+                    metadata = nativeFoldMetadata(data.entry);
+                  let inputDenied = false;
+                  try {
+                    validateNativeSourceAction(base.source, selected, action.payload);
+                  } catch (error) {
+                    if (!stageError(error, Object.keys(NATIVE_FOLD_FAILURE_STAGES.inputSchema))) throw error;
+                    inputDenied = true;
+                  }
+                  if (inputDenied) outcome = framework('invalid_action');
+                  else {
+                    let result: Awaited<ReturnType<typeof fold>> | undefined;
+                    let foldDenied: NativeOutcomeData | undefined;
+                    try {
+                      result = await fold(program, { state: domain, act: action.payload, meta: metadata });
+                    } catch (error) {
+                      if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.evaluateAndFold)) throw error;
+                      foldDenied = framework(`fold_failed/${error.code}`);
+                    }
+                    this.#same(base);
+                    if (foldDenied) outcome = foldDenied;
+                    else if (result!.decision === 'ineffective') {
+                      outcome = deepFreeze(readNativeOutcome({ ...result!, source: 'fold' }));
+                    } else {
+                      let stateDenied: NativeOutcomeData | undefined;
+                      try {
+                        validateNativeSourceState(base.source, result!.state);
+                      } catch (error) {
+                        if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.successorState)) throw error;
+                        stateDenied = framework(`fold_failed/${error.code}`);
+                      }
+                      outcome = stateDenied ?? deepFreeze({ decision: 'effective' });
+                      if (!stateDenied) nextDomain = result!.state;
+                    }
+                  }
                 }
               }
             }
-          }
-        } else
-          outcome = authorityOutcome(
-            op.$type === nativeRef('assignRole')
-              ? assignRole(nextAuthority, signed, data.requestCid)
-              : control(nextAuthority, signed, data.requestCid, data.observation, data.entry),
-          );
-      }
-      this.#same(base);
-      // Wrong-callsite failures while owning/parsing stored output escape, never become fold failures.
-      const next: ApplicationGeneration = Object.freeze({
-        source,
-        domain: deepFreeze(jsonCopy(nextDomain, PROFILE.stateBytes)),
-        authority: finishAuthority(nextAuthority, data),
-        outcomeBoundary: base.outcomeBoundary + 1,
-      });
-      const row = deepFreeze({
-        position: data.entry.position,
-        entry: data.entryCid,
-        request: data.requestCid,
-        outcome: deepFreeze(readNativeOutcome(outcome)),
-      });
-      if (this.persist) {
-        await this.persist(this.#projection(next, row));
-        // A durable success plus impossible stale memory is ambiguous storage, never a retry.
-        if (this.#current !== base || this.#poisoned) {
-          this.#poisoned = true;
-          throw new AtseqError(
-            'runtime_fault',
-            'Persistence succeeded with a different generation; durable reconciliation required',
-          );
+          } else if (op.$type === nativeRef('activate')) {
+            const denied = controlPrefix(nextAuthority, signed, data.entry);
+            if (denied) outcome = authorityOutcome(denied);
+            else if (op.expected.$link !== nextAuthority.activeDefinition) outcome = framework('definition_changed');
+            else {
+              const assessed = await assessNativeSource(
+                {
+                  root: op.definition.$link,
+                  expectedSemantics: NATIVE_SOURCE_CONTRACT.application,
+                  closure: op.closure,
+                },
+                this.reader,
+                this.localOptions,
+              );
+              this.#same(base);
+              if (assessed.kind === 'proven_invalid') outcome = framework('invalid_activation');
+              else if (assessed.kind === 'incompatible') outcome = framework('incompatible_definition');
+              else {
+                const oldFacts = readNativeSourceDefinition(base.source),
+                  newFacts = readNativeSourceDefinition(assessed.definition);
+                if (
+                  canonicalJson(oldFacts.stateProjection, PROFILE.definitionBytes) !==
+                  canonicalJson(newFacts.stateProjection, PROFILE.definitionBytes)
+                )
+                  outcome = framework('incompatible_definition');
+                else {
+                  let rejected = false;
+                  try {
+                    validateNativeSourceState(assessed.definition, domain);
+                  } catch (error) {
+                    if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.successorState)) throw error;
+                    rejected = true;
+                  }
+                  outcome = rejected ? framework('invalid_activation') : deepFreeze({ decision: 'effective' });
+                  if (!rejected) {
+                    source = assessed.definition;
+                    nextAuthority.activeDefinition = newFacts.cid;
+                    nextAuthority.control.tip = data.requestCid;
+                  }
+                }
+              }
+            }
+          } else
+            outcome = authorityOutcome(
+              op.$type === nativeRef('assignRole')
+                ? assignRole(nextAuthority, signed, data.requestCid)
+                : control(nextAuthority, signed, data.requestCid, data.observation, data.entry),
+            );
         }
+        this.#same(base);
+        // Wrong-callsite failures while owning/parsing stored output escape, never become fold failures.
+        const next: ApplicationGeneration = Object.freeze({
+          source,
+          domain: deepFreeze(jsonCopy(nextDomain, PROFILE.stateBytes)),
+          authority: finishAuthority(nextAuthority, data),
+          outcomeBoundary: base.outcomeBoundary + 1,
+          prefix: evidencePrefix,
+        });
+        const row = deepFreeze({
+          position: data.entry.position,
+          entry: data.entryCid,
+          request: data.requestCid,
+          outcome: deepFreeze(readNativeOutcome(outcome)),
+        });
+        publishing = true;
+        if (candidate) assertNativePrefixExtension(base.prefix!, candidate);
+        if (this.persist) {
+          await this.#persist(this.#projection(next, row));
+          // A durable success plus impossible stale memory is ambiguous storage, never a retry.
+          if (this.#current !== base || this.#poisoned) {
+            this.#poisoned = true;
+            throw new AtseqError(
+              'runtime_fault',
+              'Persistence succeeded with a different generation; durable reconciliation required',
+            );
+          }
+        }
+        this.#same(base);
+        try {
+          if (candidate) assertNativePrefixExtension(base.prefix!, candidate);
+        } catch (error) {
+          if (this.persist) this.#poisoned = true;
+          throw error;
+        }
+        const accepted = candidate ? acceptNativePrefix(base.prefix!, candidate) : evidencePrefix;
+        this.#rows.push(row);
+        this.#current = Object.freeze({ ...next, prefix: accepted });
+        return structuredClone({ frontier: nativeAuthorityFrontier(next.authority), outcome });
+      } catch (error) {
+        if (
+          !publishing &&
+          error instanceof AtseqError &&
+          ['content_unavailable', 'native_proof_limit'].includes(error.code)
+        )
+          await retainOrdering();
+        throw error;
       }
-      this.#same(base);
-      this.#rows.push(row);
-      this.#current = next;
-      return structuredClone({ frontier: nativeAuthoritySnapshot(next.authority).frontier, outcome });
     });
   }
   async query(name: string, params: unknown): Promise<Awaited<ReturnType<NativeApplication['query']>>> {
     this.#healthy();
     const base = this.#current;
-    const frontier = nativeAuthoritySnapshot(base.authority).frontier;
+    const frontier = nativeAuthorityFrontier(base.authority);
     try {
       const state = jsonCopy(base.domain, PROFILE.stateBytes),
         ownedParams = jsonCopy(params);
@@ -755,6 +880,9 @@ export async function openNativeApplication(options: {
   anchor: NativeAnchor;
   sourceReader: NativeSourceReader;
   sourceOptions?: NativeSourceReadOptions;
+  /** Trusted configured adapter: resolution confirms commit; ordinary rejection guarantees no commit.
+   * If that outcome is unknown, throw NativePersistenceUncertain. Raw-store shape/error text grants no trust.
+   * Actual adapter transactions/provenance and inspection remain the separate P3 integration gate. */
   persist?: (projection: NativeApplicationProjection) => Promise<void>;
 }): Promise<NativeApplication> {
   const reader = options.sourceReader,
@@ -777,12 +905,16 @@ export async function openNativeApplication(options: {
     domain: deepFreeze(jsonCopy(readNativeSourceDefinition(source.definition).initialState, PROFILE.stateBytes)),
     authority: await openNativeAuthority(anchor),
     outcomeBoundary: 0,
+    prefix: null,
   });
   const owner = new NativeApplicationOwner(anchor, reader, localOptions, persist, initial);
   if (persist) await persist(owner.snapshot());
   // A frozen facade hides the nonexported runtime constructor and every private capture.
   return Object.freeze({
     snapshot: () => owner.snapshot(),
+    prefix: () => owner.prefix(),
+    publication: () => owner.publication(),
+    retry: (request: unknown) => owner.retry(request),
     process: (input: ProcessInput) => owner.process(input),
     query: (name: string, params: unknown) => owner.query(name, params),
   });

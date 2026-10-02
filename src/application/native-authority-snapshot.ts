@@ -1,7 +1,7 @@
 /** Closed snapshot DATA validation. This cannot mint accepted authority. */
 import { readAuthorityData } from './native-authority-data.ts';
 import type { NativeAnchor } from '../protocol/native-wire.ts';
-import type { NativeAuthoritySnapshot } from './native-authority.ts';
+import type { NativeAuthoritySnapshot } from './native-authority-data.ts';
 export function readNativeAuthoritySnapshot(
   value: unknown,
   anchor: NativeAnchor,

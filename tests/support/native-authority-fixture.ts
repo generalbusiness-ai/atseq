@@ -10,6 +10,8 @@ import { NATIVE_NSID, nativeRef } from '../../src/protocol/native-schema.ts';
 import {
   NativeAnchor,
   nativeEntryPath,
+  nativeHeadPath,
+  nativeHeadAt,
   nativeGenesisPath,
   nativeObservationSubject,
   signNativeIntent,
@@ -23,6 +25,13 @@ import { bytes, contentCid, encodeBlock, link } from '../../src/protocol/wire.ts
 import { AtseqError } from '../../src/core/errors.ts';
 import { deriveIdentityBinding } from '../../src/protocol/identity-binding.ts';
 import { didWebToUrl, isDidWeb } from '@atproto/did';
+import {
+  openNativePrefix,
+  stageNativePrefix,
+  acceptNativePrefix,
+  type NativePrefix,
+} from '../../src/application/native-prefix.ts';
+import { NATIVE_SOURCE_CONTRACT } from '../../src/definition/native-source-contract.ts';
 import { authenticateAuthorityEntry } from '../../src/application/native-authority-evidence.ts';
 import {
   openNativeAuthority,
@@ -94,6 +103,7 @@ export interface AuthorityHostileVector {
 }
 export class AuthorityHarness {
   state!: NativeAuthorityState;
+  prefix: NativePrefix | null = null;
   anchor!: NativeAnchor;
   app!: Awaited<ReturnType<typeof plcIdentityFixture>>;
   actor!: Omit<Awaited<ReturnType<typeof plcIdentityFixture>>, 'principal'> & { principal: string };
@@ -130,7 +140,7 @@ export class AuthorityHarness {
       version: 2,
       app: h.app.principal,
       creation: epochId(101),
-      semantics: link(placeholder),
+      semantics: link(NATIVE_SOURCE_CONTRACT.native),
       definition: link(placeholder),
       observationPolicy: link(policy),
       control: [
@@ -169,6 +179,7 @@ export class AuthorityHarness {
     h.anchor = await NativeAnchor.from(genesis, { app: h.app.principal, genesis: genesisCid });
     h.state = await openNativeAuthority(h.anchor);
     h.appRecords.set(nativeGenesisPath(genesisCid), encodeBlock(genesis));
+    h.appRecords.set(nativeHeadPath(genesisCid), encodeBlock(await nativeHeadAt(h.anchor)));
     return h;
   }
   async stash(body: unknown) {
@@ -346,6 +357,10 @@ export class AuthorityHarness {
     };
     const entryCid = await contentCid(entry);
     this.appRecords.set(nativeEntryPath(prior.genesis, entry.position), encodeBlock(entry));
+    this.appRecords.set(
+      nativeHeadPath(prior.genesis),
+      encodeBlock(await nativeHeadAt(this.anchor, entry.position, entryCid)),
+    );
     const proof = await authorityRepo(this.app.principal, this.app.key, this.appRecords, entry.position);
     const binding = await deriveIdentityBinding(this.app.principal, {
       assuranceClass: 'plc-audit-v1',
@@ -362,13 +377,19 @@ export class AuthorityHarness {
       auditBytes: new TextEncoder().encode(JSON.stringify(this.app.rows)),
       selectedTipCid: this.app.selectedTipCid,
     };
-    const capability = await authenticateAuthorityEntry({
+    const publication = {
       anchor: this.anchor,
       appRepo,
-      entry,
+      reader: this.reader(),
+      appIdentity: { before: appEvidence, after: appEvidence },
+    };
+    this.prefix = this.prefix
+      ? acceptNativePrefix(this.prefix, await stageNativePrefix(this.prefix, publication))
+      : await openNativePrefix(publication);
+    const capability = await authenticateAuthorityEntry({
+      prefix: this.prefix,
       reader: this.reader(),
       prior: this.state,
-      appIdentity: { before: appEvidence, after: appEvidence },
     });
     const interpreted = interpretNativeAuthority(this.state, capability);
     if (JSON.stringify(interpreted.outcome) !== JSON.stringify(expected))

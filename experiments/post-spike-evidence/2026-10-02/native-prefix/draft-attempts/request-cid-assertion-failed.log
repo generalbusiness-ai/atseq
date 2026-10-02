@@ -1,0 +1,22 @@
+✖ one genuine verified prefix owns retries and compact authority across pending tails (680.530792ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1354.78125
+
+✖ failing tests:
+
+test at tests/native-prefix.test.ts:1:218
+✖ one genuine verified prefix owns retries and compact authority across pending tails (680.530792ms)
+  Error: Prefix predicate failed
+      at assert (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:34:21)
+      at <anonymous> (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:205:5)
+      at async check (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:55:5)
+      at async nativePrefixCorpus (/private/tmp/atseq-native-prefix-f1-20261002/tests/support/native-prefix-corpus.ts:201:3)
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-prefix-f1-20261002/tests/native-prefix.test.ts:10:18)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)

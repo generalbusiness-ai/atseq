@@ -7,6 +7,7 @@ import { IdentityFetch } from '../../dist/src/host/identity-fetch.js';
 import {
   NativeAnchor,
   nativeEntryPath,
+  nativeHeadPath,
   nativeHeadAt,
   createNativeEntry,
   readNativeRecord,
@@ -16,6 +17,7 @@ import { contentCid, encodeBlock, link } from '../../dist/src/protocol/wire.js';
 import { NATIVE_NSID, nativeRef } from '../../dist/src/protocol/native-schema.js';
 import { authenticateRepo } from '../../dist/src/protocol/native-proof.js';
 import { authenticateAuthorityEntry } from '../../dist/src/application/native-authority-evidence.js';
+import { openNativePrefix } from '../../dist/src/application/native-prefix.js';
 import {
   openNativeAuthority,
   nativeAuthoritySnapshot,
@@ -69,6 +71,10 @@ for (const curve of ['p256', 'secp256k1'])
       }
       const entry = await createNativeEntry(data.completed, anchor, await nativeHeadAt(anchor));
       h.appRecords.set(nativeEntryPath(anchor.cid, entry.position), encodeBlock(entry));
+      h.appRecords.set(
+        nativeHeadPath(anchor.cid),
+        encodeBlock(await nativeHeadAt(anchor, entry.position, await contentCid(entry))),
+      );
       const app = await authorityRepo(h.app.principal, h.app.key, h.appRecords, 1);
       const appRepo = await authenticateRepo({
         carBytes: app.car,
@@ -81,14 +87,13 @@ for (const curve of ['p256', 'secp256k1'])
         selectedTipCid: h.app.selectedTipCid,
       };
       const count = network.calls.length;
-      const authenticated = await authenticateAuthorityEntry({
+      const prefix = await openNativePrefix({
         anchor,
         appRepo,
-        entry,
         reader: h.reader(),
-        prior,
         appIdentity: { before: methodEvidence, after: methodEvidence },
       });
+      const authenticated = await authenticateAuthorityEntry({ prefix, reader: h.reader(), prior });
       const interpreted = interpretNativeAuthority(prior, authenticated);
       assert.deepEqual(interpreted.outcome, { decision: 'effective' });
       assert.equal(network.calls.length, count);
@@ -138,6 +143,7 @@ const paths = [
   'protocol/identity-binding',
   'application/native-authority',
   'application/native-authority-evidence',
+  'application/native-prefix',
 ];
 const modules = await Promise.all(
   paths.map(async (path) => {

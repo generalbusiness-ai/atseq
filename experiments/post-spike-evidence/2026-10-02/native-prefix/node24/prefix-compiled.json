@@ -1,0 +1,162 @@
+{
+  "node": "v24.21.0",
+  "cases": [
+    "unknown native semantics cannot issue a genuine prefix or supported coverage",
+    "cold zero head authenticates actual genesis/head and complete empty coverage",
+    "cloned copied prototype and snapshot prefix handles cannot mint views or evidence",
+    "delta zero still checks genesis/head and returns no signature or identity writes",
+    "delta one stages privately and accepted fixed old view cannot see new identities",
+    "cold and staged publication capture delta budget and reader before asynchronous work",
+    "unpublished candidates cannot report missing retries or mint receipts before acceptance",
+    "a fixed old view cannot acquire a contradiction beyond its authenticated head",
+    "cloned staged extension and stale exact base cannot publish or insert rows",
+    "delta100 adds only suffix checks and writes while old views remain fixed",
+    "warm N100 delta0/1/100 uses only suffix signatures and identity writes",
+    "lower revision and equal-revision changed root recover all retained paths without lowering app floor",
+    "fully checked unpublished floor survives discard and rejects lower or higher fork while allowing samefloor and descendant",
+    "concurrent low staging cannot publish after a higher complete observed floor",
+    "bounded suffix refusal occurs before enumerating any delta paths",
+    "complete selected root cannot lower retained application ordering floor",
+    "published duplicate request is invalid despite current grant denial",
+    "CID retry precedes tuple conflict and preserves first low-S signed entry bytes",
+    "original publication method provenance is retained separately and exported copies cannot alter it",
+    "authenticated entry is bound to exact genuine prior and copied capabilities cannot fold",
+    "evidence cannot replace a compact prior with a cold lineage or lower retained tail",
+    "pending participant bytes preserve verified head and every later consumed identity",
+    "coordinator retains a larger pending head then resumed execution equals fresh healthy replay",
+    "pending-tail persistence confirmed abort inserts no identities; successful retry retains all tail rows",
+    "pending-tail uncertain local commit poisons queries retries and further publication",
+    "late participant contradiction is persisted with the retained head and all later consumed identities",
+    "failed contradiction persistence poisons and the same prefix owner blocks further staging",
+    "pending-tail durable success with stale prefix owner poisons before exposure",
+    "higher staging during successful pending-tail persistence poisons without inserting either suffix"
+  ],
+  "work": [
+    {
+      "delta": 0,
+      "signatureChecks": 0,
+      "entryLoads": 0,
+      "reusedEntries": 0,
+      "descriptorLoads": 0,
+      "indexReads": 0,
+      "stagedIndexWrites": 0,
+      "indexWrites": 0,
+      "publicationLookups": 2
+    },
+    {
+      "delta": 1,
+      "signatureChecks": 1,
+      "entryLoads": 1,
+      "reusedEntries": 0,
+      "descriptorLoads": 0,
+      "indexReads": 4,
+      "stagedIndexWrites": 2,
+      "indexWrites": 2,
+      "publicationLookups": 3
+    },
+    {
+      "prior": 1,
+      "delta": 100,
+      "signatureChecks": 100,
+      "entryLoads": 100,
+      "reusedEntries": 1,
+      "descriptorLoads": 0,
+      "indexReads": 400,
+      "stagedIndexWrites": 200,
+      "indexWrites": 200,
+      "publicationLookups": 103
+    },
+    {
+      "prior": 100,
+      "delta": 0,
+      "signatureChecks": 0,
+      "entryLoads": 0,
+      "reusedEntries": 1,
+      "descriptorLoads": 0,
+      "indexReads": 0,
+      "stagedIndexWrites": 0,
+      "indexWrites": 0,
+      "publicationLookups": 3
+    },
+    {
+      "prior": 100,
+      "delta": 1,
+      "signatureChecks": 1,
+      "entryLoads": 1,
+      "reusedEntries": 1,
+      "descriptorLoads": 0,
+      "indexReads": 4,
+      "stagedIndexWrites": 2,
+      "indexWrites": 2,
+      "publicationLookups": 4
+    },
+    {
+      "prior": 100,
+      "delta": 100,
+      "signatureChecks": 100,
+      "entryLoads": 100,
+      "reusedEntries": 1,
+      "descriptorLoads": 0,
+      "indexReads": 400,
+      "stagedIndexWrites": 200,
+      "indexWrites": 200,
+      "publicationLookups": 103
+    }
+  ],
+  "fixtureBytes": 18729265,
+  "fixtureSha256": "1a44730d998a549c3f3825b9773a60e7f4536bffef63341ff48d2b37a251f90a",
+  "actualProductionModules": [
+    {
+      "path": "dist/src/application/native-authority-evidence.js",
+      "sha256": "1cc510541b608334c1ed26e8044a67f9844b821f7111977a6ff1a5232c67e480"
+    },
+    {
+      "path": "dist/src/application/native-authority.js",
+      "sha256": "5c6b719a0356f1f009bf0877142e59cb0cfcce08fd3176270a3a0b71a15c2625"
+    },
+    {
+      "path": "dist/src/application/native-prefix.js",
+      "sha256": "b71cfd6a6572d149df3c7abf5c8298ee5d48abbd764cadb35700ac36fe3017fc"
+    },
+    {
+      "path": "dist/src/core/errors.js",
+      "sha256": "f262303819c1ff725fd878fd3de0d0352f52657cb5dafe44f073ddf637e06eb0"
+    },
+    {
+      "path": "dist/src/core/values.js",
+      "sha256": "d3805c888e495c47a5d09e712b5545bb66ac19ba63a9bc844731a26c399a2efe"
+    },
+    {
+      "path": "dist/src/definition/native-source-contract.js",
+      "sha256": "acd371663819af28066332707c07d8c7e81c0c858934df535861f5867fddd0c8"
+    },
+    {
+      "path": "dist/src/definition/native-source.js",
+      "sha256": "688269d3431e64f01b35ecc31e1675a1de2250a0017f0aba0c98551c64d09d99"
+    },
+    {
+      "path": "dist/src/protocol/native-proof.js",
+      "sha256": "f4c86609dfd2cebd4f32acf4cfbba2eb89476a0c626c7ea9ea270361bc3621ad"
+    },
+    {
+      "path": "dist/src/protocol/native-wire.js",
+      "sha256": "9222f8536d0431694bcb2ea56fcde27c04e78802c5f371fdd902af725803b2d5"
+    },
+    {
+      "path": "dist/src/protocol/wire.js",
+      "sha256": "ba879338de32398dfc2733ed11a75421872ffff2498c3a4b2a0792b2c6d6718b"
+    }
+  ],
+  "compiledTests": [
+    {
+      "name": "native-application-corpus.ts",
+      "sourceSha256": "5e9c55c68ee8d82c4525259cf71fcc16ce16765fdce3f3eb296ac89ceed54dab",
+      "outputSha256": "5fa8e07e3e394e5811e80dbbe6826a0a0fa946c61015144cfa8850e8b6b153db"
+    },
+    {
+      "name": "native-prefix-corpus.ts",
+      "sourceSha256": "1ca49e93ee1525f308483a46d00d740523c91a56e525674fb465e061729a7bf6",
+      "outputSha256": "ee8399a4a0ca8bc54c7e247c618c21d0b24b56b44e84c145ca6494effe5522a8"
+    }
+  ]
+}

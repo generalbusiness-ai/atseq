@@ -42,6 +42,7 @@ export interface ApplicationFixture {
   sourceBlocks: [string, number[]][];
   retainedContent: [string, number[]][];
   vectors: ApplicationVector[];
+  duplicateCar: number[];
 }
 export async function applicationSource(
   options: { fold?: string; role?: string; initial?: unknown; stateChange?: boolean; semanticMismatch?: boolean } = {},
@@ -494,7 +495,26 @@ export async function nativeApplicationFixture(): Promise<ApplicationFixture> {
     await act(base.execution, { amount: 1 }, 'ai.generalbusiness.atseq.example#missing'),
     no('grant_revoked'),
   );
+  const repeated = {
+    ...vectors.at(-1)!.entry,
+    position: vectors.length + 1,
+    prev: link(await contentCid(vectors.at(-1)!.entry)),
+  };
+  h.appRecords.set(nativeEntryPath(genesisCid, repeated.position), encodeBlock(repeated));
+  h.appRecords.set(
+    nativeHeadPath(genesisCid),
+    encodeBlock({
+      $type: NATIVE_NSID.head,
+      version: 2,
+      app: genesis.app,
+      genesis: link(genesisCid),
+      position: repeated.position,
+      entry: link(await contentCid(repeated)),
+    }),
+  );
+  const duplicate = await authorityRepo(h.app.principal, h.app.key, h.appRecords, repeated.position);
   return {
+    duplicateCar: [...duplicate.car],
     genesis,
     genesisCid,
     appKey: h.app.signing,
