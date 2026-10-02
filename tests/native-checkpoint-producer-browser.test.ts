@@ -10,7 +10,7 @@ import { chromium } from '@playwright/test';
 import { nativeCheckpointProducerCorpus } from './support/native-checkpoint-producer-corpus.ts';
 
 test('Chromium runs pure checkpoint producer, exact independent bytes and bounds', async () => {
-  await mkdir('.atseq-local', { recursive: true });
+  await mkdir('.atseq-local/native-checkpoint-producer', { recursive: true });
   const fixtureBytes = gunzipSync(await readFile(new URL('./vectors/checkpoint-data.json.gz', import.meta.url)));
   const fixture = JSON.parse(fixtureBytes.toString());
   const literal = JSON.parse(
