@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "newCases": 30,
+  "originalDataCases": 91,
+  "originalOutcomeCases": 103,
+  "runs": 7,
+  "retainedSourceVectors": 106,
+  "buildSources": 147,
+  "buildOutputs": 476,
+  "physicalRuntimePackages": 194,
+  "physicalRuntimeFiles": 14234,
+  "negativeControls": 3,
+  "sourceCopies": 10,
+  "reportLinks": 8,
+  "limitations": "Byte/data/provenance verification only; no runtime rerun, publication, trust installation or full P3/P4 completion"
+}

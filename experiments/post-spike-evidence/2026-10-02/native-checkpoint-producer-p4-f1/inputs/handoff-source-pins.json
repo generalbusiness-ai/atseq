@@ -1,0 +1,165 @@
+{
+  "observedMain": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+  "notAnExecutionOrMergeAuthorization": true,
+  "sources": [
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/core/local-generations.ts",
+      "sha256": "72f23e6ecbae135a66cb47d47027176abf113e3bbd988ebbd783301f8d45a10a",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/host/local-generations.ts",
+      "sha256": "82e251d0a99c799495c15db332fa37d78f6c021b378956630b2dcea61825ef6f",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/browser/local-generations.ts",
+      "sha256": "5fcc3ba0ab63b5056fb443da37e4ef58eb34c0eefbaff52de4e62db83c6f6eed",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/integrity/node.ts",
+      "sha256": "8edf2222421c76217a295c1e223f3271efe2c48d0280af83b11e616a963d6e41",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/integrity/browser.ts",
+      "sha256": "565c1c4958ea060535e2c3283aa7b85651ae92eec5174f400f5bb71d16613228",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/application/native-prefix.ts",
+      "sha256": "a59c880077e58b03a0ba5b03fb9aa3c2f2ff99fa079f14337480a3a565bf1af0",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/application/native-authority.ts",
+      "sha256": "752dd725adb9839330394d12d744f8198ca461e98a8c3680bb85099d7e58afcf",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/application/checkpoint-authority-data.ts",
+      "sha256": "0f6b3154998163c391a7acecb7af81b8aac56013b77d3fe4a5427525b06a9a05",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/definition/native-source.ts",
+      "sha256": "34b2a7147702cfd9eb4271052ddd4545d1d73e55425cac1435215cfca71e7acd",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/protocol/native-proof.ts",
+      "sha256": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/protocol/native-observer-car.ts",
+      "sha256": "1ce60262ad1d43e0de70db763885e2d7099cb449a380db6af362b6f738a726cc",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/protocol/checkpoint-data.ts",
+      "sha256": "507ec3791952603562997712f8d00b804cbc020d04e9c7172784ea348c488a67",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/host/native-observer.ts",
+      "sha256": "456b8dc05cac82945ccf41502b1e6eda6a0f5492a0d2ec4e23827efbe7714b7b",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "src/host/pds.ts",
+      "sha256": "8c1f6bdc2f95dd28092111264d0d4692532bfffff824e820e40c217a10af0cc7",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "scripts/build.mjs",
+      "sha256": "7aa085a227eed0cc9d0d5bf564620026273ba084570b87c5c673c2632567a608",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "path": "scripts/check-layers.mjs",
+      "sha256": "e0d7baa0082c80da53a67a7aa0a5b6d0141679e86a5506b1a744fec93837c5e2",
+      "workingTreeMatches": true
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p3/request-projection.json",
+      "sha256": "eeebebe6db0901cf220d0dc22d5f9b6c898042058a519ec01ecf8ff48eed7995"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p4/original-request.json",
+      "sha256": "a50797ca95df51b3f34dabd83f9d1baab118f19cb0a5f6ef6dca72679922d8cf"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p3/contract.json",
+      "sha256": "dc53afd48314dfe55b86ab4c5cba62699147ffb9779c688514d5b2df71888853"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p4/contract.json",
+      "sha256": "5092e82fae22d446304a74428e1ce779709903240bdfd99e0f3dae791b82915a"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/contract.json",
+      "sha256": "fbc681628e3ad3d7592d08dc910b7872095b53b401144813b4a10ced7b58d51f"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p3/decision-vectors.json",
+      "sha256": "410f5c035b9a5c2ebe214ac8d94a249871c8c368a9d97f43856675c37d0f0c52"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p4/decision-vectors.json",
+      "sha256": "9e5c3a10f44b27124bc15d8ab7fa491725993ba51bca35f12aaa5bf2c020993d"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/unexecuted-vectors.json",
+      "sha256": "ae8fac185b33ecced0d7a8abbaa1c460c4f6e42f6efbae66c21961a943da5180"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p3/2026-10-02-atseq-native-materialization-restore.md",
+      "sha256": "bc61bc131d840abd39b5432c520b71e18d57b7dbf05a5b7313911f34a680643a"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p4/2026-10-02-atseq-checkpoint-joined-design.md",
+      "sha256": "e6d31d963dccb84ce0b1de4cc4d05c486cefa794ad42698d8c268d42cccd7a9e"
+    },
+    {
+      "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+      "path": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/j1-original/2026-10-02-atseq-materialization-checkpoint-reconciliation.md",
+      "sha256": "40788ff918e1e2fe47f4d8cd770ac5a8055d21ecf5d0d439919cbbeb3fcabf76"
+    }
+  ],
+  "reviewBasis": {
+    "P3Adoption": "f7bbfea5921144e25ecf426895e50de7dfff441f",
+    "P4Adoption": "0057f66a49cae7501abd4d0c89226f6e27c5e3c3",
+    "bridgeCandidate": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+    "bridgeReviewAbbrevFromRoot": "8ccdf6c4",
+    "bridgeRatificationAbbrevFromRoot": "ce96b973",
+    "R1F2Landing": "root live governed merge22532; executor must use terminal reviewed landed head, not assumed here"
+  }
+}

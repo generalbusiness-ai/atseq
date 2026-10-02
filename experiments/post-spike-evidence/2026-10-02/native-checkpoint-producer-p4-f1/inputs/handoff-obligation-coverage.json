@@ -1,0 +1,176 @@
+{
+  "scope": "All original full obligations retained, source mapping only, no completion claim",
+  "P4": [
+    {
+      "id": "P4-01",
+      "requirement": "Ordinary native records, content-addressed payload bytes and explicit original blob transport decision",
+      "tasks": [
+        "P4-F1",
+        "P4-F5"
+      ]
+    },
+    {
+      "id": "P4-02",
+      "requirement": "Certified app/genesis/head/frontier/state/source/authority/index/evidence commitments",
+      "tasks": [
+        "P4-F1",
+        "P4-F4"
+      ]
+    },
+    {
+      "id": "P4-03",
+      "requirement": "Separately bootstrapped native publication authority; no self-authorization; certify disabled",
+      "tasks": [
+        "P4-F4"
+      ]
+    },
+    {
+      "id": "P4-04",
+      "requirement": "Preserve every known newer pair/participant floor and authenticated bridge",
+      "tasks": [
+        "P3-F1",
+        "P4-F4",
+        "P4-F6"
+      ]
+    },
+    {
+      "id": "P4-05",
+      "requirement": "Separate state derivation and identity observation assurance; preserve origin on restore/suffix",
+      "tasks": [
+        "P4-F4",
+        "P4-F6"
+      ]
+    },
+    {
+      "id": "P4-06",
+      "requirement": "Early-use/deferred-audit and full-replay policies, complete/deferred prior identity coverage",
+      "tasks": [
+        "P4-F4",
+        "P4-F6",
+        "P4-D5"
+      ]
+    },
+    {
+      "id": "P4-07",
+      "requirement": "Selective historical outcomes; null partial export; missing old outcome never pending",
+      "tasks": [
+        "P3-F1",
+        "P4-F1",
+        "P4-F4"
+      ]
+    },
+    {
+      "id": "P4-08",
+      "requirement": "Fixed-target fresh-genesis independent audit, exact target promotion, progress and recovery",
+      "tasks": [
+        "P4-F6"
+      ]
+    },
+    {
+      "id": "P4-09",
+      "requirement": "Lying state/authority/index and other promised projection detection",
+      "tasks": [
+        "P4-F6"
+      ]
+    },
+    {
+      "id": "P4-10",
+      "requirement": "Substitution, missing blocks, absence/invalidity/resource precedence",
+      "tasks": [
+        "P4-F3",
+        "P4-F4"
+      ]
+    },
+    {
+      "id": "P4-11",
+      "requirement": "Post-action audit mismatch preserves evidence, floors and original recorded work",
+      "tasks": [
+        "P3-F3",
+        "P4-F6"
+      ]
+    },
+    {
+      "id": "P4-12",
+      "requirement": "Full actual host/browser/native PDS/offline/crash/CAS/pin/cancel/quota gates",
+      "tasks": [
+        "P3-F2",
+        "P3-F3",
+        "P4-F2",
+        "P4-F3",
+        "P4-F5",
+        "P4-F7"
+      ]
+    },
+    {
+      "id": "P4-13",
+      "requirement": "Code/tests/results/raw evidence/recommendation/limits/unrun cases; independent exact-head review/gitseq merge/push",
+      "tasks": [
+        "P3-F1",
+        "P4-F4",
+        "P4-F7",
+        "P4-F8"
+      ]
+    },
+    {
+      "id": "P4-14",
+      "requirement": "D0/P1/I2/R1/P3 dependencies; performance space without latency target or spike compatibility",
+      "tasks": [
+        "P4-F8"
+      ]
+    }
+  ],
+  "P3": [
+    {
+      "condition": "atomic durable state/frontier/definition/source/authority/retry/outcome/stall/pending-tail/floor host AND browser",
+      "tasks": [
+        "P3-F1",
+        "P3-F2",
+        "P3-F3",
+        "P4-F7"
+      ]
+    },
+    {
+      "condition": "trusted local restore verification and no deserialization brand",
+      "tasks": [
+        "P3-F1",
+        "P4-F4"
+      ]
+    },
+    {
+      "condition": "semantic identity versus actual Node source/dependency/build/output/runtime or browser same-byte bundle provenance",
+      "tasks": [
+        "P3-F1",
+        "P3-F2",
+        "P3-D5"
+      ]
+    },
+    {
+      "condition": "crash boundaries, corruption, corrected installation, stalls, rollback and genuine full-replay byte equivalence",
+      "tasks": [
+        "P3-F1",
+        "P3-F2",
+        "P3-F3",
+        "P4-F7",
+        "P4-F8"
+      ]
+    },
+    {
+      "condition": "dated results/raw evidence/recommendations/trust-functional limits/unrun cases/independent exact-head review/governed merge/push",
+      "tasks": [
+        "P4-F8"
+      ],
+      "appliesToEveryChild": true
+    }
+  ],
+  "oracle": {
+    "source": "experiments/post-spike-evidence/2026-10-02/native-action-extraction/oracle-freeze.json",
+    "reviewedOriginal": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+    "decodedSha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6",
+    "decodedBytes": 8371247,
+    "portableCases": 58,
+    "actualCallsiteFaultCases": 24,
+    "env": "ATSEQ_NATIVE_APPLICATION_FIXTURE_PATH",
+    "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+    "rule": "Pin or reconstruct exact original bytes; never regenerate with changed producer. Current native-action-extraction helper is #action/#actionGate and runtime foldEvaluation; full C1/NH remains open."
+  }
+}

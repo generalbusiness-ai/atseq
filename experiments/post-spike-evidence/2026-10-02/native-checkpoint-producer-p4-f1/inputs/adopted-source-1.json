@@ -1,0 +1,164 @@
+{
+  "format": "atseq-p4-d4-contract",
+  "version": 1,
+  "scope": "SOURCE_ONLY",
+  "runtimeImplemented": false,
+  "fullP4Completed": false,
+  "obligations": [
+    {
+      "id": "P4-01",
+      "requirement": "Ordinary native records, content-addressed payload bytes and explicit original blob transport decision"
+    },
+    {
+      "id": "P4-02",
+      "requirement": "Certified app/genesis/head/frontier/state/source/authority/index/evidence commitments"
+    },
+    {
+      "id": "P4-03",
+      "requirement": "Separately bootstrapped native publication authority; no self-authorization; certify disabled"
+    },
+    {
+      "id": "P4-04",
+      "requirement": "Preserve every known newer pair/participant floor and authenticated bridge"
+    },
+    {
+      "id": "P4-05",
+      "requirement": "Separate state derivation and identity observation assurance; preserve origin on restore/suffix"
+    },
+    {
+      "id": "P4-06",
+      "requirement": "Early-use/deferred-audit and full-replay policies, complete/deferred prior identity coverage"
+    },
+    {
+      "id": "P4-07",
+      "requirement": "Selective historical outcomes; null partial export; missing old outcome never pending"
+    },
+    {
+      "id": "P4-08",
+      "requirement": "Fixed-target fresh-genesis independent audit, exact target promotion, progress and recovery"
+    },
+    {
+      "id": "P4-09",
+      "requirement": "Lying state/authority/index and other promised projection detection"
+    },
+    {
+      "id": "P4-10",
+      "requirement": "Substitution, missing blocks, absence/invalidity/resource precedence"
+    },
+    {
+      "id": "P4-11",
+      "requirement": "Post-action audit mismatch preserves evidence, floors and original recorded work"
+    },
+    {
+      "id": "P4-12",
+      "requirement": "Full actual host/browser/native PDS/offline/crash/CAS/pin/cancel/quota gates"
+    },
+    {
+      "id": "P4-13",
+      "requirement": "Code/tests/results/raw evidence/recommendation/limits/unrun cases; independent exact-head review/gitseq merge/push"
+    },
+    {
+      "id": "P4-14",
+      "requirement": "D0/P1/I2/R1/P3 dependencies; performance space without latency target or spike compatibility"
+    }
+  ],
+  "origin": [
+    {
+      "kind": "genesis-replay"
+    },
+    {
+      "kind": "native-publication",
+      "fields": [
+        "kind",
+        "assertion",
+        "publicationRoot",
+        "head",
+        "frontier",
+        "priorIndexes"
+      ],
+      "priorIndexes": [
+        "complete",
+        "deferred"
+      ]
+    }
+  ],
+  "assertionFields": [
+    "format",
+    "version",
+    "app",
+    "genesis",
+    "head",
+    "frontier",
+    "definition",
+    "state",
+    "authority",
+    "outcomes",
+    "history",
+    "sources",
+    "evidence",
+    "stall",
+    "producer"
+  ],
+  "envelopeFields": [
+    "format",
+    "version",
+    "app",
+    "genesis",
+    "assertion",
+    "publication",
+    "blocks",
+    "licenses",
+    "replay"
+  ],
+  "transportDecision": {
+    "proposed": "existing native content byteChunk/byteManifest records",
+    "literalAtprotoBlobUploadImplemented": false,
+    "originalWording": "ordinary native records plus content-addressed blobs",
+    "reviewRequired": true,
+    "unresolvedIfLiteralBlobRequired": true
+  },
+  "dependencies": [
+    {
+      "name": "P2-D4",
+      "head": "682fe24d72cfa88f5d92ac386cc0be657b1e6181",
+      "state": "frozen source-only, independent review pending"
+    },
+    {
+      "name": "P3-D4",
+      "head": "5dd41404aea39af906093e08611d7f4f7128f8af",
+      "state": "frozen coordinated source-only, independent review pending"
+    },
+    {
+      "name": "R1-F1",
+      "head": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+      "state": "frozen runtime candidate, independent review pending at inspection"
+    }
+  ],
+  "runtimeGates": [
+    "Node 22",
+    "Node 24",
+    "Node 26",
+    "actual Chromium",
+    "actual native reference PDS",
+    "credential-free offline fresh-genesis audit",
+    "actual SQLite",
+    "actual IndexedDB"
+  ],
+  "limits": {
+    "payloadBytes": 33554432,
+    "chunkBytes": 32768,
+    "chunks": 1024,
+    "pageBytes": 131072,
+    "pageDepth": 32,
+    "nativeBlockBytes": 65536,
+    "archiveBytes": 50331648,
+    "rawStoreBytes": 50331648,
+    "rawStorePhysicalRows": 100000,
+    "genericChanges": 1000,
+    "proposedNativeColdChanges": 100000,
+    "generations": 4,
+    "pins": 16
+  },
+  "performanceTargets": null,
+  "spikeCompatibilityRequired": false
+}

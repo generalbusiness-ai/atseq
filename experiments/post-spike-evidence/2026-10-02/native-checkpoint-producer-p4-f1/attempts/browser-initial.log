@@ -1,0 +1,15 @@
+✖ Chromium runs pure checkpoint producer, exact independent bytes and bounds (2.085ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 912.64
+
+✖ failing tests:
+
+test at tests/native-checkpoint-producer-browser.test.ts:1:413
+✖ Chromium runs pure checkpoint producer, exact independent bytes and bounds (2.085ms)
+  [Error: ENOENT: no such file or directory, open '/private/tmp/atseq-native-checkpoint-producer-p4-f1-20261002/tests/vectors/native-checkpoint-producer.json.gz'] { errno: -2, code: 'ENOENT', syscall: 'open', path: '/private/tmp/atseq-native-checkpoint-producer-p4-f1-20261002/tests/vectors/native-checkpoint-producer.json.gz' }

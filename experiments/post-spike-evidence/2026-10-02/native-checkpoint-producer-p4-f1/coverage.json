@@ -1,0 +1,47 @@
+{
+  "fullP3Completed": false,
+  "fullP4Completed": false,
+  "retainedOriginalVectors": 106,
+  "originalSourceLabelsUnchanged": true,
+  "primary": [
+    {
+      "key": "P4/P4D4-01",
+      "childResult": "PASS exact DATA bytes source/emitted/Chromium",
+      "remaining": "Actual private owned generation capture remains P4-F4; this supplied DATA input does not execute the full original vector."
+    },
+    {
+      "key": "P4/P4D4-02",
+      "childResult": "PASS actual empty/exact32KiB/+1/1024vs1025/exactgreedy128KiB/+1/depth cases"
+    },
+    {
+      "key": "P4/P4D4-03",
+      "childResult": "ADOPTED native content-record choice retained",
+      "remaining": "No literal uploadBlob variant was required or implemented; conditional future reviewed variant remains open if demanded."
+    },
+    {
+      "key": "P4/P4D4-18",
+      "childResult": "PASS actual malformed complete/selective outcome DATA, omitted-outcome frontier/history binding and unchanged103 outcome cases",
+      "remaining": "No generation acceptance or false-state execution claim."
+    }
+  ],
+  "otherOriginalVectors": "UNEXECUTED in this producer task; original full objects remain verbatim",
+  "actualPlatforms": [
+    "Node22source",
+    "Node22emitted",
+    "Node24source",
+    "Node24emitted",
+    "Node26source",
+    "Node26emitted",
+    "actualChromium"
+  ],
+  "notExecuted": [
+    "SQLite",
+    "IndexedDB",
+    "nativePDS",
+    "freshGenesisAudit",
+    "publication",
+    "trustedRestore",
+    "installedBrowserTrust",
+    "10kActions"
+  ]
+}

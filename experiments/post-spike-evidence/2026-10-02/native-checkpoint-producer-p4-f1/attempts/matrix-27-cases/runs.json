@@ -1,0 +1,152 @@
+[
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer.test.ts",
+      "tests/checkpoint-data.test.ts",
+      "tests/native-outcome.test.ts"
+    ],
+    "started": "2026-10-02T16:43:19.978432+00:00",
+    "seconds": 6.219013958994765,
+    "exit": 0,
+    "log": "node22-source.log",
+    "mode": "source",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "sha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "version": "v22.19.0"
+    },
+    "inputsSha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430",
+    "buildSha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25"
+  },
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "tests/support/native-checkpoint-producer-emitted.mjs"
+    ],
+    "started": "2026-10-02T16:43:26.198152+00:00",
+    "seconds": 4.211371165991295,
+    "exit": 0,
+    "log": "node22-emitted.log",
+    "mode": "emitted",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "sha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "version": "v22.19.0"
+    },
+    "inputsSha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430",
+    "buildSha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25"
+  },
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer.test.ts",
+      "tests/checkpoint-data.test.ts",
+      "tests/native-outcome.test.ts"
+    ],
+    "started": "2026-10-02T16:43:30.483815+00:00",
+    "seconds": 5.572744167002384,
+    "exit": 0,
+    "log": "node24-source.log",
+    "mode": "source",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "sha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "version": "v24.21.0"
+    },
+    "inputsSha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430",
+    "buildSha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25"
+  },
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "tests/support/native-checkpoint-producer-emitted.mjs"
+    ],
+    "started": "2026-10-02T16:43:36.057080+00:00",
+    "seconds": 3.4733677500043996,
+    "exit": 0,
+    "log": "node24-emitted.log",
+    "mode": "emitted",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "sha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "version": "v24.21.0"
+    },
+    "inputsSha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430",
+    "buildSha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25"
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer.test.ts",
+      "tests/checkpoint-data.test.ts",
+      "tests/native-outcome.test.ts"
+    ],
+    "started": "2026-10-02T16:43:39.604164+00:00",
+    "seconds": 5.760977333993651,
+    "exit": 0,
+    "log": "node26-source.log",
+    "mode": "source",
+    "runtime": {
+      "binary": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "sha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "version": "v26.10.0"
+    },
+    "inputsSha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430",
+    "buildSha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25"
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "tests/support/native-checkpoint-producer-emitted.mjs"
+    ],
+    "started": "2026-10-02T16:43:45.365679+00:00",
+    "seconds": 3.4987222079653293,
+    "exit": 0,
+    "log": "node26-emitted.log",
+    "mode": "emitted",
+    "runtime": {
+      "binary": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "sha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "version": "v26.10.0"
+    },
+    "inputsSha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430",
+    "buildSha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25"
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer-browser.test.ts",
+      "tests/checkpoint-data-browser.test.ts",
+      "tests/native-outcome-browser.test.ts"
+    ],
+    "started": "2026-10-02T16:43:48.873731+00:00",
+    "seconds": 11.202955250046216,
+    "exit": 0,
+    "log": "chromium.log",
+    "mode": "actual-chromium",
+    "runtime": {
+      "binary": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "sha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06"
+    },
+    "inputsSha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430"
+  }
+]

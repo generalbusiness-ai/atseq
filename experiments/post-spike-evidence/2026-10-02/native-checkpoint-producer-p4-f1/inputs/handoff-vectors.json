@@ -1,0 +1,1276 @@
+{
+  "status": "UNEXECUTED; copied acceptance specifications, not results",
+  "vectors": [
+    {
+      "key": "P3/M1",
+      "program": "P3",
+      "original": {
+        "id": "M1",
+        "group": "manifest",
+        "status": "UNEXECUTED",
+        "setup": "Valid generation under external pin, full row counts and exact component payloads.",
+        "expected": "One complete fixed-generation restore; closed schema/storage successor/support/payload checks; private owners minted together only after all checks."
+      }
+    },
+    {
+      "key": "P3/M2",
+      "program": "P3",
+      "original": {
+        "id": "M2",
+        "group": "manifest",
+        "status": "UNEXECUTED",
+        "setup": "Unknown/missing metadata or row-group fields; unsafe IDs; metadata above 128 KiB.",
+        "expected": "Refuse before promotion; no caller interpretation of extra fields or cursor-as-authority."
+      }
+    },
+    {
+      "key": "P3/M3",
+      "program": "P3",
+      "original": {
+        "id": "M3",
+        "group": "manifest",
+        "status": "UNEXECUTED",
+        "setup": "Wrong app/genesis; swapped state/source/authority/frontier/policy/execution components.",
+        "expected": "Reject transplant; preserve usable raw evidence/floors; no remote-history-invalid claim from local corruption."
+      }
+    },
+    {
+      "key": "P3/M4",
+      "program": "P3",
+      "original": {
+        "id": "M4",
+        "group": "manifest",
+        "status": "UNEXECUTED",
+        "setup": "Complete cold inventory has 100001 changes; 100000 separately exceeds bytes or physical rows.",
+        "expected": "Count before copying; fixed cap and unchanged quotas refuse atomically; no per-app increase, hidden metadata or incomplete ordinary-generation split."
+      }
+    },
+    {
+      "key": "P3/M5",
+      "program": "P3",
+      "original": {
+        "id": "M5",
+        "group": "manifest",
+        "status": "UNEXECUTED",
+        "setup": "Previous/pinned physical versions, surplus replaced payload slots, quota/eviction.",
+        "expected": "Correct MVCC visibility/retirement/charged bytes; preserve references and known floors, or explicit local unavailability; capacity not inferred from visible-row counts."
+      }
+    },
+    {
+      "key": "P3/M6",
+      "program": "P3",
+      "original": {
+        "id": "M6",
+        "group": "manifest",
+        "status": "UNEXECUTED",
+        "setup": "Warm delta 0/1/100 and selective requested outcome at N100/1000/10000.",
+        "expected": "No whole history/index/outcome export in routine write/query; actual component/proof/authority work counted; full cold scan remains O(N)."
+      }
+    },
+    {
+      "key": "P3/I1",
+      "program": "P3",
+      "original": {
+        "id": "I1",
+        "group": "installation",
+        "status": "UNEXECUTED",
+        "setup": "Same accepted node-source execution; actual source, dependencies and resolution match, exact Node version.",
+        "expected": "Forced current checks and accepted inventories produce exact adopted provenance; copied JSON alone cannot accept."
+      }
+    },
+    {
+      "key": "P3/I2",
+      "program": "P3",
+      "original": {
+        "id": "I2",
+        "group": "installation",
+        "status": "UNEXECUTED",
+        "setup": "Node distribution output/build input changed while copied build-provenance remains unchanged.",
+        "expected": "Actual bytes mismatch rejects restore reuse; output/source/dependency provenance stays separate from semantic identity."
+      }
+    },
+    {
+      "key": "P3/I3",
+      "program": "P3",
+      "original": {
+        "id": "I3",
+        "group": "installation",
+        "status": "UNEXECUTED",
+        "setup": "Dependency or resolution mutation after cached verifier success; unexpected source scope/alias.",
+        "expected": "Fresh restore/forced recheck discovers actual mismatch; no stale flag or package-version shortcut."
+      }
+    },
+    {
+      "key": "P3/I4",
+      "program": "P3",
+      "original": {
+        "id": "I4",
+        "group": "installation",
+        "status": "UNEXECUTED",
+        "setup": "App/store supplies inventory CID, approval string/callback or arbitrary equivalence JSON.",
+        "expected": "Cannot replace captured operator/release configuration or independently accept its own provenance; no public permission token."
+      }
+    },
+    {
+      "key": "P3/I5",
+      "program": "P3",
+      "original": {
+        "id": "I5",
+        "group": "installation",
+        "status": "UNEXECUTED",
+        "setup": "Trusted browser bootstrap has exact accepted closed bundle bytes and inventories.",
+        "expected": "Digest same captured bytes that loader executes; private retained identity reaches factory; browser runtime null, actual Chromium version only evidence."
+      }
+    },
+    {
+      "key": "P3/I6",
+      "program": "P3",
+      "original": {
+        "id": "I6",
+        "group": "installation",
+        "status": "UNEXECUTED",
+        "setup": "Browser hashes one fetch but executes mutable URL; forged loader identity, split/unclosed assets or CSP prevents byte-bound load.",
+        "expected": "No supported restore acceptance/fallback; genuine loader tests required; no-op filesystem function or user-agent cannot prove executed bundle."
+      }
+    },
+    {
+      "key": "P3/I7",
+      "program": "P3",
+      "original": {
+        "id": "I7",
+        "group": "installation",
+        "status": "UNEXECUTED",
+        "setup": "Corrected running installation, compromised verifier/origin/platform, entire store rolled back or origin evicted.",
+        "expected": "Restart/recheck or external evidence/fresh trust required; state trust assumptions and self-check limits explicit, never claimed cryptographic protection."
+      }
+    },
+    {
+      "key": "P3/E1",
+      "program": "P3",
+      "original": {
+        "id": "E1",
+        "group": "equivalence",
+        "status": "UNEXECUTED",
+        "setup": "Old/to provenance identical, null equivalence, unchanged supported descriptors/policy.",
+        "expected": "Allow labelled trusted historical reuse only after actual target checks and complete local verification."
+      }
+    },
+    {
+      "key": "P3/E2",
+      "program": "P3",
+      "original": {
+        "id": "E2",
+        "group": "equivalence",
+        "status": "UNEXECUTED",
+        "setup": "Exact independently accepted old-to-new full version1 pair with both inventories/evidence; target actual bytes verified.",
+        "expected": "Permit reuse under adopted mapping; equivalence acceptance belongs to installation owner, not descriptive review string."
+      }
+    },
+    {
+      "key": "P3/E3",
+      "program": "P3",
+      "original": {
+        "id": "E3",
+        "group": "equivalence",
+        "status": "UNEXECUTED",
+        "setup": "Missing, reversed, transitive, wildcard or partial equivalence; same semantics but changed build/dependencies/Node runtime.",
+        "expected": "No reuse shortcut; preserve floors/raw inputs and reverify/replay; no specific pair approved by this design."
+      }
+    },
+    {
+      "key": "P3/R1",
+      "program": "P3",
+      "original": {
+        "id": "R1",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Genuine complete retained history including first alternative valid signature and request/tuple/descriptor maps.",
+        "expected": "Derive canonical CIDs/tuples/pointers, compare every map exactly through verified head, no old actor crypto/folds; new independent submission still verifies own signature."
+      }
+    },
+    {
+      "key": "P3/R2",
+      "program": "P3",
+      "original": {
+        "id": "R2",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Missing/extra/conflicting request or tuple row, duplicate descriptor, chain gap/fork/head mismatch or wrong original receipt root.",
+        "expected": "No restored capability; counts alone cannot establish completeness; preserve encountered contradiction/floors."
+      }
+    },
+    {
+      "key": "P3/R3",
+      "program": "P3",
+      "original": {
+        "id": "R3",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Compact R1 authority through existing compact:true DATA validation; roles/tips/grants/epochs refer to retained prefix/evidence.",
+        "expected": "One compact authority plus sole prefix; no compact:false legacy parser, old arrays, or checkCheckpointAuthorityHistory expansion."
+      }
+    },
+    {
+      "key": "P3/R4",
+      "program": "P3",
+      "original": {
+        "id": "R4",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Active genesis/effective activation source and exact closure; invalid source/state, unavailable closure or transplanted execution facts.",
+        "expected": "Existing source owner admits checked bytes and validates state; source admission probes counted; no deserialized source capability or historical fold replay shortcut claim."
+      }
+    },
+    {
+      "key": "P3/R5",
+      "program": "P3",
+      "original": {
+        "id": "R5",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Retained historical I1 method bytes and selected app repository CAR/proof root.",
+        "expected": "Derive original binding/assurance under appointed policy, authenticate real repository and required membership via existing implementation; does not establish current key/PDS/append readiness."
+      }
+    },
+    {
+      "key": "P3/R6",
+      "program": "P3",
+      "original": {
+        "id": "R6",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Forged/cloned private restore handoff, prefix, authority, source or AuthenticatedRepo.",
+        "expected": "Reject direct construction; ordinary JSON/generic callback cannot mint existing private owners; no first-genesis persistence over existing unchecked store."
+      }
+    },
+    {
+      "key": "P3/R7",
+      "program": "P3",
+      "original": {
+        "id": "R7",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Verified head ahead of frontier with source/participant stall, later identities and contradiction; exact missing bytes later return.",
+        "expected": "Retain all consumed identities and floor, restore same next entry, resume byte-equivalent replay; contradiction blocks promotion and is not missing-data denial."
+      }
+    },
+    {
+      "key": "P3/R8",
+      "program": "P3",
+      "original": {
+        "id": "R8",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Selective older outcomes absent versus promised complete coverage missing; genuine tail after frontier.",
+        "expected": "Absent old outcome unavailable/corrupt promised coverage, never permanently pending; same-generation exact requested lookup; only tail positions pending."
+      }
+    },
+    {
+      "key": "P3/R9",
+      "program": "P3",
+      "original": {
+        "id": "R9",
+        "group": "restore",
+        "status": "UNEXECUTED",
+        "setup": "Fresh restore under same provenance versus genuine full genesis replay, offline, Node22/24/26/compiled/Chromium.",
+        "expected": "Canonical state/source/authority/frontier/index/available-outcome and original receipt bytes agree; no fictitious compiled fault bundle or approved cross-runtime pair."
+      }
+    },
+    {
+      "key": "P3/D1",
+      "program": "P3",
+      "original": {
+        "id": "D1",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Actual pending-only commit changes raw cursor but leaves semantic basis unchanged; competing local writer advances generation.",
+        "expected": "Recognize only own exact cursor transition; unrelated change refuses dispatch/forces restore; one IO, no sidecar pending/floor owner."
+      }
+    },
+    {
+      "key": "P3/D2",
+      "program": "P3",
+      "original": {
+        "id": "D2",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Actual SQLite/Chrome crash before and after semantic/prefix/floor/pending transaction completion.",
+        "expected": "Reopen old or new complete generation; no accepted partial components; actual process/renderer interruption, not fake callback."
+      }
+    },
+    {
+      "key": "P3/D3",
+      "program": "P3",
+      "original": {
+        "id": "D3",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Each of three publisher rounds changes body/root/outer entry; original actor consent remains fixed.",
+        "expected": "Same real expected-generation transaction commits exact body/condition/original/phase before EVERY logical dispatch; full byte preflight/recapture, no entry/head split or new nonce."
+      }
+    },
+    {
+      "key": "P3/D4",
+      "program": "P3",
+      "original": {
+        "id": "D4",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Crash commit-complete before dispatch in each round, both real stores.",
+        "expected": "Restart authenticates pending exact CID or exact genesis/source batch before ANY queued dispatch; no blind resend; proven absence requires fresh current preflight/new durable attempt."
+      }
+    },
+    {
+      "key": "P3/D5",
+      "program": "P3",
+      "original": {
+        "id": "D5",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Crash dispatch-before-reply; remote successful commit/lost reply or definite CAS loss, each round.",
+        "expected": "Authenticate membership/coverage under genuine root; immutable first receipt/signature when recorded; unknown proof/floor blocks new dispatch."
+      }
+    },
+    {
+      "key": "P3/D6",
+      "program": "P3",
+      "original": {
+        "id": "D6",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "A1 maintained DPoP/401 HTTP retry within one invocation; mutated input/body or missing auth restoration.",
+        "expected": "Exact same durable body/condition, current genuine A1 checks and per-call limits; no new publisher round/credential bytes in P3 store; auth unavailable withholds append."
+      }
+    },
+    {
+      "key": "P3/D7",
+      "program": "P3",
+      "original": {
+        "id": "D7",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Raw COMMIT error after possible success, abort/current read failure, or durable success plus stale owner/floor.",
+        "expected": "Inspect actual current metadata and exact delta; ambiguous/different generation poisons continuation; normal checked restore before reuse; no error-code-as-abort assertion."
+      }
+    },
+    {
+      "key": "P3/D8",
+      "program": "P3",
+      "original": {
+        "id": "D8",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Two local writers, two remote ordering writers, unrelated account commit app delta0, or concurrent I1 key/PDS/epoch change.",
+        "expected": "Local cursor CAS + native swapCommit remain separate; genuine reconciliation/current preflight, original signed bytes retained, no stale mixed basis or automatic consent upgrade."
+      }
+    },
+    {
+      "key": "P3/D9",
+      "program": "P3",
+      "original": {
+        "id": "D9",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Sparse confirmed receipt floor above local prefix, concurrent higher floor, then local failure or lower selected root.",
+        "expected": "Same IO persists floor without coverage promotion; preserve higher known witness; bridge gap before append/ack; unsuccessful floor write not claimed durable."
+      }
+    },
+    {
+      "key": "P3/D10",
+      "program": "P3",
+      "original": {
+        "id": "D10",
+        "group": "durability",
+        "status": "UNEXECUTED",
+        "setup": "Genesis zero-head pair and source-staging batches with exact owned manifest.",
+        "expected": "Persist exact pending capture and authenticate exact path/CID readback; staging appoints no active definition, no actor tuple invented, raw blob primitive not native source."
+      }
+    },
+    {
+      "key": "P3/F1",
+      "program": "P3",
+      "original": {
+        "id": "F1",
+        "group": "full-scope",
+        "status": "UNEXECUTED",
+        "setup": "Host/browser startup, shared service/client/CLI/library routes and restored state used by joined publisher.",
+        "expected": "Actual integration evidence, supported installation provenance/disclosure and independent exact-head review before full P3/native capability closure."
+      }
+    },
+    {
+      "key": "P3/F2",
+      "program": "P3",
+      "original": {
+        "id": "F2",
+        "group": "full-scope",
+        "status": "UNEXECUTED",
+        "setup": "Genuine fixed-policy cold100/1000/10000 and E1 delta0/1/100 with few/many grants.",
+        "expected": "Actual changes/rows/versions/pins/bytes/time/heap/proof/source/restore work; fit or exact refusal, no latency target/capacity or constant bootstrap claim."
+      }
+    },
+    {
+      "key": "P3/E4",
+      "program": "P3",
+      "original": {
+        "id": "E4",
+        "group": "equivalence",
+        "status": "UNEXECUTED",
+        "setup": "Stored generation records A\u2192B, actual target C has independently accepted direct B\u2192C, or only a copied/composed A\u2192C assertion exists.",
+        "expected": "Current restore checks exactly stored execution B\u2192actual C and accepted target bytes; changed-target same-cursor provenance-only commit before facade exposure; stored mapping does not appoint C or infer transitive approval; conflict/uncertainty withholds facade."
+      }
+    },
+    {
+      "key": "P3/E5",
+      "program": "P3",
+      "original": {
+        "id": "E5",
+        "group": "equivalence",
+        "status": "UNEXECUTED",
+        "setup": "Imported native-publication generation under accepted installation/equivalence, suffix advancement, deferred-to-complete prior rows, or audit matching an older target.",
+        "expected": "Persist immutable asserted target/origin separately from installation and original method assurance; only actual loaded coverage may change priorIndexes, never history truth. P4 private asserted route only. Fresh-genesis audit promotes through same cursor only if exact current state/source/authority/head/frontier still match target and all higher floors preserved; otherwise retain evidence, no newer-state upgrade."
+      }
+    },
+    {
+      "key": "P4/P4D4-01",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-01",
+        "obligations": [
+          "P4-01"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "same captured generation produces identical canonical records/pages in source/emitted Node and actual Chrome",
+        "expected": "exact chunk/manifest/page bytes and counters agree"
+      }
+    },
+    {
+      "key": "P4/P4D4-02",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-02",
+        "obligations": [
+          "P4-01"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "payload empty, exact chunk boundary, last byte, 1024/1025 chunks and greedy page boundary",
+        "expected": "adopted byte/page limits enforced without new transport union"
+      }
+    },
+    {
+      "key": "P4/P4D4-03",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-03",
+        "obligations": [
+          "P4-01"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "review insists on literal uploadBlob rather than native byteChunk records",
+        "expected": "retain original obligation open; review variant before code or completion"
+      }
+    },
+    {
+      "key": "P4/P4D4-04",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-04",
+        "obligations": [
+          "P4-02"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "producer head greater than frontier; stalled and unattempted tail",
+        "expected": "head/frontier/state/source/authority/tail coherent; diagnostic no replicated denial"
+      }
+    },
+    {
+      "key": "P4/P4D4-05",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-05",
+        "obligations": [
+          "P4-02"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "producer advances mid-export; state/authority/source/outcomes from mismatched generations",
+        "expected": "single pinned capture prevents torn assertion; no latest relabel"
+      }
+    },
+    {
+      "key": "P4/P4D4-06",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-06",
+        "obligations": [
+          "P4-03"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "checkpoint grants itself certify, supplies forged binding or key callback",
+        "expected": "no accepted publication; external I1/P1 policy required"
+      }
+    },
+    {
+      "key": "P4/P4D4-07",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-07",
+        "obligations": [
+          "P4-03"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "PLC tip changes with same key/PDS or web method disallowed by genesis",
+        "expected": "current capture rejected/retried under existing appointed observation policy"
+      }
+    },
+    {
+      "key": "P4/P4D4-08",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-08",
+        "obligations": [
+          "P4-04"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "checkpoint behind floor/equal height different CID/ahead without exact bridge; asserted interpreted frontier behind live checked frontier or differing same-frontier state",
+        "expected": "reject or unavailable as appropriate; preserve higher floor; no downgrade of checked live components"
+      }
+    },
+    {
+      "key": "P4/P4D4-09",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-09",
+        "obligations": [
+          "P4-04"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "one account two app pins, rollback recovery/new genesis/cache eviction",
+        "expected": "every known lineage floor retained; new G is no replacement"
+      }
+    },
+    {
+      "key": "P4/P4D4-10",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-10",
+        "obligations": [
+          "P4-04"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "participant observation floor newer than target and audit recovers older materialization",
+        "expected": "higher participant/app floors survive recovery"
+      }
+    },
+    {
+      "key": "P4/P4D4-11",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-11",
+        "obligations": [
+          "P4-05"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "asserted generation restart/suffix/provenance-only or directed-equivalence restore",
+        "expected": "native-publication origin fixed; no replayed prefix/authority brand"
+      }
+    },
+    {
+      "key": "P4/P4D4-12",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-12",
+        "obligations": [
+          "P4-05"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "offline web document audit matches derivation",
+        "expected": "identity stays web-observation assurance; no historical currentness or webvh enablement"
+      }
+    },
+    {
+      "key": "P4/P4D4-13",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-13",
+        "obligations": [
+          "P4-06"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "complete asserted history with sparse prior uniqueness collision",
+        "expected": "derive exact indices and reject cross-page duplicate; truth still asserted until audit"
+      }
+    },
+    {
+      "key": "P4/P4D4-14",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-14",
+        "obligations": [
+          "P4-06"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "deferred unknown signer/nonce/request/descriptor with valid suffix",
+        "expected": "stall before unknown absence-dependent advancement; load complete prior coverage"
+      }
+    },
+    {
+      "key": "P4/P4D4-15",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-15",
+        "obligations": [
+          "P4-06"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "deferred retained known-present identity plus new suffix collision",
+        "expected": "existing identity machinery detects duplicate, not cache miss absence"
+      }
+    },
+    {
+      "key": "P4/P4D4-16",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-16",
+        "obligations": [
+          "P4-06"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "fresh independently pinned genesis replay policy",
+        "expected": "ignore assertion seed; derive actual original ordering and state"
+      }
+    },
+    {
+      "key": "P4/P4D4-17",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-17",
+        "obligations": [
+          "P4-07"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "null historical outcomes then retained suffix outcome at actual position",
+        "expected": "old result unavailable not pending; suffix selectable; partial export null"
+      }
+    },
+    {
+      "key": "P4/P4D4-18",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-18",
+        "obligations": [
+          "P4-07"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "non-null table gap/wrong history entry/malformed authored or framework reason",
+        "expected": "invalid checkpoint DATA; no false dense completeness"
+      }
+    },
+    {
+      "key": "P4/P4D4-19",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-19",
+        "obligations": [
+          "P4-08"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "fixed target while live state advances during audit",
+        "expected": "match only target; newer state not promoted"
+      }
+    },
+    {
+      "key": "P4/P4D4-20",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-20",
+        "obligations": [
+          "P4-08"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "match current exact target under unchanged installation and all preserved floors",
+        "expected": "one checked coordinator/CAS promotion with independently established state"
+      }
+    },
+    {
+      "key": "P4/P4D4-21",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-21",
+        "obligations": [
+          "P4-08"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "audit checks head beyond frontier",
+        "expected": "verify ordering/signatures/identities through head; fold only frontier"
+      }
+    },
+    {
+      "key": "P4/P4D4-22",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-22",
+        "obligations": [
+          "P4-08"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "audit missing historical activation/participant proof after progress persisted",
+        "expected": "stalled target resumes from retained checked progress under same cursor; no assertion seed"
+      }
+    },
+    {
+      "key": "P4/P4D4-23",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-23",
+        "obligations": [
+          "P4-09"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "publisher lies about schema-valid state but authentic native membership",
+        "expected": "early asserted read permitted by configured policy; genesis audit mismatches state"
+      }
+    },
+    {
+      "key": "P4/P4D4-24",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-24",
+        "obligations": [
+          "P4-09"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "publisher lies about valid-looking grant/epoch/revocation/role/control authority",
+        "expected": "audit derives original transitions and mismatches compact authority"
+      }
+    },
+    {
+      "key": "P4/P4D4-25",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-25",
+        "obligations": [
+          "P4-09"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "publisher invents, omits or swaps internally coherent historical identity facts",
+        "expected": "original records and genesis audit detect assertion lie; no full-prefix brand"
+      }
+    },
+    {
+      "key": "P4/P4D4-26",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-26",
+        "obligations": [
+          "P4-09"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "source includes reordered/unused files or missing historical activation closure",
+        "expected": "exact source comparison or unavailable evidence, no silent normalization"
+      }
+    },
+    {
+      "key": "P4/P4D4-27",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-27",
+        "obligations": [
+          "P4-09"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "authentic non-null outcomes differ only producer source/reason/message",
+        "expected": "audit compares all promised exact outcome fields"
+      }
+    },
+    {
+      "key": "P4/P4D4-28",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-28",
+        "obligations": [
+          "P4-10"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "cross-app/G/frontier/table or same block relabeled under another root",
+        "expected": "scope/context checks reject substitution; keep original root receipts"
+      }
+    },
+    {
+      "key": "P4/P4D4-29",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-29",
+        "obligations": [
+          "P4-10"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "required native record proved absent vs archived block missing",
+        "expected": "invalid required absence distinct from unavailable bytes"
+      }
+    },
+    {
+      "key": "P4/P4D4-30",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-30",
+        "obligations": [
+          "P4-10"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "known malformed/signature/duplicate fault plus later missing/limit",
+        "expected": "observed fault precedence; no hidden downgrade"
+      }
+    },
+    {
+      "key": "P4/P4D4-31",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-31",
+        "obligations": [
+          "P4-10"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "foreign runtime exception and cloned authority/capture/trust bool",
+        "expected": "retain fault identity; counterfeit admission refused"
+      }
+    },
+    {
+      "key": "P4/P4D4-32",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-32",
+        "obligations": [
+          "P4-11"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "remote action dispatched while assertion accepted, then audit mismatch",
+        "expected": "stop dependent actions/promotions; retain original work/evidence/floors; no undo or re-sign"
+      }
+    },
+    {
+      "key": "P4/P4D4-33",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-33",
+        "obligations": [
+          "P4-11"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "mismatch recovery target behind a higher known floor and evidence absent",
+        "expected": "stay unavailable until independently verified recovery reaches preserved floors"
+      }
+    },
+    {
+      "key": "P4/P4D4-34",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-34",
+        "obligations": [
+          "P4-12"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "export cancellation, worker replaced/app switched, required cache block evicted",
+        "expected": "no stale promotion; release pins after bounded work stops; exact missing reference"
+      }
+    },
+    {
+      "key": "P4/P4D4-35",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-35",
+        "obligations": [
+          "P4-12"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "SQLite/IDB crash before/at/after commit and stale owner after durable success",
+        "expected": "one real transaction; uncertain continuation poisoned and checked restore required"
+      }
+    },
+    {
+      "key": "P4/P4D4-36",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-36",
+        "obligations": [
+          "P4-12"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "pinned previous/current versions exceed quota or 10k cold changes exceed bound",
+        "expected": "actual row/byte counts and refusal; no split incomplete authority generation"
+      }
+    },
+    {
+      "key": "P4/P4D4-37",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-37",
+        "obligations": [
+          "P4-12"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "real PDS staging CAS conflict/lost reply/key change/account advances",
+        "expected": "bounded authentic reconciliation; prove assertion/boundary membership and current binding"
+      }
+    },
+    {
+      "key": "P4/P4D4-38",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-38",
+        "obligations": [
+          "P4-12"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "offline native envelope with service stopped/no credentials/no resolver",
+        "expected": "same admission and fresh genesis audit; installed shell usable and pins external"
+      }
+    },
+    {
+      "key": "P4/P4D4-39",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-39",
+        "obligations": [
+          "P4-12"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "duplicate envelope CID/noncanonical CBOR/extra fields/forged publication/missing archive closure",
+        "expected": "closed bounded import rejects invalid or reports unavailable; no trust registration"
+      }
+    },
+    {
+      "key": "P4/P4D4-40",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-40",
+        "obligations": [
+          "P4-12"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "P1 selected-path extraction offline replay excludes a needed MST/record block",
+        "expected": "export unavailable; sparse online lookup cannot masquerade as standalone proof"
+      }
+    },
+    {
+      "key": "P4/P4D4-41",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-41",
+        "obligations": [
+          "P4-13"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "shared transition extraction then new imported/simulation/host caller",
+        "expected": "freeze R1 oracle; 58 portable/24 callsite faults/compiled Node+Chrome first"
+      }
+    },
+    {
+      "key": "P4/P4D4-42",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-42",
+        "obligations": [
+          "P4-13"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "source checker passes but runtime suites have not run",
+        "expected": "report SOURCE_ONLY and every runtime vector UNEXECUTED; full P4 open"
+      }
+    },
+    {
+      "key": "P4/P4D4-43",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-43",
+        "obligations": [
+          "P4-14"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "N100/1000/10000 deltas0/1/100 bounded/growing state authority sources cadence and multiple apps",
+        "expected": "actual cost/fit/options/refusal reported without latency target or arbitrary quota increase"
+      }
+    },
+    {
+      "key": "P4/P4D4-44",
+      "program": "P4",
+      "original": {
+        "id": "P4D4-44",
+        "obligations": [
+          "P4-14"
+        ],
+        "execution": "UNEXECUTED",
+        "input": "whole-store rollback/origin eviction/XSS or privileged platform rewrite",
+        "expected": "state limits honestly; external retained knowledge/fresh trust choice, no hash-based assurance"
+      }
+    },
+    {
+      "key": "J1/J1-01",
+      "program": "J1",
+      "original": {
+        "id": "J1-01",
+        "group": "reuse/replay",
+        "input": "changed source/dependency/runtime with no exact directed pair",
+        "expected": "full replay preserves floors; no same-semantics shortcut",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-02",
+      "program": "J1",
+      "original": {
+        "id": "J1-02",
+        "group": "crypto",
+        "input": "existing entry verifier restored 100/1k/10k Chrome/Node",
+        "expected": "measure crypto independently; structural-only remains gated",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-03",
+      "program": "J1",
+      "original": {
+        "id": "J1-03",
+        "group": "proof",
+        "input": "older receipt proof not retained",
+        "expected": "publication-only receipt data retains original context; offline proof unavailable",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-04",
+      "program": "J1",
+      "original": {
+        "id": "J1-04",
+        "group": "floor",
+        "input": "64 exact unbridged witnesses; first65th before verification",
+        "expected": "refuse before new knowledge; no evictions or acknowledgment",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-05",
+      "program": "J1",
+      "original": {
+        "id": "J1-05",
+        "group": "floor",
+        "input": "higher known floor local commit abort/ambiguous/late stale success",
+        "expected": "in-memory floor retained; poison; checked restart cannot invent lost durable floor",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-06",
+      "program": "J1",
+      "original": {
+        "id": "J1-06",
+        "group": "floor",
+        "input": "genuine bridge exact entry vs same position changed entry",
+        "expected": "compact only exact checked same lineage; changed entry invalid",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-07",
+      "program": "J1",
+      "original": {
+        "id": "J1-07",
+        "group": "archive",
+        "input": "CAR roots0/2, duplicate/out-of-order/extra/missing blocks",
+        "expected": "closed one-root deterministic inventory rejects",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-08",
+      "program": "J1",
+      "original": {
+        "id": "J1-08",
+        "group": "archive",
+        "input": "CAR header root block1MiB vs native record64KiB vs portable proof16MiB vs archive48MiB",
+        "expected": "separate pre-copy refusals; no cap increase",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-09",
+      "program": "J1",
+      "original": {
+        "id": "J1-09",
+        "group": "archive",
+        "input": "PLC before/after large raw method bytes",
+        "expected": "existing NativeMethodEvidence references chunked raw bytes, header remains bounded",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-10",
+      "program": "J1",
+      "original": {
+        "id": "J1-10",
+        "group": "coverage",
+        "input": "complete signed chain imported asserted state",
+        "expected": "ordering verified/publication-only, derivation asserted, writer readiness withheld",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-11",
+      "program": "J1",
+      "original": {
+        "id": "J1-11",
+        "group": "coverage",
+        "input": "asserted origin passed nativePrefixHas",
+        "expected": "refuse genuine complete-prefix API; no branding",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-12",
+      "program": "J1",
+      "original": {
+        "id": "J1-12",
+        "group": "coverage",
+        "input": "asserted origin passed lookupNativeRetry",
+        "expected": "refuse complete-prefix API; origin-sensitive receipt branch separately checked",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-13",
+      "program": "J1",
+      "original": {
+        "id": "J1-13",
+        "group": "coverage",
+        "input": "asserted origin passed nativePrefixInventory",
+        "expected": "refuse complete-prefix API; coverage-labelled data available privately",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-14",
+      "program": "J1",
+      "original": {
+        "id": "J1-14",
+        "group": "coverage",
+        "input": "deferred option unknown identity and appended signed request",
+        "expected": "unavailable not absent; option remains unimplemented not removed",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-15",
+      "program": "J1",
+      "original": {
+        "id": "J1-15",
+        "group": "origin",
+        "input": "target audit matches then newer semantic generation advances",
+        "expected": "evidence only until newer suffix independently replayed/matched",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-16",
+      "program": "J1",
+      "original": {
+        "id": "J1-16",
+        "group": "transport",
+        "input": "full pages reused and changed final page/new manifests",
+        "expected": "prove present exactCID; count actual new writes/batches/diff bytes/points",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-17",
+      "program": "J1",
+      "original": {
+        "id": "J1-17",
+        "group": "transport",
+        "input": "200ops fit but2MB diff exceeded incl MST/commit overhead",
+        "expected": "split only staging records, never final atomic publish round; refuse if final cannotfit",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-18",
+      "program": "J1",
+      "original": {
+        "id": "J1-18",
+        "group": "floor",
+        "input": "other-app account revision recovery using PD1",
+        "expected": "read-only exact retained floor predicate; no unrelated actor replay/no new authority",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-19",
+      "program": "J1",
+      "original": {
+        "id": "J1-19",
+        "group": "capture",
+        "input": "PD2 publication called twice or stale owner",
+        "expected": "consume registration before first return; second refused",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-20",
+      "program": "J1",
+      "original": {
+        "id": "J1-20",
+        "group": "audit",
+        "input": "minimal local proofs omit older audit context",
+        "expected": "complete offline genesis audit export unavailable; no fabricated historical proof",
+        "execution": "UNEXECUTED"
+      }
+    },
+    {
+      "key": "J1/J1-21",
+      "program": "J1",
+      "original": {
+        "id": "J1-21",
+        "group": "floor-bridge",
+        "execution": "UNEXECUTED",
+        "input": "accepted prefix100,64 exact same-app/genesis unbridged witnesses201..264; privately owned genuine selected root/head264 and complete bounded chain101..264",
+        "schedule": [
+          "capture owner/cursor/all64witnesses/highest264",
+          "verify genuine selected root, full continuous signed chain101..264 and each exact witness CID",
+          "recheck owner/current/floors/cursor after awaits",
+          "commit verified-prefix rows and compaction of exactly201..264 in one expected-cursor transaction",
+          "accept prefix264 only after confirmed transaction completion and final owner checks"
+        ],
+        "expected": "bridge may proceed at cap; all64 actually covered witnesses compact; unrelated floors preserved; no independent witness-only deletion or quota increase"
+      }
+    },
+    {
+      "key": "J1/J1-22",
+      "program": "J1",
+      "original": {
+        "id": "J1-22",
+        "group": "floor-bridge",
+        "execution": "UNEXECUTED",
+        "input": "same cap; higher selected head300 would be read only as another independent head/witness without the private continuous-chain route",
+        "schedule": [
+          "detect no reserved witness capacity and no genuine bridge route",
+          "refuse before nonbridging new-knowledge verification"
+        ],
+        "expected": "nonbridging higher read refused; existing64 witnesses/floors/cursor preserved; no acknowledgment/append; authenticated head height alone cannot grant bridge or evict"
+      }
+    },
+    {
+      "key": "J1/J1-23",
+      "program": "J1",
+      "original": {
+        "id": "J1-23",
+        "group": "floor-bridge",
+        "execution": "UNEXECUTED",
+        "input": "same genuine bridge asJ1-21 verified, then atomic prefix/compaction commit aborts, is uncertain, or succeeds late with stale owner/floor",
+        "schedule": [
+          "retain verified knowledge and all previously retained witnesses in private memory",
+          "withhold acknowledgment/append and poison continuation",
+          "checked durable reconciliation/restart sees only actual committed rows/pending evidence"
+        ],
+        "expected": "no local eviction to fit; confirmed abort retains durable old64; uncertain result never assumes either compaction or prefix acceptance; uncommitted higher knowledge has no invented restart guarantee"
+      }
+    }
+  ],
+  "J1-04Clarification": "At capacity this original vector covers non-bridging independent witness intake; genuine bridge and transactional failure schedules areJ1-21..23."
+}

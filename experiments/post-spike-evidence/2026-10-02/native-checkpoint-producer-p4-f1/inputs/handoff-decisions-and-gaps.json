@@ -1,0 +1,62 @@
+{
+  "resolved": [
+    "One local IO/cursor/closed manifest and private consumed owner restore handoff",
+    "Same-provenance or full replay first, existing verifyNativeEntryContents first",
+    "Compact:true authority + sole genuine prefix indexes, no old array reconstitution",
+    "Required restored-root and unbridged-floor proof retention; old proofnull availability distinction",
+    "64unbridged/32KiB references, genuinebridgeatcap samecursor exactcompaction, noeviction and poison on abort/uncertainty/late-stale",
+    "Native records fulfill v1 content-addressed requirement; no uploadBlob requirement",
+    "CARv1 header + existing NativeMethodEvidence references/strictclosedorderedinventory/separatecaps",
+    "Complete priorindexes first; assertedorigin/suffix/receipt labels distinct from genuine complete APIs/writer",
+    "Currenttargetfreshgenesis audit promotion only; immutable target and origin",
+    "P2PD1 read-only other-appfloor preservation and PD2 one-usecapture semantics"
+  ],
+  "reviewBeforeOptionalChange": [
+    {
+      "topic": "Structural-only private mode",
+      "why": "J1 explicitly gated actualcrypto measurements+sharedreaderreview; R0 shows cost but has not authorized mode. No separateparser.",
+      "blockFirstStage": false,
+      "condition": "Pin independent adopted R0 evidence and exact shared-reader proposal with equivalence of all structural/CID faults before implementation."
+    },
+    {
+      "topic": "Concrete directed build pair",
+      "why": "No actual pair approved; exact old/to inventories and full equivalence required.",
+      "blockFirstStage": false,
+      "task": "P3-D5"
+    },
+    {
+      "topic": "Deferred read-only coverage state machine",
+      "why": "Complete-first adopted, original deferred acceptance retained; measure benefit then minimal private shared-owner state machine review.",
+      "blockFirstStage": false,
+      "task": "P4-D5"
+    },
+    {
+      "topic": "Literal blob variant",
+      "why": "Unbuilt named option only if actualrecordcost warrants; recordroute adopted meets originalcondition.",
+      "blockFirstStage": false
+    },
+    {
+      "topic": "New public host/library/profile/export or split-output/CSP alternate loader",
+      "why": "Internal seams adopted do not grant a public permission/facade or byte-unbound alternative. If actualE1/APIneedexceedsinternalfactory/adoptedselfcontainedbundle ask root designreview, no inventedapprovalflow.",
+      "blockFirstStage": false
+    }
+  ],
+  "routineResolvedNotApproval": [
+    "Private internal function/type spelling and exact testfile placement within owned paths",
+    "Implementing the adopted self-contained same-owned-byte browser loader with tested CSP deployment constraints",
+    "Implementing complete-first P3/P4 private factories and actual atomic rawstore adapter joins",
+    "Actual SQLite/IDB crash/corruption/network fixture tests and attributable builds",
+    "Independent code review at exact frozen head mandatory even when no new pre-code decision"
+  ],
+  "remainingFullScopeGaps": [
+    "Real browserloader+trusteddeployment inventoryroute",
+    "Actual NH native writer/provider/joined E1routes; current oldsequencer is no substitute",
+    "Real durablebody round1..3/PDS lostreply and actual crash/genuinefloor reconstruction",
+    "P1-owned portable extraction/minimal retention/fullofflineaudit missingcontext behavior",
+    "Completeassertedorigin admission/suffix/currenttargetaudit/postactionmismatchrecoverysameowner",
+    "Deferred positiveacceptance and actualdirectedpair cases remain UNEXECUTED until separatelyreviewedchoice/pair",
+    "Node22/24/26 actualemitted+Chromium parity and changedactualsource/dependency/output refs",
+    "Genuine workload actualfit/refusal rowsbytesversionsproof costs/cadence multiapp/grant/source growth",
+    "Full exact-head independentreview+governed merge/push; no partial child closes parents"
+  ]
+}

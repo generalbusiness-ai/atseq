@@ -1,0 +1,40 @@
+{
+  "P3": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:bf870fc6d775c9392dda46c36828f12635cc6280",
+    "sequence": 5767,
+    "timestamp": 1790860230,
+    "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "kind": "request",
+    "lifecycle": "request",
+    "satisfier": "none",
+    "text": "P3: Persist coherent local materialization. Implement atomic durable state/frontier/definition/source/authority/retry/outcome/stall/pending-tail/floor restore for host and browser, with explicit trusted-local-storage restore verification. Bind semantic identity and actual Node integrity/build provenance or trusted browser bundle. Exercise crash boundaries, corruption, corrected build/dependency changes, stalls and rollback. Fresh deserialization must not mint VerifiedHistory without restore verification; byte-equivalent full replay.",
+    "body": {
+      "conditions": "Implement atomic durable state/frontier/definition/source/authority/retry/outcome/stall/pending-tail/floor restore for host and browser, with explicit trusted-local-storage restore verification. Bind semantic identity and actual Node integrity/build provenance or trusted browser bundle. Exercise crash boundaries, corruption, corrected build/dependency changes, stalls and rollback. Fresh deserialization must not mint VerifiedHistory without restore verification; byte-equivalent full replay. Deliver code/tests plus a dated notes/ results report and raw evidence where appropriate. Report actual results, recommendation, trust/functional limits and unrun cases. Review any unsettled contract decision before implementing it; obtain atseq-reviewer exact-head architecture/security/simplification approval, then merge through gitseq and push main. No latency threshold or spike compatibility requirement.",
+      "dependencies": "P2, R1",
+      "package": "P3",
+      "target_head": "824527132a6cfc6099d57685d37320e37f99ee4e",
+      "target_ref": "refs/heads/main",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    }
+  },
+  "P4": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1f13a0dcbbae3fd55a08049416ef16175a66c72d",
+    "sequence": 5768,
+    "timestamp": 1790860231,
+    "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "kind": "request",
+    "lifecycle": "request",
+    "satisfier": "none",
+    "text": "P4: Implement portable checkpoints and independent audit. Implement ordinary native records plus content-addressed blobs, certified app/genesis/head/frontier/payload/index/evidence commitments and separately bootstrapped certifier authority. Prefer native PDS certification as reviewed under D0; do not let checkpoint self-authorize. Preserve newer floors and two assurance dimensions (state derivation, identity observation). Provide early-use/deferred-audit and full-replay policies, selective historical outcomes, progress and audit-failure recovery; test lying state/authority/index, substitution, missing blocks and post-action audit mismatch.",
+    "body": {
+      "conditions": "Implement ordinary native records plus content-addressed blobs, certified app/genesis/head/frontier/payload/index/evidence commitments and separately bootstrapped certifier authority. Prefer native PDS certification as reviewed under D0; do not let checkpoint self-authorize. Preserve newer floors and two assurance dimensions (state derivation, identity observation). Provide early-use/deferred-audit and full-replay policies, selective historical outcomes, progress and audit-failure recovery; test lying state/authority/index, substitution, missing blocks and post-action audit mismatch. Deliver code/tests plus a dated notes/ results report and raw evidence where appropriate. Report actual results, recommendation, trust/functional limits and unrun cases. Review any unsettled contract decision before implementing it; obtain atseq-reviewer exact-head architecture/security/simplification approval, then merge through gitseq and push main. No latency threshold or spike compatibility requirement.",
+      "dependencies": "D0, P1, I2, R1, P3",
+      "package": "P4",
+      "target_head": "824527132a6cfc6099d57685d37320e37f99ee4e",
+      "target_ref": "refs/heads/main",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    }
+  }
+}

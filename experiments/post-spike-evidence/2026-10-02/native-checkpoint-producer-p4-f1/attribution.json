@@ -1,0 +1,11 @@
+{
+  "base": "1db5e12fbfe8ea2b478ccfacd132abc522284f08",
+  "executableHead": "ea1195ccc560fdb8984dde0d050141d4d7272ce7",
+  "firstAttributed21CaseExecutable": "dd3628b2",
+  "request": "d5fb37bfa8621a703ef9b45cd95439f80337af5a",
+  "promise": "7c04c01689b19b3c74cdee8dd333d9d4d7ee0fbb",
+  "adoptedJ1": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+  "earlierAttemptLimit": "Raw initial fixture/browser failures retained; their exact per-attempt executable wrappers were not separately pinned. Namespace spelling corrected before first oracle comparison; initial output only in tool conversation.",
+  "previousAttributed27CaseExecutable": "9d3277dc6b8653888d2175cb8e7d85f9174e83de",
+  "finalCoherenceCorrection": "Exact history/frontier comparison remains mandatory with omitted outcomes; final30case source/emitted/actualChrome matrix."
+}
