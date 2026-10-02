@@ -70,6 +70,7 @@ console.log(
     node: process.version,
     cases: result.cases,
     nativeBatch: result.nativeBatch,
+    credentialRecovery: result.credentialRecovery,
     realNetwork,
     dispatcherCalls,
     maintainedClient: true,

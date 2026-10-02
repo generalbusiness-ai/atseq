@@ -16,6 +16,8 @@ export class NativeWriterFixture extends OAuthFixture {
   readonly bodies: Uint8Array[] = [];
   readonly paths: string[] = [];
   refreshPadding = 0;
+  refreshCharacter = 'x';
+  tokenExpiresIn?: number;
   overrideResponse?: (request: Request, body: Uint8Array) => Promise<Response> | Response;
   override readonly fetch: typeof globalThis.fetch = async (input, init) => {
     const request = new Request(input, init);
@@ -27,9 +29,11 @@ export class NativeWriterFixture extends OAuthFixture {
       this.paths.push(path);
     }
     const base = await this.baseFetch(request);
-    if (!resource && path === '/token' && base.ok && this.refreshPadding) {
+    if (!resource && path === '/token' && base.ok && (this.refreshPadding || this.tokenExpiresIn !== undefined)) {
       const token = await base.json();
-      token.refresh_token = 'synthetic-refresh-' + 'x'.repeat(this.refreshPadding);
+      if (this.refreshPadding)
+        token.refresh_token = 'synthetic-refresh-' + this.refreshCharacter.repeat(this.refreshPadding);
+      if (this.tokenExpiresIn !== undefined) token.expires_in = this.tokenExpiresIn;
       return json(token);
     }
     if (!resource || !base.ok || this.resourceBytes) return base;

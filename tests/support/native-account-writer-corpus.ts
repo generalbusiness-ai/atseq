@@ -4,6 +4,8 @@ import { AtseqError } from '../../src/core/errors.ts';
 import { PdsError } from '../../src/transport/pds-operations.ts';
 import { OAUTH_DID, OAUTH_OTHER_DID, OAUTH_SCOPE } from './oauth-fixture.ts';
 import { NativeWriterFixture, WRITER_COLLECTION } from './native-account-writer-fixture.ts';
+import { observeStreamByteCounts } from './native-account-writer-byte-observation.ts';
+import { OAUTH_CUSTODY } from './oauth-fixture.ts';
 import { largeNativeBatch } from './native-account-writer-native-batch.ts';
 
 const check = (value: unknown, message: string) => {
@@ -24,6 +26,7 @@ export async function runNativeWriterCorpus(
   createAdapter: (fixture: NativeWriterFixture) => Promise<OAuthAdapter>,
 ): Promise<{
   cases: string[];
+  credentialRecovery: { message: string; rawRefreshTokenBytes: number; actualCountedEncodedRefreshBytes: number };
   nativeBatch: {
     selectedFixtureVector: string;
     payloadJSONBytes: number;
@@ -255,8 +258,111 @@ export async function runNativeWriterCorpus(
     'Genuine accepted native entry/head and content chunk body unchanged',
   );
   results.push('genuine-admitted-source-authority-evaluator-entry-head-and-two-content-chunks-unchanged-JSON');
+  const oversized = await new NativeWriterFixture().initialize();
+  oversized.refreshCharacter = '+';
+  oversized.refreshPadding = 21846;
+  const recoveryAdapter = await createAdapter(oversized);
+  await recoveryAdapter.begin(OAUTH_DID, OAUTH_SCOPE);
+  const recoveryHandle = await recoveryAdapter.complete(oversized.callback());
+  const recoveryWriter = await NativeAccountWriter.open(recoveryHandle, OAUTH_DID);
+  const recoveryText = 'OAuth credential request exceeds the byte limit; reauthorization is required';
+  const rawRefresh = 'synthetic-refresh-' + '+'.repeat(21846);
+  const encodedRefreshBytes = new TextEncoder().encode(
+    new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: rawRefresh,
+      client_id: OAUTH_CUSTODY + '/oauth.json',
+    }).toString(),
+  ).length;
+  const stop = observeStreamByteCounts();
+  for (const work of [
+    () => recoveryWriter.upload(new Uint8Array(524288)),
+    () => recoveryWriter.get(WRITER_COLLECTION, 'first'),
+    () => recoveryWriter.list(WRITER_COLLECTION),
+    () => recoveryWriter.latestCommit(),
+    () => recoveryWriter.applyConditional(writes, oversized.commit),
+  ]) {
+    oversized.invalidTokenOnce = true;
+    const before = oversized.paths.length;
+    try {
+      await work();
+      throw new Error('Expected native recovery instruction');
+    } catch (error) {
+      check(
+        error instanceof AtseqError &&
+          error.code === 'input' &&
+          error.kind === 'invalid_input' &&
+          error.message === recoveryText,
+        'Byte-stable owned recovery instruction',
+      );
+    }
+    check(
+      oversized.count('/token') === 1 && oversized.paths.length === before + 1,
+      'Blocked refresh has no dispatch or second resource send',
+    );
+  }
+  const observedSizes = stop();
+  check(observedSizes.includes(encodedRefreshBytes), 'Actual owned Node reader counts encoded refresh bytes');
+  oversized.invalidTokenOnce = true;
+  check(
+    (await recoveryHandle.request('/xrpc/ai.generalbusiness.atseq.synthetic')).status === 401,
+    'Generic A1 still returns original swallowed refresh 401',
+  );
+  await recoveryAdapter.begin(OAUTH_DID, OAUTH_SCOPE);
+  const largeAgain = await recoveryAdapter.complete(oversized.callback());
+  const largeAgainWriter = await NativeAccountWriter.open(largeAgain, OAUTH_DID);
+  oversized.invalidTokenOnce = true;
+  const afterNewAuthorization = oversized.count('/token');
+  try {
+    await largeAgainWriter.upload(new Uint8Array(1));
+    throw new Error('Expected AS-issued oversized credential again');
+  } catch (error) {
+    check(
+      error instanceof AtseqError && error.message === recoveryText,
+      'Reauthorization does not guarantee AS credential size',
+    );
+  }
+  check(
+    oversized.count('/token') === afterNewAuthorization,
+    'New oversized credential is also blocked before refresh dispatch',
+  );
+  oversized.refreshPadding = 0;
+  await recoveryAdapter.begin(OAUTH_DID, OAUTH_SCOPE);
+  const reauthorized = await recoveryAdapter.complete(oversized.callback());
+  const renewedWriter = await NativeAccountWriter.open(reauthorized, OAUTH_DID);
+  check(
+    (await renewedWriter.latestCommit()).cid === oversized.commit,
+    'Genuine fresh authorization with bounded credential succeeds',
+  );
+  results.push(
+    'genuine-maintained-all-native-methods-encoded-refresh-overflow-fixed-text-no-dispatch-generic-401-and-fresh-reauthorization',
+  );
+  const expired = await new NativeWriterFixture().initialize();
+  expired.refreshPadding = 21846;
+  expired.refreshCharacter = '+';
+  expired.tokenExpiresIn = 1;
+  const expiredAdapter = await createAdapter(expired);
+  await expiredAdapter.begin(OAUTH_DID, OAUTH_SCOPE);
+  const expiredHandle = await expiredAdapter.complete(expired.callback());
+  const expiredWriter = await NativeAccountWriter.open(expiredHandle, OAUTH_DID);
+  try {
+    await expiredWriter.upload(new Uint8Array(1));
+    throw new Error('Expected original A1 verification refusal');
+  } catch (error) {
+    check(
+      error instanceof AtseqError && error.code === 'input' && error.message === 'OAuth operation failed',
+      'Pre-authority refresh retains generic A1 classification',
+    );
+  }
+  check(expired.paths.length === 0, 'Pre-authority failure sends no resource');
+  results.push('pre-authority-automatic-refresh-remains-original-A1-generic-input-outside-native-marker');
   return {
     cases: results,
+    credentialRecovery: {
+      message: recoveryText,
+      rawRefreshTokenBytes: new TextEncoder().encode(rawRefresh).length,
+      actualCountedEncodedRefreshBytes: encodedRefreshBytes,
+    },
     nativeBatch: {
       selectedFixtureVector: native.vector,
       payloadJSONBytes: native.payloadBytes,

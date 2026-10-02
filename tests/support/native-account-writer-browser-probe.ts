@@ -3,6 +3,8 @@ import { NativeAccountWriter } from '../../src/transport/native-account-writer.t
 import { OAuthSessionHandle, type OAuthAdapter } from '../../src/protocol/oauth.ts';
 import { OAUTH_DID, OAUTH_SCOPE, OAUTH_CUSTODY, oauthMetadata } from './oauth-fixture.ts';
 import { WRITER_COLLECTION } from './native-account-writer-fixture.ts';
+import { observeStreamByteCounts } from './native-account-writer-byte-observation.ts';
+import { OAUTH_CUSTODY_DATABASE } from '../../src/browser/oauth-custody.ts';
 
 let adapter: OAuthAdapter;
 let handle: OAuthSessionHandle;
@@ -89,4 +91,53 @@ export async function forgeries() {
     }
   }
   return refused;
+}
+
+export async function failure(method: string, commit?: string) {
+  try {
+    if (method === 'upload') await writer.upload(new Uint8Array(524288));
+    else if (method === 'get') await writer.get(WRITER_COLLECTION, 'first');
+    else if (method === 'list') await writer.list(WRITER_COLLECTION);
+    else if (method === 'latest') await writer.latestCommit();
+    else if (method === 'apply') await writer.applyConditional([], commit!);
+    else throw new Error('Unknown test operation');
+    throw new Error('Expected bounded test refusal');
+  } catch (error: any) {
+    return { code: error.code, kind: error.kind ?? null, status: error.status ?? null, message: error.message };
+  }
+}
+
+/** Inspect only custody metadata/counts; never return a credential or key. */
+export async function custodyStatus() {
+  const database = await new Promise<IDBDatabase>((resolve, reject) => {
+    const opening = indexedDB.open(OAUTH_CUSTODY_DATABASE, 1);
+    opening.onsuccess = () => resolve(opening.result);
+    opening.onerror = () => reject(opening.error);
+  });
+  try {
+    const row: any = await new Promise((resolve, reject) => {
+      const reading = database.transaction('accounts', 'readonly').objectStore('accounts').get(OAUTH_DID);
+      reading.onsuccess = () => resolve(reading.result);
+      reading.onerror = () => reject(reading.error);
+    });
+    const metadata = JSON.stringify(row, (name, value) =>
+      name === 'keyPair' && value?.privateKey instanceof CryptoKey && value?.publicKey instanceof CryptoKey
+        ? undefined
+        : value,
+    );
+    return { phase: row?.phase ?? null, metadataBytes: metadata ? new TextEncoder().encode(metadata).length : 0 };
+  } finally {
+    database.close();
+  }
+}
+
+let stopObservation: (() => number[]) | undefined;
+export function startByteObservation() {
+  stopObservation = observeStreamByteCounts();
+}
+export function stopByteObservation() {
+  if (!stopObservation) throw new Error('No active byte observation');
+  const stop = stopObservation;
+  stopObservation = undefined;
+  return stop();
 }

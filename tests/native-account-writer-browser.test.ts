@@ -139,6 +139,78 @@ test('Chromium native writer uses maintained browser OAuth and actual guarded fe
     assert.equal(await page.evaluate(() => (globalThis as any).writerProbe.restore()), OAUTH_DID);
     assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.mutate())).cid, fixture.commit);
     await assert.rejects(() => page.evaluate(() => (globalThis as any).writerProbe.upload(1, true)));
+    const recoveryMessage = 'OAuth credential request exceeds the byte limit; reauthorization is required';
+    fixture.refreshPadding = 21846;
+    fixture.refreshCharacter = '+';
+    await page.evaluate(() => (globalThis as any).writerProbe.begin());
+    await page.evaluate((params) => (globalThis as any).writerProbe.complete(params), fixture.callback().toString());
+    const beforeCredential = fixture.count('/token');
+    const stored = await page.evaluate(() => (globalThis as any).writerProbe.custodyStatus());
+    assert.equal(stored.phase, 'live');
+    assert.ok(stored.metadataBytes > 21846 && stored.metadataBytes < 65536);
+    const expectedEncodedBytes = new TextEncoder().encode(
+      new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: 'synthetic-refresh-' + '+'.repeat(21846),
+        client_id: OAUTH_CUSTODY + '/oauth.json',
+      }).toString(),
+    ).length;
+    let observedSizes: number[] = [];
+    for (const method of ['upload', 'get', 'list', 'latest', 'apply']) {
+      fixture.invalidTokenOnce = true;
+      const beforeResource = fixture.paths.length;
+      if (method === 'upload') await page.evaluate(() => (globalThis as any).writerProbe.startByteObservation());
+      const refusal = await page.evaluate(
+        ({ method, commit }) => (globalThis as any).writerProbe.failure(method, commit),
+        { method, commit: fixture.commit },
+      );
+      if (method === 'upload')
+        observedSizes = await page.evaluate(() => (globalThis as any).writerProbe.stopByteObservation());
+      assert.deepEqual(refusal, { code: 'input', kind: 'invalid_input', status: null, message: recoveryMessage });
+      assert.equal(fixture.count('/token'), beforeCredential);
+      assert.equal(fixture.paths.length, beforeResource + 1);
+      assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.custodyStatus())).phase, 'live');
+    }
+    assert.ok(
+      expectedEncodedBytes > 65536 && observedSizes.includes(expectedEncodedBytes),
+      'Actual owned refresh reader counts encoded bytes, not Content-Length',
+    );
+    await page.reload();
+    await initialize();
+    assert.equal(await page.evaluate(() => (globalThis as any).writerProbe.restore()), OAUTH_DID);
+    fixture.invalidTokenOnce = true;
+    assert.equal(
+      (await page.evaluate(() => (globalThis as any).writerProbe.failure('upload'))).message,
+      recoveryMessage,
+    );
+    assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.custodyStatus())).phase, 'live');
+    fixture.invalidTokenOnce = true;
+    assert.equal(await page.evaluate(() => (globalThis as any).writerProbe.ordinary(1)), 401);
+    // A new authorization can still receive an oversized encoded credential.
+    await page.evaluate(() => (globalThis as any).writerProbe.begin());
+    await page.evaluate((params) => (globalThis as any).writerProbe.complete(params), fixture.callback().toString());
+    const afterNewAuthorization = fixture.count('/token');
+    fixture.invalidTokenOnce = true;
+    assert.equal(
+      (await page.evaluate(() => (globalThis as any).writerProbe.failure('upload'))).message,
+      recoveryMessage,
+    );
+    assert.equal(fixture.count('/token'), afterNewAuthorization);
+    assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.custodyStatus())).phase, 'live');
+    fixture.refreshPadding = 0;
+    await page.evaluate(() => (globalThis as any).writerProbe.begin());
+    await page.evaluate((params) => (globalThis as any).writerProbe.complete(params), fixture.callback().toString());
+    assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.latest())).cid, fixture.commit);
+    assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.custodyStatus())).phase, 'live');
+    // A genuinely dispatched bounded token failure still retires under CF-1.
+    fixture.invalidTokenOnce = true;
+    fixture.refuse = '/token';
+    const beforeDispatched = fixture.count('/token');
+    const dispatched = await page.evaluate(() => (globalThis as any).writerProbe.failure('upload'));
+    assert.equal(dispatched.code, 'RequestFailed');
+    assert.equal(dispatched.status, 401);
+    assert.ok(fixture.count('/token') > beforeDispatched);
+    assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.custodyStatus())).phase, null);
     console.log(
       JSON.stringify({
         browser: browser.version(),
@@ -150,6 +222,15 @@ test('Chromium native writer uses maintained browser OAuth and actual guarded fe
         bundledBytes: built.outputFiles.reduce((size, file) => size + file.contents.length, 0),
         bundleHashes,
         resources: fixture.paths.length,
+        credentialRecovery: {
+          message: recoveryMessage,
+          storedMetadataBytes: stored.metadataBytes,
+          actualCountedEncodedRefreshBytes: expectedEncodedBytes,
+          maintainedMethods: 5,
+          reloadLive: true,
+          boundedReauthorization: true,
+          actualDispatchedFailureRetired: true,
+        },
       }),
     );
   } finally {
