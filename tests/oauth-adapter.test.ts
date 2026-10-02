@@ -80,3 +80,52 @@ test('storage finalization crossing the network deadline preserves the original 
     AbortSignal.timeout = originalTimeout;
   }
 });
+
+test('definitive verification failure retains its class when awaited signout crosses the network deadline', async () => {
+  const deadline = new AbortController(),
+    originalTimeout = AbortSignal.timeout;
+  AbortSignal.timeout = () => deadline.signal;
+  let signouts = 0;
+  try {
+    const did = 'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa';
+    const adapter = new OAuthAdapter(
+      {
+        metadata: {
+          client_id: 'https://client.example/metadata',
+          redirect_uris: ['https://client.example/callback'],
+          token_endpoint_auth_method: 'none',
+          scope: 'atproto',
+        },
+        resolveIdentity: async () => {
+          throw new Error('unused');
+        },
+      },
+      { list: () => [], set: () => {}, take: () => undefined },
+      async (work) => work(),
+      async () => {
+        throw new Error('unused');
+      },
+      async () =>
+        ({
+          restore: async () => ({
+            did,
+            getTokenInfo: async () => ({ sub: did, scope: 'atproto repo:extra' }),
+            signOut: async () => {
+              signouts++;
+              deadline.abort();
+              throw new Error('cleanup failure');
+            },
+          }),
+        }) as unknown as OAuthCustodyClient,
+      { prepare: async () => {}, touch: async () => {}, tokenRequestDispatched: () => {}, finish: async () => {} },
+    );
+    await assert.rejects(
+      () => adapter.restore(did, 'atproto'),
+      (error: unknown) =>
+        error instanceof AtseqError && error.code === 'input' && error.message === 'OAuth operation failed',
+    );
+    assert.equal(signouts, 1);
+  } finally {
+    AbortSignal.timeout = originalTimeout;
+  }
+});

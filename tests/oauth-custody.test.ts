@@ -895,3 +895,120 @@ test('token handoff is marked before transport can synchronously reject, retaini
     await e.close();
   }
 });
+
+for (const stage of ['identity', 'discovery']) {
+  for (const operation of ['resource', 'info', 'restore']) {
+    test(`fresh verification ${stage} reset preserves unchanged ${operation} consent and permits next request`, async () => {
+      const e = await environment();
+      try {
+        const p = await e.page();
+        await e.enroll(p);
+        const initial = (await e.rows(p)).accounts[0],
+          tokens = e.fixture.count('/token'),
+          revokes = e.fixture.count('/revoke'),
+          resources = e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic');
+        e.setAbortBefore((url) =>
+          stage === 'identity'
+            ? url.hostname === 'identity.atseq-probe.net'
+            : url.pathname.startsWith('/.well-known/oauth-authorization-server'),
+        );
+        await assert.rejects(
+          () => p.evaluate((operation) => (globalThis as any).probe[operation](), operation),
+          /OAuth operation is unavailable/,
+        );
+        const rows = await e.rows(p);
+        const deltas = {
+          token: e.fixture.count('/token') - tokens,
+          revoke: e.fixture.count('/revoke') - revokes,
+          resource: e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic') - resources,
+        };
+        e.setAbortBefore(undefined);
+        const nextSucceeded = await p
+          .evaluate(() => (globalThis as any).probe.resource())
+          .then(
+            () => true,
+            () => false,
+          );
+        console.log(
+          JSON.stringify({
+            custodyCase: 'fresh-verification-reset',
+            stage,
+            operation,
+            nextSucceeded,
+            deltasBeforeRetry: deltas,
+            accountPhases: rows.accounts.map((row: any) => row.phase),
+          }),
+        );
+        assert.deepEqual(deltas, { token: 0, revoke: 0, resource: 0 });
+        assert.equal(rows.accounts[0]?.phase, 'live');
+        assert.equal(rows.accounts[0].expiresAt, initial.expiresAt);
+        assert.equal(nextSucceeded, true);
+      } finally {
+        await e.close();
+      }
+    });
+  }
+}
+
+for (const mismatch of ['issuer', 'scope']) {
+  test(`definitive fresh ${mismatch} mismatch retires unchanged credentials before resource dispatch`, async () => {
+    const e = await environment();
+    try {
+      const p = await e.page();
+      await e.enroll(p);
+      if (mismatch === 'issuer') e.fixture.issuer = 'https://changed-auth.atseq-probe.net';
+      else
+        await p.evaluate(async () => {
+          const opening = indexedDB.open('atseq.oauth.custody.v1');
+          const db = await new Promise<IDBDatabase>((resolve, reject) => {
+            opening.onsuccess = () => resolve(opening.result);
+            opening.onerror = () => reject(opening.error);
+          });
+          try {
+            const tx = db.transaction('accounts', 'readwrite');
+            const done = new Promise<void>((resolve, reject) => {
+              tx.oncomplete = () => resolve();
+              tx.onabort = () => reject(tx.error);
+            });
+            const store = tx.objectStore('accounts'),
+              request = store.getAll();
+            request.onsuccess = () => {
+              const row = request.result[0];
+              row.value.tokenSet.scope += ' repo:extra';
+              store.put(row);
+            };
+            await done;
+          } finally {
+            db.close();
+          }
+        });
+      const tokens = e.fixture.count('/token'),
+        revokes = e.fixture.count('/revoke'),
+        resources = e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic');
+      const observer = await e.page();
+      await assert.rejects(
+        () => observer.evaluate(() => (globalThis as any).probe.restore()),
+        /OAuth operation failed/,
+      );
+      const rows = await e.rows(observer);
+      assert.equal(e.fixture.count('/token'), tokens);
+      assert.equal(e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic'), resources);
+      assert.equal(rows.accounts.length, 0);
+      const revokeDelta = e.fixture.count('/revoke') - revokes;
+      assert.ok(revokeDelta <= 1);
+      if (mismatch === 'scope') assert.equal(revokeDelta, 1);
+      console.log(
+        JSON.stringify({
+          custodyCase: 'definitive-verification-mismatch',
+          mismatch,
+          retired: true,
+          tokenDelta: 0,
+          resourceDelta: 0,
+          revokeDelta,
+        }),
+      );
+    } finally {
+      await e.close();
+    }
+  });
+}

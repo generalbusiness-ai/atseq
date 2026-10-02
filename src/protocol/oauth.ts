@@ -57,6 +57,7 @@ interface Budget {
   readonly signal: AbortSignal;
   requests: number;
   bytes: number;
+  readonly failures: WeakMap<Error, boolean>;
 }
 function refuse(message: string): never {
   throw new AtseqError('input', message);
@@ -279,7 +280,12 @@ export class OAuthAdapter {
   }
   async #run<T>(work: (client: OAuthCustodyClient) => Promise<T>): Promise<T> {
     return this.#lock(async () => {
-      this.#budget = { signal: AbortSignal.timeout(OAUTH_LIMITS.operationMs), requests: 0, bytes: 0 };
+      this.#budget = {
+        signal: AbortSignal.timeout(OAUTH_LIMITS.operationMs),
+        requests: 0,
+        bytes: 0,
+        failures: new WeakMap(),
+      };
       let failure: { error: unknown; deadline: boolean } | undefined;
       try {
         assertDependencies();
@@ -300,7 +306,11 @@ export class OAuthAdapter {
           successful = true;
           return result;
         } catch (error) {
-          failure = { error, deadline: this.#budget!.signal.aborted };
+          failure = {
+            error,
+            deadline:
+              (error instanceof Error ? this.#budget!.failures.get(error) : undefined) ?? this.#budget!.signal.aborted,
+          };
           throw error;
         } finally {
           try {
@@ -372,8 +382,7 @@ export class OAuthAdapter {
         if (oauthUrl(info.issuer).href !== issuer) refuse('OAuth issuer differs from callback');
         return new OAuthSessionHandle(this, session, transaction);
       } catch (error) {
-        await session.signOut().catch(() => {});
-        throw operationFailure(error);
+        return this.#verificationFailure(session, error);
       }
     });
   }
@@ -384,15 +393,15 @@ export class OAuthAdapter {
     if (requested.some((scope) => !allowed.includes(scope))) refuse('OAuth scope exceeds configured consent');
     return this.#run(async (client) => {
       await this.#custody?.touch(did);
-      const session = await client.restore(did, false);
-      const expected = Object.freeze({ id: crypto.randomUUID(), did, scopes: requested, expiresAt: 0 });
+      let session: OAuthSession;
       try {
-        await this.#verify(client, session, expected, false);
-        return new OAuthSessionHandle(this, session, expected);
+        session = await client.restore(did, false);
       } catch (error) {
-        await session.signOut().catch(() => {});
-        throw operationFailure(error);
+        return this.#verificationFailure({ signOut: () => client.revoke(did) }, error);
       }
+      const expected = Object.freeze({ id: crypto.randomUUID(), did, scopes: requested, expiresAt: 0 });
+      await this.#verify(client, session, expected, false);
+      return new OAuthSessionHandle(this, session, expected);
     });
   }
   async #verify(
@@ -420,9 +429,25 @@ export class OAuthAdapter {
         scopes: granted,
       });
     } catch (error) {
-      await session.signOut().catch(() => {});
-      throw operationFailure(error);
+      return this.#verificationFailure(session, error);
     }
+  }
+  async #verificationFailure(session: Pick<OAuthSession, 'signOut'>, error: unknown): Promise<never> {
+    const budget = this.#budget!;
+    // Nested callback validation may see the same already-classified failure.
+    // Capture its class/deadline before awaited signout, and clean it up once.
+    if (error instanceof AtseqError && budget.failures.has(error)) throw error;
+    const deadline = budget.signal.aborted;
+    const failure = operationFailure(error, deadline);
+    budget.failures.set(failure, deadline);
+    if (failure.code !== 'content_unavailable' || !this.#custody) {
+      try {
+        await session.signOut();
+      } catch {
+        /* Keep the original classified failure. */
+      }
+    }
+    throw failure;
   }
   #checkToken(
     info: Awaited<ReturnType<OAuthSession['getTokenInfo']>>,
@@ -475,8 +500,7 @@ export class OAuthAdapter {
           )
             refuse('OAuth resource authority changed during dispatch');
         } catch (error) {
-          await session.signOut().catch(() => {});
-          throw operationFailure(error);
+          return this.#verificationFailure(session, error);
         }
       };
       try {
