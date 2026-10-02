@@ -3,7 +3,7 @@ import { deepFreeze } from '../core/freeze.ts';
 import { canonicalJson, jsonCopy, type Json } from '../core/values.ts';
 import { SerialQueue } from '../core/queue.ts';
 import { InterpretationError, PROFILE } from '../core/profile.ts';
-import { evaluate, fold } from '../runtime/evaluator.ts';
+import { evaluate, foldEvaluation } from '../runtime/evaluator.ts';
 import { readNativeOutcome, type NativeOutcomeData } from '../protocol/native-outcome.ts';
 import {
   assessNativeGenesisSource,
@@ -308,22 +308,22 @@ function accountOperation(
   if (epochFailure) return ineffective(epochFailure);
   return previousEpoch === row.epoch ? ineffective('authority_unchanged') : effective();
 }
+type GrantIdentity = Pick<NativeSignedRequest['intent'], 'principal' | 'actorKey'>;
 function liveGrant(
   state: NativeAuthoritySnapshot,
-  signed: NativeSignedRequest,
+  identity: GrantIdentity,
   operation: NativeAssignRole | NativeAct,
 ): NativeAuthorityOutcome | NativeGrant {
-  const intent = signed.intent,
-    row = state.grants.find((row) => row.principal === intent.principal && row.id === operation.grant.id);
+  const row = state.grants.find((row) => row.principal === identity.principal && row.id === operation.grant.id);
   if (!row?.grant) return ineffective('grant_unadmitted');
   if (row.cid !== operation.grant.cid.$link) return ineffective('grant_conflict');
   if (row.revoked) return ineffective('grant_revoked');
   if (
     row.grant.epoch.$link !== operation.epoch.$link ||
-    state.principals.find((row) => row.principal === intent.principal)?.epoch !== operation.epoch.$link
+    state.principals.find((row) => row.principal === identity.principal)?.epoch !== operation.epoch.$link
   )
     return ineffective('grant_epoch');
-  if (row.grant.actorKey !== intent.actorKey) return ineffective('grant_signer');
+  if (row.grant.actorKey !== identity.actorKey) return ineffective('grant_signer');
   return row.grant;
 }
 function assignment(
@@ -347,7 +347,7 @@ function assignRole(
   requestCid: string,
 ): NativeAuthorityOutcome {
   const op = signed.intent.operation as NativeAssignRole;
-  const grant = liveGrant(state, signed, op);
+  const grant = liveGrant(state, signed.intent, op);
   if ('decision' in grant) return grant;
   if (state.control.owner !== signed.intent.principal) return ineffective('role_owner');
   if (!grant.assignRoles.includes(op.role)) return ineffective('role_scope');
@@ -572,6 +572,80 @@ class NativeApplicationOwner {
     if (this.#current !== base)
       throw new AtseqError('runtime_fault', 'Native application generation changed during interpretation');
   }
+  #actionGate(
+    source: NativeSourceDefinition,
+    authority: NativeAuthoritySnapshot,
+    identity: GrantIdentity,
+    action: NativeAct,
+  ): { outcome: NativeOutcomeData } | { selected: NonNullable<ReturnType<typeof nativeSourceAction>> } {
+    const grant = liveGrant(authority, identity, action);
+    if ('decision' in grant) return { outcome: authorityOutcome(grant) };
+    if (!grant.actions.some((pair) => pair.action === action.action && pair.execution.$link === action.execution.$link))
+      return { outcome: framework('grant_scope') };
+    const selected = nativeSourceAction(source, action.action);
+    if (!selected) return { outcome: framework('unknown_action') };
+    const facts = readNativeSourceAction(selected);
+    const authorization = facts.contract.body as { authorization: { $type: string; role?: string } };
+    const rule = authorization.authorization;
+    if (
+      rule.$type === nativeRef('requiredRole') &&
+      !authority.roles.some((row) => row.principal === identity.principal && row.role === rule.role && row.enabled)
+    )
+      return { outcome: framework('role_missing') };
+    if (facts.execution !== action.execution.$link) return { outcome: framework('execution_changed') };
+    return { selected };
+  }
+  async #action(
+    base: ApplicationGeneration,
+    authority: NativeAuthoritySnapshot,
+    domain: Json,
+    identity: GrantIdentity,
+    action: NativeAct,
+    metadata: Record<string, Json>,
+  ): Promise<{
+    outcome: NativeOutcomeData;
+    successor: Json | null;
+    evaluation: { steps: number; inspectedBytes: number } | null;
+  }> {
+    const gate = this.#actionGate(base.source, authority, identity, action);
+    if ('outcome' in gate) return { outcome: gate.outcome, successor: null, evaluation: null };
+    // Program/metadata retrieval and the caller's stored-state ownership stay outside stage catches.
+    const program = nativeSourceActionFold(gate.selected);
+    let inputDenied = false;
+    try {
+      validateNativeSourceAction(base.source, gate.selected, action.payload);
+    } catch (error) {
+      if (!stageError(error, Object.keys(NATIVE_FOLD_FAILURE_STAGES.inputSchema))) throw error;
+      inputDenied = true;
+    }
+    if (inputDenied) return { outcome: framework('invalid_action'), successor: null, evaluation: null };
+    let evaluated: Awaited<ReturnType<typeof foldEvaluation>> | undefined;
+    let foldDenied: NativeOutcomeData | undefined;
+    try {
+      evaluated = await foldEvaluation(program, { state: domain, act: action.payload, meta: metadata });
+    } catch (error) {
+      if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.evaluateAndFold)) throw error;
+      foldDenied = framework(`fold_failed/${error.code}`);
+    }
+    this.#same(base);
+    if (foldDenied) return { outcome: foldDenied, successor: null, evaluation: null };
+    const result = evaluated!.result;
+    const evaluation = { steps: evaluated!.steps, inspectedBytes: evaluated!.inspectedBytes };
+    if (result.decision === 'ineffective')
+      return { outcome: deepFreeze(readNativeOutcome({ ...result, source: 'fold' })), successor: null, evaluation };
+    let stateDenied: NativeOutcomeData | undefined;
+    try {
+      validateNativeSourceState(base.source, result.state);
+    } catch (error) {
+      if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.successorState)) throw error;
+      stateDenied = framework(`fold_failed/${error.code}`);
+    }
+    return {
+      outcome: stateDenied ?? deepFreeze({ decision: 'effective' }),
+      successor: stateDenied ? null : result.state,
+      evaluation,
+    };
+  }
   #projection(
     generation: ApplicationGeneration,
     extra?: NativeApplicationProjection['outcomes'][number],
@@ -689,71 +763,16 @@ class NativeApplicationOwner {
           const signed = data.entry.request as NativeSignedRequest;
           const op = signed.intent.operation;
           if (op.$type === nativeRef('act')) {
-            const action = op as NativeAct;
-            // One private ordered gate, consumed directly here; no callback or extra token.
-            const grant = liveGrant(nextAuthority, signed, action);
-            if ('decision' in grant) outcome = authorityOutcome(grant);
-            else if (
-              !grant.actions.some(
-                (pair) => pair.action === action.action && pair.execution.$link === action.execution.$link,
-              )
-            )
-              outcome = framework('grant_scope');
-            else {
-              const selected = nativeSourceAction(base.source, action.action);
-              if (!selected) outcome = framework('unknown_action');
-              else {
-                const facts = readNativeSourceAction(selected);
-                const authorization = facts.contract.body as { authorization: { $type: string; role?: string } };
-                const rule = authorization.authorization;
-                if (
-                  rule.$type === nativeRef('requiredRole') &&
-                  !nextAuthority.roles.some(
-                    (row) => row.principal === signed.intent.principal && row.role === rule.role && row.enabled,
-                  )
-                )
-                  outcome = framework('role_missing');
-                else if (facts.execution !== action.execution.$link) outcome = framework('execution_changed');
-                else {
-                  // Program/metadata retrieval and stored-state ownership are outside every stage catch.
-                  const program = nativeSourceActionFold(selected),
-                    metadata = nativeFoldMetadata(data.entry);
-                  let inputDenied = false;
-                  try {
-                    validateNativeSourceAction(base.source, selected, action.payload);
-                  } catch (error) {
-                    if (!stageError(error, Object.keys(NATIVE_FOLD_FAILURE_STAGES.inputSchema))) throw error;
-                    inputDenied = true;
-                  }
-                  if (inputDenied) outcome = framework('invalid_action');
-                  else {
-                    let result: Awaited<ReturnType<typeof fold>> | undefined;
-                    let foldDenied: NativeOutcomeData | undefined;
-                    try {
-                      result = await fold(program, { state: domain, act: action.payload, meta: metadata });
-                    } catch (error) {
-                      if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.evaluateAndFold)) throw error;
-                      foldDenied = framework(`fold_failed/${error.code}`);
-                    }
-                    this.#same(base);
-                    if (foldDenied) outcome = foldDenied;
-                    else if (result!.decision === 'ineffective') {
-                      outcome = deepFreeze(readNativeOutcome({ ...result!, source: 'fold' }));
-                    } else {
-                      let stateDenied: NativeOutcomeData | undefined;
-                      try {
-                        validateNativeSourceState(base.source, result!.state);
-                      } catch (error) {
-                        if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.successorState)) throw error;
-                        stateDenied = framework(`fold_failed/${error.code}`);
-                      }
-                      outcome = stateDenied ?? deepFreeze({ decision: 'effective' });
-                      if (!stateDenied) nextDomain = result!.state;
-                    }
-                  }
-                }
-              }
-            }
+            const acted = await this.#action(
+              base,
+              nextAuthority,
+              domain,
+              signed.intent,
+              op as NativeAct,
+              nativeFoldMetadata(data.entry),
+            );
+            outcome = acted.outcome;
+            if (acted.successor !== null) nextDomain = acted.successor;
           } else if (op.$type === nativeRef('activate')) {
             const denied = controlPrefix(nextAuthority, signed, data.entry);
             if (denied) outcome = authorityOutcome(denied);
