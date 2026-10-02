@@ -6,16 +6,20 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { build } from 'vite';
 import { chromium } from '@playwright/test';
-import { createExtractionFixtures, extractionWorkload } from './support/native-proof-extraction-fixture.ts';
 test('actual Chromium executes genuine scoped extraction and unchanged P1 corpus', async () => {
-  const fixturePath = process.env.ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH;
-  const workloadPath = process.env.ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH;
-  const fixture = fixturePath ? JSON.parse(await readFile(fixturePath, 'utf8')) : await createExtractionFixtures();
-  const workloads = workloadPath ? JSON.parse(await readFile(workloadPath, 'utf8')) : {};
-  if (!workloadPath)
-    for (const records of [100, 1000, 10000, 40000]) workloads[String(records)] = await extractionWorkload(records);
-  const fixtureBytes = JSON.stringify(fixture) + '\n';
-  const workloadBytes = JSON.stringify(workloads) + '\n';
+  const fixture = JSON.parse(
+    await readFile(
+      process.env.ATSEQ_NATIVE_EXTRACTION_FIXTURE_PATH ?? '.atseq-local/native-proof-extraction/fixture.json',
+      'utf8',
+    ),
+  );
+  const workloads = JSON.parse(
+    await readFile(
+      process.env.ATSEQ_NATIVE_EXTRACTION_WORKLOAD_FIXTURE_PATH ??
+        '.atseq-local/native-proof-extraction/workload-fixture.json',
+      'utf8',
+    ),
+  );
   const built = await build({
     configFile: false,
     logLevel: 'error',
@@ -71,16 +75,8 @@ test('actual Chromium executes genuine scoped extraction and unchanged P1 corpus
       process.env.ATSEQ_NATIVE_EXTRACTION_BROWSER_CAPTURE_DIR ?? '.atseq-local/native-proof-extraction-browser';
     await mkdir(directory, { recursive: true });
     await writeFile(directory + '/probe.js', code);
-    await writeFile(directory + '/fixture.json', fixtureBytes);
-    await writeFile(directory + '/workload-fixture.json', workloadBytes);
     const capture = {
       browser: 'Chromium',
-      fixturePreparation: {
-        fixture: fixturePath ? 'explicit input' : 'own genuine factory',
-        workloads: workloadPath ? 'explicit input' : 'own genuine factory',
-        fixtureSha256: createHash('sha256').update(fixtureBytes).digest('hex'),
-        workloadSha256: createHash('sha256').update(workloadBytes).digest('hex'),
-      },
       version: browser.version(),
       ...result,
       bundleBytes: Buffer.byteLength(code),

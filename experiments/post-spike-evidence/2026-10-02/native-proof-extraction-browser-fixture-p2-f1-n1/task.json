@@ -1,0 +1,68 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected request at depth 13212: decision effective, 1 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "d90bc476432464039649a586f40efbf31a1bcf36",
+      "depth": 13212
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fcb5cdf3b35b99ecc9af2814db4838af262312d0",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fcb5cdf3b35b99ecc9af2814db4838af262312d0",
+      "sequence": 13200,
+      "timestamp": 1790961982,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "P2-F1-N1: make the native proof extraction browser test independently prepare its genuine fixture. Implement the nonblocking test-harness finding from exact approval b081bb7d without altering approved production semantics or frozen captures. Run the browser test alone and alongside its producer to prove no ordering dependency, retain actual results in dated notes, and seek independent exact-head code review before governed merge.",
+      "body": {
+        "conditions": "Own fixture preparation/availability before browser test reads it; preserve genuine signed fixture and existing vectors, no test ordering dependency. No production/dependency/package/export/quota changes. Isolated successor, raw initial failure and final standalone/concurrent actual Chromium results, independent atseq-reviewer code review; original full P2/P4 remains open.",
+        "target_head": "8e1702b01ab3bf1ef1761857f7199654903f121b",
+        "target_ref": "refs/heads/main",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fcb5cdf3b35b99ecc9af2814db4838af262312d0",
+      "sequence": 13200,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fcb5cdf3b35b99ecc9af2814db4838af262312d0",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d0d4796654a3539dc415b7a08fe64a9642f8a622",
+      "status": "promised",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main"
+    },
+    "landing": {
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main",
+      "git": {
+        "measured_at": 1790962779,
+        "state": "unknown",
+        "target_head": "4200245cef8b2c268fcf44d7ec85649b5df87079",
+        "ref_incorporated": null,
+        "remote": "origin",
+        "remote_ref": "refs/remotes/origin/main",
+        "remote_head": "8e1702b01ab3bf1ef1761857f7199654903f121b",
+        "remote_contains": null,
+        "reason": "no witnessed merge head was supplied; ancestry is unknown"
+      }
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b081bb7d243d123d2ea277238082cd67ea22f14d"
+    ]
+  },
+  "isError": false
+}

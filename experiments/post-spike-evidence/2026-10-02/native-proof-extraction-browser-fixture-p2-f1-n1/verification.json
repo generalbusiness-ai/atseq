@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "packetFiles": 44,
+  "sourceInputs": 320,
+  "buildOutputs": 473,
+  "physicalFiles": {
+    "tools": 15406,
+    "pds-tools": 44867
+  },
+  "preservedPredecessorFiles": 101,
+  "actualChromiumRuns": 4,
+  "negativeControl": "actual predecessor standalone ENOENT exit 1",
+  "productionChanged": false,
+  "fullP2P4Closed": false
+}

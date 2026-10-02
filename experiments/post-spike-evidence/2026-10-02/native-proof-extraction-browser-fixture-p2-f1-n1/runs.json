@@ -1,0 +1,84 @@
+[
+  {
+    "label": "22-standalone",
+    "startedUTC": "2026-10-02T17:45:32.189252+00:00",
+    "seconds": 33.32754854200175,
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=3",
+      "tests/native-proof-extraction-browser.test.ts"
+    ],
+    "exit": 0,
+    "executionCommit": "56d1930f0df8a2843ce2d3b6f635ef22b038253f",
+    "nodeVersion": "v22.19.0",
+    "nodeSha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+    "chromiumPath": "/Users/hughpyle/Library/Caches/ms-playwright/chromium-1243/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "chromiumSha256": "8319963f6625accf51c0dd4f55091ceaf9f09ed39e7a52fed4fae12b2a6b668a",
+    "fixtureEnvironmentAbsent": true,
+    "defaultFixtureFilesAbsent": true
+  },
+  {
+    "label": "24-standalone",
+    "startedUTC": "2026-10-02T17:46:07.198980+00:00",
+    "seconds": 30.002238583983853,
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=3",
+      "tests/native-proof-extraction-browser.test.ts"
+    ],
+    "exit": 0,
+    "executionCommit": "56d1930f0df8a2843ce2d3b6f635ef22b038253f",
+    "nodeVersion": "v24.21.0",
+    "nodeSha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+    "chromiumPath": "/Users/hughpyle/Library/Caches/ms-playwright/chromium-1243/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "chromiumSha256": "8319963f6625accf51c0dd4f55091ceaf9f09ed39e7a52fed4fae12b2a6b668a",
+    "fixtureEnvironmentAbsent": true,
+    "defaultFixtureFilesAbsent": true
+  },
+  {
+    "label": "26-standalone",
+    "startedUTC": "2026-10-02T17:46:38.831409+00:00",
+    "seconds": 29.804760792001616,
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=3",
+      "tests/native-proof-extraction-browser.test.ts"
+    ],
+    "exit": 0,
+    "executionCommit": "56d1930f0df8a2843ce2d3b6f635ef22b038253f",
+    "nodeVersion": "v26.10.0",
+    "nodeSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+    "chromiumPath": "/Users/hughpyle/Library/Caches/ms-playwright/chromium-1243/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "chromiumSha256": "8319963f6625accf51c0dd4f55091ceaf9f09ed39e7a52fed4fae12b2a6b668a",
+    "fixtureEnvironmentAbsent": true,
+    "defaultFixtureFilesAbsent": true
+  },
+  {
+    "label": "26-concurrent",
+    "startedUTC": "2026-10-02T17:47:10.185286+00:00",
+    "seconds": 28.135206083999947,
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=3",
+      "tests/native-proof-extraction-browser.test.ts",
+      "tests/native-proof-extraction.test.ts",
+      "tests/native-proof-extraction-workload.test.ts"
+    ],
+    "exit": 0,
+    "executionCommit": "56d1930f0df8a2843ce2d3b6f635ef22b038253f",
+    "nodeVersion": "v26.10.0",
+    "nodeSha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+    "chromiumPath": "/Users/hughpyle/Library/Caches/ms-playwright/chromium-1243/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+    "chromiumSha256": "8319963f6625accf51c0dd4f55091ceaf9f09ed39e7a52fed4fae12b2a6b668a",
+    "fixtureEnvironmentAbsent": true,
+    "defaultFixtureFilesAbsent": true
+  }
+]
