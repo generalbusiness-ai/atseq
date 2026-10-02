@@ -1,0 +1,440 @@
+{
+  "format": "atseq-native-observer-implementation-evidence",
+  "version": 1,
+  "date": "2026-10-02",
+  "request": "b052638e409bdb9d60b536c5e3c86b49260f8c38",
+  "promise": "555dd11a50f680f5e00d653b3e22e92d0a99057d",
+  "source": "1e8dd409c69f5c216ccc6b288a6c38ca9e6b4722",
+  "baseline": "65e7042a01184f4d755bf0a7853e92411e6dee9f",
+  "decision": {
+    "source": "daade18c86018638509ee5f491aa1aafddd1afc7",
+    "clarificationSource": "17a2298064a156c178d43621cc24c3488022bc78",
+    "adoption": "bf9d182b73df7149f6e98af1808adcb09c4e4ded",
+    "assessment": "39d4c72cbf480d5b9961d7ae956752a7db8f11e3",
+    "mandatoryCorrections": [
+      "D3-1 stable pointer mismatch before target absence/replacement",
+      "D3-2 unpublished advance refusal; explicit publication and new preparation"
+    ]
+  },
+  "ownedSource": [
+    {
+      "path": "experiments/native-observer/compiled-conformance.mjs",
+      "bytes": 7215,
+      "sha256": "55e3f4d711355077e32607afc26610c631f979ea0a921f6ecfdd022251b20318"
+    },
+    {
+      "path": "src/host/identity-fetch.ts",
+      "bytes": 4295,
+      "sha256": "7411ca92b7b218005be6a7656f9ad21f136cb6ab502ff6aa82fefe301b58c49b"
+    },
+    {
+      "path": "src/host/native-observer.ts",
+      "bytes": 27451,
+      "sha256": "bb0643df5ba9febd1745f72a7df3ac1fb308f20942a65d14b03c29a39981a235"
+    },
+    {
+      "path": "src/protocol/native-observer-car.ts",
+      "bytes": 5703,
+      "sha256": "1ce60262ad1d43e0de70db763885e2d7099cb449a380db6af362b6f738a726cc"
+    },
+    {
+      "path": "tests/native-observer-browser.test.ts",
+      "bytes": 3160,
+      "sha256": "0fa3c59f27c76a78cdc5b2e8a1649ca8525acc5aa066f9e055d71a73005706ec"
+    },
+    {
+      "path": "tests/native-observer-limits.test.ts",
+      "bytes": 6210,
+      "sha256": "f8e4c10a152d4008aa5365b0be1ed95d6ac8911da1c49902b3a03cb7d5d9d922"
+    },
+    {
+      "path": "tests/native-observer.test.ts",
+      "bytes": 1104,
+      "sha256": "51b81676636d26027314ee9d0fdf160b4fc515bbc7dcf9b6c63ecad45117b01e"
+    },
+    {
+      "path": "tests/support/native-observer-fixture.ts",
+      "bytes": 32208,
+      "sha256": "2f691b11a1b6d75663e0ae4a9f6d9a507f23cb49263317e617d8ed0ca537b1dc"
+    },
+    {
+      "path": "tests/support/native-observer-portable.ts",
+      "bytes": 8889,
+      "sha256": "cb1e6231c1797877e4b33eb3b1f131e84a2260450715e72f38b24e4dc42be471"
+    }
+  ],
+  "unchangedReviewedBaseline": [
+    {
+      "path": "package.json",
+      "bytes": 4267,
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a"
+    },
+    {
+      "path": "npm-shrinkwrap.json",
+      "bytes": 118358,
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    },
+    {
+      "path": "src/protocol/native-proof.ts",
+      "bytes": 18104,
+      "sha256": "324856fe3bbe92ec20a8fc1cb8707266505ef5aacf3a4ca0b966d400b3bd43d9"
+    },
+    {
+      "path": "src/protocol/identity-binding.ts",
+      "bytes": 3971,
+      "sha256": "f485f06544cbb17ec5fc7a2cc11ac5f2d1bd574020386d67e4e50363bf9db806"
+    },
+    {
+      "path": "src/protocol/identity-plc.ts",
+      "bytes": 7074,
+      "sha256": "67e29c6d4a15836b102f2929b0fcfdee383a4deef0d14c57c5df2fcad0d2481d"
+    },
+    {
+      "path": "src/protocol/native-wire.ts",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "path": "src/application/native-authority.ts",
+      "bytes": 19024,
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    {
+      "path": "src/application/native-authority-evidence.ts",
+      "bytes": 12775,
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    {
+      "path": "src/host/index.ts",
+      "bytes": 420,
+      "sha256": "4164cf90da42ca49914c5ea0dbbc31197a71238ba8492d19a38bb3bad262c1f2"
+    },
+    {
+      "path": "src/protocol/index.ts",
+      "bytes": 242,
+      "sha256": "5f8910165f62eb6aff7122e58e6d8804c1a2afe45364135e5969389e18f424e6"
+    },
+    {
+      "path": "src/application/index.ts",
+      "bytes": 811,
+      "sha256": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2"
+    }
+  ],
+  "transportDelta": {
+    "path": "src/host/identity-fetch.ts",
+    "priorSha256": "6e17c6ca6a97180089a774a00d291dba7081d3ad5c56af242aab785a85a758cb",
+    "current": {
+      "path": "src/host/identity-fetch.ts",
+      "bytes": 4295,
+      "sha256": "7411ca92b7b218005be6a7656f9ad21f136cb6ab502ff6aa82fefe301b58c49b"
+    },
+    "scope": "assertActive checks same existing deadline and caller cancellation; no new timeout/clock or fetch failure classification"
+  },
+  "validation": [
+    {
+      "runtime": "node22",
+      "node": "v22.19.0",
+      "exitCode": 0,
+      "focusedTests": 13,
+      "hostCaseLabels": 34,
+      "portableCarCaseLabels": 20,
+      "retainedReplayCaseLabels": 17,
+      "totalObserverLabels": 71,
+      "retainedAuthorityFixtures": 6,
+      "retainedAppCaptures": 5,
+      "compiledConsumerCells": 4,
+      "deadline": {
+        "actualReservationMilliseconds": 30000,
+        "delayPhase": "final proof construction after both method reads",
+        "elapsedMilliseconds": 30120.836167000005,
+        "node": "v22.19.0",
+        "captureCreated": false,
+        "timeoutReplaced": false
+      },
+      "sharedBodyBudget": {
+        "sharedCumulativeBytes": 33554432,
+        "oneSignedProofBytes": 15213076,
+        "recordDispatches": 3,
+        "methodDispatches": 5,
+        "finalCapture": false,
+        "perRetryBudgetReset": false
+      },
+      "productionGuard": {
+        "node": "v22.19.0",
+        "builtinUndici": "6.21.2",
+        "selectedAgentAlias": "undici_v6",
+        "selectedInstalledVersion": "6.29.0",
+        "selectedEntry": "/private/tmp/atseq-native-observer-f2-20261002/node_modules/undici_v6/index.js",
+        "dispatchedCalls": 7,
+        "connectTimeDnsCalls": 2,
+        "privateConnections": 0,
+        "literalCases": 6
+      },
+      "commands": [
+        "ATSEQ_OBSERVER_TEST_OUTPUT=experiments/post-spike-evidence/2026-10-02/native-observer/node22 <v22.19.0 executable> scripts/source-run.mjs --test tests/native-observer.test.ts tests/native-observer-limits.test.ts tests/identity-fetch.test.ts tests/identity-evidence.test.ts tests/native-proof.test.ts tests/native-authority.test.ts",
+        "ATSEQ_OBSERVER_TEST_OUTPUT=experiments/post-spike-evidence/2026-10-02/native-observer/node22 <v22.19.0 executable> --import tsx experiments/native-observer/compiled-conformance.mjs"
+      ]
+    },
+    {
+      "runtime": "node24",
+      "node": "v24.21.0",
+      "exitCode": 0,
+      "focusedTests": 13,
+      "hostCaseLabels": 34,
+      "portableCarCaseLabels": 20,
+      "retainedReplayCaseLabels": 17,
+      "totalObserverLabels": 71,
+      "retainedAuthorityFixtures": 6,
+      "retainedAppCaptures": 5,
+      "compiledConsumerCells": 4,
+      "deadline": {
+        "actualReservationMilliseconds": 30000,
+        "delayPhase": "final proof construction after both method reads",
+        "elapsedMilliseconds": 30114.644208,
+        "node": "v24.21.0",
+        "captureCreated": false,
+        "timeoutReplaced": false
+      },
+      "sharedBodyBudget": {
+        "sharedCumulativeBytes": 33554432,
+        "oneSignedProofBytes": 15213076,
+        "recordDispatches": 3,
+        "methodDispatches": 5,
+        "finalCapture": false,
+        "perRetryBudgetReset": false
+      },
+      "productionGuard": {
+        "node": "v24.21.0",
+        "builtinUndici": "7.29.1",
+        "selectedAgentAlias": "undici_v7",
+        "selectedInstalledVersion": "7.30.0",
+        "selectedEntry": "/private/tmp/atseq-native-observer-f2-20261002/node_modules/undici_v7/index.js",
+        "dispatchedCalls": 7,
+        "connectTimeDnsCalls": 2,
+        "privateConnections": 0,
+        "literalCases": 6
+      },
+      "commands": [
+        "ATSEQ_OBSERVER_TEST_OUTPUT=experiments/post-spike-evidence/2026-10-02/native-observer/node24 <v24.21.0 executable> scripts/source-run.mjs --test tests/native-observer.test.ts tests/native-observer-limits.test.ts tests/identity-fetch.test.ts tests/identity-evidence.test.ts tests/native-proof.test.ts tests/native-authority.test.ts",
+        "ATSEQ_OBSERVER_TEST_OUTPUT=experiments/post-spike-evidence/2026-10-02/native-observer/node24 <v24.21.0 executable> --import tsx experiments/native-observer/compiled-conformance.mjs"
+      ]
+    },
+    {
+      "runtime": "node26",
+      "node": "v26.10.0",
+      "exitCode": 0,
+      "focusedTests": 13,
+      "hostCaseLabels": 34,
+      "portableCarCaseLabels": 20,
+      "retainedReplayCaseLabels": 17,
+      "totalObserverLabels": 71,
+      "retainedAuthorityFixtures": 6,
+      "retainedAppCaptures": 5,
+      "compiledConsumerCells": 4,
+      "deadline": {
+        "actualReservationMilliseconds": 30000,
+        "delayPhase": "final proof construction after both method reads",
+        "elapsedMilliseconds": 30131.276875,
+        "node": "v26.10.0",
+        "captureCreated": false,
+        "timeoutReplaced": false
+      },
+      "sharedBodyBudget": {
+        "sharedCumulativeBytes": 33554432,
+        "oneSignedProofBytes": 15213076,
+        "recordDispatches": 3,
+        "methodDispatches": 5,
+        "finalCapture": false,
+        "perRetryBudgetReset": false
+      },
+      "productionGuard": {
+        "node": "v26.10.0",
+        "builtinUndici": "8.10.2",
+        "selectedAgentAlias": "undici_v8",
+        "selectedInstalledVersion": "8.11.2",
+        "selectedEntry": "/private/tmp/atseq-native-observer-f2-20261002/node_modules/undici_v8/index.js",
+        "dispatchedCalls": 7,
+        "connectTimeDnsCalls": 2,
+        "privateConnections": 0,
+        "literalCases": 6
+      },
+      "commands": [
+        "ATSEQ_OBSERVER_TEST_OUTPUT=experiments/post-spike-evidence/2026-10-02/native-observer/node26 <v26.10.0 executable> scripts/source-run.mjs --test tests/native-observer.test.ts tests/native-observer-limits.test.ts tests/identity-fetch.test.ts tests/identity-evidence.test.ts tests/native-proof.test.ts tests/native-authority.test.ts",
+        "ATSEQ_OBSERVER_TEST_OUTPUT=experiments/post-spike-evidence/2026-10-02/native-observer/node26 <v26.10.0 executable> --import tsx experiments/native-observer/compiled-conformance.mjs"
+      ]
+    },
+    {
+      "runtime": "Chromium",
+      "version": "153.0.8010.12",
+      "exitCode": 0,
+      "tests": 4,
+      "observerCarCaseLabels": 20,
+      "exactRetainedReplayCaseLabels": 17,
+      "bundleBytes": 806997,
+      "bundleSha256": "e1825b0ed2100e7bf2e866392ab9ebf5aac5629f2fcb4a142d989235a00866bf",
+      "actualBrowserExecution": true,
+      "hostTransportImported": false,
+      "command": "ATSEQ_OBSERVER_TEST_OUTPUT=experiments/post-spike-evidence/2026-10-02/native-observer/chromium node scripts/source-run.mjs --test tests/native-observer-browser.test.ts tests/identity-evidence-browser.test.ts tests/native-proof-browser.test.ts tests/native-authority-browser.test.ts"
+    },
+    {
+      "runtime": "Node26 full suite",
+      "node": "v26.10.0",
+      "exitCode": 0,
+      "tests": 460,
+      "failures": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "command": "npm test"
+    },
+    {
+      "runtime": "source/build",
+      "exitCode": 0,
+      "commands": [
+        "npm run check",
+        "npm run build"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/build-provenance.json",
+      "bytes": 63578,
+      "sha256": "683c76121d465709308be86e6644a690571a79e8b68d1bc9047627d3f4d7989b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/build.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/chromium/browser.log",
+      "bytes": 7220,
+      "sha256": "3ab3948a34b1e7d5f7bfc3ccf01f95f251428c59ea7cdf8fc1e5efc41f0e64b2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/chromium/chromium.json.gz",
+      "bytes": 328546,
+      "sha256": "643e3e7f2c380a370d365bb6a5f1a163e5907cf2e4361c3829f38e7c2697df2e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/full-node26.log",
+      "bytes": 81947,
+      "sha256": "bdf4c8d3e6ef944c9493e35cb4e33c77db0c99d1076bf587c3c504cd41706a13"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node22/compiled.json",
+      "bytes": 16456,
+      "sha256": "6fd428d354b35fe09c1571dccb28a046461441f2e4a449ee46ee6f1a27d61843"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node22/compiled.log",
+      "bytes": 418,
+      "sha256": "b1501a41ad4e2570c25523cb5f506845fa1915a38fbe44b787231aeda0b9ce40"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node22/focused.log",
+      "bytes": 18249,
+      "sha256": "25bce9469b172d5a829ce8e27d0f82fb2b7722b6b3a09b7666bd95fa1fcaf948"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node22/host.json.gz",
+      "bytes": 292744,
+      "sha256": "8d46b2446cf0eadef668b5b290e061e6aaaff07744c9c13b2d995105bfe8b39c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node24/compiled.json",
+      "bytes": 16456,
+      "sha256": "19b0b3309228cfbad509ead5c61086b3ede70789972b0b34f8003ad8a62692a2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node24/compiled.log",
+      "bytes": 418,
+      "sha256": "60ef89e9648e18a1980012feea1b2f2c39ea404423160b8ca44f9d520a619099"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node24/focused.log",
+      "bytes": 16380,
+      "sha256": "33c1379b4d34d6aeec81f57c67d318d1b927b975d876481db6bb0bd5287930a5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node24/host.json.gz",
+      "bytes": 297055,
+      "sha256": "ca4919951a8963fd169886b9d4e19c86dbb8e93479d0051d4be83e59d7d9baa7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node26/compiled.json",
+      "bytes": 16456,
+      "sha256": "58f5678494c7d9e03f97d3116057a19ae5a0371eeeae96a4eb0d9ada553c61fc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node26/compiled.log",
+      "bytes": 418,
+      "sha256": "170954a26c3c15a83251c91dbefae5fea08b2412affc096c3175f86f922d84ed"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node26/focused.log",
+      "bytes": 16378,
+      "sha256": "b6093f529ae68f17884687710b08ad798356c9ab4641c0d69d3a986e7325d617"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node26/host.json.gz",
+      "bytes": 281440,
+      "sha256": "da8b7b7ae638eaed8b2f471d3aca854b31de31375346b42de5392d46a5731599"
+    }
+  ],
+  "report": {
+    "path": "notes/2026-10-02-atseq-native-observer-results.md",
+    "bytes": 11627,
+    "sha256": "1a5f81b85323c23c2cbecfb8b2840ff79c1cf89e29f0e30e22d385928a258c80"
+  },
+  "providerTrial": false,
+  "httpDelivery": "simulated at existing guarded transport delivery seam; genuine signed method/repository evidence",
+  "publicEvidenceOnly": true,
+  "noDependencyOrExportOrSupportedProfileChanges": true,
+  "remainingFullI1Gates": [
+    "genuine provider interoperability",
+    "supported native policy/profile dispatch",
+    "N1 host publication and ordering integration",
+    "restore integration",
+    "external app bootstrap trust"
+  ],
+  "compressedCaptures": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node22/host.json.gz",
+      "originalPath": "experiments/post-spike-evidence/2026-10-02/native-observer/node22/host.json",
+      "decodedBytes": 5734013,
+      "decodedSha256": "3849009611a7fd8bfa73ca99ec0b0c155e4547fee334fec21a75ccead4c66b4d",
+      "encoding": "gzip",
+      "mtime": 0
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node24/host.json.gz",
+      "originalPath": "experiments/post-spike-evidence/2026-10-02/native-observer/node24/host.json",
+      "decodedBytes": 5742731,
+      "decodedSha256": "4b2f8a5c921d84c50a7f2077ea545481a8637ad566bb1b09aef2682f9a64cc6e",
+      "encoding": "gzip",
+      "mtime": 0
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/node26/host.json.gz",
+      "originalPath": "experiments/post-spike-evidence/2026-10-02/native-observer/node26/host.json",
+      "decodedBytes": 5490701,
+      "decodedSha256": "1d77b5a0721889b64951e8f8878031e300e2984a87f683e5e667ed36c596dd4b",
+      "encoding": "gzip",
+      "mtime": 0
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-observer/chromium/chromium.json.gz",
+      "originalPath": "experiments/post-spike-evidence/2026-10-02/native-observer/chromium/chromium.json",
+      "decodedBytes": 6499008,
+      "decodedSha256": "c5383cfff140a3cc741972044e7d01e47bd5bfd0b02023484d3c6d35b4609b1f",
+      "encoding": "gzip",
+      "mtime": 0
+    }
+  ]
+}

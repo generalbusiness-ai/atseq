@@ -1,0 +1,430 @@
+{
+  "node": "v22.19.0",
+  "cases": [
+    "p256/plc/compiled signed capture, offline I2 handoff, app proof and opaque ownership",
+    "p256/web/compiled signed capture, offline I2 handoff, app proof and opaque ownership",
+    "secp256k1/plc/compiled signed capture, offline I2 handoff, app proof and opaque ownership",
+    "secp256k1/web/compiled signed capture, offline I2 handoff, app proof and opaque ownership"
+  ],
+  "results": [
+    {
+      "curve": "p256",
+      "method": "plc",
+      "accountDescriptor": "bafyreifowce5q4vmied65x524vxyutkr72xo5gvgwcta6rqh7tvkslydza",
+      "entryCid": "bafyreifhinq765e4wudlo3domwfuhniklotrudzmmrztgrvi3emup6y4si",
+      "snapshot": {
+        "format": "atseq-native-authority",
+        "version": 1,
+        "app": "did:plc:hlufuscxfgywi6347vdy4woe",
+        "genesis": "bafyreid2hyiko6bxykforjjwl7wgtyx6rjoltddlch7j557lqaneejpyoq",
+        "activeDefinition": "bafyreidpdkfr5aj2jzqs7wmbyetbygplbhw4aeuto5q5yid2c7et2nrqty",
+        "frontier": {
+          "position": 1,
+          "entry": "bafyreifhinq765e4wudlo3domwfuhniklotrudzmmrztgrvi3emup6y4si"
+        },
+        "control": {
+          "tip": "bafyreid2hyiko6bxykforjjwl7wgtyx6rjoltddlch7j557lqaneejpyoq",
+          "appointments": [
+            {
+              "powers": [
+                "govern",
+                "recover"
+              ],
+              "actorKey": "did:key:zDnaeyKSi2hYNJUbWzjQG7oPbzzkhmEDFupxChsiStHypaf87",
+              "principal": "did:plc:5oxm3w6abip5luqunf74xgdp"
+            }
+          ],
+          "owner": "did:plc:5oxm3w6abip5luqunf74xgdp",
+          "recoverGovernance": true
+        },
+        "roles": [
+          {
+            "role": "member",
+            "principal": "did:plc:5oxm3w6abip5luqunf74xgdp",
+            "enabled": true,
+            "revision": "bafyreid2hyiko6bxykforjjwl7wgtyx6rjoltddlch7j557lqaneejpyoq"
+          }
+        ],
+        "principals": [
+          {
+            "principal": "did:plc:5oxm3w6abip5luqunf74xgdp",
+            "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+            "epochs": [
+              {
+                "cid": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                "id": "AQEBAQEBAQEBAQEBAQEBAQ",
+                "previous": null
+              }
+            ],
+            "observation": {
+              "cid": "bafyreifowce5q4vmied65x524vxyutkr72xo5gvgwcta6rqh7tvkslydza",
+              "root": "bafyreieuy5ugrql336qibq6gv2nlepweob2znnbpdfroeunos7tulv22p4",
+              "rev": "2222222222223",
+              "signingKeyDid": "did:key:zDnaemJ2ke9fJswdAfDeJt1epRSWyxj4CVt5iTRZ3yVptqnrD",
+              "pdsOrigin": "https://pds.example",
+              "assuranceClass": "plc-audit-v1"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "principal": "did:plc:5oxm3w6abip5luqunf74xgdp",
+            "id": "aeaqcaibaeaqcaibaeaqcaibae",
+            "cid": "bafyreiggbln423woaqgk2fd4hvfv2qxi5k4bncb7w7jxst6bi4bkkmm7t4",
+            "grant": {
+              "id": "aeaqcaibaeaqcaibaeaqcaibae",
+              "app": "did:plc:hlufuscxfgywi6347vdy4woe",
+              "$type": "ai.generalbusiness.atseq.grant",
+              "epoch": {
+                "$link": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li"
+              },
+              "actions": [],
+              "genesis": {
+                "$link": "bafyreid2hyiko6bxykforjjwl7wgtyx6rjoltddlch7j557lqaneejpyoq"
+              },
+              "version": 1,
+              "actorKey": "did:key:zDnaeR9Lif7goNxJeEZxtjBE3yiWS9q8227iPhBHXap1M3xG6",
+              "assignRoles": [
+                "member"
+              ]
+            },
+            "revoked": false
+          }
+        ],
+        "consumedObservations": [
+          "bafyreifowce5q4vmied65x524vxyutkr72xo5gvgwcta6rqh7tvkslydza"
+        ],
+        "requests": [
+          "bafyreiexl7vrat3na2f7gtv5ocbuzcutsbh3fopsvh7itex3b4n7iosm6e"
+        ],
+        "retries": []
+      },
+      "appDescriptor": "bafyreiaw55hb3gfsboxfrjkw6wxsokkhnhikplu32kuuihwk2m2on6p5aq",
+      "assuranceClass": "plc-audit-v1"
+    },
+    {
+      "curve": "p256",
+      "method": "web",
+      "accountDescriptor": "bafyreieh7nbbnlh7ekrekprhougoggprgucax5er4rszy2i35aoce7mbma",
+      "entryCid": "bafyreif6hrpuz7oomnjlsvwo4f342pmq3b6a6dbg7zqp5vx7cok3dqh3vi",
+      "snapshot": {
+        "format": "atseq-native-authority",
+        "version": 1,
+        "app": "did:plc:eiysr4egrv4lz5o3ublf5a3y",
+        "genesis": "bafyreibnjbxhpkc7c7mmewe67toy5pbdjdmfi7gdj7rbhjm7vw76x5gj7u",
+        "activeDefinition": "bafyreidpdkfr5aj2jzqs7wmbyetbygplbhw4aeuto5q5yid2c7et2nrqty",
+        "frontier": {
+          "position": 1,
+          "entry": "bafyreif6hrpuz7oomnjlsvwo4f342pmq3b6a6dbg7zqp5vx7cok3dqh3vi"
+        },
+        "control": {
+          "tip": "bafyreibnjbxhpkc7c7mmewe67toy5pbdjdmfi7gdj7rbhjm7vw76x5gj7u",
+          "appointments": [
+            {
+              "powers": [
+                "govern",
+                "recover"
+              ],
+              "actorKey": "did:key:zDnaeSXDjCSHUpxkyKoNppESuYcdNxap2x1CW2dHS73zPa9Lw",
+              "principal": "did:web:participant.example"
+            }
+          ],
+          "owner": "did:web:participant.example",
+          "recoverGovernance": true
+        },
+        "roles": [
+          {
+            "role": "member",
+            "principal": "did:web:participant.example",
+            "enabled": true,
+            "revision": "bafyreibnjbxhpkc7c7mmewe67toy5pbdjdmfi7gdj7rbhjm7vw76x5gj7u"
+          }
+        ],
+        "principals": [
+          {
+            "principal": "did:web:participant.example",
+            "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+            "epochs": [
+              {
+                "cid": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                "id": "AQEBAQEBAQEBAQEBAQEBAQ",
+                "previous": null
+              }
+            ],
+            "observation": {
+              "cid": "bafyreieh7nbbnlh7ekrekprhougoggprgucax5er4rszy2i35aoce7mbma",
+              "root": "bafyreidqv46mltkevzflqiglqb4ta2wm3cfsawjqj2nesas46hsaj3fina",
+              "rev": "2222222222223",
+              "signingKeyDid": "did:key:zDnaebVPgZQ2zFMwmqG6sftPfXQTGJWeKFMyKX7Z6cDcEfpuQ",
+              "pdsOrigin": "https://pds.example",
+              "assuranceClass": "web-observation-v1"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "principal": "did:web:participant.example",
+            "id": "aeaqcaibaeaqcaibaeaqcaibae",
+            "cid": "bafyreid4abdfw5m2xc3g33qsu3dgzy3vkybfifcmqp4qvarrmtik53zn2y",
+            "grant": {
+              "id": "aeaqcaibaeaqcaibaeaqcaibae",
+              "app": "did:plc:eiysr4egrv4lz5o3ublf5a3y",
+              "$type": "ai.generalbusiness.atseq.grant",
+              "epoch": {
+                "$link": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li"
+              },
+              "actions": [],
+              "genesis": {
+                "$link": "bafyreibnjbxhpkc7c7mmewe67toy5pbdjdmfi7gdj7rbhjm7vw76x5gj7u"
+              },
+              "version": 1,
+              "actorKey": "did:key:zDnaehH83bEmejCBiL5tQBiSLUj7uY2oQx2Jcna5B2PNM1Rp6",
+              "assignRoles": [
+                "member"
+              ]
+            },
+            "revoked": false
+          }
+        ],
+        "consumedObservations": [
+          "bafyreieh7nbbnlh7ekrekprhougoggprgucax5er4rszy2i35aoce7mbma"
+        ],
+        "requests": [
+          "bafyreib2yjjum33zdaw3e4pvighlxcmefs2ed3bnjhnxncofsqa542jx6e"
+        ],
+        "retries": []
+      },
+      "appDescriptor": "bafyreifmpamnbn5wxet47x5eqzzaes4pg4co3xgpzexpf3z2pdjjdcplg4",
+      "assuranceClass": "web-observation-v1"
+    },
+    {
+      "curve": "secp256k1",
+      "method": "plc",
+      "accountDescriptor": "bafyreigtkhto7352rtjl7lcttfq3jkmfvzkyrypauxpnyko76q6ikwlgw4",
+      "entryCid": "bafyreiawqojssk7p5t2lvupeaceurh4au3ovtvqnpgidkq7fs3mu7zvu3q",
+      "snapshot": {
+        "format": "atseq-native-authority",
+        "version": 1,
+        "app": "did:plc:aaywrs73cmdfzvy6skeef2dn",
+        "genesis": "bafyreiegdtwzxuvpikra5pve5qkjc2anmv3xjwx3rns75xjaow36cph2dy",
+        "activeDefinition": "bafyreidpdkfr5aj2jzqs7wmbyetbygplbhw4aeuto5q5yid2c7et2nrqty",
+        "frontier": {
+          "position": 1,
+          "entry": "bafyreiawqojssk7p5t2lvupeaceurh4au3ovtvqnpgidkq7fs3mu7zvu3q"
+        },
+        "control": {
+          "tip": "bafyreiegdtwzxuvpikra5pve5qkjc2anmv3xjwx3rns75xjaow36cph2dy",
+          "appointments": [
+            {
+              "powers": [
+                "govern",
+                "recover"
+              ],
+              "actorKey": "did:key:zDnaecPjRcWbGryZuGkazUoa1S2ULh1dtNugEFZ59fjhzk3iW",
+              "principal": "did:plc:gcjdaslhxjalzci3ppsdx2y5"
+            }
+          ],
+          "owner": "did:plc:gcjdaslhxjalzci3ppsdx2y5",
+          "recoverGovernance": true
+        },
+        "roles": [
+          {
+            "role": "member",
+            "principal": "did:plc:gcjdaslhxjalzci3ppsdx2y5",
+            "enabled": true,
+            "revision": "bafyreiegdtwzxuvpikra5pve5qkjc2anmv3xjwx3rns75xjaow36cph2dy"
+          }
+        ],
+        "principals": [
+          {
+            "principal": "did:plc:gcjdaslhxjalzci3ppsdx2y5",
+            "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+            "epochs": [
+              {
+                "cid": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                "id": "AQEBAQEBAQEBAQEBAQEBAQ",
+                "previous": null
+              }
+            ],
+            "observation": {
+              "cid": "bafyreigtkhto7352rtjl7lcttfq3jkmfvzkyrypauxpnyko76q6ikwlgw4",
+              "root": "bafyreidhq7ygecdfqwetsk64s6psffsvym5qggknsi4eosuukxind2o4j4",
+              "rev": "2222222222223",
+              "signingKeyDid": "did:key:zQ3shmQ8T92c7mUThSbtrhg8pbt1yd58qdeQYWP9SkGnnrfG6",
+              "pdsOrigin": "https://pds.example",
+              "assuranceClass": "plc-audit-v1"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "principal": "did:plc:gcjdaslhxjalzci3ppsdx2y5",
+            "id": "aeaqcaibaeaqcaibaeaqcaibae",
+            "cid": "bafyreig5b6m43ccr3dnregj4k5nbiuinnvngwf5qetagqqyf2hqpx2wufi",
+            "grant": {
+              "id": "aeaqcaibaeaqcaibaeaqcaibae",
+              "app": "did:plc:aaywrs73cmdfzvy6skeef2dn",
+              "$type": "ai.generalbusiness.atseq.grant",
+              "epoch": {
+                "$link": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li"
+              },
+              "actions": [],
+              "genesis": {
+                "$link": "bafyreiegdtwzxuvpikra5pve5qkjc2anmv3xjwx3rns75xjaow36cph2dy"
+              },
+              "version": 1,
+              "actorKey": "did:key:zDnaecZiZZ355cCWQZqBaqfZhTK8SxqwmN7wYpCbqPwk68fF8",
+              "assignRoles": [
+                "member"
+              ]
+            },
+            "revoked": false
+          }
+        ],
+        "consumedObservations": [
+          "bafyreigtkhto7352rtjl7lcttfq3jkmfvzkyrypauxpnyko76q6ikwlgw4"
+        ],
+        "requests": [
+          "bafyreighdazg5tpm7fhxlfpmlmdbtgsccz6sulysjtqd6domqeokmmvgja"
+        ],
+        "retries": []
+      },
+      "appDescriptor": "bafyreiev63oguyaz2i5wyvrma3hpqyizwbre365jwmieypskbt7rtjhvqa",
+      "assuranceClass": "plc-audit-v1"
+    },
+    {
+      "curve": "secp256k1",
+      "method": "web",
+      "accountDescriptor": "bafyreihsyrmvuwhm2slnayjdixluacwljmwvze5eeal5c4waf2yvo5jj2u",
+      "entryCid": "bafyreidm6ebkphwigee2q3kgbxuezng4neu2zsjutyvwsq5oe3ls4w5ogm",
+      "snapshot": {
+        "format": "atseq-native-authority",
+        "version": 1,
+        "app": "did:plc:npdbowa3ttqwv7ctigxzpk2w",
+        "genesis": "bafyreiakk3o3cgwpx2atqhbewrbmngvmcrhcbjakh6fnek4474rkqfl5d4",
+        "activeDefinition": "bafyreidpdkfr5aj2jzqs7wmbyetbygplbhw4aeuto5q5yid2c7et2nrqty",
+        "frontier": {
+          "position": 1,
+          "entry": "bafyreidm6ebkphwigee2q3kgbxuezng4neu2zsjutyvwsq5oe3ls4w5ogm"
+        },
+        "control": {
+          "tip": "bafyreiakk3o3cgwpx2atqhbewrbmngvmcrhcbjakh6fnek4474rkqfl5d4",
+          "appointments": [
+            {
+              "powers": [
+                "govern",
+                "recover"
+              ],
+              "actorKey": "did:key:zDnaezmy3uCYDQFT299TnUUePMXatvMEwgt4Rrn71NnSMNs3T",
+              "principal": "did:web:participant.example"
+            }
+          ],
+          "owner": "did:web:participant.example",
+          "recoverGovernance": true
+        },
+        "roles": [
+          {
+            "role": "member",
+            "principal": "did:web:participant.example",
+            "enabled": true,
+            "revision": "bafyreiakk3o3cgwpx2atqhbewrbmngvmcrhcbjakh6fnek4474rkqfl5d4"
+          }
+        ],
+        "principals": [
+          {
+            "principal": "did:web:participant.example",
+            "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+            "epochs": [
+              {
+                "cid": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                "id": "AQEBAQEBAQEBAQEBAQEBAQ",
+                "previous": null
+              }
+            ],
+            "observation": {
+              "cid": "bafyreihsyrmvuwhm2slnayjdixluacwljmwvze5eeal5c4waf2yvo5jj2u",
+              "root": "bafyreibvjm7bnucwwgvx2ay76ubm4q5uo2agkzoxydnq7oi2gjxbc32qnu",
+              "rev": "2222222222223",
+              "signingKeyDid": "did:key:zQ3shmh4aTE6z93awhEjF4Kf3XLAd7NoVn2seUJ7DwDo5bd6q",
+              "pdsOrigin": "https://pds.example",
+              "assuranceClass": "web-observation-v1"
+            }
+          }
+        ],
+        "grants": [
+          {
+            "principal": "did:web:participant.example",
+            "id": "aeaqcaibaeaqcaibaeaqcaibae",
+            "cid": "bafyreianoqg2fijjerh7k3b7fq5u6kwuihh2omz2vechw3gudk3epykpme",
+            "grant": {
+              "id": "aeaqcaibaeaqcaibaeaqcaibae",
+              "app": "did:plc:npdbowa3ttqwv7ctigxzpk2w",
+              "$type": "ai.generalbusiness.atseq.grant",
+              "epoch": {
+                "$link": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li"
+              },
+              "actions": [],
+              "genesis": {
+                "$link": "bafyreiakk3o3cgwpx2atqhbewrbmngvmcrhcbjakh6fnek4474rkqfl5d4"
+              },
+              "version": 1,
+              "actorKey": "did:key:zDnaen8cUSKDX9CaNdXSgUdyTUE5JEM5gP3rSUi3wiB28RUsE",
+              "assignRoles": [
+                "member"
+              ]
+            },
+            "revoked": false
+          }
+        ],
+        "consumedObservations": [
+          "bafyreihsyrmvuwhm2slnayjdixluacwljmwvze5eeal5c4waf2yvo5jj2u"
+        ],
+        "requests": [
+          "bafyreia62cxpskcgoelntlmrfgyqyccypist6rv7mcjvfxlvpyv2t4rghe"
+        ],
+        "retries": []
+      },
+      "appDescriptor": "bafyreigscdfnpwtvoogq5t6ngqkmkfmmsmxkqa6m7kxpakqmzmvgxi6n7u",
+      "assuranceClass": "web-observation-v1"
+    }
+  ],
+  "modules": [
+    {
+      "path": "dist/src/host/native-observer.js",
+      "bytes": 25046,
+      "sha256": "1c27320463656867c848e110363afcf5e8a7292e4bf497f43c4cd0f944b054dd"
+    },
+    {
+      "path": "dist/src/host/identity-fetch.js",
+      "bytes": 4869,
+      "sha256": "640414157456e8e71f93c68c87a850b36c1915becdfcc2b560810b4ae29023f7"
+    },
+    {
+      "path": "dist/src/protocol/native-observer-car.js",
+      "bytes": 5938,
+      "sha256": "6aa3738ab48f32daf8383dd6c0c9a22d3ba5a62d97390de46e4d0d50d19a77a3"
+    },
+    {
+      "path": "dist/src/protocol/native-proof.js",
+      "bytes": 18604,
+      "sha256": "f4c86609dfd2cebd4f32acf4cfbba2eb89476a0c626c7ea9ea270361bc3621ad"
+    },
+    {
+      "path": "dist/src/protocol/identity-binding.js",
+      "bytes": 3638,
+      "sha256": "0dade2000c19c638180f49428f16169938cfc5492be6517b73f3c6cbc0b59b5e"
+    },
+    {
+      "path": "dist/src/application/native-authority.js",
+      "bytes": 16566,
+      "sha256": "a4a87634ab3ae7d6eca117dd6711ec9756da85349d4ccd1491da03e4f9ce3f7c"
+    },
+    {
+      "path": "dist/src/application/native-authority-evidence.js",
+      "bytes": 11284,
+      "sha256": "28e674edddbac35dc7597d973a9a67061a9156dcf60313b5ba0cefa30e7ed613"
+    }
+  ],
+  "compiledProductModules": true,
+  "delivery": "simulated public HTTP; genuine signed method/repository fixtures; no provider trial"
+}
