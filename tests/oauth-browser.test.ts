@@ -107,19 +107,14 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
     assert.equal(created.secure, true);
     assert.equal(created.locks, true);
     assert.equal(created.serialized, '{}');
-    const begun = await page.evaluate(() => (globalThis as any).probe.begin());
+    await page.evaluate(() => (globalThis as any).probe.begin());
     const params = fixture.callback().toString();
     // A new document must consume the retained transaction and official IndexedDB state.
     await page.reload();
     await initialize(page);
     await initialize(other);
     const race = await Promise.allSettled(
-      [page, other].map((target) =>
-        target.evaluate(({ id, params }) => (globalThis as any).probe.complete(id, params), {
-          id: begun.transactionId,
-          params,
-        }),
-      ),
+      [page, other].map((target) => target.evaluate((params) => (globalThis as any).probe.complete(params), params)),
     );
     assert.equal(race.filter((result) => result.status === 'fulfilled').length, 1);
     const winner = race[0]!.status === 'fulfilled' ? page : other;
@@ -156,35 +151,47 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
     await assert.rejects(() => winner.evaluate(() => (globalThis as any).probe.restore()));
     // Missing issuer is refused before token exchange, even though the library
     // receives a valid state and code. A valid completion then consumes it once.
-    const missing = await winner.evaluate(() => (globalThis as any).probe.begin());
+    await winner.evaluate(() => (globalThis as any).probe.begin());
     const missingParams = fixture.callback();
     missingParams.delete('iss');
     const tokenBefore = fixture.count('/token');
     await assert.rejects(
-      () =>
-        winner.evaluate(({ id, params }) => (globalThis as any).probe.complete(id, params), {
-          id: missing.transactionId,
-          params: missingParams.toString(),
-        }),
+      () => winner.evaluate((params) => (globalThis as any).probe.complete(params), missingParams.toString()),
       /Incomplete OAuth callback/,
     );
     assert.equal(fixture.count('/token'), tokenBefore);
     const fullParams = fixture.callback().toString();
-    await winner.evaluate(({ id, params }) => (globalThis as any).probe.complete(id, params), {
-      id: missing.transactionId,
-      params: fullParams,
-    });
+    await winner.evaluate((params) => (globalThis as any).probe.complete(params), fullParams);
     await assert.rejects(
-      () =>
-        winner.evaluate(({ id, params }) => (globalThis as any).probe.complete(id, params), {
-          id: missing.transactionId,
-          params: fullParams,
-        }),
+      () => winner.evaluate((params) => (globalThis as any).probe.complete(params), fullParams),
       /OAuth operation failed/,
     );
     assert.equal(fixture.count('/token'), tokenBefore + 1);
+    // Malformed/unknown callback state must leave both pending enrolments usable.
+    await winner.evaluate(() => (globalThis as any).probe.begin());
+    const firstPending = fixture.callback();
+    await winner.evaluate(() => (globalThis as any).probe.begin());
+    const secondPending = fixture.callback();
+    const beforePending = fixture.count('/token');
+    for (const mode of ['unknown', 'duplicate', 'malformed'] as const) {
+      const bad = new URLSearchParams(firstPending);
+      if (mode === 'unknown') bad.set('state', crypto.randomUUID());
+      if (mode === 'duplicate') bad.append('state', secondPending.get('state')!);
+      if (mode === 'malformed') bad.set('state', 'bad');
+      await assert.rejects(() =>
+        winner.evaluate((params) => (globalThis as any).probe.complete(params), bad.toString()),
+      );
+    }
+    assert.equal(fixture.count('/token'), beforePending);
+    for (const pending of [secondPending, firstPending])
+      await winner.evaluate((params) => (globalThis as any).probe.complete(params), pending.toString());
+    assert.equal(fixture.count('/token'), beforePending + 2);
     fixture.redirectResource = true;
-    await assert.rejects(() => winner.evaluate(() => (globalThis as any).probe.resource()), /OAuth operation failed/);
+    // Fetch redirect:error rejects at the native edge, indistinguishably from network failure.
+    await assert.rejects(
+      () => winner.evaluate(() => (globalThis as any).probe.resource()),
+      /OAuth operation is unavailable/,
+    );
     assert.equal(fixture.count('/redirect-target'), 0);
     fixture.redirectResource = false;
     fixture.resourceBytes = 1024 * 1024 + 1;
@@ -225,7 +232,7 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
     await winner.evaluate(() => localStorage.setItem('atseq.oauth.transactions.v1', 'not-json'));
     await assert.rejects(() => winner.evaluate(() => (globalThis as any).probe.begin()), /OAuth operation failed/);
     await winner.evaluate(() => localStorage.removeItem('atseq.oauth.transactions.v1'));
-    const expired = await winner.evaluate(() => (globalThis as any).probe.begin());
+    await winner.evaluate(() => (globalThis as any).probe.begin());
     await winner.evaluate(() => {
       const rows = JSON.parse(localStorage.getItem('atseq.oauth.transactions.v1')!);
       rows[0].expiresAt = Date.now() - 1;
@@ -233,11 +240,7 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
     });
     const beforeExpired = fixture.count('/token');
     await assert.rejects(
-      () =>
-        winner.evaluate(({ id, params }) => (globalThis as any).probe.complete(id, params), {
-          id: expired.transactionId,
-          params: fixture.callback().toString(),
-        }),
+      () => winner.evaluate((params) => (globalThis as any).probe.complete(params), fixture.callback().toString()),
       /OAuth operation failed/,
     );
     assert.equal(fixture.count('/token'), beforeExpired);
@@ -262,6 +265,7 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
         syntheticOnly: true,
         providerSuccess: false,
         crossDocumentOneExchange: true,
+        twoPendingStateSelection: true,
         reloadRestored: true,
         keyProperties,
         cookiesSent,

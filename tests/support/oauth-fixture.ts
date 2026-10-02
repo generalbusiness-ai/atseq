@@ -46,7 +46,7 @@ export class OAuthFixture {
     if (request.redirect !== 'error' || request.credentials !== 'omit' || request.cache !== 'no-store')
       throw new Error('Fixture observed an unguarded request');
     if (path === '/bulk') return new Response(new Uint8Array(this.resourceBytes));
-    if (path === this.refuse) throw new Error('Synthetic endpoint refusal');
+    if (path === this.refuse) return json({ error: 'access_denied' }, 400);
     if (url.hostname === 'identity.atseq-probe.net') return json({ did: decodeURIComponent(path.slice(1)) });
     if (path === '/.well-known/oauth-protected-resource')
       return json({ resource: OAUTH_PDS, authorization_servers: [this.issuer] });

@@ -1,25 +1,39 @@
 import assert from 'node:assert/strict';
+import { createServer } from 'node:http';
 import { OAuthFixture, OAUTH_DID, OAUTH_OTHER_DID, OAUTH_SCOPE } from './oauth-fixture.ts';
 import { OAUTH_LIMITS } from '../../src/protocol/oauth.ts';
+import { AtseqError } from '../../src/core/errors.ts';
 let fixture = new OAuthFixture();
+const nativeFetch = globalThis.fetch;
+let networkFaultURL: string | undefined;
 // Test-only, isolated process: maintained host wrapper routes synthetic responses here.
 // It retains and checks the actual selected dispatcher; no production global patch exists.
 let dispatcherCalls = 0;
 globalThis.fetch = async (input, init) => {
   assert.equal(typeof (init as RequestInit & { dispatcher: { dispatch: unknown } }).dispatcher.dispatch, 'function');
   dispatcherCalls++;
+  const request = new Request(input, init);
+  if (networkFaultURL && new URL(request.url).pathname.startsWith('/xrpc/'))
+    // No OAuth headers or key material reach the test-owned local fault server.
+    return nativeFetch(networkFaultURL, { signal: request.signal, redirect: 'error' });
   return fixture.fetch(input, init);
 };
 const { loadNodeOAuthAdapter } = await import('../../src/host/oauth-loader.ts');
 const results: string[] = [];
+async function refusedAs(work: () => Promise<unknown>, code: 'input' | 'content_unavailable' | 'origin') {
+  await assert.rejects(work, (error: unknown) => {
+    assert.ok(error instanceof AtseqError);
+    assert.equal(error.code, code);
+    assert.equal(error.kind, code === 'content_unavailable' ? 'transient' : 'invalid_input');
+    assert.ok(!error.message.includes('synthetic-secret'));
+    return true;
+  });
+}
 fixture.challenge = true;
 let adapter = await loadNodeOAuthAdapter(fixture.options());
 assert.equal(dispatcherCalls, 0);
-const begin = await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
-const race = await Promise.allSettled([
-  adapter.complete(begin.transactionId, fixture.callback()),
-  adapter.complete(begin.transactionId, fixture.callback()),
-]);
+await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+const race = await Promise.allSettled([adapter.complete(fixture.callback()), adapter.complete(fixture.callback())]);
 assert.equal(race.filter((result) => result.status === 'fulfilled').length, 1);
 const handle = race.find((result) => result.status === 'fulfilled');
 assert.ok(handle?.status === 'fulfilled');
@@ -78,32 +92,32 @@ for (const mode of [
     results.push(mode);
     continue;
   }
-  const begun = await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+  await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
   const params = fixture.callback();
   if (mode === 'oversized-callback') {
     params.set('code', 'x'.repeat(OAUTH_LIMITS.requestBytes + 1));
-    await assert.rejects(() => adapter.complete(begun.transactionId, params));
+    await assert.rejects(() => adapter.complete(params));
     assert.equal(fixture.count('/token'), 0);
   } else if (mode === 'duplicate-issuer') {
     params.append('iss', params.get('iss')!);
-    await assert.rejects(() => adapter.complete(begun.transactionId, params));
+    await assert.rejects(() => adapter.complete(params));
     assert.equal(fixture.count('/token'), 0);
   } else if (mode === 'wrong-callback-issuer') {
     params.set('iss', 'https://different.atseq-probe.net');
-    await assert.rejects(() => adapter.complete(begun.transactionId, params));
+    await assert.rejects(() => adapter.complete(params));
     assert.equal(fixture.count('/token'), 0);
   } else if (mode === 'missing-issuer') {
     params.delete('iss');
-    await assert.rejects(() => adapter.complete(begun.transactionId, params));
+    await assert.rejects(() => adapter.complete(params));
     assert.equal(fixture.count('/token'), 0);
   } else if (mode === 'wrong-subject' || mode === 'wrong-scopes' || mode === 'extra-scopes') {
-    await assert.rejects(() => adapter.complete(begun.transactionId, params));
+    await assert.rejects(() => adapter.complete(params));
     assert.ok(fixture.count('/revoke') >= 1);
   } else if (mode === 'refused-token') {
     fixture.refuse = '/token';
-    await assert.rejects(() => adapter.complete(begun.transactionId, params));
+    await refusedAs(() => adapter.complete(params), 'input');
   } else {
-    const session = await adapter.complete(begun.transactionId, params);
+    const session = await adapter.complete(params);
     if (mode === 'changed-authority') {
       fixture.pds = 'https://different-pds.atseq-probe.net';
       await assert.rejects(() => session.info());
@@ -135,22 +149,24 @@ for (const mode of [
       assert.equal(fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic'), 0);
     }
     if (mode === 'caller-aborted-request') {
-      await assert.rejects(() =>
-        session.request('/xrpc/ai.generalbusiness.atseq.synthetic', {
-          method: 'POST',
-          body: 'synthetic',
-          signal: AbortSignal.abort(),
-        }),
+      await refusedAs(
+        () =>
+          session.request('/xrpc/ai.generalbusiness.atseq.synthetic', {
+            method: 'POST',
+            body: 'synthetic',
+            signal: AbortSignal.abort(),
+          }),
+        'content_unavailable',
       );
       assert.equal(fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic'), 0);
     }
     if (mode === 'oversized-resource') {
       fixture.resourceBytes = OAUTH_LIMITS.responseBytes + 1;
-      await assert.rejects(() => session.request('/xrpc/ai.generalbusiness.atseq.synthetic'));
+      await refusedAs(() => session.request('/xrpc/ai.generalbusiness.atseq.synthetic'), 'input');
     }
     if (mode === 'refused-refresh') {
       fixture.refuse = '/token';
-      await assert.rejects(() => session.info(true));
+      await refusedAs(() => session.info(true), 'input');
     }
     if (mode === 'refused-resource') {
       fixture.refuse = '/xrpc/ai.generalbusiness.atseq.synthetic';
@@ -165,6 +181,76 @@ for (const mode of [
   results.push(mode);
 }
 fixture = new OAuthFixture();
+adapter = await loadNodeOAuthAdapter(fixture.options());
+await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+const firstCallback = fixture.callback();
+await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+const secondCallback = fixture.callback();
+for (const mode of ['unknown', 'duplicate', 'malformed'] as const) {
+  const bad = new URLSearchParams(firstCallback);
+  if (mode === 'unknown') bad.set('state', crypto.randomUUID());
+  if (mode === 'duplicate') bad.append('state', secondCallback.get('state')!);
+  if (mode === 'malformed') bad.set('state', 'bad');
+  await refusedAs(() => adapter.complete(bad), 'input');
+}
+assert.equal(fixture.count('/token'), 0);
+await adapter.complete(secondCallback);
+await adapter.complete(firstCallback);
+assert.equal(fixture.count('/token'), 2);
+results.push('callback-state-selects-one-of-two-pending-transactions');
+
+for (const code of ['content_unavailable', 'origin'] as const) {
+  fixture = new OAuthFixture();
+  adapter = await loadNodeOAuthAdapter({
+    ...fixture.options(),
+    resolveIdentity: async () => {
+      throw new AtseqError(code, 'synthetic-secret-must-not-escape');
+    },
+  });
+  await refusedAs(() => adapter.begin(OAUTH_DID, OAUTH_SCOPE), code);
+  results.push('secret-free-identity-' + code + '-class');
+}
+
+// Real native fetch/socket failures and the actual adopted operation deadline.
+// A test-only route substitutes a local fault URL after the guarded dispatch;
+// it forwards only the AbortSignal, never OAuth headers or request contents.
+const faultServer = createServer((request, response) => {
+  if (request.url === '/drop') {
+    request.socket.destroy();
+    return;
+  }
+  response.writeHead(200, { 'content-type': 'application/octet-stream' });
+  response.flushHeaders();
+  if (request.url === '/body-drop') {
+    response.write('synthetic');
+    setTimeout(() => request.socket.destroy(), 10);
+  }
+  // /deadline keeps its response body open until the actual 30-second deadline.
+});
+await new Promise<void>((resolve) => faultServer.listen(0, '127.0.0.1', resolve));
+const address = faultServer.address();
+assert.ok(address && typeof address !== 'string');
+try {
+  for (const path of ['/drop', '/body-drop', '/deadline'] as const) {
+    fixture = new OAuthFixture();
+    adapter = await loadNodeOAuthAdapter(fixture.options());
+    await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+    const session = await adapter.complete(fixture.callback());
+    networkFaultURL = 'http://127.0.0.1:' + address.port + path;
+    const started = performance.now();
+    await refusedAs(() => session.request('/xrpc/ai.generalbusiness.atseq.synthetic'), 'content_unavailable');
+    const elapsed = performance.now() - started;
+    if (path === '/deadline') assert.ok(elapsed >= OAUTH_LIMITS.operationMs - 100 && elapsed < 45_000);
+    networkFaultURL = undefined;
+    results.push('actual-native-fetch' + path + '-transient');
+  }
+} finally {
+  networkFaultURL = undefined;
+  faultServer.closeAllConnections();
+  await new Promise<void>((resolve, reject) => faultServer.close((error) => (error ? reject(error) : resolve())));
+}
+
+fixture = new OAuthFixture();
 fixture.refuse = '/par';
 adapter = await loadNodeOAuthAdapter(fixture.options());
 for (let i = 0; i < OAUTH_LIMITS.pending; i++) await assert.rejects(() => adapter.begin(OAUTH_DID, OAUTH_SCOPE));
@@ -173,11 +259,11 @@ assert.equal(fixture.count('/par'), OAUTH_LIMITS.pending);
 results.push('failed-PAR-state-count-bounded');
 fixture = new OAuthFixture();
 adapter = await loadNodeOAuthAdapter(fixture.options());
-const expired = await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
 const now = Date.now;
 Date.now = () => now() + OAUTH_LIMITS.transactionMs + 1;
 try {
-  await assert.rejects(() => adapter.complete(expired.transactionId, fixture.callback()));
+  await assert.rejects(() => adapter.complete(fixture.callback()));
   assert.equal(fixture.count('/token'), 0);
 } finally {
   Date.now = now;
@@ -185,9 +271,9 @@ try {
 results.push('expired-transaction-before-token-exchange');
 fixture = new OAuthFixture();
 const original = await loadNodeOAuthAdapter(fixture.options());
-const abandoned = await original.begin(OAUTH_DID, OAUTH_SCOPE);
+await original.begin(OAUTH_DID, OAUTH_SCOPE);
 adapter = await loadNodeOAuthAdapter(fixture.options());
-await assert.rejects(() => adapter.complete(abandoned.transactionId, fixture.callback()));
+await assert.rejects(() => adapter.complete(fixture.callback()));
 assert.equal(fixture.count('/token'), 0);
 results.push('new-volatile-Node-instance-refuses-abandoned-callback');
 for (const mode of ['identity-request-count-budget', 'identity-cumulative-byte-budget'] as const) {
@@ -216,8 +302,8 @@ for (const mode of ['identity-request-count-budget', 'identity-cumulative-byte-b
 fixture = new OAuthFixture();
 fixture.issuer = 'https://auth.atseq-probe.net/tenant';
 adapter = await loadNodeOAuthAdapter(fixture.options());
-const tenant = await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
-const tenantSession = await adapter.complete(tenant.transactionId, fixture.callback());
+await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+const tenantSession = await adapter.complete(fixture.callback());
 assert.equal((await tenantSession.info()).issuer, fixture.issuer);
 await tenantSession.revoke();
 results.push('path-based-issuer-binding-preserved');

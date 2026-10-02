@@ -3,6 +3,7 @@ import { AtseqError } from '../core/errors.ts';
 import {
   OAuthAdapter,
   oauthUrl,
+  oauthTransport,
   OAUTH_LIMITS,
   type OAuthAdapterOptions,
   type OAuthTransaction,
@@ -80,7 +81,7 @@ export async function browserOAuthAdapter(input: BrowserOAuthOptions): Promise<O
       },
     },
     lock,
-    globalThis.fetch.bind(globalThis),
+    oauthTransport(globalThis.fetch.bind(globalThis)),
     async (fetch, identityResolver) => {
       const { BrowserOAuthClient } = await import('@atproto/oauth-client-browser');
       return new BrowserOAuthClient({ clientMetadata: options.metadata, fetch, identityResolver });

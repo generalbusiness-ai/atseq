@@ -18,8 +18,8 @@ export async function create(overrides = {}) {
 export async function begin() {
   return adapter.begin(OAUTH_DID, OAUTH_SCOPE);
 }
-export async function complete(id: string, encoded: string) {
-  session = await adapter.complete(id, new URLSearchParams(encoded));
+export async function complete(encoded: string) {
+  session = await adapter.complete(new URLSearchParams(encoded));
   return { serialized: JSON.stringify(session), info: await session.info() };
 }
 export async function info(refresh = false) {

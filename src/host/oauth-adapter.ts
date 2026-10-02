@@ -2,7 +2,13 @@ import type { NodeSavedState, NodeSavedSession } from '@atproto/oauth-client-nod
 import { deepFreeze } from '../core/freeze.ts';
 import { assertDependencies } from '../core/dependencies.ts';
 import { safeFetchWrap } from '@atproto-labs/fetch-node';
-import { OAuthAdapter, OAUTH_LIMITS, type OAuthAdapterOptions, type OAuthTransaction } from '../protocol/oauth.ts';
+import {
+  OAuthAdapter,
+  oauthTransport,
+  OAUTH_LIMITS,
+  type OAuthAdapterOptions,
+  type OAuthTransaction,
+} from '../protocol/oauth.ts';
 
 /** Private, in-memory Node custody only. This foundation does not persist credentials. */
 export function nodeOAuthAdapter(input: OAuthAdapterOptions): OAuthAdapter {
@@ -26,6 +32,7 @@ export function nodeOAuthAdapter(input: OAuthAdapterOptions): OAuthAdapter {
     }
   };
   const transport = safeFetchWrap({
+    fetch: oauthTransport(globalThis.fetch),
     ssrfProtection: true,
     allowHttp: false,
     allowPrivateIps: false,
@@ -34,7 +41,10 @@ export function nodeOAuthAdapter(input: OAuthAdapterOptions): OAuthAdapter {
     allowIpHost: false,
     allowImplicitRedirect: false,
     timeout: 30_000,
-    responseMaxSize: 1024 * 1024,
+    // OAuth's bounded reader enforces the same 1MiB limit and total budget.
+    // The wrapper's size stream emits an untyped error indistinguishable from
+    // a dropped body, so let the owned guard retain its deterministic class.
+    responseMaxSize: Infinity,
   });
   return new OAuthAdapter(
     options,

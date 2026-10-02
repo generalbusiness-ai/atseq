@@ -22,7 +22,8 @@ const baselineFiles = new Set([
   'package.json',
   'npm-shrinkwrap.json',
 ]);
-const evidence = 'experiments/post-spike-evidence/2026-10-01/oauth-adapters/';
+// Test outputs are disposable; published predecessor captures are immutable.
+const evidence = '.atseq-local/oauth-bundles/';
 
 test('actual ordinary browser/verifier/Node start graphs retain only added OAuth manifests, never executable modules', async () => {
   assert.equal(added.length, 47);

@@ -50,6 +50,36 @@ interface Budget {
 function refuse(message: string): never {
   throw new AtseqError('input', message);
 }
+/** Keep only trusted failure codes through SDK cause wrappers, never their text. */
+function operationFailure(error: unknown, deadline = false): AtseqError {
+  if (deadline) return new AtseqError('content_unavailable', 'OAuth operation is unavailable');
+  const pending = [error],
+    seen = new Set<unknown>();
+  for (let checked = 0; pending.length && checked < 32; checked++) {
+    const next = pending.pop();
+    if (!(next instanceof Error) || seen.has(next)) continue;
+    seen.add(next);
+    if (next instanceof AtseqError) {
+      if (next.code === 'content_unavailable')
+        return new AtseqError('content_unavailable', 'OAuth operation is unavailable');
+      if (next.code === 'origin') return new AtseqError('origin', 'OAuth custody origin is refused');
+    }
+    pending.push(next.cause);
+    if (next instanceof AggregateError) pending.push(...next.errors.slice(0, 32));
+  }
+  return new AtseqError('input', 'OAuth operation failed');
+}
+/** Wrap the native fetch edge, outside host policy checks and SDK parsing. */
+export function oauthTransport(fetch: typeof globalThis.fetch): typeof globalThis.fetch {
+  return async (input, init) => {
+    try {
+      return await fetch(input, init);
+    } catch (error) {
+      if (error instanceof AtseqError) throw operationFailure(error);
+      throw new AtseqError('content_unavailable', 'OAuth transport is unavailable');
+    }
+  };
+}
 /** Browser-visible URL policy only. Host transport must additionally guard actual DNS/connect. */
 export function oauthUrl(value: string | URL): URL {
   let url: URL;
@@ -113,6 +143,9 @@ async function bodyBytes(
       offset += chunk.length;
     }
     return bytes;
+  } catch (error) {
+    if (error instanceof AtseqError) throw error;
+    throw new AtseqError('content_unavailable', 'OAuth body is unavailable');
   } finally {
     signal.removeEventListener('abort', abort);
     void reader.cancel().catch(() => {});
@@ -217,9 +250,9 @@ export class OAuthAdapter {
             }),
         });
         return await work(await this.#client);
-      } catch {
+      } catch (error) {
         // Library/server error descriptions may contain codes, tokens or request bodies.
-        throw new AtseqError('input', 'OAuth operation failed');
+        throw operationFailure(error, this.#budget.signal.aborted);
       } finally {
         this.#budget = undefined;
       }
@@ -244,21 +277,23 @@ export class OAuthAdapter {
         expiresAt: Date.now() + OAUTH_LIMITS.transactionMs,
       });
       this.#transactions.set(transaction);
-      // Keep failed begins until expiry: maintained clients can retain an orphan PAR state.
+      // A failed begin can leave maintained PAR state. Keeping its transaction
+      // counts that orphan against the same 10-entry cap until 10-minute expiry.
       const url = await client.authorize(did, { scope: requested.join(' '), state: transaction.id });
       oauthUrl(url);
       return Object.freeze({ transactionId: transaction.id, authorizationUrl: url.href });
     });
   }
-  async complete(transactionId: string, params: URLSearchParams): Promise<OAuthSessionHandle> {
+  async complete(params: URLSearchParams): Promise<OAuthSessionHandle> {
     const encoded = params.toString();
-    if (encoded.length > OAUTH_LIMITS.requestBytes || typeof transactionId !== 'string' || transactionId.length !== 36)
-      refuse('OAuth callback exceeds budget');
+    if (encoded.length > OAUTH_LIMITS.requestBytes) refuse('OAuth callback exceeds budget');
     const copy = new URLSearchParams(encoded);
     if (!copy.get('iss') || !copy.get('state') || !copy.get('code') || copy.has('error'))
       refuse('Incomplete OAuth callback');
     for (const name of ['iss', 'state', 'code'])
       if (copy.getAll(name).length !== 1) refuse('Duplicate OAuth callback parameter');
+    const transactionId = copy.get('state')!;
+    if (transactionId.length !== 36) refuse('Invalid OAuth callback state');
     const issuer = oauthUrl(copy.get('iss')!).href;
     return this.#run(async (client) => {
       const transaction = this.#transactions.take(transactionId);
@@ -269,9 +304,9 @@ export class OAuthAdapter {
         const info = await this.#verify(client, session, transaction, false);
         if (oauthUrl(info.issuer).href !== issuer) refuse('OAuth issuer differs from callback');
         return new OAuthSessionHandle(this, session, transaction);
-      } catch {
+      } catch (error) {
         await session.signOut().catch(() => {});
-        throw new AtseqError('input', 'OAuth account verification failed');
+        throw operationFailure(error);
       }
     });
   }
@@ -286,9 +321,9 @@ export class OAuthAdapter {
       try {
         await this.#verify(client, session, expected, false);
         return new OAuthSessionHandle(this, session, expected);
-      } catch {
+      } catch (error) {
         await session.signOut().catch(() => {});
-        throw new AtseqError('input', 'OAuth restored account verification failed');
+        throw operationFailure(error);
       }
     });
   }
@@ -316,9 +351,9 @@ export class OAuthAdapter {
         pds: oauthUrl(pds).href,
         scopes: granted,
       });
-    } catch {
+    } catch (error) {
       await session.signOut().catch(() => {});
-      throw new AtseqError('input', 'OAuth account verification failed');
+      throw operationFailure(error);
     }
   }
   #checkToken(
@@ -367,9 +402,9 @@ export class OAuthAdapter {
             oauthUrl(token.aud).href !== authority.pds
           )
             refuse('OAuth resource authority changed during dispatch');
-        } catch {
+        } catch (error) {
           await session.signOut().catch(() => {});
-          throw new AtseqError('input', 'OAuth resource verification failed');
+          throw operationFailure(error);
         }
       };
       try {
