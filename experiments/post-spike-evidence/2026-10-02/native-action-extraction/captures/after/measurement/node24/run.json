@@ -1,0 +1,22 @@
+[
+  {
+    "name": "node24/source",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/native-fold-measurement.test.ts"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 2.304936209024163
+  },
+  {
+    "name": "node24/compiled",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "experiments/native-application/compiled-fold-measurement.mjs"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 1.3965711659984663
+  }
+]

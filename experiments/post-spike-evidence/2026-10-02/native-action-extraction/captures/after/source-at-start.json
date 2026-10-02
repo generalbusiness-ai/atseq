@@ -1,0 +1,25 @@
+{
+  "phase": "after",
+  "head": "7fa56038edc81c85dd18f6bcde5d2a94769498dd",
+  "workingTree": "",
+  "files": {
+    "src/application/native-authority.ts": "752dd725adb9839330394d12d744f8198ca461e98a8c3680bb85099d7e58afcf",
+    "src/runtime/evaluator.ts": "faa14fd55a8a883e6673a99132ae7b212c18945f59b27e8766e75d3e00b8047c",
+    "src/runtime/index.ts": "edc118f495cae9ec0523931d4b74af6d88abd180a8d67d90d643c1f539aa9196",
+    "src/application/index.ts": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2",
+    "tests/support/native-application-corpus.ts": "397ae7a9253c5361e9ba952a27bb293bc61f334a71333c9ef4bf6c98b739eeac",
+    "tests/support/native-application-fixture.ts": "34e9628a80a9c0c68bad71ee7949815d708a76a3731064394f71dc13cded1db2",
+    "tests/support/native-application-fault-bundle.ts": "86716399bc768f47a0b5bd293adf47dfa3d98506efd73ac648d388ccffb11c87",
+    "tests/support/native-application-fault-probe.ts": "dc49d3bfacc4dcc1e8e8edc8037647af2f690a5999b6c51e0d789edd39bf6a3f",
+    "tests/native-application.test.ts": "acd4cdc8c2a130db7f7d5fbe5b894fdd2f0e5e52f7a4be8cce0857784a92efa1",
+    "tests/native-application-browser.test.ts": "da645d5f053038c7fde8674175773a1be1e96f6f5c3380551cb999131fd30c4e",
+    "experiments/native-application/compiled-conformance.mjs": "428f503c76997144a29195abe05d3b7a93a621c3d09a24b9752517b9cad2a672",
+    "package.json": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca",
+    "npm-shrinkwrap.json": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+  },
+  "nodes": {
+    "node22": "v22.19.0",
+    "node24": "v24.21.0",
+    "node26": "v26.10.0"
+  }
+}

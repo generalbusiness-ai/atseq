@@ -1,0 +1,14 @@
+{
+  "name": "node24/source",
+  "attempt": 1,
+  "command": [
+    "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "scripts/source-run.mjs",
+    "--test",
+    "tests/native-application.test.ts"
+  ],
+  "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+  "exitCode": 0,
+  "elapsedSeconds": 4.892223917006049,
+  "log": ".atseq-local/c1-f1/before/node24/source/attempt-1.log"
+}

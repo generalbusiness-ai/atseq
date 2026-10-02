@@ -1,0 +1,7 @@
+{
+  "command": "uncommitted Python capture comparison accepting only TAP # JSON lines",
+  "exitCode": 1,
+  "failure": "StopIteration on Node24 source log, which uses direct JSON/spec reporter rather than TAP comment JSON",
+  "runtimeTestFailure": false,
+  "correction": "accept both direct JSON and TAP-prefixed JSON without changing tests"
+}

@@ -190,10 +190,14 @@ export async function evaluate(source: string, input: unknown): Promise<Evaluati
 
 export type FoldResult =
   { decision: 'effective'; state: Json } | { decision: 'ineffective'; reason: string; message?: string };
-export async function fold(source: string, input: { meta: Json; act: Json; state: Json }): Promise<FoldResult> {
+/** Internal measured path; supported public fold returns only its unchanged result. */
+export async function foldEvaluation(
+  source: string,
+  input: { meta: Json; act: Json; state: Json },
+): Promise<{ result: FoldResult; steps: number; inspectedBytes: number }> {
   canonicalJson(input.act, PROFILE.actionBytes);
   canonicalJson(input.state, PROFILE.stateBytes);
-  const { value } = await evaluate(source, input);
+  const { value, steps, inspectedBytes } = await evaluate(source, input);
   if (!value || Array.isArray(value) || typeof value !== 'object')
     throw new InterpretationError('fold_output', 'Fold must return an outcome object');
   const keys = Object.keys(value).sort().join(',');
@@ -201,7 +205,7 @@ export async function fold(source: string, input: { meta: Json; act: Json; state
     if (!value.state || Array.isArray(value.state) || typeof value.state !== 'object')
       throw new InterpretationError('fold_output', 'State must be an object');
     canonicalJson(value.state, PROFILE.stateBytes);
-    return value as FoldResult;
+    return { result: value as FoldResult, steps, inspectedBytes };
   }
   if (
     value.decision === 'ineffective' &&
@@ -212,7 +216,11 @@ export async function fold(source: string, input: { meta: Json; act: Json; state
   ) {
     if (typeof value.message === 'string' && [...value.message].length > PROFILE.foldMessageLength)
       throw new InterpretationError('fold_message', 'Ineffective message exceeds 1024 characters');
-    return value as FoldResult;
+    return { result: value as FoldResult, steps, inspectedBytes };
   }
   throw new InterpretationError('fold_output', 'Invalid decision, state, reason, or extra outcome field');
+}
+
+export async function fold(source: string, input: { meta: Json; act: Json; state: Json }): Promise<FoldResult> {
+  return (await foldEvaluation(source, input)).result;
 }

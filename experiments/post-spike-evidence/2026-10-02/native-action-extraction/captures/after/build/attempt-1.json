@@ -1,0 +1,12 @@
+{
+  "name": "build",
+  "attempt": 1,
+  "command": [
+    "/opt/homebrew/bin/node",
+    "scripts/build.mjs"
+  ],
+  "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+  "exitCode": 0,
+  "elapsedSeconds": 4.766057875007391,
+  "log": ".atseq-local/c1-f1/after/build/attempt-1.log"
+}

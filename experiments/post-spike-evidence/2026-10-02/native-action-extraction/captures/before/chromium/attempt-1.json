@@ -1,0 +1,14 @@
+{
+  "name": "chromium",
+  "attempt": 1,
+  "command": [
+    "/opt/homebrew/bin/node",
+    "scripts/source-run.mjs",
+    "--test",
+    "tests/native-application-browser.test.ts"
+  ],
+  "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+  "exitCode": 0,
+  "elapsedSeconds": 7.015667542000301,
+  "log": ".atseq-local/c1-f1/before/chromium/attempt-1.log"
+}

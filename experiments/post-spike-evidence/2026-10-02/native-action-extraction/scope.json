@@ -1,0 +1,31 @@
+{
+  "request": "02dd44819e00efbff8df7f1c0861d23c0177b13a",
+  "promise": "71287495b64edcf6541ea0488f9c5ff9c54fdc26",
+  "decision": "1aedbe393c6b3e2b14019d1f71d367dc8bd715c4",
+  "ordinaryActionHelper": "NativeApplicationOwner.#action",
+  "privateGate": "NativeApplicationOwner.#actionGate",
+  "singleEvaluationHelper": "src/runtime/evaluator.ts:foldEvaluation",
+  "allowedProductionPaths": [
+    "src/application/native-authority.ts",
+    "src/runtime/evaluator.ts"
+  ],
+  "allowedTestPaths": [
+    "tests/support/native-fold-measurement.ts",
+    "tests/native-fold-measurement.test.ts",
+    "experiments/native-application/compiled-fold-measurement.mjs"
+  ],
+  "requiredNote": "notes/2026-10-02-atseq-native-action-extraction-results.md",
+  "fullC1Closed": false,
+  "newProductionCallers": false,
+  "publicExportsChanged": false,
+  "profileSchemaDependencyQuotaChanged": false,
+  "unexecutedFollowups": [
+    "discovery grant selection and stable reasons/next frontier",
+    "private coherent owner query capture and memoized commitments",
+    "finite aggregate candidate-work ledger and actual workload counters",
+    "simulation on a real authenticated subject and distinct offline anonymous mode",
+    "host gate/input-only preflight and TOCTOU ordering recheck",
+    "native checkpoint asserted-origin handoff and fresh fixed-target audit",
+    "full application cold-open optimization beyond 10,000 ordered entries"
+  ]
+}

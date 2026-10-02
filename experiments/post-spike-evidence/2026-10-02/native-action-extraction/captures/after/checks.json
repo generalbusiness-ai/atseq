@@ -1,0 +1,43 @@
+{
+  "check": {
+    "command": [
+      "npm",
+      "run",
+      "check"
+    ],
+    "exitCode": 0,
+    "log": "check-private-pds-correction.log",
+    "firstAttemptExitCode": 1,
+    "firstAttemptLog": "check.log",
+    "correction": "Physical private copy of frozen R1 tests/support/pds/node_modules; no install or shared dependency change"
+  },
+  "shared": {
+    "command": [
+      "/opt/homebrew/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/runtime.test.ts",
+      "tests/projection.test.ts",
+      "tests/native-prefix.test.ts",
+      "tests/native-authority.test.ts",
+      "tests/native-source.test.ts",
+      "tests/native-observer.test.ts",
+      "tests/native-observer-limits.test.ts"
+    ],
+    "exitCode": 0,
+    "tests": 82,
+    "log": "shared-runtime-native.log"
+  },
+  "readOnlyDecisionInspection": [
+    {
+      "agent": "codex (implicit default)",
+      "isError": true,
+      "text": "cannot use selected agent \"codex\" in /Users/hughpyle/play/atseq/.git: actor is not configured"
+    },
+    {
+      "agent": "atseq-codex",
+      "isError": false,
+      "verdict": "effective"
+    }
+  ]
+}

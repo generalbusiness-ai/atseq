@@ -1,0 +1,5 @@
+
+> atseq@0.1.0 check
+> tsc --noEmit && npm run format:check && npm run check:layers && npm run check:dependencies
+
+scripts/native-proof-pds.ts(12,30): error TS2307: Cannot find module '../tests/support/pds/node_modules/@atproto/crypto/dist/index.js' or its corresponding type declarations.
