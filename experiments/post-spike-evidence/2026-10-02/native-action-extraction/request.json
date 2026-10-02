@@ -1,0 +1,67 @@
+{
+  "frontier": {
+    "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+    "head": "edaedca8cf15d9450862c998b5da7bd061ebe44c",
+    "depth": 11363
+  },
+  "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02dd44819e00efbff8df7f1c0861d23c0177b13a",
+  "statement": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02dd44819e00efbff8df7f1c0861d23c0177b13a",
+    "sequence": 11360,
+    "timestamp": 1790944410,
+    "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "kind": "request",
+    "lifecycle": "request",
+    "satisfier": "none",
+    "text": "C1-F1: implement the settled private shared action extraction and mandatory conformance gate. R1-F1 at5bb836a is independently approved with no required changes; NH clarification f65 and C1 simplification aa8855 are independently adopted. Work from its actual merged main basis. Keep ordered authentication and control/account/activation rules outside the ordinary action helper, which uses the genuine captured owner authority/source/domain and exact five-field metadata; no callback, token, synthetic signed entry, public trust flag or exported execution constructor. Return internal outcome/successor/evaluator counters without evaluating twice and preserve the public fold contract. Gate/input-only preflight must be private and cannot be caller-selected. Do not add discovery, simulation or host callers before the complete frozen-baseline comparison passes; this task extracts only the reusable semantics and proves the gate. Persist/poison/stale-owner checks remain owned by the single coordinator. Retain exact before/after source/build/corpus captures and all failures, with no dependency/profile/schema/export or cap changes.",
+    "body": {
+      "conditions": "Extract one private ordinary action gate/input/evaluate-fold/successor function and its private gate subroutine from independently reviewed R1-F1, preserving genuine owner capture, exact callsite fault precedence and single evaluation counters. Freeze unchanged R1 oracle (decoded SHA256 f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6, 8371247 bytes) before source edits. Before any new simulation/discovery/host/import caller, byte-identical 58 portable and 24 actual callsite-fault cases on Node22/24/26 and actual Chromium, plus all58 cases via actual emitted production on each Node version. Preserve original N1-F3 predicates versus R1 schema adaptations and distinguish transformed fault bundles from compiled production. Appropriate checks/build/provenance and dated notes/results/raw evidence; independent exact-head review, gitseq merge and push. This foundation does not close full C1.",
+      "package": "C1-F1",
+      "stale_bases": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:448bb9b9d54fb8bd86b6a8337663bf972c54686d, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f6fc0f2c7f38bc2290b0d8570ab14eb8f4bc0bdd stale; retired bases: git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:005de060a210f5e706cd48cb8ae04e5a00c4e1a7, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02409e2640ad4fb4d48814ba4f06a8952c3bc7b4, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0258af2e6b5110f193d143bfb2a08b88bee488f8, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:033a0c44720e3a4f7e3025cfe37de2a493f4955f and 198 more",
+      "target_head": "51079ecf9bb9b1f024589c341ce5cd473dd064e1",
+      "target_ref": "refs/heads/main",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    },
+    "stale": true,
+    "stale_because_truncated": true
+  },
+  "decision": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02dd44819e00efbff8df7f1c0861d23c0177b13a",
+    "sequence": 11360,
+    "verdict": "effective",
+    "reason": "statement recorded"
+  },
+  "commitment": {
+    "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02dd44819e00efbff8df7f1c0861d23c0177b13a",
+    "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:71287495b64edcf6541ea0488f9c5ff9c54fdc26",
+    "status": "stale",
+    "stale": true,
+    "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+    "target_ref": "refs/heads/main"
+  },
+  "landing": {
+    "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+    "target_ref": "refs/heads/main",
+    "git": {
+      "measured_at": 1790944479,
+      "state": "unknown",
+      "target_head": "51079ecf9bb9b1f024589c341ce5cd473dd064e1",
+      "ref_incorporated": null,
+      "remote": "origin",
+      "remote_ref": "refs/remotes/origin/main",
+      "remote_head": "51079ecf9bb9b1f024589c341ce5cd473dd064e1",
+      "remote_contains": null,
+      "reason": "no witnessed merge head was supplied; ancestry is unknown"
+    }
+  },
+  "provenance_bases": [
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2afbd00114ae51317b9590fc40eb25ce25e9acfd",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:728114bfcac11de35b60fca2ed90a9ff7e97a260",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:448bb9b9d54fb8bd86b6a8337663bf972c54686d",
+    "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f6fc0f2c7f38bc2290b0d8570ab14eb8f4bc0bdd"
+  ]
+}

@@ -1,0 +1,692 @@
+{
+  "version": 1,
+  "description": "Every observed private gate capture, with identical large decoded files stored once after verifying actual bytes. Paths are evidence storage only; no application trust/cache authority.",
+  "files": [
+    {
+      "capture": "after/build/attempt-1.json",
+      "path": "captures/after/build/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 291,
+      "sha256": "fb0395c9c3870729ac9b372eb14be13312f1f9cdf6a40bcb5105156b95ff0dc3"
+    },
+    {
+      "capture": "after/build/attempt-1.log",
+      "path": "captures/after/build/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+    },
+    {
+      "capture": "after/build-provenance.json",
+      "path": "captures/after/build-provenance.json",
+      "encoding": "identity",
+      "bytes": 66835,
+      "sha256": "5a51589d07151a7b883b1cf689ad7868071591e6da1fd5c17d504f400747ea53"
+    },
+    {
+      "capture": "after/check-private-pds-correction.log",
+      "path": "captures/after/check-private-pds-correction.log",
+      "encoding": "identity",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "capture": "after/check.log",
+      "path": "captures/after/check.log",
+      "encoding": "identity",
+      "bytes": 290,
+      "sha256": "6459dff389eab994a0970929a6f8e3926c4028107faf893a72b2d58208a9cb09"
+    },
+    {
+      "capture": "after/checks.json",
+      "path": "captures/after/checks.json",
+      "encoding": "identity",
+      "bytes": 1130,
+      "sha256": "2647ee0dde4b513baa0e8bd64620b54c4e6fa98eee28dd262dcc7dc461befb10"
+    },
+    {
+      "capture": "after/chromium/attempt-1.json",
+      "path": "captures/after/chromium/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 363,
+      "sha256": "82431b40c670ad9a6032b02f15101822f602f1c59be809b1790e2accfc57abe6"
+    },
+    {
+      "capture": "after/chromium/attempt-1.log",
+      "path": "captures/after/chromium/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4995,
+      "sha256": "b24ab2de4495b4541e361de4d3d38b19453954ad6a0457734550639182ff1b37"
+    },
+    {
+      "capture": "after/chromium/fault-bundle.mjs",
+      "path": "retained/d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e.gz",
+      "encoding": "gzip",
+      "bytes": 1492657,
+      "sha256": "d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e"
+    },
+    {
+      "capture": "after/chromium/result.json",
+      "path": "captures/after/chromium/result.json",
+      "encoding": "identity",
+      "bytes": 5218,
+      "sha256": "6bb5f070a35e8954f60d88e4262579d5787d349c976041607f9914b88360ba2d"
+    },
+    {
+      "capture": "after/measurement/node22/compiled.json",
+      "path": "captures/after/measurement/node22/compiled.json",
+      "encoding": "identity",
+      "bytes": 1337,
+      "sha256": "1c35d653aa3d3a10dbb585e9203677f5d368b2e257e2cfacb0bff419bb8898fc"
+    },
+    {
+      "capture": "after/measurement/node22/compiled.log",
+      "path": "captures/after/measurement/node22/compiled.log",
+      "encoding": "identity",
+      "bytes": 995,
+      "sha256": "944303374355e1b41de980eac9761c46663945b6461f079b13e3b655bca5292c"
+    },
+    {
+      "capture": "after/measurement/node22/run.json",
+      "path": "captures/after/measurement/node22/run.json",
+      "encoding": "identity",
+      "bytes": 570,
+      "sha256": "d0fb68141811e6f715cd9fda8726254cfade6c7674b0d2f26aecfb80c3ce9250"
+    },
+    {
+      "capture": "after/measurement/node22/source/bundle.mjs",
+      "path": "retained/782b0ad38d73768db17aebff843f832e4c6b6780aee80440c9e5bbbdc500fa1c.gz",
+      "encoding": "gzip",
+      "bytes": 614774,
+      "sha256": "782b0ad38d73768db17aebff843f832e4c6b6780aee80440c9e5bbbdc500fa1c"
+    },
+    {
+      "capture": "after/measurement/node22/source/result.json",
+      "path": "captures/after/measurement/node22/source/result.json",
+      "encoding": "identity",
+      "bytes": 837,
+      "sha256": "9496c78b33bbb3922aaf109d3be86051b6f3820328e1471b67d45adfbdd41756"
+    },
+    {
+      "capture": "after/measurement/node22/source.log",
+      "path": "captures/after/measurement/node22/source.log",
+      "encoding": "identity",
+      "bytes": 950,
+      "sha256": "a9fedd5b1fad154e1a3c412f813d99dcbec953a716d7f3e1e1b8d3c54f30e979"
+    },
+    {
+      "capture": "after/measurement/node24/compiled.json",
+      "path": "captures/after/measurement/node24/compiled.json",
+      "encoding": "identity",
+      "bytes": 1337,
+      "sha256": "3e2be02bae7697a7a70ee36e5bc466dc04f353ad1b25b80a9b80e7623b4b26dc"
+    },
+    {
+      "capture": "after/measurement/node24/compiled.log",
+      "path": "captures/after/measurement/node24/compiled.log",
+      "encoding": "identity",
+      "bytes": 995,
+      "sha256": "5d062f658e97d22380229fa3a92942dfa9fe87282f00403c44f904c946d6c9e8"
+    },
+    {
+      "capture": "after/measurement/node24/run.json",
+      "path": "captures/after/measurement/node24/run.json",
+      "encoding": "identity",
+      "bytes": 569,
+      "sha256": "4470b8c13f4f976aaaa12d1b721e1474864457b7f6ead1a531d132834168ec80"
+    },
+    {
+      "capture": "after/measurement/node24/source/bundle.mjs",
+      "path": "retained/782b0ad38d73768db17aebff843f832e4c6b6780aee80440c9e5bbbdc500fa1c.gz",
+      "encoding": "gzip",
+      "bytes": 614774,
+      "sha256": "782b0ad38d73768db17aebff843f832e4c6b6780aee80440c9e5bbbdc500fa1c"
+    },
+    {
+      "capture": "after/measurement/node24/source/result.json",
+      "path": "captures/after/measurement/node24/source/result.json",
+      "encoding": "identity",
+      "bytes": 837,
+      "sha256": "9dde497b08b128a0763e9b0c26ada5761409d012cfc64a05e9938bf5ab6be8e6"
+    },
+    {
+      "capture": "after/measurement/node24/source.log",
+      "path": "captures/after/measurement/node24/source.log",
+      "encoding": "identity",
+      "bytes": 799,
+      "sha256": "efa9529a54eca0b66a983fa0c4c2a43acde259cd2c9a28c9cde60922bde89b5e"
+    },
+    {
+      "capture": "after/measurement/node26/compiled.json",
+      "path": "captures/after/measurement/node26/compiled.json",
+      "encoding": "identity",
+      "bytes": 1337,
+      "sha256": "f82f03229f51b7220822166b3ad1cbd3f110f79240b3bf050e030cd9fe6c0a1f"
+    },
+    {
+      "capture": "after/measurement/node26/compiled.log",
+      "path": "captures/after/measurement/node26/compiled.log",
+      "encoding": "identity",
+      "bytes": 995,
+      "sha256": "8ed0037614aac0ba14a6ca362b75c94f491dc4af7c505f8efbc3c24ae6291056"
+    },
+    {
+      "capture": "after/measurement/node26/run.json",
+      "path": "captures/after/measurement/node26/run.json",
+      "encoding": "identity",
+      "bytes": 476,
+      "sha256": "079ec145d58b93ae84661e71d5806d394c39a637f29a9a08173174226ac40ca8"
+    },
+    {
+      "capture": "after/measurement/node26/source/bundle.mjs",
+      "path": "retained/782b0ad38d73768db17aebff843f832e4c6b6780aee80440c9e5bbbdc500fa1c.gz",
+      "encoding": "gzip",
+      "bytes": 614774,
+      "sha256": "782b0ad38d73768db17aebff843f832e4c6b6780aee80440c9e5bbbdc500fa1c"
+    },
+    {
+      "capture": "after/measurement/node26/source/result.json",
+      "path": "captures/after/measurement/node26/source/result.json",
+      "encoding": "identity",
+      "bytes": 837,
+      "sha256": "7441852b04f2480a9b5e3ec65d50d46cc9b72272b6bf861945fde0e012988f9a"
+    },
+    {
+      "capture": "after/measurement/node26/source.log",
+      "path": "captures/after/measurement/node26/source.log",
+      "encoding": "identity",
+      "bytes": 799,
+      "sha256": "8e88a7e769b27fddc5794fc85354e38b8341bf8f1e3ad9667f99cea2f5073385"
+    },
+    {
+      "capture": "after/measurement/run.json",
+      "path": "captures/after/measurement/run.json",
+      "encoding": "identity",
+      "bytes": 1753,
+      "sha256": "ec2ff273786cb1e5a530527c644d76741e4c5802ad38a401fe238a8c7ce5f713"
+    },
+    {
+      "capture": "after/node22/compiled/attempt-1.json",
+      "path": "captures/after/node22/compiled/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 397,
+      "sha256": "a3fc38c8727d75d8ffb1a6d0cd5378017b38f949a1ba67071996ab9d50167335"
+    },
+    {
+      "capture": "after/node22/compiled/attempt-1.log",
+      "path": "captures/after/node22/compiled/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4339,
+      "sha256": "334051333f57a8eae13ebcb96ee17b536fb95125bbb8d416f07a56eca15f4e8f"
+    },
+    {
+      "capture": "after/node22/compiled/result.json",
+      "path": "captures/after/node22/compiled/result.json",
+      "encoding": "identity",
+      "bytes": 4872,
+      "sha256": "4b51bfcf5b88a0952917136b1c9f38d23ee254dd4e157802858621d786bcef15"
+    },
+    {
+      "capture": "after/node22/source/attempt-1.json",
+      "path": "captures/after/node22/source/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 413,
+      "sha256": "7788bf1fdba5434c45cdcb68a0a95195aaf81abb9cf3363c74bb4fd35725a00a"
+    },
+    {
+      "capture": "after/node22/source/attempt-1.log",
+      "path": "captures/after/node22/source/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4800,
+      "sha256": "dac95d84c5bf09a45dee6b553d8137fe72bf3eda7739f2e2acf6ea2a79350469"
+    },
+    {
+      "capture": "after/node22/source/fault-bundle.mjs",
+      "path": "retained/d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e.gz",
+      "encoding": "gzip",
+      "bytes": 1492657,
+      "sha256": "d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e"
+    },
+    {
+      "capture": "after/node22/source/faults.json",
+      "path": "captures/after/node22/source/faults.json",
+      "encoding": "identity",
+      "bytes": 1412,
+      "sha256": "9b0af41a1f0ebedcc2396adb46a5dcb7f527d622c6ba60e9dcc60873d23977b2"
+    },
+    {
+      "capture": "after/node22/source/fixture.json",
+      "path": "retained/f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6.gz",
+      "encoding": "gzip",
+      "bytes": 8371247,
+      "sha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6"
+    },
+    {
+      "capture": "after/node22/source/result.json",
+      "path": "captures/after/node22/source/result.json",
+      "encoding": "identity",
+      "bytes": 4863,
+      "sha256": "21e899cb627801c3097c2926897be27c470e7ca44ff7f4c173c0ccb102dc7027"
+    },
+    {
+      "capture": "after/node24/compiled/attempt-1.json",
+      "path": "captures/after/node24/compiled/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 397,
+      "sha256": "80a4b2de71ae3176ad2f89936e64297b5349c2e9f9c580b5b67594fbd6108398"
+    },
+    {
+      "capture": "after/node24/compiled/attempt-1.log",
+      "path": "captures/after/node24/compiled/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4339,
+      "sha256": "bd55202bd2fc4cdf4ea177ce2c722b2c7b5726d81ad1113ed7865b4daa071fae"
+    },
+    {
+      "capture": "after/node24/compiled/result.json",
+      "path": "captures/after/node24/compiled/result.json",
+      "encoding": "identity",
+      "bytes": 4872,
+      "sha256": "d456829c9f3210231be95c51eebffc5ac3bbc92bcd9281c535f898582edb6bbc"
+    },
+    {
+      "capture": "after/node24/source/attempt-1.json",
+      "path": "captures/after/node24/source/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 413,
+      "sha256": "5dd6fe8f4b64e3c09fd8073a5cc7a421ac61aa366a32f9f14e7d1e8a3244fff8"
+    },
+    {
+      "capture": "after/node24/source/attempt-1.log",
+      "path": "captures/after/node24/source/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4654,
+      "sha256": "9f60521790a0e8533259313bf687440608292a6d0d0eb24723917389c2df787b"
+    },
+    {
+      "capture": "after/node24/source/fault-bundle.mjs",
+      "path": "retained/d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e.gz",
+      "encoding": "gzip",
+      "bytes": 1492657,
+      "sha256": "d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e"
+    },
+    {
+      "capture": "after/node24/source/faults.json",
+      "path": "captures/after/node24/source/faults.json",
+      "encoding": "identity",
+      "bytes": 1412,
+      "sha256": "9b0af41a1f0ebedcc2396adb46a5dcb7f527d622c6ba60e9dcc60873d23977b2"
+    },
+    {
+      "capture": "after/node24/source/fixture.json",
+      "path": "retained/f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6.gz",
+      "encoding": "gzip",
+      "bytes": 8371247,
+      "sha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6"
+    },
+    {
+      "capture": "after/node24/source/result.json",
+      "path": "captures/after/node24/source/result.json",
+      "encoding": "identity",
+      "bytes": 4863,
+      "sha256": "17d732fee3d1d6d1fa174a120c5630df1dcb3a43ba18c9720ee1648e2cfe6d7d"
+    },
+    {
+      "capture": "after/node26/compiled/attempt-1.json",
+      "path": "captures/after/node26/compiled/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 350,
+      "sha256": "4a536b53d175fd6ee525138a150791e5e3ee3c53eb53c511d8448af715dab037"
+    },
+    {
+      "capture": "after/node26/compiled/attempt-1.log",
+      "path": "captures/after/node26/compiled/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4339,
+      "sha256": "9fa6c47a352fc0005f80d3df1e8844ee4553d0c1a4173bf1d9b6886508317fc6"
+    },
+    {
+      "capture": "after/node26/compiled/result.json",
+      "path": "captures/after/node26/compiled/result.json",
+      "encoding": "identity",
+      "bytes": 4872,
+      "sha256": "560f6e8e68f6e2c80f490dfe673323a61342868e02ef1b1b83cfbd49d6ff2022"
+    },
+    {
+      "capture": "after/node26/source/attempt-1.json",
+      "path": "captures/after/node26/source/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 366,
+      "sha256": "4a057b3262bdda5e4220c84620dfc29278a75807696f8c4d8b2e7f6e1a426105"
+    },
+    {
+      "capture": "after/node26/source/attempt-1.log",
+      "path": "captures/after/node26/source/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4652,
+      "sha256": "c360dbb2079fa2d571d75cdd863c78d8b12d4f6a88ad44accfd85fd8d9d8419b"
+    },
+    {
+      "capture": "after/node26/source/fault-bundle.mjs",
+      "path": "retained/d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e.gz",
+      "encoding": "gzip",
+      "bytes": 1492657,
+      "sha256": "d4ce7772c436a27516b50329ffcb274c20457b443008172f0d1366b58d79957e"
+    },
+    {
+      "capture": "after/node26/source/faults.json",
+      "path": "captures/after/node26/source/faults.json",
+      "encoding": "identity",
+      "bytes": 1412,
+      "sha256": "9b0af41a1f0ebedcc2396adb46a5dcb7f527d622c6ba60e9dcc60873d23977b2"
+    },
+    {
+      "capture": "after/node26/source/fixture.json",
+      "path": "retained/f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6.gz",
+      "encoding": "gzip",
+      "bytes": 8371247,
+      "sha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6"
+    },
+    {
+      "capture": "after/node26/source/result.json",
+      "path": "captures/after/node26/source/result.json",
+      "encoding": "identity",
+      "bytes": 4863,
+      "sha256": "1cb440bb1d5d537ad1e30ae74379e85eac7f8826fdddffdd23e1b3cfc1b767ad"
+    },
+    {
+      "capture": "after/run.json",
+      "path": "captures/after/run.json",
+      "encoding": "identity",
+      "bytes": 3621,
+      "sha256": "c0a44f18421d8bb7cb39016fe24819258239bc610e48beb7ae6acac6485499d3"
+    },
+    {
+      "capture": "after/shared-runtime-native.log",
+      "path": "captures/after/shared-runtime-native.log",
+      "encoding": "identity",
+      "bytes": 26040,
+      "sha256": "00ad307d2b3971bf2b66d154a7fa067a5ca816bd2271dae89d86da8412ad599b"
+    },
+    {
+      "capture": "after/source-at-start.json",
+      "path": "captures/after/source-at-start.json",
+      "encoding": "identity",
+      "bytes": 1639,
+      "sha256": "cf9e3fadbde79b9d865a7de87418982cafddf1dce03a0442a1a47ac118e1dd78"
+    },
+    {
+      "capture": "before/baseline-validated.json",
+      "path": "captures/before/baseline-validated.json",
+      "encoding": "identity",
+      "bytes": 164,
+      "sha256": "d33f2d378c7f7b35aa3530d6c684baccbef26c98b282fe41aa2625626be83abb"
+    },
+    {
+      "capture": "before/build/attempt-1.json",
+      "path": "captures/before/build/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 292,
+      "sha256": "0f3b6c959d39d4f62acf1f72ac38cac2f29ba11f0af18cdbf3a076e1164a507d"
+    },
+    {
+      "capture": "before/build/attempt-1.log",
+      "path": "captures/before/build/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 447,
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+    },
+    {
+      "capture": "before/build-provenance.json",
+      "path": "captures/before/build-provenance.json",
+      "encoding": "identity",
+      "bytes": 66835,
+      "sha256": "d0947ce44c909084bebaf72323be437c397b21e2ff4745388be8b61266cae18a"
+    },
+    {
+      "capture": "before/chromium/attempt-1.json",
+      "path": "captures/before/chromium/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 365,
+      "sha256": "06ae1f81b9ab7b0b40b8299db988e8fe4e1cb996b8f22515109e52686c85bef4"
+    },
+    {
+      "capture": "before/chromium/attempt-1.log",
+      "path": "captures/before/chromium/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4994,
+      "sha256": "382427cb2f6a335fa1fefaf4e4fdf049cbd31846205cb854f3252d30ef314658"
+    },
+    {
+      "capture": "before/chromium/fault-bundle.mjs",
+      "path": "retained/0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034.gz",
+      "encoding": "gzip",
+      "bytes": 1492259,
+      "sha256": "0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034"
+    },
+    {
+      "capture": "before/chromium/result.json",
+      "path": "captures/before/chromium/result.json",
+      "encoding": "identity",
+      "bytes": 5218,
+      "sha256": "9de978b9dbaa48a0250e2f19c91af420170445e74501b3ac2eeebdaecc9eeb62"
+    },
+    {
+      "capture": "before/first-capture-parser-failure.json",
+      "path": "captures/before/first-capture-parser-failure.json",
+      "encoding": "identity",
+      "bytes": 343,
+      "sha256": "e4fdf4fa9cfa4fe8bfc6c9655be808901bf9a8a3488451b7296ab13caea59b41"
+    },
+    {
+      "capture": "before/node22/compiled/attempt-1.json",
+      "path": "captures/before/node22/compiled/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 398,
+      "sha256": "ce9e720d5a6695c6b5aaa5e6376263cccc03b916cc489c445f5a5504183a0611"
+    },
+    {
+      "capture": "before/node22/compiled/attempt-1.log",
+      "path": "captures/before/node22/compiled/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4339,
+      "sha256": "1cf2f027b79a83717344be4903984ca2759aa1e9b30c0a48fa1116ec9eb31009"
+    },
+    {
+      "capture": "before/node22/compiled/result.json",
+      "path": "captures/before/node22/compiled/result.json",
+      "encoding": "identity",
+      "bytes": 4872,
+      "sha256": "2569311a492cd7d33add08324cd77e330282a30963fa9dfa1b3dfdf6fc84a3c8"
+    },
+    {
+      "capture": "before/node22/source/attempt-1.json",
+      "path": "captures/before/node22/source/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 414,
+      "sha256": "282c0c6513cef8182925337a8d64518ff994de82682584b1f8bc037e21b1f490"
+    },
+    {
+      "capture": "before/node22/source/attempt-1.log",
+      "path": "captures/before/node22/source/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4799,
+      "sha256": "1e32e6168b653ba4b4c9b2ad84eb6d64c95f00b989ce5c64ed33a1d76f0e0c62"
+    },
+    {
+      "capture": "before/node22/source/fault-bundle.mjs",
+      "path": "retained/0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034.gz",
+      "encoding": "gzip",
+      "bytes": 1492259,
+      "sha256": "0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034"
+    },
+    {
+      "capture": "before/node22/source/faults.json",
+      "path": "captures/before/node22/source/faults.json",
+      "encoding": "identity",
+      "bytes": 1412,
+      "sha256": "9b0af41a1f0ebedcc2396adb46a5dcb7f527d622c6ba60e9dcc60873d23977b2"
+    },
+    {
+      "capture": "before/node22/source/fixture.json",
+      "path": "retained/f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6.gz",
+      "encoding": "gzip",
+      "bytes": 8371247,
+      "sha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6"
+    },
+    {
+      "capture": "before/node22/source/result.json",
+      "path": "captures/before/node22/source/result.json",
+      "encoding": "identity",
+      "bytes": 4863,
+      "sha256": "21e899cb627801c3097c2926897be27c470e7ca44ff7f4c173c0ccb102dc7027"
+    },
+    {
+      "capture": "before/node24/compiled/attempt-1.json",
+      "path": "captures/before/node24/compiled/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 397,
+      "sha256": "b6f834b890a1a51cda72af70cda7dc81d5bcb6a313ec360ab516c68bec9b2876"
+    },
+    {
+      "capture": "before/node24/compiled/attempt-1.log",
+      "path": "captures/before/node24/compiled/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4339,
+      "sha256": "dc185539b39e87d5ba6631b9e15dded96f4e92f68eb0c2e6775067e762a4e0ff"
+    },
+    {
+      "capture": "before/node24/compiled/result.json",
+      "path": "captures/before/node24/compiled/result.json",
+      "encoding": "identity",
+      "bytes": 4872,
+      "sha256": "9b9ae10a57b38c9903bf9658cbf84dc3d64d33cf5973346d467ad5a1dd754635"
+    },
+    {
+      "capture": "before/node24/source/attempt-1.json",
+      "path": "captures/before/node24/source/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 414,
+      "sha256": "e53a068e402475e80b8ec1e931c8207f8b9aa9ed9089224ddfb9a1420d1eb195"
+    },
+    {
+      "capture": "before/node24/source/attempt-1.log",
+      "path": "captures/before/node24/source/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4654,
+      "sha256": "1841319457bd5591d45fdcf47bd749127b3a80b372bc9aa7866264ccd819f52b"
+    },
+    {
+      "capture": "before/node24/source/fault-bundle.mjs",
+      "path": "retained/0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034.gz",
+      "encoding": "gzip",
+      "bytes": 1492259,
+      "sha256": "0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034"
+    },
+    {
+      "capture": "before/node24/source/faults.json",
+      "path": "captures/before/node24/source/faults.json",
+      "encoding": "identity",
+      "bytes": 1412,
+      "sha256": "9b0af41a1f0ebedcc2396adb46a5dcb7f527d622c6ba60e9dcc60873d23977b2"
+    },
+    {
+      "capture": "before/node24/source/fixture.json",
+      "path": "retained/f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6.gz",
+      "encoding": "gzip",
+      "bytes": 8371247,
+      "sha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6"
+    },
+    {
+      "capture": "before/node24/source/result.json",
+      "path": "captures/before/node24/source/result.json",
+      "encoding": "identity",
+      "bytes": 4863,
+      "sha256": "17d732fee3d1d6d1fa174a120c5630df1dcb3a43ba18c9720ee1648e2cfe6d7d"
+    },
+    {
+      "capture": "before/node26/compiled/attempt-1.json",
+      "path": "captures/before/node26/compiled/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 351,
+      "sha256": "86bc091d920d86d3187e3754bf395e27af706ea11b7f602b7739dad14a240185"
+    },
+    {
+      "capture": "before/node26/compiled/attempt-1.log",
+      "path": "captures/before/node26/compiled/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4339,
+      "sha256": "e149626a80308b13004276cbebfaf5ada379ddfd82bde769b871a1f3e80251fd"
+    },
+    {
+      "capture": "before/node26/compiled/result.json",
+      "path": "captures/before/node26/compiled/result.json",
+      "encoding": "identity",
+      "bytes": 4872,
+      "sha256": "24436aa8fb25189f6c6b9c0b0c290950bbafe8e02a1ab9d7e468da3fb87289cb"
+    },
+    {
+      "capture": "before/node26/source/attempt-1.json",
+      "path": "captures/before/node26/source/attempt-1.json",
+      "encoding": "identity",
+      "bytes": 367,
+      "sha256": "677462b2c981453be0e3e40c16302bb4e9b46ff0b275f886acdd5e9d9ba5626b"
+    },
+    {
+      "capture": "before/node26/source/attempt-1.log",
+      "path": "captures/before/node26/source/attempt-1.log",
+      "encoding": "identity",
+      "bytes": 4654,
+      "sha256": "d98820a650ce6e148009f6da504a86e506cc4d5778450b87e66a884873e3c25c"
+    },
+    {
+      "capture": "before/node26/source/fault-bundle.mjs",
+      "path": "retained/0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034.gz",
+      "encoding": "gzip",
+      "bytes": 1492259,
+      "sha256": "0ad5690646a7efbe87be6728be852571389536e8d7c065e2b36b2cf6956b6034"
+    },
+    {
+      "capture": "before/node26/source/faults.json",
+      "path": "captures/before/node26/source/faults.json",
+      "encoding": "identity",
+      "bytes": 1412,
+      "sha256": "9b0af41a1f0ebedcc2396adb46a5dcb7f527d622c6ba60e9dcc60873d23977b2"
+    },
+    {
+      "capture": "before/node26/source/fixture.json",
+      "path": "retained/f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6.gz",
+      "encoding": "gzip",
+      "bytes": 8371247,
+      "sha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6"
+    },
+    {
+      "capture": "before/node26/source/result.json",
+      "path": "captures/before/node26/source/result.json",
+      "encoding": "identity",
+      "bytes": 4863,
+      "sha256": "1cb440bb1d5d537ad1e30ae74379e85eac7f8826fdddffdd23e1b3cfc1b767ad"
+    },
+    {
+      "capture": "before/run.json",
+      "path": "captures/before/run.json",
+      "encoding": "identity",
+      "bytes": 3630,
+      "sha256": "da95f4c1afcefafcc0e8b352e67ecd99440c5eb23b1153593463a15405ed24db"
+    },
+    {
+      "capture": "before/source-at-start.json",
+      "path": "captures/before/source-at-start.json",
+      "encoding": "identity",
+      "bytes": 1640,
+      "sha256": "8d96d3790f2cbf9ec82c91b70e9b0a890b3efdd1d2bd903c84688367405813fe"
+    },
+    {
+      "capture": "comparison.json",
+      "path": "captures/comparison.json",
+      "encoding": "identity",
+      "bytes": 1002,
+      "sha256": "f476d0b4aef17654533ed27f0b51dc517f97cea635edaffa9cd27fa99cfcc372"
+    }
+  ]
+}

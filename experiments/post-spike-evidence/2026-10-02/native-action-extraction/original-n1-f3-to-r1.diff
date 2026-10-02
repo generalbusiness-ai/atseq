@@ -1,0 +1,105 @@
+diff --git a/tests/support/native-application-corpus.ts b/tests/support/native-application-corpus.ts
+index ab8c751e..39eed4c9 100644
+--- a/tests/support/native-application-corpus.ts
++++ b/tests/support/native-application-corpus.ts
+@@ -38,7 +38,7 @@ export async function applicationReplayContext(
+   options: {
+     persist?: Parameters<typeof openNativeApplication>[0]['persist'];
+     sourceFault?: (cid: string) => void;
+-    evidenceFault?: () => void;
++    evidenceFault?: (cid: string) => void;
+   } = {},
+ ) {
+   const anchor = await NativeAnchor.from(fixture.genesis, { app: fixture.genesis.app, genesis: fixture.genesisCid });
+@@ -70,7 +70,7 @@ export async function applicationReplayContext(
+       }),
+       reader: {
+         async get(cid: string) {
+-          options.evidenceFault?.();
++          options.evidenceFault?.(cid);
+           const raw = retained.get(cid);
+           if (!raw) throw new AtseqError('content_unavailable', 'Missing evidence');
+           return new Uint8Array(raw);
+@@ -130,6 +130,11 @@ export async function nativeApplicationCorpus(fixture: ApplicationFixture): Prom
+     const prior = healthy.app.snapshot();
+     const repeated = {
+       ...healthy.inputs.at(-1)!,
++      appRepo: await authenticateRepo({
++        carBytes: new Uint8Array(fixture.duplicateCar),
++        expectedDid: fixture.genesis.app,
++        trustedSigningKeyDid: fixture.appKey,
++      }),
+       entry: {
+         ...fixture.vectors.at(-1)!.entry,
+         position: prior.authority.frontier.position + 1,
+@@ -222,7 +227,9 @@ export async function nativeApplicationCorpus(fixture: ApplicationFixture): Prom
+           () => context.app.process(context.inputs[i]!),
+           (error) => error === missing,
+         );
+-        equal(context.app.snapshot(), prior);
++        const after = context.app.snapshot();
++        equal({ ...after, publication: null }, { ...prior, publication: null });
++        assert(after.publication?.head.position === i + 1 && after.authority.frontier.position === i);
+         unavailable = false;
+       }
+       await context.app.process(context.inputs[i]!);
+diff --git a/tests/support/native-application-fault-bundle.ts b/tests/support/native-application-fault-bundle.ts
+index 8db62d93..a72778ad 100644
+--- a/tests/support/native-application-fault-bundle.ts
++++ b/tests/support/native-application-fault-bundle.ts
+@@ -31,14 +31,14 @@ export async function nativeApplicationFaultBundle(): Promise<string> {
+               '      if ((globalThis as any).__nativeApplicationStoredFault) throw (globalThis as any).__nativeApplicationStoredFault;\n' +
+                 marker,
+             );
+-            const first = '      const data = authenticatedAuthorityEntry(authenticated);';
++            const first = '      const data = authenticatedAuthorityEntry(authenticated, base.authority);';
+             assert.ok(code.includes(first));
+             code = code.replace(
+               first,
+               '      if ((globalThis as any).__nativeApplicationStaleBeforeCommit) { this.#current = Object.freeze({ ...base }); this.#same(base); }\n' +
+                 first,
+             );
+-            const persisted = '        await this.persist(this.#projection(next, row));';
++            const persisted = '        await this.#persist(this.#projection(next, row));';
+             assert.ok(code.includes(persisted));
+             return code.replace(
+               persisted,
+diff --git a/tests/support/native-application-fixture.ts b/tests/support/native-application-fixture.ts
+index d04286f4..d8c436e7 100644
+--- a/tests/support/native-application-fixture.ts
++++ b/tests/support/native-application-fixture.ts
+@@ -42,6 +42,7 @@ export interface ApplicationFixture {
+   sourceBlocks: [string, number[]][];
+   retainedContent: [string, number[]][];
+   vectors: ApplicationVector[];
++  duplicateCar: number[];
+ }
+ export async function applicationSource(
+   options: { fold?: string; role?: string; initial?: unknown; stateChange?: boolean; semanticMismatch?: boolean } = {},
+@@ -494,7 +495,26 @@ export async function nativeApplicationFixture(): Promise<ApplicationFixture> {
+     await act(base.execution, { amount: 1 }, 'ai.generalbusiness.atseq.example#missing'),
+     no('grant_revoked'),
+   );
++  const repeated = {
++    ...vectors.at(-1)!.entry,
++    position: vectors.length + 1,
++    prev: link(await contentCid(vectors.at(-1)!.entry)),
++  };
++  h.appRecords.set(nativeEntryPath(genesisCid, repeated.position), encodeBlock(repeated));
++  h.appRecords.set(
++    nativeHeadPath(genesisCid),
++    encodeBlock({
++      $type: NATIVE_NSID.head,
++      version: 2,
++      app: genesis.app,
++      genesis: link(genesisCid),
++      position: repeated.position,
++      entry: link(await contentCid(repeated)),
++    }),
++  );
++  const duplicate = await authorityRepo(h.app.principal, h.app.key, h.appRecords, repeated.position);
+   return {
++    duplicateCar: [...duplicate.car],
+     genesis,
+     genesisCid,
+     appKey: h.app.signing,

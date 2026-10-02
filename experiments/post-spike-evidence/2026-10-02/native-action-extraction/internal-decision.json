@@ -1,0 +1,44 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected assert at depth 11749: decision effective, 2 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "6f9b9e50f4be9a13586f0adafc70f00ba3854c0e",
+      "depth": 11749
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1aedbe393c6b3e2b14019d1f71d367dc8bd715c4",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1aedbe393c6b3e2b14019d1f71d367dc8bd715c4",
+      "sequence": 11745,
+      "timestamp": 1790945812,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "assert",
+      "lifecycle": "none",
+      "satisfier": "role:ratifier",
+      "text": "C1-F1 implementation choice: add an internal-module foldEvaluation helper returning the existing FoldResult and actual evaluation counters, and have the supported fold API delegate while preserving its result and errors. The application imports this helper directly; supported index/package exports do not change. The action/gate owner remains private, evaluation runs once, and thrown-call counters remain unavailable rather than invented as zero. Preserve genuine captured source authority, all ordered authentication/control/activation/persistence boundaries and exact frozen pre-edit oracle/fault evidence. This is an implementation decision under the existing C1-F1 request, subject to independent exact-head code review before merging.",
+      "body": {
+        "basis_head": "316439928e0c0d41965b086f2dace19a9249dba7",
+        "stale_bases": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:71287495b64edcf6541ea0488f9c5ff9c54fdc26 stale; retired bases: git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:005de060a210f5e706cd48cb8ae04e5a00c4e1a7, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0141da292eb7ac1e1358ca19c1bd9344538d5660, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02409e2640ad4fb4d48814ba4f06a8952c3bc7b4, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0258af2e6b5110f193d143bfb2a08b88bee488f8 and 380 more",
+        "target_ref": "refs/heads/main"
+      },
+      "stale": true,
+      "stale_because_truncated": true
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:1aedbe393c6b3e2b14019d1f71d367dc8bd715c4",
+      "sequence": 11745,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:71287495b64edcf6541ea0488f9c5ff9c54fdc26",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2afbd00114ae51317b9590fc40eb25ce25e9acfd"
+    ]
+  },
+  "isError": false
+}

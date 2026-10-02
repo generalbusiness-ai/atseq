@@ -1,0 +1,12 @@
+{
+  "name": "node24/compiled",
+  "attempt": 1,
+  "command": [
+    "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "experiments/native-application/compiled-conformance.mjs"
+  ],
+  "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+  "exitCode": 0,
+  "elapsedSeconds": 2.7567192499991506,
+  "log": ".atseq-local/c1-f1/after/node24/compiled/attempt-1.log"
+}

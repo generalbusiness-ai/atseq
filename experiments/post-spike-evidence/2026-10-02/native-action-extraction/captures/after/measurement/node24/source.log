@@ -1,0 +1,10 @@
+{"node":"v24.21.0","chromium":"153.0.8010.12","cases":[{"name":"effective","result":{"decision":"effective","state":{"count":5}},"steps":13,"inspectedBytes":122},{"name":"authored denial","result":{"decision":"ineffective","message":"💡","reason":"limit"},"steps":7,"inspectedBytes":113},{"name":"invalid output {}","failure":"fold_output","evaluation":null},{"name":"invalid output {\"decision\":\"effective\",\"state\":[]}","failure":"fold_output","evaluation":null}],"bundleBytes":614774,"bundleSha256":"782b0ad38d73768db17aebff843f832e4c6b6780aee80440c9e5bbbdc500fa1c"}
+✔ internal measured fold preserves public results and real counters in Node and Chromium (1289.079333ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2197.634166

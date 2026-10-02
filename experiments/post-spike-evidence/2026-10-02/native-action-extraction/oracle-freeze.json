@@ -1,0 +1,12 @@
+{
+  "originalHead": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+  "originalPath": "/private/tmp/atseq-native-prefix-f1-20261002/experiments/post-spike-evidence/2026-10-02/native-prefix/fixtures/application.json.gz",
+  "gzipBytes": 837118,
+  "gzipSha256": "c5761072363bf18b74bbda960ba2085426b09010f6531b2578f09b4aa3e6ff6a",
+  "decodedPath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+  "decodedBytes": 8371247,
+  "decodedSha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6",
+  "frozenBeforeSourceEdits": true,
+  "currentR1Clean": true,
+  "neverRegenerate": "set ATSEQ_NATIVE_APPLICATION_FIXTURE_PATH to decodedPath for every baseline/after source/browser/compiled run"
+}

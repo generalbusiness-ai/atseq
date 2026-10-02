@@ -1,0 +1,36 @@
+{
+  "productionSource": "7fa56038",
+  "oracleSha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6",
+  "oracleBytes": 8371247,
+  "nodes": [
+    {
+      "node": "v22.19.0",
+      "source58": true,
+      "fault24": true,
+      "compiled58": true,
+      "byteIdenticalCaseFaultCaptures": true,
+      "fullProjectionOracleComparedByCorpus": true
+    },
+    {
+      "node": "v24.21.0",
+      "source58": true,
+      "fault24": true,
+      "compiled58": true,
+      "byteIdenticalCaseFaultCaptures": true,
+      "fullProjectionOracleComparedByCorpus": true
+    },
+    {
+      "node": "v26.10.0",
+      "source58": true,
+      "fault24": true,
+      "compiled58": true,
+      "byteIdenticalCaseFaultCaptures": true,
+      "fullProjectionOracleComparedByCorpus": true
+    }
+  ],
+  "chromium": "153.0.8010.12",
+  "chrome58fault24": true,
+  "byteIdenticalChromeCaseFaultCaptures": true,
+  "transformedFaultsAreCompiledProduction": false,
+  "newDiscoverySimulationHostImportCallers": false
+}

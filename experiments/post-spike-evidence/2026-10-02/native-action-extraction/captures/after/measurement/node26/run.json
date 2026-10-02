@@ -1,0 +1,22 @@
+[
+  {
+    "name": "node26/source",
+    "command": [
+      "/opt/homebrew/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/native-fold-measurement.test.ts"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 2.2732483750151005
+  },
+  {
+    "name": "node26/compiled",
+    "command": [
+      "/opt/homebrew/bin/node",
+      "experiments/native-application/compiled-fold-measurement.mjs"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 1.4391759999853093
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "phase": "after",
+  "head": "7fa56038edc81c85dd18f6bcde5d2a94769498dd",
+  "rows": [
+    {
+      "name": "build",
+      "attempt": 1,
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/build.mjs"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 4.766057875007391,
+      "log": ".atseq-local/c1-f1/after/build/attempt-1.log"
+    },
+    {
+      "name": "node22/source",
+      "attempt": 1,
+      "command": [
+        "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-application.test.ts"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 5.681995207996806,
+      "log": ".atseq-local/c1-f1/after/node22/source/attempt-1.log"
+    },
+    {
+      "name": "node24/source",
+      "attempt": 1,
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-application.test.ts"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 5.272140082990518,
+      "log": ".atseq-local/c1-f1/after/node24/source/attempt-1.log"
+    },
+    {
+      "name": "node26/source",
+      "attempt": 1,
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-application.test.ts"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 5.032827041985001,
+      "log": ".atseq-local/c1-f1/after/node26/source/attempt-1.log"
+    },
+    {
+      "name": "node22/compiled",
+      "attempt": 1,
+      "command": [
+        "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+        "experiments/native-application/compiled-conformance.mjs"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 2.8650004169903696,
+      "log": ".atseq-local/c1-f1/after/node22/compiled/attempt-1.log"
+    },
+    {
+      "name": "node24/compiled",
+      "attempt": 1,
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "experiments/native-application/compiled-conformance.mjs"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 2.7567192499991506,
+      "log": ".atseq-local/c1-f1/after/node24/compiled/attempt-1.log"
+    },
+    {
+      "name": "node26/compiled",
+      "attempt": 1,
+      "command": [
+        "/opt/homebrew/bin/node",
+        "experiments/native-application/compiled-conformance.mjs"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 2.6938832080049906,
+      "log": ".atseq-local/c1-f1/after/node26/compiled/attempt-1.log"
+    },
+    {
+      "name": "chromium",
+      "attempt": 1,
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/native-application-browser.test.ts"
+      ],
+      "fixturePath": "/private/tmp/atseq-c1-f1-oracle-20261002.json",
+      "exitCode": 0,
+      "elapsedSeconds": 7.49112908297684,
+      "log": ".atseq-local/c1-f1/after/chromium/attempt-1.log"
+    }
+  ],
+  "runtimeTestsRun": true,
+  "fixtureSha256": "f7c6d9c3740208973de828da976107b32a6107ad3c62085412476fdbb2e874e6"
+}

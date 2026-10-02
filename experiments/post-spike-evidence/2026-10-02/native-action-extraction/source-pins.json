@@ -1,0 +1,297 @@
+{
+  "basis": "316439928e0c0d41965b086f2dace19a9249dba7",
+  "reviewedR1": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+  "originalN1F3": "526111bfd51172dfb3c06aa3557b3beb0a5d8964",
+  "productionProducer": "7fa56038edc81c85dd18f6bcde5d2a94769498dd",
+  "measurementTestProducer": "44822ab97441cb6a2a968bc3679139719d026436",
+  "files": [
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/application/native-authority.ts",
+      "bytes": 41126,
+      "sha256": "340b93c0bd0502aa171244cd4aa588acbb92f6aafaaff00a476ed2ddd8b0698b",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": false
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/runtime/evaluator.ts",
+      "bytes": 9906,
+      "sha256": "7196dec003e905c1bc7ba251070df06faab3c0ad0d0a26e31c8c854a835043d1",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": false
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/runtime/index.ts",
+      "bytes": 354,
+      "sha256": "edc118f495cae9ec0523931d4b74af6d88abd180a8d67d90d643c1f539aa9196",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/application/index.ts",
+      "bytes": 811,
+      "sha256": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/definition/native-source-contract.ts",
+      "bytes": 6906,
+      "sha256": "e8b877b2913ae3c3f6a9503f63dcdf6a9162e3fb6f09119788dc1504c56fd984",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/core/profile.ts",
+      "bytes": 616,
+      "sha256": "2979fe43fda4ee888ce8e0550ef3af2518e4cb63c0e5877d1dd20f1b5830e93f",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/core/errors.ts",
+      "bytes": 4753,
+      "sha256": "e2aa383756ad38b9630216c5b892e38fb6fc446292b4c30b29ffbbddd4b7e250",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/protocol/native-outcome.ts",
+      "bytes": 3456,
+      "sha256": "8042f3db6cea238b05eaf9595fdce8ce21287fddc23bdaa1099bfa4e56ce2078",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "src/protocol/native-wire.ts",
+      "bytes": 25232,
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/support/native-application-corpus.ts",
+      "bytes": 16158,
+      "sha256": "397ae7a9253c5361e9ba952a27bb293bc61f334a71333c9ef4bf6c98b739eeac",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/support/native-application-fixture.ts",
+      "bytes": 20234,
+      "sha256": "34e9628a80a9c0c68bad71ee7949815d708a76a3731064394f71dc13cded1db2",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/support/native-application-fault-bundle.ts",
+      "bytes": 2717,
+      "sha256": "86716399bc768f47a0b5bd293adf47dfa3d98506efd73ac648d388ccffb11c87",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/support/native-application-fault-probe.ts",
+      "bytes": 4710,
+      "sha256": "dc49d3bfacc4dcc1e8e8edc8037647af2f690a5999b6c51e0d789edd39bf6a3f",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/native-application.test.ts",
+      "bytes": 1482,
+      "sha256": "acd4cdc8c2a130db7f7d5fbe5b894fdd2f0e5e52f7a4be8cce0857784a92efa1",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tests/native-application-browser.test.ts",
+      "bytes": 3748,
+      "sha256": "da645d5f053038c7fde8674175773a1be1e96f6f5c3380551cb999131fd30c4e",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "experiments/native-application/compiled-conformance.mjs",
+      "bytes": 2396,
+      "sha256": "428f503c76997144a29195abe05d3b7a93a621c3d09a24b9752517b9cad2a672",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "package.json",
+      "bytes": 4425,
+      "sha256": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "npm-shrinkwrap.json",
+      "bytes": 143687,
+      "sha256": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "tsconfig.build.json",
+      "bytes": 398,
+      "sha256": "925fd83f2cc7d6fb272cadfd13e8e47bec6a7c087cf2c1c332433048d69db2a4",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "316439928e0c0d41965b086f2dace19a9249dba7",
+      "path": "scripts/build.mjs",
+      "bytes": 4057,
+      "sha256": "7aa085a227eed0cc9d0d5bf564620026273ba084570b87c5c673c2632567a608",
+      "purpose": "landed pre-edit source",
+      "currentMustMatch": true
+    },
+    {
+      "head": "7fa56038edc81c85dd18f6bcde5d2a94769498dd",
+      "path": "src/application/native-authority.ts",
+      "bytes": 41546,
+      "sha256": "752dd725adb9839330394d12d744f8198ca461e98a8c3680bb85099d7e58afcf",
+      "purpose": "frozen extraction producer",
+      "currentMustMatch": true
+    },
+    {
+      "head": "7fa56038edc81c85dd18f6bcde5d2a94769498dd",
+      "path": "src/runtime/evaluator.ts",
+      "bytes": 10326,
+      "sha256": "faa14fd55a8a883e6673a99132ae7b212c18945f59b27e8766e75d3e00b8047c",
+      "purpose": "frozen extraction producer",
+      "currentMustMatch": true
+    },
+    {
+      "head": "44822ab97441cb6a2a968bc3679139719d026436",
+      "path": "tests/support/native-fold-measurement.ts",
+      "bytes": 2624,
+      "sha256": "f885609d96b63c4202cc6b3f6854e6adcccbb8ed9d9c83a5acf716ce6002e60e",
+      "purpose": "executed test-only measurement probe",
+      "currentMustMatch": true
+    },
+    {
+      "head": "44822ab97441cb6a2a968bc3679139719d026436",
+      "path": "tests/native-fold-measurement.test.ts",
+      "bytes": 2568,
+      "sha256": "c8a6c31eeb499cabd79da50dc82b5ce2e82fa5e0e9b485ea2aaf4a7af20f471f",
+      "purpose": "executed test-only measurement probe",
+      "currentMustMatch": true
+    },
+    {
+      "head": "44822ab97441cb6a2a968bc3679139719d026436",
+      "path": "experiments/native-application/compiled-fold-measurement.mjs",
+      "bytes": 2075,
+      "sha256": "885f826e1407a2aa2b8157179bef86bc800642e58e51420ed9bce8159511e213",
+      "purpose": "executed test-only measurement probe",
+      "currentMustMatch": true
+    },
+    {
+      "head": "526111bfd51172dfb3c06aa3557b3beb0a5d8964",
+      "path": "tests/support/native-application-fault-probe.ts",
+      "bytes": 4710,
+      "sha256": "dc49d3bfacc4dcc1e8e8edc8037647af2f690a5999b6c51e0d789edd39bf6a3f",
+      "purpose": "original N1-F3 attribution",
+      "currentMustMatch": false
+    },
+    {
+      "head": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+      "path": "tests/support/native-application-fault-probe.ts",
+      "bytes": 4710,
+      "sha256": "dc49d3bfacc4dcc1e8e8edc8037647af2f690a5999b6c51e0d789edd39bf6a3f",
+      "purpose": "reviewed R1 schema/callsite adaptation",
+      "currentMustMatch": true
+    },
+    {
+      "head": "526111bfd51172dfb3c06aa3557b3beb0a5d8964",
+      "path": "tests/support/native-application-fault-bundle.ts",
+      "bytes": 2700,
+      "sha256": "28d064a8074ae6bd53108f85f4cc93fe666b7b45e73be5e1ff8736e9862d3af4",
+      "purpose": "original N1-F3 attribution",
+      "currentMustMatch": false
+    },
+    {
+      "head": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+      "path": "tests/support/native-application-fault-bundle.ts",
+      "bytes": 2717,
+      "sha256": "86716399bc768f47a0b5bd293adf47dfa3d98506efd73ac648d388ccffb11c87",
+      "purpose": "reviewed R1 schema/callsite adaptation",
+      "currentMustMatch": true
+    },
+    {
+      "head": "526111bfd51172dfb3c06aa3557b3beb0a5d8964",
+      "path": "tests/support/native-application-fixture.ts",
+      "bytes": 19559,
+      "sha256": "af2cdb1aa2cc8c4e8a1eee6817d534b88f30b4b72b5fbe7fdbeb982b09218811",
+      "purpose": "original N1-F3 attribution",
+      "currentMustMatch": false
+    },
+    {
+      "head": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+      "path": "tests/support/native-application-fixture.ts",
+      "bytes": 20234,
+      "sha256": "34e9628a80a9c0c68bad71ee7949815d708a76a3731064394f71dc13cded1db2",
+      "purpose": "reviewed R1 schema/callsite adaptation",
+      "currentMustMatch": true
+    },
+    {
+      "head": "526111bfd51172dfb3c06aa3557b3beb0a5d8964",
+      "path": "tests/support/native-application-corpus.ts",
+      "bytes": 15766,
+      "sha256": "b03221ead4ba034e3c44c86612b28086d216dd9e8de2b14f9649341dff809d85",
+      "purpose": "original N1-F3 attribution",
+      "currentMustMatch": false
+    },
+    {
+      "head": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+      "path": "tests/support/native-application-corpus.ts",
+      "bytes": 16158,
+      "sha256": "397ae7a9253c5361e9ba952a27bb293bc61f334a71333c9ef4bf6c98b739eeac",
+      "purpose": "reviewed R1 schema/callsite adaptation",
+      "currentMustMatch": true
+    },
+    {
+      "head": "5bb836a0522bd075cff513d4aaf4766bcbea5b97",
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix/fixtures/application.json.gz",
+      "bytes": 837118,
+      "sha256": "c5761072363bf18b74bbda960ba2085426b09010f6531b2578f09b4aa3e6ff6a",
+      "purpose": "reviewed R1 immutable oracle gzip",
+      "currentMustMatch": true
+    },
+    {
+      "head": "aa8855d932473cfacb51167911c6dbc18fd0246c",
+      "path": "notes/2026-10-02-atseq-actor-discovery-simplification.md",
+      "bytes": 13453,
+      "sha256": "b9fb48171a34bd8dd4cfdfb389af1a2a79876d3c53f2305f867a4a1d8f210766",
+      "purpose": "adopted C1 source contract",
+      "currentMustMatch": false
+    },
+    {
+      "head": "f65f625b0059d5d5b54ddda36f49323fef2aed33",
+      "path": "notes/2026-10-02-atseq-native-host-review-clarification.md",
+      "bytes": 13390,
+      "sha256": "1ae031f11fa1748879fd239c9b7f7b0f2083a3d4bd34a59f4df5e4e02d97ca3c",
+      "purpose": "adopted NH private third-caller clarification",
+      "currentMustMatch": false
+    }
+  ]
+}
