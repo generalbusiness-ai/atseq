@@ -5,13 +5,13 @@ import { gunzipSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import ts from 'typescript';
+import { stripTypeScriptTypes } from 'node:module';
 const hash = (raw) => createHash('sha256').update(raw).digest('hex');
 await mkdir('.atseq-local', { recursive: true });
 const source = await readFile('tests/support/native-outcome-corpus.ts', 'utf8');
-let emitted = ts.transpileModule(source, {
-  compilerOptions: { target: ts.ScriptTarget.ESNext, module: ts.ModuleKind.ESNext },
-}).outputText;
+// Only the test driver loses its type annotations. Runtime imports below must
+// resolve to the actual build's JavaScript, never to stripped source modules.
+let emitted = stripTypeScriptTypes(source);
 const modules = ['core/errors', 'core/values', 'protocol/native-outcome', 'protocol/checkpoint-data'];
 const moduleHashes = {};
 for (const name of modules) {
