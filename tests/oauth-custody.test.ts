@@ -47,6 +47,7 @@ async function environment() {
   const pages: Page[] = [];
   let hold: ((url: URL) => Promise<void>) | undefined;
   let afterResponse: ((url: URL) => Promise<void>) | undefined;
+  let httpStatus: ((url: URL) => number | undefined) | undefined;
   let abortBefore: ((url: URL) => boolean) | undefined;
   let abortAfter: ((url: URL) => boolean) | undefined;
   await context.route('https://**/*', async (route) => {
@@ -77,7 +78,7 @@ async function environment() {
       return;
     }
     await hold?.(url);
-    const response = await fixture.fetch(
+    let response = await fixture.fetch(
       new Request(req.url(), {
         method: req.method(),
         headers: req.headers(),
@@ -87,6 +88,14 @@ async function environment() {
         cache: 'no-store',
       }),
     );
+    const status = httpStatus?.(url);
+    if (status !== undefined) {
+      await response.body?.cancel();
+      response = new Response(JSON.stringify({ syntheticHttpOutage: status }), {
+        status,
+        headers: { 'content-type': 'application/json' },
+      });
+    }
     await afterResponse?.(url);
     if (abortAfter?.(url)) {
       await route.abort('connectionreset');
@@ -137,6 +146,9 @@ async function environment() {
     enroll,
     rows,
     manage,
+    setHttpStatus: (fn: typeof httpStatus) => {
+      httpStatus = fn;
+    },
     setAbortBefore: (fn: typeof abortBefore) => {
       abortBefore = fn;
     },
@@ -1011,4 +1023,196 @@ for (const mismatch of ['issuer', 'scope']) {
       await e.close();
     }
   });
+}
+
+// These comparisons stay inside the isolated browser. No credential or private
+// key bytes leave it; the only key export is the already public DPoP JWK.
+async function unchangedAccount(p: Page, remember = false): Promise<boolean> {
+  return p.evaluate(async (remember) => {
+    const request = indexedDB.open('atseq.oauth.custody.v1');
+    const db = await new Promise<IDBDatabase>((resolve, reject) => {
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+    let rows: any[];
+    try {
+      const tx = db.transaction('accounts', 'readonly');
+      const done = new Promise<void>((resolve, reject) => {
+        tx.oncomplete = () => resolve();
+        tx.onabort = () => reject(tx.error);
+      });
+      const reading = tx.objectStore('accounts').getAll();
+      rows = await new Promise<any[]>((resolve, reject) => {
+        reading.onsuccess = () => resolve(reading.result);
+        reading.onerror = () => reject(reading.error);
+      });
+      await done;
+    } finally {
+      db.close();
+    }
+    if (rows.length !== 1) return false;
+    const row = rows[0],
+      pair = row.value.dpopKey.keyPair;
+    const comparable = JSON.stringify({
+      metadata: JSON.stringify(row, (name, value) => (name === 'keyPair' ? undefined : value)),
+      publicKey: await crypto.subtle.exportKey('jwk', pair.publicKey),
+      privateExtractable: pair.privateKey.extractable,
+      privateType: pair.privateKey.type,
+    });
+    if (remember) {
+      (globalThis as any).__cf1aAccount = comparable;
+      return true;
+    }
+    return comparable === (globalThis as any).__cf1aAccount;
+  }, remember);
+}
+
+for (const stage of ['identity', 'discovery', 'protected-resource']) {
+  for (const status of [500, 503, 429]) {
+    for (const operation of ['resource', 'restore']) {
+      test(`unauthenticated HTTP${status} ${stage} ${operation} outage preserves exact consent and permits healthy retry`, async () => {
+        const e = await environment();
+        try {
+          const p = await e.page();
+          await e.enroll(p);
+          assert.equal(await unchangedAccount(p, true), true);
+          const initial = (await e.rows(p)).accounts[0],
+            tokens = e.fixture.count('/token'),
+            revokes = e.fixture.count('/revoke'),
+            resources = e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic');
+          e.setHttpStatus((url) =>
+            (
+              stage === 'identity'
+                ? url.hostname === 'identity.atseq-probe.net'
+                : stage === 'discovery'
+                  ? url.pathname.startsWith('/.well-known/oauth-authorization-server')
+                  : url.pathname === '/.well-known/oauth-protected-resource'
+            )
+              ? status
+              : undefined,
+          );
+          const failure = await p.evaluate(async (operation) => {
+            try {
+              await (globalThis as any).probe[operation]();
+              return { succeeded: true };
+            } catch (error: any) {
+              return { code: error.code, message: error.message };
+            }
+          }, operation);
+          const rows = await e.rows(p),
+            exactAccountUnchanged = await unchangedAccount(p),
+            deltas = {
+              token: e.fixture.count('/token') - tokens,
+              revoke: e.fixture.count('/revoke') - revokes,
+              resource: e.fixture.count('/xrpc/ai.generalbusiness.atseq.synthetic') - resources,
+            };
+          e.setHttpStatus(undefined);
+          const nextSucceeded = await p
+            .evaluate(() => (globalThis as any).probe.resource())
+            .then(
+              () => true,
+              () => false,
+            );
+          console.log(
+            JSON.stringify({
+              custodyCase: 'unauthenticated-http-outage',
+              stage,
+              status,
+              operation,
+              failure,
+              deltasBeforeRetry: deltas,
+              exactAccountUnchanged,
+              live: rows.accounts[0]?.phase === 'live',
+              deadlineUnchanged: rows.accounts[0]?.expiresAt === initial.expiresAt,
+              nextSucceeded,
+            }),
+          );
+          assert.deepEqual(failure, { code: 'content_unavailable', message: 'OAuth operation is unavailable' });
+          assert.deepEqual(deltas, { token: 0, revoke: 0, resource: 0 });
+          assert.equal(exactAccountUnchanged, true);
+          assert.equal(rows.accounts[0]?.phase, 'live');
+          assert.equal(rows.accounts[0]?.expiresAt, initial.expiresAt);
+          assert.equal(nextSucceeded, true);
+        } finally {
+          await e.close();
+        }
+      });
+    }
+  }
+}
+
+for (const status of [500, 503, 429]) {
+  test(`authenticated resource HTTP${status} remains a response and leaves exact consent live`, async () => {
+    const e = await environment();
+    try {
+      const p = await e.page();
+      await e.enroll(p);
+      assert.equal(await unchangedAccount(p, true), true);
+      const tokens = e.fixture.count('/token'),
+        revokes = e.fixture.count('/revoke');
+      e.setHttpStatus((url) => (url.pathname.startsWith('/xrpc/') ? status : undefined));
+      assert.deepEqual(await p.evaluate(() => (globalThis as any).probe.resourceStatus()), {
+        status,
+        body: { syntheticHttpOutage: status },
+      });
+      assert.equal(await unchangedAccount(p), true);
+      assert.equal(e.fixture.count('/token'), tokens);
+      assert.equal(e.fixture.count('/revoke'), revokes);
+      e.setHttpStatus(undefined);
+      await p.evaluate(() => (globalThis as any).probe.resource());
+      console.log(
+        JSON.stringify({
+          custodyCase: 'authenticated-http-response',
+          status,
+          unchangedResponseStatusAndBody: true,
+          exactAccountUnchanged: true,
+          tokenDelta: 0,
+          revokeDelta: 0,
+          nextSucceeded: true,
+        }),
+      );
+    } finally {
+      await e.close();
+    }
+  });
+  for (const operation of ['explicit-refresh', 'resource-401-refresh']) {
+    test(`dispatched token HTTP${status} ${operation} failure retires credentials without automatic retry`, async () => {
+      const e = await environment();
+      try {
+        const p = await e.page();
+        await e.enroll(p);
+        const tokens = e.fixture.count('/token');
+        e.setHttpStatus((url) => (url.pathname === '/token' ? status : undefined));
+        if (operation === 'explicit-refresh')
+          await assert.rejects(
+            () => p.evaluate(() => (globalThis as any).probe.info(true)),
+            /OAuth operation is unavailable/,
+          );
+        else {
+          e.fixture.invalidTokenOnce = true;
+          const response = await p.evaluate(() => (globalThis as any).probe.resourceStatus());
+          assert.equal(response.status, 401);
+        }
+        const tokenDelta = e.fixture.count('/token') - tokens;
+        assert.equal(tokenDelta, 1);
+        assert.equal((await e.rows(p)).accounts.length, 0);
+        e.setHttpStatus(undefined);
+        await assert.rejects(() => p.evaluate(() => (globalThis as any).probe.resource()));
+        assert.equal(e.fixture.count('/token') - tokens, 1);
+        console.log(
+          JSON.stringify({
+            custodyCase: 'token-http-outage',
+            status,
+            operation,
+            tokenDelta,
+            retired: true,
+            nextRequestRefused: true,
+            noAutomaticRefreshRetry: true,
+          }),
+        );
+      } finally {
+        await e.close();
+      }
+    });
+  }
 }

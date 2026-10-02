@@ -28,6 +28,10 @@ export async function info(refresh = false) {
 export async function resource(init?: RequestInit) {
   return (await session.request('/xrpc/ai.generalbusiness.atseq.synthetic', init)).json();
 }
+export async function resourceStatus() {
+  const response = await session.request('/xrpc/ai.generalbusiness.atseq.synthetic');
+  return { status: response.status, body: await response.json() };
+}
 export async function restore() {
   session = await adapter.restore(OAUTH_DID, OAUTH_SCOPE);
   return session.info();
