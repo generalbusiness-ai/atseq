@@ -71,11 +71,22 @@ try {
   assert.equal(blob.size, 524288);
   assert.ok(bodies.at(-1)!.every((byte) => byte === 17));
   cases.push('actual-maintained-callback-with-real-PDS-latest-and-captured-512KiB-RAW-upload');
+  const png = Uint8Array.from(
+    Buffer.from(
+      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aIhcAAAAASUVORK5CYII=',
+      'base64',
+    ),
+  );
+  const pngBlob = await writer.upload(png);
+  assert.equal(pngBlob.mimeType, 'image/png');
+  assert.equal(pngBlob.size, png.length);
+  assert.deepEqual(bodies.at(-1), png);
+  cases.push('real-PDS-sniffed-PNG-type-from-default-octet-stream-upload');
   const writes = Array.from({ length: 102 }, (_, index) => ({
     $type: 'com.atproto.repo.applyWrites#create',
     collection,
     rkey: 'r' + String(index).padStart(3, '0'),
-    value: { $type: collection, index, ...(index === 0 ? { blob } : {}) },
+    value: { $type: collection, index, ...(index === 0 ? { blob } : {}), ...(index === 1 ? { pngBlob } : {}) },
   }));
   const before = resourceSends;
   await writer.applyConditional(writes, initial.cid);
@@ -112,6 +123,16 @@ try {
   assert.equal(raw.status, 200);
   assert.deepEqual(new Uint8Array(await raw.arrayBuffer()), new Uint8Array(524288).fill(17));
   cases.push('real-PDS-retained-RAW-blob-exact-byte-recovery');
+  const pngRecovered = await nativeFetch(
+    env.url +
+      '/xrpc/com.atproto.sync.getBlob?did=' +
+      encodeURIComponent(account.did) +
+      '&cid=' +
+      encodeURIComponent(pngBlob.ref.$link),
+  );
+  assert.equal(pngRecovered.status, 200);
+  assert.equal(pngRecovered.headers.get('content-type'), 'image/png');
+  assert.deepEqual(new Uint8Array(await pngRecovered.arrayBuffer()), png);
   const current = await writer.latestCommit();
   const beforeLost = resourceSends;
   dropAfterApply = true;
@@ -131,6 +152,12 @@ try {
       node: process.version,
       cases,
       resourceSends,
+      sniffedUpload: {
+        requestType: 'application/octet-stream',
+        responseType: pngBlob.mimeType,
+        bytes: png.length,
+        exactRetainedByteRecovery: true,
+      },
       maintainedClient: true,
       syntheticAS: true,
       realReferencePDS: true,

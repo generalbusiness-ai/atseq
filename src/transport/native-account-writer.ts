@@ -19,6 +19,11 @@ const utf8 = new TextEncoder();
 function input(message: string): never {
   throw new AtseqError('input', message);
 }
+function mime(value: unknown): value is string {
+  return (
+    typeof value === 'string' && value.length <= 256 && /^[a-zA-Z0-9!#$&^_.+-]+\/[a-zA-Z0-9!#$&^_.+-]+$/.test(value)
+  );
+}
 function collection(value: string): void {
   if (typeof value !== 'string' || !isValidNsid(value)) input('Invalid account collection');
 }
@@ -176,17 +181,12 @@ export class NativeAccountWriter {
   }
   upload(content: Uint8Array, mimeType = 'application/octet-stream', options: CallOptions = {}): Promise<any> {
     return this.#reply(async () => {
-      if (
-        !(content instanceof Uint8Array) ||
-        typeof mimeType !== 'string' ||
-        mimeType.length > 256 ||
-        !/^[a-zA-Z0-9!#$&^_.+-]+\/[a-zA-Z0-9!#$&^_.+-]+$/.test(mimeType)
-      )
-        input('Invalid account blob input');
+      if (!(content instanceof Uint8Array) || !mime(mimeType)) input('Invalid account blob input');
       const size = content.length;
       const blob = await this.#operations(options.signal).upload(content, mimeType);
       blobCid(blob?.ref?.$link);
-      if (blob?.$type !== 'blob' || blob.size !== size || blob.mimeType !== mimeType)
+      // Standard PDS upload can select a sniffed type instead of the fallback.
+      if (blob?.$type !== 'blob' || blob.size !== size || !mime(blob.mimeType))
         throw new PdsError(502, 'InvalidResponse');
       return blob;
     });

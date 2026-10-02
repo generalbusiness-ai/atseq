@@ -126,6 +126,20 @@ export async function runNativeWriterCorpus(
   await refused(() => writer.upload(new Uint8Array(1048577)), 'input');
   check(fixture.paths.length === count, 'Over limit before resource transport');
   results.push('owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal');
+  const sampleBlob = await writer.upload(new Uint8Array(1));
+  for (const invalid of [
+    { ...sampleBlob, mimeType: '' },
+    { ...sampleBlob, mimeType: 'private-secret' },
+    { ...sampleBlob, mimeType: 'text/' + 'x'.repeat(257) },
+    { ...sampleBlob, mimeType: 'text/plain;private-secret' },
+    { ...sampleBlob, size: 0 },
+    { ...sampleBlob, ref: { $link: fixture.commit } },
+  ]) {
+    fixture.overrideResponse = () => new Response(JSON.stringify({ blob: invalid }));
+    await refused(() => writer.upload(new Uint8Array(1)), 'InvalidResponse');
+  }
+  fixture.overrideResponse = undefined;
+  results.push('bounded-returned-blob-MIME-size-RAW-CID-shapes-refused-without-provider-text');
   const large = [{ ...writes[0], value: { text: 'x'.repeat(200000) } }];
   await writer.applyConditional(large, fixture.commit);
   check(fixture.bodies.at(-1)!.length > 65536, 'Large conditional JSON');
