@@ -1,0 +1,235 @@
+/** Correctness checks only. Authentication and replay here are not benchmark timings. */
+import {
+  NativeAnchor,
+  nativeGenesisPath,
+  nativeHeadPath,
+  nativeEntryPath,
+  readNativeHead,
+  verifyNativeEntryContents,
+  nativeRetryIdentity,
+  type NativeEntry,
+  type NativeSignedRequest,
+} from '../../src/protocol/native-wire.ts';
+import { nativeRef } from '../../src/protocol/native-schema.ts';
+import { deriveIdentityBinding } from '../../src/protocol/identity-binding.ts';
+import { authenticateRepo } from '../../src/protocol/native-proof.ts';
+import { decodeBlock } from '../../src/protocol/wire.ts';
+import { canonicalJson } from '../../src/core/values.ts';
+import { openNativeApplication } from '../../src/application/native-authority.ts';
+import { selectedCar, type E1Fixture } from './fixtures.ts';
+import { oracle, plan } from './workload.ts';
+function check(value: unknown, message: string): asserts value {
+  if (!value) throw new Error(message);
+}
+function equal(actual: unknown, expected: unknown, message: string) {
+  check(canonicalJson(actual) === canonicalJson(expected), message);
+}
+export function fixtureEntry(fixture: E1Fixture, position: number): NativeEntry {
+  const cid = fixture.entries[position - 1];
+  const item = fixture.repositoryBlocks.find(([candidate]) => candidate === cid);
+  check(item, 'Missing fixture entry');
+  return decodeBlock(Uint8Array.from(item[1])) as unknown as NativeEntry;
+}
+export async function verifyFixture(fixture: E1Fixture) {
+  const anchor = await NativeAnchor.from(fixture.genesis, { app: fixture.genesis.app, genesis: fixture.genesisCid });
+  const binding = await deriveIdentityBinding(fixture.genesis.app, {
+    assuranceClass: 'plc-audit-v1',
+    auditBytes: Uint8Array.from(fixture.appIdentity.auditBytes),
+    selectedTipCid: fixture.appIdentity.selectedTipCid,
+  });
+  equal(binding.signingKeyDid, fixture.appKey, 'Fixture app key must match real retained PLC evidence');
+  const rows = new Map(fixture.repositoryBlocks.map(([cid, raw]) => [cid, Uint8Array.from(raw)]));
+  check(rows.size === fixture.repositoryBlocks.length, 'Duplicate serialized block CID');
+  const requests = new Set<string>(),
+    nonces = new Set<string>();
+  const independentPlan = plan(fixture.workload);
+  equal(fixture.plan.length, independentPlan.length, 'Wrong plan length');
+  for (let i = 0; i < independentPlan.length; i++)
+    equal(fixture.plan[i], independentPlan[i], 'Stored plan row differs from deterministic plan');
+  let previous = fixture.genesisCid;
+  for (let position = 1; position <= fixture.workload.n; position++) {
+    const raw = rows.get(fixture.entries[position - 1]!);
+    check(raw, 'Missing chain block');
+    const facts = await verifyNativeEntryContents(decodeBlock(raw), anchor);
+    equal(facts.entry.position, position, 'Wrong entry position');
+    equal(facts.entry.prev.$link, previous, 'Wrong chain predecessor');
+    equal(facts.entryCid, fixture.entries[position - 1], 'Wrong chain CID');
+    const planned = fixture.plan[position - 1]!;
+    if (planned.kind === 'admit') {
+      const request = facts.entry.request as import('../../src/protocol/native-wire.ts').NativeAccountOperation;
+      const actor = fixture.actors[planned.actor]!;
+      equal(request.principal, actor.principal, 'Wrong planned admission principal');
+      equal(
+        request.operation,
+        { $type: nativeRef('admitGrant'), grant: { id: actor.grantId, cid: { $link: actor.grantCid } } },
+        'Wrong planned admission',
+      );
+    } else {
+      const intent = (facts.entry.request as NativeSignedRequest).intent;
+      if (planned.kind === 'act') {
+        const actor = fixture.actors[planned.actor]!;
+        equal(intent.principal, actor.principal, 'Wrong planned action principal');
+        equal(intent.actorKey, actor.actorKey, 'Wrong planned action signer');
+        equal(
+          intent.operation,
+          {
+            $type: nativeRef('act'),
+            action: 'ai.generalbusiness.atseq.example#act',
+            execution: { $link: fixture.sources[planned.source]!.execution },
+            payload: { amount: planned.amount },
+            grant: { id: actor.grantId, cid: { $link: actor.grantCid } },
+            epoch: { $link: actor.epoch },
+          },
+          'Wrong planned action',
+        );
+      } else {
+        equal(
+          intent.operation,
+          {
+            $type: nativeRef('activate'),
+            position,
+            prev: { $link: previous },
+            controlTip: { $link: fixture.genesisCid },
+            expected: { $link: fixture.sources[0]!.root },
+            definition: { $link: fixture.sources[1]!.root },
+            closure: fixture.sources[1]!.closure,
+          },
+          'Wrong planned activation',
+        );
+        equal(intent.actorKey, fixture.genesis.control[0]!.actorKey, 'Wrong appointed activation signer');
+      }
+    }
+    check(!requests.has(facts.requestCid), 'Duplicate healthy request CID');
+    requests.add(facts.requestCid);
+    if (facts.entry.request.$type === nativeRef('signedRequest')) {
+      const identity = nativeRetryIdentity((facts.entry.request as NativeSignedRequest).intent);
+      check(!nonces.has(identity), 'Duplicate healthy signer nonce');
+      nonces.add(identity);
+    }
+    previous = facts.entryCid;
+  }
+  const captures = [];
+  for (const selected of [...fixture.roots, ...fixture.faults.flatMap((fault) => (fault.root ? [fault.root] : []))]) {
+    const carBytes = await selectedCar(fixture, selected);
+    const repo = await authenticateRepo({
+      carBytes,
+      expectedDid: anchor.genesis.app,
+      trustedSigningKeyDid: binding.signingKeyDid,
+      expectedRoot: selected.root,
+    });
+    const tree = await repo.validateTree();
+    check(tree.kind === 'complete', 'Selected repository proof must be complete');
+    const genesis = await repo.lookup(nativeGenesisPath(anchor.cid), anchor.cid);
+    check(genesis.kind === 'found', 'Missing selected-root genesis membership');
+    const headLookup = await repo.lookup(nativeHeadPath(anchor.cid));
+    check(headLookup.kind === 'found', 'Missing selected-root head membership');
+    const head = await readNativeHead(decodeBlock(headLookup.bytes), anchor);
+    equal(head.position, selected.position, 'Wrong selected-root head position');
+    if (fixture.roots.includes(selected)) {
+      equal(
+        head.entry.$link,
+        selected.position ? fixture.entries[selected.position - 1] : anchor.cid,
+        'Wrong healthy selected head CID',
+      );
+      if (selected.position) {
+        const last = await repo.lookup(nativeEntryPath(anchor.cid, selected.position), head.entry.$link);
+        check(last.kind === 'found', 'Missing selected-root terminal entry membership');
+      }
+    }
+    captures.push({
+      position: selected.position,
+      root: selected.root,
+      carBytes: carBytes.length,
+      records: tree.records,
+      nodeLoads: tree.nodeLoads,
+    });
+  }
+  const expected = oracle(fixture.workload);
+  equal(fixture.expected.state, expected.state, 'Stored expected state differs from independent oracle');
+  equal(fixture.expected.source, expected.source, 'Stored expected source differs');
+  equal(fixture.expected.admitted, expected.admitted, 'Stored expected admitted actors differ');
+  equal(fixture.expected.actions, expected.actions, 'Stored expected action count differs');
+  equal(fixture.expected.orderedEntries, expected.orderedEntries, 'Stored expected entry count differs');
+  equal(fixture.expected.outcomes.length, expected.outcomes.length, 'Stored expected outcome count differs');
+  for (let i = 0; i < expected.outcomes.length; i++)
+    equal(fixture.expected.outcomes[i], expected.outcomes[i], 'Stored expected outcome differs');
+  return {
+    entries: fixture.workload.n,
+    signedRequests: nonces.size,
+    selectedRoots: captures,
+    expectedStateBytes: new TextEncoder().encode(canonicalJson(fixture.expected.state)).length,
+  };
+}
+export async function replaySmall(fixture: E1Fixture) {
+  check(fixture.workload.n <= 100, 'This is small conformance, not the E1 replay benchmark');
+  const anchor = await NativeAnchor.from(fixture.genesis, { app: fixture.genesis.app, genesis: fixture.genesisCid });
+  const binding = await deriveIdentityBinding(anchor.genesis.app, {
+    assuranceClass: 'plc-audit-v1',
+    auditBytes: Uint8Array.from(fixture.appIdentity.auditBytes),
+    selectedTipCid: fixture.appIdentity.selectedTipCid,
+  });
+  const selected = fixture.roots.find((item) => item.position === fixture.workload.n)!;
+  const appRepo = await authenticateRepo({
+    carBytes: await selectedCar(fixture, selected),
+    expectedDid: anchor.genesis.app,
+    trustedSigningKeyDid: binding.signingKeyDid,
+  });
+  const sources = new Map(fixture.sourceBlocks.map(([cid, raw]) => [cid, Uint8Array.from(raw)]));
+  const content = new Map(fixture.retainedContent.map(([cid, raw]) => [cid, Uint8Array.from(raw)]));
+  const reader = {
+    get: async (cid: string) => {
+      const raw = content.get(cid);
+      check(raw, 'Missing retained content');
+      return new Uint8Array(raw);
+    },
+  };
+  const sourceReader = {
+    get: async (cid: string) => {
+      const raw = sources.get(cid);
+      check(raw, 'Missing source content');
+      return new Uint8Array(raw);
+    },
+  };
+  const app = await openNativeApplication({ anchor, sourceReader });
+  const evidence = {
+    assuranceClass: 'plc-audit-v1' as const,
+    auditBytes: Uint8Array.from(fixture.appIdentity.auditBytes),
+    selectedTipCid: fixture.appIdentity.selectedTipCid,
+  };
+  for (let position = 1; position <= fixture.workload.n; position++) {
+    const result = await app.process({
+      entry: fixtureEntry(fixture, position),
+      appRepo,
+      reader,
+      appIdentity: { before: evidence, after: evidence },
+    });
+    const expected = fixture.expected.outcomes[position - 1]!;
+    equal(
+      result.outcome,
+      expected.decision === 'effective'
+        ? { decision: 'effective' }
+        : { decision: 'ineffective', source: 'framework', reason: expected.reason },
+      'Independent expected outcome differs at ' + position,
+    );
+    const prefixExpected = oracle(fixture.workload, fixture.plan, position);
+    equal(app.snapshot().state, prefixExpected.state, 'Independent intermediate state differs at ' + position);
+  }
+  const snapshot = app.snapshot();
+  equal(snapshot.state, fixture.expected.state, 'Independent final state differs');
+  equal(snapshot.definition, fixture.sources[fixture.expected.source]!.root, 'Wrong active source');
+  equal(
+    snapshot.authority.frontier,
+    { position: fixture.workload.n, entry: fixture.entries.at(-1) },
+    'Wrong interpreted frontier',
+  );
+  equal(
+    snapshot.authority.grants.map((row) => [row.principal, row.id, row.cid, row.revoked]).sort(),
+    fixture.actors.map((actor) => [actor.principal, actor.grantId, actor.grantCid, false]).sort(),
+    'Independent admitted grant facts differ',
+  );
+  equal(snapshot.outcomes.length, fixture.expected.orderedEntries, 'Wrong outcome count');
+  const query = await app.query('status', {});
+  check(query.result.kind === 'available', 'Expected status query available');
+  equal(query.result.value, fixture.expected.state, 'Independent query result differs');
+  return snapshot;
+}
