@@ -170,6 +170,21 @@ export interface OAuthSessionInfo {
   readonly pds: string;
   readonly scopes: readonly string[];
 }
+const NATIVE_ACCOUNT_RESOURCE_BYTES = 1024 * 1024;
+/** Internal lookup only: there is no caller registration or positive trust flag. */
+export interface OwnedOAuthSession {
+  readonly did: string;
+  readonly info: () => Promise<OAuthSessionInfo>;
+  readonly request: (path: string, init?: RequestInit) => Promise<Response>;
+  readonly apply: (body: Uint8Array, signal?: AbortSignal) => Promise<Response>;
+  readonly upload: (body: Uint8Array, mimeType: string, signal?: AbortSignal) => Promise<Response>;
+}
+const ownedSessions = new WeakMap<OAuthSessionHandle, OwnedOAuthSession>();
+export function ownedOAuthSession(handle: OAuthSessionHandle): OwnedOAuthSession {
+  const owned = ownedSessions.get(handle);
+  if (!owned) refuse('Native account writer requires an owned OAuth session');
+  return owned;
+}
 /** Credentials stay in maintained-client stores and JS private fields, never JSON output. */
 export class OAuthSessionHandle {
   readonly #flow: OAuthAdapter;
@@ -203,6 +218,7 @@ export class OAuthAdapter {
   #client: Promise<OAuthCustodyClient> | undefined;
   #budget: Budget | undefined;
   #resourceCheck: ((request: Request) => Promise<void>) | undefined;
+  #resourceAllowance: { readonly url: string; readonly bytes: Uint8Array } | undefined;
   constructor(
     options: OAuthAdapterOptions,
     transactions: OAuthTransactionStore,
@@ -236,7 +252,22 @@ export class OAuthAdapter {
     await this.#resourceCheck?.(request);
     if (request.headers.has('cookie')) refuse('OAuth HTTP cookie header is forbidden');
     const signal = AbortSignal.any([budget.signal, request.signal]);
-    const bytes = await bodyBytes(request.body, OAUTH_LIMITS.requestBytes, budget, signal);
+    const allowance = this.#resourceAllowance;
+    const allowed = maintained && request.headers.has('authorization') && allowance && request.url === allowance.url;
+    if (allowed && request.method !== 'POST') refuse('Native resource method differs from captured operation');
+    const bytes = await bodyBytes(
+      request.body,
+      allowed ? NATIVE_ACCOUNT_RESOURCE_BYTES : OAUTH_LIMITS.requestBytes,
+      budget,
+      signal,
+    );
+    if (
+      allowed &&
+      (!bytes ||
+        bytes.length !== allowance.bytes.length ||
+        bytes.some((value, index) => value !== allowance.bytes[index]))
+    )
+      refuse('Native resource body differs from captured operation');
     const headers = new Headers(request.headers);
     headers.delete('content-length');
     const guarded = new Request(request.url, {
@@ -330,6 +361,8 @@ export class OAuthAdapter {
         // Library/server error descriptions may contain codes, tokens or request bodies.
         throw operationFailure(error, failure?.deadline ?? this.#budget.signal.aborted);
       } finally {
+        this.#resourceCheck = undefined;
+        this.#resourceAllowance = undefined;
         this.#budget = undefined;
       }
     });
@@ -387,7 +420,7 @@ export class OAuthAdapter {
         if (state !== transactionId) refuse('OAuth transaction differs from callback');
         const info = await this.#verify(client, session, transaction, false);
         if (oauthUrl(info.issuer).href !== issuer) refuse('OAuth issuer differs from callback');
-        return new OAuthSessionHandle(this, session, transaction);
+        return this.#mint(session, transaction);
       } catch (error) {
         return this.#verificationFailure(session, error);
       }
@@ -408,8 +441,53 @@ export class OAuthAdapter {
       }
       const expected = Object.freeze({ id: crypto.randomUUID(), did, scopes: requested, expiresAt: 0 });
       await this.#verify(client, session, expected, false);
-      return new OAuthSessionHandle(this, session, expected);
+      return this.#mint(session, expected);
     });
+  }
+  #mint(session: OAuthSession, expected: OAuthTransaction): OAuthSessionHandle {
+    const captured = Object.freeze({ ...expected, scopes: Object.freeze([...expected.scopes]) });
+    const handle = new OAuthSessionHandle(this, session, captured);
+    // The configured A1 factory is trusted. This map proves the verified A1
+    // handoff; it is not a classifier for arbitrary configured SDK factories.
+    ownedSessions.set(
+      handle,
+      Object.freeze({
+        did: captured.did,
+        info: () => this.#sessionInfo(session, captured, false),
+        request: (path: string, init?: RequestInit) => this.#sessionRequest(session, captured, path, init),
+        apply: (body: Uint8Array, signal?: AbortSignal) =>
+          this.#nativeResourceRequest(
+            session,
+            captured,
+            'com.atproto.repo.applyWrites',
+            body,
+            'application/json',
+            signal,
+          ),
+        upload: (body: Uint8Array, mimeType: string, signal?: AbortSignal) =>
+          this.#nativeResourceRequest(session, captured, 'com.atproto.repo.uploadBlob', body, mimeType, signal),
+      }),
+    );
+    return handle;
+  }
+  #nativeResourceRequest(
+    session: OAuthSession,
+    expected: OAuthTransaction,
+    method: 'com.atproto.repo.applyWrites' | 'com.atproto.repo.uploadBlob',
+    body: Uint8Array,
+    mimeType: string,
+    signal?: AbortSignal,
+  ): Promise<Response> {
+    if (!(body instanceof Uint8Array) || body.length > NATIVE_ACCOUNT_RESOURCE_BYTES)
+      refuse('Native resource body exceeds byte limit');
+    const captured = new Uint8Array(body);
+    return this.#sessionRequest(
+      session,
+      expected,
+      `/xrpc/${method}`,
+      { method: 'POST', headers: { 'content-type': mimeType }, body: new Uint8Array(captured), signal },
+      captured,
+    );
   }
   async #verify(
     client: OAuthClient,
@@ -472,16 +550,28 @@ export class OAuthAdapter {
     return granted;
   }
   sessionInfo(session: OAuthSession, expected: OAuthTransaction, refresh: boolean): Promise<OAuthSessionInfo> {
+    return this.#sessionInfo(session, expected, refresh);
+  }
+  #sessionInfo(session: OAuthSession, expected: OAuthTransaction, refresh: boolean): Promise<OAuthSessionInfo> {
     return this.#run(async (client) => {
       await this.#custody?.touch(expected.did, refresh);
       return this.#verify(client, session, expected, refresh);
     });
   }
-  async sessionRequest(
+  sessionRequest(
     session: OAuthSession,
     expected: OAuthTransaction,
     path: string,
     init?: RequestInit,
+  ): Promise<Response> {
+    return this.#sessionRequest(session, expected, path, init);
+  }
+  async #sessionRequest(
+    session: OAuthSession,
+    expected: OAuthTransaction,
+    path: string,
+    init?: RequestInit,
+    nativeBody?: Uint8Array,
   ): Promise<Response> {
     if (
       !path.startsWith('/xrpc/') ||
@@ -493,6 +583,7 @@ export class OAuthAdapter {
       await this.#custody?.touch(expected.did);
       const authority = await this.#verify(client, session, expected, 'auto');
       const resource = new URL(path, authority.pds).href;
+      if (nativeBody) this.#resourceAllowance = { url: resource, bytes: nativeBody };
       // The maintained fetch can refresh again on a resource 401. Recheck the
       // updated token before either credential-bearing dispatch, not after a write.
       this.#resourceCheck = async (request) => {
@@ -514,6 +605,7 @@ export class OAuthAdapter {
         return await session.fetchHandler(path, init);
       } finally {
         this.#resourceCheck = undefined;
+        this.#resourceAllowance = undefined;
       }
     });
   }

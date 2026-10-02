@@ -20,6 +20,8 @@ export const serviceSchemas = new Lexicons([
   stageDefinition,
 ] as LexiconDoc[]);
 export const BODY_LIMIT = HOST_LIMITS.bodyBytes;
+/** Locally counted size refusal, never inferred from a provider response. */
+export class ResponseBytesLimit extends Error {}
 export async function responseBytes(response: Response, limit = BODY_LIMIT) {
   const reader = response.body?.getReader(),
     chunks: Uint8Array[] = [];
@@ -30,7 +32,7 @@ export async function responseBytes(response: Response, limit = BODY_LIMIT) {
         const { value, done } = await reader.read();
         if (done) break;
         size += value.length;
-        if (size > limit) throw new Error('Response exceeds transport limit');
+        if (size > limit) throw new ResponseBytesLimit('Response exceeds transport limit');
         chunks.push(value);
       }
     } finally {

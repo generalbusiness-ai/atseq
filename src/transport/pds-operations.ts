@@ -1,5 +1,25 @@
-import { responseBytes } from './api.ts';
+import { responseBytes, ResponseBytesLimit } from './api.ts';
 import { link } from '../protocol/wire.ts';
+import { AtseqError } from '../core/errors.ts';
+
+/** Native policy changes decoding limits, never authentication or app authority. */
+export interface PdsResponsePolicy {
+  readonly native: true;
+}
+const providerCodes = new Set([
+  'InvalidSwap',
+  'RecordNotFound',
+  'RepoNotFound',
+  'InvalidRequest',
+  'ExpiredToken',
+  'InvalidToken',
+  'AuthenticationRequired',
+  'AuthRequired',
+  'InvalidIdentifier',
+  'BlobTooLarge',
+  'InvalidMimeType',
+  'Forbidden',
+]);
 
 /** Bounded standard PDS responses; authentication belongs to the selected transport. */
 export class PdsError extends Error {
@@ -11,28 +31,41 @@ export class PdsError extends Error {
     this.name = 'PdsError';
   }
 }
-export async function boundedPdsBody(response: Response, limit: number): Promise<Uint8Array> {
+export async function boundedPdsBody(
+  response: Response,
+  limit: number,
+  policy?: PdsResponsePolicy,
+): Promise<Uint8Array> {
   try {
     return await responseBytes(response, limit);
-  } catch {
+  } catch (error) {
+    if (policy) {
+      if (error instanceof ResponseBytesLimit) throw new AtseqError('input', 'PDS response exceeds byte limit');
+      throw new AtseqError('content_unavailable', 'PDS response is unavailable');
+    }
     throw new PdsError(502, 'ResponseUnavailable');
   }
 }
-export async function pdsJsonResponse(res: Response): Promise<any> {
-  const raw = await boundedPdsBody(res, res.ok ? 8 * 1024 * 1024 : 64 * 1024);
+export async function pdsJsonResponse(res: Response, policy?: PdsResponsePolicy): Promise<any> {
+  const raw = await boundedPdsBody(res, res.ok ? (policy ? 1024 * 1024 : 8 * 1024 * 1024) : 64 * 1024, policy);
   let value: any;
   try {
     value = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(raw));
   } catch {
     throw new PdsError(res.ok ? 502 : res.status, 'InvalidResponse');
   }
-  if (!res.ok) throw new PdsError(res.status, typeof value?.error === 'string' ? value.error : 'RequestFailed');
+  if (!res.ok)
+    throw new PdsError(
+      res.status,
+      typeof value?.error === 'string' && (!policy || providerCodes.has(value.error)) ? value.error : 'RequestFailed',
+    );
   return value;
 }
 /** The single standard operation owner. This callback conveys transport, not app authority. */
 export class PdsOperations {
   constructor(
     private readonly send: (method: string, init: RequestInit, params?: Record<string, unknown>) => Promise<Response>,
+    private readonly policy?: PdsResponsePolicy,
   ) {}
   async request(method: string, input: Record<string, unknown>, write = false): Promise<any> {
     const res = await this.send(
@@ -43,7 +76,7 @@ export class PdsOperations {
       },
       write ? undefined : input,
     );
-    return pdsJsonResponse(res);
+    return pdsJsonResponse(res, this.policy);
   }
   async latestCommit(did: string): Promise<{ cid: string; rev: string }> {
     const value = await this.request('com.atproto.sync.getLatestCommit', { did });
@@ -69,7 +102,7 @@ export class PdsOperations {
       repo: did,
       collection,
       limit,
-      reverse: false,
+      reverse: this.policy ? true : false,
       cursor,
     });
     if (
@@ -103,6 +136,6 @@ export class PdsOperations {
       headers: { 'content-type': mimeType },
       body: new Uint8Array(content),
     });
-    return (await pdsJsonResponse(res)).blob;
+    return (await pdsJsonResponse(res, this.policy)).blob;
   }
 }

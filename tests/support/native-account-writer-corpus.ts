@@ -1,0 +1,210 @@
+import { NativeAccountWriter } from '../../src/transport/native-account-writer.ts';
+import { OAuthSessionHandle, type OAuthAdapter } from '../../src/protocol/oauth.ts';
+import { AtseqError } from '../../src/core/errors.ts';
+import { PdsError } from '../../src/transport/pds-operations.ts';
+import { OAUTH_DID, OAUTH_OTHER_DID, OAUTH_SCOPE } from './oauth-fixture.ts';
+import { NativeWriterFixture, WRITER_COLLECTION } from './native-account-writer-fixture.ts';
+
+const check = (value: unknown, message: string) => {
+  if (!value) throw new Error(message);
+};
+async function refused(work: () => Promise<unknown>, code?: string): Promise<void> {
+  try {
+    await work();
+  } catch (error) {
+    check(error instanceof AtseqError || error instanceof PdsError, 'Failure must be an owned finite error');
+    check(code === undefined || (error as AtseqError).code === code, 'Unexpected refusal category: ' + code);
+    check(!(error as Error).message.includes('private-secret'), 'Provider secret escaped');
+    return;
+  }
+  throw new Error('Expected refusal');
+}
+export async function runNativeWriterCorpus(
+  createAdapter: (fixture: NativeWriterFixture) => Promise<OAuthAdapter>,
+): Promise<string[]> {
+  const results: string[] = [];
+  async function open() {
+    const fixture = await new NativeWriterFixture().initialize();
+    const adapter = await createAdapter(fixture);
+    await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+    const handle = await adapter.complete(fixture.callback());
+    const writer = await NativeAccountWriter.open(handle, OAUTH_DID);
+    return { fixture, adapter, handle, writer };
+  }
+  let state = await open();
+  const { writer, handle, adapter, fixture } = state;
+  check(writer.did === OAUTH_DID && JSON.stringify(writer) === '{}', 'Immutable opaque writer');
+  const restored = await adapter.restore(OAUTH_DID, OAUTH_SCOPE);
+  check((await NativeAccountWriter.open(restored, OAUTH_DID)).did === OAUTH_DID, 'Genuine restored handle');
+  results.push('maintained-callback-and-restore-owned-writer');
+  for (const fake of [
+    {},
+    Object.create(OAuthSessionHandle.prototype),
+    structuredClone(handle),
+    Object.assign({}, handle),
+    new OAuthSessionHandle({} as any, {} as any, {} as any),
+  ]) {
+    let invoked = false;
+    (fake as any).info = (fake as any).request = () => {
+      invoked = true;
+      throw new Error('private-secret');
+    };
+    await refused(() => NativeAccountWriter.open(fake as OAuthSessionHandle, OAUTH_DID), 'input');
+    check(!invoked, 'Fabricated public methods must never run');
+  }
+  await refused(() => NativeAccountWriter.open(handle, OAUTH_OTHER_DID), 'input');
+  for (const did of ['', 'did:key:zfake', 'did:web:host%3a443', 'did:web:' + 'a'.repeat(2049)])
+    await refused(() => NativeAccountWriter.open(handle, did), 'input');
+  check(Object.isFrozen(writer), 'Writer must not acquire shadow DID/account fields');
+  handle.info = handle.request = (() => {
+    throw new Error('private-secret');
+  }) as any;
+  check((await writer.latestCommit()).cid === fixture.commit, 'Owned operations bypass handle mutation');
+  check((await NativeAccountWriter.open(handle, OAUTH_DID)).did === OAUTH_DID, 'Open bypasses mutable methods');
+  results.push('constructor-prototype-clone-forgery-and-public-method-mutation-refused');
+  check((await writer.get(WRITER_COLLECTION, 'first')).uri.endsWith('/first'), 'Exact record');
+  for (let index = 0; index < 101; index++) fixture.records.set('r' + index, { $type: WRITER_COLLECTION, index });
+  const first = await writer.list(WRITER_COLLECTION);
+  const next = await writer.list(WRITER_COLLECTION, { cursor: first.cursor });
+  check(
+    first.records.length === 100 && next.records.length === 2 && next.cursor === undefined,
+    'Explicit page boundary',
+  );
+  for (const limit of [0, 101, 1.5, NaN, '5'])
+    await refused(() => writer.list(WRITER_COLLECTION, { limit: limit as number }), 'input');
+  for (const cursor of ['', 1, 'é'.repeat(4097)])
+    await refused(() => writer.list(WRITER_COLLECTION, { cursor: cursor as string }), 'input');
+  results.push('standard-get-and-explicit-102-record-pages-bounded-input');
+  for (const invalid of [undefined, '', 1, 'not-a-cid'])
+    await refused(() => writer.applyConditional([], invalid as string), 'InvalidCommit');
+  const previous = fixture.commit;
+  const writes = [
+    {
+      $type: 'com.atproto.repo.applyWrites#create',
+      collection: WRITER_COLLECTION,
+      rkey: 'saved',
+      value: { text: 'before' },
+    },
+  ];
+  fixture.invalidTokenOnce = true;
+  const before = fixture.bodies.length;
+  const pending = writer.applyConditional(writes, previous);
+  writes[0]!.value.text = 'after';
+  await pending;
+  const sends = fixture.bodies.slice(before);
+  check(
+    sends.length === 2 && sends.every((body) => new TextDecoder().decode(body).includes('before')),
+    'Exact condition/body through maintained refresh',
+  );
+  check(
+    new TextDecoder().decode(sends[0]!) === new TextDecoder().decode(sends[1]!),
+    'Maintained refresh unchanged bytes',
+  );
+  await refused(() => writer.applyConditional([], previous), 'InvalidSwap');
+  results.push('mandatory-CAS-captured-before-await-maintained-401-identical-body-no-writer-retry');
+  for (const size of [65536, 65537, 524288, 1048576]) {
+    const bytes = new Uint8Array(size).fill(17);
+    const sending = writer.upload(bytes);
+    bytes.fill(23);
+    const blob = await sending;
+    check(blob.size === size && fixture.bodies.at(-1)?.every((byte) => byte === 17), 'Captured exact upload bytes');
+  }
+  const count = fixture.paths.length;
+  await refused(() => writer.upload(new Uint8Array(1048577)), 'input');
+  check(fixture.paths.length === count, 'Over limit before resource transport');
+  results.push('owned-upload-64KiB-plus-one-512KiB-1MiB-copy-and-1MiB-plus-one-local-refusal');
+  const large = [{ ...writes[0], value: { text: 'x'.repeat(200000) } }];
+  await writer.applyConditional(large, fixture.commit);
+  check(fixture.bodies.at(-1)!.length > 65536, 'Large conditional JSON');
+  await refused(
+    () => writer.applyConditional([{ ...writes[0], value: { text: 'x'.repeat(1048576) } }], fixture.commit),
+    'input',
+  );
+  results.push('large-conditional-JSON-and-whole-batch-local-cap');
+  // A separate genuine restored public handle retains its ordinary 64 KiB policy.
+  for (const size of [65536, 65537]) {
+    const work = () =>
+      restored.request('/xrpc/ai.generalbusiness.atseq.synthetic', { method: 'POST', body: new Uint8Array(size) });
+    if (size === 65536) check((await work()).ok, 'Default exact 64 KiB');
+    else await refused(work, 'input');
+  }
+  results.push('default-request-stays-64KiB-after-native-success');
+  for (const remote of [
+    { uri: `at://${OAUTH_OTHER_DID}/${WRITER_COLLECTION}/first`, cid: fixture.commit, value: {} },
+    { uri: `at://${OAUTH_DID}/${WRITER_COLLECTION}/other`, cid: fixture.commit, value: {} },
+    { uri: `at://${OAUTH_DID}/${WRITER_COLLECTION}/first`, cid: 'bad', value: {} },
+    { uri: `at://${OAUTH_DID}/${WRITER_COLLECTION}/first`, cid: fixture.commit },
+  ]) {
+    fixture.overrideResponse = () => new Response(JSON.stringify(remote));
+    await refused(() => writer.get(WRITER_COLLECTION, 'first'), 'InvalidResponse');
+  }
+  for (const remote of [
+    null,
+    { records: 'bad' },
+    { records: [], cursor: '' },
+    { records: [], cursor: 'é'.repeat(4097) },
+    { records: [{ uri: 'bad', cid: 'bad', value: {} }] },
+  ]) {
+    fixture.overrideResponse = () => new Response(JSON.stringify(remote));
+    await refused(() => writer.list(WRITER_COLLECTION));
+  }
+  results.push('malformed-record-and-page-shapes-account-key-CID-cursor-refused');
+  for (const code of ['AuthenticationUnavailable', 'private-secret', 'InvalidSwap', 'Forbidden']) {
+    fixture.overrideResponse = () =>
+      new Response(JSON.stringify({ error: code, message: 'private-secret' }), { status: 403 });
+    await refused(
+      () => writer.get(WRITER_COLLECTION, 'first'),
+      ['InvalidSwap', 'Forbidden'].includes(code) ? code : 'RequestFailed',
+    );
+  }
+  fixture.overrideResponse = () => new Response('x'.repeat(65537), { status: 400 });
+  await refused(() => writer.get(WRITER_COLLECTION, 'first'), 'input');
+  fixture.resourceBytes = 1048577;
+  await refused(() => writer.list(WRITER_COLLECTION), 'input');
+  fixture.resourceBytes = 0;
+  results.push('closed-provider-codes-local-auth-separation-and-counted-response-error-limits');
+  fixture.overrideResponse = () => {
+    throw new Error('private-secret lost response');
+  };
+  const lostBefore = fixture.paths.length;
+  await refused(() => writer.applyConditional([], fixture.commit), 'content_unavailable');
+  check(fixture.paths.length === lostBefore + 1, 'Lost response must send once');
+  fixture.overrideResponse = undefined;
+  await refused(
+    () => restored.request('/xrpc/ai.generalbusiness.atseq.synthetic', { method: 'POST', body: new Uint8Array(65537) }),
+    'input',
+  );
+  await refused(
+    () => writer.upload(new Uint8Array(10), 'application/octet-stream', { signal: AbortSignal.abort() }),
+    'content_unavailable',
+  );
+  results.push('lost-response-single-send-cancel-and-error-allowance-cleanup');
+  for (const mode of ['pds', 'issuer', 'scope'] as const) {
+    state = await open();
+    if (mode === 'pds') state.fixture.pds = 'https://different-pds.atseq-probe.net';
+    if (mode === 'issuer') state.fixture.issuer = 'https://different-auth.atseq-probe.net';
+    if (mode === 'scope') {
+      state.fixture.invalidTokenOnce = true;
+      state.fixture.tokenScope = OAUTH_SCOPE + ' repo:extra';
+    }
+    const prior = state.fixture.paths.length;
+    await refused(() => state.writer.upload(new Uint8Array(524288)), 'input');
+    check(
+      state.fixture.paths.length === prior + (mode === 'scope' ? 1 : 0),
+      'Fresh authority and refresh-scope dispatch boundary',
+    );
+  }
+  results.push('fresh-PDS-issuer-and-refresh-scope-refusal-before-second-write');
+  for (const mode of ['subject', 'missing-scope', 'extra-scope'] as const) {
+    const bad = await new NativeWriterFixture().initialize();
+    const owner = await createAdapter(bad);
+    await owner.begin(OAUTH_DID, OAUTH_SCOPE);
+    if (mode === 'subject') bad.tokenDid = OAUTH_OTHER_DID;
+    if (mode === 'missing-scope') bad.tokenScope = 'atproto';
+    if (mode === 'extra-scope') bad.tokenScope = OAUTH_SCOPE + ' repo:extra';
+    await refused(() => owner.complete(bad.callback()), 'input');
+    check(bad.paths.length === 0, 'Subject/scope refusal must precede resource dispatch');
+  }
+  results.push('maintained-subject-missing-and-extra-scope-refused-before-mint');
+  return results;
+}
