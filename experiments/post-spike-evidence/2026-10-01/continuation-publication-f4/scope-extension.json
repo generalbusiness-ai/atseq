@@ -1,0 +1,22 @@
+{
+  "statement": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2b3e8086676174aeb082ac705491aba00989182e",
+    "sequence": 8787,
+    "timestamp": 1790901207,
+    "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "kind": "assert",
+    "lifecycle": "none",
+    "satisfier": "role:ratifier",
+    "text": "Extend F4 publication scope to one exact .prettierignore entry for experiments/checkpoint-projections/generate.mjs, with a brief immutable reviewed evidence comment. Preserve the accepted source generator bytes. Report this publication-only exception and submit it with the final candidate for independent review. No production, package, runtime or admission scope changes.",
+    "body": {
+      "path": "experiments/checkpoint-projections/generate.mjs",
+      "scope_extension": ".prettierignore"
+    }
+  },
+  "decision": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:2b3e8086676174aeb082ac705491aba00989182e",
+    "sequence": 8787,
+    "verdict": "effective",
+    "reason": "statement recorded"
+  }
+}

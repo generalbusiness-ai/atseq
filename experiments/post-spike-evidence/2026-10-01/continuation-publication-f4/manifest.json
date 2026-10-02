@@ -1,0 +1,135 @@
+{
+  "format": "atseq-continuation-publication-evidence",
+  "version": 1,
+  "date": "2026-10-01",
+  "retainedAt": "2026-10-02T03:00:02.729818+00:00",
+  "basis": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+  "request": "901c088573f58880fbe66e4667f3fac8e54d6e9b",
+  "promise": "d9878e1c3261acf1edc89cc2c75238f2aa8ffe70",
+  "scopeExtension": "2b3e8086676174aeb082ac705491aba00989182e",
+  "exactSourceCopies": 22,
+  "sourceCopyManifest": "source-publication.json",
+  "acceptedDecisions": {
+    "N1D2": "438a983f1bfc2148e24117d468c75c1f1f41730f",
+    "I1D2": "a9324f4492c6a4921a8e716f0090530bedc4c9cc",
+    "P4D2": "448abd6aa4db74779ce90c872f4671d636c9145f"
+  },
+  "validation": "validation.json",
+  "generatorCommands": [
+    "node --conditions atseq-source --import /Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/loader.mjs experiments/checkpoint-projections/generate.mjs /Users/hughpyle/play/atseq-worktrees/native-authority",
+    "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node --conditions atseq-source --import /Users/hughpyle/play/atseq-worktrees/native-authority/node_modules/tsx/dist/loader.mjs experiments/checkpoint-projections/generate.mjs /Users/hughpyle/play/atseq-worktrees/native-authority"
+  ],
+  "generatorExitCodes": [
+    0,
+    0
+  ],
+  "ownedPublicationHashes": {
+    ".prettierignore": {
+      "bytes": 473,
+      "sha256": "bc27d1d8036d9a763c049348f58dd652f836fb90105df221472b72a5eef1dafe"
+    },
+    "notes/2026-10-01-atseq-implementation-programme.md": {
+      "bytes": 24878,
+      "sha256": "2239177ca0101a3886decc35094fc5c54ce7976a2172f1a73b5a725887904333"
+    },
+    "notes/2026-10-01-atseq-plan-review-gaps.md": {
+      "bytes": 20402,
+      "sha256": "edc93a22c0b495c2fc57183bb9721009c9cf37f9c76e1e177cc459edcd548b79"
+    },
+    "notes/2026-10-01-atseq-continuation-publication-results.md": {
+      "bytes": 11799,
+      "sha256": "c8b4607291c070cf6233dfa0f33b7093f8d35fd333425e2bd6ae72f30c1771cc"
+    },
+    "notes/README.md": {
+      "bytes": 16456,
+      "sha256": "ee090337ca551ae64a126a65f78634e6aedfe161b7227fba5a427271fb00da35"
+    }
+  },
+  "artifacts": {
+    "ci-36922875534.json": {
+      "bytes": 6937,
+      "sha256": "f58c35ac35743e09069d0651ca1c92837a4a673044d9fc213b80346f8254cece"
+    },
+    "ci-36935261684.json": {
+      "bytes": 6937,
+      "sha256": "1e2d9197e2006d3cd85a756a06a24dab92b115db655e1ad39e5c2d168dc4524f"
+    },
+    "ci-36940311459.json": {
+      "bytes": 6937,
+      "sha256": "ef8f9c4faf3905a8d10fc9d379a69f834b40cc8a5bef02dc69a3889f2e740c5b"
+    },
+    "ci-36942802499.json": {
+      "bytes": 6937,
+      "sha256": "11a04bada880d929cde5d947b1faacf1cf46203e761f448f802b8ee7851a2c79"
+    },
+    "ci-36945783974.json": {
+      "bytes": 6937,
+      "sha256": "5900a005af5496a55b3c1b7d97432f037e3828016094c2831116cf5129a29843"
+    },
+    "ci-36947475821.json": {
+      "bytes": 6937,
+      "sha256": "9ab2d06dbb9794b95d1c3385eade9f7b8025138a19cb9735ca8f229a695d2e05"
+    },
+    "ci-latest-main.json": {
+      "bytes": 605,
+      "sha256": "95c786d81e9b2d9585c8213535621b3af7df03e6a0a289f1ae9e67aa6d50ad57"
+    },
+    "final-workroom-snapshot.json": {
+      "bytes": 19245,
+      "sha256": "deecbc25977f35f1d5103d982932bf5a2e423700f884d351db608f282350d681"
+    },
+    "format-check.log": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "generator-format-after-disposition.log": {
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    "generator-format-before-disposition.log": {
+      "bytes": 162,
+      "sha256": "6bcbe0d8b103b2f88a1fbf75ebb54861e6b750c937c91c843a36638372339890"
+    },
+    "later-workroom-snapshot.json": {
+      "bytes": 4920,
+      "sha256": "ad6d0a537c7e529a6551040aa18f41ee64dffce01696763e4005257306a32ae3"
+    },
+    "p4-generator-node22.log": {
+      "bytes": 177,
+      "sha256": "df85403e18e0de98760fad57657147320f78a85220e00d5e2ef34ec29880eda4"
+    },
+    "p4-generator-node26.log": {
+      "bytes": 177,
+      "sha256": "74a016db969a790bab4b23b7d4923ddf663a67244cbd4e90d21d8089fcd254fb"
+    },
+    "scope-extension.json": {
+      "bytes": 1093,
+      "sha256": "f25071cd3e63b193a780df24965cf2478e4a7584c328710559611e3cb18791ab"
+    },
+    "source-publication.json": {
+      "bytes": 12168,
+      "sha256": "95c6cc4eea7fc8002d79bf20c4ad8f0246be5bf34f4ea6ed6a9e0aa4bb3f9893"
+    },
+    "validation.json": {
+      "bytes": 7805,
+      "sha256": "807b0257d6190325a69912a0b124b71e2bf5693f9b86fdac4aa67686cd05e967"
+    },
+    "verify-publication.py": {
+      "bytes": 10173,
+      "sha256": "ac03e5d0b34cd11076391d900dfb9587707a26ddfc62fcae968809171a9018b8"
+    },
+    "workroom-snapshot.json": {
+      "bytes": 47759,
+      "sha256": "ad02d2e50510c7be72d174fca385ebe332cf7e945ec296105de4a422ec6ad7a0"
+    }
+  },
+  "limits": [
+    "No production/package/profile/registry/API change.",
+    "One scoped immutable-source generator formatting exception; original source bytes preserved.",
+    "Fresh projection reproduction uses pinned historical d08104dd input, not changed production source.",
+    "No full suite, provider, trusted restore, P4 runtime parser, checkpoint publication admission or native support claim.",
+    "Full I1/I2/N1/P2/P3/P4/R1/A1/A2/S0/E1/T1/C1 integration remains open."
+  ],
+  "statusObservedAt": "2026-10-02T02:40:02.144925+00:00",
+  "observedMain": "c242ca20e823ea510e3939a8466a608f3ab860ba"
+}

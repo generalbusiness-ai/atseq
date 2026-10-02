@@ -1,6 +1,6 @@
 ---
 date: 2026-10-01
-status: P4-A through P4-D reviewed; source-only P4D2-1 history consolidation awaits successor review
+status: independently reviewed; P4-A through P4-D corrected; joint schema/vector gates and implementation open
 examined_at: bcc9c92cf194b27f23f0b347ef67e6c707b8a978
 materialization_note_at: b27ed603e39e8a5247632f88c337fa331a44b695
 native_wire_note_at: 10e656b3594e41cfa096c03e390cc721776cf57e
@@ -12,9 +12,9 @@ promise: 75852b84bcbd905e954b3fb8a81fc9a425b41b68
 
 Use the supported checkpoint assertion format to interpret exact checkpoint bytes
 retained through NW0's existing byte chunks and manifests. Version 1's authority is
-native app publication. The reader can load complete asserted history and derive
-its duplicate indexes, or explicitly defer prior-history loading and audit.
-Neither choice manufactures a trusted local execution history or enables an ordering writer from an incomplete
+native app publication. The reader can load complete asserted duplicate indexes
+or explicitly defer their prior-prefix audit. Neither choice manufactures a
+trusted local execution history or enables an ordering writer from an incomplete
 index. Independent audit starts from the pinned genesis.
 
 This is the concrete outer assertion and restore-policy proposal following
@@ -32,22 +32,14 @@ restore-equivalence direction and requires P4-A's local reader choice. This
 successor also adopts P4-B through P4-D: derive pending history, omit constant and
 duplicated fields, and bind a stall to precisely the first uninterpreted entry.
 
-The source-only P4D2-1 successor now consolidates request and descriptor facts
-into history after ratified assessment `07f50c71449b62353d6a7e9f87a14a422213d6e3`.
-That removes two portable table kinds and two assertion fields. Its exact
-successor byte/schema review remains open; no current runtime or old checkpoint
-compatibility is claimed. Original outer and predecessor bytes remain retained.
-
 ## Exact bytes and identity
 
 Every object proposed below is a closed plain-JSON object. Its bytes are the
 existing canonical JSON encoding: sorted object keys, unchanged array order,
 owned values, strict UTF-8, no insignificant whitespace, no duplicate keys, unsafe
 numbers, negative zero or unknown fields. Decode and re-encode must reproduce the
-exact bytes before use. Checkpoint reference fields in these JSON payloads are
-canonical CID strings. Embedded exact supported native records, including I2 NativeGrant data,
-retain their original `$link`/`$bytes` JSON projection bound to separately retained
-CBOR; do not normalize or rewrite those records. Signed/native records retain
+exact bytes before use. CID fields in these JSON payloads are canonical CID
+strings, not JSON link wrappers. Signed/native records retained as evidence keep
 their exact canonical CBOR bytes; do not reconstruct signatures from JSON.
 
 A payload reference is the CID of NW0's complete `byteManifest` content record.
@@ -70,24 +62,19 @@ NW0 encoder before implementation; this note does not fabricate them.
 The caller configures `priorIndexes` as `complete` or `deferred`; this is not a
 producer field, policy payload or policy CID. Version 1 of
 `atseq-checkpoint-assertion` implies `native-publication-v1`. Complete mode loads
-every history page through head before prefix extension, verifies exact bytes and
+both non-null prior indexes before prefix extension, verifies exact bytes and
 internal consistency, and still treats historical completeness as an app-authority
-assertion. Deferred mode loads only history pages needed for the pending tail or
-chosen read/bootstrap operation and does not claim complete prior uniqueness
-merely because a suffix or sparse receipt is valid. Both modes check
+assertion. Deferred mode loads neither index and does not claim complete prior
+uniqueness merely because a suffix or sparse receipt is valid. Both modes check
 known retained tuples and every new suffix duplicate, and preserve known floors.
-A deferred cache miss cannot prove prior absence: unresolved request/nonce/descriptor
-coverage stalls suffix advancement until complete prior coverage is obtained.
-Deferred enables immediate asserted reads/bootstrap, not unchecked continuous
-suffix verification.
 
 Neither mode enables `certify`, changes genesis observation policy, app-control
 powers or semantic descriptors, or permits a portable asserted-index ordering
 writer. A stronger certification needs a new separately reviewed assertion
 version/format. A writer-restore trust change likewise needs separate review.
 Changing this transport/consumer configuration never rewrites signed actions or
-their execution contracts. The same producer history can be read in either mode
-according to the caller's independently chosen policy.
+their execution contracts. A producer carrying both tables can be read in either
+mode according to the caller's independently chosen policy.
 
 ## Assertion payload
 
@@ -103,6 +90,8 @@ frontier: {position: nonnegative safe integer, entry: CID}
 definition: active definition CID
 state: payload-manifest CID
 authority: payload-manifest CID
+requests: table-manifest payload CID | null
+descriptors: table-manifest payload CID | null
 outcomes: table-manifest payload CID | null
 history: table-manifest payload CID
 sources: table-manifest payload CID
@@ -119,38 +108,29 @@ into assertion fields. The history inventory names the contiguous prefix through
 head. Derive the pending tail as history positions frontier+1 through head, empty
 exactly when frontier equals head. A stall, when present, has position exactly
 frontier.position+1 and entry equal to that first history row's entry CID. Require
-the strict inequality `frontier.position < head.position`; an empty tail cannot
-have a stall. A pending tail may also be unattempted without a stall. `diagnostic`
-is producer availability information,
+frontier below head before this addition, so an empty tail cannot have a stall.
+A pending tail may also be
+unattempted without a stall. `diagnostic` is producer availability information,
 never a replicated denial or evidence that the next entry is invalid.
 
 State payload bytes are exactly the complete canonical domain JSON, without a
-wrapper that changes state depth/size. The jointly proposed compact authority payload contains complete
-current I2 authority fields, without duplicating its request/retry/descriptor
-arrays; complete readers derive those arrays from the single history.
-Its final supported serializer remains a review gate. Retain control
+wrapper that changes state depth/size. Authority payload bytes are the complete
+I2 checkpoint projection under the supported NW0 authority serializer: control
 tip/powers, owner/role revisions, principal anchors and retired epochs, accepted
 observations/floors, immutable grants and terminal tombstones. P3's complete
 restore checks apply. Do not use an app-provided `verified` flag or invent another
-authority operation union. The separately proposed
-[checkpoint projection supplement](2026-10-01-atseq-checkpoint-projections.md)
-supplies closed row shapes and mechanical literal vectors. Their acceptance, the
-common native outcome ABI and the exact I2 projection
+authority operation union. The exact I2 projection row schemas and literal
 genesis/disabled-role/retired-epoch vectors remain a joint NW0/P3/P4 gate; approving
 this outer policy alone does not waive them.
 
-The producer supplies one complete history inventory through head. A complete
-reader loads every page and derives request/retry/descriptor indexes from it.
-A deferred reader may leave prior pages unloaded while loading required tail
-pages; prior uniqueness coverage stays explicitly deferred. A cache miss cannot
-prove prior absence. Obtain complete prior coverage before extending a verified
-head or changing interpreted authority for an unknown suffix identity. Local
-P3/R1 stores may persist derived access paths without adding portable tables.
-Outcomes, when present, cover every position through frontier; null makes no
-historical-outcome correctness/availability claim. Audit reconstructs indexes
-from original history and compares each claimed row, rather than comparing two
-additional purportedly complete tables. Inventory references remain retained
-even when a deferred reader has not loaded their pages.
+The producer supplies both requests/descriptors or both null. A reader in complete
+mode requires both and validates them; a reader in deferred mode loads neither
+regardless of presence, and labels prior uniqueness coverage deferred. Non-null
+tables assert complete coverage through head. Outcomes, when
+present, cover every position through frontier; null makes no historical-outcome
+correctness/availability claim. Audit can reconstruct omitted outcomes and
+indexes, but must distinguish reconstruction from comparison to a claimed table.
+Inventory references are retained even when a deferred reader has not loaded them.
 Local materializations may have selective outcome coverage after importing a
 checkpoint which omitted historical outcomes (S1, approved `93eaeffc`). Store
 those rows by actual position; do not assume a dense array beginning at one or
@@ -180,7 +160,7 @@ format: "atseq-checkpoint-table"
 version: 1
 app: DID
 genesis: CID
-kind: outcomes | history | sources | evidence
+kind: requests | descriptors | outcomes | history | sources | evidence
 through: {position, entry}
 rows: nonnegative safe integer
 pages: [{payload: page payload-manifest CID, rows: positive safe integer}]
@@ -197,8 +177,10 @@ The row responsibilities are fixed; exact retained records remain NW0 bytes:
 
 | Kind | Rows and canonical order |
 | --- | --- |
+| requests | Position, entry CID and request CID for every ordered entry; signed-origin rows additionally contain canonical actorKey and exact nonce, account-origin rows use no invented signer/nonce. Position order. Construct unsigned-CID and signer/nonce access paths from the same rows, never two unrelated completeness assertions. |
+| descriptors | Descriptor CID, first consuming position/entry and operation/request CID. Canonical descriptor-CID order; no second use. |
 | outcomes | Position, entry CID and exact supported outcome. Consecutive position order through interpreted frontier. |
-| history | Position, entry CID, unsigned request CID, required actor null or exact actorKey/nonce, exact request/entry byte-manifest references and required observation references. Consecutive position order through verified head. Derive request, retry and descriptor-use indexes from these rows; check uniqueness across all pages. |
+| history | Position, entry CID, exact request/entry byte-manifest references and required observation references. Consecutive position order through verified head. |
 | sources | Exact definition CID, original manifest-byte reference and each declared file's RawCID / byte-manifest reference, preserving supplied file-table order and unused assets. Definition-CID order; active definition and every required historical activation closure retained. |
 | evidence | Exact content/block CID or supported RawCID, its byte-manifest reference and I1/N1 evidence context. Canonical CID order, one exact value per CID. Binding/proof contexts retain their own roots; no mixed-root proof. |
 
@@ -207,8 +189,8 @@ new action, grant or observation schema. Freeze their complete closed JSON schem
 and account-operation/signature/nonce encoding vectors jointly before runtime.
 Use canonical unpadded-base64 for a retained nonce projection and compare it with
 the original bytes; never substitute a random new nonce. A full trusted-local
-restore derives indexes from retained original history and checks this projection.
-A portable complete-history reader validates the asserted rows; full replay
+restore derives indexes from retained requests and compares these rows/inventory.
+A portable complete-index reader validates the asserted tables; full replay
 independently derives and compares them.
 
 The first page admission budget is 128 KiB canonical JSON/depth 32, matching the
@@ -307,8 +289,8 @@ established provenance and capability through its normal trusted-store boundary.
    checkpoint; for an ahead checkpoint require the exact bridge from the known
    floor. New genesis does not replace an old floor.
 3. Load bounded state, active exact source and complete authority. Complete mode
-   additionally loads complete history and derives its indexes before extension;
-   deferred mode exposes its incomplete prior uniqueness coverage. Source definition is
+   additionally validates both prior indexes before extension; deferred mode
+   exposes its incomplete prior uniqueness coverage. Source definition is
    512 KiB/64 unique blocks, whereas retained source pool is 16 MiB/2,048 blocks;
    closure transport allowance does not enlarge definition semantics.
 4. Verify all suffix paths under one selected root, chain/signatures/known and
@@ -350,5 +332,5 @@ the changed-build reuse case. Measure complete/deferred bootstrap, integrity and
 index startup, suffix work, state folding and audit separately with no fixed
 latency target. The predecessor's removed policy strings were mechanically checked
 and hashed, but are no longer proposed protocol bytes. No schema/runtime edits, runtime tests, builds or
-benchmarks were run for this source-only proposal. Successor literal vectors are
-in the linked projection note; their acceptance and implementation remain open.
+benchmarks were run for this source-only proposal. Exact vectors and implementation
+remain open.
