@@ -1,0 +1,180 @@
+TAP version 13
+# Subtest: actual PLC and PDS listeners retain exclusive ports throughout startup
+not ok 1 - actual PLC and PDS listeners retain exclusive ports throughout startup
+  ---
+  duration_ms: 1158.687542
+  type: 'test'
+  location: '/private/tmp/atseq-pds-startup-h2-20261002/tests/pds-startup.test.ts:1:1294'
+  failureType: 'testCodeFailure'
+  error: |-
+    Official PDS exited during startup (1): node:internal/modules/cjs/loader:1865
+      return process.dlopen(module, path.toNamespacedPath(filename));
+                     ^
+    
+    Error: The module '/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+    was compiled against a different Node.js version using
+    NODE_MODULE_VERSION 147. This version of Node.js requires
+    NODE_MODULE_VERSION 127. Please try re-compiling or re-installing
+    the module (for instance, using `npm rebuild` or `npm install`).
+        at Object..node (node:internal/modules/cjs/loader:1865:18)
+        at Module.load (node:internal/modules/cjs/loader:1441:32)
+        at Function._load (node:internal/modules/cjs/loader:1263:12)
+        at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+        at Module.require (node:internal/modules/cjs/loader:1463:12)
+        at require (node:internal/modules/helpers:147:16)
+        at bindings (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+        at new Database (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+        at Database.sqlite (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+      code: 'ERR_DLOPEN_FAILED'
+    }
+    
+    Node.js v22.19.0
+    
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    Object..node (node:internal/modules/cjs/loader:1865:18)
+    Module.load (node:internal/modules/cjs/loader:1441:32)
+    Function._load (node:internal/modules/cjs/loader:1263:12)
+    TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    Module.require (node:internal/modules/cjs/loader:1463:12)
+    require (node:internal/modules/helpers:147:16)
+    bindings (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+    new Database (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+    Database.sqlite (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+    ChildProcess.<anonymous> (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/environment.mjs:125:18)
+    Object.onceWrapper (node:events:634:26)
+    ChildProcess.emit (node:events:519:28)
+    ChildProcess._handle.onexit (node:internal/child_process:293:12)
+  ...
+# Subtest: six real official PDS instances start concurrently with distinct retained ports
+not ok 2 - six real official PDS instances start concurrently with distinct retained ports
+  ---
+  duration_ms: 897.160834
+  type: 'test'
+  location: '/private/tmp/atseq-pds-startup-h2-20261002/tests/pds-startup.test.ts:1:2394'
+  failureType: 'testCodeFailure'
+  error: |-
+    [{"status":"rejected","reason":{}},{"status":"rejected","reason":{}},{"status":"rejected","reason":{}},{"status":"rejected","reason":{}},{"status":"rejected","reason":{}},{"status":"rejected","reason":{}}]
+    
+    0 !== 6
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 6
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/private/tmp/atseq-pds-startup-h2-20261002/tests/pds-startup.test.ts:81:12)
+    process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: restart refuses an occupied original port and resumes at the same URL after release
+not ok 3 - restart refuses an occupied original port and resumes at the same URL after release
+  ---
+  duration_ms: 681.341791
+  type: 'test'
+  location: '/private/tmp/atseq-pds-startup-h2-20261002/tests/pds-startup.test.ts:1:3085'
+  failureType: 'testCodeFailure'
+  error: |-
+    Official PDS exited during startup (1): node:internal/modules/cjs/loader:1865
+      return process.dlopen(module, path.toNamespacedPath(filename));
+                     ^
+    
+    Error: The module '/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+    was compiled against a different Node.js version using
+    NODE_MODULE_VERSION 147. This version of Node.js requires
+    NODE_MODULE_VERSION 127. Please try re-compiling or re-installing
+    the module (for instance, using `npm rebuild` or `npm install`).
+        at Object..node (node:internal/modules/cjs/loader:1865:18)
+        at Module.load (node:internal/modules/cjs/loader:1441:32)
+        at Function._load (node:internal/modules/cjs/loader:1263:12)
+        at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+        at Module.require (node:internal/modules/cjs/loader:1463:12)
+        at require (node:internal/modules/helpers:147:16)
+        at bindings (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+        at new Database (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+        at Database.sqlite (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+      code: 'ERR_DLOPEN_FAILED'
+    }
+    
+    Node.js v22.19.0
+    
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    Object..node (node:internal/modules/cjs/loader:1865:18)
+    Module.load (node:internal/modules/cjs/loader:1441:32)
+    Function._load (node:internal/modules/cjs/loader:1263:12)
+    TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    Module.require (node:internal/modules/cjs/loader:1463:12)
+    require (node:internal/modules/helpers:147:16)
+    bindings (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+    new Database (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+    Database.sqlite (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+    ChildProcess.<anonymous> (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/environment.mjs:125:18)
+    Object.onceWrapper (node:events:634:26)
+    ChildProcess.emit (node:events:519:28)
+    ChildProcess._handle.onexit (node:internal/child_process:293:12)
+  ...
+# Subtest: a genuine non-port child startup failure escapes and releases the reserved listener
+not ok 4 - a genuine non-port child startup failure escapes and releases the reserved listener
+  ---
+  duration_ms: 675.649833
+  type: 'test'
+  location: '/private/tmp/atseq-pds-startup-h2-20261002/tests/pds-startup.test.ts:1:3950'
+  failureType: 'testCodeFailure'
+  error: |-
+    Official PDS exited during startup (1): node:internal/modules/cjs/loader:1865
+      return process.dlopen(module, path.toNamespacedPath(filename));
+                     ^
+    
+    Error: The module '/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+    was compiled against a different Node.js version using
+    NODE_MODULE_VERSION 147. This version of Node.js requires
+    NODE_MODULE_VERSION 127. Please try re-compiling or re-installing
+    the module (for instance, using `npm rebuild` or `npm install`).
+        at Object..node (node:internal/modules/cjs/loader:1865:18)
+        at Module.load (node:internal/modules/cjs/loader:1441:32)
+        at Function._load (node:internal/modules/cjs/loader:1263:12)
+        at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+        at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+        at Module.require (node:internal/modules/cjs/loader:1463:12)
+        at require (node:internal/modules/helpers:147:16)
+        at bindings (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+        at new Database (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+        at Database.sqlite (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+      code: 'ERR_DLOPEN_FAILED'
+    }
+    
+    Node.js v22.19.0
+    
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    Object..node (node:internal/modules/cjs/loader:1865:18)
+    Module.load (node:internal/modules/cjs/loader:1441:32)
+    Function._load (node:internal/modules/cjs/loader:1263:12)
+    TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    Module.require (node:internal/modules/cjs/loader:1463:12)
+    require (node:internal/modules/helpers:147:16)
+    bindings (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+    new Database (/private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+    Database.sqlite (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26) {
+    ChildProcess.<anonymous> (file:///private/tmp/atseq-pds-startup-h2-20261002/tests/support/pds/environment.mjs:125:18)
+    Object.onceWrapper (node:events:634:26)
+    ChildProcess.emit (node:events:519:28)
+    ChildProcess._handle.onexit (node:internal/child_process:293:12)
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 0
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3907.169208

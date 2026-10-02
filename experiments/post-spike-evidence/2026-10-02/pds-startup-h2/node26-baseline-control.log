@@ -1,0 +1,21 @@
+Official PDS exited during startup (1): node:net:2390
+    const ex = new UVExceptionWithHostPort(err, 'listen', address, port);
+               ^
+
+Error: listen EADDRINUSE: address already in use 127.0.0.1:53579
+    at Server.setupListenHandle [as _listen2] (node:net:2390:16)
+    at listenInCluster (node:net:2499:12)
+    at node:net:2728:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 53579
+}
+
+Node.js v26.10.0
+
+Baseline: actual competitor took the released port; official PDS startup failed with EADDRINUSE.
+Fixed source: actual competitor refused after parent release; official PDS served HTTP 200.
+Node v26.10.0; official PDS 0.5.31; PLC 0.0.1; exact baseline 098d3dffb04998d43eb51bb3ab6b9f38cce03b20.

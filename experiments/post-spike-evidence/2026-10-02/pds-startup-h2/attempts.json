@@ -1,0 +1,259 @@
+{
+  "platform": "macOS arm64",
+  "originalCIPlatform": "ubuntu-latest",
+  "attempts": [
+    {
+      "id": "node22-final",
+      "sourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+      "nodeVersion": "22.19.0",
+      "command": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node scripts/source-run.mjs --test tests/pds-startup.test.ts tests/archive.test.ts tests/pds.test.ts tests/pds-telemetry.test.ts",
+      "exitCode": 0,
+      "tests": 42,
+      "passed": 42,
+      "failed": 0,
+      "captures": [
+        "node22-final.log",
+        "node22-pds-results.json"
+      ]
+    },
+    {
+      "id": "node22-baseline-control",
+      "sourceCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9",
+      "baselineCommit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "nodeVersion": "22.19.0",
+      "command": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node experiments/pds-startup-h2/reproduce-port-race.mjs",
+      "exitCode": 0,
+      "expectedBaselineFailure": "actual EADDRINUSE after successful competitor bind at released selected port",
+      "fixedResult": "competitor EADDRINUSE after retained socket handoff; actual HTTP 200",
+      "captures": [
+        "node22-baseline-control.log"
+      ]
+    },
+    {
+      "id": "node24-final",
+      "sourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+      "nodeVersion": "24.21.0",
+      "command": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node scripts/source-run.mjs --test tests/pds-startup.test.ts tests/archive.test.ts tests/pds.test.ts tests/pds-telemetry.test.ts",
+      "exitCode": 0,
+      "tests": 42,
+      "passed": 42,
+      "failed": 0,
+      "captures": [
+        "node24-final.log",
+        "node24-pds-results.json"
+      ]
+    },
+    {
+      "id": "node24-baseline-control",
+      "sourceCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9",
+      "baselineCommit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "nodeVersion": "24.21.0",
+      "command": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node experiments/pds-startup-h2/reproduce-port-race.mjs",
+      "exitCode": 0,
+      "expectedBaselineFailure": "actual EADDRINUSE after successful competitor bind at released selected port",
+      "fixedResult": "competitor EADDRINUSE after retained socket handoff; actual HTTP 200",
+      "captures": [
+        "node24-baseline-control.log"
+      ]
+    },
+    {
+      "id": "node26-final",
+      "sourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+      "nodeVersion": "26.10.0",
+      "command": "node scripts/source-run.mjs --test tests/pds-startup.test.ts tests/archive.test.ts tests/pds.test.ts tests/pds-telemetry.test.ts",
+      "exitCode": 0,
+      "tests": 42,
+      "passed": 42,
+      "failed": 0,
+      "captures": [
+        "node26-final.log",
+        "node26-pds-results.json"
+      ]
+    },
+    {
+      "id": "node26-baseline-control",
+      "sourceCommit": "9b83287daa08cb7b6e38f7631652a13dc38a1eb9",
+      "baselineCommit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "nodeVersion": "26.10.0",
+      "command": "node experiments/pds-startup-h2/reproduce-port-race.mjs",
+      "exitCode": 0,
+      "expectedBaselineFailure": "actual EADDRINUSE after successful competitor bind at released selected port",
+      "fixedResult": "competitor EADDRINUSE after retained socket handoff; actual HTTP 200",
+      "captures": [
+        "node26-baseline-control.log"
+      ]
+    },
+    {
+      "id": "original-ci-node22",
+      "sourceCommit": "098d3dffb04998d43eb51bb3ab6b9f38cce03b20",
+      "nodeVersion": "22.19.0",
+      "command": "node scripts/source-run.mjs --test --test-skip-pattern='^entry 20000 is accepted' tests/*.test.ts",
+      "exitCode": 1,
+      "tests": 438,
+      "passed": 437,
+      "failed": 1,
+      "captures": [
+        "initial-ci-node22.log"
+      ],
+      "source": "https://github.com/generalbusiness-ai/atseq/actions/runs/36961116196"
+    },
+    {
+      "id": "first-exploratory-http",
+      "sourceCommit": null,
+      "exitCode": 1,
+      "rawCaptureSaved": false,
+      "captures": [
+        "preparation-first-http-observation.json",
+        "preparation-first-child.mjs"
+      ],
+      "result": "Explicitly closing adopted child handle caused ECONNREFUSED; failed child terminated locally."
+    },
+    {
+      "id": "corrected-http-restart",
+      "sourceCommit": null,
+      "exitCode": 0,
+      "captures": [
+        "preparation-corrected-http-restart.log"
+      ],
+      "result": "Initial and restarted real PDS both HTTP 200."
+    },
+    {
+      "id": "preparation-four-cases",
+      "sourceCommit": null,
+      "exitCode": 0,
+      "tests": 4,
+      "passed": 4,
+      "captures": [
+        "preparation-focused.log"
+      ]
+    },
+    {
+      "id": "node22-copied-wrong-abi",
+      "sourceCommit": "8b5d627c25ebfa9abd3fc51c31553c7e3f2fbd4c",
+      "exitCode": 1,
+      "tests": 4,
+      "passed": 0,
+      "failed": 4,
+      "captures": [
+        "preparation-node22-wrong-native-abi.log"
+      ],
+      "result": "SQLite binary ABI147 required ABI127; isolated native test dependency rebuilt."
+    },
+    {
+      "id": "node22-native-rebuild",
+      "sourceCommit": "8b5d627c25ebfa9abd3fc51c31553c7e3f2fbd4c",
+      "exitCode": 0,
+      "command": "PATH=/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin:$PATH npm rebuild --prefix tests/support/pds better-sqlite3",
+      "captures": [
+        "node22-native-rebuild.log"
+      ]
+    },
+    {
+      "id": "node22-overbroad-cleanup-probe",
+      "sourceCommit": "edd62bc08ef9f702b9b440f949b0e8890f390303",
+      "exitCode": 1,
+      "tests": 18,
+      "passed": 17,
+      "failed": 1,
+      "captures": [
+        "preparation-node22-extra-cleanup-probe.log"
+      ],
+      "result": "Test-only close probe also ran after PLC teardown; restricted to parent reservation socket."
+    },
+    {
+      "id": "node22-corrected-probe",
+      "sourceCommit": "8c5b5637e49fe676dac3993fd70cc2e0733a2bcf",
+      "exitCode": 0,
+      "tests": 18,
+      "passed": 18,
+      "captures": [
+        "preparation-node22-good-abi.log"
+      ]
+    },
+    {
+      "id": "node22-preparation-pds",
+      "sourceCommit": "8c5b5637e49fe676dac3993fd70cc2e0733a2bcf",
+      "exitCode": 0,
+      "tests": 24,
+      "passed": 24,
+      "captures": [
+        "preparation-node22-pds-regression.log",
+        "preparation-node22-pds-results.json"
+      ]
+    },
+    {
+      "id": "node24-native-rebuild",
+      "sourceCommit": "8c5b5637e49fe676dac3993fd70cc2e0733a2bcf",
+      "exitCode": 0,
+      "command": "PATH=/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH npm rebuild --prefix tests/support/pds better-sqlite3",
+      "captures": [
+        "node24-native-rebuild.log"
+      ]
+    },
+    {
+      "id": "node24-preparation",
+      "sourceCommit": "8c5b5637e49fe676dac3993fd70cc2e0733a2bcf",
+      "exitCode": 0,
+      "tests": 42,
+      "passed": 42,
+      "captures": [
+        "preparation-node24.log",
+        "preparation-node24-pds-results.json"
+      ]
+    },
+    {
+      "id": "initial-build",
+      "sourceCommit": "8b5d627c25ebfa9abd3fc51c31553c7e3f2fbd4c",
+      "exitCode": 0,
+      "command": "npm run build",
+      "captures": [
+        "build.log"
+      ]
+    },
+    {
+      "id": "initial-check",
+      "sourceCommit": "8b5d627c25ebfa9abd3fc51c31553c7e3f2fbd4c",
+      "exitCode": 0,
+      "command": "npm run check",
+      "captures": [
+        "check.log"
+      ]
+    },
+    {
+      "id": "second-check",
+      "sourceCommit": "8c5b5637e49fe676dac3993fd70cc2e0733a2bcf",
+      "exitCode": 0,
+      "command": "npm run check",
+      "captures": [
+        "preparation-check-2.log"
+      ]
+    },
+    {
+      "id": "final-build",
+      "sourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+      "exitCode": 0,
+      "command": "npm run build",
+      "captures": [
+        "final-build.log"
+      ]
+    },
+    {
+      "id": "final-check",
+      "sourceCommit": "5e8c773edcffa1df8b3f8f3bfb6bda1b432e5e57",
+      "exitCode": 0,
+      "command": "npm run check",
+      "captures": [
+        "final-check.log"
+      ]
+    },
+    {
+      "id": "preparation-baseline-control",
+      "sourceCommit": "7b91d83133a49a3cde184fa653fb763e0fae093c",
+      "exitCode": 0,
+      "command": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node experiments/pds-startup-h2/reproduce-port-race.mjs",
+      "captures": [
+        "preparation-baseline-control.log"
+      ]
+    }
+  ]
+}

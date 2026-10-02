@@ -1,0 +1,8 @@
+{
+  "recording": "Transcribed from the tool result. The first exploratory shell command did not save a raw log.",
+  "command": "node --input-type=module -e <startEnvironment; fetch describeServer; stop; restart; fetch describeServer; close; resetDisposable>",
+  "exitCode": 1,
+  "error": "TypeError: fetch failed; cause connect ECONNREFUSED 127.0.0.1:49429; Node.js v26.10.0",
+  "cause": "The initial pds-server.mjs draft explicitly closed the child net.Server handle after the HTTP server adopted it, which closed the actual adopted socket. The final implementation leaves that handle with the official PDS HTTP server.",
+  "cleanup": "The orphan from that exploratory command was identified only under this isolated worktree and terminated with SIGTERM. The following corrected HTTP/restart probe passed."
+}

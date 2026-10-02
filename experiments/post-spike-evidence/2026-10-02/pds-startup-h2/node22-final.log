@@ -1,0 +1,277 @@
+TAP version 13
+# (node:90189) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# [plugin builtin:vite-reporter] 
+# (!) Some chunks are larger than 500 kB after minification. Consider:
+# - Using dynamic import() to code-split the application
+# - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+# - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+# Subtest: retain complete app history and rebuild without the PDS
+    # Subtest: complete evolved archive retains source history, profiles and exact outcomes
+    ok 1 - complete evolved archive retains source history, profiles and exact outcomes
+      ---
+      duration_ms: 63.868375
+      type: 'test'
+      ...
+    # Subtest: chosen older prefix uses its original definition and no future candidate
+    ok 2 - chosen older prefix uses its original definition and no future candidate
+      ---
+      duration_ms: 39.735458
+      type: 'test'
+      ...
+    # Subtest: missing activation source permits only the last complete prefix
+    ok 3 - missing activation source permits only the last complete prefix
+      ---
+      duration_ms: 50.320042
+      type: 'test'
+      ...
+    # Subtest: changed history, inventory, runtime and invitation cannot be accepted
+    ok 4 - changed history, inventory, runtime and invitation cannot be accepted
+      ---
+      duration_ms: 52.558083
+      type: 'test'
+      ...
+    # Subtest: archive bounds, byte decoding and source identity guards reject malformed copies
+    ok 5 - archive bounds, byte decoding and source identity guards reject malformed copies
+      ---
+      duration_ms: 47.630625
+      type: 'test'
+      ...
+    # Subtest: CLI rebuild uses a new directory with no host projection cache
+    ok 6 - CLI rebuild uses a new directory with no host projection cache
+      ---
+      duration_ms: 3170.410625
+      type: 'test'
+      ...
+    # Subtest: installed shell bootstraps offline and rebuilds solely from an imported archive
+    ok 7 - installed shell bootstraps offline and rebuilds solely from an imported archive
+      ---
+      duration_ms: 546.551708
+      type: 'test'
+      ...
+    # Subtest: an archive cannot replace this device’s genesis pin for an existing app DID
+    ok 8 - an archive cannot replace this device’s genesis pin for an existing app DID
+      ---
+      duration_ms: 212.163875
+      type: 'test'
+      ...
+    # Subtest: cancelling a held worker export keeps verified inputs and an offline signed action
+    ok 9 - cancelling a held worker export keeps verified inputs and an offline signed action
+      ---
+      duration_ms: 860.228917
+      type: 'test'
+      ...
+    # Subtest: small imported data produces a zero-based chart and static source-tagged exports
+    ok 10 - small imported data produces a zero-based chart and static source-tagged exports
+      ---
+      duration_ms: 1045.844542
+      type: 'test'
+      ...
+    # Subtest: archives retain oversized invalid activation evidence and replay its following action
+    ok 11 - archives retain oversized invalid activation evidence and replay its following action
+      ---
+      duration_ms: 417.074209
+      type: 'test'
+      ...
+    1..11
+ok 1 - retain complete app history and rebuild without the PDS
+  ---
+  duration_ms: 11651.934333
+  type: 'test'
+  ...
+# Subtest: actual PLC and PDS listeners retain exclusive ports throughout startup
+ok 2 - actual PLC and PDS listeners retain exclusive ports throughout startup
+  ---
+  duration_ms: 1229.349667
+  type: 'test'
+  ...
+# Both real listeners and the socket handoff refused competing binds; account creation and PLC endpoint passed.
+# Subtest: six real official PDS instances start concurrently with distinct retained ports
+ok 3 - six real official PDS instances start concurrently with distinct retained ports
+  ---
+  duration_ms: 1091.268917
+  type: 'test'
+  ...
+# Six distinct real PDS listeners, six persisted accounts, and six matching PLC service endpoints.
+# Subtest: restart refuses an occupied original port and resumes at the same URL after release
+ok 4 - restart refuses an occupied original port and resumes at the same URL after release
+  ---
+  duration_ms: 1573.620291
+  type: 'test'
+  ...
+# Occupied restart port was refused before spawning; released port reused without retargeting.
+# Subtest: a genuine non-port child startup failure escapes and releases the reserved listener
+ok 5 - a genuine non-port child startup failure escapes and releases the reserved listener
+  ---
+  duration_ms: 2246.783542
+  type: 'test'
+  ...
+# Actual invalid data-directory startup failed once; same reserved port available for explicit restart.
+# Subtest: PDS child keeps only OS paths and forced telemetry disable without mutating input
+ok 6 - PDS child keeps only OS paths and forced telemetry disable without mutating input
+  ---
+  duration_ms: 0.519708
+  type: 'test'
+  ...
+# Subtest: inherited telemetry preload exports with legacy spread and is blocked by the fixture allowlist
+ok 7 - inherited telemetry preload exports with legacy spread and is blocked by the fixture allowlist
+  ---
+  duration_ms: 6533.695083
+  type: 'test'
+  ...
+# (node:90192) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: real disposable PDS persistence and recovery
+    # Subtest: genesis and initial head are a verified empty prefix
+    ok 1 - genesis and initial head are a verified empty prefix
+      ---
+      duration_ms: 14.172625
+      type: 'test'
+      ...
+    # Subtest: provisioning refuses to replace an existing application log
+    ok 2 - provisioning refuses to replace an existing application log
+      ---
+      duration_ms: 27.9805
+      type: 'test'
+      ...
+    # Subtest: source blobs are retained and recovered by exact CID
+    ok 3 - source blobs are retained and recovered by exact CID
+      ---
+      duration_ms: 29.404417
+      type: 'test'
+      ...
+    # Subtest: reset refuses a live or unmarked directory
+    ok 4 - reset refuses a live or unmarked directory
+      ---
+      duration_ms: 1.861667
+      type: 'test'
+      ...
+    # Subtest: two concurrent submissions receive one contiguous order
+    ok 5 - two concurrent submissions receive one contiguous order
+      ---
+      duration_ms: 110.661167
+      type: 'test'
+      ...
+    # Subtest: same intent and a new valid signature return original receipt
+    ok 6 - same intent and a new valid signature return original receipt
+      ---
+      duration_ms: 27.736583
+      type: 'test'
+      ...
+    # Subtest: second local writer is refused while the lease is held
+    ok 7 - second local writer is refused while the lease is held
+      ---
+      duration_ms: 0.25875
+      type: 'test'
+      ...
+    # Subtest: official PDS process crash preserves acknowledged history and blobs
+    ok 8 - official PDS process crash preserves acknowledged history and blobs
+      ---
+      duration_ms: 776.958667
+      type: 'test'
+      ...
+    # Subtest: a rejected conditional batch leaves entry and head unchanged
+    ok 9 - a rejected conditional batch leaves entry and head unchanged
+      ---
+      duration_ms: 48.907125
+      type: 'test'
+      ...
+    # Subtest: malformed commit replies cannot remove an append or provision condition
+    ok 10 - malformed commit replies cannot remove an append or provision condition
+      ---
+      duration_ms: 56.153458
+      type: 'test'
+      ...
+    # Subtest: an unrelated repo write races the append and is reconciled
+    ok 11 - an unrelated repo write races the append and is reconciled
+      ---
+      duration_ms: 97.267708
+      type: 'test'
+      ...
+    # Subtest: lost HTTP response after commit resolves to one original receipt
+    ok 12 - lost HTTP response after commit resolves to one original receipt
+      ---
+      duration_ms: 52.290834
+      type: 'test'
+      ...
+    # Subtest: a different writer process cannot acquire the same local lease
+    ok 13 - a different writer process cannot acquire the same local lease
+      ---
+      duration_ms: 970.441916
+      type: 'test'
+      ...
+    # Subtest: writer crash after commit but before acknowledgment recovers one receipt
+    ok 14 - writer crash after commit but before acknowledgment recovers one receipt
+      ---
+      duration_ms: 971.858875
+      type: 'test'
+      ...
+    # Subtest: writer crash after acknowledgment keeps receipt and no domain effect claim
+    ok 15 - writer crash after acknowledgment keeps receipt and no domain effect claim
+      ---
+      duration_ms: 929.210125
+      type: 'test'
+      ...
+    # Subtest: XRPC rejects a foreign receipt anchor and malformed submission
+    ok 16 - XRPC rejects a foreign receipt anchor and malformed submission
+      ---
+      duration_ms: 17.337
+      type: 'test'
+      ...
+    # Subtest: bootstrap at a chosen head catches up without notifications
+    ok 17 - bootstrap at a chosen head catches up without notifications
+      ---
+      duration_ms: 116.739375
+      type: 'test'
+      ...
+    # Subtest: repository CAR contains retention references but blobs require explicit export
+    ok 18 - repository CAR contains retention references but blobs require explicit export
+      ---
+      duration_ms: 13.883208
+      type: 'test'
+      ...
+    # Subtest: missing and tampered source references fail, then recover by exact content
+    ok 19 - missing and tampered source references fail, then recover by exact content
+      ---
+      duration_ms: 32.724875
+      type: 'test'
+      ...
+    # Subtest: missing or corrupted physical blob bytes never satisfy a source CID
+    ok 20 - missing or corrupted physical blob bytes never satisfy a source CID
+      ---
+      duration_ms: 10.638541
+      type: 'test'
+      ...
+    # Subtest: a retained verified head refuses repository rollback and signed-entry corruption
+    ok 21 - a retained verified head refuses repository rollback and signed-entry corruption
+      ---
+      duration_ms: 81.120834
+      type: 'test'
+      ...
+    # Subtest: chosen-head catch-up verifies a prefix spanning real PDS pages
+    ok 22 - chosen-head catch-up verifies a prefix spanning real PDS pages
+      ---
+      duration_ms: 234.131083
+      type: 'test'
+      ...
+    # Subtest: PDS compare-and-swap excludes competing writers even with the local lease bypassed
+    ok 23 - PDS compare-and-swap excludes competing writers even with the local lease bypassed
+      ---
+      duration_ms: 499.4665
+      type: 'test'
+      ...
+    1..23
+ok 8 - real disposable PDS persistence and recovery
+  ---
+  duration_ms: 8041.639584
+  type: 'test'
+  ...
+1..8
+# tests 42
+# suites 0
+# pass 42
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12438.507542
