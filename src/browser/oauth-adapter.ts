@@ -76,13 +76,22 @@ export async function browserOAuthAdapter(input: BrowserOAuthOptions): Promise<O
     },
   );
   await adapter.cleanupCustody();
-  // Housekeeping runs only while this shell/document remains active.
-  const cleanup = setInterval(() => {
-    void adapter.cleanupCustody().catch(() => {
-      dispatchEvent(new Event('atseq-oauth-custody-unavailable'));
-    });
-  }, 60_000);
-  addEventListener('pagehide', () => clearInterval(cleanup), { once: true });
+  // BFCache preserves this adapter, so every restored active document needs its
+  // timer again. Starts and stops are idempotent across repeated restorations.
+  let cleanup: ReturnType<typeof setInterval> | undefined;
+  const startCleanup = () => {
+    cleanup ??= setInterval(() => {
+      void adapter.cleanupCustody().catch(() => {
+        dispatchEvent(new Event('atseq-oauth-custody-unavailable'));
+      });
+    }, 60_000);
+  };
+  addEventListener('pagehide', () => {
+    clearInterval(cleanup);
+    cleanup = undefined;
+  });
+  addEventListener('pageshow', startCleanup);
+  startCleanup();
   return adapter;
 }
 
