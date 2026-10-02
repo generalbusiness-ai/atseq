@@ -41,22 +41,28 @@ test('actual PLC and PDS listeners retain exclusive ports throughout startup', a
       this.once('listening', () => {
         const address = this.address();
         assert.ok(address && typeof address !== 'string');
-        const contender = createServer();
-        probes.push(
-          new Promise((resolve, reject) => {
-            contender.once('error', (error: NodeJS.ErrnoException) => {
-              if (error.code === 'EADDRINUSE') resolve(error.code);
-              else reject(error);
-            });
-            contender.once('listening', () => {
-              contender.close();
-              reject(Error('Another process could steal the chosen fixture port'));
-            });
-            probing = true;
-            contender.listen(address.port, '127.0.0.1');
-            probing = false;
-          }),
-        );
+        const contend = () => {
+          const contender = createServer();
+          probes.push(
+            new Promise((resolve, reject) => {
+              contender.once('error', (error: NodeJS.ErrnoException) => {
+                if (error.code === 'EADDRINUSE') resolve(error.code);
+                else reject(error);
+              });
+              contender.once('listening', () => {
+                contender.close();
+                reject(Error('Another process could steal the chosen fixture port'));
+              });
+              probing = true;
+              contender.listen(address.port, '127.0.0.1');
+              probing = false;
+            }),
+          );
+        };
+        contend();
+        // This probes the exact old race: immediately after the parent's socket
+        // closes, the real PDS child must already own the same listening port.
+        this.once('close', contend);
       });
     }
     return result;
@@ -65,9 +71,11 @@ test('actual PLC and PDS listeners retain exclusive ports throughout startup', a
   try {
     env = await startEnvironment();
     mocked.mock.restore();
-    assert.deepEqual(await Promise.all(probes), ['EADDRINUSE', 'EADDRINUSE']);
+    assert.deepEqual(await Promise.all(probes), ['EADDRINUSE', 'EADDRINUSE', 'EADDRINUSE']);
     await checkAccount(env);
-    t.diagnostic('Both real listeners refused competing bind attempts; account creation and PLC endpoint passed.');
+    t.diagnostic(
+      'Both real listeners and the socket handoff refused competing binds; account creation and PLC endpoint passed.',
+    );
   } finally {
     mocked.mock.restore();
     if (env) await close(env);
