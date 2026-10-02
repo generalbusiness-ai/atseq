@@ -1,0 +1,79 @@
+[
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-fixture-final.json",
+    "bytes": 14539090,
+    "sha256": "2b9df26dbde100fbda28200b66187258a6261b1ca38c6a7aa4fe0c6f893c5af6",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-fixture-final2.json",
+    "bytes": 14115240,
+    "sha256": "cb9c193fe35088f65356f76389cd98fd357a3524fecd941121ee93743502cdc9",
+    "delivered": true,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-fixture.json",
+    "bytes": 12880515,
+    "sha256": "87b878a6792c98c12cb410948dec61c8736f19a010675bcf340907b37a575a85",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-few-100.json",
+    "bytes": 878272,
+    "sha256": "d746b3d871de19e8086770d488e92bac3f42451e08adc9551d6f38972da63dea",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-few-final.json",
+    "bytes": 54438641,
+    "sha256": "1f264eae62254d8635f64dba5db39f0c1bea24ca31f500d9a3b24f1eb504bb1c",
+    "delivered": true,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-few-pruned-smoke.json",
+    "bytes": 5474988,
+    "sha256": "3ef6469b1b8d0ad15d48d9a1485015d16691df75fe27ba543347360945bc89b0",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-few-unpruned.json",
+    "bytes": 141390750,
+    "sha256": "0584cc6956f946e870fa9656eb5727a3849cfe38a4f98744ae0152289504885a",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-many-100.json",
+    "bytes": 5943562,
+    "sha256": "44ffc4100d4f93bb0f2f64ed57cee6378a2f880537c2be966520e8151ceb5991",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-many-final.json",
+    "bytes": 63247115,
+    "sha256": "c57bac34ec63ee186f0016be32cedd9cb3b3b1b08f227c61fd812abc782c3e14",
+    "delivered": true,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-many-pruned-smoke.json",
+    "bytes": 12114987,
+    "sha256": "987cb1c4617644bf518db965f714dffedefae02254f51c21ed093a108219ec29",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  },
+  {
+    "path": "/private/tmp/atseq-native-discovery-c1-kernel-20261002/.atseq-local/c1-kernel/native-discovery-workload-many-unpruned.json",
+    "bytes": 159484629,
+    "sha256": "46c28966083cc7d7cc4f43b2de397f0da6c37dd17dd05db0ca47583bed49ec14",
+    "delivered": false,
+    "interpretation": "Only final2 component and final few/many are final accepted test inputs; earlier files are retained intermediate/failed construction attempts."
+  }
+]

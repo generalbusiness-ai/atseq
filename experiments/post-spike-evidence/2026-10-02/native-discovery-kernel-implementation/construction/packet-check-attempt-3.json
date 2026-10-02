@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "checks": {
+    "vectors": 40,
+    "openFull03": true,
+    "fullObligations": 12,
+    "genuineRecords": 31,
+    "testOnlyRecords": 6,
+    "foundation": "58/24 before/intermediate/final-after,58 actual emitted",
+    "workloads": "6 rows across7 paths; no peak-heap claim",
+    "productionPaths": 4
+  },
+  "sourcePins": 133,
+  "deliveryFiles": 179,
+  "negativeControls": [
+    {
+      "name": "FULL03 closure",
+      "rejected": "FULL03 must remain open and tracked"
+    },
+    {
+      "name": "max-safe genuine claim",
+      "rejected": "max-safe genuine-history claim"
+    },
+    {
+      "name": "byte mismatch",
+      "rejected": "genuine31 byte mismatch"
+    },
+    {
+      "name": "missing10k",
+      "rejected": "workload byte mismatch"
+    },
+    {
+      "name": "oracle replacement",
+      "rejected": "unchanged oracle pin"
+    },
+    {
+      "name": "compiled fault attribution",
+      "rejected": "fault attribution changed"
+    },
+    {
+      "name": "unreported failures",
+      "rejected": "failure inventory or approval attribution"
+    },
+    {
+      "name": "false exact accounting",
+      "rejected": "workload byte mismatch"
+    },
+    {
+      "name": "wrong producer",
+      "rejected": "four-path production boundary"
+    },
+    {
+      "name": "shared codec change",
+      "rejected": "shared codec/schema protection"
+    }
+  ]
+}

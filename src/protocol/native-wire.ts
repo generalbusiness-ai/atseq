@@ -232,7 +232,7 @@ function role(value: string): void {
   if (!/^[a-z][a-z0-9_]{0,63}$/.test(value) || ['govern', 'recover', 'certify', 'owner'].includes(value))
     fail('envelope', 'Expected a domain participation role');
 }
-function grantId(value: string): void {
+export function validateNativeGrantId(value: string): void {
   if (!/^[a-z2-7]{26}$/.test(value)) fail('envelope', 'Grant ID must be canonical 16-byte base32');
   const raw = fromBase32(value);
   if (raw.length !== 16 || toBase32(raw) !== value) fail('envelope', 'Noncanonical grant ID');
@@ -352,14 +352,14 @@ export async function readNativeValue<T = unknown>(ref: string, value: unknown):
       await readNativeValue(nativeRef('intent'), data.intent);
       break;
     case nativeRef('act'):
-      grantId(data.grant.id);
+      validateNativeGrantId(data.grant.id);
       action(data.action);
       if (!data.payload || Array.isArray(data.payload) || typeof data.payload !== 'object')
         fail('payload', 'Expected action object');
       canonicalJson(data.payload, PROFILE.actionBytes);
       break;
     case nativeRef('assignRole'):
-      grantId(data.grant.id);
+      validateNativeGrantId(data.grant.id);
       role(data.role);
       break;
     case nativeRef('setRole'):
@@ -388,13 +388,13 @@ export async function readNativeValue<T = unknown>(ref: string, value: unknown):
       break;
     case nativeRef('admitGrant'):
     case nativeRef('revokeGrant'):
-      grantId((data.grant ?? data.revoke).id);
+      validateNativeGrantId((data.grant ?? data.revoke).id);
       break;
     case NATIVE_NSID.entry:
       await readNativeValue(data.request.$type, data.request);
       break;
     case NATIVE_NSID.grant:
-      grantId(data.id);
+      validateNativeGrantId(data.id);
       await validateNativeDeviceKey(data.actorKey);
       if (!data.actions.length && !data.assignRoles.length) fail('envelope', 'Empty grant scope');
       ordered(
@@ -406,7 +406,7 @@ export async function readNativeValue<T = unknown>(ref: string, value: unknown):
       data.assignRoles.forEach(role);
       break;
     case NATIVE_NSID.revoke:
-      grantId(data.id);
+      validateNativeGrantId(data.id);
       break;
     case NATIVE_NSID.file:
       rawCid(data.cid);
@@ -643,13 +643,30 @@ export function nativeFoldMetadata(entry: NativeEntry): Record<string, Json> {
     fail('envelope', 'Account imports do not execute domain folds');
   const intent = (entry.request as NativeSignedRequest).intent;
   if (intent.operation.$type !== nativeRef('act')) fail('envelope', 'Only ordinary actions execute domain folds');
+  return nativeFoldMetadataValues({
+    app: entry.app,
+    genesis: entry.genesis.$link,
+    position: entry.position,
+    principal: intent.principal,
+    execution: (intent.operation as NativeAct).execution.$link,
+  });
+}
+
+/** Internal owned values; no signed request or accepted-state capability is constructed. */
+export function nativeFoldMetadataValues(value: {
+  app: string;
+  genesis: string;
+  position: number;
+  principal: string;
+  execution: string;
+}): Record<string, Json> {
   return deepFreeze(
     copy({
-      app: entry.app,
-      genesis: entry.genesis.$link,
-      position: entry.position,
-      principal: intent.principal,
-      execution: (intent.operation as NativeAct).execution.$link,
+      app: value.app,
+      genesis: value.genesis,
+      position: value.position,
+      principal: value.principal,
+      execution: value.execution,
     }),
   );
 }

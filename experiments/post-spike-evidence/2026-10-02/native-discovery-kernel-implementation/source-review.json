@@ -1,0 +1,47 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected report at depth 12525: decision effective, 2 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "49d18a1d768be2f418052ac65dddc0ed026de440",
+      "depth": 12525
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:49d18a1d768be2f418052ac65dddc0ed026de440",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:49d18a1d768be2f418052ac65dddc0ed026de440",
+      "sequence": 12525,
+      "timestamp": 1790954195,
+      "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+      "kind": "report",
+      "lifecycle": "report",
+      "satisfier": "originating-requester",
+      "text": "C1-D4 native discovery and simulation kernel at exact head 98fdb03f462a1b78cfbe2d9dae93759ee4a51946 (basis C1-F1 7513e21b): satisfied. K1, K2, K3 and K5 are adopted as proposed. I recommend simplifying K4 before implementation (CK-1), but it does not block adoption.\n\nWhat I checked (source only; nothing proposed was executed):\n- 12 added files; no production change. check.py: 48 source pins, 11 delivery hashes, 13 negative controls rejected, approvedF1BytesPreserved true. 40 vectors, all UNEXECUTED.\n- Spot check at 7513e21b: protocol/index.ts uses export * from './wire.ts', which exports link, bytes, encodeBlock and contentCid. So the note is right that a measured helper added in wire.ts would become a supported API.\n\nDecisions:\n- K1 (agree). Inputs are owned synchronously before any await. The genuine #current object is captured and module-private stateData is read directly, with no snapshot, DATA parse or second container. Frontier and prefix head are reported as distinct facts, and the simulated position is frontier + 1, never presented as the next append position. Only genesis-replay origin is supported, with no assurance upgrade. Any method-class accessor must be one narrow DATA accessor on the prefix owner.\n- K2 (agree). Each grant row is visited once and charged, and the subject's candidates are kept in ID order. For each action, the first candidate that passes is chosen, with no union, and the first candidate's common reason is reported when all fail. Extracting the row-level predicate from liveGrant, so that liveGrant and the gate share it, avoids the O(actions × candidates × all grants) cost without changing precedence. Discovery's \"eligible\" result is correctly limited to \"may attempt\".\n- K3 (agree). #actionInput is extracted; host pre-check calls the gate and input step directly and stops, exactly as my C1-F1 note asked. The owner-fixed private guard selection after the fold await is acceptable. Ordered processing needs #same(base), while a retained read must survive a later commit and check only health and contradictions at its captured prefix. That is an ownership rule, not a stopping mode. Keep it a fixed literal at the two call sites, never a parameter that flows from callers.\n- K5 (agree). One memo per actual generation object in a private WeakMap. On failure the entry is deleted only if it is still the same pending entry, so a small first budget cannot poison the generation. Waiters share the work but do not retry. A prefix-only generation counts as cold.\n\nCK-1 (recommended simplification of K4): keep the work ledger at the owner level, and leave the shared codec and schema validator untouched.\n- K4 proposes one internal metered codec beneath the supported wire wrappers and checkpoint identity, plus internal accounting inside Schemas.validate. That touches the hottest shared code paths for every caller in order to measure exactly one new feature's copies and hashes. The note itself flags possible type exposure through LoadedDefinition.schemas.\n- The ledger exists to bound one discovery or simulation operation, and the note already says it is not a heap guarantee. The same finite bound is achievable more simply:\n  - charge row and candidate visits as proposed;\n  - for each codec or schema call the owner makes, charge a documented conservative multiple of the value's known canonical length. Use the existing canonicalJson length, or the encoded block length the call already returns. For example, charge the canonical bytes once per pass, times the known maximum number of passes (three for schema validation, plus the CBOR copy and hash);\n  - refuse before a call whose conservative pre-charge would exceed the budget.\n- This overestimates rather than undercounts, keeps wire.ts, checkpoint-data and the schema validator byte-identical (which also protects the 58/24 frozen gate), and adds no meter parameter to shared signatures.\n- If later measurement shows the conservative charge refuses legitimate work, revisit exact metering as a separate reviewed change.\n- The rest of K4 (reusing checkpointPayloadIdentity for both commitments, no new authority schema, the compact authority encoding next to the existing DATA ownership, counters never fabricated as zero) stands.\n\nScope: source-only. The typed service, host, browser/CLI/agent use, offline labels, documentation and the exact-head implementation review remain open, and full C1 is not closed. This report approves no implementation or merge."
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:49d18a1d768be2f418052ac65dddc0ed026de440",
+      "sequence": 12525,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:57179192b567a68c6f6f37b0e0b39b5adeefb309",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b1cc6508ef41a543e80f0206c7db08df2fd28210",
+      "report": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:49d18a1d768be2f418052ac65dddc0ed026de440",
+      "status": "reported",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    },
+    "landing": {},
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b1cc6508ef41a543e80f0206c7db08df2fd28210",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:57179192b567a68c6f6f37b0e0b39b5adeefb309"
+    ]
+  },
+  "isError": false
+}

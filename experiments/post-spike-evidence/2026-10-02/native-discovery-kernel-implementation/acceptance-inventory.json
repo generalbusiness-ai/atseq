@@ -1,0 +1,452 @@
+{
+  "producer": "7234f492089a993588d78472e3399abcc24bcc15",
+  "fullC1Closed": false,
+  "all40Executed": false,
+  "vectors": [
+    {
+      "id": "K1-01",
+      "group": "Capture",
+      "scenario": "Caller selector/payload mutates during asynchronous key validation",
+      "expected": "Owned input and genuine base remain unchanged; returned basis belongs to original capture.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K1-01"
+      ]
+    },
+    {
+      "id": "K1-02",
+      "group": "Capture",
+      "scenario": "Plain snapshot, DATA, forged source/state flags or guessed role supplied",
+      "expected": "No accepted input/capture registration; reject malformed selector, never authorize from those values.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K1-02"
+      ]
+    },
+    {
+      "id": "K1-03",
+      "group": "Capture",
+      "scenario": "Genesis has no repository prefix",
+      "expected": "Use explicit external anchor/frontier zero; no fabricated publication root or identity evidence.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K1-03"
+      ]
+    },
+    {
+      "id": "K1-04",
+      "group": "Capture",
+      "scenario": "Head ahead of interpreted frontier; missing/stalled tail",
+      "expected": "Complete retained generation can evaluate at labelled frontier+1; append readiness separate.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K1-04"
+      ]
+    },
+    {
+      "id": "K1-05",
+      "group": "Capture",
+      "scenario": "Known contradiction arrives while commitments/fold await",
+      "expected": "Captured-prefix contradiction or owner poison withholds result; never relabel to newer head.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "TEST_ONLY_CALLSITE_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:faults/K1-05"
+      ]
+    },
+    {
+      "id": "K1-06",
+      "group": "Capture",
+      "scenario": "Selected root changes without new head entry",
+      "expected": "Selected-root method class is not inferred from nativePrefixProvenance(head) original root.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K1-06"
+      ],
+      "limitation": "Genuine prefix selected-root accessor exercised with unchanged head; current coordinator has no separate root-only ingestion operation."
+    },
+    {
+      "id": "K2-01",
+      "group": "Selection",
+      "scenario": "Lower-ID grant admitted later than eligible higher ID",
+      "expected": "First eligible ID in existing stored order wins; old signed intent unchanged; no admission-time scan.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K2-01"
+      ]
+    },
+    {
+      "id": "K2-02",
+      "group": "Selection",
+      "scenario": "Early-ID revoked/stale-epoch/wrong-signer/out-of-scope grants precede eligible grant",
+      "expected": "Continue selection; select one later eligible grant; exact ordinary reason precedence unchanged.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K2-02"
+      ]
+    },
+    {
+      "id": "K2-03",
+      "group": "Selection",
+      "scenario": "Never-admitted tombstone and exact missing filter",
+      "expected": "Unfiltered candidates omit tombstone; exact missing/tombstone gives shared grant_unadmitted without fake CID.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K2-03"
+      ]
+    },
+    {
+      "id": "K2-04",
+      "group": "Selection",
+      "scenario": "All candidates denied or no candidates",
+      "expected": "First admitted candidate reason by ID order, or grant_unadmitted; never map insertion order.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K2-04"
+      ]
+    },
+    {
+      "id": "K2-05",
+      "group": "Selection",
+      "scenario": "Two insufficient grants and several actions",
+      "expected": "No union; each eligible action names one immutable grant; different actions may choose different grants.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K2-05"
+      ]
+    },
+    {
+      "id": "K2-06",
+      "group": "Selection",
+      "scenario": "Old history/outcome storage unavailable to discovery",
+      "expected": "No selection history/outcome reads; still require genuine accepted authority/source.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K2-06"
+      ]
+    },
+    {
+      "id": "K2-07",
+      "group": "Selection",
+      "scenario": "Many other-principal rows and repeated candidates",
+      "expected": "Every visited row charged; subject facts prepared once; no repeated whole-grant find per candidate.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K2-07"
+      ]
+    },
+    {
+      "id": "K3-01",
+      "group": "Stages",
+      "scenario": "Host preflight for valid/invalid payload",
+      "expected": "Direct shared gate and input only; zero fold/successor calls; no #action stopping mode.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K3-01"
+      ],
+      "limitation": "Owner preflight gate/input exercised; supported host route remains FULL-03 OPEN."
+    },
+    {
+      "id": "K3-02",
+      "group": "Stages",
+      "scenario": "Ordered and simulated effective, authored denial, input denial and successor rejection",
+      "expected": "One full shared path and one evaluation; exact same stage constructors/codes; read simulation never persists.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K3-02"
+      ]
+    },
+    {
+      "id": "K3-03",
+      "group": "Stages",
+      "scenario": "Foreign constructor/non-designated/wrong-callsite fault",
+      "expected": "Ordered exact escape unchanged; simulation local unavailable outside catches; no native outcome appended.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "TEST_ONLY_CALLSITE_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:faults/K3-03"
+      ]
+    },
+    {
+      "id": "K3-04",
+      "group": "Stages",
+      "scenario": "Concurrent real commit during simulation fold",
+      "expected": "Ordered still requires #same; retained simulation checks health/contradiction and remains old-labelled.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "TEST_ONLY_CALLSITE_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:faults/K3-04"
+      ]
+    },
+    {
+      "id": "K3-05",
+      "group": "Stages",
+      "scenario": "Inspect actual fold metadata and attempt at max-safe frontier",
+      "expected": "Exactly five genuine-capture fields; no nonce/actorKey/hypothetical roles; max successor unavailable.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "TEST_ONLY_CALLSITE_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:faults/K3-05"
+      ],
+      "limitation": "Five metadata fields captured at actual genuine ordered/simulated callsites; max-safe overflow branch tested only by explicitly labelled test-only transformed guard. No genuine 2^53-entry history, no production reachability claim."
+    },
+    {
+      "id": "K3-06",
+      "group": "Stages",
+      "scenario": "Payload above fold action cap but within applicable native input bound",
+      "expected": "Shared schema/fold precedence retained; no premature local copy cap rewriting fold_failed/value_bytes.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K3-06"
+      ]
+    },
+    {
+      "id": "K3-07",
+      "group": "Stages",
+      "scenario": "Actual engine success, designated failure and unexpected failure",
+      "expected": "Returned counters once; failed counters unavailable, never zero; known designated outcome distinct from local unavailable.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K3-07"
+      ]
+    },
+    {
+      "id": "K3-08",
+      "group": "Stages",
+      "scenario": "Two payloads with ownership/amount/version-dependent domain condition",
+      "expected": "Actual fold outcomes differ at exact payload; payload CID and complete basis reported; no lease/state rewrite.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K3-08"
+      ]
+    },
+    {
+      "id": "K4-01",
+      "group": "Accounting",
+      "scenario": "Ordinary and accounted checkpoint identity for empty/chunk-boundary/max payload",
+      "expected": "One framing loop; identical identity bytes; original parser/codec errors and supported API preserved.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-01"
+      ],
+      "supersession": "CK-1 source review49d18 adopted56dbcce: unchanged codec/schema, conservative owner precharge bounds, actual rows/candidates/scope and fold counters separately; no exact dependency byte or peak-heap claim."
+    },
+    {
+      "id": "K4-02",
+      "group": "Accounting",
+      "scenario": "Wire bytes/link validation, CBOR copies and hash phases",
+      "expected": "Actual known-length copies/hash inputs and repeated canonical passes charged, no measurement-only encoding.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-02"
+      ],
+      "supersession": "CK-1 source review49d18 adopted56dbcce: unchanged codec/schema, conservative owner precharge bounds, actual rows/candidates/scope and fold counters separately; no exact dependency byte or peak-heap claim."
+    },
+    {
+      "id": "K4-03",
+      "group": "Accounting",
+      "scenario": "Schema success/coercion/typed denial/unexpected throw",
+      "expected": "Same validator and stage errors; actual available canonical passes measured; unknown work not invented.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-03"
+      ],
+      "supersession": "CK-1 source review49d18 adopted56dbcce: unchanged codec/schema, conservative owner precharge bounds, actual rows/candidates/scope and fold counters separately; no exact dependency byte or peak-heap claim."
+    },
+    {
+      "id": "K4-04",
+      "group": "Accounting",
+      "scenario": "Nested epochs/authority and max63 scopes/actions",
+      "expected": "Charge every growing/nested/repeated row; actual scope comparisons; no hidden snapshot clone.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-04"
+      ]
+    },
+    {
+      "id": "K4-05",
+      "group": "Accounting",
+      "scenario": "Budget failure during preparation/basis",
+      "expected": "Whole actor unavailable, no partial successful commitment or eligibility.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-05"
+      ]
+    },
+    {
+      "id": "K4-06",
+      "group": "Accounting",
+      "scenario": "Budget failure halfway through candidate scan",
+      "expected": "Completed earlier results retained; current and remaining actions unavailable, never denied.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-06"
+      ]
+    },
+    {
+      "id": "K4-07",
+      "group": "Accounting",
+      "scenario": "Smaller local refusal after one bounded normative evaluation",
+      "expected": "Withhold local simulation; no ordered failure manufactured; normative bounds unchanged.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-07"
+      ]
+    },
+    {
+      "id": "K4-08",
+      "group": "Accounting",
+      "scenario": "Opaque encoder/evaluator failure or oversized token",
+      "expected": "Partial/unknown work labelled honestly; no fake zero or 16MiB peak-heap claim; actual failures retained.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K4-08"
+      ]
+    },
+    {
+      "id": "K5-01",
+      "group": "Memo",
+      "scenario": "Cold compute then warm call on same generation",
+      "expected": "One successful state/authority computation; first charged; warm result copies still charged.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K5-01"
+      ]
+    },
+    {
+      "id": "K5-02",
+      "group": "Memo",
+      "scenario": "Concurrent callers before both hashes finish",
+      "expected": "One pending promise; no eligible result early; each waiter keeps own captured subject/frontier.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "TEST_ONLY_CALLSITE_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:faults/K5-02"
+      ]
+    },
+    {
+      "id": "K5-03",
+      "group": "Memo",
+      "scenario": "First small-budget attempt rejects with waiters; later explicit adequate budget",
+      "expected": "Delete exact failed entry; waiters unavailable, no retry/reset; later explicit caller can succeed.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K5-03",
+        "matrix/node26/source/component/result.json:faults/K5-03"
+      ]
+    },
+    {
+      "id": "K5-04",
+      "group": "Memo",
+      "scenario": "New or prefix-only generation created while old hashes await",
+      "expected": "Different WeakMap keys; no mixed pair/current retagging; prefix-only capture is cold.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K5-04"
+      ]
+    },
+    {
+      "id": "K5-05",
+      "group": "Memo",
+      "scenario": "Serialized hash/cache/snapshot supplied by caller",
+      "expected": "No WeakMap seeding, imported authority or durable cache trust.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/K5-05"
+      ]
+    },
+    {
+      "id": "PARITY-01",
+      "group": "Foundation",
+      "scenario": "New shared predicate/input/guard/codec implementation",
+      "expected": "Frozen approved58/24 oracle repeated before/after Node22/24/26 and real Chrome plus58 actual emitted cases; no regenerated expectations.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "FOUNDATION_EVIDENCE",
+      "evidence": []
+    },
+    {
+      "id": "PARITY-02",
+      "group": "Kernel",
+      "scenario": "Same genuine fixture and matching memo schedules across runtimes",
+      "expected": "Byte-identical subject eligibility, selected IDs/reasons/basis/outcomes and attributable counters; actual emitted and Chrome execution.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "RUNTIME_BYTE_AGREEMENT",
+      "evidence": []
+    },
+    {
+      "id": "FULL-01",
+      "group": "Whole C1",
+      "scenario": "Two real principals/roles, stale grant/state, forged direct submission",
+      "expected": "Public subject inspection and advisory result do not bypass authentic ordered grant/fold checks.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/FULL-01"
+      ]
+    },
+    {
+      "id": "FULL-02",
+      "group": "Whole C1",
+      "scenario": "Offline retained accepted subject vs anonymous preview",
+      "expected": "Explicit simulation labels/basis; no authenticated empty-key subject or hypothetical role admission.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "GENUINE_KERNEL_EVIDENCE",
+      "evidence": [
+        "matrix/node26/source/component/result.json:cases/FULL-02"
+      ]
+    },
+    {
+      "id": "FULL-03",
+      "group": "Whole C1",
+      "scenario": "Host/CLI/browser/agent service integration and subject/app switching",
+      "expected": "Reviewed typed shared native document; stale callbacks discarded; no legacy envelope identity shortcut.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "OPEN",
+      "evidence": [],
+      "tracking": {
+        "request": "d2bc70a032ae9f497684a7cfba710fbc9b36868c",
+        "parentRequest": "0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+        "scopeTrace": "f661ee6ff10269b67fcf8f565460ff6f5e50c8f3"
+      }
+    },
+    {
+      "id": "PERF-01",
+      "group": "Characterization",
+      "scenario": "History100/1000/10000, few/many grants, cold/warm/concurrent",
+      "expected": "Actual rows/comparisons/canonical-copy-hash bytes/time/heap; zero selection history reads; report exact refusal, no target/capacity promise.",
+      "sourceStatus": "UNEXECUTED",
+      "disposition": "WORKLOAD_CHARACTERIZATION",
+      "evidence": [],
+      "supersession": "CK-1 source review49d18 adopted56dbcce: unchanged codec/schema, conservative owner precharge bounds, actual rows/candidates/scope and fold counters separately; no exact dependency byte or peak-heap claim."
+    }
+  ]
+}

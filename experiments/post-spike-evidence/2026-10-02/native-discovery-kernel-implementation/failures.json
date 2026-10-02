@@ -1,0 +1,61 @@
+{
+  "approvalPrompts": [],
+  "failures": [
+    {
+      "kind": "tool",
+      "error": "Rejected(\"Failed to create unified exec process: Too many open files (os error 24)\")",
+      "resolution": "Serialized retry succeeded; no escalation or user approval."
+    },
+    {
+      "kind": "inspection",
+      "error": "git rev-parse 18d5: ambiguous short object ID (commit18d5d0d3 and blob18d5de82)",
+      "resolution": "Read exact full commit 18d5d0d3a9414e2b7d39cdaae2a3d5f13ab94bfe."
+    },
+    {
+      "kind": "typecheck",
+      "error": "TS2393 duplicate function implementation grantRow at lines223/320",
+      "resolution": "Named private shared predicate eligibleGrantRow, preserving existing account helper."
+    },
+    {
+      "kind": "typecheck",
+      "error": "TS18048 ledger possibly undefined at line1114; first replacement failed to match formatted source and repeated the error",
+      "resolution": "Used ordinary action precharge loop; final types pass."
+    },
+    {
+      "kind": "patch",
+      "error": "Failed to find expected lines during combined K1-06/test patch; no files changed",
+      "resolution": "Verified no change, corrected the formatted context in separate edit."
+    },
+    {
+      "kind": "runner",
+      "error": "ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX: TypeScript parameter property is not supported in strip-only mode",
+      "resolution": "Used scripts/source-run.mjs; original failed output retained in generator logs."
+    },
+    {
+      "kind": "fixture",
+      "error": "Nonce helper wrapped at256 and produced a real duplicate_retry at1,000 actions",
+      "resolution": "New owned producer uses unique16-byte uint32BE counter nonces. Protected fixtures remain unchanged."
+    },
+    {
+      "kind": "fixture",
+      "error": "native_proof_limit / transient / CAR bytes exceed budget: unpruned few33,643,060B and many36,109,660B exceed32MiB",
+      "resolution": "Retained genuinely reachable original MST nodes and records with unchanged signed roots. Existing limits unchanged; original failed input hashes and logs retained."
+    },
+    {
+      "kind": "inspection",
+      "error": "KeyError: elapsedMs while inspecting measurement wrapper",
+      "resolution": "Read cold/warm.measurement.elapsedMs, not wrapper; no execution results changed."
+    },
+    {
+      "kind": "packet-checker",
+      "error": "FileNotFoundError: /private/tmp/experiments/post-spike-evidence/2026-10-02/native-discovery-kernel-implementation/acceptance-inventory.json",
+      "resolution": "Corrected checker repository ancestor from parents[4] to parents[3]. First packet-check attempt was a checker path error, not a runtime failure."
+    },
+    {
+      "kind": "packet-checker",
+      "error": "ValueError: max-safe genuine-history claim",
+      "resolution": "Made acceptance limitation explicitly say test-only transformed guard, matching the actual evidence and required checker label."
+    }
+  ],
+  "attribution": "These construction, inspection and tool failures precede the successful final matrix. Failed raw inputs are pinned locally in failed-inputs.json; their execution/construction logs are delivered. No failed raw input is claimed as the final accepted fixture."
+}

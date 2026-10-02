@@ -25,7 +25,7 @@ import {
   assertNativeSourceContract,
 } from '../definition/native-source-contract.ts';
 import type { NativeSourceReader, NativeSourceReadOptions } from '../definition/native-source-transport.ts';
-import { AtseqError, ProtocolError } from '../core/errors.ts';
+import { AtseqError, ProtocolError, errorCode } from '../core/errors.ts';
 import { nativeRef, NATIVE_NSID } from '../protocol/native-schema.ts';
 import {
   NativeAnchor,
@@ -35,6 +35,10 @@ import {
   type NativeAssignRole,
   type NativeAct,
   nativeFoldMetadata,
+  nativeFoldMetadataValues,
+  validateNativeAccountDid,
+  validateNativeDeviceKey,
+  validateNativeGrantId,
   type NativeControl,
   type NativeGrant,
   type NativeSignedRequest,
@@ -104,13 +108,16 @@ import {
   nativePrefixEntry,
   nativePrefixCandidate,
   nativePrefixStatus,
+  nativePrefixMethod,
   nativePrefixInventory,
   lookupNativeRetry,
   type NativePrefix,
   type NativePrefixPublication,
 } from './native-prefix.ts';
 import { readNativeValue } from '../protocol/native-wire.ts';
-import { sameBytes, encodeBlock } from '../protocol/wire.ts';
+import { sameBytes, encodeBlock, contentCid, link, WIRE } from '../protocol/wire.ts';
+import { checkpointPayloadIdentity, CHECKPOINT_DATA_BOUNDS } from '../protocol/checkpoint-data.ts';
+import { checkpointAuthorityData } from './checkpoint-authority-data.ts';
 const statePrefixes = new WeakMap<object, NativePrefix>();
 const states = new WeakMap<object, Readonly<NativeAuthoritySnapshot>>();
 export type NativeAuthorityOutcome = { decision: 'effective' } | { decision: 'ineffective'; reason: string };
@@ -309,22 +316,37 @@ function accountOperation(
   return previousEpoch === row.epoch ? ineffective('authority_unchanged') : effective();
 }
 type GrantIdentity = Pick<NativeSignedRequest['intent'], 'principal' | 'actorKey'>;
+type ActionAttempt = Pick<NativeAct, 'action' | 'execution'> & Partial<Pick<NativeAct, 'grant' | 'epoch'>>;
+function eligibleGrantRow(
+  row: AuthorityGrantRow | undefined,
+  principalEpoch: string | null | undefined,
+  identity: GrantIdentity,
+  operation: Partial<Pick<NativeAct, 'grant' | 'epoch'>>,
+): NativeAuthorityOutcome | NativeGrant {
+  if (!row?.grant) return ineffective('grant_unadmitted');
+  if (!operation.grant || !operation.epoch) throw new AtseqError('runtime_fault', 'Admitted grant context missing');
+  if (row.cid !== operation.grant.cid.$link) return ineffective('grant_conflict');
+  if (row.revoked) return ineffective('grant_revoked');
+  if (row.grant.epoch.$link !== operation.epoch.$link || principalEpoch !== operation.epoch.$link)
+    return ineffective('grant_epoch');
+  if (row.grant.actorKey !== identity.actorKey) return ineffective('grant_signer');
+  return row.grant;
+}
 function liveGrant(
   state: NativeAuthoritySnapshot,
   identity: GrantIdentity,
   operation: NativeAssignRole | NativeAct,
 ): NativeAuthorityOutcome | NativeGrant {
   const row = state.grants.find((row) => row.principal === identity.principal && row.id === operation.grant.id);
-  if (!row?.grant) return ineffective('grant_unadmitted');
-  if (row.cid !== operation.grant.cid.$link) return ineffective('grant_conflict');
-  if (row.revoked) return ineffective('grant_revoked');
-  if (
-    row.grant.epoch.$link !== operation.epoch.$link ||
-    state.principals.find((row) => row.principal === identity.principal)?.epoch !== operation.epoch.$link
-  )
-    return ineffective('grant_epoch');
-  if (row.grant.actorKey !== identity.actorKey) return ineffective('grant_signer');
-  return row.grant;
+  // Preserve the ordinary lookup's short circuit and predicate order.
+  const epoch =
+    row?.grant &&
+    !row.revoked &&
+    row.cid === operation.grant.cid.$link &&
+    row.grant.epoch.$link === operation.epoch.$link
+      ? state.principals.find((row) => row.principal === identity.principal)?.epoch
+      : undefined;
+  return eligibleGrantRow(row, epoch, identity, operation);
 }
 function assignment(
   state: NativeAuthoritySnapshot,
@@ -510,8 +532,222 @@ interface ApplicationGeneration {
   outcomeBoundary: number;
   prefix: NativePrefix | null;
 }
+/** Internal kernel data. Supported package/barrel exports remain unchanged. */
+export interface NativeSubjectSelector {
+  principal: string;
+  actorKey: string;
+  grantId?: string;
+}
+export interface NativeDiscoveryLimits {
+  rows?: number;
+  bytes?: number;
+}
+export interface NativeDiscoveryWork {
+  rowVisits: number;
+  candidateVisits: number;
+  scopeComparisons: number;
+  ownerChargedBytes: number;
+  byteAccounting: 'conservative-owner-bounds';
+  memo: 'none' | 'computed' | 'awaited' | 'reused';
+  opaqueAllocations: 'unmeasured';
+}
+export interface NativeActorBasis {
+  app: string;
+  genesis: string;
+  definition: string;
+  frontier: NativeAuthoritySnapshot['frontier'];
+  nextPosition: number;
+  publication: ReturnType<typeof nativePrefixStatus> | null;
+  publicationMethod: ReturnType<typeof nativePrefixMethod> | null;
+  executionAssurance: 'genesis-replay';
+  principalObservation: AuthorityFloor | null;
+  state: string;
+  authority: string;
+}
+export type NativeActionDiscovery = {
+  action: string;
+  execution: string;
+} & (
+  | { kind: 'eligible'; grant: { id: string; cid: string; epoch: string } }
+  | { kind: 'denied'; reason: string }
+  | { kind: 'unavailable'; code: string }
+);
+type LocalUnavailable = { kind: 'unavailable'; code: string; work: NativeDiscoveryWork };
+export type NativeActorDiscovery =
+  | LocalUnavailable
+  | {
+      kind: 'available';
+      label: 'advisory';
+      subject: NativeSubjectSelector;
+      basis: NativeActorBasis;
+      actions: NativeActionDiscovery[];
+      work: NativeDiscoveryWork;
+    };
+export type NativeActorSimulation =
+  | LocalUnavailable
+  | {
+      kind: 'available';
+      label: 'simulation';
+      subject: NativeSubjectSelector;
+      basis: NativeActorBasis;
+      action: NativeActionDiscovery;
+      payload: string;
+      outcome: NativeOutcomeData;
+      successor: Json | null;
+      evaluation: { kind: 'available'; steps: number; inspectedBytes: number } | { kind: 'unavailable' };
+      work: NativeDiscoveryWork;
+    };
+export type NativeActorPreflight =
+  | LocalUnavailable
+  | {
+      kind: 'available';
+      label: 'advisory';
+      subject: NativeSubjectSelector;
+      basis: NativeActorBasis;
+      action: NativeActionDiscovery;
+      payload: string;
+      outcome: NativeOutcomeData;
+      work: NativeDiscoveryWork;
+    };
+interface SubjectFacts {
+  rows: AuthorityGrantRow[];
+  epoch: string | null | undefined;
+  roles: Set<string>;
+  observation: AuthorityFloor | null;
+}
+interface CandidateFacts extends SubjectFacts {
+  row: AuthorityGrantRow | undefined;
+  ledger: DiscoveryLedger;
+}
+interface GenerationCommitments {
+  state: string;
+  authority: string;
+}
+interface CommitmentMemo {
+  promise: Promise<GenerationCommitments>;
+  complete: boolean;
+}
+const generationCommitments = new WeakMap<ApplicationGeneration, CommitmentMemo>();
+const DISCOVERY_ROWS = 100_000,
+  DISCOVERY_BYTES = 16 * 1024 * 1024;
+const discoveryEncoder = new TextEncoder();
+/** Owner policy, not interpretation semantics or a streaming/peak-heap limit.
+ * Codec/schema dependencies remain unchanged. Bounds reserve known owner work;
+ * opaque dependency/engine allocations are explicitly not measured by this ledger. */
+class DiscoveryLedger {
+  rowVisits = 0;
+  candidateVisits = 0;
+  scopeComparisons = 0;
+  ownerChargedBytes = 0;
+  memo: NativeDiscoveryWork['memo'] = 'none';
+  lastCopyBound = 0;
+  readonly rows: number;
+  readonly bytes: number;
+  constructor(options: NativeDiscoveryLimits = {}) {
+    if (
+      !options ||
+      typeof options !== 'object' ||
+      Array.isArray(options) ||
+      Object.getPrototypeOf(options) !== Object.prototype ||
+      Object.getOwnPropertySymbols(options).length
+    )
+      throw new ProtocolError('input', 'Expected plain local discovery limits');
+    for (const key of Object.getOwnPropertyNames(options)) {
+      const property = Object.getOwnPropertyDescriptor(options, key)!;
+      if (!['rows', 'bytes'].includes(key) || !('value' in property) || !property.enumerable)
+        throw new ProtocolError('input', 'Unknown local discovery limit');
+      const maximum = key === 'rows' ? DISCOVERY_ROWS : DISCOVERY_BYTES;
+      if (!Number.isSafeInteger(property.value) || property.value < 1 || property.value > maximum)
+        throw new ProtocolError('input', 'Discovery limits must be smaller positive safe integers');
+    }
+    this.rows = options.rows ?? DISCOVERY_ROWS;
+    this.bytes = options.bytes ?? DISCOVERY_BYTES;
+  }
+  row(candidate = false): void {
+    if (this.rowVisits >= this.rows) throw new AtseqError('content_unavailable', 'Local discovery row budget');
+    this.rowVisits++;
+    if (candidate) this.candidateVisits++;
+  }
+  charge(bytes: number): void {
+    if (!Number.isSafeInteger(bytes) || bytes < 0 || bytes > this.bytes - this.ownerChargedBytes)
+      throw new AtseqError('content_unavailable', 'Local discovery byte budget');
+    this.ownerChargedBytes += bytes;
+  }
+  text(value: unknown, maximum = PROFILE.inputBytes): string {
+    return canonicalJson(value, maximum, 32, (size) => this.charge(size));
+  }
+  copy(value: unknown, maximum = PROFILE.inputBytes): Json {
+    const text = this.text(value, maximum);
+    // UTF-8 output length was charged by canonicalJson; parse ownership gets
+    // a conservative 3x bound from UTF-16 length before the actual parse.
+    this.charge(3 * text.length);
+    this.lastCopyBound = 3 * text.length;
+    return JSON.parse(text) as Json;
+  }
+  raw(value: unknown, maximum: number): Uint8Array {
+    const text = this.text(value, maximum);
+    this.charge(3 * text.length);
+    return discoveryEncoder.encode(text);
+  }
+  schema(knownCanonicalBytes: number): void {
+    // Two passes over supplied data plus one possibly changed result, each
+    // still subject to the existing schema PROFILE.inputBytes cap.
+    this.charge(2 * knownCanonicalBytes + PROFILE.inputBytes);
+  }
+  codec(knownCanonicalBytes: number): void {
+    // Canonical validation, wrappers/link work and conservative CBOR
+    // encode/copy/hash upper bounds. This is not actual encoded byte telemetry.
+    this.charge(8 * knownCanonicalBytes + 4 * WIRE.blockBytes);
+  }
+  checkpoint(rawBytes: number): void {
+    // Reserve each unchanged 32-KiB chunk and the unchanged manifest once.
+    // Frame overhead includes ASCII type/key text and container headers.
+    const chunkFrame = 2 * (NATIVE_NSID.content.length + nativeRef('byteChunk').length) + 128;
+    const manifestFrame = 2 * (NATIVE_NSID.content.length + nativeRef('byteManifest').length) + 128;
+    const chunks = Math.ceil(rawBytes / 32768);
+    let bound = 0;
+    for (let offset = 0; offset < rawBytes; offset += 32768) {
+      const n = Math.min(32768, rawBytes - offset),
+        json = 4 * Math.ceil(n / 3) + chunkFrame;
+      // JSON + base64 checks, raw slice/conversion passes, CBOR copy/hash,
+      // and fixed-size CID formatting. No second framing/encoding is run.
+      bound += 2 * json + 4 * n + 2 * (n + chunkFrame) + 128;
+    }
+    // SHA-256 DAG-CBOR links use fewer than 128 JSON / 64 CBOR bytes each.
+    const manifestJson = manifestFrame + 128 * chunks + String(rawBytes).length;
+    bound += 2 * manifestJson + 2 * (manifestFrame + 64 * chunks) + 128 * (chunks + 1);
+    this.charge(bound);
+  }
+  work(): NativeDiscoveryWork {
+    return {
+      rowVisits: this.rowVisits,
+      candidateVisits: this.candidateVisits,
+      scopeComparisons: this.scopeComparisons,
+      ownerChargedBytes: this.ownerChargedBytes,
+      byteAccounting: 'conservative-owner-bounds',
+      memo: this.memo,
+      opaqueAllocations: 'unmeasured',
+    };
+  }
+}
+function authorityMetadataLength(basis: NativeActorBasis, selector: NativeSubjectSelector, execution: string): number {
+  return 3 * (basis.app.length + basis.genesis.length + selector.principal.length + execution.length) + 128;
+}
 type ProcessInput = Omit<NativePrefixPublication, 'anchor'> & { entry: unknown };
 export interface NativeApplication {
+  discover(subject: unknown, limits?: NativeDiscoveryLimits): Promise<NativeActorDiscovery>;
+  simulate(
+    subject: unknown,
+    action: string,
+    payload: unknown,
+    limits?: NativeDiscoveryLimits,
+  ): Promise<NativeActorSimulation>;
+  preflight(
+    subject: unknown,
+    action: string,
+    payload: unknown,
+    limits?: NativeDiscoveryLimits,
+  ): Promise<NativeActorPreflight>;
   snapshot(): NativeApplicationProjection;
   prefix(): NativePrefix | null;
   publication(): ReturnType<typeof nativePrefixStatus> | null;
@@ -572,15 +808,30 @@ class NativeApplicationOwner {
     if (this.#current !== base)
       throw new AtseqError('runtime_fault', 'Native application generation changed during interpretation');
   }
+  #retained(base: ApplicationGeneration, ledger?: DiscoveryLedger): void {
+    this.#healthy();
+    if (base.prefix && ledger) ledger.charge(8 * (this.anchor.genesis.app.length + this.anchor.cid.length + 1024));
+    if (base.prefix && nativePrefixStatus(base.prefix).contradiction)
+      throw new AtseqError('content_unavailable', 'Captured native publication is contradicted');
+  }
   #actionGate(
     source: NativeSourceDefinition,
     authority: NativeAuthoritySnapshot,
     identity: GrantIdentity,
-    action: NativeAct,
+    action: ActionAttempt,
+    prepared?: CandidateFacts,
   ): { outcome: NativeOutcomeData } | { selected: NonNullable<ReturnType<typeof nativeSourceAction>> } {
-    const grant = liveGrant(authority, identity, action);
+    if (prepared) prepared.ledger.row(true);
+    const grant = prepared
+      ? eligibleGrantRow(prepared.row, prepared.epoch, identity, action)
+      : liveGrant(authority, identity, action as NativeAct);
     if ('decision' in grant) return { outcome: authorityOutcome(grant) };
-    if (!grant.actions.some((pair) => pair.action === action.action && pair.execution.$link === action.execution.$link))
+    if (
+      !grant.actions.some((pair) => {
+        if (prepared) prepared.ledger.scopeComparisons++;
+        return pair.action === action.action && pair.execution.$link === action.execution.$link;
+      })
+    )
       return { outcome: framework('grant_scope') };
     const selected = nativeSourceAction(source, action.action);
     if (!selected) return { outcome: framework('unknown_action') };
@@ -589,11 +840,30 @@ class NativeApplicationOwner {
     const rule = authorization.authorization;
     if (
       rule.$type === nativeRef('requiredRole') &&
-      !authority.roles.some((row) => row.principal === identity.principal && row.role === rule.role && row.enabled)
+      !(prepared
+        ? prepared.roles.has(rule.role!)
+        : authority.roles.some((row) => row.principal === identity.principal && row.role === rule.role && row.enabled))
     )
       return { outcome: framework('role_missing') };
     if (facts.execution !== action.execution.$link) return { outcome: framework('execution_changed') };
     return { selected };
+  }
+  #actionInput(
+    source: NativeSourceDefinition,
+    selected: NonNullable<ReturnType<typeof nativeSourceAction>>,
+    payload: Json,
+    ledger?: DiscoveryLedger,
+    canonicalBytes?: number,
+  ): NativeOutcomeData | null {
+    if (ledger) ledger.schema(canonicalBytes!);
+    let inputDenied = false;
+    try {
+      validateNativeSourceAction(source, selected, payload);
+    } catch (error) {
+      if (!stageError(error, Object.keys(NATIVE_FOLD_FAILURE_STAGES.inputSchema))) throw error;
+      inputDenied = true;
+    }
+    return inputDenied ? framework('invalid_action') : null;
   }
   async #action(
     base: ApplicationGeneration,
@@ -602,23 +872,21 @@ class NativeApplicationOwner {
     identity: GrantIdentity,
     action: NativeAct,
     metadata: Record<string, Json>,
+    guard: 'ordered' | 'retained',
+    prepared?: CandidateFacts,
+    ledger?: DiscoveryLedger,
+    canonicalBytes?: number,
   ): Promise<{
     outcome: NativeOutcomeData;
     successor: Json | null;
     evaluation: { steps: number; inspectedBytes: number } | null;
   }> {
-    const gate = this.#actionGate(base.source, authority, identity, action);
+    const gate = this.#actionGate(base.source, authority, identity, action, prepared);
     if ('outcome' in gate) return { outcome: gate.outcome, successor: null, evaluation: null };
     // Program/metadata retrieval and the caller's stored-state ownership stay outside stage catches.
     const program = nativeSourceActionFold(gate.selected);
-    let inputDenied = false;
-    try {
-      validateNativeSourceAction(base.source, gate.selected, action.payload);
-    } catch (error) {
-      if (!stageError(error, Object.keys(NATIVE_FOLD_FAILURE_STAGES.inputSchema))) throw error;
-      inputDenied = true;
-    }
-    if (inputDenied) return { outcome: framework('invalid_action'), successor: null, evaluation: null };
+    const inputDenied = this.#actionInput(base.source, gate.selected, action.payload, ledger, canonicalBytes);
+    if (inputDenied) return { outcome: inputDenied, successor: null, evaluation: null };
     let evaluated: Awaited<ReturnType<typeof foldEvaluation>> | undefined;
     let foldDenied: NativeOutcomeData | undefined;
     try {
@@ -627,13 +895,15 @@ class NativeApplicationOwner {
       if (!stageError(error, NATIVE_FOLD_FAILURE_STAGES.evaluateAndFold)) throw error;
       foldDenied = framework(`fold_failed/${error.code}`);
     }
-    this.#same(base);
+    if (guard === 'ordered') this.#same(base);
+    else this.#retained(base, ledger);
     if (foldDenied) return { outcome: foldDenied, successor: null, evaluation: null };
     const result = evaluated!.result;
     const evaluation = { steps: evaluated!.steps, inspectedBytes: evaluated!.inspectedBytes };
     if (result.decision === 'ineffective')
       return { outcome: deepFreeze(readNativeOutcome({ ...result, source: 'fold' })), successor: null, evaluation };
     let stateDenied: NativeOutcomeData | undefined;
+    if (ledger) ledger.schema(PROFILE.stateBytes);
     try {
       validateNativeSourceState(base.source, result.state);
     } catch (error) {
@@ -645,6 +915,346 @@ class NativeApplicationOwner {
       successor: stateDenied ? null : result.state,
       evaluation,
     };
+  }
+  #selector(value: unknown, ledger: DiscoveryLedger): NativeSubjectSelector {
+    const selector = ledger.copy(value) as unknown as NativeSubjectSelector;
+    if (
+      !selector ||
+      typeof selector !== 'object' ||
+      Array.isArray(selector) ||
+      Object.keys(selector).some((name) => !['principal', 'actorKey', 'grantId'].includes(name)) ||
+      typeof selector.principal !== 'string' ||
+      typeof selector.actorKey !== 'string' ||
+      selector.actorKey.length > 128
+    )
+      throw new ProtocolError('input', 'Expected a complete principal/device selector');
+    validateNativeAccountDid(selector.principal);
+    if (selector.grantId !== undefined) validateNativeGrantId(selector.grantId);
+    // Existing native key shape cap; reserve small representation/point-input
+    // passes before the unchanged maintained key validator/crypto dependency.
+    ledger.charge(16 * selector.actorKey.length);
+    return selector;
+  }
+  #subject(
+    selector: NativeSubjectSelector,
+    authority: Readonly<NativeAuthoritySnapshot>,
+    ledger: DiscoveryLedger,
+  ): SubjectFacts {
+    const facts: SubjectFacts = { rows: [], epoch: undefined, roles: new Set(), observation: null };
+    for (const row of authority.principals) {
+      ledger.row();
+      if (row.principal === selector.principal) {
+        facts.epoch = row.epoch;
+        facts.observation = row.observation;
+      }
+    }
+    for (const row of authority.roles) {
+      ledger.row();
+      if (row.principal === selector.principal && row.enabled) {
+        ledger.charge(3 * row.role.length);
+        facts.roles.add(row.role);
+      }
+    }
+    for (const row of authority.grants) {
+      ledger.row();
+      if (
+        row.principal === selector.principal &&
+        (selector.grantId === undefined ? row.grant !== null : row.id === selector.grantId)
+      ) {
+        ledger.charge(16); // Conservative reference-collection work, not heap telemetry.
+        facts.rows.push(row);
+      }
+    }
+    return facts;
+  }
+  #authorityRows(authority: Readonly<NativeAuthoritySnapshot>, ledger: DiscoveryLedger): void {
+    ledger.row();
+    for (const row of authority.control.appointments) {
+      ledger.row();
+      for (const _ of row.powers) ledger.row();
+    }
+    for (const _ of authority.roles) ledger.row();
+    for (const row of authority.principals) {
+      ledger.row();
+      for (const _ of row.epochs) ledger.row();
+      if (row.observation) ledger.row();
+    }
+    for (const row of authority.grants) {
+      ledger.row();
+      if (row.grant) {
+        ledger.row();
+        for (const _ of row.grant.actions) ledger.row();
+        for (const _ of row.grant.assignRoles) ledger.row();
+      }
+    }
+  }
+  async #commitments(base: ApplicationGeneration, ledger: DiscoveryLedger): Promise<GenerationCommitments> {
+    const existing = generationCommitments.get(base);
+    if (existing) {
+      ledger.memo = existing.complete ? 'reused' : 'awaited';
+      return existing.promise;
+    }
+    ledger.memo = 'computed';
+    const memo: CommitmentMemo = { complete: false, promise: undefined! };
+    memo.promise = Promise.resolve()
+      .then(async () => {
+        const authority = stateData(base.authority);
+        this.#retained(base, ledger);
+        this.#authorityRows(authority, ledger);
+        const state = ledger.raw(base.domain, PROFILE.stateBytes);
+        const compact = ledger.raw(checkpointAuthorityData(authority), CHECKPOINT_DATA_BOUNDS.payloadBytes);
+        ledger.checkpoint(state.length);
+        const stateCid = await checkpointPayloadIdentity(state);
+        this.#retained(base, ledger);
+        ledger.checkpoint(compact.length);
+        const authorityCid = await checkpointPayloadIdentity(compact);
+        this.#retained(base, ledger);
+        memo.complete = true;
+        return Object.freeze({ state: stateCid, authority: authorityCid });
+      })
+      .catch((error) => {
+        if (generationCommitments.get(base) === memo) generationCommitments.delete(base);
+        throw error;
+      });
+    generationCommitments.set(base, memo);
+    return memo.promise;
+  }
+  async #basis(base: ApplicationGeneration, facts: SubjectFacts, ledger: DiscoveryLedger): Promise<NativeActorBasis> {
+    this.#retained(base, ledger);
+    const authority = stateData(base.authority);
+    if (!Number.isSafeInteger(authority.frontier.position + 1))
+      throw new AtseqError('content_unavailable', 'No safe simulated successor position');
+    if (base.prefix) ledger.charge(8 * (this.anchor.genesis.app.length + this.anchor.cid.length + 1024));
+    const publication = base.prefix ? nativePrefixStatus(base.prefix) : null;
+    // Fixed-size metadata copy plus owned principal floor are charged in result
+    // ownership; there is no identity evidence/history inventory copy here.
+    const commitments = await this.#commitments(base, ledger);
+    this.#retained(base, ledger);
+    return {
+      app: authority.app,
+      genesis: authority.genesis,
+      definition: authority.activeDefinition,
+      frontier: { ...authority.frontier },
+      nextPosition: authority.frontier.position + 1,
+      publication,
+      publicationMethod: base.prefix ? nativePrefixMethod(base.prefix) : null,
+      executionAssurance: 'genesis-replay',
+      principalObservation: facts.observation,
+      ...commitments,
+    };
+  }
+  #select(
+    base: ApplicationGeneration,
+    selector: NativeSubjectSelector,
+    facts: SubjectFacts,
+    name: string,
+    ledger: DiscoveryLedger,
+  ): { result: NativeActionDiscovery; attempt: ActionAttempt; prepared: CandidateFacts } {
+    const sourceAction = nativeSourceAction(base.source, name);
+    if (!sourceAction) throw new ProtocolError('input', 'Action is absent from admitted definition');
+    const execution = readNativeSourceAction(sourceAction).execution;
+    const action = { action: name, execution: link(execution) };
+    let first: NativeOutcomeData | undefined;
+    const authority = stateData(base.authority);
+    for (const row of facts.rows) {
+      const attempt: ActionAttempt = row.grant
+        ? {
+            ...action,
+            grant: { id: row.id, cid: link(row.cid!) },
+            epoch: row.grant.epoch,
+          }
+        : action;
+      const prepared: CandidateFacts = { ...facts, row, ledger };
+      const gate = this.#actionGate(base.source, authority, selector, attempt, prepared);
+      if (!('outcome' in gate))
+        return {
+          result: {
+            ...action,
+            execution,
+            kind: 'eligible',
+            grant: {
+              id: row.id,
+              cid: row.cid!,
+              epoch: row.grant!.epoch.$link,
+            },
+          },
+          attempt,
+          prepared,
+        };
+      first ??= gate.outcome;
+    }
+    const prepared: CandidateFacts = { ...facts, row: facts.rows[0], ledger };
+    // No fabricated grant CID/context is used for missing or tombstoned rows.
+    const reason = first && first.decision === 'ineffective' ? first.reason : 'grant_unadmitted';
+    return { result: { ...action, execution, kind: 'denied', reason }, attempt: action, prepared };
+  }
+  #unavailable(error: unknown, ledger?: DiscoveryLedger): LocalUnavailable {
+    return {
+      kind: 'unavailable',
+      code: errorCode(error),
+      work: ledger
+        ? ledger.work()
+        : {
+            rowVisits: 0,
+            candidateVisits: 0,
+            scopeComparisons: 0,
+            ownerChargedBytes: 0,
+            byteAccounting: 'conservative-owner-bounds',
+            memo: 'none',
+            opaqueAllocations: 'unmeasured',
+          },
+    };
+  }
+  async discover(value: unknown, limits?: NativeDiscoveryLimits): Promise<NativeActorDiscovery> {
+    let ledger: DiscoveryLedger | undefined;
+    try {
+      this.#healthy();
+      ledger = new DiscoveryLedger(limits);
+      // Own caller input and capture genuine current state before the first await.
+      const selector = this.#selector(value, ledger);
+      const base = this.#current;
+      const facts = this.#subject(selector, stateData(base.authority), ledger);
+      const declaredActions: { action: string; execution: string }[] = [];
+      for (const declared of readNativeSourceDefinition(base.source).manifest.actions) {
+        ledger.row();
+        declaredActions.push({
+          action: declared.ref,
+          execution: readNativeSourceAction(nativeSourceAction(base.source, declared.ref)!).execution,
+        });
+      }
+      await validateNativeDeviceKey(selector.actorKey);
+      this.#retained(base, ledger);
+      const basis = await this.#basis(base, facts, ledger);
+      const actions: NativeActionDiscovery[] = [];
+      let exhausted = false;
+      for (const declared of declaredActions) {
+        if (exhausted) {
+          actions.push({ ...declared, kind: 'unavailable', code: 'content_unavailable' });
+          continue;
+        }
+        try {
+          actions.push(this.#select(base, selector, facts, declared.action, ledger).result);
+        } catch (error) {
+          if (!(error instanceof AtseqError) || error.code !== 'content_unavailable') throw error;
+          exhausted = true;
+          actions.push({ ...declared, kind: 'unavailable', code: error.code });
+        }
+      }
+      this.#retained(base, ledger);
+      const result = ledger.copy({
+        kind: 'available',
+        label: 'advisory',
+        subject: selector,
+        basis,
+        actions,
+      }) as unknown as Omit<Extract<NativeActorDiscovery, { kind: 'available' }>, 'work'>;
+      this.#retained(base, ledger);
+      return { ...result, work: ledger.work() };
+    } catch (error) {
+      return this.#unavailable(error, ledger);
+    }
+  }
+  async #readAction(
+    value: unknown,
+    name: string,
+    payload: unknown,
+    limits: NativeDiscoveryLimits | undefined,
+    operation: 'simulate' | 'preflight',
+  ): Promise<NativeActorSimulation | NativeActorPreflight> {
+    let ledger: DiscoveryLedger | undefined;
+    try {
+      this.#healthy();
+      ledger = new DiscoveryLedger(limits);
+      const ownedName = ledger.copy(name);
+      if (typeof ownedName !== 'string') throw new ProtocolError('input', 'Expected action reference');
+      const ownedPayload = ledger.copy(payload, WIRE.jsonBytes);
+      const payloadBound = ledger.lastCopyBound;
+      const selector = this.#selector(value, ledger);
+      const base = this.#current;
+      const facts = this.#subject(selector, stateData(base.authority), ledger);
+      await validateNativeDeviceKey(selector.actorKey);
+      this.#retained(base, ledger);
+      const basis = await this.#basis(base, facts, ledger);
+      ledger.row();
+      const selected = this.#select(base, selector, facts, ownedName, ledger);
+      ledger.codec(payloadBound);
+      const payloadCid = await contentCid(ownedPayload);
+      this.#retained(base, ledger);
+      let outcome: NativeOutcomeData,
+        successor: Json | null = null;
+      let evaluation: Extract<NativeActorSimulation, { kind: 'available' }>['evaluation'] = { kind: 'unavailable' };
+      if (selected.result.kind === 'denied') outcome = framework(selected.result.reason);
+      else if (selected.result.kind !== 'eligible') throw new AtseqError('content_unavailable', 'Action unavailable');
+      else {
+        const action = { $type: nativeRef('act'), ...selected.attempt, payload: ownedPayload } as NativeAct;
+        if (operation === 'preflight') {
+          const gate = this.#actionGate(base.source, stateData(base.authority), selector, action, selected.prepared);
+          outcome =
+            'outcome' in gate
+              ? gate.outcome
+              : (this.#actionInput(base.source, gate.selected, ownedPayload, ledger, payloadBound) ??
+                deepFreeze({ decision: 'effective' }));
+        } else {
+          const domain = ledger.copy(base.domain, PROFILE.stateBytes);
+          ledger.charge(4 * authorityMetadataLength(basis, selector, selected.result.execution));
+          const acted = await this.#action(
+            base,
+            stateData(base.authority),
+            domain,
+            selector,
+            action,
+            nativeFoldMetadataValues({
+              app: basis.app,
+              genesis: basis.genesis,
+              position: basis.nextPosition,
+              principal: selector.principal,
+              execution: selected.result.execution,
+            }),
+            'retained',
+            selected.prepared,
+            ledger,
+            payloadBound,
+          );
+          outcome = acted.outcome;
+          successor = acted.successor;
+          if (acted.evaluation) evaluation = { kind: 'available', ...acted.evaluation };
+        }
+      }
+      this.#retained(base, ledger);
+      const common = {
+        kind: 'available',
+        subject: selector,
+        basis,
+        action: selected.result,
+        payload: payloadCid,
+        outcome,
+      };
+      const result = ledger.copy(
+        operation === 'simulate'
+          ? { ...common, label: 'simulation', successor, evaluation }
+          : { ...common, label: 'advisory' },
+      ) as unknown as Omit<Extract<NativeActorSimulation | NativeActorPreflight, { kind: 'available' }>, 'work'>;
+      this.#retained(base, ledger);
+      return { ...result, work: ledger.work() } as NativeActorSimulation | NativeActorPreflight;
+    } catch (error) {
+      return this.#unavailable(error, ledger);
+    }
+  }
+  simulate(
+    subject: unknown,
+    action: string,
+    payload: unknown,
+    limits?: NativeDiscoveryLimits,
+  ): Promise<NativeActorSimulation> {
+    return this.#readAction(subject, action, payload, limits, 'simulate') as Promise<NativeActorSimulation>;
+  }
+  preflight(
+    subject: unknown,
+    action: string,
+    payload: unknown,
+    limits?: NativeDiscoveryLimits,
+  ): Promise<NativeActorPreflight> {
+    return this.#readAction(subject, action, payload, limits, 'preflight') as Promise<NativeActorPreflight>;
   }
   #projection(
     generation: ApplicationGeneration,
@@ -770,6 +1380,7 @@ class NativeApplicationOwner {
               signed.intent,
               op as NativeAct,
               nativeFoldMetadata(data.entry),
+              'ordered',
             );
             outcome = acted.outcome;
             if (acted.successor !== null) nextDomain = acted.successor;
@@ -930,6 +1541,11 @@ export async function openNativeApplication(options: {
   if (persist) await persist(owner.snapshot());
   // A frozen facade hides the nonexported runtime constructor and every private capture.
   return Object.freeze({
+    discover: (subject: unknown, limits?: NativeDiscoveryLimits) => owner.discover(subject, limits),
+    simulate: (subject: unknown, action: string, payload: unknown, limits?: NativeDiscoveryLimits) =>
+      owner.simulate(subject, action, payload, limits),
+    preflight: (subject: unknown, action: string, payload: unknown, limits?: NativeDiscoveryLimits) =>
+      owner.preflight(subject, action, payload, limits),
     snapshot: () => owner.snapshot(),
     prefix: () => owner.prefix(),
     publication: () => owner.publication(),

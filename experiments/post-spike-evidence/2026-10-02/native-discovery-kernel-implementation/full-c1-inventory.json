@@ -1,0 +1,105 @@
+{
+  "format": "atseq-task-obligation-inventory",
+  "version": 1,
+  "fullRequest": "0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+  "fullPromise": "728114bfcac11de35b60fca2ed90a9ff7e97a260",
+  "fullC1Closed": false,
+  "obligations": [
+    {
+      "id": "C1-01",
+      "requirement": "Advisory vs ordered authority",
+      "disposition": "K2/K3; eventual real ordering rechecks explicit signed grant.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "IMPLEMENTED_KERNEL_BOUNDARY",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-02",
+      "requirement": "Denied vs unavailable and complete accepted state",
+      "disposition": "K1/K2/K4; no denied partial search.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "IMPLEMENTED_KERNEL_BOUNDARY",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-03",
+      "requirement": "Payload-dependent authority and shared deterministic evaluator",
+      "disposition": "K3; one actual fold, no hint/allow semantics.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "IMPLEMENTED_KERNEL_BOUNDARY",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-04",
+      "requirement": "Two principals/roles and stale grants/state",
+      "disposition": "Genuine kernel fixtures plus ordered host integration.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "KERNEL_EVIDENCE_PLUS_OPEN_INTEGRATION",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-05",
+      "requirement": "Forged/direct submissions and no caller role union",
+      "disposition": "Shared ordered predicates remain authoritative.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "IMPLEMENTED_KERNEL_BOUNDARY",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-06",
+      "requirement": "Offline authenticated-subject vs anonymous preview labels",
+      "disposition": "K3 plus client/UI documentation; no empty-key participant.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "KERNEL_EVIDENCE_PLUS_OPEN_INTEGRATION",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-07",
+      "requirement": "Node/Chrome actual byte agreement and emitted production",
+      "disposition": "PARITY vectors and frozen foundation gate.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "IMPLEMENTED_KERNEL_BOUNDARY",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-08",
+      "requirement": "Versioned shared typed native document/service-execution identity",
+      "disposition": "Separate reviewed native service envelope; B0 lean shape preserved.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "OPEN",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-09",
+      "requirement": "Host direct gate/input preflight and TOCTOU ordering",
+      "disposition": "No preflight full action mode; host/ordering task still required.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "KERNEL_EVIDENCE_PLUS_OPEN_INTEGRATION",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-10",
+      "requirement": "Browser/CLI/agent subject controls and stale callbacks",
+      "disposition": "Future client integration, not closed by kernel.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "OPEN",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-11",
+      "requirement": "Dated results/workload recommendations/unrun limitations",
+      "disposition": "This source packet plus actual implementation reports/characterization.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "IMPLEMENTED_KERNEL_BOUNDARY",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    },
+    {
+      "id": "C1-12",
+      "requirement": "Independent design and exact-head implementation review",
+      "disposition": "Root-owned atseq-reviewer process before code/merge; whole C1 stays open.",
+      "sourceRuntimeStatus": "UNEXECUTED",
+      "kernelDisposition": "SOURCE_REVIEW_SATISFIED_EXACT_HEAD_CODE_REVIEW_PENDING",
+      "fullTaskClosure": "OPEN under full C1 request; child delivery never closes full obligation."
+    }
+  ]
+}

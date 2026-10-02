@@ -1,0 +1,75 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected request at depth 12842: decision effective, 3 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "6a2187cb8aa5b0790a16679b2f4a58406c212b49",
+      "depth": 12842
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d2bc70a032ae9f497684a7cfba710fbc9b36868c",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d2bc70a032ae9f497684a7cfba710fbc9b36868c",
+      "sequence": 12840,
+      "timestamp": 1790958107,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "C1-F2: fulfill the original FULL-03 actor-specific discovery integration with genuine native typed service, host, CLI/library, browser and agent-facing shared discovery document. Keep one owner/evaluator and ordered gate; integrate with actual native NH/A1/P3/P4 startup routes rather than old spike sequencer or an empty-key facade. Design departures or necessary new public API require independent source review; implement once owned kernel and native host seams are frozen. Demonstrate two real principals, role/grant reasons, payload-dependent advisory affordances, stale or forged submission refusal, unavailable versus denied, labeled simulation/offline preview, truthful origin/method assurance and current authority at dispatch. Produce dated guidance/results, source/emitted Node and actual Chromium/packed/offline route evidence. Full C1 remains open until every original obligation is met.",
+      "body": {
+        "conditions": "Preserve all40 source vectors, all12 fullC1 obligations and exact frozen R1 oracle. Verify actual service/client/CLI/browser/agent route reachability and versioned shared document, not exports alone. Same private discovery and transition engine; no new caller permission, possession claim, empty-key authenticated participation, authority override or public meter. Recheck actual identity/grant/source/state/floors at ordered dispatch. Independent atseq-reviewer exact source decisions and delivery review; root publishes, governed merges and pushes. Full access/never omit sandbox_permissions; no routine user confirmation. Do not mutate frozen kernel or active shared owner without explicit handoff; initial gaps and unrun cases retained.",
+        "dependencies": "Frozen reviewed C1 kernel; actual native NH/A1/A2 writer and publisher; P3/P4 actual host/browser startup as applicable. Coordinate P4-F7 route owner.",
+        "package": "C1-F2 FULL-03 integration",
+        "parent_conditions_verbatim": "Begin design now; gate implementation on I2 principal/grant state and independent review. Specify advisory affordance versus ordered precondition, denied versus unavailable and payload-dependent authority limits. Use one versioned shared discovery document and deterministic evaluator; retain fold authority. Test two principals, stale grants/state, forged submissions, offline preview and Node/browser agreement. Preview must be labelled simulation, not authenticated empty-key participation. Publish dated notes/results evidence and recommendations, record unrun limitations, and use atseq-reviewer for decisions and deliveries.",
+        "stale_bases": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f7767633412fd7509b6f7cdad8e55a1cf84ee682 stale; retired bases: git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:005de060a210f5e706cd48cb8ae04e5a00c4e1a7, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:02409e2640ad4fb4d48814ba4f06a8952c3bc7b4, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0258af2e6b5110f193d143bfb2a08b88bee488f8, git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:033a0c44720e3a4f7e3025cfe37de2a493f4955f and 199 more",
+        "target_head": "1db5e12fbfe8ea2b478ccfacd132abc522284f08",
+        "target_ref": "refs/heads/main",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      },
+      "stale": true,
+      "stale_because_truncated": true
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d2bc70a032ae9f497684a7cfba710fbc9b36868c",
+      "sequence": 12840,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d2bc70a032ae9f497684a7cfba710fbc9b36868c",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "addressed_to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "status": "stale",
+      "stale": true,
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main"
+    },
+    "landing": {
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main",
+      "git": {
+        "measured_at": 1790959136,
+        "state": "unknown",
+        "target_head": "8e1702b01ab3bf1ef1761857f7199654903f121b",
+        "ref_incorporated": null,
+        "remote": "origin",
+        "remote_ref": "refs/remotes/origin/main",
+        "remote_head": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+        "remote_contains": null,
+        "reason": "no witnessed merge head was supplied; ancestry is unknown"
+      }
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f661ee6ff10269b67fcf8f565460ff6f5e50c8f3",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f7767633412fd7509b6f7cdad8e55a1cf84ee682"
+    ]
+  },
+  "isError": false
+}

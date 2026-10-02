@@ -1,0 +1,70 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected request at depth 12342: decision effective, 2 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "cb7ebeb83836898a36073d56dfcefe51485c33c9",
+      "depth": 12342
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+      "sequence": 5784,
+      "timestamp": 1790861720,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "C1: Design and implement actor-specific discovery. Begin design now; gate implementation on I2 principal/grant state and independent review. Specify advisory affordance versus ordered precondition, denied versus unavailable and payload-dependent authority limits. Use one versioned shared discovery document and deterministic evaluator; retain fold authority. Test two principals, stale grants/state, forged submissions, offline preview and Node/browser agreement. Preview must be labelled simulation, not authenticated empty-key participation.",
+      "body": {
+        "conditions": "Begin design now; gate implementation on I2 principal/grant state and independent review. Specify advisory affordance versus ordered precondition, denied versus unavailable and payload-dependent authority limits. Use one versioned shared discovery document and deterministic evaluator; retain fold authority. Test two principals, stale grants/state, forged submissions, offline preview and Node/browser agreement. Preview must be labelled simulation, not authenticated empty-key participation. Publish dated notes/results evidence and recommendations, record unrun limitations, and use atseq-reviewer for decisions and deliveries.",
+        "package": "C1",
+        "target_head": "824527132a6cfc6099d57685d37320e37f99ee4e",
+        "target_ref": "refs/heads/main",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+      "sequence": 5784,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:728114bfcac11de35b60fca2ed90a9ff7e97a260",
+      "status": "promised",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main"
+    },
+    "landing": {
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main",
+      "git": {
+        "measured_at": 1790951627,
+        "state": "unknown",
+        "target_head": "5006a5c6489ce348944a85d158dfe89fd979099c",
+        "ref_incorporated": null,
+        "remote": "origin",
+        "remote_ref": "refs/remotes/origin/main",
+        "remote_head": "316439928e0c0d41965b086f2dace19a9249dba7",
+        "remote_contains": null,
+        "reason": "no witnessed merge head was supplied; ancestry is unknown"
+      }
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:47004674716dd7847a3737820da5db1938ec23cf",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:4f823d991e799c494492d21e5477f2ee968cb4ba"
+    ]
+  },
+  "isError": false
+}

@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected request at depth 12604: decision effective, 4 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "d859324b5fa6958809c1f38e537ef55055c81068",
+      "depth": 12604
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:43e09c95a94f5c5e997b229d990b130e32c99ae4",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:43e09c95a94f5c5e997b229d990b130e32c99ae4",
+      "sequence": 12603,
+      "timestamp": 1790954917,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "request",
+      "lifecycle": "request",
+      "satisfier": "none",
+      "text": "c1kernel complete reviewed implementation stage; separate file ownership permits parallel work. Root owns exact review and governed landing; full parent scope retained.",
+      "body": {
+        "conditions": "Implement independently satisfied C1-D4 K1/K2/K3/K5 and reviewerCK-1 K4 simplification inside genuine existingNativeApplicationOwner. One capture/currentstateData private no snapshot/authorityfactory; fixedhead/frontier/source/originlabels; noCallerrole orpossessionclaim. Chargedsubjectgrantrows preparedonce inIDorder, one sharedrowlevelpredicate preservingordinarylookup/gateprecedence; firsteligible onegrantperaction/no union, firstreason whenallfail. Directgate+input preflight nofullaction/stoppingmode; samefullaction ordered/simulation with fixedliteral ownerguard atcallsites (#sameordered versuscapturedhealth/contradiction retained), exacttypedfailures/metadata5/actualoncefold counters/unknownnotzero, ownedpayload/result/noeffects. GenerationWeakMap successful-or-pending pair exactfailureentrydelete/no autoRetry, prefixonly newgenerationcold. Adopt CK-1 conservative PRIVATEOWNER precharges usingdocumentedexistingcaps/knowncanonicallength/passcopyhash upperbounds; sharedwirecodec/checkpointframing/schema validator/signatures unchanged. Conservativeaccountedbounds distinct fromactual measuredfold/row/comparison work, unknownopaqueallocation andrealheap; no16MiBheapclaim. SamecheckpointPayloadIdentity twoCIDcommitments andnarrowcompact authorityproducer existingfields, optional selectedrootmethodclass DATAaccessor only iflabelreturned. Execute all40 proposedvectors/applicableall12 originalfullC1obligations; genuine2principals/roles/manygrant/tombstone/filter/allreasons/payloadconditional/stalesubmission/healthrace/memofailure/waiters/budget/ownership/offlinelabel fixtures, actualpublicowner route. Immediatefrozen58/24beforeafter sourceNode22/24/26+actualChrome,58actualemittedcases andunchanged8371247B R1oracle NEVER regenerated; newgenuine source/dist/Chrome componentbytes/counters agreement. Actual100/1k/10k fewmanygrants coldwarmconcurrent characterization rows/comparisons/conservativecharge/actualtimeheap/refusals no targets. Retain originalfailedattempts/source/buildphysicalpins anddatednotes/results. Independent exacthead code review beforemergepush. Fulltypedservice/host/browser/CLI/agentdocs/offlinecontrols/P3P4joins remaintracked/open; kernelchildnotfullC1closure. Concreteimplementation departures beyondreviewedchoice workroomreviewbeforedependentcode; no public meter/callerpermission/callback/newdeps/exportspackagemain changes. Include exactacceptedproposal andfullobligationinventory.",
+        "target_head": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+        "target_ref": "refs/heads/main",
+        "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+        "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:43e09c95a94f5c5e997b229d990b130e32c99ae4",
+      "sequence": 12603,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "commitment": {
+      "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:43e09c95a94f5c5e997b229d990b130e32c99ae4",
+      "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:d859324b5fa6958809c1f38e537ef55055c81068",
+      "status": "promised",
+      "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main"
+    },
+    "landing": {
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "target_ref": "refs/heads/main",
+      "git": {
+        "measured_at": 1790954987,
+        "state": "unknown",
+        "target_head": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+        "ref_incorporated": null,
+        "remote": "origin",
+        "remote_ref": "refs/remotes/origin/main",
+        "remote_head": "18d5d0d3a9414e2b7d39cdaae2a3d5f13ab94bfe",
+        "remote_contains": null,
+        "reason": "no witnessed merge head was supplied; ancestry is unknown"
+      }
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:728114bfcac11de35b60fca2ed90a9ff7e97a260",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:49d18a1d768be2f418052ac65dddc0ed026de440",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:56dbcce86e225022320e06d48de83978353a6be3"
+    ]
+  },
+  "isError": false
+}
