@@ -1,0 +1,1 @@
+{"version":3,"file":"lease.d.ts","sourceRoot":"","sources":["../../../src/host/lease.ts"],"names":[],"mappings":"AAKA,MAAM,WAAW,WAAW;IAC1B,QAAQ,IAAI,OAAO,CAAC;IACpB,QAAQ,CAAC,KAAK,EAAE,OAAO,GAAG,IAAI,CAAC;IAC/B,KAAK,IAAI,IAAI,CAAC;CACf;AACD,uFAAuF;AACvF,wBAAgB,kBAAkB,CAAC,SAAS,EAAE,MAAM,EAAE,GAAG,EAAE,MAAM,GAAG,WAAW,CA+B9E"}

@@ -1,0 +1,16 @@
+file:///private/tmp/atseq-native-account-writer-owned-upload-aw-f3-20261002/.atseq-local/aw-f3/packed/package/dist/src/integrity/node.js:17
+    throw new InterpretationError('dependency_mismatch', message);
+          ^
+
+InterpretationError: Unapproved resolved dependency: node_modules/@atcute/car -> @atcute/cbor
+    at fail (file:///private/tmp/atseq-native-account-writer-owned-upload-aw-f3-20261002/.atseq-local/aw-f3/packed/package/dist/src/integrity/node.js:17:11)
+    at checkInstalledDependencies (file:///private/tmp/atseq-native-account-writer-owned-upload-aw-f3-20261002/.atseq-local/aw-f3/packed/package/dist/src/integrity/node.js:140:17)
+    at verifyInstalledDependencies (file:///private/tmp/atseq-native-account-writer-owned-upload-aw-f3-20261002/.atseq-local/aw-f3/packed/package/dist/src/integrity/node.js:178:9)
+    at assertDependencies (file:///private/tmp/atseq-native-account-writer-owned-upload-aw-f3-20261002/.atseq-local/aw-f3/packed/package/dist/src/core/dependencies.js:409:9)
+    at loadNodeOAuthAdapter (file:///private/tmp/atseq-native-account-writer-owned-upload-aw-f3-20261002/.atseq-local/aw-f3/packed/package/dist/src/host/oauth-loader.js:4:5)
+    at file:///private/tmp/atseq-native-account-writer-owned-upload-aw-f3-20261002/.atseq-local/writer-compiled-final-owned-kind-packed-node26/tests/support/native-upload-ownership-node-probe.js:14:27 {
+  code: 'dependency_mismatch',
+  kind: 'runtime_fault'
+}
+
+Node.js v26.10.0

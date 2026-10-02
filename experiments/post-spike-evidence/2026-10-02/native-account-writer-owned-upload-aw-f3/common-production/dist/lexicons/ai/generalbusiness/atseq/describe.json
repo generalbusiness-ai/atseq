@@ -1,0 +1,136 @@
+{
+    "lexicon": 1,
+    "id": "ai.generalbusiness.atseq.describe",
+    "description": "Local-only spike service contract; see docs/protocol.md.",
+    "defs": {
+        "main": {
+            "type": "query",
+            "parameters": {
+                "type": "params",
+                "required": ["app", "genesis"],
+                "properties": {
+                    "app": {
+                        "type": "string",
+                        "format": "did",
+                        "maxLength": 256
+                    },
+                    "genesis": {
+                        "type": "string",
+                        "format": "cid"
+                    },
+                    "includeSource": {
+                        "type": "boolean",
+                        "default": false
+                    }
+                }
+            },
+            "output": {
+                "encoding": "application/json",
+                "schema": {
+                    "type": "object",
+                    "required": ["genesis", "definition", "head", "frontier"],
+                    "properties": {
+                        "genesis": {
+                            "type": "ref",
+                            "ref": "ai.generalbusiness.atseq.genesis#value"
+                        },
+                        "definition": {
+                            "type": "ref",
+                            "ref": "#definition"
+                        },
+                        "head": {
+                            "type": "ref",
+                            "ref": "ai.generalbusiness.atseq.head#value"
+                        },
+                        "frontier": {
+                            "type": "ref",
+                            "ref": "ai.generalbusiness.atseq.defs#cursor"
+                        }
+                    },
+                    "nullable": ["frontier"]
+                }
+            },
+            "errors": [
+                {
+                    "name": "InvalidRequest"
+                },
+                {
+                    "name": "Unavailable"
+                },
+                {
+                    "name": "VerificationFailed"
+                }
+            ]
+        },
+        "definition": {
+            "type": "object",
+            "required": ["version", "cid", "manifest", "lexicons"],
+            "properties": {
+                "version": {
+                    "type": "integer",
+                    "const": 1
+                },
+                "cid": {
+                    "type": "string",
+                    "format": "cid"
+                },
+                "manifest": {
+                    "type": "ref",
+                    "ref": "ai.generalbusiness.atseq.definition"
+                },
+                "lexicons": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                        "type": "unknown"
+                    }
+                },
+                "source": {
+                    "type": "ref",
+                    "ref": "#sourceDocument"
+                }
+            }
+        },
+        "sourceDocument": {
+            "type": "object",
+            "required": ["format", "version", "manifest", "sources"],
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "const": "atseq-source"
+                },
+                "version": {
+                    "type": "integer",
+                    "const": 1
+                },
+                "manifest": {
+                    "type": "ref",
+                    "ref": "ai.generalbusiness.atseq.definition"
+                },
+                "sources": {
+                    "type": "array",
+                    "maxLength": 63,
+                    "items": {
+                        "type": "ref",
+                        "ref": "#sourceFile"
+                    }
+                }
+            }
+        },
+        "sourceFile": {
+            "type": "object",
+            "required": ["path", "content"],
+            "properties": {
+                "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                },
+                "content": {
+                    "type": "bytes",
+                    "maxLength": 524288
+                }
+            }
+        }
+    }
+}

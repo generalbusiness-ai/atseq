@@ -1,0 +1,38 @@
+[
+  {
+    "path": "src/transport/native-account-writer.ts",
+    "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+    "bytes": 8987,
+    "sha256": "0c14eb412c093fce99657ac98911728914f02383127bcfcb99ff9c78b1b4bf44"
+  },
+  {
+    "path": "tests/support/native-upload-ownership-inputs.ts",
+    "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+    "bytes": 4060,
+    "sha256": "0b263c69fdd9899f324fedf11a395a508ce99b531dcdc147782ee8e049b4d0de"
+  },
+  {
+    "path": "tests/support/native-upload-ownership-node-probe.ts",
+    "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+    "bytes": 3810,
+    "sha256": "6f5955473532c1abbef0e5ab00265c4abc965d061bdc8f1b8cd30236dab6c5d8"
+  },
+  {
+    "path": "tests/support/native-account-writer-browser-probe.ts",
+    "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+    "bytes": 6257,
+    "sha256": "137e199946ecb4b893218c049a1e6058516e890ddcad8a0e2b1903b172c52172"
+  },
+  {
+    "path": "tests/native-account-writer-browser.test.ts",
+    "producer": "d91aa6a6cb5eef4c6579cc08ab31b7c562a8feed",
+    "bytes": 14454,
+    "sha256": "66e9bbfdda086a611e05494905cf0b0e72ccf27931298bedb10fcee0e303faf2"
+  },
+  {
+    "path": "experiments/post-spike-evidence/2026-10-02/native-account-writer-owned-upload-aw-f3/compile-gates.mjs",
+    "producer": "c5870ce6e3a254febf1fe26c8489538c2d4d13f4",
+    "bytes": 5905,
+    "sha256": "713b405db63eb655e9bfec205c3c5a46c1dc88b9725d295f0c1f2b7b330726b8"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "capturedBeforeExecution": "2026-10-02T19:32:56.824046+00:00",
+  "bytes": 1931952,
+  "sha256": "c6fac315df023cf5efec45a3511e6515c6b0f7461a4a284b1b7a79c7ef8febe7",
+  "target": "tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node",
+  "scope": "Node24 legacy35 and real-PDS6 source/emitted; unchanged common Node26-built production"
+}

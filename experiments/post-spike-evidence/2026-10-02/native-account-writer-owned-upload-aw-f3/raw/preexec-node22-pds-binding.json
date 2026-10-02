@@ -1,0 +1,8 @@
+{
+  "capturedBeforeExecution": "2026-10-02T19:30:38.472049+00:00",
+  "source": ".atseq-local/aw-f3-bindings/node22.node",
+  "bytes": 1931552,
+  "sha256": "1946ab352978b5b3493f99080dc04ed6d0a4157c511c7139cbf50b3d44d8d560",
+  "target": "tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node",
+  "scope": "Separate source/emitted existing35 and standard reference-PDS6 Node22 correction gates"
+}

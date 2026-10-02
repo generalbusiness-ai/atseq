@@ -1,0 +1,75 @@
+import { AtseqError } from '../core/errors.js';
+import { PdsError } from './pds.js';
+export class HostError extends Error {
+    code;
+    status;
+    constructor(code, status, message) {
+        super(message);
+        this.code = code;
+        this.status = status;
+        this.name = 'HostError';
+    }
+}
+// A refusal is final only when these bytes cannot be a valid signed request.
+const finalInput = new Set([
+    'input',
+    'envelope',
+    'signature',
+    'key',
+    'payload',
+    'wire_bytes',
+    'wire_cid',
+    'wire_depth',
+    'wire_key',
+    'wire_number',
+    'wire_size',
+    'wire_value',
+    'noncanonical',
+    'retry_conflict',
+]);
+const integrity = new Set([
+    'anchor',
+    'content',
+    'head',
+    'fork',
+    'missing_history',
+    'position',
+    'predecessor',
+    'replay',
+    'rollback',
+    'unsupported_runtime',
+]);
+/** Stable codes distinguish a bad request from an unavailable verified result. */
+export function hostFailure(error) {
+    let status = 503, code = 'runtime_fault', message = 'Could not establish a valid result', permanent = false;
+    if (error instanceof HostError)
+        ({ status, code, message } = error);
+    else if (error instanceof PdsError) {
+        code = error.code === 'AuthenticationUnavailable' ? 'host_authentication' : 'pds_unavailable';
+        message = error.code;
+        if (['SnapshotLimit', 'DefinitionHistoryLimit', 'AppendLimit'].includes(error.code)) {
+            status = 413;
+            code =
+                error.code === 'SnapshotLimit'
+                    ? 'snapshot_limit'
+                    : error.code === 'AppendLimit'
+                        ? 'append_limit'
+                        : 'definition_history_limit';
+            permanent = true;
+        }
+    }
+    else if (error instanceof AtseqError) {
+        code = error.code;
+        message = `${error.code}: ${error.message}`;
+        if (error.kind === 'invalid_input' && !integrity.has(code)) {
+            status = code === 'definition_changed' ? 409 : 400;
+            permanent = finalInput.has(code);
+        }
+    }
+    else if (error?.code === 'ENOENT') {
+        code = 'content_missing';
+        message = 'Local content is missing';
+    }
+    return { status, body: { error: status < 500 ? 'InvalidRequest' : 'Unavailable', code, message, permanent } };
+}
+//# sourceMappingURL=errors.js.map

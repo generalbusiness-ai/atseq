@@ -1,0 +1,1 @@
+{"version":3,"file":"control.d.ts","sourceRoot":"","sources":["../../../src/definition/control.ts"],"names":[],"mappings":"AAOA,eAAO,MAAM,QAAQ,qCAAgB,CAAC;AACtC,MAAM,WAAW,UAAU;IACzB,QAAQ,EAAE,MAAM,CAAC;IACjB,UAAU,EAAE,MAAM,CAAC;IACnB,OAAO,EAAE,MAAM,EAAE,CAAC;CACnB;AAED,wBAAgB,iBAAiB,CAAC,KAAK,EAAE,OAAO,GAAG,UAAU,CAuC5D"}

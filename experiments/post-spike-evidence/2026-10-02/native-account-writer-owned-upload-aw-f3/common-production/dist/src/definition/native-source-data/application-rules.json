@@ -1,0 +1,262 @@
+{
+    "name": "atseq-app-native-v1",
+    "version": 1,
+    "evaluator": "exact existing atseq-jsonata-v1 canonical descriptor CID and bytes; unchanged pure evaluator subset and bounds",
+    "source": {
+        "root": "exact canonical version-2 definition record CID",
+        "profile": "must equal genesis application semantic CID; same-semantic activation only",
+        "closure": "exactly target definition CBOR plus unique declared raw files; 1 root, at most 63 named files and 64 distinct blocks",
+        "carBytes": 524288,
+        "decodedBytes": 524288,
+        "decodedCharge": "root bytes plus every named file occurrence; duplicate raw CIDs deduplicate blocks but not occurrence charge",
+        "files": "unique safe local paths, preserved supplied file-table order and unused assets; omitted authoring table is ASCII path sorted",
+        "completeAdmission": "verify every declared file and all schema/action/query/view/initial-state bindings; no partial action admission",
+        "json": "strict UTF-8, no BOM/comments/trailing commas/trailing data/duplicate decoded names; owned safe JSON, safe integers, no negative zero, well-formed Unicode and existing depth/size constraints",
+        "parser": "typed strict retained-JSON core shared with I1; identity adapter unchanged; source normative failures distinct from operational limits",
+        "schemas": "maintained ATproto Lexicon validator, admitted subset, no coercion, duplicate document IDs or unresolved/unsupported references",
+        "preflightStaticFailures": [
+            "source_bytes",
+            "invalid_source",
+            "source_complexity",
+            "unsupported_expression",
+            "unsupported_function",
+            "unsupported_variable",
+            "reserved_key",
+            "wire_number"
+        ],
+        "preflight": "reuse pure evaluator with placeholder state/action/query data; only typed expected data-dependent invalid-input failures may be ignored; unexpected faults stall",
+        "views": "retained local Inlay templates/registered primitives; no network, XRPC, ambient keys or scripts; declared query references must exist"
+    },
+    "sourceLengths": {
+        "sourceIdentity": "raw CID authenticates exact bytes, not a transport locator or its declared length",
+        "transportMetadata": "untrusted or even app-authenticated locator/byteManifest length remains a hint unless this semantic contract commits that length; this contract does not add such a commitment",
+        "normativeBeforeLocal": "verify authentic root counts first; use actual content hash/count for lengths and actual CAR framing; no false invalid_activation from HTTP Content-Length or unpinned locator",
+        "stream": "bounded-memory stream/hash may verify oversized raw bytes when local storage is smaller; hash/count every listed signed block before invalidity, except decisive authenticated root/count failure; incomplete hash or missing metadata stalls",
+        "corruption": "wrong bytes for expected CID are unavailable, not invalid source; a larger verified body can prove normative invalidity",
+        "localCapacity": "only normative-admissible source may stall for smaller local retention; stream memory and transport safety limits remain operational, not replicated reasons",
+        "carFraming": "logical one-root CAR v1 canonical header plus minimally framed unique source blocks; charge root/header/CID/block lengths, not arbitrary HTTP padding or locator-record transport"
+    },
+    "projection": {
+        "roots": "full normalized documentID#definitionName; default main explicit; relative refs normalized within defining document",
+        "walk": "iterative worklist, each identity once; follow schema properties/items/parameters/output-schema plus ref/closed-union dependencies, not arbitrary literal strings",
+        "annotations": "strip only authored document/schema annotation description; preserve literal properties named description and all const/default/enum content and array order; retain original authored documents",
+        "stateShape": ["stateRoot", "definitions"],
+        "actionShape": ["stateRoot", "actionRoot", "definitions"],
+        "reachable": "all and only reachable definitions; reject unresolved/unsupported references",
+        "byteIdentity": "canonical UTF-8 JSON, <=524288 bytes, canonical raw SHA-256 CID",
+        "transport": "full 32768-byte typed chunks except last; exact length-bearing byteManifest; manifest CID is locator, not projection identity"
+    },
+    "actionContract": {
+        "record": "complete version-1 content record wrapping defs#actionContract",
+        "fields": [
+            "semantics",
+            "schemas.stateRoot",
+            "schemas.actionRoot",
+            "schemas.closure raw CID string",
+            "fold raw CID string",
+            "authorization"
+        ],
+        "derive": "derive exact bytes from full admitted source; supplied published contract must equal derived bytes; contract publication is not source admission",
+        "identityChanges": "fold bytes, reachable validation constraints, shared state projection or enforced authorization changes affect execution; unrelated source/title/query/view/path/table-order/initial-state changes do not",
+        "authorization": ["explicit openParticipation", "exactly one requiredRole"],
+        "openParticipation": "skips role check only; one exact live device grant remains required"
+    },
+    "ordinaryPrecedence": [
+        "selected admitted source and supported app semantics available",
+        "grant_unadmitted",
+        "grant_conflict",
+        "grant_revoked",
+        "grant_epoch",
+        "grant_signer",
+        "grant_scope for signed action/execution pair",
+        "unknown_action in complete admitted action map",
+        "role_missing for current requiredRole",
+        "execution_changed against derived current contract",
+        "invalid_action for schema_value/schema_coercion input mismatch",
+        "fold",
+        "successor state validation"
+    ],
+    "metadata": ["app", "genesis", "position", "principal", "execution"],
+    "foldInput": "owned authenticated payload and complete captured prior state; canonical string CIDs in metadata; no definition/service CID, actorKey, grant/epoch, authority maps, identity bytes, clock or callbacks",
+    "activation": {
+        "precedence": [
+            "control_context_stale",
+            "control_tip_stale",
+            "control_unappointed",
+            "control_power",
+            "definition_changed for expected active source mismatch",
+            "all listed signed blocks hash-verified; missing/corrupt bytes stall",
+            "normative bounds and exact root/declared closure: invalid_activation",
+            "closed manifest profile differs from pinned application semantics: incompatible_definition",
+            "full source admission under same pinned supported semantics: invalid_activation for normative source defects",
+            "unequal complete state-only projection: incompatible_definition",
+            "successor validates captured current state: invalid_activation for known validation rejection",
+            "atomic base recheck/persistence/commit; failure has no outcome"
+        ],
+        "closure": "freeze exactly signed CID set; external pool cannot repair omitted dependency; complete extra/missing/invalid source is invalid_activation only after source hash availability boundary",
+        "state": "exact complete state-only projection bytes equal; retain current state, validate successor initial state separately, no migration",
+        "failures": "current-state rejection by successor is invalid_activation; incompatible semantic/state interface is incompatible_definition; missing/corrupt content or unexpected runtime faults stall",
+        "authority": "prior govern appointment, not owner/participation role; only effective activation changes active source/control tip; source capability cannot appoint itself",
+        "races": "only first same-expected activation remains eligible; stale capability/intervening entry cannot commit; no automatic replacement",
+        "semanticMismatch": "after complete signed-byte availability, closed manifest and normative closure checks, reject different semantic pin as incompatible_definition before parsing its unsupported programs; mixed mismatch plus bad program syntax has that reason"
+    },
+    "outcome": {
+        "effective": {
+            "decision": "effective"
+        },
+        "frameworkFields": ["decision", "source", "reason"],
+        "frameworkSource": "framework",
+        "foldFields": ["decision", "source", "reason", "optional message"],
+        "foldSource": "fold",
+        "foldReason": "[a-z][a-z0-9_]{0,63}",
+        "foldMessage": {
+            "maxCodePoints": 1024,
+            "maxUtf8Bytes": 4096,
+            "wellFormedUnicode": true,
+            "preserveExactString": true
+        },
+        "frameworkReason": "exact native plus application reason or fold_failed/ followed by exact designated stage code; no replicated framework message; max76 ASCII bytes",
+        "producers": "actual internal I2/source/fold callsites choose namespace; parsed rows or caller flags cannot mint verified outcomes",
+        "invalidFoldExtra": "fold-provided source field is an invalid evaluator result: fold_failed/fold_output; a valid reason matching framework name remains fold source",
+        "noOutcome": "stall/invalid history/runtime/integrity/persistence faults do not advance interpreted frontier",
+        "closedSchema": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "required": ["decision"],
+                    "additionalProperties": false,
+                    "properties": {
+                        "decision": {
+                            "const": "effective"
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "required": ["decision", "source", "reason"],
+                    "additionalProperties": false,
+                    "properties": {
+                        "decision": {
+                            "const": "ineffective"
+                        },
+                        "source": {
+                            "const": "framework"
+                        },
+                        "reason": {
+                            "enum": [
+                                "authority_stale",
+                                "authority_unchanged",
+                                "control_context_stale",
+                                "control_map_limit",
+                                "control_power",
+                                "control_tip_stale",
+                                "control_unappointed",
+                                "control_unchanged",
+                                "definition_changed",
+                                "epoch_conflict",
+                                "epoch_reused",
+                                "execution_changed",
+                                "grant_conflict",
+                                "grant_epoch",
+                                "grant_revoked",
+                                "grant_scope",
+                                "grant_signer",
+                                "grant_unadmitted",
+                                "incompatible_definition",
+                                "invalid_action",
+                                "invalid_activation",
+                                "observation_conflict",
+                                "observation_rollback",
+                                "recovery_epoch_reused",
+                                "role_missing",
+                                "role_owner",
+                                "role_scope",
+                                "role_stale",
+                                "role_unchanged",
+                                "unknown_action",
+                                "fold_failed/absent_result",
+                                "fold_failed/engine_input",
+                                "fold_failed/evaluation_depth",
+                                "fold_failed/fold_message",
+                                "fold_failed/fold_output",
+                                "fold_failed/inspection_budget",
+                                "fold_failed/reserved_key",
+                                "fold_failed/schema_coercion",
+                                "fold_failed/schema_value",
+                                "fold_failed/sequence_limit",
+                                "fold_failed/step_budget",
+                                "fold_failed/sum_overflow",
+                                "fold_failed/unicode",
+                                "fold_failed/value_bytes",
+                                "fold_failed/value_depth",
+                                "fold_failed/wire_number",
+                                "fold_failed/wire_value"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "required": ["decision", "source", "reason"],
+                    "additionalProperties": false,
+                    "properties": {
+                        "decision": {
+                            "const": "ineffective"
+                        },
+                        "source": {
+                            "const": "fold"
+                        },
+                        "reason": {
+                            "type": "string",
+                            "pattern": "^[a-z][a-z0-9_]{0,63}$"
+                        },
+                        "message": {
+                            "type": "string",
+                            "maxLength": 1024,
+                            "x-maxUtf8Bytes": 4096,
+                            "x-wellFormedUnicode": true
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "frameworkReasons": [
+        "definition_changed",
+        "execution_changed",
+        "incompatible_definition",
+        "invalid_action",
+        "invalid_activation",
+        "role_missing",
+        "unknown_action"
+    ],
+    "foldFailureStages": {
+        "inputSchema": {
+            "schema_value": "invalid_action",
+            "schema_coercion": "invalid_action"
+        },
+        "evaluateAndFold": [
+            "absent_result",
+            "engine_input",
+            "evaluation_depth",
+            "fold_message",
+            "fold_output",
+            "inspection_budget",
+            "reserved_key",
+            "sequence_limit",
+            "step_budget",
+            "sum_overflow",
+            "unicode",
+            "value_bytes",
+            "value_depth",
+            "wire_number",
+            "wire_value"
+        ],
+        "successorState": ["schema_coercion", "schema_value"],
+        "neverCatchAll": "only typed InterpretationError at the exact designated callsite with listed code; foreign errors, engine_error/dependency_mismatch and parser/static source failures after admission are unavailable/runtime faults"
+    },
+    "atomicity": "one captured coherent prior domain state, admitted active source, opaque authority and authenticated entry; eligible capability binds exact objects/frontier/request; persistence succeeds before replacing state/source/authority/outcome/indexes/frontier; no accepted-state restore from plain JSON",
+    "query": "captured owned state/source/frontier; validate params/result without coercion; failure unavailable, never changes state/frontier",
+    "genesis": "fully supplied invalid source rejects app creation/bootstrap, no invented genesis outcome; unavailable content/support stalls before app instance; initial authority initialized only under selected supported application semantics",
+    "support": "literal independently reviewed expected native/application/evaluator CIDs, descriptors and conformance compiled into software; arbitrary archive objects, code hashes, constructors or service discovery cannot self-register support; source/build/dependency provenance separate"
+}

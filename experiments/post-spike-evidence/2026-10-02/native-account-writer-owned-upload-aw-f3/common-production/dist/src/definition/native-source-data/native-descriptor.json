@@ -1,0 +1,16 @@
+{
+    "$type": "ai.generalbusiness.atseq.content",
+    "version": 1,
+    "body": {
+        "$type": "ai.generalbusiness.atseq.defs#nativeContract",
+        "name": "atseq-native-v1",
+        "version": 1,
+        "namespace": "ai.generalbusiness.atseq",
+        "schemas": {
+            "$link": "bafyreifr5mnsten4opd2sqxtebix7vfqiupyvmjzaek2rqvy3l6nlbolbm"
+        },
+        "rules": {
+            "$link": "bafyreia2xh3bzymsxe7aotaqqi3vxtvag22l4wp7vyltdiu2hmxz2llivm"
+        }
+    }
+}

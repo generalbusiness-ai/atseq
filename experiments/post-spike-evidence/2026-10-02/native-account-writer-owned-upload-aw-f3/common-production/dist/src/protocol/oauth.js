@@ -1,0 +1,585 @@
+import { AtseqError } from '../core/errors.js';
+import { assertDependencies } from '../core/dependencies.js';
+import { isAtprotoDid } from '@atproto/did';
+/** Internal enrolment boundary. No OAuth secret is part of its returned values. */
+export const OAUTH_LIMITS = Object.freeze({
+    pending: 10,
+    transactionMs: 10 * 60 * 1000,
+    operationMs: 30_000,
+    requests: 64,
+    requestBytes: 64 * 1024,
+    responseBytes: 1024 * 1024,
+    totalBytes: 32 * 1024 * 1024,
+    scopes: 64,
+    scopeBytes: 8192,
+});
+/** Local byte-count evidence only; no provider text or credential is retained. */
+class OAuthBodyByteLimit extends AtseqError {
+    maximum;
+    constructor(maximum) {
+        super('input', 'OAuth HTTP body exceeds budget');
+        this.maximum = maximum;
+    }
+}
+function refuse(message) {
+    throw new AtseqError('input', message);
+}
+/** Keep only trusted failure codes through SDK cause wrappers, never their text. */
+function operationFailure(error, deadline = false, recovery) {
+    if (deadline)
+        return new AtseqError('content_unavailable', 'OAuth operation is unavailable');
+    const pending = [error], seen = new Set();
+    for (let checked = 0; pending.length && checked < 32; checked++) {
+        const next = pending.pop();
+        if (!(next instanceof Error) || seen.has(next))
+            continue;
+        seen.add(next);
+        if (next instanceof AtseqError) {
+            if (next.code === 'content_unavailable')
+                return new AtseqError('content_unavailable', 'OAuth operation is unavailable');
+            if (next.code === 'origin')
+                return new AtseqError('origin', 'OAuth custody origin is refused');
+        }
+        pending.push(next.cause);
+        if (next instanceof AggregateError)
+            pending.push(...next.errors.slice(0, 32));
+    }
+    return new AtseqError('input', recovery === 'reauthorization_required'
+        ? 'OAuth credential request exceeds the byte limit; reauthorization is required'
+        : 'OAuth operation failed');
+}
+/** Wrap the native fetch edge, outside host policy checks and SDK parsing. */
+export function oauthTransport(fetch) {
+    return async (input, init) => {
+        try {
+            return await fetch(input, init);
+        }
+        catch (error) {
+            if (error instanceof AtseqError)
+                throw operationFailure(error);
+            throw new AtseqError('content_unavailable', 'OAuth transport is unavailable');
+        }
+    };
+}
+/** Browser-visible URL policy only. Host transport must additionally guard actual DNS/connect. */
+export function oauthUrl(value) {
+    let url;
+    try {
+        url = new URL(value);
+    }
+    catch {
+        refuse('Invalid OAuth endpoint URL');
+    }
+    const host = url.hostname.toLowerCase();
+    if (url.protocol !== 'https:' ||
+        url.username ||
+        url.password ||
+        url.hash ||
+        host === 'localhost' ||
+        host.endsWith('.localhost') ||
+        host.includes(':') ||
+        /^\d+(\.\d+)*$/.test(host))
+        refuse('OAuth endpoint fails URL policy');
+    return url;
+}
+function scopes(value) {
+    if (value.length > OAUTH_LIMITS.scopeBytes || !/^[\x21-\x7e]+(?: [\x21-\x7e]+)*$/.test(value))
+        refuse('Invalid OAuth scope');
+    const result = value.split(' ');
+    if (result.length > OAUTH_LIMITS.scopes || new Set(result).size !== result.length || !result.includes('atproto'))
+        refuse('Invalid OAuth scope set');
+    return Object.freeze(result.sort());
+}
+async function bodyBytes(body, maximum, budget, signal = budget.signal) {
+    if (!body)
+        return null;
+    const reader = body.getReader();
+    const chunks = [];
+    let size = 0;
+    let rejectAbort = () => { };
+    const aborted = new Promise((_, reject) => {
+        rejectAbort = reject;
+    });
+    const abort = () => rejectAbort(new AtseqError('content_unavailable', 'OAuth request deadline exceeded'));
+    signal.addEventListener('abort', abort, { once: true });
+    try {
+        signal.throwIfAborted();
+        for (;;) {
+            const { value, done } = await Promise.race([reader.read(), aborted]);
+            if (done)
+                break;
+            size += value.length;
+            budget.bytes += value.length;
+            if (budget.bytes > OAUTH_LIMITS.totalBytes)
+                refuse('OAuth HTTP body exceeds budget');
+            if (size > maximum)
+                throw new OAuthBodyByteLimit(maximum);
+            chunks.push(value);
+        }
+        const bytes = new Uint8Array(size);
+        let offset = 0;
+        for (const chunk of chunks) {
+            bytes.set(chunk, offset);
+            offset += chunk.length;
+        }
+        return bytes;
+    }
+    catch (error) {
+        if (error instanceof AtseqError)
+            throw error;
+        throw new AtseqError('content_unavailable', 'OAuth body is unavailable');
+    }
+    finally {
+        signal.removeEventListener('abort', abort);
+        void reader.cancel().catch(() => { });
+        reader.releaseLock();
+    }
+}
+const NATIVE_ACCOUNT_RESOURCE_BYTES = 1024 * 1024;
+const ownedSessions = new WeakMap();
+export function ownedOAuthSession(handle) {
+    const owned = ownedSessions.get(handle);
+    if (!owned)
+        refuse('Native account writer requires an owned OAuth session');
+    return owned;
+}
+/** Credentials stay in maintained-client stores and JS private fields, never JSON output. */
+export class OAuthSessionHandle {
+    #flow;
+    #session;
+    #expected;
+    constructor(flow, session, expected) {
+        this.#flow = flow;
+        this.#session = session;
+        this.#expected = expected;
+    }
+    info(refresh = false) {
+        return this.#flow.sessionInfo(this.#session, this.#expected, refresh);
+    }
+    /** Account responses are ephemeral transport data, not an Atseq archive/result. */
+    request(path, init) {
+        return this.#flow.sessionRequest(this.#session, this.#expected, path, init);
+    }
+    revoke() {
+        return this.#flow.sessionRevoke(this.#session);
+    }
+}
+/** Maintained OAuth performs PKCE/PAR/DPoP. This adapter adds custody and operation policy. */
+export class OAuthAdapter {
+    #options;
+    #custody;
+    #transactions;
+    #lock;
+    #transport;
+    #factory;
+    #client;
+    #budget;
+    #resourceCheck;
+    #resourceAllowance;
+    constructor(options, transactions, lock, transport, factory, custody) {
+        oauthUrl(options.metadata.client_id);
+        if (options.metadata.token_endpoint_auth_method !== 'none')
+            refuse('This adapter requires a public OAuth client');
+        scopes(options.metadata.scope ?? '');
+        this.#options = options;
+        this.#transactions = transactions;
+        this.#lock = lock;
+        this.#transport = transport;
+        this.#factory = factory;
+        this.#custody = custody;
+    }
+    #fetch = (input, init) => this.#guardedFetch(input, init, true);
+    #identityFetch = (input, init) => this.#guardedFetch(input, init, false);
+    #captureNativeFailure(error) {
+        const budget = this.#budget;
+        if (!budget?.native || budget.native.first || !(error instanceof AtseqError))
+            return;
+        const original = budget.failures.get(error);
+        const deadline = original?.deadline ?? budget.signal.aborted;
+        const failure = operationFailure(error, deadline, original?.recovery);
+        budget.failures.set(failure, { deadline, recovery: original?.recovery });
+        budget.native.first = failure;
+    }
+    async #guardedFetch(input, init, maintained) {
+        try {
+            return await this.#dispatchFetch(input, init, maintained);
+        }
+        catch (error) {
+            this.#captureNativeFailure(error);
+            throw this.#budget?.native?.first ?? error;
+        }
+    }
+    async #dispatchFetch(input, init, maintained) {
+        const budget = this.#budget;
+        if (!budget)
+            refuse('OAuth HTTP request outside an adapter operation');
+        if (++budget.requests > OAUTH_LIMITS.requests)
+            refuse('OAuth HTTP request count exceeds budget');
+        const request = new Request(input, init);
+        oauthUrl(request.url);
+        await this.#resourceCheck?.(request);
+        if (request.headers.has('authorization') && budget.native?.first)
+            throw budget.native.first;
+        if (request.headers.has('cookie'))
+            refuse('OAuth HTTP cookie header is forbidden');
+        const signal = AbortSignal.any([budget.signal, request.signal]);
+        const allowance = this.#resourceAllowance;
+        const allowed = maintained && request.headers.has('authorization') && allowance && request.url === allowance.url;
+        if (allowed && request.method !== 'POST')
+            refuse('Native resource method differs from captured operation');
+        let bytes;
+        try {
+            bytes = await bodyBytes(request.body, allowed ? NATIVE_ACCOUNT_RESOURCE_BYTES : OAUTH_LIMITS.requestBytes, budget, signal);
+        }
+        catch (error) {
+            if (budget.native &&
+                maintained &&
+                request.method === 'POST' &&
+                !request.headers.has('authorization') &&
+                request.headers.get('content-type')?.split(';', 1)[0]?.trim().toLowerCase() ===
+                    'application/x-www-form-urlencoded' &&
+                error instanceof OAuthBodyByteLimit &&
+                error.maximum === OAUTH_LIMITS.requestBytes) {
+                const deadline = budget.signal.aborted;
+                const failure = operationFailure(error, deadline, 'reauthorization_required');
+                budget.failures.set(failure, { deadline, recovery: 'reauthorization_required' });
+                throw failure;
+            }
+            throw error;
+        }
+        if (allowed &&
+            (!bytes ||
+                bytes.length !== allowance.bytes.length ||
+                bytes.some((value, index) => value !== allowance.bytes[index])))
+            refuse('Native resource body differs from captured operation');
+        const headers = new Headers(request.headers);
+        headers.delete('content-length');
+        const guarded = new Request(request.url, {
+            method: request.method,
+            headers,
+            body: bytes,
+            redirect: 'error',
+            credentials: 'omit',
+            cache: 'no-store',
+            signal,
+        });
+        // The pinned public SDK always adds Authorization to resource requests.
+        // Its token form is therefore distinct even when an app submits the same
+        // form fields to its resource endpoint. Resolver-owned fetches are separate.
+        if (maintained &&
+            this.#custody &&
+            guarded.method === 'POST' &&
+            !guarded.headers.has('authorization') &&
+            guarded.headers.get('content-type')?.split(';', 1)[0]?.trim().toLowerCase() ===
+                'application/x-www-form-urlencoded') {
+            const form = new URLSearchParams(new TextDecoder().decode(bytes ?? new Uint8Array()));
+            if (form.getAll('client_id').includes(this.#options.metadata.client_id) &&
+                form.getAll('grant_type').some((value) => value === 'refresh_token' || value === 'authorization_code')) {
+                signal.throwIfAborted();
+                this.#custody.tokenRequestDispatched();
+            }
+        }
+        const response = await this.#transport(guarded);
+        if (response.redirected || response.status === 0)
+            refuse('OAuth redirect or opaque response is forbidden');
+        if (response.url && oauthUrl(response.url).href !== oauthUrl(request.url).href)
+            refuse('OAuth response URL differs from request');
+        // Resolver/metadata error wrappers do not preserve HTTP outage meaning.
+        // Classify our unauthenticated fetch edge before their body/schema parsing.
+        // Authenticated resources remain Responses; token dispatch is already marked.
+        if (!guarded.headers.has('authorization') && (response.status === 429 || response.status >= 500)) {
+            void response.body?.cancel().catch(() => { });
+            throw new AtseqError('content_unavailable', 'OAuth service is unavailable');
+        }
+        const content = await bodyBytes(response.body, OAUTH_LIMITS.responseBytes, budget, signal);
+        const resultHeaders = new Headers(response.headers);
+        resultHeaders.delete('content-length');
+        resultHeaders.delete('content-encoding');
+        return new Response(content, { status: response.status, statusText: response.statusText, headers: resultHeaders });
+    }
+    async #run(work) {
+        return this.#lock(async () => {
+            this.#budget = {
+                signal: AbortSignal.timeout(OAUTH_LIMITS.operationMs),
+                requests: 0,
+                bytes: 0,
+                failures: new WeakMap(),
+            };
+            let failure;
+            try {
+                assertDependencies();
+                this.#client ??= this.#factory(this.#fetch, {
+                    resolve: (identifier, options) => this.#options.resolveIdentity(identifier, {
+                        fetch: this.#identityFetch,
+                        signal: AbortSignal.any([this.#budget.signal, ...(options?.signal ? [options.signal] : [])]),
+                    }),
+                });
+                const client = await this.#client;
+                await this.#custody?.prepare(client);
+                let successful = false;
+                try {
+                    const result = await work(client);
+                    if (this.#budget.signal.aborted)
+                        throw new AtseqError('content_unavailable', 'OAuth operation is unavailable');
+                    successful = true;
+                    return result;
+                }
+                catch (error) {
+                    const classified = error instanceof Error ? this.#budget.failures.get(error) : undefined;
+                    failure = {
+                        error,
+                        deadline: classified?.deadline ?? this.#budget.signal.aborted,
+                        recovery: classified?.recovery,
+                    };
+                    throw error;
+                }
+                finally {
+                    try {
+                        await this.#custody?.finish(client, successful);
+                    }
+                    catch (error) {
+                        throw failure ? failure.error : error;
+                    }
+                }
+            }
+            catch (error) {
+                // Library/server error descriptions may contain codes, tokens or request bodies.
+                throw operationFailure(error, failure?.deadline ?? this.#budget.signal.aborted, failure?.recovery);
+            }
+            finally {
+                this.#resourceCheck = undefined;
+                this.#resourceAllowance = undefined;
+                this.#budget = undefined;
+            }
+        });
+    }
+    /** Internal credential-shell housekeeping, under the same guarded operation. */
+    cleanupCustody() {
+        return this.#run(async () => { });
+    }
+    async begin(did, requestedScope) {
+        if (!isAtprotoDid(did))
+            refuse('OAuth enrolment requires an ATproto account DID');
+        const requested = scopes(requestedScope), allowed = scopes(this.#options.metadata.scope ?? '');
+        if (requested.some((scope) => !allowed.includes(scope)))
+            refuse('OAuth scope exceeds configured consent');
+        return this.#run(async (client) => {
+            for (const transaction of await this.#transactions.list())
+                if (Date.now() >= transaction.expiresAt)
+                    await this.#transactions.take(transaction.id);
+            if ((await this.#transactions.list()).length >= OAUTH_LIMITS.pending)
+                refuse('Too many OAuth transactions');
+            const transaction = Object.freeze({
+                id: crypto.randomUUID(),
+                did,
+                scopes: requested,
+                expiresAt: Date.now() + OAUTH_LIMITS.transactionMs,
+            });
+            await this.#transactions.set(transaction);
+            // Volatile Node custody retains failed PAR transactions against its cap.
+            // Owned browser custody purges its pending reservation on failure.
+            const url = await client.authorize(did, { scope: requested.join(' '), state: transaction.id });
+            oauthUrl(url);
+            return Object.freeze({ transactionId: transaction.id, authorizationUrl: url.href });
+        });
+    }
+    async complete(params) {
+        const encoded = params.toString();
+        if (encoded.length > OAUTH_LIMITS.requestBytes)
+            refuse('OAuth callback exceeds budget');
+        const copy = new URLSearchParams(encoded);
+        if (!copy.get('iss') || !copy.get('state') || !copy.get('code') || copy.has('error'))
+            refuse('Incomplete OAuth callback');
+        for (const name of ['iss', 'state', 'code'])
+            if (copy.getAll(name).length !== 1)
+                refuse('Duplicate OAuth callback parameter');
+        const callbackState = copy.get('state');
+        const issuer = oauthUrl(copy.get('iss')).href;
+        return this.#run(async (client) => {
+            // The SDK generates its own nonce; authorize({state:id}) retains id as
+            // appState. A local subclass reads the published protected store hook
+            // without consuming either transaction or exposing keys/credentials.
+            const transactionId = await client.readApplicationState(callbackState);
+            if (typeof transactionId !== 'string' || transactionId.length !== 36)
+                refuse('Unknown OAuth callback state');
+            const transaction = await this.#transactions.take(transactionId);
+            if (!transaction || Date.now() >= transaction.expiresAt)
+                refuse('Unknown or expired OAuth transaction');
+            const { session, state } = await client.callback(copy);
+            try {
+                if (state !== transactionId)
+                    refuse('OAuth transaction differs from callback');
+                const info = await this.#verify(client, session, transaction, false);
+                if (oauthUrl(info.issuer).href !== issuer)
+                    refuse('OAuth issuer differs from callback');
+                return this.#mint(session, transaction);
+            }
+            catch (error) {
+                return this.#verificationFailure(session, error);
+            }
+        });
+    }
+    async restore(did, requestedScope) {
+        if (!isAtprotoDid(did))
+            refuse('OAuth session requires an ATproto account DID');
+        const requested = scopes(requestedScope), allowed = scopes(this.#options.metadata.scope ?? '');
+        if (requested.some((scope) => !allowed.includes(scope)))
+            refuse('OAuth scope exceeds configured consent');
+        return this.#run(async (client) => {
+            await this.#custody?.touch(did);
+            let session;
+            try {
+                session = await client.restore(did, false);
+            }
+            catch (error) {
+                return this.#verificationFailure({ signOut: () => client.revoke(did) }, error);
+            }
+            const expected = Object.freeze({ id: crypto.randomUUID(), did, scopes: requested, expiresAt: 0 });
+            await this.#verify(client, session, expected, false);
+            return this.#mint(session, expected);
+        });
+    }
+    #mint(session, expected) {
+        const captured = Object.freeze({ ...expected, scopes: Object.freeze([...expected.scopes]) });
+        const handle = new OAuthSessionHandle(this, session, captured);
+        // The configured A1 factory is trusted. This map proves the verified A1
+        // handoff; it is not a classifier for arbitrary configured SDK factories.
+        ownedSessions.set(handle, Object.freeze({
+            did: captured.did,
+            info: () => this.#sessionInfo(session, captured, false),
+            request: (path, init) => this.#sessionRequest(session, captured, path, init, undefined, true),
+            apply: (body, signal) => this.#nativeResourceRequest(session, captured, 'com.atproto.repo.applyWrites', body, 'application/json', signal),
+            upload: (body, mimeType, signal) => this.#nativeResourceRequest(session, captured, 'com.atproto.repo.uploadBlob', body, mimeType, signal),
+        }));
+        return handle;
+    }
+    #nativeResourceRequest(session, expected, method, body, mimeType, signal) {
+        if (!(body instanceof Uint8Array) || body.length > NATIVE_ACCOUNT_RESOURCE_BYTES)
+            refuse('Native resource body exceeds byte limit');
+        const captured = new Uint8Array(body);
+        return this.#sessionRequest(session, expected, `/xrpc/${method}`, { method: 'POST', headers: { 'content-type': mimeType }, body: new Uint8Array(captured), signal }, captured, true);
+    }
+    async #verify(client, session, expected, refresh) {
+        try {
+            const info = await session.getTokenInfo(refresh);
+            const granted = this.#checkToken(info, session, expected);
+            const resolved = await client.oauthResolver.resolveFromIdentity(expected.did, {
+                noCache: true,
+                allowStale: false,
+                signal: this.#budget.signal,
+            });
+            const pds = resolved.pds.href;
+            if (oauthUrl(resolved.metadata.issuer).href !== oauthUrl(info.iss).href)
+                refuse('OAuth account issuer authority changed');
+            if (oauthUrl(pds).href !== oauthUrl(info.aud).href)
+                refuse('OAuth account authority changed');
+            return Object.freeze({
+                did: info.sub,
+                issuer: oauthUrl(info.iss).href,
+                pds: oauthUrl(pds).href,
+                scopes: granted,
+            });
+        }
+        catch (error) {
+            return this.#verificationFailure(session, error);
+        }
+    }
+    async #verificationFailure(session, error) {
+        const budget = this.#budget;
+        // Nested callback validation may see the same already-classified failure.
+        // Capture its class/deadline before awaited signout, and clean it up once.
+        if (error instanceof AtseqError && budget.failures.has(error))
+            throw error;
+        const deadline = budget.signal.aborted;
+        const failure = operationFailure(error, deadline);
+        budget.failures.set(failure, { deadline });
+        if (failure.code !== 'content_unavailable' || !this.#custody) {
+            try {
+                await session.signOut();
+            }
+            catch {
+                /* Keep the original classified failure. */
+            }
+        }
+        throw failure;
+    }
+    #checkToken(info, session, expected) {
+        const granted = scopes(info.scope);
+        if (info.sub !== expected.did ||
+            session.did !== expected.did ||
+            granted.length !== expected.scopes.length ||
+            granted.some((scope, index) => scope !== expected.scopes[index]))
+            refuse('OAuth account or granted scope differs from transaction');
+        return granted;
+    }
+    sessionInfo(session, expected, refresh) {
+        return this.#sessionInfo(session, expected, refresh);
+    }
+    #sessionInfo(session, expected, refresh) {
+        return this.#run(async (client) => {
+            await this.#custody?.touch(expected.did, refresh);
+            return this.#verify(client, session, expected, refresh);
+        });
+    }
+    sessionRequest(session, expected, path, init) {
+        return this.#sessionRequest(session, expected, path, init);
+    }
+    async #sessionRequest(session, expected, path, init, nativeBody, native = false) {
+        if (!path.startsWith('/xrpc/') ||
+            path.includes('#') ||
+            !new URL(path, 'https://xrpc.invalid').pathname.startsWith('/xrpc/'))
+            refuse('OAuth resource path must name an XRPC operation');
+        return this.#run(async (client) => {
+            await this.#custody?.touch(expected.did);
+            const authority = await this.#verify(client, session, expected, 'auto');
+            const resource = new URL(path, authority.pds).href;
+            // This marker begins after fresh authority verification. Earlier A1
+            // verification/refresh classification remains the original owner.
+            const operation = native ? {} : undefined;
+            this.#budget.native = operation;
+            if (nativeBody)
+                this.#resourceAllowance = { url: resource, bytes: nativeBody };
+            // The maintained fetch can refresh again on a resource 401. Recheck the
+            // updated token before either credential-bearing dispatch, not after a write.
+            this.#resourceCheck = async (request) => {
+                if (!request.headers.has('authorization'))
+                    return;
+                if (operation?.first)
+                    throw operation.first;
+                try {
+                    const token = await session.getTokenInfo(false);
+                    this.#checkToken(token, session, expected);
+                    if (request.url !== resource ||
+                        oauthUrl(token.iss).href !== authority.issuer ||
+                        oauthUrl(token.aud).href !== authority.pds)
+                        refuse('OAuth resource authority changed during dispatch');
+                }
+                catch (error) {
+                    this.#captureNativeFailure(error);
+                    return this.#verificationFailure(session, error);
+                }
+            };
+            try {
+                const response = await session.fetchHandler(path, init);
+                if (operation?.first)
+                    throw operation.first;
+                return response;
+            }
+            catch (error) {
+                throw operation?.first ?? error;
+            }
+            finally {
+                this.#resourceCheck = undefined;
+                this.#resourceAllowance = undefined;
+                this.#budget.native = undefined;
+            }
+        });
+    }
+    sessionRevoke(session) {
+        return this.#run(async () => {
+            await this.#custody?.touch(session.did, true);
+            await session.signOut();
+        });
+    }
+}
+//# sourceMappingURL=oauth.js.map

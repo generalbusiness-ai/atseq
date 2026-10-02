@@ -1,0 +1,225 @@
+TAP version 13
+# (node:21613) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: host procedures require a retained owner-only token; reads remain public
+ok 1 - host procedures require a retained owner-only token; reads remain public
+  ---
+  duration_ms: 856.982459
+  type: 'test'
+  ...
+# Subtest: draft cache evicts least recently used previews within count and byte budgets
+ok 2 - draft cache evicts least recently used previews within count and byte budgets
+  ---
+  duration_ms: 63.22825
+  type: 'test'
+  ...
+# Subtest: incomplete creations consume application quota before an account is provisioned
+ok 3 - incomplete creations consume application quota before an account is provisioned
+  ---
+  duration_ms: 8.734583
+  type: 'test'
+  ...
+# Subtest: a corrupt lease database keeps its SQLite diagnostic instead of claiming contention
+ok 4 - a corrupt lease database keeps its SQLite diagnostic instead of claiming contention
+  ---
+  duration_ms: 1.625458
+  type: 'test'
+  ...
+# Subtest: only a PDS RecordNotFound response becomes a missing source
+ok 5 - only a PDS RecordNotFound response becomes a missing source
+  ---
+  duration_ms: 7.831792
+  type: 'test'
+  ...
+# Subtest: only definite invalid input is final; integrity and host availability errors use 503
+ok 6 - only definite invalid input is final; integrity and host availability errors use 503
+  ---
+  duration_ms: 0.224666
+  type: 'test'
+  ...
+# Subtest: actual native proof limits remain unavailable and nonpermanent through host HTTP
+ok 7 - actual native proof limits remain unavailable and nonpermanent through host HTTP
+  ---
+  duration_ms: 30.397958
+  type: 'test'
+  ...
+# Subtest: expiry renews once across concurrent JSON, blob and upload calls
+ok 8 - expiry renews once across concurrent JSON, blob and upload calls
+  ---
+  duration_ms: 37.432041
+  type: 'test'
+  ...
+# Subtest: missing, rejected or repeatedly expired session credentials have a permanent authentication code
+ok 9 - missing, rejected or repeatedly expired session credentials have a permanent authentication code
+  ---
+  duration_ms: 5.199334
+  type: 'test'
+  ...
+# Subtest: complete-prefix limits and nonce conflicts have stable permanent codes
+ok 10 - complete-prefix limits and nonce conflicts have stable permanent codes
+  ---
+  duration_ms: 0.362584
+  type: 'test'
+  ...
+# Subtest: authorization refusal does not permanently disable a valid PDS credential
+ok 11 - authorization refusal does not permanently disable a valid PDS credential
+  ---
+  duration_ms: 4.306666
+  type: 'test'
+  ...
+# (node:21614) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: real disposable PDS persistence and recovery
+    # Subtest: genesis and initial head are a verified empty prefix
+    ok 1 - genesis and initial head are a verified empty prefix
+      ---
+      duration_ms: 12.801917
+      type: 'test'
+      ...
+    # Subtest: provisioning refuses to replace an existing application log
+    ok 2 - provisioning refuses to replace an existing application log
+      ---
+      duration_ms: 20.911542
+      type: 'test'
+      ...
+    # Subtest: source blobs are retained and recovered by exact CID
+    ok 3 - source blobs are retained and recovered by exact CID
+      ---
+      duration_ms: 17.69625
+      type: 'test'
+      ...
+    # Subtest: reset refuses a live or unmarked directory
+    ok 4 - reset refuses a live or unmarked directory
+      ---
+      duration_ms: 1.280625
+      type: 'test'
+      ...
+    # Subtest: two concurrent submissions receive one contiguous order
+    ok 5 - two concurrent submissions receive one contiguous order
+      ---
+      duration_ms: 80.598458
+      type: 'test'
+      ...
+    # Subtest: same intent and a new valid signature return original receipt
+    ok 6 - same intent and a new valid signature return original receipt
+      ---
+      duration_ms: 25.537166
+      type: 'test'
+      ...
+    # Subtest: second local writer is refused while the lease is held
+    ok 7 - second local writer is refused while the lease is held
+      ---
+      duration_ms: 0.260458
+      type: 'test'
+      ...
+    # Subtest: official PDS process crash preserves acknowledged history and blobs
+    ok 8 - official PDS process crash preserves acknowledged history and blobs
+      ---
+      duration_ms: 868.123917
+      type: 'test'
+      ...
+    # Subtest: a rejected conditional batch leaves entry and head unchanged
+    ok 9 - a rejected conditional batch leaves entry and head unchanged
+      ---
+      duration_ms: 47.732834
+      type: 'test'
+      ...
+    # Subtest: malformed commit replies cannot remove an append or provision condition
+    ok 10 - malformed commit replies cannot remove an append or provision condition
+      ---
+      duration_ms: 50.838958
+      type: 'test'
+      ...
+    # Subtest: an unrelated repo write races the append and is reconciled
+    ok 11 - an unrelated repo write races the append and is reconciled
+      ---
+      duration_ms: 81.220084
+      type: 'test'
+      ...
+    # Subtest: lost HTTP response after commit resolves to one original receipt
+    ok 12 - lost HTTP response after commit resolves to one original receipt
+      ---
+      duration_ms: 51.435291
+      type: 'test'
+      ...
+    # Subtest: a different writer process cannot acquire the same local lease
+    ok 13 - a different writer process cannot acquire the same local lease
+      ---
+      duration_ms: 1077.799459
+      type: 'test'
+      ...
+    # Subtest: writer crash after commit but before acknowledgment recovers one receipt
+    ok 14 - writer crash after commit but before acknowledgment recovers one receipt
+      ---
+      duration_ms: 1173.890875
+      type: 'test'
+      ...
+    # Subtest: writer crash after acknowledgment keeps receipt and no domain effect claim
+    ok 15 - writer crash after acknowledgment keeps receipt and no domain effect claim
+      ---
+      duration_ms: 1183.453125
+      type: 'test'
+      ...
+    # Subtest: XRPC rejects a foreign receipt anchor and malformed submission
+    ok 16 - XRPC rejects a foreign receipt anchor and malformed submission
+      ---
+      duration_ms: 24.436208
+      type: 'test'
+      ...
+    # Subtest: bootstrap at a chosen head catches up without notifications
+    ok 17 - bootstrap at a chosen head catches up without notifications
+      ---
+      duration_ms: 138.025958
+      type: 'test'
+      ...
+    # Subtest: repository CAR contains retention references but blobs require explicit export
+    ok 18 - repository CAR contains retention references but blobs require explicit export
+      ---
+      duration_ms: 12.734125
+      type: 'test'
+      ...
+    # Subtest: missing and tampered source references fail, then recover by exact content
+    ok 19 - missing and tampered source references fail, then recover by exact content
+      ---
+      duration_ms: 36.388333
+      type: 'test'
+      ...
+    # Subtest: missing or corrupted physical blob bytes never satisfy a source CID
+    ok 20 - missing or corrupted physical blob bytes never satisfy a source CID
+      ---
+      duration_ms: 12.019208
+      type: 'test'
+      ...
+    # Subtest: a retained verified head refuses repository rollback and signed-entry corruption
+    ok 21 - a retained verified head refuses repository rollback and signed-entry corruption
+      ---
+      duration_ms: 108.006584
+      type: 'test'
+      ...
+    # Subtest: chosen-head catch-up verifies a prefix spanning real PDS pages
+    ok 22 - chosen-head catch-up verifies a prefix spanning real PDS pages
+      ---
+      duration_ms: 323.609416
+      type: 'test'
+      ...
+    # Subtest: PDS compare-and-swap excludes competing writers even with the local lease bypassed
+    ok 23 - PDS compare-and-swap excludes competing writers even with the local lease bypassed
+      ---
+      duration_ms: 622.221458
+      type: 'test'
+      ...
+    1..23
+ok 12 - real disposable PDS persistence and recovery
+  ---
+  duration_ms: 9608.12925
+  type: 'test'
+  ...
+1..12
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10293.234917

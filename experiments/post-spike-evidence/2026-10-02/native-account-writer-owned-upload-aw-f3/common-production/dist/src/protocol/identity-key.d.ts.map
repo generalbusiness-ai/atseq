@@ -1,0 +1,1 @@
+{"version":3,"file":"identity-key.d.ts","sourceRoot":"","sources":["../../../src/protocol/identity-key.ts"],"names":[],"mappings":"AAAA,OAAO,EAA8C,KAAK,YAAY,EAAE,MAAM,gBAAgB,CAAC;AA8B/F,wBAAsB,uBAAuB,CAAC,KAAK,EAAE,OAAO,GAAG,OAAO,CAAC,YAAY,CAAC,CAQnF;AACD,wBAAsB,2BAA2B,CAAC,KAAK,EAAE,OAAO,GAAG,OAAO,CAAC,YAAY,CAAC,CAkBvF;AACD,wBAAgB,iBAAiB,CAAC,KAAK,EAAE,OAAO,GAAG,MAAM,CAYxD"}

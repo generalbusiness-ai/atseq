@@ -1,0 +1,53 @@
+✔ host procedures require a retained owner-only token; reads remain public (667.1045ms)
+✔ draft cache evicts least recently used previews within count and byte budgets (62.455541ms)
+✔ incomplete creations consume application quota before an account is provisioned (7.567667ms)
+✔ a corrupt lease database keeps its SQLite diagnostic instead of claiming contention (1.582708ms)
+✔ only a PDS RecordNotFound response becomes a missing source (6.373208ms)
+✔ only definite invalid input is final; integrity and host availability errors use 503 (0.218584ms)
+✔ actual native proof limits remain unavailable and nonpermanent through host HTTP (22.73175ms)
+✔ expiry renews once across concurrent JSON, blob and upload calls (38.302875ms)
+✔ missing, rejected or repeatedly expired session credentials have a permanent authentication code (5.661041ms)
+✔ complete-prefix limits and nonce conflicts have stable permanent codes (0.133ms)
+✔ authorization refusal does not permanently disable a valid PDS credential (3.384459ms)
+✖ real disposable PDS persistence and recovery (1252.730083ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1834.664041
+
+✖ failing tests:
+
+test at tests/pds.test.ts:1:1031
+✖ real disposable PDS persistence and recovery (1252.730083ms)
+  Error: Official PDS exited during startup (1): node:internal/modules/cjs/loader:2123
+    return process.dlopen(module, path.toNamespacedPath(filename));
+                   ^
+  
+  Error: The module '/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/better-sqlite3/build/Release/better_sqlite3.node'
+  was compiled against a different Node.js version using
+  NODE_MODULE_VERSION 127. This version of Node.js requires
+  NODE_MODULE_VERSION 147. Please try re-compiling or re-installing
+  the module (for instance, using `npm rebuild` or `npm install`).
+      at Object..node (node:internal/modules/cjs/loader:2123:18)
+      at Module.load (node:internal/modules/cjs/loader:1678:32)
+      at Module._load (node:internal/modules/cjs/loader:1470:12)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+      at Module.require (node:internal/modules/cjs/loader:1701:12)
+      at require (node:internal/modules/helpers:318:16)
+      at bindings (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/bindings/bindings.js:112:48)
+      at new Database (/private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/better-sqlite3/lib/database.js:48:64)
+      at Database.sqlite (file:///private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/db/db.js:16:26)
+      at getDb (file:///private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/node_modules/@atproto/pds/dist/did-cache/db/index.js:8:21) {
+    code: 'ERR_DLOPEN_FAILED'
+  }
+  
+  Node.js v26.10.0
+  
+      at ChildProcess.<anonymous> (file:///private/tmp/atseq-native-account-writer-aw-f2-20261002/tests/support/pds/environment.mjs:125:18)
+      at ChildProcess.wrapper (node:events:639:12)
+      at ChildProcess.emit (node:events:514:20)
+      at ChildProcess._handle.onexit (node:internal/child_process:323:12)
