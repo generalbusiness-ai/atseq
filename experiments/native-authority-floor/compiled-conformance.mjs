@@ -55,12 +55,10 @@ const evidence = {
   fixtureSha256: sha(fixtureBytes),
   exactError: { code: 'envelope', message: 'Floor descriptor was not consumed' },
   actualProductionModules: await Promise.all(
-    [...production]
-      .sort()
-      .map(async (path) => ({
-        path: path.slice(new URL('../../', import.meta.url).pathname.length),
-        sha256: sha(await readFile(path)),
-      })),
+    [...production].sort().map(async (path) => ({
+      path: path.slice(new URL('../../', import.meta.url).pathname.length),
+      sha256: sha(await readFile(path)),
+    })),
   ),
   testModules: modules,
   dataOnly: true,
