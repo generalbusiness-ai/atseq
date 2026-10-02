@@ -9,7 +9,7 @@
   "sourceBytes": 3394609,
   "deliveryFiles": 57,
   "hashedFiles": 56,
-  "hashedBytes": 3441166,
+  "hashedBytes": 3441207,
   "files": [
     {
       "path": "experiments/post-spike-evidence/2026-10-01/native-coordinator-d5/decision-vectors.json",
@@ -278,8 +278,8 @@
     },
     {
       "path": "notes/2026-10-02-atseq-accepted-continuation-publication-results.md",
-      "bytes": 8670,
-      "sha256": "497dad910ae1e826cf68822d7a4a05814bb446c7e9355c7aef771135ba56da99"
+      "bytes": 8711,
+      "sha256": "689cd9922fd33f5981495afc32294f5ade0e80340ac7279e51819301e135c589"
     },
     {
       "path": "notes/2026-10-02-atseq-retry-prefix-boundary-revision-results.md",

@@ -73,8 +73,8 @@ leave the E1 native, durable and bootstrap measurements open.
 ## Implementation work still open
 
 I1-F2 observer orchestration and N1-F3 application integration are in progress.
-The A1-F2 OAuth successor is completing actual validation and provenance;
-T1-H2's real PDS startup race correction still needs exact-head review and
+The A1-F2 OAuth successor has completed actual validation and provenance
+and awaits independent exact-head review; T1-H2's real PDS startup race correction still needs exact-head review and
 landing. R1 runtime migration follows reviewed application integration because
 both change the same authority ownership boundary. App-provisioning A2-D1 is
 excluded from this delivery: its separately assessed packet still needs the
