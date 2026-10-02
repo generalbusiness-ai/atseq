@@ -1,0 +1,2 @@
+src/core/dependencies.ts(1,45): error TS2307: Cannot find module '#atseq-integrity' or its corresponding type declarations.
+tests/support/profile-corpus.ts(1,38): error TS2307: Cannot find module '#atseq-integrity' or its corresponding type declarations.

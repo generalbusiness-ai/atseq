@@ -1,0 +1,157 @@
+{
+  "schema": "atseq-oauth-custody-failure-attempts-v1",
+  "finalSourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+  "earlyUncommittedDraftLocation": "/private/tmp/atseq-oauth-custody-failure-20261002",
+  "captures": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-final.log",
+      "sourceProducer": "3dbc0167f09955aa180034dbc0eb290a0bd4c919",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-first.log",
+      "sourceProducer": null,
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-frozen.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "final source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-refined.log",
+      "sourceProducer": "8d7c6ff89b1fbee9527e47eca0397c5b64e6b418",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-final.log",
+      "sourceProducer": "3dbc0167f09955aa180034dbc0eb290a0bd4c919",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-frozen.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "final source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-precommit.log",
+      "sourceProducer": null,
+      "attribution": "passing full check from final source bytes before commit"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-refined.log",
+      "sourceProducer": "8d7c6ff89b1fbee9527e47eca0397c5b64e6b418",
+      "attribution": "failed earlier check: controlled fixture metadata missing redirect_uris; fixed in final source"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/chromium-first.log",
+      "sourceProducer": null,
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/chromium-second.log",
+      "sourceProducer": null,
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/classification-only.log",
+      "sourceProducer": null,
+      "attribution": "controlled classification capture from matching refined draft before its source commit"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/classification-refined.log",
+      "sourceProducer": null,
+      "attribution": "controlled classification capture from matching refined draft before its source commit"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/compiled-final.log",
+      "sourceProducer": "3dbc0167f09955aa180034dbc0eb290a0bd4c919",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/compiled-frozen.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "final source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/compiled-refined.log",
+      "sourceProducer": "8d7c6ff89b1fbee9527e47eca0397c5b64e6b418",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/format-refined.log",
+      "sourceProducer": null,
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node22-final.log",
+      "sourceProducer": "3dbc0167f09955aa180034dbc0eb290a0bd4c919",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node22-frozen.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "final source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node22-refined.log",
+      "sourceProducer": "8d7c6ff89b1fbee9527e47eca0397c5b64e6b418",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node24-final.log",
+      "sourceProducer": "3dbc0167f09955aa180034dbc0eb290a0bd4c919",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node24-frozen.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "final source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node24-refined.log",
+      "sourceProducer": "8d7c6ff89b1fbee9527e47eca0397c5b64e6b418",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node26-final.log",
+      "sourceProducer": "3dbc0167f09955aa180034dbc0eb290a0bd4c919",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node26-frozen.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "final source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node26-refined.log",
+      "sourceProducer": "8d7c6ff89b1fbee9527e47eca0397c5b64e6b418",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/notices-final.log",
+      "sourceProducer": "3dbc0167f09955aa180034dbc0eb290a0bd4c919",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/notices-frozen.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "final source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/notices-refined.log",
+      "sourceProducer": "8d7c6ff89b1fbee9527e47eca0397c5b64e6b418",
+      "attribution": "retained earlier attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/types-first.log",
+      "sourceProducer": null,
+      "attribution": "failed initial check: generated integrity artifacts absent; resolved by build"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/evidence-format.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "passing delivered evidence formatting check"
+    }
+  ]
+}

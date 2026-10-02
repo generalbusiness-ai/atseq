@@ -1,0 +1,2 @@
+tests/oauth-adapter.test.ts 22ms
+src/protocol/oauth.ts 28ms (unchanged)

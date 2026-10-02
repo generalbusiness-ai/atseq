@@ -1,0 +1,64 @@
+✔ Node resolution consumes stdin payloads larger than 64 KiB (11432.532709ms)
+✔ package file patches and unlisted nested resolution fail before interpretation (22855.384417ms)
+{"node":"v24.21.0","cases":["actual-maintained-PAR-PKCE-DPoP-nonce-refresh-resource-revoke","duplicate-callback-single-exchange","opaque-session-and-adapter-serialization","missing-issuer","oversized-callback","duplicate-issuer","wrong-subject","wrong-scopes","extra-scopes","wrong-callback-issuer","changed-authority","refresh-extra-scopes-before-resource-retry","scope-refusal-before-resource","resource-path-escape","oversized-outgoing-body","caller-aborted-request","unsafe-token-url","oversized-resource","refused-token","refused-refresh","refused-resource","refused-revoke","callback-state-selects-one-of-two-pending-transactions","secret-free-identity-content_unavailable-class","secret-free-identity-origin-class","actual-native-fetch/drop-transient","actual-native-fetch/body-drop-transient","actual-native-fetch/deadline-transient","failed-PAR-state-count-bounded","expired-transaction-before-token-exchange","expired-callback-leaves-later-live-transaction-usable","new-volatile-Node-instance-refuses-abandoned-callback","identity-request-count-budget","identity-cumulative-byte-budget","path-based-issuer-binding-preserved"],"dispatcherCalls":446,"providerSuccess":false,"syntheticOnly":true}
+✔ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (35751.554667ms)
+✔ browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments (0.294959ms)
+✔ storage finalization crossing the network deadline preserves the original work failure (644.135125ms)
+{"browser":"153.0.8010.12","syntheticOnly":true,"providerSuccess":false,"crossDocumentOneExchange":true,"twoPendingStateSelection":true,"nativeTransportUnavailable":true,"deterministicHTTPRefusal":true,"reloadRestored":true,"keyProperties":[{"privateExtractable":false,"privateType":"private","publicExtractable":true}],"cookiesSent":0,"isolatedPublisherAndAppOrigin":true}
+✔ Chromium exercises maintained OAuth, custody origin, reload, cross-document consume and non-extractable key (2158.818167ms)
+[{"name":"browser-app","delta":{"raw":90436,"gzip":8971},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5231,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"browser-worker","delta":{"raw":102686,"gzip":10125},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5231,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"portable-verifier","delta":{"raw":90248,"gzip":8710},"metadataRawBytesInOutput":54920,"grouped":{"raw":55001,"gzip":5231,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"node-cli-start","delta":{"raw":345573,"gzip":90940},"metadataRawBytesInOutput":54967,"grouped":{"raw":55001,"gzip":5231,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}},{"name":"node-host-start","delta":{"raw":333325,"gzip":90523},"metadataRawBytesInOutput":54967,"grouped":{"raw":55001,"gzip":5231,"method":"Separate standalone minified JS array of the same 47 exact manifests; gzip is not an additive contribution in the ordinary bundle"}}]
+✔ actual ordinary browser/verifier/Node start graphs retain only added OAuth manifests, never executable modules (6556.224458ms)
+[{"platform":"browser","dynamicImports":2,"chunks":[{"path":"oauth-loader.js","rawBytes":213,"gzipBytes":181},{"path":"dist-PBJBG52W.js","rawBytes":254159,"gzipBytes":69393},{"path":"oauth-adapter-XTIH5BEU.js","rawBytes":99950,"gzipBytes":24929},{"path":"chunk-C7IDU5NN.js","rawBytes":414610,"gzipBytes":82220},{"path":"chunk-OOJM4CTU.js","rawBytes":638,"gzipBytes":388}]},{"platform":"node","dynamicImports":2,"chunks":[{"path":"oauth-loader.js","rawBytes":207,"gzipBytes":180},{"path":"dist-BWVBLADZ.js","rawBytes":242020,"gzipBytes":67441},{"path":"oauth-adapter-RH6WWWLT.js","rawBytes":90583,"gzipBytes":22347},{"path":"chunk-3PPTV3RF.js","rawBytes":8311330,"gzipBytes":2119794},{"path":"chunk-2SEI3BXJ.js","rawBytes":1521386,"gzipBytes":480596},{"path":"chunk-IYWUY3VA.js","rawBytes":894,"gzipBytes":506}]}]
+✔ OAuth enrolment loaders retain a dynamic adapter/client chunk boundary (2338.632166ms)
+{"case":"actual-bfcache-housekeeping","chromium":"153.0.8010.12","compiled":false,"nativeTLS":true,"requestInterception":false,"restorations":3,"initial":{"instance":"85ad712b-b58c-48a0-9ca8-b35d0a6b08ef","events":[{"event":"pageshow","persisted":false}],"activeTimers":1,"fires":0},"final":{"instance":"85ad712b-b58c-48a0-9ca8-b35d0a6b08ef","events":[{"event":"pageshow","persisted":false},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true}],"activeTimers":1,"fires":1},"actualMinuteTimerFired":true,"idleReservedRowsPurged":true,"providerSuccess":false}
+✔ actual BFCache restores exactly one custody timer, which performs idle cleanup after repeated restores (61476.098459ms)
+{"custodyCase":"counts-consent-expiry","pendingCap":10,"accountCap":10,"onePendingPerDid":true,"refreshDoesNotExtendConsent":true,"expiredNeverRefreshes":true}
+✔ owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime (1826.650958ms)
+{"custodyCase":"actual-write-abort","callbackAndRefreshRejected":true,"selectedSdkRevocation":true,"localPurge":true}
+✔ actual IDB session abort propagates and selected SDK revokes new refresh token (399.61625ms)
+{"custodyCase":"read-crash","realDocumentClosed":true,"uncertainNotRestored":true,"noRefreshRetry":true,"oneBestEffortRevoke":true}
+✔ crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry (628.160459ms)
+{"custodyCase":"callback-after-commit-crash","actualCommittedCredential":true,"authorityChecksUnfinished":true,"noReturnedHandle":true,"noRefreshRetry":true}
+✔ committed callback is not live before fresh authority checks; closing document retires it (652.592292ms)
+{"custodyCase":"cross-document-lock-key","actualWebLocks":true,"reloadedNonextractablePrivateKey":true,"distinctLockPrefixes":true}
+✔ two documents serialize custody and distinct SDK locks without a process local fallback (734.255875ms)
+{"custodyCase":"actual-browser-quota","chromiumQuotaOverride":1,"writeRejected":true,"physicalCountsPreserved":true,"recoveredAfterQuotaRestored":true}
+✔ browser quota refusal aborts real owned writes without exceeding physical slot counts (554.7265ms)
+{"custodyCase":"purge-failure-reset","actualDeleteTransactionAborts":true,"countedWhileUnusable":true,"noRefreshRetry":true,"repairAndTrustedResetReenrollment":true}
+✔ failed local purge remains counted and unusable until storage repair or trusted explicit reset (530.61825ms)
+{"custodyCase":"remote-refusal","localDeletionIndependent":true,"noDurableRemoteRetryQueue":true}
+✔ remote revocation refusal cannot prevent local purge (435.268333ms)
+{"custodyCase":"legacy-origin-reset","legacyRefused":true,"explicitDeletionWithoutDecoding":true,"freshEnrollment":true}
+✔ legacy private SDK origin is refused until trusted reset; no private database migration (386.2655ms)
+{"custodyCase":"exact-metadata-ceiling","utf8Bytes":65536,"oneByteOverRejected":true,"opaquePairExcluded":true,"journalIncluded":true}
+✔ 64 KiB logical UTF-8 metadata ceiling includes the account journal while opaque keypair is excluded (539.573666ms)
+{"custodyCase":"refresh-issued-before-commit-crash","realTokenResponsePrepared":true,"oldCredentialUncertain":true,"noOneUseRefreshRetry":true,"actualDistinctSdkAndCustodyLocks":true}
+✔ refresh response issued before local commit leaves the old credential uncertain and never retries it on reopen (444.402375ms)
+{"custodyCase":"final-live-commit-abort","actualFinalTransactionAborted":true,"noAcceptedHandle":true,"committedCredentialRetiredOnReopen":true}
+✔ final live-marker transaction abort returns no handle and retains committed uncertain credential for cleanup (561.356875ms)
+{"custodyCase":"journal-first","actualMarkerAbort":true,"noCredentialDispatchBeforeCommit":true,"untouchedLiveConsentPreserved":true}
+✔ journal write must commit before any credential read, refresh or resource request (415.298666ms)
+{"custodyCase":"subject-and-401","foreignSubjectNeverAllocated":true,"implicitRefreshJournalRetained":true,"consentNotExtended":true,"changedScopeRefusedBeforeSecondResourceDispatch":true}
+✔ subject mismatch cannot allocate another account and resource 401 refresh retains the journal and checks exact scopes (504.186166ms)
+{"custodyCase":"plain-reset-keeps-consent","originalUnavailableError":true,"unchangedDeadline":true,"noRefreshOrRevoke":true,"nextRequestSucceeded":true}
+✔ plain resource transport reset preserves live consent, deadline and next successful request without refresh or revocation (517.764875ms)
+{"custodyCase":"resource-form-not-token","normalizedPostBody":true,"authorizationProvenanceSeparatesResource":true,"consentPreserved":true}
+✔ an authenticated resource form cannot masquerade as a maintained token request (429.435709ms)
+{"custodyCase":"lost-401-refresh-response","actualPreparedTokenResponseLost":true,"sdkInitial401Preserved":true,"uncertainRetired":true,"noOneUseRetry":true}
+✔ lost 401 refresh response retires uncertainty even when the maintained resource helper returns its initial 401 (724.365ms)
+{"custodyCase":"token-dispatch-normalized-form","publicSdkFetchDecoratorOnly":true,"optionalFieldsAccepted":true,"mixedCaseCharsetAccepted":true,"lostResponseRetired":true}
+✔ token dispatch marker accepts maintained normalized form with extra fields and mixed-case media type with charset (429.006583ms)
+{"custodyCase":"safe-finalization-abort","actualTransactionAbort":true,"originalTransientErrorPreserved":true,"uncertainNotUsable":true,"noRefreshRetry":true}
+✔ safe failure finalization must commit; aborted live marker leaves uncertainty and preserves original transient error (507.305042ms)
+{"custodyCase":"plain-caller-abort","existingConsentLive":true,"noTokenOrRevoke":true,"originalUnavailableClass":true}
+✔ plain caller abort without token dispatch preserves existing consent and original unavailable class (369.3125ms)
+{"custodyCase":"token-handoff-sync-rejection","markedBeforeTransport":true,"noServerTokenResponseRequiredForConservativeRetirement":true,"noAutomaticRetry":true}
+✔ token handoff is marked before transport can synchronously reject, retaining conservative no-retry semantics (426.849166ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62497.869709
