@@ -21,6 +21,10 @@ export const OAUTH_LIMITS = Object.freeze({
   scopeBytes: 8192,
 });
 export type OAuthIdentityResolver = NonNullable<CreateIdentityResolverOptions['identityResolver']>;
+/** Local subclass bridge to the SDK's published protected state-store hook. */
+export interface OAuthCustodyClient extends OAuthClient {
+  readApplicationState(callbackState: string): Promise<string | undefined>;
+}
 export interface OAuthAdapterOptions {
   readonly metadata: OAuthClientMetadataInput;
   /** Trusted caller's maintained identity path. Every HTTP lookup must use this fetch. */
@@ -186,8 +190,8 @@ export class OAuthAdapter {
   readonly #transactions: OAuthTransactionStore;
   readonly #lock: OAuthLock;
   readonly #transport: typeof globalThis.fetch;
-  readonly #factory: (fetch: typeof globalThis.fetch, identity: OAuthIdentityResolver) => Promise<OAuthClient>;
-  #client: Promise<OAuthClient> | undefined;
+  readonly #factory: (fetch: typeof globalThis.fetch, identity: OAuthIdentityResolver) => Promise<OAuthCustodyClient>;
+  #client: Promise<OAuthCustodyClient> | undefined;
   #budget: Budget | undefined;
   #resourceCheck: ((request: Request) => Promise<void>) | undefined;
   constructor(
@@ -195,7 +199,7 @@ export class OAuthAdapter {
     transactions: OAuthTransactionStore,
     lock: OAuthLock,
     transport: typeof globalThis.fetch,
-    factory: (fetch: typeof globalThis.fetch, identity: OAuthIdentityResolver) => Promise<OAuthClient>,
+    factory: (fetch: typeof globalThis.fetch, identity: OAuthIdentityResolver) => Promise<OAuthCustodyClient>,
   ) {
     oauthUrl(options.metadata.client_id!);
     if (options.metadata.token_endpoint_auth_method !== 'none') refuse('This adapter requires a public OAuth client');
@@ -237,7 +241,7 @@ export class OAuthAdapter {
     resultHeaders.delete('content-encoding');
     return new Response(content, { status: response.status, statusText: response.statusText, headers: resultHeaders });
   };
-  async #run<T>(work: (client: OAuthClient) => Promise<T>): Promise<T> {
+  async #run<T>(work: (client: OAuthCustodyClient) => Promise<T>): Promise<T> {
     return this.#lock(async () => {
       this.#budget = { signal: AbortSignal.timeout(OAUTH_LIMITS.operationMs), requests: 0, bytes: 0 };
       try {
@@ -296,9 +300,9 @@ export class OAuthAdapter {
     const issuer = oauthUrl(copy.get('iss')!).href;
     return this.#run(async (client) => {
       // The SDK generates its own nonce; authorize({state:id}) retains id as
-      // appState. Read that public store without consuming either transaction.
-      const stateData = await client.stateStore.get(callbackState);
-      const transactionId = stateData?.appState;
+      // appState. A local subclass reads the published protected store hook
+      // without consuming either transaction or exposing keys/credentials.
+      const transactionId = await client.readApplicationState(callbackState);
       if (typeof transactionId !== 'string' || transactionId.length !== 36) refuse('Unknown OAuth callback state');
       const transaction = this.#transactions.take(transactionId);
       if (!transaction || Date.now() >= transaction.expiresAt) refuse('Unknown or expired OAuth transaction');

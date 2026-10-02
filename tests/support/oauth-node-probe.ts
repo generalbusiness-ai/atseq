@@ -14,9 +14,13 @@ globalThis.fetch = async (input, init) => {
   dispatcherCalls++;
   // Inspect an existing request without transferring its body a second time.
   const request = input instanceof Request ? input : new Request(input, init);
-  if (networkFaultURL && new URL(request.url).pathname.startsWith('/xrpc/'))
+  if (networkFaultURL && new URL(request.url).pathname.startsWith('/xrpc/')) {
     // No OAuth headers or key material reach the test-owned local fault server.
-    return nativeFetch(networkFaultURL, { signal: request.signal, redirect: 'error' });
+    const response = await nativeFetch(networkFaultURL, { signal: request.signal, redirect: 'error' });
+    // Retain the actual native stream, with the same synthetic response URL
+    // convention as the fixture; no localhost URL enters production policy.
+    return new Response(response.body, { status: response.status, headers: response.headers });
+  }
   return fixture.fetch(input, init);
 };
 const { loadNodeOAuthAdapter } = await import('../../src/host/oauth-loader.ts');
@@ -262,15 +266,22 @@ results.push('failed-PAR-state-count-bounded');
 fixture = new OAuthFixture();
 adapter = await loadNodeOAuthAdapter(fixture.options());
 await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+const expiredCallback = fixture.callback();
 const now = Date.now;
 Date.now = () => now() + OAUTH_LIMITS.transactionMs + 1;
 try {
-  await assert.rejects(() => adapter.complete(fixture.callback()));
+  await refusedAs(() => adapter.complete(expiredCallback), 'input');
   assert.equal(fixture.count('/token'), 0);
+  await adapter.begin(OAUTH_DID, OAUTH_SCOPE);
+  const laterCallback = fixture.callback();
+  await refusedAs(() => adapter.complete(expiredCallback), 'input');
+  await adapter.complete(laterCallback);
+  assert.equal(fixture.count('/token'), 1);
 } finally {
   Date.now = now;
 }
 results.push('expired-transaction-before-token-exchange');
+results.push('expired-callback-leaves-later-live-transaction-usable');
 fixture = new OAuthFixture();
 const original = await loadNodeOAuthAdapter(fixture.options());
 await original.begin(OAUTH_DID, OAUTH_SCOPE);

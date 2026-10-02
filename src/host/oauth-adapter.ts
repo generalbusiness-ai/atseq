@@ -63,7 +63,12 @@ export function nodeOAuthAdapter(input: OAuthAdapterOptions): OAuthAdapter {
     transport,
     async (fetch, identityResolver) => {
       const { NodeOAuthClient, requestLocalLock } = await import('@atproto/oauth-client-node');
-      return new NodeOAuthClient({
+      class CustodyClient extends NodeOAuthClient {
+        async readApplicationState(callbackState: string) {
+          return (await this.stateStore.get(callbackState))?.appState;
+        }
+      }
+      return new CustodyClient({
         clientMetadata: options.metadata,
         fetch,
         identityResolver,

@@ -84,7 +84,12 @@ export async function browserOAuthAdapter(input: BrowserOAuthOptions): Promise<O
     oauthTransport(globalThis.fetch.bind(globalThis)),
     async (fetch, identityResolver) => {
       const { BrowserOAuthClient } = await import('@atproto/oauth-client-browser');
-      return new BrowserOAuthClient({ clientMetadata: options.metadata, fetch, identityResolver });
+      class CustodyClient extends BrowserOAuthClient {
+        async readApplicationState(callbackState: string) {
+          return (await this.stateStore.get(callbackState))?.appState;
+        }
+      }
+      return new CustodyClient({ clientMetadata: options.metadata, fetch, identityResolver });
     },
   );
 }
