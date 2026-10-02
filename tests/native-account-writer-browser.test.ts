@@ -7,6 +7,8 @@ import { createHash } from 'node:crypto';
 import { chromium } from '@playwright/test';
 import { NativeWriterFixture, WRITER_COLLECTION } from './support/native-account-writer-fixture.ts';
 import { OAUTH_CUSTODY, OAUTH_DID } from './support/oauth-fixture.ts';
+import { create, toString, CODEC_RAW } from '@atcute/cid';
+import { UPLOAD_OWNERSHIP_VALID, UPLOAD_OWNERSHIP_INVALID } from './support/native-upload-ownership-inputs.ts';
 
 test('Chromium native writer uses maintained browser OAuth and actual guarded fetch with bounded custody', async () => {
   const output = resolve('.atseq-local/native-account-writer-browser');
@@ -124,6 +126,73 @@ test('Chromium native writer uses maintained browser OAuth and actual guarded fe
       assert.ok(fixture.bodies.at(-1)!.every((byte) => byte === 17));
     }
     await assert.rejects(() => page.evaluate(() => (globalThis as any).writerProbe.upload(1048577)));
+    const sharedStorageAvailable = await page.evaluate(() => typeof SharedArrayBuffer !== 'undefined');
+    const uploadOwnershipCases: string[] = [];
+    for (const name of UPLOAD_OWNERSHIP_VALID) {
+      if (name === 'shared-storage' && !sharedStorageAvailable) continue;
+      const blob = await page.evaluate((name) => (globalThis as any).writerProbe.uploadOwnership(name), name);
+      assert.equal(blob.size, name === 'zero-byte-length-spoof' ? 0 : 17);
+      assert.deepEqual(fixture.bodies.at(-1), new Uint8Array(blob.size).fill(42));
+      uploadOwnershipCases.push('valid-owned-' + name);
+    }
+    for (const name of UPLOAD_OWNERSHIP_INVALID) {
+      const before = fixture.calls.length;
+      const code = await page.evaluate(async (name) => {
+        try {
+          await (globalThis as any).writerProbe.uploadOwnership(name);
+          return 'unexpected-success';
+        } catch (error: any) {
+          return error.code;
+        }
+      }, name);
+      assert.equal(code, 'input');
+      assert.equal(fixture.calls.length, before);
+      uploadOwnershipCases.push('local-refusal-' + name);
+    }
+    const beforeRealm = fixture.calls.length;
+    assert.equal(
+      await page.evaluate(async () => {
+        try {
+          await (globalThis as any).writerProbe.uploadCrossRealm();
+          return 'unexpected-success';
+        } catch (error: any) {
+          return error.code;
+        }
+      }),
+      'input',
+    );
+    assert.equal(fixture.calls.length, beforeRealm);
+    uploadOwnershipCases.push('explicit-cross-realm-refusal-before-any-HTTP');
+    let malformedSentBytes = 0;
+    fixture.overrideResponse = async (_request, body) => {
+      malformedSentBytes = body.byteLength;
+      return new Response(
+        JSON.stringify({
+          blob: {
+            $type: 'blob',
+            ref: { $link: toString(await create(CODEC_RAW, body)) },
+            mimeType: 'application/octet-stream',
+            size: 0,
+          },
+        }),
+      );
+    };
+    assert.equal(
+      await page.evaluate(async () => {
+        try {
+          await (globalThis as any).writerProbe.uploadOwnership('length-zero');
+          return 'unexpected-success';
+        } catch (error: any) {
+          return error.code;
+        }
+      }),
+      'InvalidResponse',
+    );
+    assert.equal(malformedSentBytes, 17);
+    uploadOwnershipCases.push('root-17-sent-own-length-zero-malformed-size-zero-refused');
+    fixture.overrideResponse = undefined;
+    assert.equal((await page.evaluate(() => (globalThis as any).writerProbe.uploadOwnership('length-zero'))).size, 17);
+    uploadOwnershipCases.push('valid-reply-after-malformed-refusal');
     const old = fixture.commit,
       before = fixture.bodies.length;
     fixture.invalidTokenOnce = true;
@@ -222,6 +291,7 @@ test('Chromium native writer uses maintained browser OAuth and actual guarded fe
         bundledBytes: built.outputFiles.reduce((size, file) => size + file.contents.length, 0),
         bundleHashes,
         resources: fixture.paths.length,
+        uploadOwnership: { cases: uploadOwnershipCases, sharedStorageAvailable, crossRealmSupported: false },
         credentialRecovery: {
           message: recoveryMessage,
           storedMetadataBytes: stored.metadataBytes,

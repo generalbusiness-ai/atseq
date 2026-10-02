@@ -16,6 +16,25 @@ export interface NativeAccountRecord {
 }
 const mint = Object.freeze({});
 const utf8 = new TextEncoder();
+const byteLength = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(Uint8Array.prototype), 'byteLength')!.get!;
+function ownUpload(content: Uint8Array): Uint8Array {
+  if (!(content instanceof Uint8Array)) input('Invalid account blob input');
+  let size: number;
+  try {
+    size = byteLength.call(content);
+  } catch {
+    input('Invalid account blob input');
+  }
+  if (size > 1024 * 1024) input('Account blob exceeds byte limit');
+  // A base typed-array constructor copies intrinsic storage without consulting
+  // caller length/byteLength, methods, iterator, constructor or species.
+  try {
+    return new Uint8Array(content);
+  } catch (error) {
+    if (!(error instanceof TypeError)) throw error;
+    input('Invalid account blob input');
+  }
+}
 function input(message: string): never {
   throw new AtseqError('input', message);
 }
@@ -181,9 +200,10 @@ export class NativeAccountWriter {
   }
   upload(content: Uint8Array, mimeType = 'application/octet-stream', options: CallOptions = {}): Promise<any> {
     return this.#reply(async () => {
-      if (!(content instanceof Uint8Array) || !mime(mimeType)) input('Invalid account blob input');
-      const size = content.length;
-      const blob = await this.#operations(options.signal).upload(content, mimeType);
+      if (!mime(mimeType)) input('Invalid account blob input');
+      const owned = ownUpload(content);
+      const size = owned.byteLength;
+      const blob = await this.#operations(options.signal).upload(owned, mimeType);
       blobCid(blob?.ref?.$link);
       // Standard PDS upload can select a sniffed type instead of the fallback.
       if (blob?.$type !== 'blob' || blob.size !== size || !mime(blob.mimeType))

@@ -5,6 +5,7 @@ import { OAUTH_DID, OAUTH_SCOPE, OAUTH_CUSTODY, oauthMetadata } from './oauth-fi
 import { WRITER_COLLECTION } from './native-account-writer-fixture.ts';
 import { observeStreamByteCounts } from './native-account-writer-byte-observation.ts';
 import { OAUTH_CUSTODY_DATABASE } from '../../src/browser/oauth-custody.ts';
+import { nativeUploadOwnershipInput, UPLOAD_OWNERSHIP_VALID } from './native-upload-ownership-inputs.ts';
 
 let adapter: OAuthAdapter;
 let handle: OAuthSessionHandle;
@@ -53,6 +54,22 @@ export const upload = (size: number, cancel = false) => {
   bytes.fill(23);
   return pending;
 };
+export function uploadOwnership(name: string) {
+  const { input } = nativeUploadOwnershipInput(name);
+  const pending = writer.upload(input as Uint8Array);
+  if ((UPLOAD_OWNERSHIP_VALID as readonly string[]).includes(name)) Uint8Array.prototype.fill.call(input, 23);
+  return pending;
+}
+export async function uploadCrossRealm() {
+  const frame = document.createElement('iframe');
+  document.body.append(frame);
+  const foreign = new (frame.contentWindow as any).Uint8Array(17);
+  try {
+    return await writer.upload(foreign);
+  } finally {
+    frame.remove();
+  }
+}
 export const apply = (swapCommit: string) => {
   const writes = [
     {
