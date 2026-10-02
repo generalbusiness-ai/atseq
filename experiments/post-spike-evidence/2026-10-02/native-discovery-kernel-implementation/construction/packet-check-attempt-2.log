@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/private/tmp/atseq-native-discovery-c1-kernel-20261002/experiments/post-spike-evidence/2026-10-02/native-discovery-kernel-implementation/check.py", line 104, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/private/tmp/atseq-native-discovery-c1-kernel-20261002/experiments/post-spike-evidence/2026-10-02/native-discovery-kernel-implementation/check.py", line 95, in main
+    result=semantic(s)
+  File "/private/tmp/atseq-native-discovery-c1-kernel-20261002/experiments/post-spike-evidence/2026-10-02/native-discovery-kernel-implementation/check.py", line 25, in semantic
+    require('test-only' in byid['K3-05']['limitation'] and 'No genuine' in byid['K3-05']['limitation'],'max-safe genuine-history claim')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/atseq-native-discovery-c1-kernel-20261002/experiments/post-spike-evidence/2026-10-02/native-discovery-kernel-implementation/check.py", line 11, in require
+    if not ok:raise ValueError(message)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: max-safe genuine-history claim

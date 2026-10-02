@@ -1,0 +1,2482 @@
+{
+  "producer": "7234f492089a993588d78472e3399abcc24bcc15",
+  "profiles": {
+    "few": {
+      "profile": "few",
+      "grantCount": 1,
+      "rows": [
+        {
+          "actionCount": 100,
+          "totalEntries": 101,
+          "grantCount": 1,
+          "selectedProofBytes": 113213,
+          "coldDefaultPrefixRefusal": null,
+          "bootstrap": {
+            "elapsedMs": 662.514083,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 180144464
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 204843672
+            },
+            "heapDelta": 24699208,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "repositoryAuthentication": {
+            "elapsedMs": 2.3576670000002196,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 179370472
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 180140976
+            },
+            "heapDelta": 770504,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "reads": {
+            "discoveryTransport": 0,
+            "selectionHistory": 0,
+            "selectionOutcomes": 0
+          },
+          "cold": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                "authority": "bafyreibkgrlgugmnqqlf62uf2ug6lzul2jjr4qtnpbd2h4yd7kcbo5hehq",
+                "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe",
+                  "position": 101
+                },
+                "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                "nextPosition": 102,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222223",
+                  "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                  "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                },
+                "publication": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "entry": {
+                      "$link": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe"
+                    },
+                    "genesis": {
+                      "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                    },
+                    "position": 101,
+                    "version": 2
+                  },
+                  "rev": "2222222222257",
+                  "root": "bafyreib2p64xq74abktaxiz2ci64hyasov77ce7rn7qha7tsiotajpdzhe"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreienjtiknedezmbtodksvzoehxdd474kuac36kpseaia5ju2nmbaaq"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+              },
+              "work": {
+                "rowVisits": 19,
+                "candidateVisits": 2,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 124310,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "computed",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.99612500000012,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 204936048
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 205276312
+              },
+              "heapDelta": 340264,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "warm": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                "authority": "bafyreibkgrlgugmnqqlf62uf2ug6lzul2jjr4qtnpbd2h4yd7kcbo5hehq",
+                "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe",
+                  "position": 101
+                },
+                "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                "nextPosition": 102,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222223",
+                  "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                  "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                },
+                "publication": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "entry": {
+                      "$link": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe"
+                    },
+                    "genesis": {
+                      "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                    },
+                    "position": 101,
+                    "version": 2
+                  },
+                  "rev": "2222222222257",
+                  "root": "bafyreib2p64xq74abktaxiz2ci64hyasov77ce7rn7qha7tsiotajpdzhe"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreienjtiknedezmbtodksvzoehxdd474kuac36kpseaia5ju2nmbaaq"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+              },
+              "work": {
+                "rowVisits": 7,
+                "candidateVisits": 2,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 63630,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "reused",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.20516700000007404,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 205277264
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 205401664
+              },
+              "heapDelta": 124400,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "concurrent": {
+            "result": [
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "authority": "bafyreibkgrlgugmnqqlf62uf2ug6lzul2jjr4qtnpbd2h4yd7kcbo5hehq",
+                  "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe",
+                    "position": 101
+                  },
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "nextPosition": 102,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222223",
+                    "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                    "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                  },
+                  "publication": {
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                      "entry": {
+                        "$link": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe"
+                      },
+                      "genesis": {
+                        "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                      },
+                      "position": 101,
+                      "version": 2
+                    },
+                    "rev": "2222222222257",
+                    "root": "bafyreib2p64xq74abktaxiz2ci64hyasov77ce7rn7qha7tsiotajpdzhe"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreienjtiknedezmbtodksvzoehxdd474kuac36kpseaia5ju2nmbaaq"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                  "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+                },
+                "work": {
+                  "rowVisits": 7,
+                  "candidateVisits": 2,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 63630,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              },
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "authority": "bafyreibkgrlgugmnqqlf62uf2ug6lzul2jjr4qtnpbd2h4yd7kcbo5hehq",
+                  "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe",
+                    "position": 101
+                  },
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "nextPosition": 102,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222223",
+                    "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                    "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                  },
+                  "publication": {
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                      "entry": {
+                        "$link": "bafyreicb3or26ptif4nh5jyppz65ogsesecyn3lpsrlktssdqdlmkbcwoe"
+                      },
+                      "genesis": {
+                        "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                      },
+                      "position": 101,
+                      "version": 2
+                    },
+                    "rev": "2222222222257",
+                    "root": "bafyreib2p64xq74abktaxiz2ci64hyasov77ce7rn7qha7tsiotajpdzhe"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreienjtiknedezmbtodksvzoehxdd474kuac36kpseaia5ju2nmbaaq"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                  "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+                },
+                "work": {
+                  "rowVisits": 7,
+                  "candidateVisits": 2,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 63630,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              }
+            ],
+            "measurement": {
+              "elapsedMs": 0.28187500000012733,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 205402616
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 206008360
+              },
+              "heapDelta": 605744,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          }
+        },
+        {
+          "actionCount": 1000,
+          "totalEntries": 1001,
+          "grantCount": 1,
+          "selectedProofBytes": 1069232,
+          "coldDefaultPrefixRefusal": null,
+          "bootstrap": {
+            "elapsedMs": 5331.050833,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 208795952
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 222396384
+            },
+            "heapDelta": 13600432,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "repositoryAuthentication": {
+            "elapsedMs": 2.875749999999698,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 205656008
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 208794984
+            },
+            "heapDelta": 3138976,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "reads": {
+            "discoveryTransport": 0,
+            "selectionHistory": 0,
+            "selectionOutcomes": 0
+          },
+          "cold": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                "authority": "bafyreifb4jwugu3cxik7qwn3imwrg3d62ugjanmamksitvlbrtiuy3rlqa",
+                "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye",
+                  "position": 1001
+                },
+                "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                "nextPosition": 1002,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222223",
+                  "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                  "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                },
+                "publication": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "entry": {
+                      "$link": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye"
+                    },
+                    "genesis": {
+                      "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                    },
+                    "position": 1001,
+                    "version": 2
+                  },
+                  "rev": "22222222222zd",
+                  "root": "bafyreidvqg3a7x5efyydbpd3mrk2ybphkw4j6mde2narfitdh7jtb74ebu"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreif4vrb5xak7njwjvvlgmeqqfzwzxclvpxoylel5vyln6qzrchujsy"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+              },
+              "work": {
+                "rowVisits": 19,
+                "candidateVisits": 2,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 124352,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "computed",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.43329199999971024,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 222957048
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 223254968
+              },
+              "heapDelta": 297920,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "warm": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                "authority": "bafyreifb4jwugu3cxik7qwn3imwrg3d62ugjanmamksitvlbrtiuy3rlqa",
+                "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye",
+                  "position": 1001
+                },
+                "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                "nextPosition": 1002,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222223",
+                  "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                  "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                },
+                "publication": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "entry": {
+                      "$link": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye"
+                    },
+                    "genesis": {
+                      "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                    },
+                    "position": 1001,
+                    "version": 2
+                  },
+                  "rev": "22222222222zd",
+                  "root": "bafyreidvqg3a7x5efyydbpd3mrk2ybphkw4j6mde2narfitdh7jtb74ebu"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreif4vrb5xak7njwjvvlgmeqqfzwzxclvpxoylel5vyln6qzrchujsy"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+              },
+              "work": {
+                "rowVisits": 7,
+                "candidateVisits": 2,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 63642,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "reused",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.14358399999946414,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 223256232
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 223387360
+              },
+              "heapDelta": 131128,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "concurrent": {
+            "result": [
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "authority": "bafyreifb4jwugu3cxik7qwn3imwrg3d62ugjanmamksitvlbrtiuy3rlqa",
+                  "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye",
+                    "position": 1001
+                  },
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "nextPosition": 1002,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222223",
+                    "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                    "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                  },
+                  "publication": {
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                      "entry": {
+                        "$link": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye"
+                      },
+                      "genesis": {
+                        "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                      },
+                      "position": 1001,
+                      "version": 2
+                    },
+                    "rev": "22222222222zd",
+                    "root": "bafyreidvqg3a7x5efyydbpd3mrk2ybphkw4j6mde2narfitdh7jtb74ebu"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreif4vrb5xak7njwjvvlgmeqqfzwzxclvpxoylel5vyln6qzrchujsy"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                  "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+                },
+                "work": {
+                  "rowVisits": 7,
+                  "candidateVisits": 2,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 63642,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              },
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "authority": "bafyreifb4jwugu3cxik7qwn3imwrg3d62ugjanmamksitvlbrtiuy3rlqa",
+                  "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye",
+                    "position": 1001
+                  },
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "nextPosition": 1002,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222223",
+                    "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                    "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                  },
+                  "publication": {
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                      "entry": {
+                        "$link": "bafyreigcir3h5xcxsfqrrstprvdfgxztdxkk5boeko62g2kbecse5hx6ye"
+                      },
+                      "genesis": {
+                        "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                      },
+                      "position": 1001,
+                      "version": 2
+                    },
+                    "rev": "22222222222zd",
+                    "root": "bafyreidvqg3a7x5efyydbpd3mrk2ybphkw4j6mde2narfitdh7jtb74ebu"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreif4vrb5xak7njwjvvlgmeqqfzwzxclvpxoylel5vyln6qzrchujsy"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                  "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+                },
+                "work": {
+                  "rowVisits": 7,
+                  "candidateVisits": 2,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 63642,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              }
+            ],
+            "measurement": {
+              "elapsedMs": 0.2343330000003334,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 223388664
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 223612760
+              },
+              "heapDelta": 224096,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          }
+        },
+        {
+          "actionCount": 10000,
+          "totalEntries": 10001,
+          "grantCount": 1,
+          "selectedProofBytes": 10546485,
+          "coldDefaultPrefixRefusal": "content_unavailable",
+          "bootstrap": {
+            "elapsedMs": 46044.940375,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 219036816
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 411447496
+            },
+            "heapDelta": 192410680,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "repositoryAuthentication": {
+            "elapsedMs": 25.605083000000377,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 223614960
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 219035560
+            },
+            "heapDelta": -4579400,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "reads": {
+            "discoveryTransport": 0,
+            "selectionHistory": 0,
+            "selectionOutcomes": 0
+          },
+          "cold": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                "authority": "bafyreihi6vjkcuccuxwaxivczoykudhfku45batnmknftjdgxv3lr6udma",
+                "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja",
+                  "position": 10001
+                },
+                "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                "nextPosition": 10002,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222223",
+                  "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                  "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                },
+                "publication": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "entry": {
+                      "$link": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja"
+                    },
+                    "genesis": {
+                      "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                    },
+                    "position": 10001,
+                    "version": 2
+                  },
+                  "rev": "2222222222dsl",
+                  "root": "bafyreiho42guxtehc7ywb7jjop4dli6vpwskn7kdjx776l3bxzj2hym6ge"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreiejj7ozdlmftcgv3qdyc2hvzsajywjdfbtrrbtuq4qtqzie5znva4"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+              },
+              "work": {
+                "rowVisits": 19,
+                "candidateVisits": 2,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 124402,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "computed",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.4744170000049053,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 416689760
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 416997744
+              },
+              "heapDelta": 307984,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "warm": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                "authority": "bafyreihi6vjkcuccuxwaxivczoykudhfku45batnmknftjdgxv3lr6udma",
+                "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja",
+                  "position": 10001
+                },
+                "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                "nextPosition": 10002,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222223",
+                  "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                  "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                },
+                "publication": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "entry": {
+                      "$link": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja"
+                    },
+                    "genesis": {
+                      "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                    },
+                    "position": 10001,
+                    "version": 2
+                  },
+                  "rev": "2222222222dsl",
+                  "root": "bafyreiho42guxtehc7ywb7jjop4dli6vpwskn7kdjx776l3bxzj2hym6ge"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreiejj7ozdlmftcgv3qdyc2hvzsajywjdfbtrrbtuq4qtqzie5znva4"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+              },
+              "work": {
+                "rowVisits": 7,
+                "candidateVisits": 2,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 63654,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "reused",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.13570800000161398,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 416998760
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 417109960
+              },
+              "heapDelta": 111200,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "concurrent": {
+            "result": [
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "authority": "bafyreihi6vjkcuccuxwaxivczoykudhfku45batnmknftjdgxv3lr6udma",
+                  "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja",
+                    "position": 10001
+                  },
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "nextPosition": 10002,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222223",
+                    "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                    "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                  },
+                  "publication": {
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                      "entry": {
+                        "$link": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja"
+                      },
+                      "genesis": {
+                        "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                      },
+                      "position": 10001,
+                      "version": 2
+                    },
+                    "rev": "2222222222dsl",
+                    "root": "bafyreiho42guxtehc7ywb7jjop4dli6vpwskn7kdjx776l3bxzj2hym6ge"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreiejj7ozdlmftcgv3qdyc2hvzsajywjdfbtrrbtuq4qtqzie5znva4"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                  "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+                },
+                "work": {
+                  "rowVisits": 7,
+                  "candidateVisits": 2,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 63654,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              },
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreicazqq7d7rbcwliwvaquugsu2zdcr72uvwkl2txqp2b2ciyt6ldvu",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "aeaqcaibaeaqcaibaeaqcaibae"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                  "authority": "bafyreihi6vjkcuccuxwaxivczoykudhfku45batnmknftjdgxv3lr6udma",
+                  "definition": "bafyreib7wafmhqg7pemwezokhmks53tbniiekct75kr2f3wv32w7d6pfji",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja",
+                    "position": 10001
+                  },
+                  "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                  "nextPosition": 10002,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreibdimqwqrjxupnpfriro2k22b5mjf7ha4pwpfi2eu67tc4tdhzhru",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222223",
+                    "root": "bafyreigi3zjvrv5oh2gz43s5na7efz4z7sw3asnxd7qr7wwms3og4hejgm",
+                    "signingKeyDid": "did:key:zDnaex4Lan5TP8rhqJEZozaf4NXReRaTS3uKfFdZPNW49ChnC"
+                  },
+                  "publication": {
+                    "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:vfdnotrjzpkky7sjrr6xils7",
+                      "entry": {
+                        "$link": "bafyreic6r7r5szelhxgv6nsf33jhdyiegzg6h4iiyxd7mwfddpeghfjdja"
+                      },
+                      "genesis": {
+                        "$link": "bafyreicsn5kffiaf4yd4porqb7e2psno2zh6a6xj642ytuiwwaqfxcfo7u"
+                      },
+                      "position": 10001,
+                      "version": 2
+                    },
+                    "rev": "2222222222dsl",
+                    "root": "bafyreiho42guxtehc7ywb7jjop4dli6vpwskn7kdjx776l3bxzj2hym6ge"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreiejj7ozdlmftcgv3qdyc2hvzsajywjdfbtrrbtuq4qtqzie5znva4"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeXeuGSQ2yroK93nYAWwTGqJ7jcUGGsVhT9dvxdoo5WUsq",
+                  "principal": "did:plc:vwyrougnxn5ospwahbpj2ix3"
+                },
+                "work": {
+                  "rowVisits": 7,
+                  "candidateVisits": 2,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 63654,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              }
+            ],
+            "measurement": {
+              "elapsedMs": 0.21487499999784632,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 417110976
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 417332584
+              },
+              "heapDelta": 221608,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          }
+        }
+      ],
+      "limits": "100→1000→10000 genuine ordering extension; no default prefix/quota/schema changes",
+      "recommendations": "History is absent from discovery selection; characterize bootstrap separately. Only1/32 grants measured; no capacity/latency target or peak-heap claim."
+    },
+    "many": {
+      "profile": "many",
+      "grantCount": 32,
+      "rows": [
+        {
+          "actionCount": 100,
+          "totalEntries": 132,
+          "grantCount": 32,
+          "selectedProofBytes": 753852,
+          "coldDefaultPrefixRefusal": null,
+          "bootstrap": {
+            "elapsedMs": 736.333083999998,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 195961856
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 221021240
+            },
+            "heapDelta": 25059384,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "repositoryAuthentication": {
+            "elapsedMs": 1.423624999995809,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 195106656
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 195960840
+            },
+            "heapDelta": 854184,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "reads": {
+            "discoveryTransport": 0,
+            "selectionHistory": 0,
+            "selectionOutcomes": 0
+          },
+          "cold": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                "authority": "bafyreidcaslwnjutlwhwh2xgrx7pqumo46wsrsmqdagdqsfabrzhznqjdi",
+                "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru",
+                  "position": 132
+                },
+                "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                "nextPosition": 133,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222232",
+                  "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                  "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                },
+                "publication": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "entry": {
+                      "$link": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru"
+                    },
+                    "genesis": {
+                      "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                    },
+                    "position": 132,
+                    "version": 2
+                  },
+                  "rev": "2222222222266",
+                  "root": "bafyreibmrcuezccn5gk4x3uuzbe6sdae3yuzvu6ni44js7jhhbgvvf3vve"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreicxqtub4ekyuhgmurykzvrsdu4h3jc52tpp32l3dig6vxceskla3i"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+              },
+              "work": {
+                "rowVisits": 205,
+                "candidateVisits": 64,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 350984,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "computed",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.9178749999991851,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 221215648
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 222719720
+              },
+              "heapDelta": 1504072,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "warm": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                "authority": "bafyreidcaslwnjutlwhwh2xgrx7pqumo46wsrsmqdagdqsfabrzhznqjdi",
+                "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru",
+                  "position": 132
+                },
+                "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                "nextPosition": 133,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222232",
+                  "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                  "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                },
+                "publication": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "entry": {
+                      "$link": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru"
+                    },
+                    "genesis": {
+                      "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                    },
+                    "position": 132,
+                    "version": 2
+                  },
+                  "rev": "2222222222266",
+                  "root": "bafyreibmrcuezccn5gk4x3uuzbe6sdae3yuzvu6ni44js7jhhbgvvf3vve"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreicxqtub4ekyuhgmurykzvrsdu4h3jc52tpp32l3dig6vxceskla3i"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+              },
+              "work": {
+                "rowVisits": 100,
+                "candidateVisits": 64,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 64126,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "reused",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.342584000005445,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 222720736
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 223312728
+              },
+              "heapDelta": 591992,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "concurrent": {
+            "result": [
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "authority": "bafyreidcaslwnjutlwhwh2xgrx7pqumo46wsrsmqdagdqsfabrzhznqjdi",
+                  "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru",
+                    "position": 132
+                  },
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "nextPosition": 133,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222232",
+                    "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                    "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                  },
+                  "publication": {
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                      "entry": {
+                        "$link": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru"
+                      },
+                      "genesis": {
+                        "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                      },
+                      "position": 132,
+                      "version": 2
+                    },
+                    "rev": "2222222222266",
+                    "root": "bafyreibmrcuezccn5gk4x3uuzbe6sdae3yuzvu6ni44js7jhhbgvvf3vve"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreicxqtub4ekyuhgmurykzvrsdu4h3jc52tpp32l3dig6vxceskla3i"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                  "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+                },
+                "work": {
+                  "rowVisits": 100,
+                  "candidateVisits": 64,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 64126,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              },
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "authority": "bafyreidcaslwnjutlwhwh2xgrx7pqumo46wsrsmqdagdqsfabrzhznqjdi",
+                  "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru",
+                    "position": 132
+                  },
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "nextPosition": 133,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222232",
+                    "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                    "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                  },
+                  "publication": {
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                      "entry": {
+                        "$link": "bafyreie7vpguwm3xlfpyoghhyggy7rarlqp5o7wabrdbp7vc6nrqeodqru"
+                      },
+                      "genesis": {
+                        "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                      },
+                      "position": 132,
+                      "version": 2
+                    },
+                    "rev": "2222222222266",
+                    "root": "bafyreibmrcuezccn5gk4x3uuzbe6sdae3yuzvu6ni44js7jhhbgvvf3vve"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreicxqtub4ekyuhgmurykzvrsdu4h3jc52tpp32l3dig6vxceskla3i"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                  "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+                },
+                "work": {
+                  "rowVisits": 100,
+                  "candidateVisits": 64,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 64126,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              }
+            ],
+            "measurement": {
+              "elapsedMs": 0.6487909999996191,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 223313744
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 224498824
+              },
+              "heapDelta": 1185080,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          }
+        },
+        {
+          "actionCount": 1000,
+          "totalEntries": 1032,
+          "grantCount": 32,
+          "selectedProofBytes": 1702889,
+          "coldDefaultPrefixRefusal": null,
+          "bootstrap": {
+            "elapsedMs": 4134.414417,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 227537120
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 425449272
+            },
+            "heapDelta": 197912152,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "repositoryAuthentication": {
+            "elapsedMs": 3.023457999996026,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 224501208
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 227536104
+            },
+            "heapDelta": 3034896,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "reads": {
+            "discoveryTransport": 0,
+            "selectionHistory": 0,
+            "selectionOutcomes": 0
+          },
+          "cold": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                "authority": "bafyreig4rdrp3vaywx2lh67ym6fh5y3arnnbtmn3vnwykvbwjtn3eoqudu",
+                "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y",
+                  "position": 1032
+                },
+                "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                "nextPosition": 1033,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222232",
+                  "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                  "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                },
+                "publication": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "entry": {
+                      "$link": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y"
+                    },
+                    "genesis": {
+                      "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                    },
+                    "position": 1032,
+                    "version": 2
+                  },
+                  "rev": "222222222232c",
+                  "root": "bafyreiagw4ecbkcrnresdr6dl5flscjjk5qqtdemirlnwd7nzagtwyogka"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreigafy2zznlnurfsk7tojfh2kpkrfxlbfypnja3gwwu4waramsu2ne"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+              },
+              "work": {
+                "rowVisits": 205,
+                "candidateVisits": 64,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 351026,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "computed",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.8594579999989946,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 426107608
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 427581496
+              },
+              "heapDelta": 1473888,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "warm": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                "authority": "bafyreig4rdrp3vaywx2lh67ym6fh5y3arnnbtmn3vnwykvbwjtn3eoqudu",
+                "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y",
+                  "position": 1032
+                },
+                "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                "nextPosition": 1033,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222232",
+                  "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                  "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                },
+                "publication": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "entry": {
+                      "$link": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y"
+                    },
+                    "genesis": {
+                      "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                    },
+                    "position": 1032,
+                    "version": 2
+                  },
+                  "rev": "222222222232c",
+                  "root": "bafyreiagw4ecbkcrnresdr6dl5flscjjk5qqtdemirlnwd7nzagtwyogka"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreigafy2zznlnurfsk7tojfh2kpkrfxlbfypnja3gwwu4waramsu2ne"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+              },
+              "work": {
+                "rowVisits": 100,
+                "candidateVisits": 64,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 64138,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "reused",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.3101250000036089,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 427582512
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 428172128
+              },
+              "heapDelta": 589616,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "concurrent": {
+            "result": [
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "authority": "bafyreig4rdrp3vaywx2lh67ym6fh5y3arnnbtmn3vnwykvbwjtn3eoqudu",
+                  "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y",
+                    "position": 1032
+                  },
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "nextPosition": 1033,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222232",
+                    "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                    "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                  },
+                  "publication": {
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                      "entry": {
+                        "$link": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y"
+                      },
+                      "genesis": {
+                        "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                      },
+                      "position": 1032,
+                      "version": 2
+                    },
+                    "rev": "222222222232c",
+                    "root": "bafyreiagw4ecbkcrnresdr6dl5flscjjk5qqtdemirlnwd7nzagtwyogka"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreigafy2zznlnurfsk7tojfh2kpkrfxlbfypnja3gwwu4waramsu2ne"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                  "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+                },
+                "work": {
+                  "rowVisits": 100,
+                  "candidateVisits": 64,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 64138,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              },
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "authority": "bafyreig4rdrp3vaywx2lh67ym6fh5y3arnnbtmn3vnwykvbwjtn3eoqudu",
+                  "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y",
+                    "position": 1032
+                  },
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "nextPosition": 1033,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222232",
+                    "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                    "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                  },
+                  "publication": {
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                      "entry": {
+                        "$link": "bafyreiccyqelh77yvzc2zfz6yfevi3m364hnyz2j3es4qp42krcacz653y"
+                      },
+                      "genesis": {
+                        "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                      },
+                      "position": 1032,
+                      "version": 2
+                    },
+                    "rev": "222222222232c",
+                    "root": "bafyreiagw4ecbkcrnresdr6dl5flscjjk5qqtdemirlnwd7nzagtwyogka"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreigafy2zznlnurfsk7tojfh2kpkrfxlbfypnja3gwwu4waramsu2ne"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                  "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+                },
+                "work": {
+                  "rowVisits": 100,
+                  "candidateVisits": 64,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 64138,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              }
+            ],
+            "measurement": {
+              "elapsedMs": 0.6666249999980209,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 428173144
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 429392904
+              },
+              "heapDelta": 1219760,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          }
+        },
+        {
+          "actionCount": 10000,
+          "totalEntries": 10032,
+          "grantCount": 32,
+          "selectedProofBytes": 11177983,
+          "coldDefaultPrefixRefusal": "content_unavailable",
+          "bootstrap": {
+            "elapsedMs": 45737.422708000006,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 425803720
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 523533088
+            },
+            "heapDelta": 97729368,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "repositoryAuthentication": {
+            "elapsedMs": 22.51145899999392,
+            "before": {
+              "kind": "node-process-heap-used",
+              "bytes": 429356376
+            },
+            "after": {
+              "kind": "node-process-heap-used",
+              "bytes": 425802704
+            },
+            "heapDelta": -3553672,
+            "peakHeap": "unmeasured",
+            "garbageCollection": "not-forced"
+          },
+          "reads": {
+            "discoveryTransport": 0,
+            "selectionHistory": 0,
+            "selectionOutcomes": 0
+          },
+          "cold": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                "authority": "bafyreigr3qgknv5osvphhedep4byt2kcpylznpzrzc4thw7qy2cuxtvssi",
+                "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry",
+                  "position": 10032
+                },
+                "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                "nextPosition": 10033,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222232",
+                  "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                  "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                },
+                "publication": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "entry": {
+                      "$link": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry"
+                    },
+                    "genesis": {
+                      "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                    },
+                    "position": 10032,
+                    "version": 2
+                  },
+                  "rev": "2222222222dtk",
+                  "root": "bafyreiekeyhxb5najmuu6537nkfuh7pshx2jryuv4qtpao7fiw5tmlriue"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreihkqbfuapnzzhnhge4zyfc7uin3rt32ajvktkd7ctcjcwhbnrdax4"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+              },
+              "work": {
+                "rowVisits": 205,
+                "candidateVisits": 64,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 351076,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "computed",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.9966249999997672,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 528944104
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 530412320
+              },
+              "heapDelta": 1468216,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "warm": {
+            "result": {
+              "actions": [
+                {
+                  "action": "ai.generalbusiness.atseq.example#act",
+                  "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                  "grant": {
+                    "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                    "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                    "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                  },
+                  "kind": "eligible"
+                },
+                {
+                  "action": "ai.generalbusiness.atseq.example#edit",
+                  "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                  "kind": "denied",
+                  "reason": "grant_scope"
+                }
+              ],
+              "basis": {
+                "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                "authority": "bafyreigr3qgknv5osvphhedep4byt2kcpylznpzrzc4thw7qy2cuxtvssi",
+                "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                "executionAssurance": "genesis-replay",
+                "frontier": {
+                  "entry": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry",
+                  "position": 10032
+                },
+                "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                "nextPosition": 10033,
+                "principalObservation": {
+                  "assuranceClass": "plc-audit-v1",
+                  "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                  "pdsOrigin": "https://pds.example",
+                  "rev": "2222222222232",
+                  "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                  "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                },
+                "publication": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "contradiction": null,
+                  "coverage": "complete-from-genesis",
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "head": {
+                    "$type": "ai.generalbusiness.atseq.head",
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "entry": {
+                      "$link": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry"
+                    },
+                    "genesis": {
+                      "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                    },
+                    "position": 10032,
+                    "version": 2
+                  },
+                  "rev": "2222222222dtk",
+                  "root": "bafyreiekeyhxb5najmuu6537nkfuh7pshx2jryuv4qtpao7fiw5tmlriue"
+                },
+                "publicationMethod": {
+                  "assuranceClass": "plc-audit-v1",
+                  "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                },
+                "state": "bafyreihkqbfuapnzzhnhge4zyfc7uin3rt32ajvktkd7ctcjcwhbnrdax4"
+              },
+              "kind": "available",
+              "label": "advisory",
+              "subject": {
+                "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+              },
+              "work": {
+                "rowVisits": 100,
+                "candidateVisits": 64,
+                "scopeComparisons": 2,
+                "ownerChargedBytes": 64150,
+                "byteAccounting": "conservative-owner-bounds",
+                "memo": "reused",
+                "opaqueAllocations": "unmeasured"
+              }
+            },
+            "measurement": {
+              "elapsedMs": 0.370374999998603,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 530413336
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 531001872
+              },
+              "heapDelta": 588536,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          },
+          "concurrent": {
+            "result": [
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "authority": "bafyreigr3qgknv5osvphhedep4byt2kcpylznpzrzc4thw7qy2cuxtvssi",
+                  "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry",
+                    "position": 10032
+                  },
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "nextPosition": 10033,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222232",
+                    "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                    "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                  },
+                  "publication": {
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                      "entry": {
+                        "$link": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry"
+                      },
+                      "genesis": {
+                        "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                      },
+                      "position": 10032,
+                      "version": 2
+                    },
+                    "rev": "2222222222dtk",
+                    "root": "bafyreiekeyhxb5najmuu6537nkfuh7pshx2jryuv4qtpao7fiw5tmlriue"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreihkqbfuapnzzhnhge4zyfc7uin3rt32ajvktkd7ctcjcwhbnrdax4"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                  "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+                },
+                "work": {
+                  "rowVisits": 100,
+                  "candidateVisits": 64,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 64150,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              },
+              {
+                "actions": [
+                  {
+                    "action": "ai.generalbusiness.atseq.example#act",
+                    "execution": "bafyreiba6j7kdez2wn5ugz36eetbnkmqh3a7zspdljthvvielrpt4cckyy",
+                    "grant": {
+                      "cid": "bafyreiaiqom5dgmcw5zbcuwizfhoql26nl5vew2fwvuskyqzqznkhfacna",
+                      "epoch": "bafyreibbue477ca2jzusxrj5zxa75j247px5prey3q5e5wedewklyca6li",
+                      "id": "eaqcaibaeaqcaibaeaqcaibaea"
+                    },
+                    "kind": "eligible"
+                  },
+                  {
+                    "action": "ai.generalbusiness.atseq.example#edit",
+                    "execution": "bafyreidsm3ovllfnfwymc6em64cglhmjzuto44h6xp5dkberbqdhusorzi",
+                    "kind": "denied",
+                    "reason": "grant_scope"
+                  }
+                ],
+                "basis": {
+                  "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                  "authority": "bafyreigr3qgknv5osvphhedep4byt2kcpylznpzrzc4thw7qy2cuxtvssi",
+                  "definition": "bafyreifebq3hifg5tv3fmifqmh2hoh6x2gg7n2t63zzf6alwww2lavncge",
+                  "executionAssurance": "genesis-replay",
+                  "frontier": {
+                    "entry": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry",
+                    "position": 10032
+                  },
+                  "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                  "nextPosition": 10033,
+                  "principalObservation": {
+                    "assuranceClass": "plc-audit-v1",
+                    "cid": "bafyreidzkt3vp75xlz57thdnukd5q3lltlw25tcxmnbrdzulsksxep2fim",
+                    "pdsOrigin": "https://pds.example",
+                    "rev": "2222222222232",
+                    "root": "bafyreigb7nz7whmvfuzvzczmud23awbc5immuarccrqjdlokntrzyhgpii",
+                    "signingKeyDid": "did:key:zDnaepKPdooqwfy2LgdPamVG12mSmCc9GXLP4GTzg6B7kGRNV"
+                  },
+                  "publication": {
+                    "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                    "contradiction": null,
+                    "coverage": "complete-from-genesis",
+                    "genesis": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu",
+                    "head": {
+                      "$type": "ai.generalbusiness.atseq.head",
+                      "app": "did:plc:7yva4iypk46xbz6wqanr6nbm",
+                      "entry": {
+                        "$link": "bafyreihxockg2xq5dfyuytfgjhk27coj54prg26hfrscoctdpmsskq3bry"
+                      },
+                      "genesis": {
+                        "$link": "bafyreighpklqthfv7urkab4rctncqypiobldni4q4z4x5wduun25bus7eu"
+                      },
+                      "position": 10032,
+                      "version": 2
+                    },
+                    "rev": "2222222222dtk",
+                    "root": "bafyreiekeyhxb5najmuu6537nkfuh7pshx2jryuv4qtpao7fiw5tmlriue"
+                  },
+                  "publicationMethod": {
+                    "assuranceClass": "plc-audit-v1",
+                    "policy": "bafyreieyga53ku7wcab3w52fmgl4ly7fklowqwtoz5fgvx6akmsnjeox4y"
+                  },
+                  "state": "bafyreihkqbfuapnzzhnhge4zyfc7uin3rt32ajvktkd7ctcjcwhbnrdax4"
+                },
+                "kind": "available",
+                "label": "advisory",
+                "subject": {
+                  "actorKey": "did:key:zDnaeyHtDy72ASxia56jwang5S4wCHiV2fBCoKmvSwDgkt61d",
+                  "principal": "did:plc:vcevlmofuyqzeyutihuwurw3"
+                },
+                "work": {
+                  "rowVisits": 100,
+                  "candidateVisits": 64,
+                  "scopeComparisons": 2,
+                  "ownerChargedBytes": 64150,
+                  "byteAccounting": "conservative-owner-bounds",
+                  "memo": "reused",
+                  "opaqueAllocations": "unmeasured"
+                }
+              }
+            ],
+            "measurement": {
+              "elapsedMs": 0.6227500000095461,
+              "before": {
+                "kind": "node-process-heap-used",
+                "bytes": 531002888
+              },
+              "after": {
+                "kind": "node-process-heap-used",
+                "bytes": 532179712
+              },
+              "heapDelta": 1176824,
+              "peakHeap": "unmeasured",
+              "garbageCollection": "not-forced"
+            }
+          }
+        }
+      ],
+      "limits": "100→1000→10000 genuine ordering extension; no default prefix/quota/schema changes",
+      "recommendations": "History is absent from discovery selection; characterize bootstrap separately. Only1/32 grants measured; no capacity/latency target or peak-heap claim."
+    }
+  },
+  "timingContext": "Source Node22/24/26 ran concurrently; compiled runtimes concurrently; Chrome separately. No performance target, controlled benchmark or peak-heap claim. Workload concurrent calls start after warm memo; cold pending pair tested separately K5-02/K5-03."
+}

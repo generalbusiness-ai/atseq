@@ -1,0 +1,15 @@
+{
+  "encoding": "UTF-8 JSON ensure_ascii=false sorted keys compact separators; excludes measurement/runtime/path fields only",
+  "component": "519d75f99f154d487c0c747f1e3770d5536aaaffecf430cc810b290b5cb60ea3",
+  "fault": "1d8989c08e3fe1ee42b2cbd0344f5009525dcaf01e944da77269322bff9fcdda",
+  "workload": {
+    "few": "82f52803b093f00f2000816e3177326593bdccba87f9a339edd41128ea162358",
+    "many": "12d1ba48373cbf9478cbf74ab658fc10c4cc4b1727109873577e6cf6c87c769d"
+  },
+  "componentCount": 31,
+  "faultCount": 6,
+  "componentPaths": 7,
+  "faultPaths": 4,
+  "workloadPathsPerProfile": 7,
+  "compiledFaultsAreProduction": false
+}

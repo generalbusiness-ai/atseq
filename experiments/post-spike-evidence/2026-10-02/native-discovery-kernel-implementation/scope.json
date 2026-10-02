@@ -1,0 +1,42 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "inspected assert at depth 12842: decision effective, 2 provenance bases, 0 related artifacts, 0 related reviews"
+    }
+  ],
+  "structuredContent": {
+    "frontier": {
+      "genesis": "fa8d62ed900d7697380a68652abb3e45d950a677",
+      "head": "6a2187cb8aa5b0790a16679b2f4a58406c212b49",
+      "depth": 12842
+    },
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f661ee6ff10269b67fcf8f565460ff6f5e50c8f3",
+    "statement": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f661ee6ff10269b67fcf8f565460ff6f5e50c8f3",
+      "sequence": 12839,
+      "timestamp": 1790958104,
+      "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+      "kind": "assert",
+      "lifecycle": "none",
+      "satisfier": "role:ratifier",
+      "text": "Clarify the C1 kernel request's explicit distinction between kernel delivery and full typed service/host/browser/CLI/agent integration. Retain all40 vector objects and all12 fullC1 obligations. FULL-03 stays UNEXECUTED while the actual integrated route is absent; barrel or facade checks are not substitutes. The max-safe arithmetic guard may have a clearly labeled transformed private callsite control, but no attainable accepted native history may be fabricated. Genuine workloads and five-field failure metadata are separate evidence. The kernel report must identify these limitations explicitly and cannot claim fullC1 or all40 executed. Track actual FULL-03 integration in a companion request; original full conditions remain verbatim.",
+      "body": {
+        "conditions": "Begin design now; gate implementation on I2 principal/grant state and independent review. Specify advisory affordance versus ordered precondition, denied versus unavailable and payload-dependent authority limits. Use one versioned shared discovery document and deterministic evaluator; retain fold authority. Test two principals, stale grants/state, forged submissions, offline preview and Node/browser agreement. Preview must be labelled simulation, not authenticated empty-key participation. Publish dated notes/results evidence and recommendations, record unrun limitations, and use atseq-reviewer for decisions and deliveries.",
+        "package": "C1 kernel/full integration trace",
+        "target_ref": "refs/heads/main"
+      }
+    },
+    "decision": {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f661ee6ff10269b67fcf8f565460ff6f5e50c8f3",
+      "sequence": 12839,
+      "verdict": "effective",
+      "reason": "statement recorded"
+    },
+    "provenance_bases": [
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:0332c6ca24e8160c990bc34d29832dcba91fa9bb",
+      "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:43e09c95a94f5c5e997b229d990b130e32c99ae4"
+    ]
+  },
+  "isError": false
+}

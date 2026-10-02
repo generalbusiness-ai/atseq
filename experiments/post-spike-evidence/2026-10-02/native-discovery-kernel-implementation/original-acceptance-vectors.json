@@ -1,0 +1,287 @@
+{
+  "format": "atseq-design-acceptance-vectors",
+  "version": 1,
+  "executionStatus": "UNEXECUTED",
+  "vectors": [
+    {
+      "id": "K1-01",
+      "group": "Capture",
+      "status": "UNEXECUTED",
+      "scenario": "Caller selector/payload mutates during asynchronous key validation",
+      "expected": "Owned input and genuine base remain unchanged; returned basis belongs to original capture."
+    },
+    {
+      "id": "K1-02",
+      "group": "Capture",
+      "status": "UNEXECUTED",
+      "scenario": "Plain snapshot, DATA, forged source/state flags or guessed role supplied",
+      "expected": "No accepted input/capture registration; reject malformed selector, never authorize from those values."
+    },
+    {
+      "id": "K1-03",
+      "group": "Capture",
+      "status": "UNEXECUTED",
+      "scenario": "Genesis has no repository prefix",
+      "expected": "Use explicit external anchor/frontier zero; no fabricated publication root or identity evidence."
+    },
+    {
+      "id": "K1-04",
+      "group": "Capture",
+      "status": "UNEXECUTED",
+      "scenario": "Head ahead of interpreted frontier; missing/stalled tail",
+      "expected": "Complete retained generation can evaluate at labelled frontier+1; append readiness separate."
+    },
+    {
+      "id": "K1-05",
+      "group": "Capture",
+      "status": "UNEXECUTED",
+      "scenario": "Known contradiction arrives while commitments/fold await",
+      "expected": "Captured-prefix contradiction or owner poison withholds result; never relabel to newer head."
+    },
+    {
+      "id": "K1-06",
+      "group": "Capture",
+      "status": "UNEXECUTED",
+      "scenario": "Selected root changes without new head entry",
+      "expected": "Selected-root method class is not inferred from nativePrefixProvenance(head) original root."
+    },
+    {
+      "id": "K2-01",
+      "group": "Selection",
+      "status": "UNEXECUTED",
+      "scenario": "Lower-ID grant admitted later than eligible higher ID",
+      "expected": "First eligible ID in existing stored order wins; old signed intent unchanged; no admission-time scan."
+    },
+    {
+      "id": "K2-02",
+      "group": "Selection",
+      "status": "UNEXECUTED",
+      "scenario": "Early-ID revoked/stale-epoch/wrong-signer/out-of-scope grants precede eligible grant",
+      "expected": "Continue selection; select one later eligible grant; exact ordinary reason precedence unchanged."
+    },
+    {
+      "id": "K2-03",
+      "group": "Selection",
+      "status": "UNEXECUTED",
+      "scenario": "Never-admitted tombstone and exact missing filter",
+      "expected": "Unfiltered candidates omit tombstone; exact missing/tombstone gives shared grant_unadmitted without fake CID."
+    },
+    {
+      "id": "K2-04",
+      "group": "Selection",
+      "status": "UNEXECUTED",
+      "scenario": "All candidates denied or no candidates",
+      "expected": "First admitted candidate reason by ID order, or grant_unadmitted; never map insertion order."
+    },
+    {
+      "id": "K2-05",
+      "group": "Selection",
+      "status": "UNEXECUTED",
+      "scenario": "Two insufficient grants and several actions",
+      "expected": "No union; each eligible action names one immutable grant; different actions may choose different grants."
+    },
+    {
+      "id": "K2-06",
+      "group": "Selection",
+      "status": "UNEXECUTED",
+      "scenario": "Old history/outcome storage unavailable to discovery",
+      "expected": "No selection history/outcome reads; still require genuine accepted authority/source."
+    },
+    {
+      "id": "K2-07",
+      "group": "Selection",
+      "status": "UNEXECUTED",
+      "scenario": "Many other-principal rows and repeated candidates",
+      "expected": "Every visited row charged; subject facts prepared once; no repeated whole-grant find per candidate."
+    },
+    {
+      "id": "K3-01",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Host preflight for valid/invalid payload",
+      "expected": "Direct shared gate and input only; zero fold/successor calls; no #action stopping mode."
+    },
+    {
+      "id": "K3-02",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Ordered and simulated effective, authored denial, input denial and successor rejection",
+      "expected": "One full shared path and one evaluation; exact same stage constructors/codes; read simulation never persists."
+    },
+    {
+      "id": "K3-03",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Foreign constructor/non-designated/wrong-callsite fault",
+      "expected": "Ordered exact escape unchanged; simulation local unavailable outside catches; no native outcome appended."
+    },
+    {
+      "id": "K3-04",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Concurrent real commit during simulation fold",
+      "expected": "Ordered still requires #same; retained simulation checks health/contradiction and remains old-labelled."
+    },
+    {
+      "id": "K3-05",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Inspect actual fold metadata and attempt at max-safe frontier",
+      "expected": "Exactly five genuine-capture fields; no nonce/actorKey/hypothetical roles; max successor unavailable."
+    },
+    {
+      "id": "K3-06",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Payload above fold action cap but within applicable native input bound",
+      "expected": "Shared schema/fold precedence retained; no premature local copy cap rewriting fold_failed/value_bytes."
+    },
+    {
+      "id": "K3-07",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Actual engine success, designated failure and unexpected failure",
+      "expected": "Returned counters once; failed counters unavailable, never zero; known designated outcome distinct from local unavailable."
+    },
+    {
+      "id": "K3-08",
+      "group": "Stages",
+      "status": "UNEXECUTED",
+      "scenario": "Two payloads with ownership/amount/version-dependent domain condition",
+      "expected": "Actual fold outcomes differ at exact payload; payload CID and complete basis reported; no lease/state rewrite."
+    },
+    {
+      "id": "K4-01",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Ordinary and accounted checkpoint identity for empty/chunk-boundary/max payload",
+      "expected": "One framing loop; identical identity bytes; original parser/codec errors and supported API preserved."
+    },
+    {
+      "id": "K4-02",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Wire bytes/link validation, CBOR copies and hash phases",
+      "expected": "Actual known-length copies/hash inputs and repeated canonical passes charged, no measurement-only encoding."
+    },
+    {
+      "id": "K4-03",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Schema success/coercion/typed denial/unexpected throw",
+      "expected": "Same validator and stage errors; actual available canonical passes measured; unknown work not invented."
+    },
+    {
+      "id": "K4-04",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Nested epochs/authority and max63 scopes/actions",
+      "expected": "Charge every growing/nested/repeated row; actual scope comparisons; no hidden snapshot clone."
+    },
+    {
+      "id": "K4-05",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Budget failure during preparation/basis",
+      "expected": "Whole actor unavailable, no partial successful commitment or eligibility."
+    },
+    {
+      "id": "K4-06",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Budget failure halfway through candidate scan",
+      "expected": "Completed earlier results retained; current and remaining actions unavailable, never denied."
+    },
+    {
+      "id": "K4-07",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Smaller local refusal after one bounded normative evaluation",
+      "expected": "Withhold local simulation; no ordered failure manufactured; normative bounds unchanged."
+    },
+    {
+      "id": "K4-08",
+      "group": "Accounting",
+      "status": "UNEXECUTED",
+      "scenario": "Opaque encoder/evaluator failure or oversized token",
+      "expected": "Partial/unknown work labelled honestly; no fake zero or 16MiB peak-heap claim; actual failures retained."
+    },
+    {
+      "id": "K5-01",
+      "group": "Memo",
+      "status": "UNEXECUTED",
+      "scenario": "Cold compute then warm call on same generation",
+      "expected": "One successful state/authority computation; first charged; warm result copies still charged."
+    },
+    {
+      "id": "K5-02",
+      "group": "Memo",
+      "status": "UNEXECUTED",
+      "scenario": "Concurrent callers before both hashes finish",
+      "expected": "One pending promise; no eligible result early; each waiter keeps own captured subject/frontier."
+    },
+    {
+      "id": "K5-03",
+      "group": "Memo",
+      "status": "UNEXECUTED",
+      "scenario": "First small-budget attempt rejects with waiters; later explicit adequate budget",
+      "expected": "Delete exact failed entry; waiters unavailable, no retry/reset; later explicit caller can succeed."
+    },
+    {
+      "id": "K5-04",
+      "group": "Memo",
+      "status": "UNEXECUTED",
+      "scenario": "New or prefix-only generation created while old hashes await",
+      "expected": "Different WeakMap keys; no mixed pair/current retagging; prefix-only capture is cold."
+    },
+    {
+      "id": "K5-05",
+      "group": "Memo",
+      "status": "UNEXECUTED",
+      "scenario": "Serialized hash/cache/snapshot supplied by caller",
+      "expected": "No WeakMap seeding, imported authority or durable cache trust."
+    },
+    {
+      "id": "PARITY-01",
+      "group": "Foundation",
+      "status": "UNEXECUTED",
+      "scenario": "New shared predicate/input/guard/codec implementation",
+      "expected": "Frozen approved58/24 oracle repeated before/after Node22/24/26 and real Chrome plus58 actual emitted cases; no regenerated expectations."
+    },
+    {
+      "id": "PARITY-02",
+      "group": "Kernel",
+      "status": "UNEXECUTED",
+      "scenario": "Same genuine fixture and matching memo schedules across runtimes",
+      "expected": "Byte-identical subject eligibility, selected IDs/reasons/basis/outcomes and attributable counters; actual emitted and Chrome execution."
+    },
+    {
+      "id": "FULL-01",
+      "group": "Whole C1",
+      "status": "UNEXECUTED",
+      "scenario": "Two real principals/roles, stale grant/state, forged direct submission",
+      "expected": "Public subject inspection and advisory result do not bypass authentic ordered grant/fold checks."
+    },
+    {
+      "id": "FULL-02",
+      "group": "Whole C1",
+      "status": "UNEXECUTED",
+      "scenario": "Offline retained accepted subject vs anonymous preview",
+      "expected": "Explicit simulation labels/basis; no authenticated empty-key subject or hypothetical role admission."
+    },
+    {
+      "id": "FULL-03",
+      "group": "Whole C1",
+      "status": "UNEXECUTED",
+      "scenario": "Host/CLI/browser/agent service integration and subject/app switching",
+      "expected": "Reviewed typed shared native document; stale callbacks discarded; no legacy envelope identity shortcut."
+    },
+    {
+      "id": "PERF-01",
+      "group": "Characterization",
+      "status": "UNEXECUTED",
+      "scenario": "History100/1000/10000, few/many grants, cold/warm/concurrent",
+      "expected": "Actual rows/comparisons/canonical-copy-hash bytes/time/heap; zero selection history reads; report exact refusal, no target/capacity promise."
+    }
+  ]
+}
