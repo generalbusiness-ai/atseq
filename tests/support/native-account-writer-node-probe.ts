@@ -10,14 +10,15 @@ globalThis.fetch = async (input, init) => {
   dispatcherCalls++;
   return fixture.fetch(input, init);
 };
-const cases = await runNativeWriterCorpus(async (value) => {
+const result = await runNativeWriterCorpus(async (value) => {
   fixture = value;
   return loadNodeOAuthAdapter(value.options());
 });
 console.log(
   JSON.stringify({
     node: process.version,
-    cases,
+    cases: result.cases,
+    nativeBatch: result.nativeBatch,
     dispatcherCalls,
     maintainedClient: true,
     syntheticASAndResource: true,

@@ -4,6 +4,7 @@ import { AtseqError } from '../../src/core/errors.ts';
 import { PdsError } from '../../src/transport/pds-operations.ts';
 import { OAUTH_DID, OAUTH_OTHER_DID, OAUTH_SCOPE } from './oauth-fixture.ts';
 import { NativeWriterFixture, WRITER_COLLECTION } from './native-account-writer-fixture.ts';
+import { largeNativeBatch } from './native-account-writer-native-batch.ts';
 
 const check = (value: unknown, message: string) => {
   if (!value) throw new Error(message);
@@ -21,7 +22,15 @@ async function refused(work: () => Promise<unknown>, code?: string): Promise<voi
 }
 export async function runNativeWriterCorpus(
   createAdapter: (fixture: NativeWriterFixture) => Promise<OAuthAdapter>,
-): Promise<string[]> {
+): Promise<{
+  cases: string[];
+  nativeBatch: {
+    payloadJSONBytes: number;
+    entryCBORBytes: number;
+    entryHeadJSONBytes: number;
+    entryHeadAndChunkJSONBytes: number;
+  };
+}> {
   const results: string[] = [];
   async function open() {
     const fixture = await new NativeWriterFixture().initialize();
@@ -121,6 +130,25 @@ export async function runNativeWriterCorpus(
     'input',
   );
   results.push('large-conditional-JSON-and-whole-batch-local-cap');
+  const native = await largeNativeBatch();
+  const condition = fixture.commit;
+  const nativeWrites = [...native.entryHeadWrites, native.chunkWrite];
+  const expectedBody = JSON.stringify({
+    repo: OAUTH_DID,
+    validate: false,
+    writes: nativeWrites,
+    swapCommit: condition,
+  });
+  check(
+    new TextEncoder().encode(expectedBody).length > 65536,
+    'Accepted native entry/head/chunk batch exceeds old resource cap',
+  );
+  await writer.applyConditional(nativeWrites, condition);
+  check(
+    new TextDecoder().decode(fixture.bodies.at(-1)!) === expectedBody,
+    'Accepted signed native entry/head/chunk body unchanged',
+  );
+  results.push('accepted-native-action-at-32KiB-cap-entry-head-chunk-batch-genuine-signature-unchanged-JSON');
   // A separate genuine restored public handle retains its ordinary 64 KiB policy.
   for (const size of [65536, 65537]) {
     const work = () =>
@@ -206,5 +234,15 @@ export async function runNativeWriterCorpus(
     check(bad.paths.length === 0, 'Subject/scope refusal must precede resource dispatch');
   }
   results.push('maintained-subject-missing-and-extra-scope-refused-before-mint');
-  return results;
+  return {
+    cases: results,
+    nativeBatch: {
+      payloadJSONBytes: native.payloadBytes,
+      entryCBORBytes: native.entryBytes,
+      entryHeadJSONBytes: new TextEncoder().encode(
+        JSON.stringify({ repo: OAUTH_DID, validate: false, writes: native.entryHeadWrites, swapCommit: condition }),
+      ).length,
+      entryHeadAndChunkJSONBytes: new TextEncoder().encode(expectedBody).length,
+    },
+  };
 }
