@@ -1,0 +1,95 @@
+{
+  "schema": "atseq-a2-d1-review-symbolic-vectors-v1",
+  "executionStatus": "unexecuted",
+  "meaning": "Proposed successor acceptance only; no key deletion, readback, account, provider, OAuth adapter or PLC migration result is asserted. Original44vectors remain frozen.",
+  "predecessor": "364457c8934250768d2624f40b2676bb48aa4c89",
+  "assessment": "c2139bbeafe3bb494b7bca4537d5dae573fe1b49",
+  "vectors": [
+    {
+      "id": "A2D1R1-01",
+      "name": "temporary-key-erased-after-readback",
+      "given": "Destination-key web document is independently read back with exact DID/PDS/handle agreement",
+      "expected": "Delete temporary private key and JWT and release signing handles before activation; retain public evidence only.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-02",
+      "name": "temporary-key-still-advertised",
+      "given": "Readback still advertises temporary #atproto key after a staged account exists",
+      "expected": "Stop; no activation, OAuth completion or app append. Repair the same binding only within the original window; erase custody on expiry.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-03",
+      "name": "temporary-key-custody-expires",
+      "given": "Original setup deadline expires before destination binding can be confirmed",
+      "expected": "Erase temporary key/token, report incomplete setup and last known public binding; no renewed key lifetime or automatic new account/DID.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-04",
+      "name": "temporary-key-exact-token",
+      "given": "Fresh private setup key is ready immediately before intended import",
+      "expected": "Mint one short-lived token only, exact issuer did:web:H, exact destination service audience and createAccount lxm; no method-less, other-audience or replacement token from this key.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-05",
+      "name": "expired-import-jwt-successor",
+      "given": "Single import token expires with unresolved creation reply",
+      "expected": "Reconcile the same recorded account through account management only within the original short custody window; no refreshed token. If unresolved when the window closes, stop and erase temporary custody; later recovery separately resolves uncertain allocation.",
+      "executionStatus": "unexecuted",
+      "supersedes": "A2D1-22 on token refresh only"
+    },
+    {
+      "id": "A2D1R1-06",
+      "name": "lost-creation-reply-within-window",
+      "given": "createAccount reply is lost while original short custody window is open",
+      "expected": "Identify same recorded DID/provider/account through private account management; do not allocate again. Once identified, rotate promptly, independently read back destination binding, delete temporary custody, then consider activation gates.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-07",
+      "name": "unavailable-old-pds-web-migration",
+      "given": "Old PDS unavailable; operator retains web control and accepted app content/floors",
+      "expected": "Pause app writes and use same just-in-time private key and single-token procedure for same DID at explicit destination; rotate promptly, read back and erase temporary custody, preserve/import prefix and reconcile exact pending writes before activation/app appends. Missing history never permits blank same-genesis recreation.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-08",
+      "name": "temporary-key-deletion-fails",
+      "given": "Public destination readback succeeds but deleting private custody or closing signing handles fails",
+      "expected": "Stop activation and app use; report safe incomplete phase, no successful handoff claim.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-09",
+      "name": "writer-preserves-owned-input",
+      "given": "Owned A1 request boundary refuses deterministic URL/body/count input",
+      "expected": "Writer preserves sanitized input category through real request adapter; no content_unavailable flattening, secret/SDK text leakage or unconditional write retry.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-10",
+      "name": "writer-preserves-unavailable",
+      "given": "Owned A1 request boundary reports transient transport, dropped body or deadline",
+      "expected": "Writer preserves sanitized content_unavailable category; no proven invalid action/empty repo/success claim. Native publisher reconciles uncertain conditional writes.",
+      "executionStatus": "unexecuted"
+    },
+    {
+      "id": "A2D1R1-11",
+      "name": "cooperative-plc-migration-successor",
+      "given": "Destination recommendations omit independent recovery key; authorized PLC migration operation is being prepared",
+      "expected": "Submitted operation explicitly retains independent recovery public key higher priority than PDS-controlled rotation keys; verify canonical full signed resulting PLC history, same app DID/prefix/floors and new binding before activation, reauthorization and resumed app writes.",
+      "executionStatus": "unexecuted",
+      "supersedes": "A2D1-31 on independent recovery priority and verification only"
+    },
+    {
+      "id": "A2D1R1-12",
+      "name": "migration-loses-recovery-priority",
+      "given": "Submitted/resulting PLC history omits independent recovery key or puts it below PDS-controlled rotation keys",
+      "expected": "Stop migration completion; report unsatisfied independent-recovery condition. Recommendations/latest DID/setup metadata cannot prove priority or justify switching authority modes.",
+      "executionStatus": "unexecuted"
+    }
+  ]
+}

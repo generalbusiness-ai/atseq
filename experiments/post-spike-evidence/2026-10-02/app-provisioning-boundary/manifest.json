@@ -1,0 +1,129 @@
+{
+  "schema": "atseq-a2-d1-packet-v1",
+  "baseline": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+  "request": "f999b4a17086f87a0d5f65a4d0bcec2a09f8d994",
+  "promise": "916b84edba91a081576209c591a822879200be30",
+  "status": "source-only proposal; review pending; all acceptance vectors unexecuted",
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/acceptance-vectors.json",
+      "bytes": 12748,
+      "sha256": "7ff1c2c90f80aa131b9dbe37817e8faa7224cbac25b801a0356848394c6ed0ad"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/getRecommendedDidCredentials.json",
+      "bytes": 901,
+      "sha256": "f222de8a6a87aa75760b658fc0d061ad8b533cf49eb4e52631043f3d9a9300d3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/signPlcOperation.json",
+      "bytes": 1249,
+      "sha256": "33595630e559b08cb1d421ab2d3cfb8787a200ffd30676c338fd0a08ba2da266"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/submitPlcOperation.json",
+      "bytes": 561,
+      "sha256": "85b03138ecb20308d468ca492332e95d9765c100b88694493600139ee4d13753"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/repo/applyWrites.json",
+      "bytes": 4175,
+      "sha256": "ee3d49d4b289200d2a6d48c931dc19956ed2e5fb937ec341ebbf023c35697aa9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/repo/importRepo.json",
+      "bytes": 306,
+      "sha256": "242a447ae3932f87839a358464cc2980fff4b02f9b61b80550cac6c757337444"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/createAccount.json",
+      "bytes": 2690,
+      "sha256": "e05e794757311175199ec9a7c8fe37a9d240f3a538c6eec032edc86438f2bb05"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/describeServer.json",
+      "bytes": 2018,
+      "sha256": "bfe9afbd9bd7b6e758720a3744470c94fc2bb7d611d6b46b39abccf5ad1eff88"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/getServiceAuth.json",
+      "bytes": 1509,
+      "sha256": "3a623f89b9d7dc39f7a13a10e13e797cd12ee97ea2a08f793e30ff6aeb1ee3d0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "bytes": 1461,
+      "sha256": "c5fb3bbfd7b50b0f4d4ce4583a53d1cc44e82041889ae9527029dbfff838980f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "bytes": 1396,
+      "sha256": "1fd53104a866f73974fdb9e9eb21e87a01d169bf3b17a95ebb243667942e1922"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "bytes": 10506,
+      "sha256": "926cee9b33f5de6f74c0d9e54a1bcf010673e820ac3b85610824e45cac718fe8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "bytes": 3490,
+      "sha256": "05382f7c5622c74e3b1798fea7ed5a1e9e0dfaf6528dbf84b342948fe688a542"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/auth-verifier.ts",
+      "bytes": 20346,
+      "sha256": "d6b3a9db07b09a8e0aeae1d5b52338afb5043a49c2575310c11e78d13169a659"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/config/env.ts",
+      "bytes": 6120,
+      "sha256": "da1c264938108429ca022a3d9b5c7f5cc44e6c31a1e16c367ece944d48d19554"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/xrpc-server/src/auth.ts",
+      "bytes": 6538,
+      "sha256": "df7b181bca12d367fd1bf13db22328b15c157391dceb63edcc62b52939003f3d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/pds/compose.yaml",
+      "bytes": 901,
+      "sha256": "533c995fedf523ac893ef8d3e52a009769e4c3c1989608cc712af6ca5827487c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/pds/sample.env",
+      "bytes": 562,
+      "sha256": "db15db444fdbf2b1faf36d2065200e9930dce5ffc5e72558a9e335c05a8dd32c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/did-method-plc/did-method-plc/website/spec/v0.1/did-plc.md",
+      "bytes": 30180,
+      "sha256": "7346e2ba9d186fa13d65466942f29136f2d3e2281a8a6dd08d689eda2c99af79"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/research-references.json",
+      "bytes": 1098,
+      "sha256": "0102682f11501a2da2db7a10112007a0fc77058a45006220a0ed2b797d305e11"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/source-inspection.json",
+      "bytes": 20166,
+      "sha256": "adcc3f24927bd6ffb55a5605c72130425d0f511a128e85576606258451eeb545"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/source-observations.json",
+      "bytes": 5438,
+      "sha256": "fb2c64afeae4e60066efedff445f907f7c0a17c7a7f6d9cae99501490a70826b"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-app-provisioning-boundary.md",
+      "bytes": 24092,
+      "sha256": "3bfad5de4bfb65d7e24ddfb529c748d6176b123ada8915a5e7d40586ce9c45d5"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-app-provisioning-results.md",
+      "bytes": 6136,
+      "sha256": "7defa1d1017242caef26d75abead62337dc385aa4d797924162bc70773e2091c"
+    }
+  ]
+}

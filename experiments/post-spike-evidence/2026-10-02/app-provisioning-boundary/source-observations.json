@@ -1,0 +1,178 @@
+{
+  "schema": "atseq-a2-d1-source-observations-v1",
+  "executionStatus": "source-inspection-only",
+  "observations": [
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "literal": "userServiceAuthOptional",
+      "hits": [
+        {
+          "line": 30,
+          "text": "    auth: ctx.authVerifier.userServiceAuthOptional,"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "literal": "input.did !== requester",
+      "hits": [
+        {
+          "line": 273,
+          "text": "    if (input.did !== requester) {"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "literal": "deactivated = true",
+      "hits": [
+        {
+          "line": 280,
+          "text": "    deactivated = true"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "literal": "rotationKeys.unshift(input.recoveryKey)",
+      "hits": [
+        {
+          "line": 311,
+          "text": "    rotationKeys.unshift(input.recoveryKey)"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "literal": "OAuth authorization flows",
+      "hits": [
+        {
+          "line": 11,
+          "text": "    // OAuth authorization flows are refused for deactivated accounts, so a"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "literal": "Account reactivation is not available",
+      "hits": [
+        {
+          "line": 15,
+          "text": "        'Account reactivation is not available with OAuth credentials. Sign in to your account management page to reactivate.',"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "literal": "ctx.actorStore.keypair",
+      "hits": [
+        {
+          "line": 14,
+          "text": "      const signingKey = await ctx.actorStore.keypair(requester)"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "literal": "rotationKeys.unshift",
+      "hits": [
+        {
+          "line": 29,
+          "text": "        rotationKeys.unshift(ctx.cfg.identity.recoveryDidKey)"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/xrpc-server/src/auth.ts",
+      "literal": "createServiceJwt",
+      "hits": [
+        {
+          "line": 28,
+          "text": "export const createServiceJwt = async ("
+        },
+        {
+          "line": 55,
+          "text": "  const jwt = await createServiceJwt(params)"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/xrpc-server/src/auth.ts",
+      "literal": "params.exp",
+      "hits": [
+        {
+          "line": 33,
+          "text": "  const exp = params.exp ?? iat + MINUTE / 1e3"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/xrpc-server/src/auth.ts",
+      "literal": "params.lxm",
+      "hits": [
+        {
+          "line": 34,
+          "text": "  const lxm = params.lxm ?? undefined"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/config/env.ts",
+      "literal": "PDS_HOSTNAME",
+      "hits": [
+        {
+          "line": 7,
+          "text": "    hostname: envStr('PDS_HOSTNAME'),"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/config/env.ts",
+      "literal": "PDS_SERVICE_DID",
+      "hits": [
+        {
+          "line": 8,
+          "text": "    serviceDid: envStr('PDS_SERVICE_DID'),"
+        }
+      ]
+    },
+    {
+      "repository": "bluesky-social/atproto",
+      "commit": "3cd9fa6013efad3ab57704ae804952be097e5d26",
+      "sourcePath": "packages/pds/src/config/env.ts",
+      "literal": "PDS_RECOVERY_DID_KEY",
+      "hits": [
+        {
+          "line": 70,
+          "text": "    recoveryDidKey: envStr('PDS_RECOVERY_DID_KEY'),"
+        }
+      ]
+    }
+  ]
+}

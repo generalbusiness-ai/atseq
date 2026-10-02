@@ -1,0 +1,443 @@
+{
+  "schema": "atseq-f6-publication-v1",
+  "baseline": "526111bfd51172dfb3c06aa3557b3beb0a5d8964",
+  "cutoff": "2026-10-02T05:51:30Z",
+  "request": "a1bea03bc2b4f80b439b6ea764d6449d6037d2eb",
+  "promise": "862c94a9b3e73a5695105a28ae44699eed14385b",
+  "sources": [
+    {
+      "base": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "addedFiles": 27
+    },
+    {
+      "base": "0df4aa12126d9ea2dd01332a0a6f99d389eebb32",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "addedFiles": 29
+    }
+  ],
+  "copies": [
+    {
+      "path": "experiments/oauth-bounded-stores/browser-entry.mjs",
+      "bytes": 1537,
+      "sha256": "c175b496f59d00fa26f67c5e180a3f350205cc0608d14f26ca6dbda382fb720a",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "a7ff0f4ffbb92e6ff2a3c68c442e07d6c88ab528"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/browser-probe.mjs",
+      "bytes": 4460,
+      "sha256": "1dabf0e709fe89d5c76f70008509387c034d1f3d4242b7c63ffc4b863983974e",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "8d1a8b146883f9d5677c7c0f32b0a8650ddbbdcc"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/fixture.mjs",
+      "bytes": 5810,
+      "sha256": "851d790493cb2a8b49ba9e39d2914a1588a7694f69fdc328d37836c9e16cde93",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "18a4fb2f388e52fac43c678722ede56c6889fed7"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/node-probe.mjs",
+      "bytes": 307,
+      "sha256": "1347a20a474ebcd73c1616908c89acf37e2c5de20b02721f16b0bd7093e61ae0",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "ec5dfaa56b68a7ecf3a31ad690c48504618ea419"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/public-hooks.mjs",
+      "bytes": 10702,
+      "sha256": "f133ba911d4b506201a5cb9d7e0d3a0d9d1029d7ae6d5ca7d564ba859c4642eb",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "2cab84690f1329ba26e4243b62642cf952819201"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/public-types.mts",
+      "bytes": 1118,
+      "sha256": "884e71ac0f4f72100bb69de115b40fdebb3e4ed9c9e40efc49d21066fad2cd85",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "d8f114ebf7838f3de29ad9e022b59786f5c52624"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/browser-final.json",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "77e0561ac4f84e3b631c5c59399fbb1d51bc29a4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/browser-final.log",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "77e0561ac4f84e3b631c5c59399fbb1d51bc29a4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/browser-first.log",
+      "bytes": 8430,
+      "sha256": "f1497290150748e3f127bd5a21ebaa5d0c52970265888ed358fed3e4451478fa",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "36c866e7faa14e4294f2197a70ec918b103aa72f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/browser-metafile.json",
+      "bytes": 327025,
+      "sha256": "8f8693e2482889bf80b0313fd872e9c8845f13b5dba1b9919ad947cb266572af",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "9b7485c66b4801b9e10ff921cefd7c3cc8c1717b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/browser-unrestricted.log",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "77e0561ac4f84e3b631c5c59399fbb1d51bc29a4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/format.log",
+      "bytes": 334,
+      "sha256": "62c7e45e4cd2f3082303c724c4823a0241ec5dd9583c369e7ecd6e95e2af1c51",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "acc56f72941e1dcd572d67b195eb2fea03bda587"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/manifest.json",
+      "bytes": 18099,
+      "sha256": "c8f2d52e0cb069b762775be150e2198954667fc38f657c10870e97cbe153886b",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "6b9be103edf11409f3d512bddf080b91f53ee234"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node-first.log",
+      "bytes": 36,
+      "sha256": "2a31a3dc86502e4b64d36ba42cfa5fbb30fec32882620971161e168b45f7813c",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "faad38e2b8df5160a0e74803d9efd5163556581a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node-fourth.log",
+      "bytes": 1612,
+      "sha256": "92a60e8cff0baaf4c7b12bc87c5cf6805ec2db5b6bc439f257a726988c123416",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "835b2ce76a3406f596c32b57d2714214e3519f01"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node-resolution.json",
+      "bytes": 366,
+      "sha256": "8c2d55c9aa71f66cdf797ec5eb9aad703d5d8c5c053f6e0dbc24a37316193f3b",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "a96f1ed144344b585032a1fd3fd2e99445790d22"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node-second.log",
+      "bytes": 40,
+      "sha256": "a8c43d9e44099283d480b8b637e1e5c2ef211eb351806b981af8606d3d8ea66c",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "858b62ffc5247220ff5b69ae073125f97f048306"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node-third.log",
+      "bytes": 225,
+      "sha256": "2b673a55b2bf16d8920242aaed9dd4ac2bebd690908da506c40aeb472d3a695f",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "cf359b2ec47c0caf2bbc52b94d67d61356fdc1bd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node22-final.json",
+      "bytes": 1423,
+      "sha256": "42473e1e6b6d57da2add0a06aac5bd22dce9b261d82b5a25a538c275e6e52af7",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "f021687014b30d69e81159fafb485f9cbb1342f2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node22-final.log",
+      "bytes": 1497,
+      "sha256": "2b6d6aa9c77422cb802daa539254bfb3c06a4b1d51c0d432ff52eb92caf5a7b8",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "3b12100d783b91ef838bbeda5409b687859f64d0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node24-final.json",
+      "bytes": 1423,
+      "sha256": "e1394c036fbeb235d3c388660500c96387f1709b1136386d142b2cb024db5ed9",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "fe46378def817a2c84cf8efe47cb5413e0bf7426"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node24-final.log",
+      "bytes": 1612,
+      "sha256": "e111c52f9f540e533257519c87d123aa717dd235d52084486e8be25547dd5abb",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "6f2b2f469e506d4c36c1310efbece27305901bc6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node26-final.json",
+      "bytes": 1423,
+      "sha256": "09b672ab00772de554cd2d9ebebeb1c14f1372370475487a18d342b198686f66",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "9dacd4f7ffb6387280598907a8f6e263b0cb9509"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/node26-final.log",
+      "bytes": 1612,
+      "sha256": "9e208a5f134de6cce3aa0db4fff8613913770a3f5b067b1f510c5ccd46291f4d",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "a158d138c94b5439c10cecc5a2bed4c278ccc137"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-01/oauth-bounded-stores/types.log",
+      "bytes": 142,
+      "sha256": "5b766b55df5bc15c215149742c8fe88d72a584cb45f5422c7edca1594b6d0cb5",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "ebdd69944b5ef8c9f6ba52b7839e4dc4297bff78"
+    },
+    {
+      "path": "notes/2026-10-01-atseq-oauth-bounded-stores.md",
+      "bytes": 15929,
+      "sha256": "4f3094581c87e2794644be409f7a8474da4a3df41fa4a51369974425c96d139a",
+      "head": "bb41a0ba4f40acea950e5bac9a218aaa990247dc",
+      "gitBlob": "f104e56ba33ea2a01f2b42067cd600236aea7ee3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/acceptance-vectors.json",
+      "bytes": 12748,
+      "sha256": "7ff1c2c90f80aa131b9dbe37817e8faa7224cbac25b801a0356848394c6ed0ad",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "3bd8e99ca227edda25a4ee89108b4f43b432a088"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/manifest.json",
+      "bytes": 6623,
+      "sha256": "ee513170b267400135d2cd4847be3a3fd6ac32d5a2e8df41edab31ff6d197de6",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "65dc65a33a0020bcdaf359c57b5aec0a06861996"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/getRecommendedDidCredentials.json",
+      "bytes": 901,
+      "sha256": "f222de8a6a87aa75760b658fc0d061ad8b533cf49eb4e52631043f3d9a9300d3",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "3506dbec3517bd848f528c4b4d0560ec905eff80"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/signPlcOperation.json",
+      "bytes": 1249,
+      "sha256": "33595630e559b08cb1d421ab2d3cfb8787a200ffd30676c338fd0a08ba2da266",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "05a952cab6c2f0bee76aca37bfecea99d4516316"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/identity/submitPlcOperation.json",
+      "bytes": 561,
+      "sha256": "85b03138ecb20308d468ca492332e95d9765c100b88694493600139ee4d13753",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "280f5003b0d283a7250545e396cf4de17cba4ccf"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/repo/applyWrites.json",
+      "bytes": 4175,
+      "sha256": "ee3d49d4b289200d2a6d48c931dc19956ed2e5fb937ec341ebbf023c35697aa9",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "11a1f1fd645f631fbad72fdc4f1d617f84885152"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/repo/importRepo.json",
+      "bytes": 306,
+      "sha256": "242a447ae3932f87839a358464cc2980fff4b02f9b61b80550cac6c757337444",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "fc850b1a2b6f98dea83498d3dbd28e0a2f02c291"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/createAccount.json",
+      "bytes": 2690,
+      "sha256": "e05e794757311175199ec9a7c8fe37a9d240f3a538c6eec032edc86438f2bb05",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "b32bbe1569d2e6a51667c1cf67cb0cc6e9f919ea"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/describeServer.json",
+      "bytes": 2018,
+      "sha256": "bfe9afbd9bd7b6e758720a3744470c94fc2bb7d611d6b46b39abccf5ad1eff88",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "307601b34b55c46022ecfebd5bb85992a85ddbd6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/lexicons/com/atproto/server/getServiceAuth.json",
+      "bytes": 1509,
+      "sha256": "3a623f89b9d7dc39f7a13a10e13e797cd12ee97ea2a08f793e30ff6aeb1ee3d0",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "e0c694767ac3dd6c412c9773fb20c091ca3a11e4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/identity/getRecommendedDidCredentials.ts",
+      "bytes": 1461,
+      "sha256": "c5fb3bbfd7b50b0f4d4ce4583a53d1cc44e82041889ae9527029dbfff838980f",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "e60364d08f56ac469ae40ebe2caf6da178ecec76"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/activateAccount.ts",
+      "bytes": 1396,
+      "sha256": "1fd53104a866f73974fdb9e9eb21e87a01d169bf3b17a95ebb243667942e1922",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "0649eda0c30cfe7588159aec1be37e9109f787ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/createAccount.ts",
+      "bytes": 10506,
+      "sha256": "926cee9b33f5de6f74c0d9e54a1bcf010673e820ac3b85610824e45cac718fe8",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "2c29f9bee89529588df0f4549c22ef37de36ed46"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/api/com/atproto/server/getServiceAuth.ts",
+      "bytes": 3490,
+      "sha256": "05382f7c5622c74e3b1798fea7ed5a1e9e0dfaf6528dbf84b342948fe688a542",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "f6072a42403b13f0537e21f976e6f4a426b7cdf2"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/auth-verifier.ts",
+      "bytes": 20346,
+      "sha256": "d6b3a9db07b09a8e0aeae1d5b52338afb5043a49c2575310c11e78d13169a659",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "f39e4d31d40b6f97f781643ca4593fd3344ce194"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/pds/src/config/env.ts",
+      "bytes": 6120,
+      "sha256": "da1c264938108429ca022a3d9b5c7f5cc44e6c31a1e16c367ece944d48d19554",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "cdce5a05b61acd8ab3626ee3a2e092f1e67a5d8c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/atproto/packages/xrpc-server/src/auth.ts",
+      "bytes": 6538,
+      "sha256": "df7b181bca12d367fd1bf13db22328b15c157391dceb63edcc62b52939003f3d",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "dffa02c88ec01e806173d093cc6d867fb8a181a5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/pds/compose.yaml",
+      "bytes": 901,
+      "sha256": "533c995fedf523ac893ef8d3e52a009769e4c3c1989608cc712af6ca5827487c",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "75cf1d9b9daf0869fb38f8aa9a08d9a6c6e8a1db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/bluesky-social/pds/sample.env",
+      "bytes": 562,
+      "sha256": "db15db444fdbf2b1faf36d2065200e9930dce5ffc5e72558a9e335c05a8dd32c",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "9e83d3fc6b0cdf556833c40342649b0cabc25009"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/official/did-method-plc/did-method-plc/website/spec/v0.1/did-plc.md",
+      "bytes": 30180,
+      "sha256": "7346e2ba9d186fa13d65466942f29136f2d3e2281a8a6dd08d689eda2c99af79",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "8528cf5fcac76f6f2a9c93dc0554e22b7a3f43b4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/research-references.json",
+      "bytes": 1098,
+      "sha256": "0102682f11501a2da2db7a10112007a0fc77058a45006220a0ed2b797d305e11",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "c5461897ead7ad3342f99af03200aad8d1d57983"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/source-inspection.json",
+      "bytes": 20166,
+      "sha256": "adcc3f24927bd6ffb55a5605c72130425d0f511a128e85576606258451eeb545",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "bbacd8486b7cbfc9fbb632555fbcf211ed622499"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-boundary/source-observations.json",
+      "bytes": 5438,
+      "sha256": "fb2c64afeae4e60066efedff445f907f7c0a17c7a7f6d9cae99501490a70826b",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "32ee59e3a7980cd0efa565be449699fc44f70184"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-review-clarification/acceptance-vectors.json",
+      "bytes": 5773,
+      "sha256": "1cff042165ef3609bc8947adb36069a566229961f7b6ee6f32d9aabf3ddf6509",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "97d2671942bd5d378ed72e6e1909a1a55775a5ee"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/app-provisioning-review-clarification/manifest.json",
+      "bytes": 8374,
+      "sha256": "dda9742f238d9b153a6d2bbad321b15a3373fbcb990f298da0438974d0be76fc",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "9d49ea8f4de4a4c93ebdf13a6ebebb736360f30f"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-app-provisioning-boundary.md",
+      "bytes": 24092,
+      "sha256": "3bfad5de4bfb65d7e24ddfb529c748d6176b123ada8915a5e7d40586ce9c45d5",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "5609d9688740a7bad067d4b52a37b11cf5a46024"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-app-provisioning-results.md",
+      "bytes": 6136,
+      "sha256": "7defa1d1017242caef26d75abead62337dc385aa4d797924162bc70773e2091c",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "8257f81da16faa6267e8451d637e532057f32da3"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-app-provisioning-review-clarification.md",
+      "bytes": 9365,
+      "sha256": "4275a8b841fa6805033f9fe5e9d8f05f738476d3bdbb5ef4d5bf97987a5ae7fa",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "cc7e485582ddefabb8ba37e380feaa7d7bf6e6f3"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-app-provisioning-review-results.md",
+      "bytes": 2951,
+      "sha256": "36cd05f7cf7e60e036c5c36386371e97bc061c49fc43006b8659f05ec4535e51",
+      "head": "2549de98c9579f40783dd83e73972ec0516c7ec8",
+      "gitBlob": "cf819cce759994d2a71ded916aa0dd9a0bfeaa98"
+    }
+  ],
+  "ownedFiles": [
+    {
+      "path": "notes/2026-10-02-atseq-accepted-custody-provisioning-publication-results.md",
+      "bytes": 9669,
+      "sha256": "b92938af12be6fd62e42ef77a0a6412d9ede9ec1182542ac2c37a85e1af02da7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/accepted-custody-provisioning-publication/verify-publication.py",
+      "bytes": 10681,
+      "sha256": "731286dd6354d16fbfe1a7545d797b4ed3e2522eac711091f76da3c541f3d9f8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/accepted-custody-provisioning-publication/review-records.json",
+      "bytes": 21284,
+      "sha256": "fd3dbc663cbb5eac0fad88a1321eda1808f3a5586fad81c99a620588e2d721cf"
+    }
+  ],
+  "authoredNotes": [
+    "notes/2026-10-01-atseq-oauth-bounded-stores.md",
+    "notes/2026-10-02-atseq-app-provisioning-boundary.md",
+    "notes/2026-10-02-atseq-app-provisioning-results.md",
+    "notes/2026-10-02-atseq-app-provisioning-review-clarification.md",
+    "notes/2026-10-02-atseq-app-provisioning-review-results.md",
+    "notes/2026-10-02-atseq-accepted-custody-provisioning-publication-results.md"
+  ],
+  "verificationCapture": {
+    "path": "experiments/post-spike-evidence/2026-10-02/accepted-custody-provisioning-publication/verification.json",
+    "bytes": 3790,
+    "sha256": "5916cdff4852e69a8c1ad802bf74ca3e7fc39287a8dd6a3e73fcf407b073170a"
+  }
+}

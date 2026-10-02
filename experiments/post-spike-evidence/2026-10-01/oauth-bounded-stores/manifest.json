@@ -1,0 +1,459 @@
+{
+  "date": "2026-10-01",
+  "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:66af6bdfd0bcd7f2f4c09c81b7b4194301df7e18",
+  "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:b55b6b77c69320e160dfdfa6a9780240e88ec307",
+  "approvedMainBasis": "eec0c8e877b66413a6a4781f826e0fbbcfdea462",
+  "experimentSourceCommit": "18459b1b1f443fc0b25de06ad972ed72d7c80041",
+  "installedSDKCandidate": "7807cd9a3b89c6255169280fe0d75925d05948e9",
+  "installedSDKRoot": "/private/tmp/atseq-oauth-adapters-20261001",
+  "dependencyPaths": 194,
+  "dependencyIdentityManifest": {
+    "path": "src/integrity/files-approved.json",
+    "sha256": "18a3dadff6cbf97aecb19a61e491a2138de273e85d287ebfec9f1c10760e6fe4"
+  },
+  "sdkPins": [
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/package.json",
+      "sha256": "38ae559a12d1b328451d3e66f12fbfa7b1ef4e1ed8bdbbc5db152d014a4ef330",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client-browser",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/dist/index.d.ts",
+      "sha256": "b6cdb2a62be0b7af8dfac936465c51bd04b465fa1c20a15b886ae303d36639d6",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client-browser",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/dist/index.js",
+      "sha256": "f659eb6aa0d44e5846c5a5d2546565bf9a9ae626614c2e8a04384c30c7fc1ba9",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client-browser",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/dist/browser-oauth-client.d.ts",
+      "sha256": "e9bc56ad9a8bd59b6b7216a57b8d20c06fa466c549dbeb63c05f38a86cb401da",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client-browser",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/dist/browser-oauth-client.js",
+      "sha256": "deaea48abddd7afcc887cc22641c2a21376d23636c804f0acca123e1c47eb928",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client-browser",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/dist/browser-oauth-database.js",
+      "sha256": "dcf40cc1e4a81aa4249c192d1ae8c445e31f53f0751909d601f79ffcbc18c73e",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client-browser",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/package.json",
+      "sha256": "13a0a08dd3c36e62cb66259c8cc55f84d7fa981203e1eeb4faac6464db8119fc",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-client.d.ts",
+      "sha256": "d4a13488b84f1f459fe0a13da5f53ea382412a9b8416a11219b61f7dc5d3c7bd",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-client.js",
+      "sha256": "caff70d770559e359c68fca345024b01065487c64f99d18f4bfc812fe0c2c93c",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/runtime-implementation.d.ts",
+      "sha256": "f3d246b064cdde6d61fb2fbafa09daa2ad6c02cea25fb4d6a8513481bd18bb64",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/session-getter.js",
+      "sha256": "ac2afc9187d060a6cfaf6c5376cd4946e06c59819def18f02bc1560da9b061d6",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/session-getter.d.ts",
+      "sha256": "f5b698c092ce65d93cf7e26464276b3d6d055c7c78802f0048fd172bd27b0b6f",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-server-factory.d.ts",
+      "sha256": "d76e23deca1e124db2d359f86b0475a642af47dd3932dc60e1dd449789887a4a",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-server-agent.d.ts",
+      "sha256": "32a5edb560274b609ca3da9de3825d0c47b968f74d51112875b2381825b3f7d6",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/state-store.d.ts",
+      "sha256": "901a6dde4f50b7a0a60fc7f4da19e404d8af3e3c33f9a4c2757106439c1e7cc1",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/package.json",
+      "sha256": "d9483d8a1fa533dcf37da6fcd7e637a577db699b34e679e79c9a64831d2f95ab",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/index.js",
+      "sha256": "3096c07e6b753c1a87465ec6e0ee57fb852b6272f3c5081d43387a83a87b174c",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/cached-getter.js",
+      "sha256": "2d517d0d49846db72ea0f440494d3ddb88b1e74851bb23a196a5fbe23f8b7dca",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/simple-store.d.ts",
+      "sha256": "74256e60c433d8811e0ff18e8065bbbdce21eba9d53b95e12d3cfc97ae433ca8",
+      "approvedPackagePath": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto-labs/simple-store/package.json",
+      "sha256": "75b4a3da06eedc05fe58216fe04d1ad8800fade17b05e2ac6c17c8bec68bce0f",
+      "approvedPackagePath": "node_modules/@atproto-labs/simple-store",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto-labs/simple-store/dist/cached-getter.js",
+      "sha256": "bfcb8f7c32c2e39f3f5ed4d46ba3f73e6e7fdcb282659fac1992354e2913214b",
+      "approvedPackagePath": "node_modules/@atproto-labs/simple-store",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto-labs/simple-store/dist/simple-store.d.ts",
+      "sha256": "216d95cd61eb60b0eac20e634a77cee3c189f9bafd273356db6109a812b1fca9",
+      "approvedPackagePath": "node_modules/@atproto-labs/simple-store",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/jwk-webcrypto/dist/webcrypto-key.js",
+      "sha256": "6126c594a2e1b2d72cc7e828fde6a5852d5fd91ebf86d5ed92de34ea7a845d28",
+      "approvedPackagePath": "node_modules/@atproto/jwk-webcrypto",
+      "matchesApprovedFile": true
+    },
+    {
+      "path": "node_modules/@atproto/jwk-webcrypto/dist/webcrypto-key.d.ts",
+      "sha256": "661ccb3846c7975d52c6b0845abcc3f81d311a7f939f6fc01cfb5415684371e0",
+      "approvedPackagePath": "node_modules/@atproto/jwk-webcrypto",
+      "matchesApprovedFile": true
+    }
+  ],
+  "source": [
+    {
+      "path": "experiments/oauth-bounded-stores/browser-entry.mjs",
+      "bytes": 1537,
+      "sha256": "c175b496f59d00fa26f67c5e180a3f350205cc0608d14f26ca6dbda382fb720a"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/browser-probe.mjs",
+      "bytes": 4460,
+      "sha256": "1dabf0e709fe89d5c76f70008509387c034d1f3d4242b7c63ffc4b863983974e"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/fixture.mjs",
+      "bytes": 5810,
+      "sha256": "851d790493cb2a8b49ba9e39d2914a1588a7694f69fdc328d37836c9e16cde93"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/node-probe.mjs",
+      "bytes": 307,
+      "sha256": "1347a20a474ebcd73c1616908c89acf37e2c5de20b02721f16b0bd7093e61ae0"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/public-hooks.mjs",
+      "bytes": 10702,
+      "sha256": "f133ba911d4b506201a5cb9d7e0d3a0d9d1029d7ae6d5ca7d564ba859c4642eb"
+    },
+    {
+      "path": "experiments/oauth-bounded-stores/public-types.mts",
+      "bytes": 1118,
+      "sha256": "884e71ac0f4f72100bb69de115b40fdebb3e4ed9c9e40efc49d21066fad2cd85"
+    }
+  ],
+  "originalFixture": {
+    "path": "tests/support/oauth-fixture.ts",
+    "sha256": "ebe5131a49aade12cdd7d51b1e7c31cec08f9d0a118ede24b204eb5999225893",
+    "derivation": "esbuild TypeScript transform then repository Prettier; fixture only, synthetic token strings stay inside the test process"
+  },
+  "browserResolution": {
+    "sessionGetterInput": "../atseq-oauth-adapters-20261001/node_modules/@atproto/oauth-client/dist/session-getter.js",
+    "import": {
+      "path": "../atseq-oauth-adapters-20261001/node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/index.js",
+      "kind": "import-statement",
+      "original": "@atproto-labs/simple-store"
+    },
+    "selectedVersion": "0.5.1",
+    "proof": "browser-metafile.json"
+  },
+  "nodeResolution": "node-resolution.json",
+  "correctedFinding": "OAuth SessionGetter selects nested simple-store 0.5.1, propagating persistence failures; root simple-store 0.3.0 is not the superclass. No post-commit verification hook workaround is needed.",
+  "captures": [
+    {
+      "file": "browser-final.log",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b",
+      "status": "passed",
+      "sourceCommit": "18459b1b1f443fc0b25de06ad972ed72d7c80041"
+    },
+    {
+      "file": "browser-first.log",
+      "bytes": 8430,
+      "sha256": "f1497290150748e3f127bd5a21ebaa5d0c52970265888ed358fed3e4451478fa",
+      "status": "failed",
+      "sourceCommit": null,
+      "failure": "Managed sandbox denied Chromium Mach bootstrap; no cases ran"
+    },
+    {
+      "file": "browser-unrestricted.log",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b",
+      "status": "historical capture",
+      "sourceCommit": null,
+      "limitation": "Historical output file was reused; not a complete record of every intermediate invocation"
+    },
+    {
+      "file": "format.log",
+      "bytes": 334,
+      "sha256": "62c7e45e4cd2f3082303c724c4823a0241ec5dd9583c369e7ecd6e95e2af1c51",
+      "status": "historical capture",
+      "sourceCommit": null
+    },
+    {
+      "file": "node-first.log",
+      "bytes": 36,
+      "sha256": "2a31a3dc86502e4b64d36ba42cfa5fbb30fec32882620971161e168b45f7813c",
+      "status": "failed",
+      "sourceCommit": null
+    },
+    {
+      "file": "node-fourth.log",
+      "bytes": 1612,
+      "sha256": "92a60e8cff0baaf4c7b12bc87c5cf6805ec2db5b6bc439f257a726988c123416",
+      "status": "historical capture",
+      "sourceCommit": null
+    },
+    {
+      "file": "node-second.log",
+      "bytes": 40,
+      "sha256": "a8c43d9e44099283d480b8b637e1e5c2ef211eb351806b981af8606d3d8ea66c",
+      "status": "failed",
+      "sourceCommit": null
+    },
+    {
+      "file": "node-third.log",
+      "bytes": 225,
+      "sha256": "2b673a55b2bf16d8920242aaed9dd4ac2bebd690908da506c40aeb472d3a695f",
+      "status": "failed",
+      "sourceCommit": null
+    },
+    {
+      "file": "node22-final.log",
+      "bytes": 1497,
+      "sha256": "2b6d6aa9c77422cb802daa539254bfb3c06a4b1d51c0d432ff52eb92caf5a7b8",
+      "status": "passed",
+      "sourceCommit": "18459b1b1f443fc0b25de06ad972ed72d7c80041"
+    },
+    {
+      "file": "node24-final.log",
+      "bytes": 1612,
+      "sha256": "e111c52f9f540e533257519c87d123aa717dd235d52084486e8be25547dd5abb",
+      "status": "passed",
+      "sourceCommit": "18459b1b1f443fc0b25de06ad972ed72d7c80041"
+    },
+    {
+      "file": "node26-final.log",
+      "bytes": 1612,
+      "sha256": "9e208a5f134de6cce3aa0db4fff8613913770a3f5b067b1f510c5ccd46291f4d",
+      "status": "passed",
+      "sourceCommit": "18459b1b1f443fc0b25de06ad972ed72d7c80041"
+    },
+    {
+      "file": "types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "passed",
+      "sourceCommit": "18459b1b1f443fc0b25de06ad972ed72d7c80041"
+    },
+    {
+      "file": "types.log",
+      "bytes": 142,
+      "sha256": "5b766b55df5bc15c215149742c8fe88d72a584cb45f5422c7edca1594b6d0cb5",
+      "status": "failed",
+      "sourceCommit": null
+    }
+  ],
+  "commands": [
+    {
+      "command": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node experiments/oauth-bounded-stores/node-probe.mjs",
+      "log": "node22-final.log",
+      "exitCode": 0
+    },
+    {
+      "command": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node experiments/oauth-bounded-stores/node-probe.mjs",
+      "log": "node24-final.log",
+      "exitCode": 0
+    },
+    {
+      "command": "node experiments/oauth-bounded-stores/node-probe.mjs",
+      "log": "node26-final.log",
+      "exitCode": 0
+    },
+    {
+      "command": "node experiments/oauth-bounded-stores/browser-probe.mjs",
+      "log": "browser-final.log",
+      "exitCode": 0,
+      "launch": "outside managed sandbox after demonstrated Mach bootstrap denial"
+    },
+    {
+      "command": "node node_modules/typescript/bin/tsc --ignoreConfig --noEmit --skipLibCheck --target ES2022 --module ESNext --moduleResolution Bundler --lib ES2024,DOM --types node experiments/oauth-bounded-stores/public-types.mts",
+      "log": "types-final.log",
+      "exitCode": 0
+    }
+  ],
+  "tested": {
+    "nodeCases": {
+      "22.19.0": 6,
+      "24.21.0": 6,
+      "26.10.0": 6
+    },
+    "chromiumVersion": "153.0.8010.12",
+    "chromiumCases": 6,
+    "additionalChromium": [
+      "Numeric-range/ISO-string expiry mismatch in experiment-owned IndexedDB",
+      "Nonextractable private CryptoKeyPair persists across reload and supports actual SDK refresh",
+      "Actual SDK account Web Lock blocks second-document restore until release"
+    ],
+    "publicExportTypecheck": true
+  },
+  "notClaimed": [
+    "Live provider success or remote-token lifetime guarantee",
+    "Production factory/store implementation",
+    "Count/lifetime/journal/crash-recovery/storage-reset policy conformance",
+    "Full suite or production C1 graph equivalence for an unimplemented factory",
+    "Complete historical record of every intermediate harness invocation",
+    "Full A1 closure"
+  ],
+  "syntheticOnly": true,
+  "SDKPrivateDatabaseAccess": false,
+  "credentialsOrPrivateKeyValuesInResults": false,
+  "note": {
+    "path": "notes/2026-10-01-atseq-oauth-bounded-stores.md",
+    "sha256": "4f3094581c87e2794644be409f7a8474da4a3df41fa4a51369974425c96d139a"
+  },
+  "evidenceFiles": [
+    {
+      "path": "browser-final.json",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b"
+    },
+    {
+      "path": "browser-final.log",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b"
+    },
+    {
+      "path": "browser-first.log",
+      "bytes": 8430,
+      "sha256": "f1497290150748e3f127bd5a21ebaa5d0c52970265888ed358fed3e4451478fa"
+    },
+    {
+      "path": "browser-metafile.json",
+      "bytes": 327025,
+      "sha256": "8f8693e2482889bf80b0313fd872e9c8845f13b5dba1b9919ad947cb266572af"
+    },
+    {
+      "path": "browser-unrestricted.log",
+      "bytes": 2371,
+      "sha256": "defcfc616aa582e53bb260121154dd6b02e23d1c0be18f8fa60e9a87180e4a8b"
+    },
+    {
+      "path": "format.log",
+      "bytes": 334,
+      "sha256": "62c7e45e4cd2f3082303c724c4823a0241ec5dd9583c369e7ecd6e95e2af1c51"
+    },
+    {
+      "path": "node-first.log",
+      "bytes": 36,
+      "sha256": "2a31a3dc86502e4b64d36ba42cfa5fbb30fec32882620971161e168b45f7813c"
+    },
+    {
+      "path": "node-fourth.log",
+      "bytes": 1612,
+      "sha256": "92a60e8cff0baaf4c7b12bc87c5cf6805ec2db5b6bc439f257a726988c123416"
+    },
+    {
+      "path": "node-resolution.json",
+      "bytes": 366,
+      "sha256": "8c2d55c9aa71f66cdf797ec5eb9aad703d5d8c5c053f6e0dbc24a37316193f3b"
+    },
+    {
+      "path": "node-second.log",
+      "bytes": 40,
+      "sha256": "a8c43d9e44099283d480b8b637e1e5c2ef211eb351806b981af8606d3d8ea66c"
+    },
+    {
+      "path": "node-third.log",
+      "bytes": 225,
+      "sha256": "2b673a55b2bf16d8920242aaed9dd4ac2bebd690908da506c40aeb472d3a695f"
+    },
+    {
+      "path": "node22-final.json",
+      "bytes": 1423,
+      "sha256": "42473e1e6b6d57da2add0a06aac5bd22dce9b261d82b5a25a538c275e6e52af7"
+    },
+    {
+      "path": "node22-final.log",
+      "bytes": 1497,
+      "sha256": "2b6d6aa9c77422cb802daa539254bfb3c06a4b1d51c0d432ff52eb92caf5a7b8"
+    },
+    {
+      "path": "node24-final.json",
+      "bytes": 1423,
+      "sha256": "e1394c036fbeb235d3c388660500c96387f1709b1136386d142b2cb024db5ed9"
+    },
+    {
+      "path": "node24-final.log",
+      "bytes": 1612,
+      "sha256": "e111c52f9f540e533257519c87d123aa717dd235d52084486e8be25547dd5abb"
+    },
+    {
+      "path": "node26-final.json",
+      "bytes": 1423,
+      "sha256": "09b672ab00772de554cd2d9ebebeb1c14f1372370475487a18d342b198686f66"
+    },
+    {
+      "path": "node26-final.log",
+      "bytes": 1612,
+      "sha256": "9e208a5f134de6cce3aa0db4fff8613913770a3f5b067b1f510c5ccd46291f4d"
+    },
+    {
+      "path": "types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "types.log",
+      "bytes": 142,
+      "sha256": "5b766b55df5bc15c215149742c8fe88d72a584cb45f5422c7edca1594b6d0cb5"
+    }
+  ]
+}

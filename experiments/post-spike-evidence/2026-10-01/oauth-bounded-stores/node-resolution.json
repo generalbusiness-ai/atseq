@@ -1,0 +1,6 @@
+{
+  "method": "Node createRequire from actual realpath of OAuth SessionGetter",
+  "from": "/private/tmp/atseq-oauth-adapters-20261001/node_modules/@atproto/oauth-client/dist/session-getter.js",
+  "selected": "/private/tmp/atseq-oauth-adapters-20261001/node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/index.js",
+  "version": "0.5.1"
+}

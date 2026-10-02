@@ -1,0 +1,135 @@
+{
+  "meaning": "Read-only workroom projections of decisions recorded before the 2026-10-02T05:51:30Z status cutoff; evidence of source-only assessments and adoption, not standalone cryptographic workroom verification.",
+  "records": [
+    {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:80111ff33975762e4f6ec9152342d176f2c01427",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:80111ff33975762e4f6ec9152342d176f2c01427",
+        "sequence": 8894,
+        "timestamp": 1790902336,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "assert",
+        "lifecycle": "none",
+        "satisfier": "role:ratifier",
+        "text": "Adopt A1-D2 reviewer simplifications BS-1/BS-2 for initial implementation: fixed10 pending,10 retained accounts including reservations/retiring rows,10-minute pending expiry,30-day lifetime from explicit consent never extended by refresh, and exact64KiB UTF-8 JSON metadata per row excluding opaque CryptoKeyPair. No configurable range or reconfiguration flow yet. Keep one owned versioned numeric-expiry IndexedDB database, public core client/runtime/key APIs, atomic counts/context checks, conservative uncertain-operation marker, bounded best-effort remote cleanup with independent local purge, trusted reset/re-enrolment and C1\u2013C6. These are local custody policy, not actor entitlement or native semantics.",
+        "body": {
+          "account_limit": "10",
+          "consent_lifetime_ms": "2592000000",
+          "metadata_bytes": "65536",
+          "pending_lifetime_ms": "600000",
+          "pending_limit": "10"
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:80111ff33975762e4f6ec9152342d176f2c01427",
+        "sequence": 8894,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "provenance_bases": [
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fb88a94ccb0379fcdbd0d94009ca8b66e17936f7"
+      ]
+    },
+    {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:533183810188466b3f541d2b8556dfa344539de6",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:533183810188466b3f541d2b8556dfa344539de6",
+        "sequence": 9774,
+        "timestamp": 1790917356,
+        "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+        "kind": "assert",
+        "lifecycle": "none",
+        "satisfier": "role:ratifier",
+        "text": "Adopt preserved A2-D1 source364457c8 plus independently satisfied successor2549de98. Existing ATproto accounts without hostname are the preferred adoption path; one bounded native account writer reuses existing XRPC decoders and reviewed A1 owned session handle. App-PDS repository-key ordering remains preferred; credentials, repository signing, genesis control/owner and private operator authority remain separate. Require independent higher-priority PLC recovery verified in full signed history, and complete hostname-web temporary-key lifecycle: just-in-time private setup custody and fixed window, one exact short-lived aud/lxm JWT, prompt rotation, independent destination readback, owned key/token/handle deletion beforeactivation, no expired-token refresh or lostreply newaccount/mint, same unavailable-oldPDS migration restrictions. Preserve A1 typed failures without another classifier. Defer WebVH absent concrete deployment/audit need. This is the independently reviewed simplest complete implementation contract, not runtime/provider/deployment evidence. Execute all44original+12successor vectors before claiming fullA2; sourcepublication separatetask.",
+        "body": {
+          "decision": "Adopt A2-D1 provisioning boundary and required lifecycle/migration/failure clarifications."
+        }
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:533183810188466b3f541d2b8556dfa344539de6",
+        "sequence": 9774,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "provenance_bases": [
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:504aea8e07a66a00e001ac88a2f970d157ecd680",
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:a7a81f5741bfe29f07bdb321e02597d9147fbb7e"
+      ]
+    },
+    {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:504aea8e07a66a00e001ac88a2f970d157ecd680",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:504aea8e07a66a00e001ac88a2f970d157ecd680",
+        "sequence": 9694,
+        "timestamp": 1790917228,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "Revised A2-D1 assessment at exact head 2549de98c9579f40783dd83e73972ec0516c7ec8: satisfied. A2-1 (required), A2-2 and A2-3 from my report c2139bbe are all addressed. This is the simplest complete implementation contract, and I need no further changes before code.\n\nWhat I checked (source only; nothing executed):\n- 4 added paths: the successor note, the results note, the vectors and the manifest.\n- The 25 predecessor files at 364457c8 are byte-unchanged (git diff on both notes and the whole app-provisioning-boundary evidence directory).\n- All 30 hashes in the successor manifest match: its 3 files plus the pinned predecessor and reused-inspection entries.\n- 12 new vectors with unique IDs, all marked unexecuted. The 44 original vectors are intact. The successor explicitly overrides expired-import-jwt and cooperative-plc-migration.\n\nA2-1, lifecycle of the temporary web key. Addressed in full:\n- The note now states the underlying risk: the key, not the token, holds authority for did:web:H, and a method-bound JWT constrains only that token.\n- The key is generated just in time, after discovery and preparation, in private setup custody only, and never in logs, backups or app data.\n- The setup journal binds the DID, the destination service DID, the provider, the key reference and a fixed custody deadline that a restart cannot renew.\n- Exactly one JWT is minted, using the maintained createServiceJwt: issuer did:web:H, the checked destination audience, lxm com.atproto.server.createAccount, with the tool's short default expiry or shorter.\n- Rotation to the destination key happens immediately once the staged account is identified, not after OAuth or app work.\n- Readback goes through the existing bounded identity transport. The key, token and signing handles are deleted before activation, and a failed deletion stops activation.\n- If readback still shows the temporary key, differs or is unavailable, the procedure stops, and only the same binding may be repaired within the original window.\n- On expiry, the custody is erased even if readback has not succeeded, and the remaining public binding is reported.\n- A lost reply is reconciled only through account management within the window, with no new token, so the old token-refresh answer is correctly replaced.\n- The same rules apply to web migration when the old PDS is unavailable. That path requires retained content and pauses app writes.\n- The note honestly says that logical deletion is not forensic erasure and that rotation is not instant revocation at every verifier.\n- Vectors A2D1R1-01 to 08 cover each branch.\n\nA2-2. The writer adapts the owned session's request without flattening: input stays input, content_unavailable and origin are preserved, HTTP refusals are not treated as transport failures, there is no second cause classifier and no unconditional retry, and the native publisher owns reconciliation of uncertain writes. Vectors 09 and 10 require the real request path.\n- Update since the note was written: I approved the A1-F2 successor fe7f4514 in review a7a81f57, which preserves exactly these categories. The dependency gate is now an approved candidate, still awaiting landing.\n\nA2-3. The submitted PLC operation must include the independent recovery key at higher priority than any PDS-controlled key, checked before submission and afterwards in the full signed history, with no reliance on the recommendation or the latest document. If the key is absent or lower, migration completion stops and the condition is reported. Maintained tooling and the existing verifier are used, with no new interpreter. Vectors 11 and 12 cover this.\n\nNo new signer, resolver, auth manager or cause classifier, and no provider, account, key or deployment claim, as stated. Implementation must execute the 56 vectors against real fixtures, and full A2 remains open.",
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:5959093ad1219ba71a9b69af244a194b5d07632c"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:504aea8e07a66a00e001ac88a2f970d157ecd680",
+        "sequence": 9694,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "provenance_bases": [
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:74d6d640c461f9face953b261b86539312645a0a",
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:651039f80e273e5f4f138d75e586c889d0e87d3f"
+      ]
+    },
+    {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c2139bbeafe3bb494b7bca4537d5dae573fe1b49",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c2139bbeafe3bb494b7bca4537d5dae573fe1b49",
+        "sequence": 9604,
+        "timestamp": 1790916458,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "A2-D1 assessment at exact head 364457c8934250768d2624f40b2676bb48aa4c89 (base 0df4aa12): satisfied. One addition must go into the implementation note and vectors before code (A2-1). Two smaller notes follow (A2-2, A2-3).\n\nWhat I checked (source only; nothing executed):\n- 25 added paths, all notes or evidence.\n- All 24 hashes in the manifest match.\n- All 25 local Git pins match: 22 at 0df4aa12, and 3 at the unreviewed A1 candidate 022404f5 (src/protocol/oauth.ts and the host and browser oauth-adapter.ts). As the request says, those 3 OAuth sources are pinned but not reviewed.\n- 44 vectors with unique IDs, all marked unexecuted. 14 literal observations.\n\nThe note's claims about the official sources match the frozen copies at 3cd9fa60:\n- createAccount with input.did requires input.did to equal the service-auth issuer (otherwise AuthRequiredError). It then generates its own repository key and sets deactivated = true.\n- On the PLC path, input.recoveryKey is placed first in rotationKeys, ahead of the server recovery key and the PDS rotation key.\n- auth-verifier.verifyServiceJwt checks lxm against the request NSID and aud against the PDS's own service DID, and verifies the signature with the issuer DID document's #atproto key. So the did:web:H service JWT in step 3 must name createAccount and the destination service DID, exactly as the note says.\n- getRecommendedDidCredentials uses authorization with an always-allow rule and includeDeactivated, so it works on the staged account. It returns the PDS signing key as a did:key, and rotation keys that omit any independent key.\n- activateAccount explicitly refuses OAuth credentials.\n\nLocal claims also match the base:\n- AccountProvider.open returns the concrete PdsClient;\n- ApplicationHost.create makes a separate P-256 sequencer key;\n- PdsClient has an unconditional apply beside applyConditional, latestCommit and upload;\n- the management HTTP server binds 127.0.0.1 and checks Host and Origin.\n\nAssessment:\n- The four custody boundaries are drawn correctly: account DID and repository key, write credentials, app control and owner, and host operator. Account, DNS, PDS or OAuth possession never appoints app control.\n- The smallest path is right: an existing account with no domain, plus A1 OAuth.\n- The NativeAccountWriter reuses the existing bounded decoders, has no unconditional apply, and takes an owned A1 handle with no callback. Proof reads stay without credentials.\n- Writing the setup record before any allocation, and never allocating a second DID automatically when a reply is lost, is right.\n- PLC recovery reads the complete signed history instead of trusting recommendations. It reports, and does not hide, a provider that will not install the independent key. The 72-hour window is stated correctly.\n- The did:web sequence matches the inspected code: temporary key, then service JWT, then deactivated account, then rotate to the recommended key, then read it back independently, then activate through account management, then OAuth.\n- The trust disclosure is honest about web observation, PDS ordering and the limits of PLC history.\n- Deferring WebVH is justified: no deployment needs it, it would need a reviewed trust anchor, and portability changes the principal.\n- No new resolver, signer, auth manager or dependency is added to the runtime. The service-JWT tool stays outside it, pending dependency approval.\n\nA2-1 (add before implementation): lifecycle of the temporary web key.\n- In steps 2\u20135, and in the fallback for web migration when the old PDS is unavailable, the temporary key is the #atproto key of did:web:H. Until the document is rotated, whoever holds that private key can mint service JWTs as did:web:H for any audience and method, and can stage accounts on other PDSes.\n- Require all of the following:\n  - generate the key just in time, in private setup custody only;\n  - mint one short-lived JWT with exact aud and lxm;\n  - rotate the document as soon as the staged account exists;\n  - delete the private key after independent readback shows the destination key;\n  - keep any lost-reply reconciliation within that window.\n- Add vectors for \"temporary key erased after readback\" and \"readback still shows the temporary key, so stop and do not activate\".\n\nA2-2 (implementation ordering): the writer depends on A1-F2, which is still unreviewed. My earlier OAuth adapter review (ba233446) asked for the failure class to be kept (content_unavailable versus input) and for the transaction to come from the callback state. The writer's request adapter must keep those classes too, not flatten provider errors.\n\nA2-3 (minor): getRecommendedDidCredentials returns rotation keys without any independent key. The note already says to keep the independent key. Make the PLC-migration vector say that the submitted operation includes the independent higher-priority key, checked in the resulting signed history.\n\nNo provider, deployment or runtime claims are made or implied. A1, I1, I2, N1, R1 and full A2 remain open, as the note says.",
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ad60fc290fa8eef4bad186fe45a27eec44547ac4"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:c2139bbeafe3bb494b7bca4537d5dae573fe1b49",
+        "sequence": 9604,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "provenance_bases": [
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:34fe7d5417245f6767362101add150ca3ba3b32a",
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:6cadfefbd4ee1179ca9e150f1e777de209a0d398"
+      ]
+    },
+    {
+      "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fb88a94ccb0379fcdbd0d94009ca8b66e17936f7",
+      "statement": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fb88a94ccb0379fcdbd0d94009ca8b66e17936f7",
+        "sequence": 8884,
+        "timestamp": 1790901959,
+        "actor": "e1e744dba2b206095714530f5e37c40f8d47b50fb949caafed60864f02ce4379",
+        "kind": "report",
+        "lifecycle": "report",
+        "satisfier": "originating-requester",
+        "text": "A1-D2 bounded browser OAuth custody: assessment of exact candidate bb41a0ba (experiment producer 18459b1b, notes/2026-10-01-atseq-oauth-bounded-stores.md). Verdict: satisfied, with two simplifications recommended for the implementation (BS-1 and BS-2). This was a source-only decision; there is no policy implementation or full A1 approval.\n\nVerified independently\n- In my scratch clone with the OAuth graph (194 paths), node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store is version 0.5.1. Its CachedGetter.setStored is a plain await this.#store.set(...), so write errors propagate.\n- The root @atproto-labs/simple-store 0.3.0 wraps set in try/catch with onStoreError.\n- Node resolution from oauth-client picks the nested copy. So the correction is right: a store write failure reaches the SDK's own revocation and cleanup path, and no compensating hook is needed.\n- Keeping a regression test bound to the actually selected package path, as the note says, is the right guard for future SDK updates.\n\nDecisions I confirm\n- The seam: the exported core OAuthClient with owned StateStore and SessionStore and a RuntimeImplementation, all public re-exports of the pinned browser package root. That gives:\n  - no private SDK import and no new dependency path;\n  - WebcryptoKey.generate with extractable:false, reconstructed through the public fromKeypair;\n  - the same guarded fetch and identity resolver;\n  - secure Web Locks with no fallback, and custody and SDK lock names distinct, never reacquired.\n  This is the simplest supported way to get atomic, bounded storage, which the convenience constructor cannot give.\n- Storage: one owned versioned IndexedDB database with numeric expiresAt, which fixes the ISO-versus-number index problem found earlier. Counts, pruning, reservations and writes happen in one transaction. There is one pending enrolment per DID. The subject is checked against the reserved DID before commit. There is no swallowing wrapper.\n- Operation journal and crash rule: every credential-touching operation marks the account row uncertain first, and only success with the full subject, scope, issuer and authority checks clears it. On reopen an uncertain row is retired, never restored, and refresh is never retried. This conservative loss is the right trade-off. A refresh response lost in transit leaves the stored refresh token already used, and replaying it risks provider reuse detection anyway. Re-enrolment is honest and simple.\n- Cleanup: best effort, one attempt per batch within the existing budget, then local deletion, with no credential-bearing retry log. Unknown issued tokens and closed browsers are disclosed as limits.\n- No migration of the convenience database: an explicit origin reset or a fresh custody origin, triggered only by trusted management. C1 to C6 are preserved, and the lazy-graph checks will be rerun at implementation.\n\nBS-1 (simplify): make the first-release limits fixed constants, not configuration.\n- 10 pending authorizations, 10 accounts and a 30-day local consent lifetime are sensible defaults.\n- Configurable limits add a reconfiguration path (retiring rows when the bound drops) and range validation, with no current need.\n- Ship them as constants, and add configuration only when a deployment needs it, with its own review of ranges.\n\nBS-2 (tighten): lower the per-row metadata budget from 1 MiB to about 64 KiB.\n- OAuth state rows (issuer, verifier, appState and key reference) and session rows (token set and auth method) are a few KB; the CryptoKeyPair is opaque and excluded.\n- At 1 MiB a row, 20 rows allow 20 MiB of logical metadata, which makes \"bounded\" weak.\n- 64 KiB keeps generous headroom, and bounds the total near 1.3 MiB.\n- Keep validating before the write transaction.\n\nNote (not blocking): \"a crash during a read-only request can require re-enrolment\" should appear in user-facing documentation next to the 30-day lifetime, so that losing a session after a browser crash is expected behaviour, not a surprise.\n\nImplementation gates as listed: fault injection for counts, journals, crash points and reset; a real Chromium run with the owned stores; rerunning the lazy and initial graph checks; and provider trials. A1 remains open.",
+        "ratified": true,
+        "ratified_by": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:ba978ca0d46d866e2524231256c9d0b38d67413e"
+      },
+      "decision": {
+        "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:fb88a94ccb0379fcdbd0d94009ca8b66e17936f7",
+        "sequence": 8884,
+        "verdict": "effective",
+        "reason": "statement recorded"
+      },
+      "provenance_bases": [
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:263b801b1d85048058c2fabfb511a197d4ca2f40",
+        "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f7f9c0e81e5e68679593a955d9fb898f0ed9aef5"
+      ]
+    }
+  ]
+}
