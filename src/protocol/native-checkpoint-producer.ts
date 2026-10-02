@@ -21,6 +21,13 @@ const CHUNK_BYTES = 32768;
 const MAXIMUM_ROWS = 100000;
 const MAXIMUM_INVENTORY_BYTES = 48 * 1024 * 1024;
 const encoder = new TextEncoder();
+// Capture genuine typed-array operations once; never dispatch caller byte methods.
+const OwnedBytes = Uint8Array;
+const typedArrayPrototype = Object.getPrototypeOf(OwnedBytes.prototype);
+const byteLength = Object.getOwnPropertyDescriptor(typedArrayPrototype, 'length')!.get!;
+const byteKind = Object.getOwnPropertyDescriptor(typedArrayPrototype, Symbol.toStringTag)!.get!;
+const copyBytes = OwnedBytes.prototype.set;
+
 export interface NativeCheckpointProducerInput {
   scope: CheckpointPin;
   head: CheckpointThrough;
@@ -94,19 +101,23 @@ function capture(input: NativeCheckpointProducerInput) {
   );
   let capturedBytes = 0;
   function raw(value: Uint8Array, maximum = CHECKPOINT_DATA_BOUNDS.payloadBytes, canonical = true) {
-    if (!(value instanceof Uint8Array)) throw new ProtocolError('input', 'Expected original checkpoint bytes');
-    if (value.length > maximum) fail('Unsupported checkpoint payload bytes');
-    if (value.length > MAXIMUM_INVENTORY_BYTES - capturedBytes)
-      limit('Checkpoint input inventory exceeds byte capacity');
-    const owned = value.slice();
+    if (Reflect.apply(byteKind, value, []) !== 'Uint8Array')
+      throw new ProtocolError('input', 'Expected original checkpoint bytes');
+    const length = Reflect.apply(byteLength, value, []) as number;
+    if (length > maximum) fail('Unsupported checkpoint payload bytes');
+    if (length > MAXIMUM_INVENTORY_BYTES - capturedBytes) limit('Checkpoint input inventory exceeds byte capacity');
+    const owned = new OwnedBytes(length);
+    Reflect.apply(copyBytes, owned, [value]);
     if (canonical) readCheckpointJson(owned, maximum, maximum === CHECKPOINT_DATA_BOUNDS.pageBytes);
-    capturedBytes += owned.length;
+    capturedBytes += length;
     return owned;
   }
   let count = 0;
   function rows(values: readonly Uint8Array[], canonical = true) {
     if (!Array.isArray(values)) throw new ProtocolError('input', 'Expected checkpoint row bytes');
     const length = values.length;
+    if (!Number.isSafeInteger(length) || Object.is(length, -0) || length < 0)
+      throw new ProtocolError('input', 'Expected a safe checkpoint row count');
     if (length > MAXIMUM_ROWS - count) limit('Checkpoint input inventory exceeds row capacity');
     count += length;
     const result: Uint8Array[] = [];
