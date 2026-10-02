@@ -1,0 +1,52 @@
+{"custodyCase":"counts-consent-expiry","pendingCap":10,"accountCap":10,"onePendingPerDid":true,"refreshDoesNotExtendConsent":true,"expiredNeverRefreshes":true}
+✔ owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime (450.396417ms)
+✖ actual IDB session abort propagates and selected SDK revokes new refresh token (217.236375ms)
+{"custodyCase":"read-crash","realDocumentClosed":true,"uncertainNotRestored":true,"noRefreshRetry":true,"oneBestEffortRevoke":true}
+✔ crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry (267.206583ms)
+✖ committed callback is not live before fresh authority checks; closing document retires it (240.734209ms)
+{"custodyCase":"cross-document-lock-key","actualWebLocks":true,"reloadedNonextractablePrivateKey":true,"distinctLockPrefixes":true}
+✔ two documents serialize custody and distinct SDK locks without a process local fallback (368.826458ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 3
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1849.958583
+
+✖ failing tests:
+
+test at tests/oauth-custody.test.ts:1:4740
+✖ actual IDB session abort propagates and selected SDK revokes new refresh token (217.236375ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(e.fixture.count('/revoke') > before)
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-bounded-custody-20261002/tests/oauth-custody.test.ts:177:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/oauth-custody.test.ts:1:6919
+✖ committed callback is not live before fresh authority checks; closing document retires it (240.734209ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-bounded-custody-20261002/tests/oauth-custody.test.ts:264:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

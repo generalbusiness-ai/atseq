@@ -1,0 +1,426 @@
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime (10.292333ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ actual IDB session abort propagates and selected SDK revokes new refresh token (3.09725ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry (3.231666ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ committed callback is not live before fresh authority checks; closing document retires it (2.726416ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ two documents serialize custody and distinct SDK locks without a process local fallback (3.295417ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ browser quota refusal aborts real owned writes without exceeding physical slot counts (2.849667ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ failed local purge remains counted and unusable until storage repair or trusted explicit reset (2.900375ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ remote revocation refusal cannot prevent local purge (2.85275ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ legacy private SDK origin is refused until trusted reset; no private database migration (2.321458ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ 64 KiB logical UTF-8 metadata ceiling includes the account journal while opaque keypair is excluded (2.627125ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ refresh response issued before local commit leaves the old credential uncertain and never retries it on reopen (2.562417ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ final live-marker transaction abort returns no handle and retains committed uncertain credential for cleanup (2.489333ms)
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-loader.ts"
+
+    tests/support/oauth-browser-probe.ts:1:40:
+      1 │ ...rowserOAuthAdapter } from '../../dist/src/browser/oauth-loader.ts';
+        ╵                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✘ [ERROR] Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+
+    tests/support/oauth-browser-probe.ts:97:52:
+      97 │ ...stody } = await import('../../dist/src/browser/oauth-adapter.ts');
+         ╵                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+✖ journal write must commit before any credential read, refresh or resource request (2.732708ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 0
+ℹ fail 13
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 404.464834
+
+✖ failing tests:
+
+test at tests/oauth-custody.test.ts:1:3746
+✖ owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime (10.292333ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:5292
+✖ actual IDB session abort propagates and selected SDK revokes new refresh token (3.09725ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:6246
+✖ crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry (3.231666ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:7479
+✖ committed callback is not live before fresh authority checks; closing document retires it (2.726416ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:8732
+✖ two documents serialize custody and distinct SDK locks without a process local fallback (3.295417ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:9720
+✖ browser quota refusal aborts real owned writes without exceeding physical slot counts (2.849667ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:10445
+✖ failed local purge remains counted and unusable until storage repair or trusted explicit reset (2.900375ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:11643
+✖ remote revocation refusal cannot prevent local purge (2.85275ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:12199
+✖ legacy private SDK origin is refused until trusted reset; no private database migration (2.321458ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:12907
+✖ 64 KiB logical UTF-8 metadata ceiling includes the account journal while opaque keypair is excluded (2.627125ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:13884
+✖ refresh response issued before local commit leaves the old credential uncertain and never retries it on reopen (2.562417ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:15409
+✖ final live-marker transaction abort returns no handle and retains committed uncertain credential for cleanup (2.489333ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }
+
+test at tests/oauth-custody.test.ts:1:16304
+✖ journal write must commit before any credential read, refresh or resource request (2.732708ms)
+  Error: Build failed with 2 errors:
+  tests/support/oauth-browser-probe.ts:1:40: ERROR: Could not resolve "../../dist/src/browser/oauth-loader.ts"
+  tests/support/oauth-browser-probe.ts:97:52: ERROR: Could not resolve "../../dist/src/browser/oauth-adapter.ts"
+      at failureErrorWithLog (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1752:15)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1211:25
+      at runOnEndCallbacks (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1592:45)
+      at buildResponseToResult (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1209:7)
+      at /private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:1236:16
+      at responseCallbacks.<computed> (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/private/tmp/atseq-oauth-bounded-custody-20261002/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:514:20)
+      at addChunk (node:internal/streams/readable:576:12) {
+    errors: [ { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-loader.ts"' }, { detail: undefined, id: '', location: [Object], notes: [], pluginName: '', text: 'Could not resolve "../../dist/src/browser/oauth-adapter.ts"' } ],
+    warnings: []
+  }

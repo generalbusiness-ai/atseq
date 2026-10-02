@@ -1,0 +1,20 @@
+{"custodyCase":"counts-consent-expiry","pendingCap":10,"accountCap":10,"onePendingPerDid":true,"refreshDoesNotExtendConsent":true,"expiredNeverRefreshes":true}
+✔ owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime (458.882292ms)
+{"custodyCase":"actual-write-abort","callbackAndRefreshRejected":true,"selectedSdkRevocation":true,"localPurge":true}
+✔ actual IDB session abort propagates and selected SDK revokes new refresh token (222.962375ms)
+{"custodyCase":"read-crash","realDocumentClosed":true,"uncertainNotRestored":true,"noRefreshRetry":true,"oneBestEffortRevoke":true}
+✔ crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry (268.938959ms)
+{"custodyCase":"callback-after-commit-crash","actualCommittedCredential":true,"authorityChecksUnfinished":true,"noReturnedHandle":true,"noRefreshRetry":true}
+✔ committed callback is not live before fresh authority checks; closing document retires it (255.947ms)
+{"custodyCase":"cross-document-lock-key","actualWebLocks":true,"reloadedNonextractablePrivateKey":true,"distinctLockPrefixes":true}
+✔ two documents serialize custody and distinct SDK locks without a process local fallback (375.314084ms)
+{"custodyCase":"actual-browser-quota","chromiumQuotaOverride":1,"writeRejected":true,"physicalCountsPreserved":true,"recoveredAfterQuotaRestored":true}
+✔ browser quota refusal aborts real owned writes without exceeding physical slot counts (198.910666ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2087.566834

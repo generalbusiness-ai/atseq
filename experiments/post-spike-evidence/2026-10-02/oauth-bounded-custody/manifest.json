@@ -1,0 +1,228 @@
+{
+  "schema": "atseq-oauth-bounded-custody-evidence-v1",
+  "request": "e19379e8dd8205d13e43708f9073a58cbc31bf24",
+  "promise": "c87cdc6d5fc3bd89876799ccd497fc9977c58b69",
+  "status": "implementation-tested-awaiting-independent-review",
+  "approvedBaseline": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+  "finalRuntimeAndTestProducer": "214635a9abc38d14428422679b8613fb6c990a10",
+  "priorRuntimeProducer": "d8d428df853fbf8405a13b27a34ba04d46d4d222",
+  "earlierUncommittedDraftSourceFrozen": false,
+  "interpretation": "Fixed accepted browser custody policy. Actual Chromium IDB/keys/locks/crashes and maintained public SDK; public synthetic AS/PDS only. Full A1 remains open.",
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/attempts.json",
+      "bytes": 2360,
+      "sha256": "ffcca38d82fa08577a14220436c7d8d95a6682d503dcbbdb1d25e2ad8100351e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/browser-first.log",
+      "bytes": 617,
+      "sha256": "95397aa6bcb5d3d21be8d2d5b26006246c6510f0769e0c91b3acb01124b41ef0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/browser-runtime.log",
+      "bytes": 236,
+      "sha256": "f21b072b9e4be8ac670c2f5a745375e211662fb2d8c90b83b640079113fc9998"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/build-current.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/build-final.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/build-first.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/build-provenance.json",
+      "bytes": 65681,
+      "sha256": "d658d6a6a6ee8acd5875ec301fc2fd811efe4081e929b4496af26cc5e41809b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/check-current.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/check-final.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/compiled-browser-second.log",
+      "bytes": 32110,
+      "sha256": "269409861d1388611a75016f4b0840c4eb7d263d991a35b542ceca0d1a74e147"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/compiled-browser-third.log",
+      "bytes": 3361,
+      "sha256": "e35fbfdc19d044ccde134f2e0be8d8bddd13dde91a363b5d4aa5c21cc61a4f72"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/compiled-browser.log",
+      "bytes": 32119,
+      "sha256": "a2b3847c8fd55b9c9647cebfae9e1595f459da24bf094b7bd248772ed35676db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/compiled-final.log",
+      "bytes": 3690,
+      "sha256": "8c2b77de18d9ca4647745112f127a0e821a768f7e280a8e92266a3940a439941"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-cleanup-first.log",
+      "bytes": 2803,
+      "sha256": "23907ce21cd51ee086763d0f74b34eccf1a43db337bc77181b6aead369e948a6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-crash-second.log",
+      "bytes": 3361,
+      "sha256": "8a3a129e86e3631e31f34700ad444999d55949d8654823a6bb66acafc7d43d8b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-final-compiled.log",
+      "bytes": 3679,
+      "sha256": "28844901101a6abd77b867963ea79830a10f61a97940349d24d283dd8ff57284"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-final-source.log",
+      "bytes": 3685,
+      "sha256": "209e70b5ce7f4403013325bd29b97f732721ceeef05c096539eb9d411392479a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-first.log",
+      "bytes": 2438,
+      "sha256": "b0c4e5041438aae26a1f2ac10e20c33990229b8ef620042f0876691dae4c8441"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-metadata-first.log",
+      "bytes": 2540,
+      "sha256": "0cda9b8e3b6b512f2612ca0946aac82caaa00d158b43d0f8a3fc43c5bbd06b4a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-quota-first.log",
+      "bytes": 1605,
+      "sha256": "03be0ba952e842c1de0e3bced6de7fb054e30a7a9d8a1af5fbc009a8f9cea163"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/custody-second.log",
+      "bytes": 1350,
+      "sha256": "79fefb35df068804d99220b38353c6d127f9ba52917b82f7c774be4b2da8ff82"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/focused-first.log",
+      "bytes": 4461,
+      "sha256": "4af7eb2af38fe8f0c135b285a3bb27393fd4dd68c8600aacd93a3147174c5198"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/initial-bundle-costs.json",
+      "bytes": 339660,
+      "sha256": "06448bf50be5a98a38da276de8756b6be95296935e345af4ae86dbdb93d39692"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/lazy-chunks.json",
+      "bytes": 265823,
+      "sha256": "09c5ed625fb41be72bebe30b2b7642f6c4356fc62195de17af8fee01866e1e1f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/lazy-owner-final.log",
+      "bytes": 7083,
+      "sha256": "bf28bc7846aaeb33abf7f14f0911edf528ed729b2c974ea6552e927de8cd96ec"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/lazy-owner-second.log",
+      "bytes": 6582,
+      "sha256": "f41d705e252c38567d6562c31fd2127b5a4768bf164ac4bcd87300d198d4992e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/node22-final.log",
+      "bytes": 11220,
+      "sha256": "2701c6d85617de9043f05a288ecbeada09ba6453dc561a060721e01e16e23a87"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/node22-focused.log",
+      "bytes": 10722,
+      "sha256": "cbf28785db2b3723118a99f1938c62c75c7abec0ed234b5baef22aabc04af48b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/node24-final.log",
+      "bytes": 8189,
+      "sha256": "e50ac872e824786010e6185e45def1528ca1178a7d7178c035896d0da429cac6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/node24-focused.log",
+      "bytes": 7864,
+      "sha256": "317f8fff980a74febdbd1149eb3f94805440454d5fcbd70a51bd01d3aee73360"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/node26-final.log",
+      "bytes": 84819,
+      "sha256": "462e23073edb97596ca83cb4fb088fca519a15bdc8ca376f98d7f375236232af"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/node26-ordinary.log",
+      "bytes": 84473,
+      "sha256": "6343ef1c5200fea19562c3355f75168654025aba7f2f820759feede1438e39c8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/notices-final.log",
+      "bytes": 48,
+      "sha256": "d3deb02f48856e85ebfe33e417635b5b6429e19735d2d2c7720611ede7239460"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/packed-consumer-conformance.json",
+      "bytes": 91717,
+      "sha256": "12dc1adfd9150e4ab90f273c1e6ad25c09fd164ad98118441bd18a217468dc60"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/source-inspection.json",
+      "bytes": 7955,
+      "sha256": "938f75b5f0cd6ae25ebdb0c24d985e76b42cf60111e4ba626625a65f26dad9ce"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/types-fifth.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/types-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/types-first.log",
+      "bytes": 2716,
+      "sha256": "ccc5d50f8ad1288711aae3e9a2806c1613c1b07b38ea68b75b4d7d67273bbf1d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/types-fourth.log",
+      "bytes": 135,
+      "sha256": "dc411a7d0a29d6094defe3bda04aa1104a3f4653c3be12b92e93a037286e553d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/types-second.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/types-third.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/validation-summary.json",
+      "bytes": 632,
+      "sha256": "5afbb47da9f56729688690e5557d3198bc45a9a33943011f8545f6e88f061c2d"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-oauth-bounded-custody-results.md",
+      "bytes": 12284,
+      "sha256": "efb36bf1c6759c0634e856c7bfaa381d5bda2b3e0ddc792c5c9b6cfa2ef46a3b"
+    }
+  ]
+}
