@@ -284,6 +284,27 @@ export async function carIntakeCorpus(fixtures: IntakeFixture[], prefixFixture: 
     mutableSelected.root = item[0];
     mutableSelected.bytes.fill(0);
     equal(await pending, expected, 'Mutation across first await changed owned admission');
+    let lengthReads = 0;
+    const changingLength = new Proxy([...requests], {
+      get(target, property, receiver) {
+        if (property === 'length') return ++lengthReads === 1 ? 1 : 65;
+        return Reflect.get(target, property, receiver);
+      },
+    });
+    equal(
+      await exactAdmissionCar(one, changingLength, selected),
+      expected,
+      'Changing length getter altered captured request',
+    );
+    check(lengthReads === 1, 'Request length was not captured exactly once');
+    for (const invalidLength of [0, -1, 65, 0.5, NaN, Infinity, '1', {}]) {
+      const malformed = new Proxy([...requests], {
+        get(target, property, receiver) {
+          return property === 'length' ? invalidLength : Reflect.get(target, property, receiver);
+        },
+      });
+      await refusal(() => exactAdmissionCar(one, malformed, selected), 'input');
+    }
     selected.bytes.fill(0);
     equal(selectNativeObservationCommit(full).bytes, commit, 'Selected returned-byte mutation leaked');
     selected.bytes = new Uint8Array(commit);

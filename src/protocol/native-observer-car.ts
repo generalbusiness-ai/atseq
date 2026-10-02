@@ -116,10 +116,10 @@ export async function exactAdmissionCar(
   requested: readonly string[],
   selectedCommit: { root: string; bytes: Uint8Array },
 ): Promise<Uint8Array<ArrayBuffer>> {
-  if (!Array.isArray(requested) || requested.length < 1 || requested.length > 64)
-    invalid('Expected one unique bounded block request');
+  if (!Array.isArray(requested)) invalid('Expected one unique bounded block request');
   const count = requested.length,
     captured: string[] = [];
+  if (!Number.isSafeInteger(count) || count < 1 || count > 64) invalid('Expected one unique bounded block request');
   for (let i = 0; i < count; i++) {
     const cid = requested[i]!;
     canonicalCid(cid, true);
