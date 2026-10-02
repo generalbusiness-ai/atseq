@@ -171,7 +171,8 @@ for (const mode of [
     }
     if (mode === 'refused-resource') {
       fixture.refuse = '/xrpc/ai.generalbusiness.atseq.synthetic';
-      await assert.rejects(() => session.request(fixture.refuse));
+      // HTTP resource refusals remain observable Response values, as in fetch.
+      assert.equal((await session.request(fixture.refuse)).status, 400);
     }
     if (mode === 'refused-revoke') {
       fixture.refuse = '/revoke';
