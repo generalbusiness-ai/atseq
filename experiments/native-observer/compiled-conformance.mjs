@@ -4,7 +4,14 @@ import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { NativeObserver } from '../../dist/src/host/native-observer.js';
 import { IdentityFetch } from '../../dist/src/host/identity-fetch.js';
-import { NativeAnchor, nativeEntryPath, nativeHeadAt, createNativeEntry } from '../../dist/src/protocol/native-wire.js';
+import {
+  NativeAnchor,
+  nativeEntryPath,
+  nativeHeadAt,
+  createNativeEntry,
+  readNativeRecord,
+  reconstructNativeBytes,
+} from '../../dist/src/protocol/native-wire.js';
 import { contentCid, encodeBlock, link } from '../../dist/src/protocol/wire.js';
 import { NATIVE_NSID, nativeRef } from '../../dist/src/protocol/native-schema.js';
 import { authenticateRepo } from '../../dist/src/protocol/native-proof.js';
@@ -92,7 +99,23 @@ for (const curve of ['p256', 'secp256k1'])
       const publication = await observer.observeApp(entry);
       assert.equal(publication.kind, 'captured');
       const appData = observer.readCapture(publication.capture);
-      assert.equal(appData.root, app.root);
+      const capturedReader = { get: async (cid) => new Uint8Array(appData.blocks.get(cid)) };
+      const proofManifest = await readNativeRecord(
+        NATIVE_NSID.content,
+        appData.proofs[0],
+        await capturedReader.get(appData.proofs[0]),
+      );
+      const retainedRepo = await authenticateRepo({
+        carBytes: await reconstructNativeBytes(proofManifest, capturedReader, 16 * 1024 * 1024),
+        expectedDid: h.app.principal,
+        trustedSigningKeyDid: h.app.signing,
+        expectedRoot: appData.root,
+      });
+      assert.equal(retainedRepo.rev, appRepo.rev);
+      assert.equal(
+        (await retainedRepo.lookup(nativeEntryPath(anchor.cid, entry.position), await contentCid(entry))).kind,
+        'found',
+      );
       cases.push(curve + '/' + method + '/compiled signed capture, offline I2 handoff, app proof and opaque ownership');
       results.push({
         curve,
