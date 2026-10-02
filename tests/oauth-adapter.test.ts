@@ -34,21 +34,48 @@ test('browser-visible OAuth URL policy refuses unsafe schemes, hosts, credential
 
 // Controlled lifecycle timing verifies classification, not physical storage behavior.
 test('storage finalization crossing the network deadline preserves the original work failure', async () => {
-  const deadline = new AbortController(), originalTimeout = AbortSignal.timeout;
+  const deadline = new AbortController(),
+    originalTimeout = AbortSignal.timeout;
   AbortSignal.timeout = () => deadline.signal;
   try {
     const adapter = new OAuthAdapter(
-      { metadata: { client_id: 'https://client.example/metadata', token_endpoint_auth_method: 'none', scope: 'atproto' },
-        resolveIdentity: async () => { throw new Error('unused'); } },
+      {
+        metadata: {
+          client_id: 'https://client.example/metadata',
+          redirect_uris: ['https://client.example/callback'],
+          token_endpoint_auth_method: 'none',
+          scope: 'atproto',
+        },
+        resolveIdentity: async () => {
+          throw new Error('unused');
+        },
+      },
       { list: () => [], set: () => {}, take: () => undefined },
       async (work) => work(),
-      async () => { throw new Error('unused'); },
-      async () => ({ restore: async () => { throw new AtseqError('input', 'private failure'); } }) as unknown as OAuthCustodyClient,
-      { prepare: async () => {}, touch: async () => {}, tokenRequestDispatched: () => {},
-        finish: async () => { deadline.abort(); throw new Error('storage completion failed'); } },
+      async () => {
+        throw new Error('unused');
+      },
+      async () =>
+        ({
+          restore: async () => {
+            throw new AtseqError('input', 'private failure');
+          },
+        }) as unknown as OAuthCustodyClient,
+      {
+        prepare: async () => {},
+        touch: async () => {},
+        tokenRequestDispatched: () => {},
+        finish: async () => {
+          deadline.abort();
+          throw new Error('storage completion failed');
+        },
+      },
     );
-    await assert.rejects(() => adapter.restore('did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', 'atproto'),
-      (error: unknown) => error instanceof AtseqError && error.code === 'input' && error.message === 'OAuth operation failed');
+    await assert.rejects(
+      () => adapter.restore('did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', 'atproto'),
+      (error: unknown) =>
+        error instanceof AtseqError && error.code === 'input' && error.message === 'OAuth operation failed',
+    );
   } finally {
     AbortSignal.timeout = originalTimeout;
   }
