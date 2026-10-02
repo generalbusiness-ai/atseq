@@ -1,0 +1,8 @@
+{
+  "predecessor": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+  "executableHead": "13e777b0482d374e1ae14dcd7be6711eb6464868",
+  "request": "d5fb37bfa8621a703ef9b45cd95439f80337af5a",
+  "promise": "7c04c01689b19b3c74cdee8dd333d9d4d7ee0fbb",
+  "preFixProbe": "Reproduced in this isolated WT while source HEAD5d7e was unchanged; original root probe bytes copied exact.",
+  "predecessorChecker": "Not rerun against changed source; historical original manifest and captures preserved exact."
+}

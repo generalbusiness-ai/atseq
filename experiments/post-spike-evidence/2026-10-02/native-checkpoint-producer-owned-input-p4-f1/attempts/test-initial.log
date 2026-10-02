@@ -1,0 +1,10 @@
+{"node":"v26.10.0","cases":["root-alias-slice-later-mutation-retains-original-state","own-byte-fields-methods-iterator-constructor-never-dispatched","genuine-subclass-copied-without-species-or-slice","original-binary-payload-owned-before-await","original-row-owned-before-await","proxy-byte-view-refused-before-caller-field","forged-byte-prototype-refused","different-typed-array-kind-refused","intrinsic-per-payload-size-cannot-be-hidden","intrinsic-aggregate-byte-charge-cannot-be-hidden","unsafe-row-count--1-number","unsafe-row-count-0-negative-zero","unsafe-row-count-NaN-number","unsafe-row-count-Infinity-number","unsafe-row-count-1.5-number","unsafe-row-count-1-string","unsafe-row-count-null-object","row-count-cap-before-descriptor-enumeration","safe-row-count-captured-once-no-array-iterator","row-accessor-refused-without-executing-getter","foreign-row-length-getter-fault-keeps-identity"],"noAdmission":true,"rootProbe":{"original":"bafyreidhxage47k64gbiv62solpwhzwitjp2xgs3jyjs66kzdksmj7zcxu","mutated":"bafyreibg57tynislqmphmpybcdn4ia6qimlffj2s2sjjlcbhk2m73covra","capturedOriginal":true,"usedLaterMutation":false},"allocatorCounters":null}
+✔ checkpoint producer captures intrinsic owned bytes and safe row counts (917.218167ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1584.487583

@@ -1,0 +1,13 @@
+{
+  "head": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+  "sha256": {
+    "src/protocol/native-checkpoint-producer.ts": "3c8fb6753fe471ddab2e7afe9b6b59ef355aac904353970cf358f611bcede4a4",
+    "tests/support/native-checkpoint-producer-corpus.ts": "593e761df5116b5094fe1a2c167e6ce3042273555c814f59caf7c124c4ba5bbf",
+    ".atseq-local/native-checkpoint-producer/root-byte-ownership-probe.ts": "548810b7d4cd0d263ac61c53086ccae17d80bf2ce727374c4da30282b2eab3b8",
+    "tests/vectors/checkpoint-data.json.gz": "8ed3a7618dae045ba427ccbb4699157dd91460ebd5cee7d722131b88a2205714",
+    "tests/vectors/native-checkpoint-producer.json": "a7a90dd8e4c20bfd8b3b1206fb6c056b1cadbd8f6c0ef4c98f6f117fcca0ce23",
+    "scripts/source-run.mjs": "0b453aaf5049038e8e02a33640b39f57d30bb3c3dff3c8b7ea2ffacaeb222e08",
+    "package.json": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca",
+    "npm-shrinkwrap.json": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+  }
+}
