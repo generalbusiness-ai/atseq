@@ -1,19 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { resolve, relative } from 'node:path';
-import { gzipSync } from 'node:zlib';
+import { gzipSync, gunzipSync } from 'node:zlib';
 import { build } from 'esbuild';
 
 const basis = '3a40d2c5e230cd7698f9cd4b9e8e9729054be33e';
-const previous = (file: string) =>
-  execFileSync('git', ['show', basis + ':' + file], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
-const old = JSON.parse(previous('src/core/dependencies-approved.json'));
-const current = JSON.parse(readFileSync('src/core/dependencies-approved.json', 'utf8'));
-const added: string[] = Object.keys(current.packages).filter((path) => !old.packages[path]);
-const executable = (path: string) => /\.(?:[cm]?js|tsx?)$/.test(path);
-const underAdded = (path: string) => added.some((directory) => path.startsWith(directory + '/'));
 const baselineFiles = new Set([
   'src/core/dependencies.ts',
   'src/core/dependencies-approved.json',
@@ -22,6 +15,39 @@ const baselineFiles = new Set([
   'package.json',
   'npm-shrinkwrap.json',
 ]);
+// Exact historical bytes are retained locally so shallow clones and source archives
+// run the same before/after comparison without Git history or network access.
+const compressedBaseline = readFileSync(new URL('./vectors/oauth-predecessor.json.gz', import.meta.url));
+assert.equal(
+  createHash('sha256').update(compressedBaseline).digest('hex'),
+  '5decbad7dbfca3686542f5d8d775613fd3a78de5322a53f95873b6b9964b4bca',
+);
+const baseline: {
+  schema: number;
+  basis: string;
+  files: { path: string; bytes: number; sha256: string; text: string }[];
+} = JSON.parse(gunzipSync(compressedBaseline, { maxOutputLength: 2 * 1024 * 1024 }).toString('utf8'));
+assert.equal(baseline.schema, 1);
+assert.equal(baseline.basis, basis);
+assert.deepEqual(baseline.files.map((file) => file.path).sort(), [...baselineFiles].sort());
+const previousFiles = new Map(
+  baseline.files.map((file) => {
+    const bytes = Buffer.from(file.text, 'utf8');
+    assert.equal(bytes.length, file.bytes);
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), file.sha256);
+    return [file.path, file.text] as const;
+  }),
+);
+const previous = (file: string) => {
+  const text = previousFiles.get(file);
+  assert.notEqual(text, undefined, 'Historical overlay must name a retained baseline file');
+  return text!;
+};
+const old = JSON.parse(previous('src/core/dependencies-approved.json'));
+const current = JSON.parse(readFileSync('src/core/dependencies-approved.json', 'utf8'));
+const added: string[] = Object.keys(current.packages).filter((path) => !old.packages[path]);
+const executable = (path: string) => /\.(?:[cm]?js|tsx?)$/.test(path);
+const underAdded = (path: string) => added.some((directory) => path.startsWith(directory + '/'));
 // Test outputs are disposable; published predecessor captures are immutable.
 const evidence = '.atseq-local/oauth-bundles/';
 

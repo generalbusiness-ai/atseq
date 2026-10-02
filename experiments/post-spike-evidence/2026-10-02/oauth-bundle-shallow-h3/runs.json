@@ -1,0 +1,90 @@
+{
+  "source": "0e1ff71700877d826f4506a1aaf8769bda046f62",
+  "validationRoot": "/private/tmp/atseq-h3-validation-jlh6fe2e",
+  "runs": [
+    {
+      "surface": "shallow",
+      "path": "/private/tmp/atseq-h3-validation-jlh6fe2e/shallow",
+      "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "version": "v22.19.0",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-bundle.test.ts"
+      ],
+      "exitCode": 0,
+      "source": "0e1ff71700877d826f4506a1aaf8769bda046f62"
+    },
+    {
+      "surface": "shallow",
+      "path": "/private/tmp/atseq-h3-validation-jlh6fe2e/shallow",
+      "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "version": "v24.21.0",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-bundle.test.ts"
+      ],
+      "exitCode": 0,
+      "source": "0e1ff71700877d826f4506a1aaf8769bda046f62"
+    },
+    {
+      "surface": "shallow",
+      "path": "/private/tmp/atseq-h3-validation-jlh6fe2e/shallow",
+      "node": "/opt/homebrew/bin/node",
+      "version": "v26.10.0",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-bundle.test.ts"
+      ],
+      "exitCode": 0,
+      "source": "0e1ff71700877d826f4506a1aaf8769bda046f62"
+    },
+    {
+      "surface": "source-archive",
+      "path": "/private/tmp/atseq-h3-validation-jlh6fe2e/source-archive",
+      "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "version": "v22.19.0",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-bundle.test.ts"
+      ],
+      "exitCode": 0,
+      "source": "0e1ff71700877d826f4506a1aaf8769bda046f62"
+    },
+    {
+      "surface": "source-archive",
+      "path": "/private/tmp/atseq-h3-validation-jlh6fe2e/source-archive",
+      "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "version": "v24.21.0",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-bundle.test.ts"
+      ],
+      "exitCode": 0,
+      "source": "0e1ff71700877d826f4506a1aaf8769bda046f62"
+    },
+    {
+      "surface": "source-archive",
+      "path": "/private/tmp/atseq-h3-validation-jlh6fe2e/source-archive",
+      "node": "/opt/homebrew/bin/node",
+      "version": "v26.10.0",
+      "command": [
+        "/opt/homebrew/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-bundle.test.ts"
+      ],
+      "exitCode": 0,
+      "source": "0e1ff71700877d826f4506a1aaf8769bda046f62"
+    }
+  ]
+}
