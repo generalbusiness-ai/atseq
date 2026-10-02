@@ -292,10 +292,14 @@ export class OAuthAdapter {
       refuse('Incomplete OAuth callback');
     for (const name of ['iss', 'state', 'code'])
       if (copy.getAll(name).length !== 1) refuse('Duplicate OAuth callback parameter');
-    const transactionId = copy.get('state')!;
-    if (transactionId.length !== 36) refuse('Invalid OAuth callback state');
+    const callbackState = copy.get('state')!;
     const issuer = oauthUrl(copy.get('iss')!).href;
     return this.#run(async (client) => {
+      // The SDK generates its own nonce; authorize({state:id}) retains id as
+      // appState. Read that public store without consuming either transaction.
+      const stateData = await client.stateStore.get(callbackState);
+      const transactionId = stateData?.appState;
+      if (typeof transactionId !== 'string' || transactionId.length !== 36) refuse('Unknown OAuth callback state');
       const transaction = this.#transactions.take(transactionId);
       if (!transaction || Date.now() >= transaction.expiresAt) refuse('Unknown or expired OAuth transaction');
       const { session, state } = await client.callback(copy);
