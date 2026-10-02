@@ -1,0 +1,204 @@
+{
+  "runtime": "v22.19.0",
+  "cases": [
+    "CI1: p256 shared initial selection, hash checks, owned DATA without authenticated brand",
+    "CI7: p256 genuine same-cache original-prototype P1 admission",
+    "CI8: p256 original capability identity and fixed root/DID/key retained after every fill",
+    "CI9: p256 exact new blocks plus commit, independent bytes and observed preparation time",
+    "CI2: p256 extra/missing/hash/truncation distinction and atomic legacy refusal",
+    "CI3: p256 physical 64 accepted and 65 refused before deduplication",
+    "CI4: p256 zero/multiple/foreign response roots preserve original selected root",
+    "CI5: p256 raw/list/selected DATA captured before await, forged hash refused and foreign error preserved",
+    "CI6: p256 canonical CBOR unique request count 1..64",
+    "CI10: p256 helper hash-valid DATA does not bypass fixed binding/signature/limits or atomic cache refusal",
+    "CI1: secp256k1 shared initial selection, hash checks, owned DATA without authenticated brand",
+    "CI7: secp256k1 genuine same-cache original-prototype P1 admission",
+    "CI8: secp256k1 original capability identity and fixed root/DID/key retained after every fill",
+    "CI9: secp256k1 exact new blocks plus commit, independent bytes and observed preparation time",
+    "CI2: secp256k1 extra/missing/hash/truncation distinction and atomic legacy refusal",
+    "CI3: secp256k1 physical 64 accepted and 65 refused before deduplication",
+    "CI4: secp256k1 zero/multiple/foreign response roots preserve original selected root",
+    "CI5: secp256k1 raw/list/selected DATA captured before await, forged hash refused and foreign error preserved",
+    "CI6: secp256k1 canonical CBOR unique request count 1..64",
+    "CI10: secp256k1 helper hash-valid DATA does not bypass fixed binding/signature/limits or atomic cache refusal",
+    "CI6: Raw32MiB/header16KiB/depth64/block1MiB remain enforced without raised limits",
+    "CI6: Independent writer exact16MiB frame accepted/+1 refused; initial unique raw budget stays distinct",
+    "CI6: 64 unique response blocks produce exactly65 incl selected commit, or64 when commit already requested",
+    "CI12: Byte DATA cannot mint P1/prefix capability; genuine fixed views/candidate work and observed-floor rollback refusal remain unchanged"
+  ],
+  "outputs": [
+    {
+      "name": "p256/batch-0",
+      "bytes": 12521,
+      "blocks": 65,
+      "sha256": "3521d93ee6bc9e2be635a89c02053656fe72ae0344f77fb0a88ae784156ceca2"
+    },
+    {
+      "name": "p256/batch-1",
+      "bytes": 15618,
+      "blocks": 65,
+      "sha256": "bcebceb8d048d50bc814f783df8c49a54f6f0cb07741fe2fc2f4042b9eb89784"
+    },
+    {
+      "name": "p256/batch-2",
+      "bytes": 3324,
+      "blocks": 11,
+      "sha256": "b8bb5611922187e41a816bfe231ff869208d63b524e8d644013ac84ddcfb2579"
+    },
+    {
+      "name": "secp256k1/batch-0",
+      "bytes": 12521,
+      "blocks": 65,
+      "sha256": "f259eefb4c09b613b3756b1eed7f436cd85410cde840e63cb0b7dceb264a90f9"
+    },
+    {
+      "name": "secp256k1/batch-1",
+      "bytes": 15618,
+      "blocks": 65,
+      "sha256": "a4c9f68c1b39941a6ad0fdb2246ef9944ca4865d92b719ff78507423da405ddd"
+    },
+    {
+      "name": "secp256k1/batch-2",
+      "bytes": 3324,
+      "blocks": 11,
+      "sha256": "9b2f556b4dc56d09141a00f4aeb22dd6ae7c203628470da9e6f312b741e93266"
+    },
+    {
+      "name": "framed-16MiB",
+      "bytes": 16777216,
+      "blocks": 17,
+      "sha256": "becb7e8b222981acfa9a67e6db46c6592b9dc2be949b11b9fd0acfc4ba32437d"
+    },
+    {
+      "name": "65-unique-with-commit",
+      "bytes": 3037,
+      "blocks": 65,
+      "sha256": "22999209d008b4eb0950eae1ef20eb94a7f73c96acdada3bc982129c64260e2a"
+    }
+  ],
+  "work": [
+    {
+      "curve": "p256",
+      "retainedBlocks": 139,
+      "responseBlocks": 64,
+      "outputBlocks": 65,
+      "milliseconds": 0.7294999999999163
+    },
+    {
+      "curve": "p256",
+      "retainedBlocks": 139,
+      "responseBlocks": 64,
+      "outputBlocks": 65,
+      "milliseconds": 0.4217919999998685
+    },
+    {
+      "curve": "p256",
+      "retainedBlocks": 139,
+      "responseBlocks": 10,
+      "outputBlocks": 11,
+      "milliseconds": 0.10858299999995324
+    },
+    {
+      "curve": "secp256k1",
+      "retainedBlocks": 139,
+      "responseBlocks": 64,
+      "outputBlocks": 65,
+      "milliseconds": 0.2779170000001159
+    },
+    {
+      "curve": "secp256k1",
+      "retainedBlocks": 139,
+      "responseBlocks": 64,
+      "outputBlocks": 65,
+      "milliseconds": 0.24729100000013204
+    },
+    {
+      "curve": "secp256k1",
+      "retainedBlocks": 139,
+      "responseBlocks": 10,
+      "outputBlocks": 11,
+      "milliseconds": 0.07158300000014606
+    }
+  ],
+  "unobservable": {
+    "hashCalls": null,
+    "peakMemoryBytes": null,
+    "allocations": null
+  },
+  "fullP2Complete": false,
+  "legacyCases": [
+    "p256/header empty/same signed root and private bytes",
+    "p256/header same/same signed root and private bytes",
+    "p256/header other/same signed root and private bytes",
+    "p256/header multiple/same signed root and private bytes",
+    "p256/unrequested body root rejected",
+    "p256/header does not supply omitted body",
+    "p256/body hash verified",
+    "p256/64 repeated entries hash checked and deduplicated",
+    "p256/65 repeated entries exceed response cap",
+    "p256/invalid header refused",
+    "secp256k1/header empty/same signed root and private bytes",
+    "secp256k1/header same/same signed root and private bytes",
+    "secp256k1/header other/same signed root and private bytes",
+    "secp256k1/header multiple/same signed root and private bytes",
+    "secp256k1/unrequested body root rejected",
+    "secp256k1/header does not supply omitted body",
+    "secp256k1/body hash verified",
+    "secp256k1/64 repeated entries hash checked and deduplicated",
+    "secp256k1/65 repeated entries exceed response cap",
+    "secp256k1/invalid header refused"
+  ],
+  "proofCases": [
+    "root fields, raw membership, absence and whole-tree checks",
+    "non-forgeable capability",
+    "wrong DID",
+    "wrong key",
+    "wrong root",
+    "truncated CAR",
+    "CAR byte budget: resource limit and sufficient-budget recovery",
+    "block count budget: resource limit and sufficient-budget recovery",
+    "block byte budget: resource limit and sufficient-budget recovery",
+    "header budget: resource limit and sufficient-budget recovery",
+    "native header depth budget: resource limit and sufficient-budget recovery",
+    "CAR type and truncated/zero header are input before local header policy",
+    "unknown and nonpositive/fractional/nonfinite/unsafe bounds remain caller input errors",
+    "corrupt block",
+    "wrong record CID",
+    "path protocol syntax/1024 maximum precede stricter local character policy",
+    "path node, full-tree node and walker-depth budgets are resource limits",
+    "node-entry policy yields resource limit and sufficient-budget recovery",
+    "native cached-node depth is local policy distinct from Atseq wire depth",
+    "cached native block bytes obey resource policy",
+    "caller CAR, options and returned-byte mutation isolation",
+    "sparse missing evidence distinct from absence",
+    "missing record bytes",
+    "full-export cache recovery",
+    "failed admission preserves prior evidence",
+    "single-CAR cache byte/count budgets are resource limits",
+    "LRU eviction yields missing evidence",
+    "optional expected root",
+    "exactly one selected CAR root",
+    "oversized authenticated admission is atomic",
+    "p256 legacy/compressed/off-curve keys and compact low-S signatures",
+    "secp256k1 legacy/compressed/off-curve keys and compact low-S signatures",
+    "wrong-layer signed MST node",
+    "unordered signed MST keys",
+    "wrong child layer",
+    "overlapping child interval",
+    "signed walked interval fault overrides withheld child for lookup and full tree",
+    "signed walked interval fault overrides node-load limit before withheld child for lookup and full tree",
+    "canonical MST fields",
+    "invalid node shape precedes local node-entry policy",
+    "canonical empty repository root",
+    "height-one signed empty non-root MST node",
+    "leaf signed empty non-root MST node",
+    "untrimmed keyless root is invalid input",
+    "noncanonical signed MST CBOR is invalid input",
+    "maintained MST deserialization errors are invalid input",
+    "noncanonical commit CBOR is invalid input",
+    "lookup/tree preserve observed runtime/resource/input/missing failures instead of cleanup depth error",
+    "genuine walker runtime faults retain identity",
+    "native depth limit does not claim validity; raised policy detects malformed commit",
+    "native membership cannot bypass strict Atseq record limits"
+  ]
+}
