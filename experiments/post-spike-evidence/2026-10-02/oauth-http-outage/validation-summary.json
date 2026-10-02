@@ -1,0 +1,48 @@
+{
+  "schema": "atseq-oauth-http-outage-validation-v1",
+  "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+  "request": "fd118ca81712ba47d6059fafedff55b6acf0f976",
+  "rootPromise": "3073d4101911b08f66b80bc559e19f9629ebe5a0",
+  "independentChangeAssessment": "cfef2d20226d098383987e3e3a82e7098d5077df",
+  "ratification": "7d18d589",
+  "build": "pass",
+  "check": "pass",
+  "notices": "pass",
+  "node22": {
+    "version": "22.19.0",
+    "focused": 5,
+    "nodeSdkCases": 35
+  },
+  "node24": {
+    "version": "24.21.0",
+    "focused": 5,
+    "nodeSdkCases": 35
+  },
+  "node26": {
+    "version": "26.10.0",
+    "focused": 66,
+    "sourceChromiumCustody": 57,
+    "nodeSdkCases": 35
+  },
+  "compiledChromium": {
+    "version": "153.0.8010.12",
+    "custody": 57,
+    "HTTPOutageNewCases": 28,
+    "unchangedPredecessorCases": 29
+  },
+  "newHTTPGroups": {
+    "unauthenticated-http-outage": 18,
+    "authenticated-http-response": 3,
+    "token-http-outage": 6,
+    "explicit-signout-http-outage": 1
+  },
+  "packedConsumerCases": 219,
+  "fullOrdinarySuiteRerun": false,
+  "twentyThousandBoundaryRerun": false,
+  "BFCacheMinuteGateRerun": false,
+  "clockRollbackN1": "explicitly deferred",
+  "providerSuccess": false,
+  "fullA1Completed": false,
+  "exactRowComparisonScope": "ordinary logical row metadata excluding opaque CryptoKeyPair; exported public JWK; private extractability/type; no private key export or forensic-byte claim",
+  "originalRuntimeCapturesPreserved": true
+}

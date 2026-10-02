@@ -1,0 +1,122 @@
+{"custodyCase":"counts-consent-expiry","pendingCap":10,"accountCap":10,"onePendingPerDid":true,"refreshDoesNotExtendConsent":true,"expiredNeverRefreshes":true}
+✔ owned custody atomic counts, one pending per DID, expiry, and fixed consent lifetime (515.8755ms)
+{"custodyCase":"actual-write-abort","callbackAndRefreshRejected":true,"selectedSdkRevocation":true,"localPurge":true}
+✔ actual IDB session abort propagates and selected SDK revokes new refresh token (257.647166ms)
+{"custodyCase":"read-crash","realDocumentClosed":true,"uncertainNotRestored":true,"noRefreshRetry":true,"oneBestEffortRevoke":true}
+✔ crash during a logical read retains uncertainty, reopens with one revocation and no refresh retry (293.402208ms)
+{"custodyCase":"callback-after-commit-crash","actualCommittedCredential":true,"authorityChecksUnfinished":true,"noReturnedHandle":true,"noRefreshRetry":true}
+✔ committed callback is not live before fresh authority checks; closing document retires it (285.263625ms)
+{"custodyCase":"cross-document-lock-key","actualWebLocks":true,"reloadedNonextractablePrivateKey":true,"distinctLockPrefixes":true}
+✔ two documents serialize custody and distinct SDK locks without a process local fallback (401.283625ms)
+{"custodyCase":"actual-browser-quota","chromiumQuotaOverride":1,"writeRejected":true,"physicalCountsPreserved":true,"recoveredAfterQuotaRestored":true}
+✔ browser quota refusal aborts real owned writes without exceeding physical slot counts (222.739833ms)
+{"custodyCase":"purge-failure-reset","actualDeleteTransactionAborts":true,"countedWhileUnusable":true,"noRefreshRetry":true,"repairAndTrustedResetReenrollment":true}
+✔ failed local purge remains counted and unusable until storage repair or trusted explicit reset (274.724541ms)
+{"custodyCase":"remote-refusal","localDeletionIndependent":true,"noDurableRemoteRetryQueue":true}
+✔ remote revocation refusal cannot prevent local purge (246.323459ms)
+{"custodyCase":"legacy-origin-reset","legacyRefused":true,"explicitDeletionWithoutDecoding":true,"freshEnrollment":true}
+✔ legacy private SDK origin is refused until trusted reset; no private database migration (243.596958ms)
+{"custodyCase":"exact-metadata-ceiling","utf8Bytes":65536,"oneByteOverRejected":true,"opaquePairExcluded":true,"journalIncluded":true}
+✔ 64 KiB logical UTF-8 metadata ceiling includes the account journal while opaque keypair is excluded (299.796875ms)
+{"custodyCase":"refresh-issued-before-commit-crash","realTokenResponsePrepared":true,"oldCredentialUncertain":true,"noOneUseRefreshRetry":true,"actualDistinctSdkAndCustodyLocks":true}
+✔ refresh response issued before local commit leaves the old credential uncertain and never retries it on reopen (300.127084ms)
+{"custodyCase":"final-live-commit-abort","actualFinalTransactionAborted":true,"noAcceptedHandle":true,"committedCredentialRetiredOnReopen":true}
+✔ final live-marker transaction abort returns no handle and retains committed uncertain credential for cleanup (293.370584ms)
+{"custodyCase":"journal-first","actualMarkerAbort":true,"noCredentialDispatchBeforeCommit":true,"untouchedLiveConsentPreserved":true}
+✔ journal write must commit before any credential read, refresh or resource request (231.50825ms)
+{"custodyCase":"subject-and-401","foreignSubjectNeverAllocated":true,"implicitRefreshJournalRetained":true,"consentNotExtended":true,"changedScopeRefusedBeforeSecondResourceDispatch":true}
+✔ subject mismatch cannot allocate another account and resource 401 refresh retains the journal and checks exact scopes (308.247125ms)
+{"custodyCase":"plain-reset-keeps-consent","originalUnavailableError":true,"unchangedDeadline":true,"noRefreshOrRevoke":true,"nextRequestSucceeded":true}
+✔ plain resource transport reset preserves live consent, deadline and next successful request without refresh or revocation (243.34475ms)
+{"custodyCase":"resource-form-not-token","normalizedPostBody":true,"authorizationProvenanceSeparatesResource":true,"consentPreserved":true}
+✔ an authenticated resource form cannot masquerade as a maintained token request (229.303291ms)
+{"custodyCase":"lost-401-refresh-response","actualPreparedTokenResponseLost":true,"sdkInitial401Preserved":true,"uncertainRetired":true,"noOneUseRetry":true}
+✔ lost 401 refresh response retires uncertainty even when the maintained resource helper returns its initial 401 (263.412041ms)
+{"custodyCase":"token-dispatch-normalized-form","publicSdkFetchDecoratorOnly":true,"optionalFieldsAccepted":true,"mixedCaseCharsetAccepted":true,"lostResponseRetired":true}
+✔ token dispatch marker accepts maintained normalized form with extra fields and mixed-case media type with charset (229.653916ms)
+{"custodyCase":"safe-finalization-abort","actualTransactionAbort":true,"originalTransientErrorPreserved":true,"uncertainNotUsable":true,"noRefreshRetry":true}
+✔ safe failure finalization must commit; aborted live marker leaves uncertainty and preserves original transient error (288.323959ms)
+{"custodyCase":"plain-caller-abort","existingConsentLive":true,"noTokenOrRevoke":true,"originalUnavailableClass":true}
+✔ plain caller abort without token dispatch preserves existing consent and original unavailable class (229.942791ms)
+{"custodyCase":"token-handoff-sync-rejection","markedBeforeTransport":true,"noServerTokenResponseRequiredForConservativeRetirement":true,"noAutomaticRetry":true}
+✔ token handoff is marked before transport can synchronously reject, retaining conservative no-retry semantics (242.572666ms)
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged resource consent and permits next request (229.254167ms)
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged info consent and permits next request (232.457917ms)
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged restore consent and permits next request (239.028958ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged resource consent and permits next request (233.240666ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged info consent and permits next request (250.045208ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged restore consent and permits next request (225.422208ms)
+{"custodyCase":"definitive-verification-mismatch","mismatch":"issuer","retired":true,"tokenDelta":0,"resourceDelta":0,"revokeDelta":0}
+✔ definitive fresh issuer mismatch retires unchanged credentials before resource dispatch (308.016417ms)
+{"custodyCase":"definitive-verification-mismatch","mismatch":"scope","retired":true,"tokenDelta":0,"resourceDelta":0,"revokeDelta":1}
+✔ definitive fresh scope mismatch retires unchanged credentials before resource dispatch (314.770917ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"identity","status":500,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP500 identity resource outage preserves exact consent and permits healthy retry (261.910583ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"identity","status":500,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP500 identity restore outage preserves exact consent and permits healthy retry (251.365083ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"identity","status":503,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP503 identity resource outage preserves exact consent and permits healthy retry (238.264333ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"identity","status":503,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP503 identity restore outage preserves exact consent and permits healthy retry (233.712667ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"identity","status":429,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP429 identity resource outage preserves exact consent and permits healthy retry (232.842792ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"identity","status":429,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP429 identity restore outage preserves exact consent and permits healthy retry (244.51075ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":500,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP500 discovery resource outage preserves exact consent and permits healthy retry (254.724875ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":500,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP500 discovery restore outage preserves exact consent and permits healthy retry (239.09925ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":503,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP503 discovery resource outage preserves exact consent and permits healthy retry (238.467542ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":503,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP503 discovery restore outage preserves exact consent and permits healthy retry (245.69325ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":429,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP429 discovery resource outage preserves exact consent and permits healthy retry (243.410542ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":429,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP429 discovery restore outage preserves exact consent and permits healthy retry (249.562959ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":500,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP500 protected-resource resource outage preserves exact consent and permits healthy retry (234.530209ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":500,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP500 protected-resource restore outage preserves exact consent and permits healthy retry (248.080708ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":503,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP503 protected-resource resource outage preserves exact consent and permits healthy retry (239.410709ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":503,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP503 protected-resource restore outage preserves exact consent and permits healthy retry (237.846584ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":429,"operation":"resource","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP429 protected-resource resource outage preserves exact consent and permits healthy retry (235.706916ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"protected-resource","status":429,"operation":"restore","failure":{"code":"content_unavailable","message":"OAuth operation is unavailable"},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✔ unauthenticated HTTP429 protected-resource restore outage preserves exact consent and permits healthy retry (243.69775ms)
+{"custodyCase":"authenticated-http-response","status":500,"unchangedResponseStatusAndBody":true,"exactAccountUnchanged":true,"tokenDelta":0,"revokeDelta":0,"nextSucceeded":true}
+✔ authenticated resource HTTP500 remains a response and leaves exact consent live (226.978208ms)
+{"custodyCase":"token-http-outage","status":500,"operation":"explicit-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+✔ dispatched token HTTP500 explicit-refresh failure retires credentials without automatic retry (240.597958ms)
+{"custodyCase":"token-http-outage","status":500,"operation":"resource-401-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+✔ dispatched token HTTP500 resource-401-refresh failure retires credentials without automatic retry (243.21775ms)
+{"custodyCase":"authenticated-http-response","status":503,"unchangedResponseStatusAndBody":true,"exactAccountUnchanged":true,"tokenDelta":0,"revokeDelta":0,"nextSucceeded":true}
+✔ authenticated resource HTTP503 remains a response and leaves exact consent live (233.250834ms)
+{"custodyCase":"token-http-outage","status":503,"operation":"explicit-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+✔ dispatched token HTTP503 explicit-refresh failure retires credentials without automatic retry (225.371125ms)
+{"custodyCase":"token-http-outage","status":503,"operation":"resource-401-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+✔ dispatched token HTTP503 resource-401-refresh failure retires credentials without automatic retry (239.661916ms)
+{"custodyCase":"authenticated-http-response","status":429,"unchangedResponseStatusAndBody":true,"exactAccountUnchanged":true,"tokenDelta":0,"revokeDelta":0,"nextSucceeded":true}
+✔ authenticated resource HTTP429 remains a response and leaves exact consent live (237.076959ms)
+{"custodyCase":"token-http-outage","status":429,"operation":"explicit-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+✔ dispatched token HTTP429 explicit-refresh failure retires credentials without automatic retry (240.230708ms)
+{"custodyCase":"token-http-outage","status":429,"operation":"resource-401-refresh","tokenDelta":1,"retired":true,"nextRequestRefused":true,"noAutomaticRefreshRetry":true}
+✔ dispatched token HTTP429 resource-401-refresh failure retires credentials without automatic retry (236.3415ms)
+{"custodyCase":"explicit-signout-http-outage","remoteFailureSuppressedBySDK":true,"status":503,"tokenDelta":0,"revokeDelta":1,"retiredLocally":true,"nextRequestRefused":true}
+✔ explicit signout HTTP503 still retires locally without token mutation or automatic retry (226.322333ms)
+ℹ tests 57
+ℹ suites 0
+ℹ pass 57
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14985.1965

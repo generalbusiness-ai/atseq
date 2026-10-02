@@ -1,0 +1,15 @@
+{"node":"v24.21.0","cases":["actual-maintained-PAR-PKCE-DPoP-nonce-refresh-resource-revoke","duplicate-callback-single-exchange","opaque-session-and-adapter-serialization","missing-issuer","oversized-callback","duplicate-issuer","wrong-subject","wrong-scopes","extra-scopes","wrong-callback-issuer","changed-authority","refresh-extra-scopes-before-resource-retry","scope-refusal-before-resource","resource-path-escape","oversized-outgoing-body","caller-aborted-request","unsafe-token-url","oversized-resource","refused-token","refused-refresh","refused-resource","refused-revoke","callback-state-selects-one-of-two-pending-transactions","secret-free-identity-content_unavailable-class","secret-free-identity-origin-class","actual-native-fetch/drop-transient","actual-native-fetch/body-drop-transient","actual-native-fetch/deadline-transient","failed-PAR-state-count-bounded","expired-transaction-before-token-exchange","expired-callback-leaves-later-live-transaction-usable","new-volatile-Node-instance-refuses-abandoned-callback","identity-request-count-budget","identity-cumulative-byte-budget","path-based-issuer-binding-preserved"],"dispatcherCalls":446,"providerSuccess":false,"syntheticOnly":true}
+✔ actual Node OAuth adapter uses maintained client, guarded edges, races and private custody (32130.143875ms)
+✔ browser-visible OAuth URL policy refuses unsafe schemes, hosts, credentials and fragments (0.342542ms)
+✔ storage finalization crossing the network deadline preserves the original work failure (635.112083ms)
+✔ definitive verification failure retains its class when awaited signout crosses the network deadline (0.457709ms)
+{"browser":"153.0.8010.12","syntheticOnly":true,"providerSuccess":false,"crossDocumentOneExchange":true,"twoPendingStateSelection":true,"nativeTransportUnavailable":true,"deterministicHTTPRefusal":true,"reloadRestored":true,"keyProperties":[{"privateExtractable":false,"privateType":"private","publicExtractable":true}],"cookiesSent":0,"isolatedPublisherAndAppOrigin":true}
+✔ Chromium exercises maintained OAuth, custody origin, reload, cross-document consume and non-extractable key (1161.412334ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33723.337125

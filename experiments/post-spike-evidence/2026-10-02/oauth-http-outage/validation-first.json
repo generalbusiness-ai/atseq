@@ -1,0 +1,7 @@
+{
+  "scope": "Evidence validator draft, not a production runtime failure",
+  "exitCode": 1,
+  "draftScriptSha256": "8469f6e5e1aa0ae96e3839a915000044d5664a874c1d76aad8d32694c9c9a2a7",
+  "diagnosticTranscribedFromTool": "AssertionError at packed['cases']==219 and packed['sharedDistPreserved']",
+  "cause": "The actual packed capture represents cases as a 219-element array, not numeric count; corrected validator checks length and every passed predicate."
+}

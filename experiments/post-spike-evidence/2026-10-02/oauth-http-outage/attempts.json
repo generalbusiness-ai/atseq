@@ -1,0 +1,63 @@
+{
+  "schema": "atseq-oauth-http-outage-attempts-v1",
+  "finalSourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+  "attempts": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/reproduction.log",
+      "sourceProducer": "cf92f96e927bbb4f4ad638d5ed566d402cdff56f",
+      "sourceScope": "Frozen reproduction tests; unchanged39db production. Initial JSON identity outage tolerated by fixture resolver, while discovery500 reproduced retirement.",
+      "exitCode": 1,
+      "bytes": 2797,
+      "sha256": "4f03651fdf14225fa340e2ebd3bb419342c5ad2fee3ebc762756268318ad0eb1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/reproduction-plain-identity.log",
+      "sourceProducer": "8b0256b9e1f386390fcb6b5487361b331c95fd69",
+      "sourceScope": "Frozen tightened fixture; unchanged39db production. Both plain identity503 and discovery500 reproduce input retirement.",
+      "exitCode": 1,
+      "bytes": 2905,
+      "sha256": "25d7956b01d8439bb6320158aff2016120c6bff92db6528144bbea961f3fcc0f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/http-draft.log",
+      "sourceProducer": null,
+      "sourceScope": "Evolving uncommitted guard draft and new HTTP tests before final signout control; 27 passed, not final source attribution.",
+      "exitCode": 0,
+      "bytes": 10789,
+      "sha256": "350e44851ea6d080abfbe0d96ad414423a6a8ec238731ee884359689dab01bc8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/signout-draft.log",
+      "sourceProducer": null,
+      "sourceScope": "Evolving test draft incorrectly expected SDK remote revoke rejection; actual maintained agent suppresses remote errors.",
+      "exitCode": 1,
+      "bytes": 905,
+      "sha256": "089aa56f06ffea0af2bc27d7bc1c49a1db56bca71a7e3968ae0f364ae341a03c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/check-draft.log",
+      "sourceProducer": null,
+      "sourceScope": "Evolving draft normal check lacked copied fixture PDS module and freshly built dist declarations.",
+      "exitCode": 1,
+      "bytes": 545,
+      "sha256": "642de285fb88a39e3570d82713327f2d487ab1b2eca36f07d39c604fd48245e7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/build-source579fb105.log",
+      "sourceProducer": "579fb105ba227c488b07c24a26f60eb6948a6407",
+      "sourceScope": "Frozen guard source with original signout test assertion; build passed, tests later corrected.",
+      "exitCode": 0,
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/packed-first.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "sourceScope": "Frozen final source; consumer reached output step but experiments/generated directory absent.",
+      "exitCode": 1,
+      "bytes": 675,
+      "sha256": "d80f84878f7f5b3c677b9ac125c6a38ab37b77cf7fe0faf1bbeaeeaf33d4fd6e"
+    }
+  ],
+  "inspectorFirstPass": "Draft inspector resolved695a1ab5 to its actual full commit before checks. Final inspector uses the explicit full pin; draft text and first script-hash metadata retained. Both inspection passes verified the same actual runtime source."
+}

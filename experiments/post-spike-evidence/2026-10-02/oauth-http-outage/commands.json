@@ -1,0 +1,126 @@
+{
+  "schema": "atseq-oauth-http-outage-commands-v1",
+  "cwd": "/private/tmp/atseq-oauth-http-outage-20261002",
+  "finalSourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+  "commands": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/build-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "environment": {},
+      "exitCode": 0,
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/check-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "environment": {},
+      "exitCode": 0,
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/notices-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "node",
+        "scripts/source-run.mjs",
+        "scripts/notices.ts",
+        "--check"
+      ],
+      "environment": {},
+      "exitCode": 0,
+      "bytes": 48,
+      "sha256": "d3deb02f48856e85ebfe33e417635b5b6429e19735d2d2c7720611ede7239460"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/node22-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-adapter.test.ts",
+        "tests/oauth-browser.test.ts"
+      ],
+      "environment": {},
+      "exitCode": 0,
+      "bytes": 3008,
+      "sha256": "280f3e8f35f4282384c428cbfadca5b8811a01e3f469ef27b6ec077ead2eb4b7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/node24-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-adapter.test.ts",
+        "tests/oauth-browser.test.ts"
+      ],
+      "environment": {},
+      "exitCode": 0,
+      "bytes": 2265,
+      "sha256": "fdf96177674745e916b3b9a9a9850b891c96a9f1388b274727f82fa924365599"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/node26-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-adapter.test.ts",
+        "tests/oauth-browser.test.ts",
+        "tests/oauth-custody.test.ts",
+        "tests/oauth-bundle.test.ts",
+        "tests/integrity.test.ts"
+      ],
+      "environment": {},
+      "exitCode": 0,
+      "bytes": 23587,
+      "sha256": "06c841078e8706474fd1bcbb482f2fcf773d6bcf530a093b62797de7a3d7906b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/compiled-browser-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/oauth-custody.test.ts"
+      ],
+      "environment": {
+        "ATSEQ_OAUTH_COMPILED": "1"
+      },
+      "exitCode": 0,
+      "bytes": 18868,
+      "sha256": "dc25165306890e86cc17b9ea5cf8725e7829417fb3afface62ed4dbfe45fe860"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/packed-final.log",
+      "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+      "command": [
+        "node",
+        "scripts/source-run.mjs",
+        "--test",
+        "tests/package.test.ts"
+      ],
+      "environment": {},
+      "exitCode": 0,
+      "bytes": 220,
+      "sha256": "7bbd40c5de55d8137a91b5ff246cedb01d1c2509fff54fa637859047d672606a"
+    }
+  ],
+  "scope": "Raw combined stdout/stderr captures; statuses from actual completed exec sessions. Separate source-only helper commands carry their own script hashes."
+}

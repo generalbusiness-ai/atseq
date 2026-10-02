@@ -1,0 +1,6 @@
+{
+  "scope": "Uncommitted delivery-manifest assembly stdin after runtime gates; no runtime test failure",
+  "exitCode": 1,
+  "diagnosticTranscribedFromTool": "ValueError: relative evidence file path is not in the subpath of absolute worktree path",
+  "cause": "Assembler mixed a relative packet Path with absolute root; corrected to an absolute packet path before making delivery-relative names. Existing raw captures unchanged."
+}

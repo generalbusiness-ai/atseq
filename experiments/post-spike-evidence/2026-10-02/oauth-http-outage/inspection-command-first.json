@@ -1,0 +1,13 @@
+{
+  "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+  "command": [
+    "python3",
+    "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspect-evidence.py"
+  ],
+  "script": {
+    "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspect-evidence.py",
+    "bytes": 9228,
+    "sha256": "79400ff8f0760a906ad7cdfc5933dee6b4cbf724fc7207244c8233951d20eccc"
+  },
+  "scope": "This inspection script was authored after runtime freeze; exact script hash records execution input. Source-only assertions do not replace actual Node/Chromium/packed gates."
+}
