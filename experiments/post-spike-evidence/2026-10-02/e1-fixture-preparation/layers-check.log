@@ -1,0 +1,5 @@
+
+> atseq@0.1.0 check:layers
+> node scripts/check-layers.mjs
+
+Every source layer, portable import and wire identity checked.

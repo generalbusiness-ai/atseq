@@ -1,0 +1,6 @@
+python3 .atseq-local/e1-preparation/freeze.py exited 1 after copying captures and checking physical dependencies:
+Traceback (most recent call last):
+  File ".atseq-local/e1-preparation/freeze.py", line 40, in <module>
+    assert len(live)==276
+AssertionError
+The initial live-input classification only included .ts. The actual inherited H4 live compiler scope includes .ts, .mts and imported .json under src/scripts/tests/experiments. Corrected classification checks all 276 live compiler inputs (257 .ts, 4 .mts, 15 .json), including all seven new E1 files; no compiler/config/runtime changes.

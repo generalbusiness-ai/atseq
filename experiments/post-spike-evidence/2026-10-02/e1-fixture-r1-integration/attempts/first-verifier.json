@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "experiments/post-spike-evidence/2026-10-02/e1-fixture-r1-integration/verify-packet.py",
+    "--repo",
+    ".",
+    "--self-test"
+  ],
+  "exitCode": 1,
+  "capturedAtUtc": "2026-10-02T13:17:42.472786+00:00",
+  "sourceAttribution": "uncommitted packet helper; exact attempted checker retained; production/test sources remain frozen684d3df8",
+  "reason": "Draft used incorrect success-message literals for layer/dependency log checks; actual normal npm checks had passed.",
+  "runtimeGatesRerun": false
+}

@@ -1,0 +1,36 @@
+TAP version 13
+# Subtest: E1 final-head matrix enumerates every requested delta and independent workload conservation
+ok 1 - E1 final-head matrix enumerates every requested delta and independent workload conservation
+  ---
+  duration_ms: 12.6345
+  type: 'test'
+  ...
+# {"workload":{"n":100,"actors":1,"growing":false,"activation":false,"invalidAction":false},"preparation":{"elapsedMs":555.144084,"appRecordWrites":116,"appRecordDeletes":1,"participantRecordWrites":3,"participantSignedCommits":1,"identitySignedOperations":4,"signedRequests":101,"appSignedCommits":6,"selectedRoots":6,"repositoryBlocks":174,"repositoryBytes":120039,"retainedContentBytes":5328,"sourceBytes":2381,"maxWorkingAppBlocks":276,"discardedAppBlocks":393,"expectedStateBytes":34},"validation":{"entries":100,"signedRequests":99,"selectedRoots":[{"position":0,"root":"bafyreicuncfpudqazug4tplsriwyutzkh72eyvojcyk2lqcloawci2xebu","carBytes":1847,"records":3,"nodeLoads":2},{"position":99,"root":"bafyreie3cemcdbft4iiwcjjrrxacdviybbzx62tciv2w6dcs2wfzzrur7m","carBytes":111455,"records":107,"nodeLoads":33},{"position":100,"root":"bafyreifajsuve4wx5lsuw3wd4cdc6miz556u36jrecvhyjfswe26ise6ly","carBytes":112530,"records":108,"nodeLoads":33},{"position":101,"root":"bafyreigfptihwgmtjs3ykeg7xvyywvan67enb72ap4px2yvt26brvbk6ce","carBytes":113634,"records":109,"nodeLoads":34},{"position":101,"root":"bafyreiagtrhket7jivm3wil2mujofenea6qsvzz5u5jzcxarosx2h2hns4","carBytes":113634,"records":109,"nodeLoads":34},{"position":100,"root":"bafyreieh5c7xjyrdz7yfodlrutygfngznjmx2kv2x4x3slfwxfixukbj6u","carBytes":112530,"records":108,"nodeLoads":33}],"expectedStateBytes":34},"snapshotSha256":"f196f3a2343aa29cccc160a29576fcbd1e8ff2e46629c994c55812cf0d38e640"}
+# Subtest: E1 genuine selected roots and independent native replay: {"n":100,"actors":1,"growing":false,"activation":false,"invalidAction":false}
+ok 2 - E1 genuine selected roots and independent native replay: {"n":100,"actors":1,"growing":false,"activation":false,"invalidAction":false}
+  ---
+  duration_ms: 1778.659125
+  type: 'test'
+  ...
+# {"workload":{"n":100,"actors":16,"growing":true,"activation":true,"invalidAction":true},"preparation":{"elapsedMs":83.59916700000008,"appRecordWrites":191,"appRecordDeletes":1,"participantRecordWrites":48,"participantSignedCommits":16,"identitySignedOperations":34,"signedRequests":86,"appSignedCommits":6,"selectedRoots":6,"repositoryBlocks":275,"repositoryBytes":201431,"retainedContentBytes":79651,"sourceBytes":2543,"maxWorkingAppBlocks":442,"discardedAppBlocks":1018,"expectedStateBytes":237},"validation":{"entries":100,"signedRequests":84,"selectedRoots":[{"position":0,"root":"bafyreic2jkxc3fbzx3gg3gpa6jy7wlffzrcatkb4szrv5z5ajwetnfodf4","carBytes":1847,"records":3,"nodeLoads":2},{"position":99,"root":"bafyreibsxp6tlkjt75v3retpoilvdehyyt2bicjilzy4xnggqnbv7ytrya","carBytes":195442,"records":182,"nodeLoads":51},{"position":100,"root":"bafyreiexj2dlkwkpgnicpq4id4wt5cvlxowyzxhfetxzmz45tlcv5b5l6m","carBytes":196546,"records":183,"nodeLoads":52},{"position":101,"root":"bafyreia3y243qodexnbp25snp6wngcli454o4o7736trzwjtmj5ooue6ge","carBytes":197621,"records":184,"nodeLoads":52},{"position":101,"root":"bafyreihbew4judf5hi4345ahyzjkic3ndep2tio57p75k3rzqxn5esewou","carBytes":197621,"records":184,"nodeLoads":52},{"position":100,"root":"bafyreihchi7x6dprbhh3nicvhaeruykz3o547rvpwbiahcdprpbammiome","carBytes":196546,"records":183,"nodeLoads":52}],"expectedStateBytes":237},"snapshotSha256":"ff59bc688d9d748a404bb334917131e082271db4b78bc7326f2baa203b09874c"}
+# Subtest: E1 genuine selected roots and independent native replay: {"n":100,"actors":16,"growing":true,"activation":true,"invalidAction":true}
+ok 3 - E1 genuine selected roots and independent native replay: {"n":100,"actors":16,"growing":true,"activation":true,"invalidAction":true}
+  ---
+  duration_ms: 1432.1145
+  type: 'test'
+  ...
+# Subtest: E1 preparation owns the workload before asynchronous key generation
+ok 4 - E1 preparation owns the workload before asynchronous key generation
+  ---
+  duration_ms: 121.053208
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4030.266875

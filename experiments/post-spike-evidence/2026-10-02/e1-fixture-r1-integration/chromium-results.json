@@ -1,0 +1,112 @@
+{
+  "chromium": "153.0.8010.12",
+  "node": "v26.10.0",
+  "scope": "same small fixture correctness; no reader timing",
+  "fixtureSha256": "5befa843ba02c8bad61d0a798a9b8e4fb0e4b86d417a2491e24bde45653ebec0",
+  "bundleSha256": "6ef60ec086b9ddf0868bcea602b64ba05f8155feb1af87f90b555f36ecef38d8",
+  "bundleBytes": 1497290,
+  "snapshotSha256": [
+    "d40deb2cf0640d3e4fa7bb00ded9d65a46f7723211a11b154e9d36bf30c608fb",
+    "cd843d8e93738edd75ce956e34129a06bb5ea0a4b802a5b7aec4dda253369a6e"
+  ],
+  "validation": [
+    {
+      "entries": 100,
+      "signedRequests": 99,
+      "selectedRoots": [
+        {
+          "position": 0,
+          "root": "bafyreicuncfpudqazug4tplsriwyutzkh72eyvojcyk2lqcloawci2xebu",
+          "carBytes": 1847,
+          "records": 3,
+          "nodeLoads": 2
+        },
+        {
+          "position": 99,
+          "root": "bafyreie3cemcdbft4iiwcjjrrxacdviybbzx62tciv2w6dcs2wfzzrur7m",
+          "carBytes": 111455,
+          "records": 107,
+          "nodeLoads": 33
+        },
+        {
+          "position": 100,
+          "root": "bafyreifajsuve4wx5lsuw3wd4cdc6miz556u36jrecvhyjfswe26ise6ly",
+          "carBytes": 112530,
+          "records": 108,
+          "nodeLoads": 33
+        },
+        {
+          "position": 101,
+          "root": "bafyreigfptihwgmtjs3ykeg7xvyywvan67enb72ap4px2yvt26brvbk6ce",
+          "carBytes": 113634,
+          "records": 109,
+          "nodeLoads": 34
+        },
+        {
+          "position": 101,
+          "root": "bafyreiagtrhket7jivm3wil2mujofenea6qsvzz5u5jzcxarosx2h2hns4",
+          "carBytes": 113634,
+          "records": 109,
+          "nodeLoads": 34
+        },
+        {
+          "position": 100,
+          "root": "bafyreieh5c7xjyrdz7yfodlrutygfngznjmx2kv2x4x3slfwxfixukbj6u",
+          "carBytes": 112530,
+          "records": 108,
+          "nodeLoads": 33
+        }
+      ],
+      "expectedStateBytes": 34
+    },
+    {
+      "entries": 100,
+      "signedRequests": 84,
+      "selectedRoots": [
+        {
+          "position": 0,
+          "root": "bafyreic2jkxc3fbzx3gg3gpa6jy7wlffzrcatkb4szrv5z5ajwetnfodf4",
+          "carBytes": 1847,
+          "records": 3,
+          "nodeLoads": 2
+        },
+        {
+          "position": 99,
+          "root": "bafyreibsxp6tlkjt75v3retpoilvdehyyt2bicjilzy4xnggqnbv7ytrya",
+          "carBytes": 195442,
+          "records": 182,
+          "nodeLoads": 51
+        },
+        {
+          "position": 100,
+          "root": "bafyreiexj2dlkwkpgnicpq4id4wt5cvlxowyzxhfetxzmz45tlcv5b5l6m",
+          "carBytes": 196546,
+          "records": 183,
+          "nodeLoads": 52
+        },
+        {
+          "position": 101,
+          "root": "bafyreia3y243qodexnbp25snp6wngcli454o4o7736trzwjtmj5ooue6ge",
+          "carBytes": 197621,
+          "records": 184,
+          "nodeLoads": 52
+        },
+        {
+          "position": 101,
+          "root": "bafyreihbew4judf5hi4345ahyzjkic3ndep2tio57p75k3rzqxn5esewou",
+          "carBytes": 197621,
+          "records": 184,
+          "nodeLoads": 52
+        },
+        {
+          "position": 100,
+          "root": "bafyreihchi7x6dprbhh3nicvhaeruykz3o547rvpwbiahcdprpbammiome",
+          "carBytes": 196546,
+          "records": 183,
+          "nodeLoads": 52
+        }
+      ],
+      "expectedStateBytes": 237
+    }
+  ]
+}

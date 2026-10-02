@@ -1,0 +1,6 @@
+
+> atseq@0.1.0 format:check
+> prettier --check src scripts tests testdata experiments lexicons docs README.md package.json tsconfig.json tsconfig.build.json CONTRIBUTING.md .prettierrc.json .github
+
+Checking formatting...
+All matched files use Prettier code style!

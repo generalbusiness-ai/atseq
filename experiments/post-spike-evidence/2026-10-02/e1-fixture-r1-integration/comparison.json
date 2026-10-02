@@ -1,0 +1,83 @@
+{
+  "oldSourcePinChanges": [
+    "src/application/native-authority-data.ts",
+    "src/application/native-authority-evidence.ts",
+    "src/application/native-authority-snapshot.ts",
+    "src/application/native-authority.ts",
+    "src/host/native-observer.ts",
+    "tests/native-authority.test.ts",
+    "tests/support/native-application-corpus.ts",
+    "tests/support/native-application-fault-bundle.ts",
+    "tests/support/native-application-fixture.ts",
+    "tests/support/native-authority-corpus.ts",
+    "tests/support/native-authority-fixture.ts",
+    "tsconfig.json"
+  ],
+  "addedSourcePins": [
+    "experiments/canonical-ascii/guards.d.mts",
+    "experiments/canonical-guard/candidates.d.mts",
+    "experiments/e1-native/compiled-conformance.mjs",
+    "experiments/native-prefix/compare-prior-authority.ts",
+    "experiments/native-prefix/replay-authority.ts",
+    "lexicons/ai/generalbusiness/atseq/activate.json",
+    "lexicons/ai/generalbusiness/atseq/compareDefinition.json",
+    "lexicons/ai/generalbusiness/atseq/create.json",
+    "lexicons/ai/generalbusiness/atseq/definition.json",
+    "lexicons/ai/generalbusiness/atseq/defs.json",
+    "lexicons/ai/generalbusiness/atseq/describe.json",
+    "lexicons/ai/generalbusiness/atseq/entry.json",
+    "lexicons/ai/generalbusiness/atseq/genesis.json",
+    "lexicons/ai/generalbusiness/atseq/head.json",
+    "lexicons/ai/generalbusiness/atseq/list.json",
+    "lexicons/ai/generalbusiness/atseq/preview.json",
+    "lexicons/ai/generalbusiness/atseq/query.json",
+    "lexicons/ai/generalbusiness/atseq/readDraft.json",
+    "lexicons/ai/generalbusiness/atseq/receipt.json",
+    "lexicons/ai/generalbusiness/atseq/source.json",
+    "lexicons/ai/generalbusiness/atseq/stageDefinition.json",
+    "lexicons/ai/generalbusiness/atseq/submit.json",
+    "lexicons/ai/generalbusiness/atseq/sync.json",
+    "lexicons/ai/generalbusiness/atseq/validateDraft.json",
+    "src/application/native-prefix.ts",
+    "tests/native-prefix-browser.test.ts",
+    "tests/native-prefix.test.ts",
+    "tests/support/native-prefix-corpus.ts",
+    "tests/support/native-prefix-fixture.ts"
+  ],
+  "buildSourceChanges": [
+    "src/application/native-authority-data.ts",
+    "src/application/native-authority-evidence.ts",
+    "src/application/native-authority-snapshot.ts",
+    "src/application/native-authority.ts",
+    "src/host/native-observer.ts",
+    "tsconfig.json"
+  ],
+  "addedBuildSources": [
+    "src/application/native-prefix.ts"
+  ],
+  "changedOldBuildOutputs": [
+    "dist/src/application/native-authority-data.d.ts",
+    "dist/src/application/native-authority-data.d.ts.map",
+    "dist/src/application/native-authority-data.js.map",
+    "dist/src/application/native-authority-evidence.d.ts",
+    "dist/src/application/native-authority-evidence.d.ts.map",
+    "dist/src/application/native-authority-evidence.js",
+    "dist/src/application/native-authority-evidence.js.map",
+    "dist/src/application/native-authority-snapshot.d.ts",
+    "dist/src/application/native-authority-snapshot.d.ts.map",
+    "dist/src/application/native-authority.d.ts",
+    "dist/src/application/native-authority.d.ts.map",
+    "dist/src/application/native-authority.js",
+    "dist/src/application/native-authority.js.map",
+    "dist/src/host/native-observer.d.ts.map",
+    "dist/src/host/native-observer.js",
+    "dist/src/host/native-observer.js.map"
+  ],
+  "addedBuildOutputs": [
+    "dist/src/application/native-prefix.d.ts",
+    "dist/src/application/native-prefix.d.ts.map",
+    "dist/src/application/native-prefix.js",
+    "dist/src/application/native-prefix.js.map"
+  ],
+  "removedBuildOutputs": []
+}

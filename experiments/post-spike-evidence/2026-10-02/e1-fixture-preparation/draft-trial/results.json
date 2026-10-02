@@ -1,0 +1,461 @@
+{
+  "format": "atseq-e1-fixture-preparation",
+  "version": 1,
+  "request": "443018dc14130da954873a507b7a0ba503706379",
+  "promise": "a5380c898ad8a6e425e74c27a3aafdf1baadaee3",
+  "parentRequest": "8eec1d657cdffa2edaeafb28294797c56e605dfc",
+  "parentPromise": "621d4cea355cd3249d39b9184b981af61ae70f83",
+  "producerHead": "7de9dcd447658679f3a94866c7f0eb5506c63659",
+  "started": "2026-10-02T11:40:56.610Z",
+  "finished": "2026-10-02T11:41:19.067Z",
+  "runtime": "v26.10.0",
+  "host": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpus": 18,
+    "model": "Apple M5 Max",
+    "memoryBytes": 68719476736
+  },
+  "convention": "N=final ordered entries; base=N-delta; valid delta<=N; admissions/activation included; actions separately reported",
+  "scope": "generation and correctness only; all preparation/validation outside reader timing; joined E1 measurements unrun",
+  "matrix": [
+    {
+      "n": 100,
+      "delta": 0,
+      "base": 100,
+      "target": 100,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 100,
+      "delta": 1,
+      "base": 99,
+      "target": 100,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 100,
+      "delta": 100,
+      "base": 0,
+      "target": 100,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 100,
+      "delta": 1000,
+      "base": -900,
+      "target": 100,
+      "valid": false,
+      "reason": "delta exceeds final ordered-entry count"
+    },
+    {
+      "n": 1000,
+      "delta": 0,
+      "base": 1000,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 1000,
+      "delta": 1,
+      "base": 999,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 1000,
+      "delta": 100,
+      "base": 900,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 1000,
+      "delta": 1000,
+      "base": 0,
+      "target": 1000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 0,
+      "base": 10000,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 1,
+      "base": 9999,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 100,
+      "base": 9900,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    },
+    {
+      "n": 10000,
+      "delta": 1000,
+      "base": 9000,
+      "target": 10000,
+      "valid": true,
+      "reason": null
+    }
+  ],
+  "captures": [
+    {
+      "name": "bounded-one-actor-100",
+      "workload": {
+        "n": 100,
+        "actors": 1,
+        "growing": false,
+        "activation": false,
+        "invalidAction": false
+      },
+      "preparation": {
+        "elapsedMs": 654.926209,
+        "appRecordWrites": 116,
+        "signedRequests": 101,
+        "appSignedCommits": 6,
+        "selectedRoots": 6,
+        "repositoryBlocks": 184,
+        "repositoryBytes": 116649,
+        "retainedContentBytes": 5328,
+        "sourceBytes": 2381,
+        "maxWorkingAppBlocks": 251,
+        "discardedAppBlocks": 313,
+        "expectedStateBytes": 34
+      },
+      "validation": {
+        "entries": 100,
+        "signedRequests": 99,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreiarirub32pjkdws43dvy3zr5arzkqylishmkysfbrbp5i42umodni",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 99,
+            "root": "bafyreibgl3b4bptbg3xehcmaq5i5j2rbji2xmxah43utxoxrbub3ncuhue",
+            "carBytes": 112157,
+            "records": 107,
+            "nodeLoads": 38
+          },
+          {
+            "position": 100,
+            "root": "bafyreic7hbqq7g7o72sc46rlsvtla56hsibdva3d6ym2hzsqy4pf2bvzom",
+            "carBytes": 113232,
+            "records": 108,
+            "nodeLoads": 38
+          },
+          {
+            "position": 101,
+            "root": "bafyreibu6njmxidcynwrl56yrgyuuauvpsf732pdg6c7n5aykvcbyyzukq",
+            "carBytes": 114420,
+            "records": 109,
+            "nodeLoads": 40
+          },
+          {
+            "position": 101,
+            "root": "bafyreigbwfpj2c477id74ubo6pwf23xnadr6icvtswswq6oa3mtgnislii",
+            "carBytes": 114420,
+            "records": 109,
+            "nodeLoads": 40
+          },
+          {
+            "position": 100,
+            "root": "bafyreihwfoo3rn2hu2kvvd4dcskixre73xgoh7yoic5schd6ofl55hepk4",
+            "carBytes": 113232,
+            "records": 108,
+            "nodeLoads": 38
+          }
+        ],
+        "expectedStateBytes": 34
+      },
+      "validationElapsedMs": 150.37187500000005,
+      "fixtureBytes": 533313,
+      "gzipBytes": 60247,
+      "fixtureSha256": "194e8098e429189c386699f73775729d501ac6275aae93bda9acac1168263faf",
+      "gzipSha256": "b9f78e0ab7818c50573f40a47877065914d885cc10821c44c3dd4ed2a76fcd4c"
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action-100",
+      "workload": {
+        "n": 100,
+        "actors": 16,
+        "growing": true,
+        "activation": true,
+        "invalidAction": true
+      },
+      "preparation": {
+        "elapsedMs": 120.43266699999981,
+        "appRecordWrites": 191,
+        "signedRequests": 86,
+        "appSignedCommits": 6,
+        "selectedRoots": 6,
+        "repositoryBlocks": 277,
+        "repositoryBytes": 199984,
+        "retainedContentBytes": 79651,
+        "sourceBytes": 2543,
+        "maxWorkingAppBlocks": 366,
+        "discardedAppBlocks": 545,
+        "expectedStateBytes": 237
+      },
+      "validation": {
+        "entries": 100,
+        "signedRequests": 84,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreiesij7zsv3objyochoqdsgbf23ytklpdvhdsy5sm3rfwwn3f44nou",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 99,
+            "root": "bafyreihtuwnwz5srjygsxsdvkk5ra3iu4p3betsmfeo2ov3djz7phsuu2e",
+            "carBytes": 196866,
+            "records": 182,
+            "nodeLoads": 58
+          },
+          {
+            "position": 100,
+            "root": "bafyreigxlxk5jas22tpk47pb2n6kmavya6bp6a5u4t5qinzrmdugd45x7e",
+            "carBytes": 197861,
+            "records": 183,
+            "nodeLoads": 58
+          },
+          {
+            "position": 101,
+            "root": "bafyreignqy46vvkjmplg6xa2hrp4vpgyb3ogjcczlgihec5yfiet5v4gay",
+            "carBytes": 198854,
+            "records": 184,
+            "nodeLoads": 58
+          },
+          {
+            "position": 101,
+            "root": "bafyreifm57unclirzvmqd36up2uz7bwdw2nqhaedqqxmggpmtbcrqgprze",
+            "carBytes": 198854,
+            "records": 184,
+            "nodeLoads": 58
+          },
+          {
+            "position": 100,
+            "root": "bafyreia24tytadfhaxg5hfgrm5ddealht3io423ygdgllhqxye3wpl3pyy",
+            "carBytes": 197861,
+            "records": 183,
+            "nodeLoads": 58
+          }
+        ],
+        "expectedStateBytes": 237
+      },
+      "validationElapsedMs": 129.50233300000014,
+      "fixtureBytes": 1143371,
+      "gzipBytes": 169237,
+      "fixtureSha256": "7beb9ccb4fb47a09a9f3f337c47034e531163dfeb8e73c1b312530df6111e214",
+      "gzipSha256": "a2488498d5de01a6a5b890519fc1f08218ac2eabd066a5f1ce376df0badd3a40"
+    },
+    {
+      "name": "bounded-one-actor-1000",
+      "workload": {
+        "n": 1000,
+        "actors": 1,
+        "growing": false,
+        "activation": false,
+        "invalidAction": false
+      },
+      "preparation": {
+        "elapsedMs": 719.4295419999999,
+        "appRecordWrites": 1017,
+        "signedRequests": 1001,
+        "appSignedCommits": 7,
+        "selectedRoots": 7,
+        "repositoryBlocks": 1321,
+        "repositoryBytes": 1016623,
+        "retainedContentBytes": 5328,
+        "sourceBytes": 2381,
+        "maxWorkingAppBlocks": 3345,
+        "discardedAppBlocks": 5124,
+        "expectedStateBytes": 35
+      },
+      "validation": {
+        "entries": 1000,
+        "signedRequests": 999,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreibns35k4b4iydljjwkacn4su26u2n45kffj6utgarbrl2f4lolm3u",
+            "carBytes": 1738,
+            "records": 3,
+            "nodeLoads": 1
+          },
+          {
+            "position": 900,
+            "root": "bafyreiepdxiasucbv2ueznetkdyiup36qb5td67wnqpcnzqmodgyuc4bvm",
+            "carBytes": 944923,
+            "records": 908,
+            "nodeLoads": 235
+          },
+          {
+            "position": 999,
+            "root": "bafyreibxe445c5upg5f423wq3g4fs22xeopynnri7fp4kal5wwqezvst6m",
+            "carBytes": 1048674,
+            "records": 1007,
+            "nodeLoads": 264
+          },
+          {
+            "position": 1000,
+            "root": "bafyreid6t5e6k3shw6xmgckzlvanszbcqkagzit75ouyspgwmhat3tg7ne",
+            "carBytes": 1049671,
+            "records": 1008,
+            "nodeLoads": 264
+          },
+          {
+            "position": 1001,
+            "root": "bafyreia4xoifzbf4entf66jjx3i5ujpbfdulcoqlt4iwxtjiu3b6xuwp5q",
+            "carBytes": 1050881,
+            "records": 1009,
+            "nodeLoads": 265
+          },
+          {
+            "position": 1001,
+            "root": "bafyreicw6lwowjiinltihduuz4sptlzcp4pypmxwgjoqn2kzsf4kmnrvce",
+            "carBytes": 1050881,
+            "records": 1009,
+            "nodeLoads": 265
+          },
+          {
+            "position": 1000,
+            "root": "bafyreig4h77ksogp3q6qqy7kcbvcsvx7s34lvof4rslns2fdrh56hjfypy",
+            "carBytes": 1049671,
+            "records": 1008,
+            "nodeLoads": 264
+          }
+        ],
+        "expectedStateBytes": 35
+      },
+      "validationElapsedMs": 1136.0120000000002,
+      "fixtureBytes": 4407945,
+      "gzipBytes": 661245,
+      "fixtureSha256": "468860a5e38d7a4af922a7cb87830c72582607b66a89d017d2a423c6c1073e52",
+      "gzipSha256": "118561d0910bffd9f8858ce91535461a4a95b033666a5cbf3950352b3adf456d"
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action-1000",
+      "workload": {
+        "n": 1000,
+        "actors": 16,
+        "growing": true,
+        "activation": true,
+        "invalidAction": true
+      },
+      "preparation": {
+        "elapsedMs": 713.935708,
+        "appRecordWrites": 1092,
+        "signedRequests": 986,
+        "appSignedCommits": 7,
+        "selectedRoots": 7,
+        "repositoryBlocks": 1431,
+        "repositoryBytes": 1102401,
+        "retainedContentBytes": 79651,
+        "sourceBytes": 2543,
+        "maxWorkingAppBlocks": 3004,
+        "discardedAppBlocks": 4865,
+        "expectedStateBytes": 2353
+      },
+      "validation": {
+        "entries": 1000,
+        "signedRequests": 984,
+        "selectedRoots": [
+          {
+            "position": 0,
+            "root": "bafyreiafwqkyc43pm5dd7lyglizom6eifdcn3afd6yxqxoaquu5lrjbgem",
+            "carBytes": 1847,
+            "records": 3,
+            "nodeLoads": 2
+          },
+          {
+            "position": 900,
+            "root": "bafyreibgkqotbgcm7e4htvrp6cur7swzqr4oqzy75mhvzc6bfm2ismukfa",
+            "carBytes": 1033072,
+            "records": 983,
+            "nodeLoads": 272
+          },
+          {
+            "position": 999,
+            "root": "bafyreict2kbphyc3tpy26rijxyhvskyyo7zv5k7srtosjh6boacjl5tjie",
+            "carBytes": 1137414,
+            "records": 1082,
+            "nodeLoads": 303
+          },
+          {
+            "position": 1000,
+            "root": "bafyreigglrtir5siyuq7kltcblvdyv5euwdxksjs36wroky2wmiovgq7ka",
+            "carBytes": 1138411,
+            "records": 1083,
+            "nodeLoads": 303
+          },
+          {
+            "position": 1001,
+            "root": "bafyreicvpdysmmskmczrjm3xkkwkyoovgwpwisusnwiiam2qzc7exvb3km",
+            "carBytes": 1139596,
+            "records": 1084,
+            "nodeLoads": 304
+          },
+          {
+            "position": 1001,
+            "root": "bafyreihsn4pdhtq33du3ejzm7eirviq4x5gckftv3epv6o5sndnxelgjse",
+            "carBytes": 1139596,
+            "records": 1084,
+            "nodeLoads": 304
+          },
+          {
+            "position": 1000,
+            "root": "bafyreidjfqnqe7eaujqorca4h6f4cvi5abruaxgap2ro4qymrlpp3d2jem",
+            "carBytes": 1138411,
+            "records": 1083,
+            "nodeLoads": 303
+          }
+        ],
+        "expectedStateBytes": 2353
+      },
+      "validationElapsedMs": 1209.9910830000008,
+      "fixtureBytes": 5044307,
+      "gzipBytes": 915594,
+      "fixtureSha256": "17b097cdb71a0b3a1b8bf802a24d65c5715006ae04675a75c5c04e5d68be6d76",
+      "gzipSha256": "3ca7a9239a2a55492b6bb1bf59d97c37dd3a0c28e184580f8df2e7dd5fe3a9ac"
+    }
+  ],
+  "failures": [
+    {
+      "name": "bounded-one-actor-10000",
+      "code": "value_bytes",
+      "message": "InterpretationError: Value exceeds 262144 UTF-8 bytes",
+      "stack": "InterpretationError: Value exceeds 262144 UTF-8 bytes\n    at token (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:25:33)\n    at walk (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:74:22)\n    at walk (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:61:20)\n    at canonicalJson (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:86:10)\n    at equal (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/validate.ts:25:9)\n    at verifyFixture (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/validate.ts:45:3)\n    at async <anonymous> (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/run.ts:41:26)"
+    },
+    {
+      "name": "growing-many-actors-activation-invalid-action-10000",
+      "code": "value_bytes",
+      "message": "InterpretationError: Value exceeds 262144 UTF-8 bytes",
+      "stack": "InterpretationError: Value exceeds 262144 UTF-8 bytes\n    at token (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:25:33)\n    at walk (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:75:9)\n    at walk (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:61:20)\n    at canonicalJson (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:86:10)\n    at equal (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/validate.ts:25:9)\n    at verifyFixture (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/validate.ts:45:3)\n    at async <anonymous> (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/run.ts:41:26)"
+    }
+  ]
+}

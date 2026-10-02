@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/homebrew/bin/node",
+    "scripts/source-run.mjs",
+    "--test",
+    "tests/e1-fixture-browser.test.ts"
+  ],
+  "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+  "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+  "exitCode": 0,
+  "elapsedSeconds": 6.522330045700073,
+  "completedAtUtc": "2026-10-02T13:09:33.838898+00:00",
+  "scope": "actual compiled Vite bundle in Chromium, correctness only"
+}

@@ -1,0 +1,20 @@
+/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:43
+    if (Object.getOwnPropertySymbols(v).length) throw new InterpretationError('wire_value', `${path}: symbol property`);
+                                                      ^
+
+InterpretationError: $/profile: symbol property
+    at walk (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:43:55)
+    at walk (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:78:31)
+    at canonicalJson (/private/tmp/atseq-e1-fixture-preparation-20261002/src/core/values.ts:86:10)
+    at validate (/private/tmp/atseq-e1-fixture-preparation-20261002/src/protocol/wire.ts:51:3)
+    at encodeBlock (/private/tmp/atseq-e1-fixture-preparation-20261002/src/protocol/wire.ts:85:3)
+    at contentCid (/private/tmp/atseq-e1-fixture-preparation-20261002/src/protocol/wire.ts:186:45)
+    at source (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/fixtures.ts:146:22)
+    at async Promise.all (index 0)
+    at async prepareFixture (/private/tmp/atseq-e1-fixture-preparation-20261002/experiments/e1-native/fixtures.ts:186:19)
+    at async file:///private/tmp/atseq-e1-fixture-preparation-20261002/[eval1]:1:79 {
+  code: 'wire_value',
+  kind: 'invalid_input'
+}
+
+Node.js v26.10.0

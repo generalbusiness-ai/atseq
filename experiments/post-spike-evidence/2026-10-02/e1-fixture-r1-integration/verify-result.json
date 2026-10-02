@@ -1,0 +1,73 @@
+{
+  "status": "VERIFIED",
+  "sourcePins": 342,
+  "originalCaptures": 61,
+  "physicalPackages": 194,
+  "physicalFiles": 14234,
+  "buildSources": 145,
+  "buildOutputs": 468,
+  "sourceNodeGates": 3,
+  "compiledNodeGates": 3,
+  "chromiumGates": 1,
+  "normalChecks": 3,
+  "originalE1CompilerInputs": 7,
+  "snapshotSha256": [
+    "d40deb2cf0640d3e4fa7bb00ded9d65a46f7723211a11b154e9d36bf30c608fb",
+    "cd843d8e93738edd75ce956e34129a06bb5ea0a4b802a5b7aec4dda253369a6e"
+  ],
+  "negativeControls": [
+    {
+      "mutation": "changed source",
+      "rejectedBy": "all exact source hashes"
+    },
+    {
+      "mutation": "changed capture",
+      "rejectedBy": "all exact artifact hashes"
+    },
+    {
+      "mutation": "fabricated agreement",
+      "rejectedBy": "actual current vs historical snapshot identity"
+    },
+    {
+      "mutation": "rewritten historical snapshot",
+      "rejectedBy": "historical digests preserved"
+    },
+    {
+      "mutation": "removed compiler input",
+      "rejectedBy": "all seven original compiler inputs"
+    },
+    {
+      "mutation": "omitted original input",
+      "rejectedBy": "all seven original compiler inputs"
+    },
+    {
+      "mutation": "relabeled producer",
+      "rejectedBy": "exact source attribution"
+    },
+    {
+      "mutation": "wrong basis",
+      "rejectedBy": "exact source attribution"
+    },
+    {
+      "mutation": "claimed full E1",
+      "rejectedBy": "no full E1 or unmeasured claim"
+    },
+    {
+      "mutation": "claimed reader timing",
+      "rejectedBy": "no full E1 or unmeasured claim"
+    },
+    {
+      "mutation": "claimed native persistence",
+      "rejectedBy": "no full E1 or unmeasured claim"
+    },
+    {
+      "mutation": "claimed audit",
+      "rejectedBy": "no full E1 or unmeasured claim"
+    },
+    {
+      "mutation": "regenerated frozen fixtures",
+      "rejectedBy": "no full E1 or unmeasured claim"
+    }
+  ],
+  "scope": "small exact current-main interoperability; full E1 remains open"
+}

@@ -1,0 +1,63 @@
+"""Verify current E1 integration independently of historical source/output equality claims."""
+import argparse,copy,gzip,hashlib,json,pathlib,subprocess
+BASIS='316439928e0c0d41965b086f2dace19a9249dba7';PRODUCER='684d3df8ebaf283fd951bb2b7b2d614eccd88a6b';H4='7b7093fb58f1dcbc794a67ad4de4c9f18901067f';REL='experiments/post-spike-evidence/2026-10-02/e1-fixture-r1-integration'
+def require(x,message):
+ if not x:raise ValueError(message)
+def sha(raw):return hashlib.sha256(raw).hexdigest()
+def check_contract(m,actual,observed):
+ require(m['schema']=='atseq-e1-fixture-r1-integration-v1' and m['basis']==BASIS and m['producerSource']==PRODUCER and m['h4Delivery']==H4,'exact source attribution')
+ require((m['request'],m['promise'])==('443018dc14130da954873a507b7a0ba503706379','a5380c898ad8a6e425e74c27a3aafdf1baadaee3'),'tracked E1-F1 task')
+ require(all(m[x] is False for x in ['fullE1Complete','readerTimingExecuted','nativePersistenceExecuted','checkpointAuditExecuted','sixFixturesRegenerated']),'no full E1 or unmeasured claim')
+ require(m['sourceInputs']==actual['source'],'all exact source hashes')
+ require(m['files']==actual['files'],'all exact artifact hashes')
+ require(m['currentSnapshotSha256']==observed['digests'] and m['currentSnapshotSha256']!=m['historicalSnapshotSha256'],'actual current vs historical snapshot identity')
+ require(m['historicalSnapshotSha256']==observed['oldDigests'],'historical digests preserved')
+ require(m['originalE1Inputs']==observed['originalInputs'] and len(m['originalE1Inputs'])==7 and all(x in m['compilerLiveInputs'] for x in m['originalE1Inputs']),'all seven original compiler inputs')
+ require(m['compilerLiveInputs']==observed['live'] and len(m['compilerLiveInputs'])==283,'actual live compiler inputs')
+ require(m['normalCheckRuntimes']==['v22.19.0','v24.21.0','v26.10.0'] and (m['sourceTestsEachRuntime'],m['compiledRetainedFixturesEachRuntime'],m['chromiumTests'])==(4,2,1),'actual runtime gate scope')
+def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--repo',default='.');parser.add_argument('--self-test',action='store_true');args=parser.parse_args();root=pathlib.Path(args.repo).resolve();packet=root/REL;load=lambda p:json.loads(pathlib.Path(p).read_text());git=lambda *a:subprocess.check_output(['git','-C',str(root),*a]);m=load(packet/'manifest.json');old=root/'experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation';previous=load(old/'manifest.json');h4=root/'experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation-h4-integration'
+ require(sha((old/'manifest.json').read_bytes())==m['originalManifestSha256'] and sha((h4/'manifest.json').read_bytes())==m['h4ManifestSha256'],'preserved predecessor manifests')
+ for directory in [old,h4]:
+  for path in git('ls-tree','-r','--name-only',H4,'--',str(directory.relative_to(root))).decode().splitlines():require((root/path).read_bytes()==git('show',H4+':'+path),'preserved predecessor bytes: '+path)
+ for p,h in previous['files'].items():require(sha((old/p).read_bytes())==h,'original capture hash: '+p)
+ for p in [previous['report']['path'],load(h4/'manifest.json')['report']['path']]:require((root/p).read_bytes()==git('show',H4+':'+p),'previous report bytes')
+ source={p:sha((root/p).read_bytes()) for p in m['sourceInputs']}
+ for p,h in source.items():require(sha(git('show',PRODUCER+':'+p))==h,'exact executed source Git blob: '+p)
+ for p in m['originalE1Inputs']:require((root/p).read_bytes()==git('show',H4+':'+p),'unchanged original E1 input')
+ files={str(p.relative_to(packet)):sha(p.read_bytes()) for p in packet.rglob('*') if p.is_file() and p.name not in ['manifest.json','delivery-list.json']}
+ build=load(packet/'build-provenance.json')
+ for p,h in build['sourceHashes'].items():require(sha((root/p).read_bytes())==h,'actual build source: '+p)
+ for p,h in build['outputHashes'].items():require(sha((root/p).read_bytes())==h,'actual compiled output: '+p)
+ require(len(build['sourceHashes'])==145 and len(build['outputHashes'])==468,'actual build scope')
+ physical=json.loads(gzip.decompress((old/'physical-runtime.json.gz').read_bytes()));require(not (root/'node_modules').is_symlink(),'physical dependency root')
+ for package in physical['packages']:
+  location=root/package['path'];require(not location.is_symlink() and sha((location/'package.json').read_bytes())==package['packageJsonSha256'],'physical package')
+ for p,h in physical['fileHashes'].items():require(sha((root/p).read_bytes())==h,'actual runtime closure file: '+p)
+ gates=load(packet/'gates.json');require(len(gates)==12 and all(g['exitCode']==0 and g['sourceProducer']==PRODUCER for g in gates),'actual successful gates')
+ require({(g['node'],g['name']) for g in gates}=={(n,name) for n in [22,24,26] for name in ['check','source','compiled','compiler-list']},'complete real runtime matrix')
+ digests=[];validation=[];lists=[]
+ for version in [22,24,26]:
+  runtime=load(packet/f'runtime-node{version}.json');require(runtime['node']=={22:'v22.19.0',24:'v24.21.0',26:'v26.10.0'}[version],'actual runtime version')
+  check=(packet/f'check-node{version}.log').read_text();require(all(x in check for x in ['All matched files use Prettier code style!','Layer boundaries checked.','Declared runtime dependency graph and installed runtime file closure match.']),'normal check phases')
+  raw=(packet/f'source-node{version}.log').read_text();require('pass 4' in raw and 'fail 0' in raw,'source success');rows=[json.loads(line.removeprefix('# ')) for line in raw.splitlines() if line.removeprefix('# ').startswith('{')];results=[x for x in rows if 'snapshotSha256'in x];require(len(results)==2,'two retained semantic cases');current=[x['snapshotSha256'] for x in results];digests.append(current);validation.append([x['validation'] for x in results]);compiled=load(packet/f'compiled-node{version}.json');require([x['snapshotSha256'] for x in compiled['results']]==current and [x['validation'] for x in compiled['results']]==validation[-1],'actual source/production equality');require(len(compiled['compiledTests'])==7 and len(compiled['actualProductionModules'])==13,'actual compiled module scope')
+  for path,row in compiled['compiledTests'].items():require(sha((root/path).read_bytes())==row['sourceSha256'] and sha(row['output'].encode())==row['outputSha256'],'executed transformed test module')
+  for row in compiled['actualProductionModules']:require(sha((root/row['path']).read_bytes())==row['sha256'],'actual direct production module')
+  for row in compiled['results']:require(sha((old/'final'/(row['name']+'-100.json.gz')).read_bytes())==row['fixtureGzipSha256'],'same retained signed fixture')
+  lists.append((packet/f'compiler-list-node{version}.log').read_text().splitlines())
+ require(lists[0]==lists[1]==lists[2] and len(lists[0])==1230,'normal compiler lists across runtimes');prefix=str(root)+'/';live=[x.removeprefix(prefix) for x in lists[0] if x.startswith(prefix) and x.removeprefix(prefix).split('/')[0] in ['src','scripts','tests','experiments'] and '/node_modules/' not in x]
+ chrome=load(packet/'chromium-results.json');require(digests[0]==digests[1]==digests[2]==chrome['snapshotSha256'] and validation[0]==validation[1]==validation[2]==chrome['validation'],'actual Chromium/source/dist agreement');bundle=gzip.decompress((packet/'chromium-validation-bundle.mjs.gz').read_bytes());require(sha(bundle)==chrome['bundleSha256'] and len(bundle)==chrome['bundleBytes']==1497290,'actual executed Chromium bundle');require(load(packet/'chromium-gate.json')['exitCode']==0 and 'pass 1' in (packet/'chromium.log').read_text(),'real browser gate')
+ require((packet/'check-initial-node26.log').read_text().count('error TS2307')==2,'retained prebuild failed check')
+ observed={'digests':digests[0],'oldDigests':previous['snapshotSha256'],'originalInputs':previous['actualChecks']['newE1InputsIncluded'],'live':live};actual={'source':source,'files':files};check_contract(m,actual,observed)
+ require(sha((root/m['report']['path']).read_bytes())==m['report']['sha256'],'current report hash')
+ delivery=load(packet/'delivery-list.json');changed=set(git('diff','--name-only',BASIS,'HEAD').decode().splitlines());changed.update(git('ls-files','--others','--exclude-standard').decode().splitlines());require(changed==set(delivery['paths']),'exact delivery set');require(all(p.startswith('experiments/e1-native/') or p.startswith('experiments/post-spike-evidence/2026-10-02/e1-fixture-') or p.startswith('tests/e1-fixture') or p.startswith('notes/2026-10-02-atseq-e1-fixture-') for p in changed),'no production/package edits')
+ controls=[]
+ if args.self_test:
+  mutations=[('changed source',lambda x:x['sourceInputs'].update({'experiments/e1-native/validate.ts':'0'*64})),('changed capture',lambda x:x['files'].update({'source-node26.log':'0'*64})),('fabricated agreement',lambda x:x.update(currentSnapshotSha256=x['historicalSnapshotSha256'])),('rewritten historical snapshot',lambda x:x.update(historicalSnapshotSha256=['0'*64]*2)),('removed compiler input',lambda x:x['compilerLiveInputs'].remove('tests/e1-fixture.test.ts')),('omitted original input',lambda x:x['originalE1Inputs'].pop()),('relabeled producer',lambda x:x.update(producerSource=H4)),('wrong basis',lambda x:x.update(basis=H4)),('claimed full E1',lambda x:x.update(fullE1Complete=True)),('claimed reader timing',lambda x:x.update(readerTimingExecuted=True)),('claimed native persistence',lambda x:x.update(nativePersistenceExecuted=True)),('claimed audit',lambda x:x.update(checkpointAuditExecuted=True)),('regenerated frozen fixtures',lambda x:x.update(sixFixturesRegenerated=True))]
+  for name,mutate in mutations:
+   bad=copy.deepcopy(m);mutate(bad)
+   try:check_contract(bad,actual,observed)
+   except ValueError as error:controls.append({'mutation':name,'rejectedBy':str(error)})
+   else:raise ValueError('negative packet control accepted: '+name)
+ print(json.dumps({'status':'VERIFIED','sourcePins':len(source),'originalCaptures':len(previous['files']),'physicalPackages':physical['count'],'physicalFiles':len(physical['fileHashes']),'buildSources':len(build['sourceHashes']),'buildOutputs':len(build['outputHashes']),'sourceNodeGates':3,'compiledNodeGates':3,'chromiumGates':1,'normalChecks':3,'originalE1CompilerInputs':7,'snapshotSha256':digests[0],'negativeControls':controls,'scope':'small exact current-main interoperability; full E1 remains open'},indent=2))
+if __name__=='__main__':main()

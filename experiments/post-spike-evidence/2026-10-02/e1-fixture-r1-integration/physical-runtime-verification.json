@@ -1,0 +1,7 @@
+{
+  "packages": 194,
+  "fileHashesVerified": 14234,
+  "rootSymlink": false,
+  "graphSource": "retained physical-runtime.json.gz; actual new private trees walked and compared",
+  "sameRuntimeGraph": true
+}

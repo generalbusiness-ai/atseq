@@ -1,0 +1,514 @@
+/** Genuine experiment fixture preparation. All costs here are outside reader timings. */
+import * as CBOR from '@atcute/cbor';
+import * as CID from '@atcute/cid';
+import { NodeStore, NodeWalker, NodeWrangler, MemoryBlockStore } from '@atcute/mst';
+import { P256PrivateKeyExportable, type PrivateKeyExportable } from '@atcute/crypto';
+import { toBase32 } from '@atcute/multibase';
+import { plcIdentityFixture } from '../../tests/support/identity-corpus.ts';
+import { car } from '../../tests/support/native-proof-corpus.ts';
+import { applicationSource, applicationAction } from '../../tests/support/native-application-fixture.ts';
+import { authorityRevision } from '../../tests/support/native-authority-fixture.ts';
+import { NATIVE_NSID, nativeRef } from '../../src/protocol/native-schema.ts';
+import { NATIVE_SOURCE_CONTRACT } from '../../src/definition/native-source-contract.ts';
+import {
+  assessNativeGenesisSource,
+  nativeSourceAction,
+  readNativeSourceAction,
+} from '../../src/definition/native-source.ts';
+import {
+  NativeAnchor,
+  nativeGenesisPath,
+  nativeHeadPath,
+  nativeHeadAt,
+  nativeEntryPath,
+  nativeObservationSubject,
+  signNativeIntent,
+  type NativeGenesis,
+  type NativeRequest,
+  type NativeAccountOperation,
+  type NativeEntry,
+} from '../../src/protocol/native-wire.ts';
+import { bytes, contentCid, encodeBlock, link } from '../../src/protocol/wire.ts';
+import { plan, oracle, selectedPositions, unique16, type Workload } from './workload.ts';
+export interface SelectedRoot {
+  position: number;
+  root: string;
+  blocks: string[];
+}
+export interface E1Fixture {
+  version: 1;
+  workload: Workload;
+  plan: ReturnType<typeof plan>;
+  expected: ReturnType<typeof oracle>;
+  genesis: NativeGenesis;
+  genesisCid: string;
+  appKey: string;
+  appIdentity: { auditBytes: number[]; selectedTipCid: string };
+  actors: { principal: string; actorKey: string; grantId: string; grantCid: string; epoch: string }[];
+  sources: { root: string; execution: string; closure: string[] }[];
+  sourceBlocks: [string, number[]][];
+  retainedContent: [string, number[]][];
+  repositoryBlocks: [string, number[]][];
+  entries: string[];
+  roots: SelectedRoot[];
+  faults: { name: string; effect: string; position: number; root?: SelectedRoot; missing?: string }[];
+  preparation: {
+    elapsedMs: number;
+    recordWrites: number;
+    signedRequests: number;
+    signedCommits: number;
+    selectedRoots: number;
+    repositoryBlocks: number;
+    repositoryBytes: number;
+    retainedContentBytes: number;
+    sourceBytes: number;
+    maxWorkingBlocks: number;
+    discardedBlocks: number;
+    expectedStateBytes: number;
+  };
+}
+class RepositoryBuilder {
+  store = new MemoryBlockStore();
+  ns = new NodeStore(this.store);
+  writer = new NodeWrangler(this.ns);
+  data: string | null = null;
+  selected = new Set<string>();
+  recordWrites = 0;
+  signedCommits = 0;
+  maxWorkingBlocks = 0;
+  discardedBlocks = 0;
+  constructor(
+    readonly did: string,
+    readonly key: PrivateKeyExportable,
+  ) {}
+  async put(path: string, raw: Uint8Array) {
+    const cid = CID.toCidLink(CID.createSync(CID.CODEC_DCBOR, raw));
+    await this.store.put(cid.$link, raw);
+    this.data = await this.writer.putRecord(this.data, path, cid);
+    this.recordWrites++;
+    this.maxWorkingBlocks = Math.max(this.maxWorkingBlocks, this.store.blocks.size);
+    return cid.$link;
+  }
+  async reachable() {
+    if (!this.data) throw new Error('No repository records');
+    const found = new Set<string>();
+    for await (const cid of new NodeWalker(this.ns, this.data).nodeCids()) found.add(cid.$link);
+    for await (const [, cid] of new NodeWalker(this.ns, this.data).entries()) found.add(cid.$link);
+    return found;
+  }
+  async capture(position: number): Promise<SelectedRoot> {
+    if (!this.data) throw new Error('No repository records');
+    const unsigned = {
+      did: this.did,
+      version: 3,
+      rev: authorityRevision(position + 1),
+      data: link(this.data),
+      prev: null,
+    };
+    const raw = CBOR.encode({ ...unsigned, sig: CBOR.toBytes(await this.key.sign(CBOR.encode(unsigned))) });
+    const root = CID.toString(CID.createSync(CID.CODEC_DCBOR, raw));
+    const found = await this.reachable();
+    this.store.blocks.set(root, raw);
+    found.add(root);
+    for (const cid of found) this.selected.add(cid);
+    this.signedCommits++;
+    return { position, root, blocks: [...found].sort() };
+  }
+  async compact() {
+    const keep = await this.reachable();
+    for (const cid of this.selected) keep.add(cid);
+    for (const cid of this.store.blocks.keys())
+      if (!keep.has(cid)) {
+        this.store.blocks.delete(cid);
+        this.discardedBlocks++;
+      }
+  }
+}
+async function source(growing: boolean, multiplier: number) {
+  const fold =
+    '{"decision":"effective","state":{"count":state.count+act.amount*' +
+    multiplier +
+    ',"description":state.description' +
+    (growing ? ',"values":$append(state.values,act.amount*' + multiplier + ')' : '') +
+    '}}';
+  const base = await applicationSource({
+    fold,
+    initial: growing ? { count: 0, description: 'demo', values: [] } : undefined,
+  });
+  if (!growing) return base;
+  const manifest: any = CBOR.decode(base.blocks.get(base.root)!);
+  const schemaFile = manifest.files.find((file: any) => file.path === 'schemas.json');
+  const schemas = JSON.parse(new TextDecoder().decode(base.blocks.get(schemaFile.cid)!));
+  schemas.defs.state.properties.values = { type: 'array', items: { type: 'integer' } };
+  schemas.defs.state.required = [...new Set([...(schemas.defs.state.required ?? []), 'values'])];
+  const raw = new TextEncoder().encode(JSON.stringify(schemas));
+  schemaFile.cid = CID.toString(CID.createSync(CID.CODEC_RAW, raw));
+  const root = await contentCid(manifest);
+  const blocks = new Map<string, Uint8Array>([[root, encodeBlock(manifest)]]);
+  for (const file of manifest.files)
+    blocks.set(file.cid, file.path === 'schemas.json' ? raw : base.blocks.get(file.cid)!);
+  const reader = {
+    get: async (cid: string) => {
+      const value = blocks.get(cid);
+      if (!value) throw new Error('Missing fixture source');
+      return value;
+    },
+  };
+  const facts = await assessNativeGenesisSource(root, reader);
+  if (facts.kind !== 'admitted') throw new Error('Growing native source not admitted: ' + JSON.stringify(facts));
+  const execution = readNativeSourceAction(nativeSourceAction(facts.definition, applicationAction)!).execution;
+  return { root, execution, blocks, reader, closure: [...blocks.keys()].sort() };
+}
+const byteTotal = (blocks: Map<string, Uint8Array>) => [...blocks.values()].reduce((sum, raw) => sum + raw.length, 0);
+const serial = (blocks: Map<string, Uint8Array>): [string, number[]][] =>
+  [...blocks].sort(([a], [b]) => a.localeCompare(b)).map(([cid, raw]) => [cid, [...raw]]);
+export function selectedCar(fixture: E1Fixture, root: SelectedRoot) {
+  const all = new Map(fixture.repositoryBlocks.map(([cid, raw]) => [cid, Uint8Array.from(raw)]));
+  const chosen = new Map(
+    root.blocks.map((cid) => {
+      const raw = all.get(cid);
+      if (!raw) throw new Error('Missing selected-root block ' + cid);
+      return [cid, raw] as const;
+    }),
+  );
+  return car(root.root, chosen);
+}
+export async function prepareFixture(workload: Workload, includeFaultRoots = true): Promise<E1Fixture> {
+  const started = performance.now(),
+    rows = plan(workload),
+    expected = oracle(workload, rows);
+  const expectedStateBytes = new TextEncoder().encode(JSON.stringify(expected.state)).length;
+  if (expectedStateBytes > 128 * 1024) throw new Error('Expected domain state exceeds unchanged 128KiB profile');
+  const app = await plcIdentityFixture();
+  const people = await Promise.all(Array.from({ length: workload.actors }, () => plcIdentityFixture()));
+  const devices = await Promise.all(people.map(() => P256PrivateKeyExportable.createKeypair()));
+  const control = await P256PrivateKeyExportable.createKeypair();
+  const sources = await Promise.all([source(workload.growing, 1), source(workload.growing, 2)]);
+  const sourceBlocks = new Map(sources.flatMap((item) => [...item.blocks]));
+  const repository = new RepositoryBuilder(app.principal, app.key),
+    content = new Map<string, Uint8Array>();
+  async function stash(body: unknown) {
+    const raw = encodeBlock({ $type: NATIVE_NSID.content, version: 1, body });
+    const cid = await repository.put(
+      `${NATIVE_NSID.content}/${CID.toString(CID.createSync(CID.CODEC_DCBOR, raw))}`,
+      raw,
+    );
+    content.set(cid, raw);
+    return cid;
+  }
+  async function retain(raw: Uint8Array) {
+    const chunks = [];
+    for (let i = 0; i < raw.length; i += 32 * 1024)
+      chunks.push(link(await stash({ $type: nativeRef('byteChunk'), bytes: bytes(raw.slice(i, i + 32 * 1024)) })));
+    return stash({ $type: nativeRef('byteManifest'), byteLength: raw.length, chunks });
+  }
+  const policy = await stash({
+    $type: nativeRef('observationPolicy'),
+    algorithm: 'atseq-account-observation-v1',
+    plcDirectory: 'https://plc.directory',
+    allowWeb: true,
+    checkpoint: 'native-publication-v1',
+  });
+  const genesis: NativeGenesis = {
+    $type: NATIVE_NSID.genesis,
+    version: 2,
+    app: app.principal,
+    creation: bytes(unique16(0, 0)),
+    semantics: link(NATIVE_SOURCE_CONTRACT.native),
+    definition: link(sources[0]!.root),
+    observationPolicy: link(policy),
+    control: [
+      {
+        principal: people[0]!.principal,
+        actorKey: await control.exportPublicKey('did'),
+        powers: ['govern', 'recover'],
+      },
+    ],
+    recoverGovernance: true,
+    owner: people[0]!.principal,
+    roles: [],
+  };
+  const genesisCid = await contentCid(genesis),
+    anchor = await NativeAnchor.from(genesis, { app: app.principal, genesis: genesisCid });
+  await repository.put(nativeGenesisPath(genesisCid), encodeBlock(genesis));
+  let previous = genesisCid,
+    signedRequests = 0;
+  const entries: string[] = [],
+    requests: NativeRequest[] = [],
+    roots: SelectedRoot[] = [];
+  const positions = new Set(selectedPositions(workload));
+  const actors: E1Fixture['actors'] = [];
+  async function publishHead(position: number, cid: string) {
+    await repository.put(nativeHeadPath(genesisCid), encodeBlock(await nativeHeadAt(anchor, position, cid)));
+  }
+  await publishHead(0, genesisCid);
+  roots.push(await repository.capture(0));
+  async function admission(actor: number, position: number): Promise<NativeAccountOperation> {
+    const identity = people[actor]!,
+      key = devices[actor]!,
+      account = new RepositoryBuilder(identity.principal, identity.key);
+    const epochRecord = { $type: NATIVE_NSID.epoch, version: 1, id: bytes(unique16(actor + 1, 0)), previous: null };
+    const epoch = await contentCid(epochRecord),
+      id = toBase32(unique16(actor + 1, 1)),
+      actorKey = await key.exportPublicKey('did');
+    const grantRecord = {
+      $type: NATIVE_NSID.grant,
+      version: 1,
+      id,
+      app: app.principal,
+      genesis: link(genesisCid),
+      epoch: link(epoch),
+      actorKey,
+      actions: sources
+        .map((item) => ({ action: applicationAction, execution: link(item.execution) }))
+        .sort((a, b) =>
+          JSON.stringify([a.action, a.execution.$link]).localeCompare(JSON.stringify([b.action, b.execution.$link])),
+        ),
+      assignRoles: [],
+    };
+    const accountRecords = new Map([
+      [`${NATIVE_NSID.epoch}/${epoch}`, encodeBlock(epochRecord)],
+      [
+        `${NATIVE_NSID.epochCurrent}/self`,
+        encodeBlock({ $type: NATIVE_NSID.epochCurrent, version: 1, id: epochRecord.id, epoch: link(epoch) }),
+      ],
+      [`${NATIVE_NSID.grant}/${id}`, encodeBlock(grantRecord)],
+    ]);
+    for (const [path, raw] of accountRecords) await account.put(path, raw);
+    const selected = await account.capture(0),
+      grantCid = await contentCid(grantRecord);
+    const proof = await car(
+      selected.root,
+      new Map(selected.blocks.map((cid) => [cid, account.store.blocks.get(cid)!])),
+    );
+    const proofManifest = await retain(proof),
+      audit = await retain(new TextEncoder().encode(JSON.stringify(identity.rows)));
+    const method = {
+      $type: nativeRef('plcAudit'),
+      bytes: link(audit),
+      source: `https://plc.directory/${identity.principal}/log/audit`,
+      selectedTip: link(identity.selectedTipCid),
+    };
+    const request: NativeAccountOperation = {
+      $type: nativeRef('accountOperation'),
+      app: app.principal,
+      genesis: link(genesisCid),
+      position,
+      prev: link(previous),
+      principal: identity.principal,
+      expectedEpoch: null,
+      expectedObservation: null,
+      operation: { $type: nativeRef('admitGrant'), grant: { id, cid: link(grantCid) } },
+      observation: link(genesisCid),
+    };
+    request.observation = link(
+      await stash({
+        $type: nativeRef('observation'),
+        policy: link(policy),
+        principal: identity.principal,
+        context: {
+          app: app.principal,
+          genesis: link(genesisCid),
+          position,
+          prev: link(previous),
+          subject: link(await nativeObservationSubject(request)),
+        },
+        binding: { signingKeyDid: identity.signing, pdsOrigin: 'https://pds.example' },
+        before: method,
+        after: method,
+        repositoryRoot: link(selected.root),
+        records: [...accountRecords]
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([path, raw]) => ({ path, cid: link(CID.toString(CID.createSync(CID.CODEC_DCBOR, raw))) })),
+        proofs: [link(proofManifest)],
+        observedAt: '2026-10-02T00:00:00.000Z',
+      }),
+    );
+    actors.push({ principal: identity.principal, actorKey, grantId: id, grantCid, epoch });
+    return request;
+  }
+  for (const row of rows) {
+    let request: NativeRequest;
+    if (row.kind === 'admit') request = await admission(row.actor, row.position);
+    else {
+      const actor = row.kind === 'act' ? actors[row.actor]! : actors[0]!;
+      const operation =
+        row.kind === 'act'
+          ? {
+              $type: nativeRef('act'),
+              action: applicationAction,
+              execution: link(sources[row.source]!.execution),
+              payload: { amount: row.amount },
+              grant: { id: actor.grantId, cid: link(actor.grantCid) },
+              epoch: link(actor.epoch),
+            }
+          : {
+              $type: nativeRef('activate'),
+              position: row.position,
+              prev: link(previous),
+              controlTip: link(genesisCid),
+              expected: link(sources[0]!.root),
+              definition: link(sources[1]!.root),
+              closure: sources[1]!.closure,
+            };
+      const signer = row.kind === 'act' ? devices[row.actor]! : control;
+      request = await signNativeIntent(
+        {
+          $type: nativeRef('intent'),
+          version: 2,
+          app: app.principal,
+          genesis: link(genesisCid),
+          principal: actor.principal,
+          actorKey: await signer.exportPublicKey('did'),
+          nonce: bytes(unique16(row.kind === 'act' ? row.actor + 1 : 0, row.position)),
+          operation,
+        },
+        signer,
+      );
+      signedRequests++;
+    }
+    const entry: NativeEntry = {
+      $type: NATIVE_NSID.entry,
+      version: 2,
+      app: app.principal,
+      genesis: link(genesisCid),
+      position: row.position,
+      prev: link(previous),
+      request,
+    };
+    previous = await repository.put(nativeEntryPath(genesisCid, row.position), encodeBlock(entry));
+    entries.push(previous);
+    requests.push(request);
+    if (positions.has(row.position)) {
+      await publishHead(row.position, previous);
+      roots.push(await repository.capture(row.position));
+      await repository.compact();
+    } else if ((row.position & (row.position - 1)) === 0) await repository.compact();
+  }
+  const activation = rows.find((row) => row.kind === 'activate');
+  const faults: E1Fixture['faults'] = [
+    {
+      name: 'missing-admission-evidence',
+      effect: 'verified head retained; interpretation stalls before admission; no ID release',
+      position: 1,
+      missing: (requests[0] as NativeAccountOperation).observation.$link,
+    },
+    {
+      name: 'missing-genesis-source',
+      effect: 'source admission unavailable, not invalid source',
+      position: 0,
+      missing: sources[0]!.root,
+    },
+  ];
+  if (activation)
+    faults.push({
+      name: 'missing-activation-source',
+      effect: 'verified head retained; prior state/source/frontier until source repair',
+      position: activation.position,
+      missing: sources[1]!.root,
+    });
+  if (workload.invalidAction)
+    faults.push({
+      name: 'invalid-action',
+      effect: 'authenticated ordering accepted; framework invalid_action outcome; unchanged domain state',
+      position: rows.find((row) => row.kind === 'act' && !row.valid)!.position,
+    });
+  if (includeFaultRoots) {
+    const lastAction = [...rows].reverse().find((row) => row.kind === 'act')!;
+    if (lastAction.kind !== 'act') throw new Error('Missing final action');
+    const lastRequest = requests[lastAction.position - 1]!;
+    const oldPrev = entries.at(-2) ?? genesisCid;
+    const duplicate: NativeEntry = {
+      $type: NATIVE_NSID.entry,
+      version: 2,
+      app: app.principal,
+      genesis: link(genesisCid),
+      position: workload.n + 1,
+      prev: link(previous),
+      request: lastRequest,
+    };
+    const duplicateCid = await repository.put(nativeEntryPath(genesisCid, duplicate.position), encodeBlock(duplicate));
+    await publishHead(duplicate.position, duplicateCid);
+    faults.push({
+      name: 'duplicate-request',
+      effect: 'prefix rejects duplicate; accepted indexes and original receipt unchanged',
+      position: duplicate.position,
+      root: await repository.capture(duplicate.position),
+    });
+    if (lastRequest.$type !== nativeRef('signedRequest')) throw new Error('Final fixture request not signed');
+    const signed = lastRequest as import('../../src/protocol/native-wire.ts').NativeSignedRequest;
+    const collision = await signNativeIntent(
+      { ...signed.intent, operation: { ...signed.intent.operation, payload: { amount: 1 } } },
+      devices[lastAction.actor]!,
+    );
+    const collisionEntry = { ...duplicate, request: collision };
+    const collisionCid = await repository.put(
+      nativeEntryPath(genesisCid, duplicate.position),
+      encodeBlock(collisionEntry),
+    );
+    await publishHead(duplicate.position, collisionCid);
+    faults.push({
+      name: 'duplicate-nonce',
+      effect: 'prefix rejects actor tuple collision; original signed request retained',
+      position: duplicate.position,
+      root: await repository.capture(duplicate.position),
+    });
+    const forkRequest = await signNativeIntent(
+      {
+        ...signed.intent,
+        nonce: bytes(unique16(lastAction.actor + 1, workload.n + 10)),
+        operation: { ...signed.intent.operation, payload: { amount: lastAction.amount === 1 ? 2 : 1 } },
+      },
+      devices[lastAction.actor]!,
+    );
+    const fork: NativeEntry = { ...duplicate, position: workload.n, prev: link(oldPrev), request: forkRequest };
+    const forkCid = await repository.put(nativeEntryPath(genesisCid, workload.n), encodeBlock(fork));
+    await publishHead(workload.n, forkCid);
+    faults.push({
+      name: 'same-height-fork',
+      effect: 'accepted floor rejects changed entry at known head; fresh reader cannot prove unseen equivocation',
+      position: workload.n,
+      root: await repository.capture(workload.n),
+    });
+    signedRequests += 2;
+  }
+  await repository.compact();
+  // Discard the last working tree if it is not among the retained selected roots.
+  for (const cid of repository.store.blocks.keys())
+    if (!repository.selected.has(cid)) repository.store.blocks.delete(cid);
+  return {
+    version: 1,
+    workload,
+    plan: rows,
+    expected,
+    genesis,
+    genesisCid,
+    appKey: app.signing,
+    appIdentity: {
+      auditBytes: [...new TextEncoder().encode(JSON.stringify(app.rows))],
+      selectedTipCid: app.selectedTipCid,
+    },
+    actors,
+    sources: sources.map(({ root, execution, closure }) => ({ root, execution, closure })),
+    sourceBlocks: serial(sourceBlocks),
+    retainedContent: serial(content),
+    repositoryBlocks: serial(repository.store.blocks),
+    entries,
+    roots,
+    faults,
+    preparation: {
+      elapsedMs: performance.now() - started,
+      recordWrites: repository.recordWrites,
+      signedRequests,
+      signedCommits: repository.signedCommits,
+      selectedRoots: roots.length + faults.filter((fault) => fault.root).length,
+      repositoryBlocks: repository.store.blocks.size,
+      repositoryBytes: byteTotal(repository.store.blocks),
+      retainedContentBytes: byteTotal(content),
+      sourceBytes: byteTotal(sourceBlocks),
+      maxWorkingBlocks: repository.maxWorkingBlocks,
+      discardedBlocks: repository.discardedBlocks,
+      expectedStateBytes,
+    },
+  };
+}
