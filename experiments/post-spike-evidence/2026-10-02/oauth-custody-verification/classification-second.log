@@ -1,0 +1,10 @@
+✔ storage finalization crossing the network deadline preserves the original work failure (523.367291ms)
+✔ definitive verification failure retains its class when awaited signout crosses the network deadline (0.464417ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1003.609125

@@ -1,0 +1,59 @@
+{"custodyCase":"unauthenticated-http-outage","stage":"identity","status":503,"operation":"resource","failure":{"succeeded":true},"deltasBeforeRetry":{"token":0,"revoke":0,"resource":1},"exactAccountUnchanged":true,"live":true,"deadlineUnchanged":true,"nextSucceeded":true}
+✖ unauthenticated HTTP503 identity resource outage preserves exact consent and permits healthy retry (449.387708ms)
+{"custodyCase":"unauthenticated-http-outage","stage":"discovery","status":500,"operation":"restore","failure":{"code":"input","message":"OAuth operation failed"},"deltasBeforeRetry":{"token":0,"revoke":1,"resource":0},"exactAccountUnchanged":false,"live":false,"deadlineUnchanged":false,"nextSucceeded":false}
+✖ unauthenticated HTTP500 discovery restore outage preserves exact consent and permits healthy retry (215.951541ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1127.305958
+
+✖ failing tests:
+
+test at tests/oauth-custody.test.ts:1:29992
+✖ unauthenticated HTTP503 identity resource outage preserves exact consent and permits healthy retry (449.387708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   succeeded: true
+  -   code: 'content_unavailable',
+  -   message: 'OAuth operation is unavailable'
+    }
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-http-outage-20261002/tests/oauth-custody.test.ts:1130:18)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { succeeded: true },
+    expected: { code: 'content_unavailable', message: 'OAuth operation is unavailable' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/oauth-custody.test.ts:1:29992
+✖ unauthenticated HTTP500 discovery restore outage preserves exact consent and permits healthy retry (215.951541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   code: 'input',
+  +   message: 'OAuth operation failed'
+  -   code: 'content_unavailable',
+  -   message: 'OAuth operation is unavailable'
+    }
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-http-outage-20261002/tests/oauth-custody.test.ts:1130:18)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { code: 'input', message: 'OAuth operation failed' },
+    expected: { code: 'content_unavailable', message: 'OAuth operation is unavailable' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

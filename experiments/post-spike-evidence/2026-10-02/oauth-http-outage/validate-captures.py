@@ -1,0 +1,48 @@
+from pathlib import Path
+import json,re,hashlib
+p=Path(__file__).resolve().parent
+source='695a1ab5bd43999641417fce439973aaf7ecb562'
+def objects(name):
+ out=[]
+ for line in (p/name).read_text().splitlines():
+  if line.startswith('# '):line=line[2:]
+  if line.startswith('{'):
+   try:out.append(json.loads(line))
+   except json.JSONDecodeError:pass
+ return out
+def count(name,label):
+ text=(p/name).read_text();m=re.search(r'(?:# |ℹ )'+label+r' (\d+)',text);assert m,(name,label);return int(m[1])
+for name,expected in [('node22-final.log',5),('node24-final.log',5),('node26-final.log',66),('compiled-browser-final.log',57),('packed-final.log',1)]:
+ assert count(name,'tests')==count(name,'pass')==expected and count(name,'fail')==0,name
+for name,version in [('node22-final.log','v22.19.0'),('node24-final.log','v24.21.0'),('node26-final.log','v26.10.0')]:
+ x=next(x for x in objects(name) if 'node' in x and 'cases' in x)
+ assert x['node']==version and len(x['cases'])==35 and x['providerSuccess']==False,name
+compiled=objects('compiled-browser-final.log');groups={kind:[x for x in compiled if x.get('custodyCase')==kind] for kind in ['unauthenticated-http-outage','authenticated-http-response','token-http-outage','explicit-signout-http-outage']}
+assert {k:len(v) for k,v in groups.items()}=={'unauthenticated-http-outage':18,'authenticated-http-response':3,'token-http-outage':6,'explicit-signout-http-outage':1}
+for x in groups['unauthenticated-http-outage']:
+ assert x['failure']=={'code':'content_unavailable','message':'OAuth operation is unavailable'} and x['deltasBeforeRetry']=={'token':0,'revoke':0,'resource':0} and all(x[k] for k in ['exactAccountUnchanged','live','deadlineUnchanged','nextSucceeded']),x
+for x in groups['authenticated-http-response']:assert x['unchangedResponseStatusAndBody'] and x['exactAccountUnchanged'] and x['nextSucceeded'] and x['tokenDelta']==x['revokeDelta']==0,x
+for x in groups['token-http-outage']:assert x['tokenDelta']==1 and x['retired'] and x['nextRequestRefused'] and x['noAutomaticRefreshRetry'],x
+x=groups['explicit-signout-http-outage'][0];assert x['retiredLocally'] and x['nextRequestRefused'] and x['tokenDelta']==0 and x['revokeDelta']==1 and x['remoteFailureSuppressedBySDK']
+for x in objects('reproduction-plain-identity.log'):
+ assert x['failure']['code']=='input' and x['deltasBeforeRetry']=={'token':0,'revoke':1,'resource':0} and not x['live'] and not x['nextSucceeded'],x
+packed=json.loads((p/'packed-consumer-conformance.json').read_text());assert len(packed['cases'])==219 and all(case['passed'] for case in packed['cases']) and packed['sharedDistPreserved']
+summary={'schema':'atseq-oauth-http-outage-validation-v1','sourceProducer':source,'request':'fd118ca81712ba47d6059fafedff55b6acf0f976','rootPromise':'3073d4101911b08f66b80bc559e19f9629ebe5a0','independentChangeAssessment':'cfef2d20226d098383987e3e3a82e7098d5077df','ratification':'7d18d589','build':'pass','check':'pass','notices':'pass','node22':{'version':'22.19.0','focused':5,'nodeSdkCases':35},'node24':{'version':'24.21.0','focused':5,'nodeSdkCases':35},'node26':{'version':'26.10.0','focused':66,'sourceChromiumCustody':57,'nodeSdkCases':35},'compiledChromium':{'version':'153.0.8010.12','custody':57,'HTTPOutageNewCases':28,'unchangedPredecessorCases':29},'newHTTPGroups':{k:len(v) for k,v in groups.items()},'packedConsumerCases':219,'fullOrdinarySuiteRerun':False,'twentyThousandBoundaryRerun':False,'BFCacheMinuteGateRerun':False,'clockRollbackN1':'explicitly deferred','providerSuccess':False,'fullA1Completed':False,'exactRowComparisonScope':'ordinary logical row metadata excluding opaque CryptoKeyPair; exported public JWK; private extractability/type; no private key export or forensic-byte claim','originalRuntimeCapturesPreserved':True}
+(p/'validation-summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+rows=[
+('reproduction.log','cf92f96e','Frozen reproduction tests; unchanged39db production. Initial JSON identity outage tolerated by fixture resolver, while discovery500 reproduced retirement.',1),
+('reproduction-plain-identity.log','8b0256b9','Frozen tightened fixture; unchanged39db production. Both plain identity503 and discovery500 reproduce input retirement.',1),
+('http-draft.log',None,'Evolving uncommitted guard draft and new HTTP tests before final signout control; 27 passed, not final source attribution.',0),
+('signout-draft.log',None,'Evolving test draft incorrectly expected SDK remote revoke rejection; actual maintained agent suppresses remote errors.',1),
+('check-draft.log',None,'Evolving draft normal check lacked copied fixture PDS module and freshly built dist declarations.',1),
+('build-source579fb105.log','579fb105','Frozen guard source with original signout test assertion; build passed, tests later corrected.',0),
+('packed-first.log',source,'Frozen final source; consumer reached output step but experiments/generated directory absent.',1)]
+# Full source IDs are resolved by Git for each frozen short name.
+import subprocess
+root=p.parents[3]
+items=[]
+for name,commit,scope,exitcode in rows:
+ raw=(p/name).read_bytes()
+ items.append({'path':str((p/name).relative_to(root)),'sourceProducer':subprocess.check_output(['git','-C',str(root),'rev-parse',commit],text=True).strip() if commit else None,'sourceScope':scope,'exitCode':exitcode,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()})
+(p/'attempts.json').write_text(json.dumps({'schema':'atseq-oauth-http-outage-attempts-v1','finalSourceProducer':source,'attempts':items,'inspectorFirstPass':'Draft inspector resolved695a1ab5 to its actual full commit before checks. Final inspector uses the explicit full pin; draft text and first script-hash metadata retained. Both inspection passes verified the same actual runtime source.'},indent=2)+'\n')
+print(json.dumps({'allCapturedGatePredicatesChecked':True,'compiledHTTPGroups':{k:len(v) for k,v in groups.items()},'retainedPriorAttempts':len(items),'runtimeSource':source}))

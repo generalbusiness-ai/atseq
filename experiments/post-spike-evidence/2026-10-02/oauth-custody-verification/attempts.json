@@ -1,0 +1,112 @@
+{
+  "schema": "atseq-oauth-custody-verification-attempts-v1",
+  "finalSourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+  "isolatedWorktree": "/private/tmp/atseq-oauth-custody-verification-20261002",
+  "captures": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/build-baseline.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "fresh isolated build of unchanged frozen predecessor production"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/build-final.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "final committed source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/check-final.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "final committed source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/check-first.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/check-second.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/classification-first.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/classification-second.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/compiled-final.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "final committed source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/format-first.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/format-second.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/format-third.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/identity-first.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/node22-final.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "final committed source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/node24-final.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "final committed source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/node26-final.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "final committed source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/notices-final.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "final committed source gate"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/reproduction-retry.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "failed actual Chromium positive control against unchanged predecessor production; appended uncommitted fixture"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/reproduction.log",
+      "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+      "attribution": "failed actual Chromium positive control against unchanged predecessor production; appended uncommitted fixture"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/verification-first.log",
+      "sourceProducer": null,
+      "attribution": "six outage cases passed; issuer mismatch exposed pre-session SDK restore boundary, scope fixture wrongly read redacted inspector"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/verification-second.log",
+      "sourceProducer": null,
+      "attribution": "uncommitted draft attempt"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/evidence-format.log",
+      "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+      "attribution": "passing delivered evidence formatting check"
+    }
+  ]
+}

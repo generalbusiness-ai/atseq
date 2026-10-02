@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { oauthUrl } from '../src/protocol/oauth.ts';
+import { AtseqError } from '../src/core/errors.ts';
+import { OAuthAdapter, type OAuthCustodyClient, oauthUrl } from '../src/protocol/oauth.ts';
 
 test('actual Node OAuth adapter uses maintained client, guarded edges, races and private custody', () => {
   const raw = execFileSync(
@@ -29,4 +30,102 @@ test('browser-visible OAuth URL policy refuses unsafe schemes, hosts, credential
   ])
     assert.throws(() => oauthUrl(url));
   assert.equal(oauthUrl('https://public.example:8443/token').hostname, 'public.example');
+});
+
+// Controlled lifecycle timing verifies classification, not physical storage behavior.
+test('storage finalization crossing the network deadline preserves the original work failure', async () => {
+  const deadline = new AbortController(),
+    originalTimeout = AbortSignal.timeout;
+  AbortSignal.timeout = () => deadline.signal;
+  try {
+    const adapter = new OAuthAdapter(
+      {
+        metadata: {
+          client_id: 'https://client.example/metadata',
+          redirect_uris: ['https://client.example/callback'],
+          token_endpoint_auth_method: 'none',
+          scope: 'atproto',
+        },
+        resolveIdentity: async () => {
+          throw new Error('unused');
+        },
+      },
+      { list: () => [], set: () => {}, take: () => undefined },
+      async (work) => work(),
+      async () => {
+        throw new Error('unused');
+      },
+      async () =>
+        ({
+          restore: async () => {
+            throw new AtseqError('input', 'private failure');
+          },
+        }) as unknown as OAuthCustodyClient,
+      {
+        prepare: async () => {},
+        touch: async () => {},
+        tokenRequestDispatched: () => {},
+        finish: async () => {
+          deadline.abort();
+          throw new Error('storage completion failed');
+        },
+      },
+    );
+    await assert.rejects(
+      () => adapter.restore('did:plc:aaaaaaaaaaaaaaaaaaaaaaaa', 'atproto'),
+      (error: unknown) =>
+        error instanceof AtseqError && error.code === 'input' && error.message === 'OAuth operation failed',
+    );
+  } finally {
+    AbortSignal.timeout = originalTimeout;
+  }
+});
+
+test('definitive verification failure retains its class when awaited signout crosses the network deadline', async () => {
+  const deadline = new AbortController(),
+    originalTimeout = AbortSignal.timeout;
+  AbortSignal.timeout = () => deadline.signal;
+  let signouts = 0;
+  try {
+    const did = 'did:plc:aaaaaaaaaaaaaaaaaaaaaaaa';
+    const adapter = new OAuthAdapter(
+      {
+        metadata: {
+          client_id: 'https://client.example/metadata',
+          redirect_uris: ['https://client.example/callback'],
+          token_endpoint_auth_method: 'none',
+          scope: 'atproto',
+        },
+        resolveIdentity: async () => {
+          throw new Error('unused');
+        },
+      },
+      { list: () => [], set: () => {}, take: () => undefined },
+      async (work) => work(),
+      async () => {
+        throw new Error('unused');
+      },
+      async () =>
+        ({
+          restore: async () => ({
+            did,
+            getTokenInfo: async () => ({ sub: did, scope: 'atproto repo:extra' }),
+            signOut: async () => {
+              signouts++;
+              deadline.abort();
+              throw new Error('cleanup failure');
+            },
+          }),
+        }) as unknown as OAuthCustodyClient,
+      { prepare: async () => {}, touch: async () => {}, tokenRequestDispatched: () => {}, finish: async () => {} },
+    );
+    await assert.rejects(
+      () => adapter.restore(did, 'atproto'),
+      (error: unknown) =>
+        error instanceof AtseqError && error.code === 'input' && error.message === 'OAuth operation failed',
+    );
+    assert.equal(signouts, 1);
+  } finally {
+    AbortSignal.timeout = originalTimeout;
+  }
 });

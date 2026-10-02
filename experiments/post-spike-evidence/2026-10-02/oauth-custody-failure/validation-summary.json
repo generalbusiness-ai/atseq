@@ -1,0 +1,36 @@
+{
+  "schema": "atseq-oauth-custody-failure-validation-v1",
+  "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+  "build": "pass",
+  "check": "pass",
+  "notices": "pass",
+  "node22": {
+    "version": "22.19.0",
+    "focused": 30,
+    "nodeSdkCases": 35
+  },
+  "node24": {
+    "version": "24.21.0",
+    "focused": 30,
+    "nodeSdkCases": 35
+  },
+  "node26": {
+    "version": "26.10.0",
+    "ordinary": 486,
+    "excluded": "^entry 20000 is accepted"
+  },
+  "compiledChromium": {
+    "custody": 21,
+    "lifecycle": 1,
+    "total": 22,
+    "actualPersistedBFCache": true,
+    "actualMinuteTimer": true
+  },
+  "packedConsumer": 219,
+  "unknownCrashConservative": true,
+  "plainResourceResetPreservesLive": true,
+  "unresolvedRefreshResponseRetires": true,
+  "localFinalizationRequiresTransactionCompletion": true,
+  "clockRollbackN1": "explicitly deferred",
+  "fullA1Closed": false
+}

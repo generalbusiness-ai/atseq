@@ -1,0 +1,5 @@
+
+> atseq@0.1.0 check
+> tsc --noEmit && npm run format:check && npm run check:layers && npm run check:dependencies
+
+tests/oauth-adapter.test.ts(41,9): error TS2741: Property 'redirect_uris' is missing in type '{ client_id: string; token_endpoint_auth_method: "none"; scope: string; }' but required in type '{ redirect_uris: [string, ...string[]]; response_types?: ["code" | "code id_token" | "code id_token token" | "code token" | "id_token" | "id_token token" | "none" | "token", ...("code" | ... 6 more ... | "token")[]] | undefined; ... 26 more ...; authorization_details_types?: string[] | undefined; }'.

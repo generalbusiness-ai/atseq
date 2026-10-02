@@ -1,0 +1,15 @@
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (28514.949166ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29261.367959
+
+✖ failing tests:
+
+test at tests/package.test.ts:1:858
+✖ packed APIs, declarations, JSON CLI and host work in a fresh native Node consumer (28514.949166ms)
+  [Error: ENOENT: no such file or directory, open '/private/tmp/atseq-oauth-http-outage-20261002/experiments/generated/package-conformance.json'] { errno: -2, code: 'ENOENT', syscall: 'open', path: '/private/tmp/atseq-oauth-http-outage-20261002/experiments/generated/package-conformance.json' }

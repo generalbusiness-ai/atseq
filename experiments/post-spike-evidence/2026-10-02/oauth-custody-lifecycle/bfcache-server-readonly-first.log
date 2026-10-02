@@ -1,0 +1,38 @@
+{
+  "browser": "153.0.8010.12",
+  "actualTLS": true,
+  "requestInterception": false,
+  "initial": {
+    "instance": "0df418e4-f644-49ea-96f5-09ae8deafad6",
+    "events": [
+      {
+        "event": "pageshow",
+        "persisted": false
+      }
+    ],
+    "activeTimers": 1
+  },
+  "restored": {
+    "instance": "02eb9d26-0c28-43d3-9e1a-ee1e8b2ca74a",
+    "events": [
+      {
+        "event": "pageshow",
+        "persisted": false
+      }
+    ],
+    "activeTimers": 0,
+    "notRestored": {
+      "src": null,
+      "id": null,
+      "url": "https://custody.atseq-probe.net:64935/",
+      "name": null,
+      "reasons": [
+        {
+          "reason": "masked"
+        }
+      ],
+      "children": []
+    }
+  },
+  "bfcache": false
+}

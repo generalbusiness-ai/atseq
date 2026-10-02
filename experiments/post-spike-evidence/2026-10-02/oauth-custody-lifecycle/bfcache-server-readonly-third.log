@@ -1,0 +1,35 @@
+{
+  "browser": "153.0.8010.12",
+  "actualTLS": true,
+  "requestInterception": false,
+  "diagnostics": [],
+  "initial": {
+    "instance": "cd3a3dac-aa72-4a9d-9aef-f0fbb7bf7a57",
+    "events": [
+      {
+        "event": "pageshow",
+        "persisted": false
+      }
+    ],
+    "activeTimers": 1
+  },
+  "restored": {
+    "instance": "cd3a3dac-aa72-4a9d-9aef-f0fbb7bf7a57",
+    "events": [
+      {
+        "event": "pageshow",
+        "persisted": false
+      },
+      {
+        "event": "pagehide",
+        "persisted": true
+      },
+      {
+        "event": "pageshow",
+        "persisted": true
+      }
+    ],
+    "activeTimers": 0
+  },
+  "bfcache": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "atseq-oauth-bounded-custody-validation-v1",
+  "sourceCommit": "214635a9abc38d14428422679b8613fb6c990a10",
+  "sourceBrowserCustodyCases": 14,
+  "compiledBrowserCustodyCases": 14,
+  "node22FocusedTests": 21,
+  "node24FocusedTests": 21,
+  "node26OrdinaryTests": 477,
+  "nodeOAuthCasesPerVersion": 35,
+  "packedCompiledCases": 219,
+  "build": "passed",
+  "check": "passed",
+  "notices": "passed",
+  "chromium": "153.0.8010.12",
+  "providerSuccess": false,
+  "syntheticOnly": true,
+  "twentyThousandBoundaryRerun": false,
+  "sourceBaseline": "93295649c992180c98bbf0bf75cd8f7d58a16df2",
+  "earlierFailuresRetained": true
+}

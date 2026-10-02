@@ -1,0 +1,271 @@
+{
+  "schema": "atseq-oauth-custody-failure-inspection-v1",
+  "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+  "changedFiles": [
+    {
+      "path": "src/browser/oauth-adapter.ts",
+      "bytes": 5842,
+      "sha256": "736f2d3985669e13f6f83b1005a417c71a0004fafae419d47478c39e5ff3814b"
+    },
+    {
+      "path": "src/browser/oauth-custody.ts",
+      "bytes": 17999,
+      "sha256": "4430a7bb47a3c96dc54b931b60a08e769604016574778daecae2e1a90ef77ebd"
+    },
+    {
+      "path": "src/protocol/oauth.ts",
+      "bytes": 20812,
+      "sha256": "5c7bec967422751e3a6ec8263c04d0e0660c6f0884f9f7d59795b49f681699d6"
+    },
+    {
+      "path": "tests/oauth-adapter.test.ts",
+      "bytes": 2922,
+      "sha256": "f4e59a318aa3172793590aa6573161b13f5addf6e332549e814417b8654bcdc0"
+    },
+    {
+      "path": "tests/oauth-custody-lifecycle.test.ts",
+      "bytes": 9798,
+      "sha256": "3b27964a6f0662231c8bcfd2ae8afa72446d0b1c70d00b75d3dff8b32f1473cf"
+    },
+    {
+      "path": "tests/oauth-custody.test.ts",
+      "bytes": 32168,
+      "sha256": "da11608ada6f90ecb9a5973bcc1b65fb543508cc65dc9207c776da7954416448"
+    },
+    {
+      "path": "tests/support/oauth-browser-probe.ts",
+      "bytes": 8028,
+      "sha256": "7d04ad12d9886781ca8408d92401ba8cab7ff5f14160a258db62880e9fcc28c2"
+    }
+  ],
+  "frozenPredecessors": [
+    {
+      "candidate": "bc36c99cc18a2f1e95e846900892831334d1aae5",
+      "sourceProducer": "214635a9abc38d14428422679b8613fb6c990a10",
+      "manifest": {
+        "path": "experiments/post-spike-evidence/2026-10-02/oauth-bounded-custody/manifest.json",
+        "bytes": 10086,
+        "sha256": "07f00944e8d5d533127286f01b3a0c3de1fde30b2b494db7e93afa28e72b1cb8"
+      },
+      "deliveryFilesVerified": 43,
+      "sourceFilesVerifiedAgainstFrozenGit": 7
+    },
+    {
+      "candidate": "f6e7fbd626f072229b54c3ab240b87079fac9df1",
+      "sourceProducer": "fb17129a976c4f59d8c0651f2292a9453eb04c10",
+      "manifest": {
+        "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-lifecycle/manifest.json",
+        "bytes": 5515,
+        "sha256": "b13e4905de9c23633f3b45a088a33d890078e4d23836cc03a82a3eade591c6b6"
+      },
+      "deliveryFilesVerified": 22,
+      "sourceFilesVerifiedAgainstFrozenGit": 2
+    }
+  ],
+  "unchangedBaselineFiles": [
+    {
+      "path": "package.json",
+      "bytes": 4425,
+      "sha256": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca"
+    },
+    {
+      "path": "npm-shrinkwrap.json",
+      "bytes": 143687,
+      "sha256": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+    },
+    {
+      "path": "src/core/dependencies.ts",
+      "bytes": 36431,
+      "sha256": "35885964c3bbfca8faafa1780773314916ab1f38e2ca09756aadc6d6ba1637ba"
+    },
+    {
+      "path": "src/core/dependencies-approved.json",
+      "bytes": 59339,
+      "sha256": "1355b4a37500bbb95cd58e0c8dafd593bb152ba38ad29e576c0771da6f0edbb6"
+    },
+    {
+      "path": "src/integrity/files-approved.json",
+      "bytes": 1419517,
+      "sha256": "18a3dadff6cbf97aecb19a61e491a2138de273e85d287ebfec9f1c10760e6fe4"
+    },
+    {
+      "path": "src/archive/notices.json",
+      "bytes": 152328,
+      "sha256": "97a1ac3be51234729bfa974ad2b4d9a5cb2f84680f8258adfa7eb94cf2d93176"
+    },
+    {
+      "path": "src/protocol/index.ts",
+      "bytes": 242,
+      "sha256": "5f8910165f62eb6aff7122e58e6d8804c1a2afe45364135e5969389e18f424e6"
+    },
+    {
+      "path": "src/api/index.ts",
+      "bytes": 332,
+      "sha256": "f8187ac0fc7b8128e08bd267577873253b31543969d7ba3b454daa47b496e680"
+    },
+    {
+      "path": "src/application/index.ts",
+      "bytes": 811,
+      "sha256": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2"
+    },
+    {
+      "path": "src/client/index.ts",
+      "bytes": 304,
+      "sha256": "2931128b27dc9681e346f5817648a040a1dac19dc99cf21fc9d602a4b5a43fb0"
+    },
+    {
+      "path": "src/host/index.ts",
+      "bytes": 420,
+      "sha256": "4164cf90da42ca49914c5ea0dbbc31197a71238ba8492d19a38bb3bad262c1f2"
+    },
+    {
+      "path": "src/runtime/index.ts",
+      "bytes": 354,
+      "sha256": "edc118f495cae9ec0523931d4b74af6d88abd180a8d67d90d643c1f539aa9196"
+    },
+    {
+      "path": "src/archive/index.ts",
+      "bytes": 179,
+      "sha256": "15ee1b676434c81cb8ff73959e5df5dcbceb90cdd2760cd266013f98f77eaf1f"
+    },
+    {
+      "path": "src/protocol/identity.ts",
+      "bytes": 810,
+      "sha256": "4d9edb717b6d98e051a229f3d507012de2739659f231b82b558add4b177ddb49"
+    },
+    {
+      "path": "src/host/oauth-adapter.ts",
+      "bytes": 3885,
+      "sha256": "5b7296060726431dbaecf2cc84f99371c495fa063e7f8052eb11f3598bad8877"
+    }
+  ],
+  "selectedInstalledSdkFiles": [
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/package.json",
+      "bytes": 1158,
+      "sha256": "38ae559a12d1b328451d3e66f12fbfa7b1ef4e1ed8bdbbc5db152d014a4ef330"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/dist/index.js",
+      "bytes": 319,
+      "sha256": "f659eb6aa0d44e5846c5a5d2546565bf9a9ae626614c2e8a04384c30c7fc1ba9"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client-browser/dist/index.d.ts",
+      "bytes": 321,
+      "sha256": "b6cdb2a62be0b7af8dfac936465c51bd04b465fa1c20a15b886ae303d36639d6"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/index.d.ts",
+      "bytes": 1087,
+      "sha256": "26672292e3415dc138a94d3e086123c41575c176ba9baa09b0644fbe7ae7ffcf"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-client.js",
+      "bytes": 13216,
+      "sha256": "caff70d770559e359c68fca345024b01065487c64f99d18f4bfc812fe0c2c93c"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-client.d.ts",
+      "bytes": 17598,
+      "sha256": "d4a13488b84f1f459fe0a13da5f53ea382412a9b8416a11219b61f7dc5d3c7bd"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/state-store.d.ts",
+      "bytes": 962,
+      "sha256": "901a6dde4f50b7a0a60fc7f4da19e404d8af3e3c33f9a4c2757106439c1e7cc1"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/session-getter.js",
+      "bytes": 13387,
+      "sha256": "ac2afc9187d060a6cfaf6c5376cd4946e06c59819def18f02bc1560da9b061d6"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/session-getter.d.ts",
+      "bytes": 2572,
+      "sha256": "f5b698c092ce65d93cf7e26464276b3d6d055c7c78802f0048fd172bd27b0b6f"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-server-agent.js",
+      "bytes": 7739,
+      "sha256": "bc4f644df77e7e180e711f5b8a7a118f5d06dcf9457933bb088a3562cc321b74"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-server-factory.js",
+      "bytes": 1353,
+      "sha256": "63a748a2ff27728efb9d7f9fbed5c6e1ac3b8f5e15ab0d86c0439aebc08fcc4f"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/runtime.js",
+      "bytes": 3602,
+      "sha256": "9622cac6047a825566014e79cce45faf0d18898bfb2f17fb14270bf9d16dac09"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/runtime-implementation.d.ts",
+      "bytes": 758,
+      "sha256": "f3d246b064cdde6d61fb2fbafa09daa2ad6c02cea25fb4d6a8513481bd18bb64"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/package.json",
+      "bytes": 742,
+      "sha256": "d9483d8a1fa533dcf37da6fcd7e637a577db699b34e679e79c9a64831d2f95ab"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/cached-getter.js",
+      "bytes": 5855,
+      "sha256": "2d517d0d49846db72ea0f440494d3ddb88b1e74851bb23a196a5fbe23f8b7dca"
+    },
+    {
+      "path": "node_modules/@atproto-labs/simple-store/package.json",
+      "bytes": 685,
+      "sha256": "75b4a3da06eedc05fe58216fe04d1ad8800fade17b05e2ac6c17c8bec68bce0f"
+    },
+    {
+      "path": "node_modules/@atproto-labs/simple-store/dist/cached-getter.js",
+      "bytes": 5793,
+      "sha256": "bfcb8f7c32c2e39f3f5ed4d46ba3f73e6e7fdcb282659fac1992354e2913214b"
+    },
+    {
+      "path": "node_modules/@atproto/jwk-webcrypto/dist/webcrypto-key.js",
+      "bytes": 1698,
+      "sha256": "6126c594a2e1b2d72cc7e828fde6a5852d5fd91ebf86d5ed92de34ea7a845d28"
+    },
+    {
+      "path": "node_modules/@atproto/jwk-webcrypto/dist/webcrypto-key.d.ts",
+      "bytes": 640,
+      "sha256": "661ccb3846c7975d52c6b0845abcc3f81d311a7f939f6fc01cfb5415684371e0"
+    }
+  ],
+  "runtimePackages": 194,
+  "preservedPriorPackages": 147,
+  "previouslyApprovedOAuthAdditions": 47,
+  "newPackages": 0,
+  "physicalApprovedRuntimeFilesVerified": 14234,
+  "buildSourcePinsVerified": 143,
+  "buildOutputPinsVerified": 460,
+  "maintainedClient": "@atproto/oauth-client-browser@0.5.8",
+  "selectedSimpleStore": "0.5.1",
+  "privateSdkDatabaseOpened": false,
+  "productionNodePersistenceAdded": false,
+  "dispatchClassification": "Maintained SDK guarded POST; no Authorization; case-insensitive URL-encoded media type before charset; exact client_id among values; authorization_code or refresh_token among grant_type values; no URL/error-text classification; mark immediately before transport handoff.",
+  "identityFetchSeparated": true,
+  "storageBoundary": "30s network/SDK/pre-finalization budget; awaited local transaction completion separately; original failed-work deadline state preserved through finalization.",
+  "clockRollbackN1": "Deferred explicitly; fixed custody deadlines still use wall clock, not persisted high-water-clock policy.",
+  "dispatchInstalledSdkFiles": [
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-session.js",
+      "bytes": 5208,
+      "sha256": "d95fbbc2fe26d7704d236a7b3fc17754b811c060ef81ed40d4a630e6baf0d631"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-server-agent.js",
+      "bytes": 7739,
+      "sha256": "bc4f644df77e7e180e711f5b8a7a118f5d06dcf9457933bb088a3562cc321b74"
+    },
+    {
+      "path": "node_modules/@atproto/oauth-client/dist/oauth-client-auth.js",
+      "bytes": 6708,
+      "sha256": "91c850e1d1bb580c8a67d6b0fd0986602cfef4be3cbb0d01c508e7e6dceb7b7b"
+    }
+  ]
+}

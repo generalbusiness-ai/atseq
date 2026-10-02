@@ -1,0 +1,10 @@
+{"browser":"153.0.8010.12","syntheticOnly":true,"providerSuccess":false,"crossDocumentOneExchange":true,"twoPendingStateSelection":true,"nativeTransportUnavailable":true,"deterministicHTTPRefusal":true,"reloadRestored":true,"keyProperties":[{"privateExtractable":false,"privateType":"private","publicExtractable":true}],"cookiesSent":0,"isolatedPublisherAndAppOrigin":true}
+✔ Chromium exercises maintained OAuth, custody origin, reload, cross-document consume and non-extractable key (929.684625ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1312.146167

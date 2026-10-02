@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""Check actual frozen source, SDK, build outputs, runtime files and retained evidence."""
+from pathlib import Path
+import hashlib,json,subprocess,sys
+ROOT=Path(__file__).resolve().parents[4]
+PACKET=Path(__file__).resolve().parent
+SOURCE='695a1ab5bd43999641417fce439973aaf7ecb562'
+assert subprocess.check_output(['git','-C',str(ROOT),'rev-parse',SOURCE+'^{commit}'],text=True).strip()==SOURCE
+BASE='39db7182b19d224091c0b50c44d8212055207d01'
+MAIN='51079ecf9bb9b1f024589c341ce5cd473dd064e1'
+H4='f7a22dcb57db0598d9d7e8d80dc2f64075221b8a'
+
+def sha(raw):return hashlib.sha256(raw).hexdigest()
+def blob(commit,path):return subprocess.check_output(['git','-C',str(ROOT),'show',commit+':'+path])
+def pin(path):
+ raw=(ROOT/path).read_bytes();return {'path':path,'bytes':len(raw),'sha256':sha(raw)}
+def write(name,value): (PACKET/name).write_text(json.dumps(value,indent=2)+'\n')
+changed=['src/protocol/oauth.ts','tests/oauth-custody.test.ts','tests/support/oauth-browser-probe.ts','tsconfig.json']
+actual=subprocess.check_output(['git','-C',str(ROOT),'diff','--name-only',BASE,SOURCE],text=True).splitlines()
+assert set(actual)==set(changed),(actual,changed)
+for path in changed:assert (ROOT/path).read_bytes()==blob(SOURCE,path),path
+assert (ROOT/'tsconfig.json').read_bytes()==blob(MAIN,'tsconfig.json')==blob(H4,'tsconfig.json')
+unchanged=['package.json','npm-shrinkwrap.json','src/core/dependencies.ts','src/core/dependencies-approved.json','src/integrity/files-approved.json','src/archive/notices.json','src/protocol/index.ts','src/api/index.ts','src/application/index.ts','src/client/index.ts','src/host/index.ts','src/runtime/index.ts','src/archive/index.ts','src/protocol/identity.ts','src/host/oauth-adapter.ts','src/browser/oauth-adapter.ts','src/browser/oauth-custody.ts','tests/oauth-adapter.test.ts','tests/oauth-custody-lifecycle.test.ts']
+for path in unchanged:assert (ROOT/path).read_bytes()==blob(BASE,path),path
+prior=[('bc36c99cc18a2f1e95e846900892831334d1aae5','oauth-bounded-custody'),('f6e7fbd626f072229b54c3ab240b87079fac9df1','oauth-custody-lifecycle'),('deeb8fd0decd14a04d407dec3edd3de1bafbad7b','oauth-custody-failure'),(BASE,'oauth-custody-verification')]
+predecessors=[]
+for commit,name in prior:
+ path='experiments/post-spike-evidence/2026-10-02/'+name+'/manifest.json'
+ raw=blob(commit,path);assert raw==(ROOT/path).read_bytes(),path
+ manifest=json.loads(raw);checked=0
+ for item in manifest['files']:
+  current=(ROOT/item['path']).read_bytes()
+  assert len(current)==item['bytes'] and sha(current)==item['sha256'],item['path']
+  assert current==blob(commit,item['path']),item['path']
+  checked+=1
+ predecessors.append({'candidate':commit,'manifest':pin(path),'unchangedDeliveryFiles':checked})
+sdk=['node_modules/@atproto/oauth-client-browser/package.json','node_modules/@atproto/oauth-client-browser/dist/index.js','node_modules/@atproto/oauth-client-browser/dist/index.d.ts','node_modules/@atproto/oauth-client/dist/index.d.ts','node_modules/@atproto/oauth-client/dist/oauth-client.js','node_modules/@atproto/oauth-client/dist/state-store.d.ts','node_modules/@atproto/oauth-client/dist/session-getter.js','node_modules/@atproto/oauth-client/dist/oauth-server-agent.js','node_modules/@atproto/oauth-client/dist/oauth-server-factory.js','node_modules/@atproto/oauth-client/dist/oauth-session.js','node_modules/@atproto/oauth-client/dist/fetch-dpop.js','node_modules/@atproto/oauth-client/dist/oauth-client-auth.js','node_modules/@atproto/oauth-client/dist/oauth-resolver.js','node_modules/@atproto/oauth-client/dist/oauth-resolver-error.js','node_modules/@atproto/oauth-client/dist/oauth-authorization-server-metadata-resolver.js','node_modules/@atproto/oauth-client/dist/oauth-protected-resource-metadata-resolver.js','node_modules/@atproto/oauth-client/dist/identity-resolver.js','node_modules/@atproto/oauth-client/node_modules/@atproto-labs/fetch/dist/fetch-error.js','node_modules/@atproto/oauth-client/node_modules/@atproto-labs/fetch/dist/fetch-response.js','node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/package.json','node_modules/@atproto/oauth-client/node_modules/@atproto-labs/simple-store/dist/cached-getter.js','node_modules/@atproto/jwk-webcrypto/dist/webcrypto-key.js']
+build=json.loads((ROOT/'dist/build-provenance.json').read_text())
+for path,digest in build['sourceHashes'].items():assert sha((ROOT/path).read_bytes())==digest,path
+for path,digest in build['outputHashes'].items():assert sha((ROOT/path).read_bytes())==digest,path
+catalog=json.loads((ROOT/'src/core/dependencies-approved.json').read_text())
+files=json.loads((ROOT/'src/integrity/files-approved.json').read_text());count=0
+assert len(catalog['packages'])==194
+for directory in catalog['packages']:
+ for relative,digest in files[directory].items():
+  assert sha((ROOT/directory/relative).read_bytes())==digest,(directory,relative)
+  count+=1
+old=json.loads(blob('3a40d2c5e230cd7698f9cd4b9e8e9729054be33e','src/core/dependencies-approved.json'))
+assert len(old['packages'])==147
+assert all(catalog['packages'][path]==value for path,value in old['packages'].items())
+# Anchors are source inspection, not runtime conformance substitutes.
+source=(ROOT/'src/protocol/oauth.ts').read_text()
+assert "if (!guarded.headers.has('authorization') && (response.status === 429 || response.status >= 500))" in source
+assert source.index('this.#custody.tokenRequestDispatched();')<source.index('const response = await this.#transport(guarded);')<source.index("throw new AtseqError('content_unavailable', 'OAuth service is unavailable');")<source.index('const content = await bodyBytes(response.body')
+assert 'void response.body?.cancel().catch(() => {});' in source
+agent=(ROOT/'node_modules/@atproto/oauth-client/dist/oauth-server-agent.js').read_text()
+assert "async revoke(token) {\n        try {\n            await this.request('revocation', { token });\n        }\n        catch {" in agent
+observations=[
+ {'path':'src/protocol/oauth.ts','claim':'Both maintained SDK and trusted resolver use the guarded edge; 429/5xx only when actual normalized Request lacks Authorization; response URL/origin guards precede classification; body is cancelled without parsing.'},
+ {'path':'node_modules/@atproto/oauth-client/dist/oauth-resolver.js','claim':'resolveIdentity and metadata helpers wrap causes with OAuthResolverError; owned transient error survives operationFailure cause traversal.'},
+ {'path':'node_modules/@atproto/oauth-client/dist/oauth-authorization-server-metadata-resolver.js','claim':'Non200 response otherwise creates FetchResponseError whose cause is Request; no owned transient meaning is retained.'},
+ {'path':'node_modules/@atproto/oauth-client/dist/oauth-protected-resource-metadata-resolver.js','claim':'Same non200 parsing; 404 fallback remains unchanged because not classified as transient here.'},
+ {'path':'node_modules/@atproto/oauth-client/dist/oauth-server-agent.js','claim':'Public-client token/PAR/revoke request uses form payload through dpopFetch; token is marked before transport; revoke intentionally suppresses remote errors.'},
+ {'path':'node_modules/@atproto/oauth-client/dist/oauth-session.js','claim':'Resource Authorization is overwritten with actual token; only invalid_token401 triggers refresh. Refresh failure can return original401; signOut deletes stored session in finally.'},
+ {'path':'src/browser/oauth-custody.ts','claim':'Existing operation marker, mutation/dispatch journal and conservative completion/explicit-refresh/signout rules are unchanged; safe finalization still awaits actual IDB completion.'}]
+write('source-inspection.json',{'schema':'atseq-oauth-http-outage-inspection-v1','sourceProducer':SOURCE,'predecessor':BASE,'reviewedMainConfigSource':MAIN,'reviewedH4Commit':H4,'changedFiles':[pin(x) for x in changed],'unchangedFiles':[pin(x) for x in unchanged],'selectedInstalledSdkFiles':[pin(x) for x in sdk],'observations':observations,'predecessors':predecessors,'priorDeliveryFilesVerified':sum(x['unchangedDeliveryFiles'] for x in predecessors),'runtimePackages':194,'priorPackages':147,'approvedOAuthAdditions':47,'newPackages':0,'actualPhysicalRuntimeFilesVerified':count,'buildSourcesVerified':len(build['sourceHashes']),'actualBuildOutputsVerified':len(build['outputHashes']),'fixtureLock':pin('tests/support/pds/package-lock.json'),'newPublicExports':False,'newNodePersistence':False,'newProviderClaim':False})
+write('inspection-command.json',{'sourceProducer':SOURCE,'command':['python3','experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspect-evidence.py'],'script':pin(str(Path(__file__).relative_to(ROOT))),'scope':'This inspection script was authored after runtime freeze; exact script hash records execution input. Source-only assertions do not replace actual Node/Chromium/packed gates.'})
+print(json.dumps({'sourceProducer':SOURCE,'sourceFiles':len(changed),'unchangedFiles':len(unchanged),'selectedSdkFiles':len(sdk),'physicalRuntimeFiles':count,'priorDeliveryFiles':sum(x['unchangedDeliveryFiles'] for x in predecessors),'buildSources':len(build['sourceHashes']),'buildOutputs':len(build['outputHashes'])}))

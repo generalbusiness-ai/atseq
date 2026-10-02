@@ -1,0 +1,159 @@
+{
+  "schema": "atseq-oauth-custody-verification-evidence-v1",
+  "request": "e19379e8dd8205d13e43708f9073a58cbc31bf24",
+  "promise": "c87cdc6d5fc3bd89876799ccd497fc9977c58b69",
+  "status": "cf1-verification-successor-tested-awaiting-independent-exact-head-review",
+  "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+  "frozenPredecessor": "deeb8fd0decd14a04d407dec3edd3de1bafbad7b",
+  "independentAssessment": "ae36a3502400a2decb324a093471d93f03913b3e",
+  "ratification": "8952de3d",
+  "preservesPredecessorDeliveryHashes": true,
+  "scope": "Known transient owned browser verification recovery; definitive pre-session restore cleanup; original class/deadline captured before cleanup; Node transient cleanup retained; N-1 clock rollback explicitly deferred.",
+  "files": [
+    {
+      "path": "notes/2026-10-02-atseq-oauth-custody-verification-results.md",
+      "bytes": 10033,
+      "sha256": "d0c509279d42ecf5d8033d3b7db9f3e64f0b1c6a180a2bcd3a1881cd2af9f7db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/attempts.json",
+      "bytes": 5153,
+      "sha256": "31113bfdc83b83d3793a7d974cc337a60d617f7a6ced94aec09dbecdb3e04f1d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/build-baseline.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/build-final.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/build-provenance.json",
+      "bytes": 65681,
+      "sha256": "f6f11c457ab0dfa9b0615b367fb1e8d23dbae9d70a5c864e6ce12a170f9200ca"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/check-final.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/check-first.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/check-second.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/classification-first.log",
+      "bytes": 235,
+      "sha256": "83ecea742e67b580ca979a55a98bef9c2873239c58172fdfb0d291633812287f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/classification-second.log",
+      "bytes": 339,
+      "sha256": "9e1b38dad1561cae1ba99fc8a0c32db338d22396f5c8d459cd7bd361719ea3bc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/compiled-final.log",
+      "bytes": 8763,
+      "sha256": "de155d187bd4250d2637f4debab4366de8b458c83579f5bdf3d95aade17b3668"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/evidence-format.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/format-first.log",
+      "bytes": 92,
+      "sha256": "7c76833d3c81f1f227ed6c1b22c439c0811fde2344914f9fc170273aa0228399"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/format-second.log",
+      "bytes": 72,
+      "sha256": "3622b6a9d4815692e8522491e33a2e4b603d2330609d1ed362ccdfe4ad7a376a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/format-third.log",
+      "bytes": 27,
+      "sha256": "8aa7f209f742fbc4859bf80e0fd17c1731562bf5e5c01be7eede69462eebedaa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/identity-first.log",
+      "bytes": 384,
+      "sha256": "592211b95ddef8be21e38bde97f7cb7ceacd0b03075e5e9568d1a91b18b3cce7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/initial-bundle-costs.json",
+      "bytes": 339660,
+      "sha256": "06448bf50be5a98a38da276de8756b6be95296935e345af4ae86dbdb93d39692"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/lazy-chunks.json",
+      "bytes": 265825,
+      "sha256": "e8f45363747147d61ff00fea8ccc36fd00d340706163fa19d3164433f07a7b43"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/node22-final.log",
+      "bytes": 19304,
+      "sha256": "e74ae7beed0907afe04461ae3f00829b1ece462b4fb921c5ab08ddf131018d0b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/node24-final.log",
+      "bytes": 13495,
+      "sha256": "51d119eec59ab29d76589ae8a373172983374ebcc863702d223528a299abff4e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/node26-final.log",
+      "bytes": 90140,
+      "sha256": "72378eeddbec91f8d6e34215bf811859b9a710e15f0445b1ed6d9ff354697189"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/notices-final.log",
+      "bytes": 48,
+      "sha256": "d3deb02f48856e85ebfe33e417635b5b6429e19735d2d2c7720611ede7239460"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/packed-consumer-conformance.json",
+      "bytes": 91717,
+      "sha256": "9434c61bbb1476dddb8fa125e67e96560edf708089996048427d8c116a53d6c7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/reproduction-retry.log",
+      "bytes": 1125,
+      "sha256": "476315d02e4bfe3a023f0eb27e9775c76d58147e16ef9a4f6ef061199a3c429d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/reproduction.log",
+      "bytes": 1105,
+      "sha256": "57d746c4b6c95e26e0595bde33375d319beb8d31fb0de66b14864a2b47aa0de6"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/source-inspection.json",
+      "bytes": 9866,
+      "sha256": "685d81056e8bb27a93d7a16ff9c6f65d2f9282407e3c8b79fb4645cb3aab4edc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/validation-summary.json",
+      "bytes": 1042,
+      "sha256": "a5dd34f129fc45170b70b9ea85b4f356ec60b68621fe180df8c6665031c1aae7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/verification-first.log",
+      "bytes": 3270,
+      "sha256": "1ac6bdba750f98534671b87ae3e5d6139cac4e414b56df444f24068841e533a0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-verification/verification-second.log",
+      "bytes": 2395,
+      "sha256": "3058834d14fc40796ca49d0fb6d3b78f81dc968f5ded35c96b36488848fe33d7"
+    }
+  ]
+}

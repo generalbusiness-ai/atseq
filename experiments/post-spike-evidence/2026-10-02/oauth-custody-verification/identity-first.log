@@ -1,0 +1,10 @@
+{"custodyCase":"fresh-verification-reset","nextSucceeded":true,"tokenDelta":0,"revokeDelta":0,"resourceDelta":1,"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged consent before resource dispatch and permits next request (237.946292ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 510.494666

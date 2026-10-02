@@ -1,0 +1,190 @@
+{
+  "schema": "atseq-oauth-http-outage-delivery-v1",
+  "sourceProducer": "695a1ab5bd43999641417fce439973aaf7ecb562",
+  "predecessor": "39db7182b19d224091c0b50c44d8212055207d01",
+  "request": "fd118ca81712ba47d6059fafedff55b6acf0f976",
+  "rootPromise": "3073d4101911b08f66b80bc559e19f9629ebe5a0",
+  "scope": "Actual narrow CF-1a HTTP outage implementation and preserved failed controls; independent exact-head review pending; no full A1/provider/publisher claim; manifest excludes itself",
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/attempts.json",
+      "bytes": 3388,
+      "sha256": "5e9acf0d79e2a7036ec85cdd90a27865cba0dfa562b12637ec24214e335cfb37"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/build-final.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/build-provenance.json",
+      "bytes": 65681,
+      "sha256": "da969ef85673b0053f8129e512348e7087daa8c09d284f5fd1f146c0ea824525"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/build-source579fb105.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/check-draft.log",
+      "bytes": 545,
+      "sha256": "642de285fb88a39e3570d82713327f2d487ab1b2eca36f07d39c604fd48245e7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/check-final.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/commands.json",
+      "bytes": 4320,
+      "sha256": "9e784aa4d55ce031348e6b3dae9fda5beefee24d8ce9c3e799e94202339e748d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/compiled-browser-final.log",
+      "bytes": 18868,
+      "sha256": "dc25165306890e86cc17b9ea5cf8725e7829417fb3afface62ed4dbfe45fe860"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/environment.json",
+      "bytes": 241,
+      "sha256": "9f71e9ec5fcead54b34aac8603c53af4c2e3488c15818483fe85b0c297b7b062"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/http-draft.log",
+      "bytes": 10789,
+      "sha256": "350e44851ea6d080abfbe0d96ad414423a6a8ec238731ee884359689dab01bc8"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/initial-bundle-costs.json",
+      "bytes": 339660,
+      "sha256": "06448bf50be5a98a38da276de8756b6be95296935e345af4ae86dbdb93d39692"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspect-evidence-before-full-pin.txt",
+      "bytes": 9228,
+      "sha256": "79400ff8f0760a906ad7cdfc5933dee6b4cbf724fc7207244c8233951d20eccc"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspect-evidence.py",
+      "bytes": 9144,
+      "sha256": "020c0dda7b1b65e2134e6c8463b22d5044ac99b573e664b23983f33bab2acbb3"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspection-command-first.json",
+      "bytes": 592,
+      "sha256": "cc80b3a8134f0aae747c1b2ff59327891492767eb1b11e09a750dc91efc40e41"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspection-command.json",
+      "bytes": 592,
+      "sha256": "abf19b97b19d2b549eaded103b985fef9092d272effebcf824079920adfbbc80"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspection-final.log",
+      "bytes": 227,
+      "sha256": "de7d9e8375243c52f7143bf579b3cb2e41e4be7fa3fe3e10ea9f346dec29ed53"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/inspection-first.log",
+      "bytes": 227,
+      "sha256": "de7d9e8375243c52f7143bf579b3cb2e41e4be7fa3fe3e10ea9f346dec29ed53"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/lazy-chunks.json",
+      "bytes": 265825,
+      "sha256": "ffaff76d81080299efec1303d3c63b47f18e35c7e4b1d847ec188202abdfbd8c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/metadata-first.json",
+      "bytes": 432,
+      "sha256": "3e7e9ff2c83eb828a19538a1fd44b416404bbbc117efcf03fb8c221fac20f2ba"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/node22-final.log",
+      "bytes": 3008,
+      "sha256": "280f3e8f35f4282384c428cbfadca5b8811a01e3f469ef27b6ec077ead2eb4b7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/node24-final.log",
+      "bytes": 2265,
+      "sha256": "fdf96177674745e916b3b9a9a9850b891c96a9f1388b274727f82fa924365599"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/node26-final.log",
+      "bytes": 23587,
+      "sha256": "06c841078e8706474fd1bcbb482f2fcf773d6bcf530a093b62797de7a3d7906b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/notices-final.log",
+      "bytes": 48,
+      "sha256": "d3deb02f48856e85ebfe33e417635b5b6429e19735d2d2c7720611ede7239460"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/packed-consumer-conformance.json",
+      "bytes": 91717,
+      "sha256": "569ef7a6c52ead24cbe5a35973cf456eacec5f642c54e901952d7fdf2ef4c8fb"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/packed-final.log",
+      "bytes": 220,
+      "sha256": "7bbd40c5de55d8137a91b5ff246cedb01d1c2509fff54fa637859047d672606a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/packed-first.log",
+      "bytes": 675,
+      "sha256": "d80f84878f7f5b3c677b9ac125c6a38ab37b77cf7fe0faf1bbeaeeaf33d4fd6e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/reproduction-plain-identity.log",
+      "bytes": 2905,
+      "sha256": "25d7956b01d8439bb6320158aff2016120c6bff92db6528144bbea961f3fcc0f"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/reproduction.log",
+      "bytes": 2797,
+      "sha256": "4f03651fdf14225fa340e2ebd3bb419342c5ad2fee3ebc762756268318ad0eb1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/signout-draft.log",
+      "bytes": 905,
+      "sha256": "089aa56f06ffea0af2bc27d7bc1c49a1db56bca71a7e3968ae0f364ae341a03c"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/source-inspection.json",
+      "bytes": 12254,
+      "sha256": "0c9fc38f276f06e88b4f3fa29b51f0310485695a2869e7fa0b298e909084dbd1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/validate-captures-before-case-array-fix.txt",
+      "bytes": 5990,
+      "sha256": "8469f6e5e1aa0ae96e3839a915000044d5664a874c1d76aad8d32694c9c9a2a7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/validate-captures.py",
+      "bytes": 5964,
+      "sha256": "eb36ed40ffaca48fad73642ed12d584f1884a17cda62163b77f63d8e76d59b74"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/validation-final.log",
+      "bytes": 284,
+      "sha256": "9d65ecf1d83122744e20c504ece315ee39a2aa7e267cac6d6ab37ccf83e199aa"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/validation-first.json",
+      "bytes": 457,
+      "sha256": "070937a6b51fc1c65b20822c8c0efdf76abada38a8df559895357e024ea72d66"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-http-outage/validation-summary.json",
+      "bytes": 1484,
+      "sha256": "f3f1afd445fa92416eb45cd0df625016c1c09e3c926982ba4992efe3a8ecb7c5"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-oauth-http-outage-results.md",
+      "bytes": 12919,
+      "sha256": "7abd8fbc12f984146c2a6974921f10238d1bb28733325fc3edf9a5c3b77ce802"
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schema": "atseq-oauth-custody-failure-evidence-v1",
+  "request": "e19379e8dd8205d13e43708f9073a58cbc31bf24",
+  "promise": "c87cdc6d5fc3bd89876799ccd497fc9977c58b69",
+  "status": "cf1-successor-tested-awaiting-independent-exact-head-review",
+  "sourceProducer": "aafa48d681cc6caf2b6774fc37fd2a58ff8c754c",
+  "frozenPredecessor": "f6e7fbd626f072229b54c3ab240b87079fac9df1",
+  "earlierFrozenCandidate": "bc36c99cc18a2f1e95e846900892831334d1aae5",
+  "independentAssessment": "ae36a3502400a2decb324a093471d93f03913b3e",
+  "ratification": "8952de3d",
+  "preservesPredecessorDeliveryHashes": true,
+  "scope": "CF-1 safe unchanged live-operation recovery; maintained token-dispatch/write-attempt uncertainty; awaited storage finalization; original failure classification; clock rollback N-1 explicitly deferred.",
+  "files": [
+    {
+      "path": "notes/2026-10-02-atseq-oauth-custody-failure-results.md",
+      "bytes": 11394,
+      "sha256": "32ae8a542b1436ac6fa073f11290ad266be27be60cb52e036cf662da76cd0f2b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/attempts.json",
+      "bytes": 7072,
+      "sha256": "f6065672d25111f189d859cda07ff55ac83529637e014629eb18b74eb618a20b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-final.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-first.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-frozen.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-provenance.json",
+      "bytes": 65681,
+      "sha256": "12dcda2867434ce88b49cafa60fd04ae6ba0a4bb694d6bbbf800a454bc9461a1"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/build-refined.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-final.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-frozen.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-precommit.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/check-refined.log",
+      "bytes": 608,
+      "sha256": "34ecd7317645193a5657f826246ba0f84ce5172f39495dbb93fcf73a1067ad64"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/chromium-first.log",
+      "bytes": 5604,
+      "sha256": "df75788ce048adbe46a3329a7f03a52136019f6ada9be622be7394c65e12ffa9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/chromium-second.log",
+      "bytes": 5635,
+      "sha256": "7d95650b66e4d66fb067667516a21f611468e9f228ea6bbc9bff053a53712308"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/classification-only.log",
+      "bytes": 219,
+      "sha256": "536998c34c6777881321f9da2b74e7f1c1e84410fe2378228fe51511c82f9ff0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/classification-refined.log",
+      "bytes": 1646,
+      "sha256": "ed4288d7b94c6c434d7db816da455f18462e5436931903aa36f1391ffb89a5db"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/compiled-final.log",
+      "bytes": 6487,
+      "sha256": "c582f13a588cd06b584541556bee4cfb899ccc35f2220b90a137b552cae6a97b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/compiled-frozen.log",
+      "bytes": 6494,
+      "sha256": "cae45c155d365d326a7541224d84315bf82d6cd3a083d0111adc9733c986bd79"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/compiled-refined.log",
+      "bytes": 6489,
+      "sha256": "46105b53eb298fa9f297f04ab976ac261973db3070819cb19dadcddeb26eb115"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/evidence-format.log",
+      "bytes": 66,
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/format-refined.log",
+      "bytes": 72,
+      "sha256": "32488a1b011dd7f7c89ab2264179c7f2a4092cdf685c80ea00a13d19a95315ef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/initial-bundle-costs.json",
+      "bytes": 339660,
+      "sha256": "06448bf50be5a98a38da276de8756b6be95296935e345af4ae86dbdb93d39692"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/lazy-chunks.json",
+      "bytes": 265823,
+      "sha256": "ff58fb4b063b0d0a2d211f0eb51ce7911ed3c2c3a376035e2b65f9d41e085618"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node22-final.log",
+      "bytes": 15321,
+      "sha256": "4bd78193c2baeb7e8d9a1cc4c1aec4aa8f9122c99d43233f2b44f6790bd7b8d9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node22-frozen.log",
+      "bytes": 15564,
+      "sha256": "4e129e39a9ee52cd4418c0650972c2d69bb7500ed9f36fc975080bc3edd24313"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node22-refined.log",
+      "bytes": 15563,
+      "sha256": "32bd79de2789d333f1c3ef75eba11531efe85461911a97fdd85fe7516d5aa1ca"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node24-final.log",
+      "bytes": 10992,
+      "sha256": "61d8815060b853c9aa1156a0aa85305553a86d9e97a359d8844c4447b1f1a92d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node24-frozen.log",
+      "bytes": 11093,
+      "sha256": "0586af0dd2c68bc3b2591d97a72f0020e64ea4ef88137ae93735d22d8bb3ae2e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node24-refined.log",
+      "bytes": 11093,
+      "sha256": "f571d2488886d969a9e4646fe35298c661a5da5a44e378c627cd4b5b33f6298d"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node26-final.log",
+      "bytes": 87653,
+      "sha256": "99a8fe8eaf8e7be88095a1cbac326d31d2932787c2b84e661afdffba119cc0c4"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node26-frozen.log",
+      "bytes": 87692,
+      "sha256": "1e519a2895bded11ac7969537c3b9ed8d6a2e745b18133d410e9d875b96bccef"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/node26-refined.log",
+      "bytes": 87707,
+      "sha256": "41de910161fda5dfa2dc67ca9f6ec10d657d67341ea5fce6d8b8c22b74604c5a"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/notices-final.log",
+      "bytes": 48,
+      "sha256": "d3deb02f48856e85ebfe33e417635b5b6429e19735d2d2c7720611ede7239460"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/notices-frozen.log",
+      "bytes": 48,
+      "sha256": "d3deb02f48856e85ebfe33e417635b5b6429e19735d2d2c7720611ede7239460"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/notices-refined.log",
+      "bytes": 48,
+      "sha256": "d3deb02f48856e85ebfe33e417635b5b6429e19735d2d2c7720611ede7239460"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/packed-consumer-conformance.json",
+      "bytes": 91723,
+      "sha256": "8d1ecb9c22d08233491f9c719a89ada56f9081ba0b1157ae46235ba177f21af9"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/source-inspection.json",
+      "bytes": 10082,
+      "sha256": "697c9dd4f0d02bf0a37a72533001c38f8ea51f602b88df0f3d88289ef5a950f0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/types-first.log",
+      "bytes": 255,
+      "sha256": "7c06a95a20de661479cf4a40f3b9b946275263237334d734878df2d202569486"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/oauth-custody-failure/validation-summary.json",
+      "bytes": 892,
+      "sha256": "054311765fe99e04249ed789984c36af8f60a7d7b5baa318ea834cdd08347bfd"
+    }
+  ]
+}
