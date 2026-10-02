@@ -1,0 +1,84 @@
+{
+  "scope": "POST-FREEZE deterministic reproduction and present physical-byte comparison only. Historical compiled wrapper execution-output digests were not recorded and remain unknown.",
+  "started": "2026-10-02T14:28:49.942Z",
+  "finished": "2026-10-02T14:28:50.025Z",
+  "node": "v26.10.0",
+  "measuredFrozenHead": "91fa28f54238ce6fff0e9a18de4b720297f1980d",
+  "originalRoot": "/private/tmp/atseq-r0-native-cost-f1-20261002",
+  "historicalRecipe": {
+    "path": "experiments/r0-native/compile.mjs",
+    "sha256": "a62da9e0388cb33126bae0ab1e68410c60683d4af485b5f48cdfdeb9b0098d0d",
+    "historicalOutputHashCapture": "none; original pins recorded experiment sources only"
+  },
+  "observedCurrentCompiler": {
+    "typescriptVersion": "5.9.2",
+    "publicOwner": "ts-morph ts export",
+    "tsMorphVersion": "27.0.2",
+    "commonVersion": "0.28.1",
+    "productionCompilerVersion": "7.0.2",
+    "files": [
+      {
+        "path": "node_modules/ts-morph/package.json",
+        "bytes": 3568,
+        "sha256": "2c5af3ce2bc65a99b6878045446a45e36097e67861fffd066ef6e9251e7671c6"
+      },
+      {
+        "path": "node_modules/ts-morph/dist/ts-morph.js",
+        "bytes": 946854,
+        "sha256": "6539389af77636d82fd3eaafde309e68d4396648487a100b0f0bfec297e1b764"
+      },
+      {
+        "path": "node_modules/@ts-morph/common/package.json",
+        "bytes": 2006,
+        "sha256": "faef4d4f45c3c5f46d7aca9c1265eb9f4a7111987ff9f73d023b164e8c9719d1"
+      },
+      {
+        "path": "node_modules/@ts-morph/common/dist/ts-morph-common.js",
+        "bytes": 2527608,
+        "sha256": "62eada58492193641cfb1712a4544d26a4478de275e05aa1aff68b37f2e056f7"
+      },
+      {
+        "path": "node_modules/@ts-morph/common/dist/typescript.js",
+        "bytes": 9111641,
+        "sha256": "9b15fee10d00493ef19be4c7b04aaadd7dc88e78e57c6e372a90b13560126510"
+      },
+      {
+        "path": "node_modules/typescript/package.json",
+        "bytes": 3087,
+        "sha256": "3722b30210616a13a3213ded11575ba6b2dbab10c32a5ef67afca8513e27017e"
+      }
+    ]
+  },
+  "sourceHashes": {
+    "experiments/r0-native/probe.ts": "c9910b1e262cfba392db30fb516f45cb0af3dccc60d37c70e7f9a1c4e458116e",
+    "experiments/r0-native/unsupported-counters.ts": "ecef40c11ef1bf5cea21096dbf420602e4230666f30eb6216aacda9e0adf7d67"
+  },
+  "wrappers": [
+    {
+      "source": "experiments/r0-native/unsupported-counters.ts",
+      "sourceSha256": "ecef40c11ef1bf5cea21096dbf420602e4230666f30eb6216aacda9e0adf7d67",
+      "originalPhysicalPath": "/private/tmp/atseq-r0-native-cost-f1-20261002/.atseq-local/r0-native/compiled/experiments/r0-native/unsupported-counters.js",
+      "bytes": 6005,
+      "currentPhysicalSha256": "1bd815f37b4863c4305f1029e59fb3e07b8d4bb16495c3d33b8fa2e48061a981",
+      "postFreezeRecompiledSha256": "1bd815f37b4863c4305f1029e59fb3e07b8d4bb16495c3d33b8fa2e48061a981",
+      "repeatedCompilationIdentical": true,
+      "currentPhysicalIdentical": true,
+      "retainedCopy": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/recompiled-unsupported-counters.js",
+      "historicallyRecordedExecutionHash": null
+    },
+    {
+      "source": "experiments/r0-native/probe.ts",
+      "sourceSha256": "c9910b1e262cfba392db30fb516f45cb0af3dccc60d37c70e7f9a1c4e458116e",
+      "originalPhysicalPath": "/private/tmp/atseq-r0-native-cost-f1-20261002/.atseq-local/r0-native/compiled/experiments/r0-native/probe.js",
+      "bytes": 28167,
+      "currentPhysicalSha256": "afcb4958b325f085bf58bfebaace878a2f92b2e48638d81b82e1c395aef05870",
+      "postFreezeRecompiledSha256": "afcb4958b325f085bf58bfebaace878a2f92b2e48638d81b82e1c395aef05870",
+      "repeatedCompilationIdentical": true,
+      "currentPhysicalIdentical": true,
+      "retainedCopy": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/recompiled-probe.js",
+      "historicallyRecordedExecutionHash": null
+    }
+  ],
+  "absoluteImportMapping": "Original absolute file URLs deliberately preserved to reproduce exact current wrapper bytes; this is not a portable-path output claim.",
+  "benchmarkRerun": false
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "name": "prepare-one-100",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "100",
+      "one",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:17.716Z",
+    "finished": "2026-10-02T12:45:19.045Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-one-100.log",
+    "sha256": "50abf3b60ae44c7d077803d93d1ce13cdcc822986eea1f9db3a8c5d3c795e2c6"
+  },
+  {
+    "name": "prepare-sixteen-100",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "100",
+      "sixteen",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:19.045Z",
+    "finished": "2026-10-02T12:45:20.246Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-sixteen-100.log",
+    "sha256": "30dc56d9d399511981886e0c2fcba813d029c2270204868b5b1178c3c3cf3402"
+  },
+  {
+    "name": "prepare-retired-100",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "100",
+      "retired",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:20.247Z",
+    "finished": "2026-10-02T12:45:21.820Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-retired-100.log",
+    "sha256": "6d9188ccb6f53464db3868c791ba1cfefff9dba0d2bd5bf084849d286ab668fa"
+  },
+  {
+    "name": "prepare-one-use-100",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "100",
+      "one-use",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:21.820Z",
+    "finished": "2026-10-02T12:45:23.422Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-one-use-100.log",
+    "sha256": "4e0b7a73b935693794d9c86357fea87507703a9e8c1ba76285a5f88694e23a2b"
+  },
+  {
+    "name": "prepare-one-1000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "1000",
+      "one",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:23.422Z",
+    "finished": "2026-10-02T12:45:26.697Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-one-1000.log",
+    "sha256": "bb1e919386c058fd0be304ea92eeec45546da2e30319f8f5b573d35d7ecc9ba4"
+  },
+  {
+    "name": "prepare-sixteen-1000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "1000",
+      "sixteen",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:26.697Z",
+    "finished": "2026-10-02T12:45:30.025Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-sixteen-1000.log",
+    "sha256": "4c3008b240abc2e87ad9baeb7f467b22fe90667a81a27041a378c51c0d9de88e"
+  },
+  {
+    "name": "prepare-retired-1000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "1000",
+      "retired",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:30.025Z",
+    "finished": "2026-10-02T12:45:33.872Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-retired-1000.log",
+    "sha256": "49d436616f93d22a8790bf1a03c778cc8570546c6717a60a2e48823a796b6f41"
+  },
+  {
+    "name": "prepare-one-use-1000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "1000",
+      "one-use",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:33.872Z",
+    "finished": "2026-10-02T12:45:42.978Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-one-use-1000.log",
+    "sha256": "bce721bae4cf6bd7dcbda16470e7fe6aa2e76e2d390087e69eab8903ed8a5d8e"
+  },
+  {
+    "name": "prepare-one-10000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "10000",
+      "one",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:45:42.978Z",
+    "finished": "2026-10-02T12:46:07.715Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-one-10000.log",
+    "sha256": "3a6280a83d1104de9e68149737065010cc0f377a5e5240f6c3104f8d64c48087"
+  },
+  {
+    "name": "prepare-sixteen-10000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "10000",
+      "sixteen",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:46:07.716Z",
+    "finished": "2026-10-02T12:46:32.955Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-sixteen-10000.log",
+    "sha256": "2f4bbe7d1a9bd170317a17b2f07b2ca9ab5de638ec6e1410cbce60ae5fcb3633"
+  },
+  {
+    "name": "prepare-retired-10000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "10000",
+      "retired",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:46:32.955Z",
+    "finished": "2026-10-02T12:47:02.836Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-retired-10000.log",
+    "sha256": "a43a6c75ac8d03a5f8bd1106ca3f242a4499b4064f0a9d4662a998e80907acfc"
+  },
+  {
+    "name": "prepare-one-use-10000",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/prepare.mjs",
+      "10000",
+      "one-use",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures"
+    ],
+    "head": "e4f00b351651ef40b0da2937c545a16348e328e1",
+    "began": "2026-10-02T12:47:02.837Z",
+    "finished": "2026-10-02T12:48:39.586Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/prepare-one-use-10000.log",
+    "sha256": "4b69858a01d23fcefd14cb7260844dbc62c47dd589af9786450242531815031b"
+  }
+]

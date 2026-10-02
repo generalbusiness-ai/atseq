@@ -1,0 +1,14 @@
+{"event":"begin","name":"node22-normal-check","began":"2026-10-02T12:46:33.563Z"}
+{"event":"end","name":"node22-normal-check","exit":0,"signal":null}
+{"event":"begin","name":"node22-build","began":"2026-10-02T12:46:38.903Z"}
+{"event":"end","name":"node22-build","exit":0,"signal":null}
+{"event":"begin","name":"node24-normal-check","began":"2026-10-02T12:46:41.874Z"}
+{"event":"end","name":"node24-normal-check","exit":0,"signal":null}
+{"event":"begin","name":"node24-build","began":"2026-10-02T12:46:46.609Z"}
+{"event":"end","name":"node24-build","exit":0,"signal":null}
+{"event":"begin","name":"node26-normal-check","began":"2026-10-02T12:46:49.217Z"}
+{"event":"end","name":"node26-normal-check","exit":0,"signal":null}
+{"event":"begin","name":"node26-build","began":"2026-10-02T12:46:53.782Z"}
+{"event":"end","name":"node26-build","exit":0,"signal":null}
+{"event":"begin","name":"compile-experiment","began":"2026-10-02T12:46:56.714Z"}
+{"event":"end","name":"compile-experiment","exit":0,"signal":null}

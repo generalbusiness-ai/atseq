@@ -1,0 +1,51 @@
+{
+  "producer": "812f6e3453e872be22759890c78928d7e7f185d2",
+  "sourceHashes": {
+    "experiments/r0-native/fixture.ts": "97c5495eebd05f233e084cd794a15c28a70152e7e808fd3d95bf7f57a635cd72",
+    "experiments/r0-native/prepare.mjs": "50e99f3ba788123d7967c12fd1292629a196c1cbd39beaf7fee0724b3b5dd809",
+    "tests/support/identity-corpus.ts": "9d0e40b8b376ca827143250fbfb7a6eb1d8f4d6b0ee503845f494de8c1afc8c6",
+    "tests/support/native-proof-corpus.ts": "30331b47450164f1053e70e3a0d4e899f96d8ddb85635a996a190fc625e9bd7c",
+    "tests/support/native-application-fixture.ts": "af2cdb1aa2cc8c4e8a1eee6817d534b88f30b4b72b5fbe7fdbeb982b09218811",
+    "tests/support/native-authority-fixture.ts": "574e4a7a0422be4398293b6f98779f7fedce9e59e68e2d02803bb72b7c18fde6",
+    "package.json": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca",
+    "npm-shrinkwrap.json": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+  },
+  "node": "v26.10.0",
+  "actions": 10000,
+  "pattern": "one-use",
+  "counts": {
+    "totalEntries": 29999,
+    "actorSigners": 10000,
+    "admittedGrants": 10000,
+    "retiredGrants": 9999,
+    "epochs": 1,
+    "retiredEpochs": 0,
+    "descriptors": 19999
+  },
+  "costs": {
+    "appCarBytes": 93417453,
+    "appRepositoryBlocks": 114138,
+    "appRepositoryBlockBytes": 89081634,
+    "retainedContentBlocks": 60000,
+    "retainedContentBlockBytes": 54459171,
+    "checkpointFramingBlocks": 120953,
+    "checkpointFramingBlockBytes": 85321137,
+    "sourceBlocks": 5,
+    "sourceBytes": 1489,
+    "originalEntryBytes": 24148699,
+    "originalNestedRequestBytes": 18119178,
+    "participantCarBytes": 21928940,
+    "authorityJsonBytes": 7001261
+  },
+  "preparationMs": 92791.097375,
+  "fixtureBytes": 368848494,
+  "gzipBytes": 90206909,
+  "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+  "gzipSha256": "da0f07a52a0c78a034b3dd2fbb760bb5ecd075c2d0ad50d4ff874c5332f4be33",
+  "sourceBasis": {
+    "main": "7de9dcd447658679f3a94866c7f0eb5506c63659",
+    "e1": "2395c470283111e4817dde1342e973edd5e4e419",
+    "e1Producer": "dd2f97bd710c88fa5c3f629f8efa6f00f837e5b1"
+  },
+  "scope": "Finite R0 experiment producer; N domain actions; no checkpoint certification/publication/restore capability"
+}

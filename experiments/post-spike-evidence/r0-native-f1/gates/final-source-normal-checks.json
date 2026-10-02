@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "name": "node22",
+      "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "sourceHead": "bdd35fefbcf19ee83aedaa3dfc271e988b75d823",
+      "exit": 0,
+      "logPath": "experiments/post-spike-evidence/r0-native-f1/gates/node22-final-exact-runtime-check.log",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "childNodePathPrepend": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin"
+    },
+    {
+      "name": "node24",
+      "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "sourceHead": "bdd35fefbcf19ee83aedaa3dfc271e988b75d823",
+      "exit": 0,
+      "logPath": "experiments/post-spike-evidence/r0-native-f1/gates/node24-final-exact-runtime-check.log",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "childNodePathPrepend": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin"
+    },
+    {
+      "name": "node26",
+      "node": "/opt/homebrew/bin/node",
+      "sourceHead": "bdd35fefbcf19ee83aedaa3dfc271e988b75d823",
+      "exit": 0,
+      "logPath": "experiments/post-spike-evidence/r0-native-f1/gates/node26-final-exact-runtime-check.log",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "childNodePathPrepend": "/opt/homebrew/bin"
+    }
+  ],
+  "scope": "Final report/source commit normal checks, explicit child-runtime PATH; production and measured probe unchanged since812f6e34",
+  "earlierExtraChecks": "node22/24/26-report-normal-check.log used inherited PATH: their CLI versions differ, nested node remains environment default; not additional independent runtime conformance"
+}

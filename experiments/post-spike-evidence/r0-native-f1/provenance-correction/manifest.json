@@ -1,0 +1,98 @@
+{
+  "frozenAncestor": "91fa28f54238ce6fff0e9a18de4b720297f1980d",
+  "request": "4aa51255618f47d4bd798025ad2fc0c8569ad5df",
+  "promise": "c114f72e8c5fa5147a131940b20dbb2d591c3f1d",
+  "mode": "Additive metadata/provenance correction only; no original tracked file changed",
+  "verification": {
+    "originalDeliveryHashes": 277,
+    "originalSourceHashes": 13,
+    "allOriginalTrackedFiles": 1710,
+    "originalTrackedBytesUnchanged": true,
+    "missingInputImmutableGitBytesMatch": true,
+    "presentWrapperRecompilationMatches": true,
+    "historicalWrapperExecutionOutputHashes": "UNRECORDED",
+    "matrixRerun": false
+  },
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/format.log",
+      "bytes": 191,
+      "sha256": "e218b75e53058d492224030b4e0c81292f030db6ffcfaf1f6483aba36e363c55"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/inherited-verification.log",
+      "bytes": 170,
+      "sha256": "f3b0256d2f904a2346b4bf0559d0b1274ee91134bf5b4fe71848ddf195899b59"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction-first-attempt.log",
+      "bytes": 695,
+      "sha256": "1323d30511a73bd50c377053a1a5bbf8aa9cf9c111b2f7fbe1195ebd4311f728"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction-first-attempt.mjs",
+      "bytes": 4627,
+      "sha256": "80b8e535ff020981b942d8e310e4ecf7938055815bb3f912a9a5c3dda14c8dda"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction-formatted.log",
+      "bytes": 276,
+      "sha256": "dffba08e4f8fdaf13fc61cbd904d0f6cf36826029d7afeb4ff1bad51c154f0c7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction.json",
+      "bytes": 108963,
+      "sha256": "7acb4d8a9e6704ab64c7c3fb4e8acaf405277d2dfbb92082cc285fc242e4a934"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction.log",
+      "bytes": 276,
+      "sha256": "dffba08e4f8fdaf13fc61cbd904d0f6cf36826029d7afeb4ff1bad51c154f0c7"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/inventory-correction.mjs",
+      "bytes": 5200,
+      "sha256": "4e5d336fe7b04b5dcbd551c60540d6a6125228c28408bd47c5710e628a7e7b3e"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/recompile-wrappers-formatted.log",
+      "bytes": 406,
+      "sha256": "89dfade7f71bba0ba5940b7a77368fb278f8552f816ad7556d60c388faa0c749"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/recompile-wrappers.log",
+      "bytes": 406,
+      "sha256": "89dfade7f71bba0ba5940b7a77368fb278f8552f816ad7556d60c388faa0c749"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/recompile-wrappers.mjs",
+      "bytes": 6195,
+      "sha256": "7f1436304184329af1974d9a3f60696eb285936f07289be7c20eca059ff613bd"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/recompiled-probe.js",
+      "bytes": 28167,
+      "sha256": "afcb4958b325f085bf58bfebaace878a2f92b2e48638d81b82e1c395aef05870"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/recompiled-unsupported-counters.js",
+      "bytes": 6005,
+      "sha256": "1bd815f37b4863c4305f1029e59fb3e07b8d4bb16495c3d33b8fa2e48061a981"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/source-identity-vectors.producer.json",
+      "bytes": 38747,
+      "sha256": "1dc718d65cf44e80bb6df32ec8b2fc0c79adf0f105638ec59adfbd3fa67f5135"
+    },
+    {
+      "path": "experiments/post-spike-evidence/r0-native-f1/provenance-correction/wrapper-recompilation.json",
+      "bytes": 4080,
+      "sha256": "1442d4aa09477a979df77134902218ca375a92519fce6a7a995bfde274019ed6"
+    },
+    {
+      "path": "notes/2026-10-02-r0-native-cost-provenance.md",
+      "bytes": 4664,
+      "sha256": "95778b2c706e540459a2896d4acd06e19cbe4de135f27af18f54a98ccf11c0d3"
+    }
+  ]
+}

@@ -1,0 +1,1694 @@
+[
+  {
+    "name": "one-100-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:48:51.663Z",
+    "finished": "2026-10-02T12:48:54.736Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-100-node22-source.log",
+    "sha256": "c3b1aa27cd0b230b54412e0a0838a8d2124c4f1265e5e27ca32b3cfa532669c1",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node22-source"
+  },
+  {
+    "name": "one-100-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:48:54.737Z",
+    "finished": "2026-10-02T12:48:57.139Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-100-node22-compiled.log",
+    "sha256": "25cf1937630bd24798a98d5951b616e7f7206fa44f667fd88809b4ca65ae4644",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node22-compiled"
+  },
+  {
+    "name": "one-100-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:48:57.139Z",
+    "finished": "2026-10-02T12:48:59.947Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-100-node24-source.log",
+    "sha256": "9d599a6fc33097ac1eaf3837354a4ce73dee9a68d52611290cc29a70dfd18af8",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node24-source"
+  },
+  {
+    "name": "one-100-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:48:59.948Z",
+    "finished": "2026-10-02T12:49:02.174Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-100-node24-compiled.log",
+    "sha256": "f22275df2ea08e8f21e4a7bf4f00bc0f9979bc0523b897db8345931d238d2d3e",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node24-compiled"
+  },
+  {
+    "name": "one-100-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:02.175Z",
+    "finished": "2026-10-02T12:49:04.867Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-100-node26-source.log",
+    "sha256": "9cc50a99227010ea987876da354505393879c6752732e0385cbd4d0d01c2112b",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node26-source"
+  },
+  {
+    "name": "one-100-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:04.868Z",
+    "finished": "2026-10-02T12:49:07.216Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-100-node26-compiled.log",
+    "sha256": "48b127a282e684d7a7333abc1abc90a3e949a51525ff9fe2c754b940b395e6d0",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node26-compiled"
+  },
+  {
+    "name": "one-100-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-100-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:07.216Z",
+    "finished": "2026-10-02T12:49:09.163Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-100-chromium.log",
+    "sha256": "761fa191c88d0fdf168b2e25b01b30d889b63befc95bd2de81b4dd66a1a401fd",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-chromium"
+  },
+  {
+    "name": "sixteen-100-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:09.163Z",
+    "finished": "2026-10-02T12:49:12.229Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-100-node22-source.log",
+    "sha256": "c161dd04d98dbcd77ceb215752146a6e65ac5591ba3293271a09eea856a4d9e2",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node22-source"
+  },
+  {
+    "name": "sixteen-100-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:12.229Z",
+    "finished": "2026-10-02T12:49:14.927Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-100-node22-compiled.log",
+    "sha256": "1587ba65400f00554ff3a924cfa25024491f09e67208b377575fc8ee3902b1b2",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node22-compiled"
+  },
+  {
+    "name": "sixteen-100-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:14.928Z",
+    "finished": "2026-10-02T12:49:17.807Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-100-node24-source.log",
+    "sha256": "f0a7be9bf9b42f00d0fc668841d4ff835ca668ce144be94f3cf725ba9df1a4fc",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node24-source"
+  },
+  {
+    "name": "sixteen-100-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:17.808Z",
+    "finished": "2026-10-02T12:49:20.277Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-100-node24-compiled.log",
+    "sha256": "1bbf15054f8e41572a74dff7ca08a9a2d7b43af9a8ea640d20b59d5f3df2ec4f",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node24-compiled"
+  },
+  {
+    "name": "sixteen-100-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:20.277Z",
+    "finished": "2026-10-02T12:49:23.132Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-100-node26-source.log",
+    "sha256": "da312325dbb63c1bdddc1d5665db7d8e249460c919d8e12756e1b9e81d88af37",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node26-source"
+  },
+  {
+    "name": "sixteen-100-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:23.132Z",
+    "finished": "2026-10-02T12:49:25.782Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-100-node26-compiled.log",
+    "sha256": "276e84c6f59f7a9fa4bb852b39f6d70686453eb9fccb786d7fb4787d8851dde6",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node26-compiled"
+  },
+  {
+    "name": "sixteen-100-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:25.782Z",
+    "finished": "2026-10-02T12:49:28.023Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-100-chromium.log",
+    "sha256": "9a5004a66a956f092bfe8fa076bcf7dd090d75646797d0bd81391a203f1ff2a4",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-chromium"
+  },
+  {
+    "name": "retired-100-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:28.024Z",
+    "finished": "2026-10-02T12:49:33.430Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-100-node22-source.log",
+    "sha256": "4b8aaa1dc7ee44f5a660fe5e417b6b064a54dbaf26ebb039d210d3db3d598819",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node22-source"
+  },
+  {
+    "name": "retired-100-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:33.430Z",
+    "finished": "2026-10-02T12:49:38.822Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-100-node22-compiled.log",
+    "sha256": "00eaf2dc23bf04f11f41affce6bf2ddebcfa3ded812b734e07c366743127c7f1",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node22-compiled"
+  },
+  {
+    "name": "retired-100-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:38.823Z",
+    "finished": "2026-10-02T12:49:44.871Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-100-node24-source.log",
+    "sha256": "bdd56a87b89f096252117d3607ad9e9472a4540c999fd2f15798528fb1fcb6e5",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node24-source"
+  },
+  {
+    "name": "retired-100-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:44.872Z",
+    "finished": "2026-10-02T12:49:50.279Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-100-node24-compiled.log",
+    "sha256": "857be3d2f1b11c3f4ce51731902217d0419e63858d1e35435bcf1c7074ffaf9e",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node24-compiled"
+  },
+  {
+    "name": "retired-100-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:50.279Z",
+    "finished": "2026-10-02T12:49:55.840Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-100-node26-source.log",
+    "sha256": "17ca9f92d2d0fbe36c904d30a21e26c4b01b66bbe6bfb651b33197a12bad38cc",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node26-source"
+  },
+  {
+    "name": "retired-100-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:49:55.840Z",
+    "finished": "2026-10-02T12:50:00.937Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-100-node26-compiled.log",
+    "sha256": "f2d06aed0d5e74b958fd1048adda6d65fad8334ed818776932b4ffd3241e1148",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node26-compiled"
+  },
+  {
+    "name": "retired-100-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:00.937Z",
+    "finished": "2026-10-02T12:50:06.735Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-100-chromium.log",
+    "sha256": "efc7ac75ca32dddcb4bcdb14ffbc19d174ee6fb11f1ab4d7e4c53811d237abe0",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-chromium"
+  },
+  {
+    "name": "one-use-100-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:06.735Z",
+    "finished": "2026-10-02T12:50:12.874Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-100-node22-source.log",
+    "sha256": "a7755365020187572c3a908ba8b8b158d926eb2a6be0b01d27c4674140679259",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node22-source"
+  },
+  {
+    "name": "one-use-100-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:12.874Z",
+    "finished": "2026-10-02T12:50:18.468Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-100-node22-compiled.log",
+    "sha256": "533c79b752bdc55d2c13efb22f65b05239e421a39c72306bfcb955a2131d45c4",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node22-compiled"
+  },
+  {
+    "name": "one-use-100-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:18.468Z",
+    "finished": "2026-10-02T12:50:24.211Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-100-node24-source.log",
+    "sha256": "a1bfb327eb8a3417800b48eeb946a473ba4111fc6c4834ca5f647edcb3dbfed5",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node24-source"
+  },
+  {
+    "name": "one-use-100-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:24.212Z",
+    "finished": "2026-10-02T12:50:29.296Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-100-node24-compiled.log",
+    "sha256": "53a0824c81a547f649ddfd09fe5fc02761a034d37e145ce4411d164d929fd39c",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node24-compiled"
+  },
+  {
+    "name": "one-use-100-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:29.296Z",
+    "finished": "2026-10-02T12:50:35.071Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-100-node26-source.log",
+    "sha256": "f5f02e53ff30f3525f03eba495682c338b7c0543ab2e31655f1397129eef2bd3",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node26-source"
+  },
+  {
+    "name": "one-use-100-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:35.072Z",
+    "finished": "2026-10-02T12:50:39.857Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-100-node26-compiled.log",
+    "sha256": "f386ff12619ad12be73cf3a8c58cef0026c2738514d2b4cd7fedfd4b7815f729",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node26-compiled"
+  },
+  {
+    "name": "one-use-100-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-100.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:39.857Z",
+    "finished": "2026-10-02T12:50:45.263Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-100-chromium.log",
+    "sha256": "94e01ddaab6e48f73e9b96f3c1623dda85a5f64f9a9d5b026c71afe7188a02f2",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-chromium"
+  },
+  {
+    "name": "one-1000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:45.263Z",
+    "finished": "2026-10-02T12:50:57.089Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-1000-node22-source.log",
+    "sha256": "e6b6772562e5170bcc9dab5873fa8c7633afb06acea239977eb96529fe88788a",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node22-source"
+  },
+  {
+    "name": "one-1000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:50:57.090Z",
+    "finished": "2026-10-02T12:51:08.127Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-1000-node22-compiled.log",
+    "sha256": "6c643b3c480b73e42e7561b9ea885377c78c0b21bd3df657818cd865dbd5b003",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node22-compiled"
+  },
+  {
+    "name": "one-1000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:51:08.128Z",
+    "finished": "2026-10-02T12:51:19.374Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-1000-node24-source.log",
+    "sha256": "0907247f65c8ee1768c33be425a418ac13bb248781cb958cbd16c24dd00cdf69",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node24-source"
+  },
+  {
+    "name": "one-1000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:51:19.375Z",
+    "finished": "2026-10-02T12:51:29.838Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-1000-node24-compiled.log",
+    "sha256": "206b42af99875c912cc5c1f838a46ed3826c7d8008aabd70c3056e5e01f120c8",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node24-compiled"
+  },
+  {
+    "name": "one-1000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:51:29.838Z",
+    "finished": "2026-10-02T12:51:40.586Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-1000-node26-source.log",
+    "sha256": "9362a1b435e4b46fecf7e6cf05c445e2b2125eacb39c31fc8ba83ded67083303",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node26-source"
+  },
+  {
+    "name": "one-1000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:51:40.587Z",
+    "finished": "2026-10-02T12:51:50.961Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-1000-node26-compiled.log",
+    "sha256": "51ebba8ad3639bd809866d48c872364bb416a4e8089d7617a776337448bda862",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node26-compiled"
+  },
+  {
+    "name": "one-1000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:51:50.961Z",
+    "finished": "2026-10-02T12:52:07.213Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-1000-chromium.log",
+    "sha256": "e765cedc369fad63950a3eb33e618e84ccd05319542a2f62dcc9d660d0656c18",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-chromium"
+  },
+  {
+    "name": "sixteen-1000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:52:07.213Z",
+    "finished": "2026-10-02T12:52:20.917Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-1000-node22-source.log",
+    "sha256": "12603c1b7781ef8e0d3c1883370a5281030b352ea3eb11ebc7d29e606fe54af0",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node22-source"
+  },
+  {
+    "name": "sixteen-1000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:52:20.917Z",
+    "finished": "2026-10-02T12:52:34.270Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-1000-node22-compiled.log",
+    "sha256": "54c5f0f01d62fd0fa15ea734b50c3d2cbb7cd0942cb17090e18af01266425144",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node22-compiled"
+  },
+  {
+    "name": "sixteen-1000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:52:34.271Z",
+    "finished": "2026-10-02T12:52:48.887Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-1000-node24-source.log",
+    "sha256": "222ad2795eb716712cf379de66a7b297fdfcde04495c3f2d94be54ea628a1a64",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node24-source"
+  },
+  {
+    "name": "sixteen-1000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:52:48.888Z",
+    "finished": "2026-10-02T12:53:01.873Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-1000-node24-compiled.log",
+    "sha256": "cc295361c59a8003847ab2b5e8c1bef8cebacedc65789cda5352db80ae59d2e4",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node24-compiled"
+  },
+  {
+    "name": "sixteen-1000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:53:01.873Z",
+    "finished": "2026-10-02T12:53:14.614Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-1000-node26-source.log",
+    "sha256": "2a89c32faaf80e1b06655b3477fca24c160e37614ab86c2964c5b3070fb52926",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node26-source"
+  },
+  {
+    "name": "sixteen-1000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:53:14.614Z",
+    "finished": "2026-10-02T12:53:26.208Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-1000-node26-compiled.log",
+    "sha256": "7ecfa583c4247fbc8801ce84fd722a387036f71300febd0bcb8d33411bdf0092",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node26-compiled"
+  },
+  {
+    "name": "sixteen-1000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:53:26.209Z",
+    "finished": "2026-10-02T12:53:41.907Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-1000-chromium.log",
+    "sha256": "a72bbed3d9dc96d3df9135976304fe982b087533dbb3a37e21b4cd3d78356434",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-chromium"
+  },
+  {
+    "name": "retired-1000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:53:41.907Z",
+    "finished": "2026-10-02T12:53:58.103Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-1000-node22-source.log",
+    "sha256": "4c1d978fdd4889ab7573859350e69f70b6badc1f63e8faa8b56a652c05c38e52",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node22-source"
+  },
+  {
+    "name": "retired-1000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:53:58.104Z",
+    "finished": "2026-10-02T12:54:13.736Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-1000-node22-compiled.log",
+    "sha256": "0cbce9597ab300ed01606a6af82b428cd6f12ce990b8748eb45ab94e36af4bdf",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node22-compiled"
+  },
+  {
+    "name": "retired-1000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:54:13.737Z",
+    "finished": "2026-10-02T12:54:29.479Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-1000-node24-source.log",
+    "sha256": "2c0c9529ce2c73e219ac7540ae21840f06285b625c9b7df36ef3c1aee93e0b55",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node24-source"
+  },
+  {
+    "name": "retired-1000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:54:29.480Z",
+    "finished": "2026-10-02T12:54:44.881Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-1000-node24-compiled.log",
+    "sha256": "2bdcc92b5c86b7992284ecaf14618b76bf3b33cd8d1753cf7d01c3a565e290a1",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node24-compiled"
+  },
+  {
+    "name": "retired-1000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:54:44.882Z",
+    "finished": "2026-10-02T12:54:59.949Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-1000-node26-source.log",
+    "sha256": "10ea07ed99e469f33286bf80381d9c5b287856e3951989f711ca1893640dca0a",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node26-source"
+  },
+  {
+    "name": "retired-1000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:54:59.950Z",
+    "finished": "2026-10-02T12:55:12.471Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-1000-node26-compiled.log",
+    "sha256": "8617f46cb301018c743b0987280697fdc4908ccd9d9053576a283f686393a497",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node26-compiled"
+  },
+  {
+    "name": "retired-1000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:55:12.472Z",
+    "finished": "2026-10-02T12:55:31.773Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-1000-chromium.log",
+    "sha256": "396a3d07c77dc080789f96cb17876da1d0d410857237f4d6764540727c5dae10",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-chromium"
+  },
+  {
+    "name": "one-use-1000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:55:31.773Z",
+    "finished": "2026-10-02T12:56:22.898Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-1000-node22-source.log",
+    "sha256": "91acb1fb63b444137e225cb30026746255f7fcd87610dcfdfd5e1b3da4e44728",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node22-source"
+  },
+  {
+    "name": "one-use-1000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:56:22.898Z",
+    "finished": "2026-10-02T12:57:10.336Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-1000-node22-compiled.log",
+    "sha256": "ed3f6b07fadc73d094aacb6bf3e923aae02618eaaaf12de39f5fc651e33c85e4",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node22-compiled"
+  },
+  {
+    "name": "one-use-1000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:57:10.336Z",
+    "finished": "2026-10-02T12:57:58.132Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-1000-node24-source.log",
+    "sha256": "cd5dc011f14d426250e5a6a88179610f0c44d804f078229f74275cce6e39bab9",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node24-source"
+  },
+  {
+    "name": "one-use-1000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:57:58.132Z",
+    "finished": "2026-10-02T12:58:39.844Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-1000-node24-compiled.log",
+    "sha256": "e92faeab02c41def9f31d19893c4160188520694df98707695a406fe5ecb05ea",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node24-compiled"
+  },
+  {
+    "name": "one-use-1000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:58:39.844Z",
+    "finished": "2026-10-02T12:59:27.315Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-1000-node26-source.log",
+    "sha256": "d5fb8713ca0d56844308d31f21c0c386bad6b86d6fe1216bf80a9374e3ad3246",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node26-source"
+  },
+  {
+    "name": "one-use-1000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:59:27.316Z",
+    "finished": "2026-10-02T13:00:14.643Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-1000-node26-compiled.log",
+    "sha256": "cab77cabc5ba4c3dd84872c44542c2ad93c6c8c86ebeee42007b7cbbb7f501a2",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node26-compiled"
+  },
+  {
+    "name": "one-use-1000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-1000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:00:14.643Z",
+    "finished": "2026-10-02T13:01:19.300Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-1000-chromium.log",
+    "sha256": "aa02c293fe1f48b7578fc5c74f68458cc9ee08965b69a26adb1052dc1189ec84",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-chromium"
+  },
+  {
+    "name": "one-10000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:01:19.300Z",
+    "finished": "2026-10-02T13:01:53.979Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-10000-node22-source.log",
+    "sha256": "5787f6fac750769308310e784f9845b51af6cd0f82e5bfd3a4dc3a5d2dbc1feb",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node22-source"
+  },
+  {
+    "name": "one-10000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:01:53.979Z",
+    "finished": "2026-10-02T13:02:21.937Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-10000-node22-compiled.log",
+    "sha256": "bcb9bbdbdc79b2118c5ce50f15433273c4d782e25f2c6c727b905c3988b4e902",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node22-compiled"
+  },
+  {
+    "name": "one-10000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:02:21.937Z",
+    "finished": "2026-10-02T13:02:51.584Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-10000-node24-source.log",
+    "sha256": "e46081dd52afdd910b06c89dc44a7cbc63f78ce2271650d58859e7376312b3fc",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node24-source"
+  },
+  {
+    "name": "one-10000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:02:51.585Z",
+    "finished": "2026-10-02T13:03:23.947Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-10000-node24-compiled.log",
+    "sha256": "810220ac5032bc65de106e7a41cd99ef4c8f8d1f3670d7584dc23c2086f21495",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node24-compiled"
+  },
+  {
+    "name": "one-10000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:03:23.947Z",
+    "finished": "2026-10-02T13:03:58.799Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-10000-node26-source.log",
+    "sha256": "9f2b86378bfda887bff0d8e6248a34172cf30635a088269ad5dee8ae098df783",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node26-source"
+  },
+  {
+    "name": "one-10000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:03:58.800Z",
+    "finished": "2026-10-02T13:04:30.237Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-10000-node26-compiled.log",
+    "sha256": "60022b3b115a475f4750778d732159a973b12d6e09a687369816e71a5e393194",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node26-compiled"
+  },
+  {
+    "name": "one-10000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:04:30.238Z",
+    "finished": "2026-10-02T13:05:35.755Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-10000-chromium.log",
+    "sha256": "4413aa222a353960321f9108cd5d023134fe16edddb4662ce9b42d7f2a90d1c3",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-chromium"
+  },
+  {
+    "name": "sixteen-10000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:05:35.755Z",
+    "finished": "2026-10-02T13:06:10.222Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-10000-node22-source.log",
+    "sha256": "4a7d50ce63cdbb38b8a30294b79377117c829b8a79303ac5c9831a7a73b5f69f",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node22-source"
+  },
+  {
+    "name": "sixteen-10000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:06:10.222Z",
+    "finished": "2026-10-02T13:06:41.044Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-10000-node22-compiled.log",
+    "sha256": "fe0c3a6f7398e70f64bc75b7a8d0c27ad54e075fc3ad829024a50802cc208508",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node22-compiled"
+  },
+  {
+    "name": "sixteen-10000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:06:41.044Z",
+    "finished": "2026-10-02T13:07:11.735Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-10000-node24-source.log",
+    "sha256": "c5fed3ab57c6723c5278d137815e7ca1ec67f1cc78ece6ca6d9670ca24d67c11",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node24-source"
+  },
+  {
+    "name": "sixteen-10000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:07:11.735Z",
+    "finished": "2026-10-02T13:07:41.628Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-10000-node24-compiled.log",
+    "sha256": "071f9ce1cefeabac7bee893e9412b09c980357eb4a7e2b3d971159c198f16630",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node24-compiled"
+  },
+  {
+    "name": "sixteen-10000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:07:41.629Z",
+    "finished": "2026-10-02T13:08:11.840Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-10000-node26-source.log",
+    "sha256": "8ffb96c6a242635bbac8583f49a73cfbf36c44647423fd153a3bff1ee81ffbd2",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node26-source"
+  },
+  {
+    "name": "sixteen-10000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:08:11.840Z",
+    "finished": "2026-10-02T13:08:43.998Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-10000-node26-compiled.log",
+    "sha256": "1570b2f171f5e7c15159bb9dc307c9e9435b3209a8237ced4c921fafff8365f1",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node26-compiled"
+  },
+  {
+    "name": "sixteen-10000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/sixteen-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:08:43.998Z",
+    "finished": "2026-10-02T13:10:00.494Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/sixteen-10000-chromium.log",
+    "sha256": "163a6fe03ef249dded780ec2737dd1de1055657be9f7a772bc0a9b9beeca1060",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-chromium"
+  },
+  {
+    "name": "retired-10000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:10:00.494Z",
+    "finished": "2026-10-02T13:10:33.022Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-10000-node22-source.log",
+    "sha256": "56a8452fac1695c216db9717a9432c37438086c523054628b44068dd31632615",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node22-source"
+  },
+  {
+    "name": "retired-10000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:10:33.023Z",
+    "finished": "2026-10-02T13:11:05.763Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-10000-node22-compiled.log",
+    "sha256": "bb6c50483404207c81aa7f56ff932f6048459d1b3220b08ca6211a9ba4b34629",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node22-compiled"
+  },
+  {
+    "name": "retired-10000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:11:05.763Z",
+    "finished": "2026-10-02T13:11:37.747Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-10000-node24-source.log",
+    "sha256": "ed30892d24c4e8106e999a3dfa4e5c7ccda759dc71334c318a1280d21fa973fa",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node24-source"
+  },
+  {
+    "name": "retired-10000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:11:37.748Z",
+    "finished": "2026-10-02T13:12:06.823Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-10000-node24-compiled.log",
+    "sha256": "b93bab51f1fa2efc871baae70201c087f6ee0f92ea83e7537840b159257ad4fd",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node24-compiled"
+  },
+  {
+    "name": "retired-10000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:12:06.824Z",
+    "finished": "2026-10-02T13:12:37.022Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-10000-node26-source.log",
+    "sha256": "497b72875072a72f6c984bb72823de769147f2a5b10bda50c57d4805b473480a",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node26-source"
+  },
+  {
+    "name": "retired-10000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:12:37.023Z",
+    "finished": "2026-10-02T13:13:15.088Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-10000-node26-compiled.log",
+    "sha256": "8be225292271156ef672b3c4361e0a704183fbf6403e6e63d82f6a6d6faa55da",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node26-compiled"
+  },
+  {
+    "name": "retired-10000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/retired-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:13:15.089Z",
+    "finished": "2026-10-02T13:14:28.679Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/retired-10000-chromium.log",
+    "sha256": "28d565b6f22bf4333603fb2a2637f0de5379bf4f1be331e80e0fdc54516b04be",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-chromium"
+  },
+  {
+    "name": "one-use-10000-node22-source",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node22-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:14:28.680Z",
+    "finished": "2026-10-02T13:16:19.009Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-10000-node22-source.log",
+    "sha256": "fbe8ef4fde6c7ac9f5cb39ce04f8bf9e47d697f2a20fdef081af1d68f8fb0800",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node22-source"
+  },
+  {
+    "name": "one-use-10000-node22-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node22-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:16:19.009Z",
+    "finished": "2026-10-02T13:18:10.555Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-10000-node22-compiled.log",
+    "sha256": "6ff66ebde24b3973e2954841c383dac33899f6dec739553889212cf895516321",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node22-compiled"
+  },
+  {
+    "name": "one-use-10000-node24-source",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node24-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:18:10.555Z",
+    "finished": "2026-10-02T13:19:56.487Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-10000-node24-source.log",
+    "sha256": "3ca4ff723881d24d1bc302f32f00b81332d1ffc1e93e814928f0782a2d3db8b4",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node24-source"
+  },
+  {
+    "name": "one-use-10000-node24-compiled",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node24-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:19:56.488Z",
+    "finished": "2026-10-02T13:21:28.806Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-10000-node24-compiled.log",
+    "sha256": "613a8bddc043512a5afea9aac6b6d770016d667bef928cdd8b295eefdea92edf",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node24-compiled"
+  },
+  {
+    "name": "one-use-10000-node26-source",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "--import",
+      "tsx",
+      "--conditions=atseq-source",
+      "experiments/r0-native/node-run.mjs",
+      "source",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node26-source",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:21:28.806Z",
+    "finished": "2026-10-02T13:23:07.630Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-10000-node26-source.log",
+    "sha256": "b97b750edb51be3ae6ac63a4c26f44c79bdd4367b855276a6d999bafda7375b8",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node26-source"
+  },
+  {
+    "name": "one-use-10000-node26-compiled",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/node-run.mjs",
+      "compiled",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node26-compiled",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:23:07.630Z",
+    "finished": "2026-10-02T13:24:45.647Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-10000-node26-compiled.log",
+    "sha256": "ae13ddf843a7c6bf4659ba5a7d367dcc373abe07485bb5f450d62be8e0152537",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node26-compiled"
+  },
+  {
+    "name": "one-use-10000-chromium",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/browser-run.mjs",
+      "experiments/post-spike-evidence/r0-native-f1/fixtures/one-use-10000.json.gz",
+      "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-chromium",
+      "/private/tmp/atseq-native-prefix-f1-20261002"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T13:24:45.647Z",
+    "finished": "2026-10-02T13:27:33.642Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/one-use-10000-chromium.log",
+    "sha256": "698670cf9d2ff0bc8aee6b15b462bcc82bb461a4eec06f1bb1a0258750bd05ae",
+    "output": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-chromium"
+  }
+]

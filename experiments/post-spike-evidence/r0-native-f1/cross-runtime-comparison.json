@@ -1,0 +1,4613 @@
+{
+  "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+  "comparisons": [
+    {
+      "cell": "one-100",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "6423661674cfb9881316b9f43aa0245dc7a860a9818a251babcb084d307fa0ba",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node22-source/result.json.gz",
+          "sha256": "c136b18ea738da481d277f702484b0aa8946e94a6c70a7ae16c66303b0051b3f",
+          "fixtureSha256": "2f1deedff9efb6b83328f5ccdc96ce6c2e8b8e719912cf99b08cb3a2c40b3fca",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/native",
+                "current": 1,
+                "bytes": 385007,
+                "rows": 639
+              },
+              "rows": {
+                "count": 639,
+                "logicalRowBytes": 384660
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 512000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node22-compiled/result.json.gz",
+          "sha256": "b0cb0ad5ad14b2c0c8c58d6adb52a136f25093890a2b66c5ef8807068da929b9",
+          "fixtureSha256": "2f1deedff9efb6b83328f5ccdc96ce6c2e8b8e719912cf99b08cb3a2c40b3fca",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/native",
+                "current": 1,
+                "bytes": 385007,
+                "rows": 639
+              },
+              "rows": {
+                "count": 639,
+                "logicalRowBytes": 384660
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 512000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node24-source/result.json.gz",
+          "sha256": "6bc4488f5e7bed7d97281a1fc6e3dd7abeeb9bc7b44233b4496ab440b65bf12c",
+          "fixtureSha256": "2f1deedff9efb6b83328f5ccdc96ce6c2e8b8e719912cf99b08cb3a2c40b3fca",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/native",
+                "current": 1,
+                "bytes": 385007,
+                "rows": 639
+              },
+              "rows": {
+                "count": 639,
+                "logicalRowBytes": 384660
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 512000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node24-compiled/result.json.gz",
+          "sha256": "4d09dc599f60c4a58ed0d0fc56f7af17f2f455d092621abd7c120dbc30aecf21",
+          "fixtureSha256": "2f1deedff9efb6b83328f5ccdc96ce6c2e8b8e719912cf99b08cb3a2c40b3fca",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/native",
+                "current": 1,
+                "bytes": 385007,
+                "rows": 639
+              },
+              "rows": {
+                "count": 639,
+                "logicalRowBytes": 384660
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 512000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node26-source/result.json.gz",
+          "sha256": "72f6f38b710669cabbcbc463acc8766c074cd5dc36dec05c5d4c175e35a3030e",
+          "fixtureSha256": "2f1deedff9efb6b83328f5ccdc96ce6c2e8b8e719912cf99b08cb3a2c40b3fca",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/native",
+                "current": 1,
+                "bytes": 385007,
+                "rows": 639
+              },
+              "rows": {
+                "count": 639,
+                "logicalRowBytes": 384660
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 512000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-node26-compiled/result.json.gz",
+          "sha256": "c9ed1408eeb685f84f4fa36b2605c797258aed308f4e31e8ecada7f5751435b7",
+          "fixtureSha256": "2f1deedff9efb6b83328f5ccdc96ce6c2e8b8e719912cf99b08cb3a2c40b3fca",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/native",
+                "current": 1,
+                "bytes": 385007,
+                "rows": 639
+              },
+              "rows": {
+                "count": 639,
+                "logicalRowBytes": 384660
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 512000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-100-chromium/result.json.gz",
+          "sha256": "29d27389ccf4411a9a3a0c885f5565ef74090051d55904cf882fb641539d5158",
+          "fixtureSha256": "2f1deedff9efb6b83328f5ccdc96ce6c2e8b8e719912cf99b08cb3a2c40b3fca",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/native",
+                "current": 1,
+                "bytes": 385007,
+                "rows": 639
+              },
+              "physicalRowVersions": 639,
+              "generations": 1,
+              "pins": 0,
+              "values": 639,
+              "logicalRowBytes": 384660
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:7ps5w3si7cj7cfydmrsa6jsa/bafyreid2ybxcboogxqxfbnbrhhrevlfcem3ndk5rderekq6owib5c4hldy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "sixteen-100",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "1365c4db8eb057dd62278f66a54a9a0a68562523f6f469bf1f6915dac4f87ade",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node22-source/result.json.gz",
+          "sha256": "14ea0f10ab09a7df6fd4c19512516de0e8505b15a6c0f6f78d1708baa9155368",
+          "fixtureSha256": "dafd20b9e176ccb77adad27b4956f95679e4e9b45f7f054b5c65e1b98bb7ebd7",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/native",
+                "current": 1,
+                "bytes": 499537,
+                "rows": 774
+              },
+              "rows": {
+                "count": 774,
+                "logicalRowBytes": 499190
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 655360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node22-compiled/result.json.gz",
+          "sha256": "6e295e491c327c61bc83c61e17be626999e70e711fcb2d2f4b4a853ecfe430c3",
+          "fixtureSha256": "dafd20b9e176ccb77adad27b4956f95679e4e9b45f7f054b5c65e1b98bb7ebd7",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/native",
+                "current": 1,
+                "bytes": 499537,
+                "rows": 774
+              },
+              "rows": {
+                "count": 774,
+                "logicalRowBytes": 499190
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 655360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node24-source/result.json.gz",
+          "sha256": "1d67b8872f5502961c29127966db14a296e2d7bf8844e427d8794f21d0afcd87",
+          "fixtureSha256": "dafd20b9e176ccb77adad27b4956f95679e4e9b45f7f054b5c65e1b98bb7ebd7",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/native",
+                "current": 1,
+                "bytes": 499537,
+                "rows": 774
+              },
+              "rows": {
+                "count": 774,
+                "logicalRowBytes": 499190
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 655360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node24-compiled/result.json.gz",
+          "sha256": "5fb5a69ef040f11ab3799f9250a9bc86fa0391a60c1fad697a9f5f5a18a1b2bb",
+          "fixtureSha256": "dafd20b9e176ccb77adad27b4956f95679e4e9b45f7f054b5c65e1b98bb7ebd7",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/native",
+                "current": 1,
+                "bytes": 499537,
+                "rows": 774
+              },
+              "rows": {
+                "count": 774,
+                "logicalRowBytes": 499190
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 655360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node26-source/result.json.gz",
+          "sha256": "07f4ea92c28f8aff2713e11e2268f32839277557e0065a0dc823b10a05fafb6a",
+          "fixtureSha256": "dafd20b9e176ccb77adad27b4956f95679e4e9b45f7f054b5c65e1b98bb7ebd7",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/native",
+                "current": 1,
+                "bytes": 499537,
+                "rows": 774
+              },
+              "rows": {
+                "count": 774,
+                "logicalRowBytes": 499190
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 655360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-node26-compiled/result.json.gz",
+          "sha256": "db510545b6eb1d4b99590f8ef95698b16cc7408d8c8bab0943969d1b7e4694b8",
+          "fixtureSha256": "dafd20b9e176ccb77adad27b4956f95679e4e9b45f7f054b5c65e1b98bb7ebd7",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/native",
+                "current": 1,
+                "bytes": 499537,
+                "rows": 774
+              },
+              "rows": {
+                "count": 774,
+                "logicalRowBytes": 499190
+              },
+              "generations": {
+                "count": 1,
+                "metadataBytes": 248
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 655360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-100-chromium/result.json.gz",
+          "sha256": "b06efa4399c0654be85fbc6b6936e4f38af2eae319d09314b6c832d6633b023f",
+          "fixtureSha256": "dafd20b9e176ccb77adad27b4956f95679e4e9b45f7f054b5c65e1b98bb7ebd7",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/native",
+                "current": 1,
+                "bytes": 499537,
+                "rows": 774
+              },
+              "physicalRowVersions": 774,
+              "generations": 1,
+              "pins": 0,
+              "values": 774,
+              "logicalRowBytes": 499190
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:ybifxqogn6gauwg7qd6mli7n/bafyreian4cvzuofvpyhxxmpqirgpo7w3intjunc2i3zs7izcdiuzsn4xdq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "retired-100",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "a6c791876b65f99b64fd592d1770ecd5a72bffded120dc2644747cdbf66d0230",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node22-source/result.json.gz",
+          "sha256": "ddf957d818fec5d0e6b2deb37352d4095224c77ba87cd9230baa434cbbd7070f",
+          "fixtureSha256": "ed689c4ceb04c09962e45cd598bd46c5436ca979b072eee1f6294595154cf07e",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2187264
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node22-compiled/result.json.gz",
+          "sha256": "d513a1fc1dc77b8823ba7bdca6ad00fa00ab42c8c4df96e40dce319b50de3cec",
+          "fixtureSha256": "ed689c4ceb04c09962e45cd598bd46c5436ca979b072eee1f6294595154cf07e",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2187264
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node24-source/result.json.gz",
+          "sha256": "2b37700f1493fa94c4e96bff96170d91ac9b4c9226313503c74456b7aa76b1dd",
+          "fixtureSha256": "ed689c4ceb04c09962e45cd598bd46c5436ca979b072eee1f6294595154cf07e",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2187264
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node24-compiled/result.json.gz",
+          "sha256": "3048f1c1ae3e33ed0286a5fd1051ee4d0a099d22419cc8ae09a65ceb98414d46",
+          "fixtureSha256": "ed689c4ceb04c09962e45cd598bd46c5436ca979b072eee1f6294595154cf07e",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2187264
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node26-source/result.json.gz",
+          "sha256": "3ce57826b237e7aba8ac12bb3cc4ae6847a51878aa84c1f8fabfabe2fd54ff9a",
+          "fixtureSha256": "ed689c4ceb04c09962e45cd598bd46c5436ca979b072eee1f6294595154cf07e",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2187264
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-node26-compiled/result.json.gz",
+          "sha256": "f30a592423f112ac419298f6e918bb9e934eb98a408709271e9f246b35b4f027",
+          "fixtureSha256": "ed689c4ceb04c09962e45cd598bd46c5436ca979b072eee1f6294595154cf07e",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2187264
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-100-chromium/result.json.gz",
+          "sha256": "5385c787336011840507620b8d4b1f17c406a3437029d36aacc487fa6a28e4ea",
+          "fixtureSha256": "ed689c4ceb04c09962e45cd598bd46c5436ca979b072eee1f6294595154cf07e",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "physicalRowVersions": 2426,
+              "generations": 2,
+              "pins": 0,
+              "values": 2426,
+              "logicalRowBytes": 1716344
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:vk3sruquhwqkzvl6zewghxtu/bafyreicv6c7oj6jmi5isntsjze3iawad6kehvjljvnwo3tbufmkrdawpjm/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "one-use-100",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "f635a509f2849f0be659aed4b15232d876e736b50bf56273074ccd32c6fe0de4",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node22-source/result.json.gz",
+          "sha256": "574740c60d47d3327791b2a673d38d190e7b48ae6f949021e51b062e19166247",
+          "fixtureSha256": "b87b891ea5409f0daccc3df1dd2984d9a91874a422f4661941a868c9657f73f6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2191360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node22-compiled/result.json.gz",
+          "sha256": "e659c443f14e9f9243fdf78c33310589580b242888c906610af0ddb26c36c597",
+          "fixtureSha256": "b87b891ea5409f0daccc3df1dd2984d9a91874a422f4661941a868c9657f73f6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2191360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node24-source/result.json.gz",
+          "sha256": "96d263d1c540604470d5116d33a430040b84e0de8cd8c1e7184efc42bd88919c",
+          "fixtureSha256": "b87b891ea5409f0daccc3df1dd2984d9a91874a422f4661941a868c9657f73f6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2191360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node24-compiled/result.json.gz",
+          "sha256": "7924791d3c031707a99cc4436c7737fc5ebf5c6099979f5f99e0123ee8341f1d",
+          "fixtureSha256": "b87b891ea5409f0daccc3df1dd2984d9a91874a422f4661941a868c9657f73f6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2191360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node26-source/result.json.gz",
+          "sha256": "000a7d5861c51272c50b1ff51840c73574e19f3461b482cb8555d24a165bd464",
+          "fixtureSha256": "b87b891ea5409f0daccc3df1dd2984d9a91874a422f4661941a868c9657f73f6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2191360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-node26-compiled/result.json.gz",
+          "sha256": "1d0a9be894f60981f4354d0c402ecbdb9fa40e560dbe48f7a8459ac5f39ee667",
+          "fixtureSha256": "b87b891ea5409f0daccc3df1dd2984d9a91874a422f4661941a868c9657f73f6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "rows": {
+                "count": 2426,
+                "logicalRowBytes": 1716344
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 496
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 2191360
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-100-chromium/result.json.gz",
+          "sha256": "5dba5099d2420accff1a2658a6092f445028064462f2b782f9cc0d65107c6eb0",
+          "fixtureSha256": "b87b891ea5409f0daccc3df1dd2984d9a91874a422f4661941a868c9657f73f6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/native",
+                "current": 3,
+                "bytes": 1716939,
+                "rows": 2426
+              },
+              "physicalRowVersions": 2426,
+              "generations": 2,
+              "pins": 0,
+              "values": 2426,
+              "logicalRowBytes": 1716344
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:iyokrxdbyct7znd4zmsk7fh5/bafyreieutadpyw3ulzsunqapnl3fm2jqzpawzxwx3hbsbaywqlubrkr6fu/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "one-1000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "02de455c92fcb889a5b4f6e8cc43d40a7bd32194094ff20f4a8bb9386d7d8f2d",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node22-source/result.json.gz",
+          "sha256": "6ea142392f392e262da12e31c3a2a19925799c105e7aa8e4ce56da8c773b92aa",
+          "fixtureSha256": "3d8a7b2ce7f2b465cb992e76e06d50f0e330e5d8f98f279a527f74f015cb2daf",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/native",
+                "current": 7,
+                "bytes": 3677752,
+                "rows": 6057
+              },
+              "rows": {
+                "count": 6057,
+                "logicalRowBytes": 3677155
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4640768
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node22-compiled/result.json.gz",
+          "sha256": "be39bab0b2e0e62e46225827d1ff0ae466ed5c22dd7c16b433cc9876f0e0929c",
+          "fixtureSha256": "3d8a7b2ce7f2b465cb992e76e06d50f0e330e5d8f98f279a527f74f015cb2daf",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/native",
+                "current": 7,
+                "bytes": 3677752,
+                "rows": 6057
+              },
+              "rows": {
+                "count": 6057,
+                "logicalRowBytes": 3677155
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4640768
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node24-source/result.json.gz",
+          "sha256": "f1de8c0ee169dd41ca113eb44ff3556293afa078c95a04676a067b244e96ce15",
+          "fixtureSha256": "3d8a7b2ce7f2b465cb992e76e06d50f0e330e5d8f98f279a527f74f015cb2daf",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/native",
+                "current": 7,
+                "bytes": 3677752,
+                "rows": 6057
+              },
+              "rows": {
+                "count": 6057,
+                "logicalRowBytes": 3677155
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4640768
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node24-compiled/result.json.gz",
+          "sha256": "9006fe1e73a377f64a4f073cf2db506cb1b708c5f7e2301480bd202ddb1e4b03",
+          "fixtureSha256": "3d8a7b2ce7f2b465cb992e76e06d50f0e330e5d8f98f279a527f74f015cb2daf",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/native",
+                "current": 7,
+                "bytes": 3677752,
+                "rows": 6057
+              },
+              "rows": {
+                "count": 6057,
+                "logicalRowBytes": 3677155
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4640768
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node26-source/result.json.gz",
+          "sha256": "3c3578bb96f42c584f0d60b76f91acf06d3bd3a48a610339bb5c7f02f77fde4a",
+          "fixtureSha256": "3d8a7b2ce7f2b465cb992e76e06d50f0e330e5d8f98f279a527f74f015cb2daf",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/native",
+                "current": 7,
+                "bytes": 3677752,
+                "rows": 6057
+              },
+              "rows": {
+                "count": 6057,
+                "logicalRowBytes": 3677155
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4640768
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-node26-compiled/result.json.gz",
+          "sha256": "1316b7c4e6549fd4fd733b2bd5233a30b7246af0a11f922b56f57cf96f83c720",
+          "fixtureSha256": "3d8a7b2ce7f2b465cb992e76e06d50f0e330e5d8f98f279a527f74f015cb2daf",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/native",
+                "current": 7,
+                "bytes": 3677752,
+                "rows": 6057
+              },
+              "rows": {
+                "count": 6057,
+                "logicalRowBytes": 3677155
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4640768
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-1000-chromium/result.json.gz",
+          "sha256": "225904ea40cfae42103ed8729f81e3edbccdf7ce472bd51893ad979f77ac7a45",
+          "fixtureSha256": "3d8a7b2ce7f2b465cb992e76e06d50f0e330e5d8f98f279a527f74f015cb2daf",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/native",
+                "current": 7,
+                "bytes": 3677752,
+                "rows": 6057
+              },
+              "physicalRowVersions": 6057,
+              "generations": 2,
+              "pins": 0,
+              "values": 6057,
+              "logicalRowBytes": 3677155
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:boynhrcim6slka6jtaaoiyp7/bafyreic353kkeh7ft274tjrsckkmyqp3rloi637diwlxlmqsyeiauskcna/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "sixteen-1000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "c6664676aa952f622b8f2cd00947f4deb845e1c79b4fa098160891ccba488c77",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node22-source/result.json.gz",
+          "sha256": "31b8dc21e83ae71cfb4755ef4f510662db97672b1486fde172d0771fafc1dab9",
+          "fixtureSha256": "531e13f3916fc526e827e24df58c556da6e49fbfd69d918a119e8c57453dfcd6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/native",
+                "current": 7,
+                "bytes": 3792357,
+                "rows": 6192
+              },
+              "rows": {
+                "count": 6192,
+                "logicalRowBytes": 3791760
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4767744
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node22-compiled/result.json.gz",
+          "sha256": "eb31bc538b671e0bda7f97448589460e168d6ab2321653b0a6b560d87e738c81",
+          "fixtureSha256": "531e13f3916fc526e827e24df58c556da6e49fbfd69d918a119e8c57453dfcd6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/native",
+                "current": 7,
+                "bytes": 3792357,
+                "rows": 6192
+              },
+              "rows": {
+                "count": 6192,
+                "logicalRowBytes": 3791760
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4767744
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node24-source/result.json.gz",
+          "sha256": "ba144e7d62d98a3ec941319cecb3b1d8f5e6c200d8635d1fe49430af9cef07df",
+          "fixtureSha256": "531e13f3916fc526e827e24df58c556da6e49fbfd69d918a119e8c57453dfcd6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/native",
+                "current": 7,
+                "bytes": 3792357,
+                "rows": 6192
+              },
+              "rows": {
+                "count": 6192,
+                "logicalRowBytes": 3791760
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4767744
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node24-compiled/result.json.gz",
+          "sha256": "b381d776c85600d28b2a5fbd490738ce7f32d8a3148c35d606b44b10ea921c88",
+          "fixtureSha256": "531e13f3916fc526e827e24df58c556da6e49fbfd69d918a119e8c57453dfcd6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/native",
+                "current": 7,
+                "bytes": 3792357,
+                "rows": 6192
+              },
+              "rows": {
+                "count": 6192,
+                "logicalRowBytes": 3791760
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4767744
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node26-source/result.json.gz",
+          "sha256": "9e760b046fe07c4805ac8e7583ea31a457fbe4ddf74ad1c7c53ae8cc18348292",
+          "fixtureSha256": "531e13f3916fc526e827e24df58c556da6e49fbfd69d918a119e8c57453dfcd6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/native",
+                "current": 7,
+                "bytes": 3792357,
+                "rows": 6192
+              },
+              "rows": {
+                "count": 6192,
+                "logicalRowBytes": 3791760
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4767744
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-node26-compiled/result.json.gz",
+          "sha256": "c78091a56af166faa8195360cab79f0d71d87604709848bfe2e73956d06d5a4c",
+          "fixtureSha256": "531e13f3916fc526e827e24df58c556da6e49fbfd69d918a119e8c57453dfcd6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/native",
+                "current": 7,
+                "bytes": 3792357,
+                "rows": 6192
+              },
+              "rows": {
+                "count": 6192,
+                "logicalRowBytes": 3791760
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 4767744
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-1000-chromium/result.json.gz",
+          "sha256": "f4ade6a712d94a5c7d393f845074b28a1608790cf3cad9e64dfe7bb849abedcf",
+          "fixtureSha256": "531e13f3916fc526e827e24df58c556da6e49fbfd69d918a119e8c57453dfcd6",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/native",
+                "current": 7,
+                "bytes": 3792357,
+                "rows": 6192
+              },
+              "physicalRowVersions": 6192,
+              "generations": 2,
+              "pins": 0,
+              "values": 6192,
+              "logicalRowBytes": 3791760
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:4wrl2snldqcrbahdntvieilp/bafyreih4waejfoeoyzpgo562pa7zyifihv52mrxtufjuynx5ql35gjizoy/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "retired-1000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "cf199eb9ff6792b45d939c05d4ce2a83b8d91680ba66cf47b19414d9b3ffd163",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node22-source/result.json.gz",
+          "sha256": "b4c2e9a679a5ab80a4e524f5af5d6faa99ae4bcb151c05e1ff40a172ff8962fc",
+          "fixtureSha256": "7b43e39c50581862abb8b7216279aa308aa68ba993104eef4afdc8e2cdd0d057",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/native",
+                "current": 8,
+                "bytes": 5011003,
+                "rows": 7845
+              },
+              "rows": {
+                "count": 7845,
+                "logicalRowBytes": 5010406
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 6340608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node22-compiled/result.json.gz",
+          "sha256": "7d64cd07bb513feb216d99cd454874a03df9adce83c13c08a8fd3ecbc9c0a134",
+          "fixtureSha256": "7b43e39c50581862abb8b7216279aa308aa68ba993104eef4afdc8e2cdd0d057",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/native",
+                "current": 8,
+                "bytes": 5011003,
+                "rows": 7845
+              },
+              "rows": {
+                "count": 7845,
+                "logicalRowBytes": 5010406
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 6340608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node24-source/result.json.gz",
+          "sha256": "cda4d3b6f5bb8c8bbf058992c9f0157241b59fb778f77ce74c94e38d66988ccf",
+          "fixtureSha256": "7b43e39c50581862abb8b7216279aa308aa68ba993104eef4afdc8e2cdd0d057",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/native",
+                "current": 8,
+                "bytes": 5011003,
+                "rows": 7845
+              },
+              "rows": {
+                "count": 7845,
+                "logicalRowBytes": 5010406
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 6340608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node24-compiled/result.json.gz",
+          "sha256": "18a49c8e7ce9ee1be79c4e1d2fe4622a88b559cdc9a07e1f1bce23b09f2bb6c0",
+          "fixtureSha256": "7b43e39c50581862abb8b7216279aa308aa68ba993104eef4afdc8e2cdd0d057",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/native",
+                "current": 8,
+                "bytes": 5011003,
+                "rows": 7845
+              },
+              "rows": {
+                "count": 7845,
+                "logicalRowBytes": 5010406
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 6340608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node26-source/result.json.gz",
+          "sha256": "614879b344165fc6fcff140645948ca793710ddcdf199e681720db71b8344df9",
+          "fixtureSha256": "7b43e39c50581862abb8b7216279aa308aa68ba993104eef4afdc8e2cdd0d057",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/native",
+                "current": 8,
+                "bytes": 5011003,
+                "rows": 7845
+              },
+              "rows": {
+                "count": 7845,
+                "logicalRowBytes": 5010406
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 6340608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-node26-compiled/result.json.gz",
+          "sha256": "0290f32d330babdac439c36a18d658ef1dae83a2019adeba7aea43cd2a228d82",
+          "fixtureSha256": "7b43e39c50581862abb8b7216279aa308aa68ba993104eef4afdc8e2cdd0d057",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/native",
+                "current": 8,
+                "bytes": 5011003,
+                "rows": 7845
+              },
+              "rows": {
+                "count": 7845,
+                "logicalRowBytes": 5010406
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 6340608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-1000-chromium/result.json.gz",
+          "sha256": "16317dd1b8d759059ba26548291a59b27fde89a6abf62e8d82cabe443d743a66",
+          "fixtureSha256": "7b43e39c50581862abb8b7216279aa308aa68ba993104eef4afdc8e2cdd0d057",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/native",
+                "current": 8,
+                "bytes": 5011003,
+                "rows": 7845
+              },
+              "physicalRowVersions": 7845,
+              "generations": 2,
+              "pins": 0,
+              "values": 7845,
+              "logicalRowBytes": 5010406
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:27qrdlre23c2wmctjjj7wzxi/bafyreievxepx2c72cvwrqou3igzdm7ajsjqdslqnj35cc5vdin3yz77fhq/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "one-use-1000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "76aa8a5566f25f7c0838fa1ff7ee332070dad0bf59ae20fd1150ca33c63d5c8a",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node22-source/result.json.gz",
+          "sha256": "5850701348efc3f0f7be2772f3fd752e1c3343066eaba6ed874ee1eb267f7928",
+          "fixtureSha256": "f9334bee8b0258324aa71477a545f137aa70d3d10ffb98cebfc8257eb1b89f93",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/native",
+                "current": 25,
+                "bytes": 17135466,
+                "rows": 24111
+              },
+              "rows": {
+                "count": 24111,
+                "logicalRowBytes": 17134869
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 21700608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node22-compiled/result.json.gz",
+          "sha256": "6cad1192478e763eddbec147b4732513d89042f92a428e79ada4e70af989cdb6",
+          "fixtureSha256": "f9334bee8b0258324aa71477a545f137aa70d3d10ffb98cebfc8257eb1b89f93",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/native",
+                "current": 25,
+                "bytes": 17135466,
+                "rows": 24111
+              },
+              "rows": {
+                "count": 24111,
+                "logicalRowBytes": 17134869
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 21700608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node24-source/result.json.gz",
+          "sha256": "c9b2510dc74867fc886cf0fdd8dc7c027b6682ca1f740dc067d36c07f86ca70f",
+          "fixtureSha256": "f9334bee8b0258324aa71477a545f137aa70d3d10ffb98cebfc8257eb1b89f93",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/native",
+                "current": 25,
+                "bytes": 17135466,
+                "rows": 24111
+              },
+              "rows": {
+                "count": 24111,
+                "logicalRowBytes": 17134869
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 21700608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node24-compiled/result.json.gz",
+          "sha256": "42a91ba160fb1e9e60aec4c33e8a218b0482b907df80047f797c75b7bfa090c5",
+          "fixtureSha256": "f9334bee8b0258324aa71477a545f137aa70d3d10ffb98cebfc8257eb1b89f93",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/native",
+                "current": 25,
+                "bytes": 17135466,
+                "rows": 24111
+              },
+              "rows": {
+                "count": 24111,
+                "logicalRowBytes": 17134869
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 21700608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node26-source/result.json.gz",
+          "sha256": "f3798bd0170cba46ae5cee29525e367941d9b2d11bc1ce684f153918ce383cf3",
+          "fixtureSha256": "f9334bee8b0258324aa71477a545f137aa70d3d10ffb98cebfc8257eb1b89f93",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/native",
+                "current": 25,
+                "bytes": 17135466,
+                "rows": 24111
+              },
+              "rows": {
+                "count": 24111,
+                "logicalRowBytes": 17134869
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 21700608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-node26-compiled/result.json.gz",
+          "sha256": "7963d6e4778aed9d23d7aeed20496cb75a2d04f3eef191dcfe5f2912469b7beb",
+          "fixtureSha256": "f9334bee8b0258324aa71477a545f137aa70d3d10ffb98cebfc8257eb1b89f93",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/native",
+                "current": 25,
+                "bytes": 17135466,
+                "rows": 24111
+              },
+              "rows": {
+                "count": 24111,
+                "logicalRowBytes": 17134869
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 498
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 21700608
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-1000-chromium/result.json.gz",
+          "sha256": "b2268c550e6f854553f9fb4648fbc9e9768bf6af409a4af2913fdd237d101bdd",
+          "fixtureSha256": "f9334bee8b0258324aa71477a545f137aa70d3d10ffb98cebfc8257eb1b89f93",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/native",
+                "current": 25,
+                "bytes": 17135466,
+                "rows": 24111
+              },
+              "physicalRowVersions": 24111,
+              "generations": 2,
+              "pins": 0,
+              "values": 24111,
+              "logicalRowBytes": 17134869
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:vkpfkohmvejhpfy5wmq4vddm/bafyreib4dj7zfkxrp6sb6b3qcnftfdcz5tzo7et6npccl23as3suz4jkei/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "one-10000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "1e1612f3a46198223ab709bb8956b21ef3593f5b443547e3db0b34369a1b29cc",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node22-source/result.json.gz",
+          "sha256": "992faabad9dd477ee0c12b55c924286b77ccf1b57042e6a4b7a8c6e601b5c7d9",
+          "fixtureSha256": "6df8bf043468cbae58d1b49d472bbc486a34ab03a8c649c560c6af6b3c004a39",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/native",
+                "current": 61,
+                "bytes": 36643365,
+                "rows": 60252
+              },
+              "rows": {
+                "count": 60252,
+                "logicalRowBytes": 36642766
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 45953024
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node22-compiled/result.json.gz",
+          "sha256": "0ae7bd12db87ca42a17823d623d00684824550dc3f07368c49e89b44fe12ce31",
+          "fixtureSha256": "6df8bf043468cbae58d1b49d472bbc486a34ab03a8c649c560c6af6b3c004a39",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/native",
+                "current": 61,
+                "bytes": 36643365,
+                "rows": 60252
+              },
+              "rows": {
+                "count": 60252,
+                "logicalRowBytes": 36642766
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 45953024
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node24-source/result.json.gz",
+          "sha256": "de866adf518538d86ce0c32a5780ebb310aea1afcd26808d907738fa4837eaa9",
+          "fixtureSha256": "6df8bf043468cbae58d1b49d472bbc486a34ab03a8c649c560c6af6b3c004a39",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/native",
+                "current": 61,
+                "bytes": 36643365,
+                "rows": 60252
+              },
+              "rows": {
+                "count": 60252,
+                "logicalRowBytes": 36642766
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 45953024
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node24-compiled/result.json.gz",
+          "sha256": "0f8c5989db051f7669e35e44862592c987eceb169f7c45dafe54b075d52d60c9",
+          "fixtureSha256": "6df8bf043468cbae58d1b49d472bbc486a34ab03a8c649c560c6af6b3c004a39",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/native",
+                "current": 61,
+                "bytes": 36643365,
+                "rows": 60252
+              },
+              "rows": {
+                "count": 60252,
+                "logicalRowBytes": 36642766
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 45953024
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node26-source/result.json.gz",
+          "sha256": "bcbc3149cafc4644d5deaad5aad00e836dcee7acff1cd9163ecc77eddbde89c1",
+          "fixtureSha256": "6df8bf043468cbae58d1b49d472bbc486a34ab03a8c649c560c6af6b3c004a39",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/native",
+                "current": 61,
+                "bytes": 36643365,
+                "rows": 60252
+              },
+              "rows": {
+                "count": 60252,
+                "logicalRowBytes": 36642766
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 45953024
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-node26-compiled/result.json.gz",
+          "sha256": "0fd9a2117edb80e75c3eb19502346b3652df4166d525134b38f6b7f04ca4b1ce",
+          "fixtureSha256": "6df8bf043468cbae58d1b49d472bbc486a34ab03a8c649c560c6af6b3c004a39",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/native",
+                "current": 61,
+                "bytes": 36643365,
+                "rows": 60252
+              },
+              "rows": {
+                "count": 60252,
+                "logicalRowBytes": 36642766
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 45953024
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-10000-chromium/result.json.gz",
+          "sha256": "b6282e565e9bf9e1c623a5ddeec7d7e06dd551bba7ebac8c4e56ab93fa340de0",
+          "fixtureSha256": "6df8bf043468cbae58d1b49d472bbc486a34ab03a8c649c560c6af6b3c004a39",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/native",
+                "current": 61,
+                "bytes": 36643365,
+                "rows": 60252
+              },
+              "physicalRowVersions": 60252,
+              "generations": 2,
+              "pins": 0,
+              "values": 60252,
+              "logicalRowBytes": 36642766
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:whrdvow5uuavbsdtpjjlns65/bafyreibk4vchdavihefctkpyifhvpok4lsxek7t5upbb53ybckgg4d37mi/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "sixteen-10000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "2177327f2dbcd683f03fa4ae1f02a4d63d186dbd89cc6cadfdf5672b47b9f3f4",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node22-source/result.json.gz",
+          "sha256": "b39a8254e0d3c2929858041487f962acc7fa0a866b94e9ea156d0945f0b6fbce",
+          "fixtureSha256": "30c470e4eb642c37dae62ab6cd0cc0c8140e65e5a3c466ae9e1c97f9998c524b",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/native",
+                "current": 61,
+                "bytes": 36758030,
+                "rows": 60387
+              },
+              "rows": {
+                "count": 60387,
+                "logicalRowBytes": 36757431
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 46080000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node22-compiled/result.json.gz",
+          "sha256": "5e1a9d6d1f417c66c69e3298e665c5747f80cf9fe6a6530fd86c0770379c7871",
+          "fixtureSha256": "30c470e4eb642c37dae62ab6cd0cc0c8140e65e5a3c466ae9e1c97f9998c524b",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/native",
+                "current": 61,
+                "bytes": 36758030,
+                "rows": 60387
+              },
+              "rows": {
+                "count": 60387,
+                "logicalRowBytes": 36757431
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 46080000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node24-source/result.json.gz",
+          "sha256": "3be1cfc2e1ced63a2a1ab67585b70f0598ce91e104117c2b1816483325db5392",
+          "fixtureSha256": "30c470e4eb642c37dae62ab6cd0cc0c8140e65e5a3c466ae9e1c97f9998c524b",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/native",
+                "current": 61,
+                "bytes": 36758030,
+                "rows": 60387
+              },
+              "rows": {
+                "count": 60387,
+                "logicalRowBytes": 36757431
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 46080000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node24-compiled/result.json.gz",
+          "sha256": "e2736a234aa2ba5fd5a602ac9ad6f859bae25d14669e68e0fa999df730507a4b",
+          "fixtureSha256": "30c470e4eb642c37dae62ab6cd0cc0c8140e65e5a3c466ae9e1c97f9998c524b",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/native",
+                "current": 61,
+                "bytes": 36758030,
+                "rows": 60387
+              },
+              "rows": {
+                "count": 60387,
+                "logicalRowBytes": 36757431
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 46080000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node26-source/result.json.gz",
+          "sha256": "156e03b96f1c32cf96163d31de23cca9683dabfd79e0832f2ca099d159e15638",
+          "fixtureSha256": "30c470e4eb642c37dae62ab6cd0cc0c8140e65e5a3c466ae9e1c97f9998c524b",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/native",
+                "current": 61,
+                "bytes": 36758030,
+                "rows": 60387
+              },
+              "rows": {
+                "count": 60387,
+                "logicalRowBytes": 36757431
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 46080000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-node26-compiled/result.json.gz",
+          "sha256": "a172ea929b24210976645b4f12f4c21906387bb65cdceab57d4e9912a0ec7ed7",
+          "fixtureSha256": "30c470e4eb642c37dae62ab6cd0cc0c8140e65e5a3c466ae9e1c97f9998c524b",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/native",
+                "current": 61,
+                "bytes": 36758030,
+                "rows": 60387
+              },
+              "rows": {
+                "count": 60387,
+                "logicalRowBytes": 36757431
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 46080000
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/sixteen-10000-chromium/result.json.gz",
+          "sha256": "75e350ab2f2367bceb5f2ca328f4d0e61be5c80eb088e7973daa786e5e787aec",
+          "fixtureSha256": "30c470e4eb642c37dae62ab6cd0cc0c8140e65e5a3c466ae9e1c97f9998c524b",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/native",
+                "current": 61,
+                "bytes": 36758030,
+                "rows": 60387
+              },
+              "physicalRowVersions": 60387,
+              "generations": 2,
+              "pins": 0,
+              "values": 60387,
+              "logicalRowBytes": 36757431
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:h2fllc6aef3vjkvlhkyc2lgi/bafyreieanojptufiz3r252qlwujp44xkikltlcy2p3sp5bskothk62ni2q/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "retired-10000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "a375928b0fd29394c3b178ca7e2db72625f2c495caf31dfe6d210ecd23f65ced",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node22-source/result.json.gz",
+          "sha256": "4e5b93ba646b2fd288cacd3d8297561f5625636b2c1ab73a39aeecf66967a327",
+          "fixtureSha256": "debe6c58673242a18a09cc5829e3a387ee9db313c91f278a9c83af6952799a6d",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/native",
+                "current": 63,
+                "bytes": 37977758,
+                "rows": 62041
+              },
+              "rows": {
+                "count": 62041,
+                "logicalRowBytes": 37977159
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 47689728
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node22-compiled/result.json.gz",
+          "sha256": "2f39d6dbe4808694456337b202ee56bd958918f1bc6eef51577ab51d5dd5afda",
+          "fixtureSha256": "debe6c58673242a18a09cc5829e3a387ee9db313c91f278a9c83af6952799a6d",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/native",
+                "current": 63,
+                "bytes": 37977758,
+                "rows": 62041
+              },
+              "rows": {
+                "count": 62041,
+                "logicalRowBytes": 37977159
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 47689728
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node24-source/result.json.gz",
+          "sha256": "23ed2a23ed77da7658a385cdfd39bad9f6a4bb95431fe88773e593f57a815a53",
+          "fixtureSha256": "debe6c58673242a18a09cc5829e3a387ee9db313c91f278a9c83af6952799a6d",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/native",
+                "current": 63,
+                "bytes": 37977758,
+                "rows": 62041
+              },
+              "rows": {
+                "count": 62041,
+                "logicalRowBytes": 37977159
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 47689728
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node24-compiled/result.json.gz",
+          "sha256": "177229baaec875eb55b5087b9bd09e6982455fb89db3c4bb62cd363308d9abf0",
+          "fixtureSha256": "debe6c58673242a18a09cc5829e3a387ee9db313c91f278a9c83af6952799a6d",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/native",
+                "current": 63,
+                "bytes": 37977758,
+                "rows": 62041
+              },
+              "rows": {
+                "count": 62041,
+                "logicalRowBytes": 37977159
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 47689728
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node26-source/result.json.gz",
+          "sha256": "692c38f2f9ddaefc1efdc1a93a77601101b4b96ef5dc5d34b14beec0f24a3c21",
+          "fixtureSha256": "debe6c58673242a18a09cc5829e3a387ee9db313c91f278a9c83af6952799a6d",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/native",
+                "current": 63,
+                "bytes": 37977758,
+                "rows": 62041
+              },
+              "rows": {
+                "count": 62041,
+                "logicalRowBytes": 37977159
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 47689728
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-node26-compiled/result.json.gz",
+          "sha256": "bcfe0679204d6062d5c89877266f017ec894a7ca36c066e04d9200782602f694",
+          "fixtureSha256": "debe6c58673242a18a09cc5829e3a387ee9db313c91f278a9c83af6952799a6d",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/native",
+                "current": 63,
+                "bytes": 37977758,
+                "rows": 62041
+              },
+              "rows": {
+                "count": 62041,
+                "logicalRowBytes": 37977159
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 47689728
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/retired-10000-chromium/result.json.gz",
+          "sha256": "df3bd9f73353e81f1973cd5b69f5762bd7e421f51d326d4f0c8205a97557db3a",
+          "fixtureSha256": "debe6c58673242a18a09cc5829e3a387ee9db313c91f278a9c83af6952799a6d",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "content_unavailable",
+              "message": "AtseqError: Native prefix suffix exceeds local delta budget"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/native",
+                "current": 63,
+                "bytes": 37977758,
+                "rows": 62041
+              },
+              "physicalRowVersions": 62041,
+              "generations": 2,
+              "pins": 0,
+              "values": 62041,
+              "logicalRowBytes": 37977159
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:5ktgddecdvoffriiqgxc7ck5/bafyreiau3nwl6gh2xg6yano37klb3ewnypk3ibfi5ufpbbtd2cixkvaq3i/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    },
+    {
+      "cell": "one-use-10000",
+      "identicalCanonicalProjections": true,
+      "equalitySha256": "289fca5cb848e6287fe13a72c418abfefa7d45255173f3d86c6becd43e70a666",
+      "captures": [
+        {
+          "runtime": "node22-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node22-source/result.json.gz",
+          "sha256": "8b657d6a90cdf9f655ceee0f4c44cb4fa1867daa8a8f17aaca483e526d8614cf",
+          "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "native_proof_limit",
+              "message": "ProtocolError: CAR bytes exceed budget"
+            },
+            {
+              "stage": "rawStoreDefaultPersistence",
+              "code": "quota",
+              "message": "LocalStorageError: Local retained storage quota exceeded"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/native",
+                "current": 64,
+                "bytes": 49629164,
+                "rows": 64000
+              },
+              "rows": {
+                "count": 64000,
+                "logicalRowBytes": 49628565
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 60870656
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node22-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node22-compiled/result.json.gz",
+          "sha256": "96c6e3bda200a2a9612ad103db4da40cc4f0138afbc3af9f28a78e1446d37619",
+          "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "native_proof_limit",
+              "message": "ProtocolError: CAR bytes exceed budget"
+            },
+            {
+              "stage": "rawStoreDefaultPersistence",
+              "code": "quota",
+              "message": "LocalStorageError: Local retained storage quota exceeded"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/native",
+                "current": 64,
+                "bytes": 49629164,
+                "rows": 64000
+              },
+              "rows": {
+                "count": 64000,
+                "logicalRowBytes": 49628565
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 60870656
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node24-source/result.json.gz",
+          "sha256": "87738763f54b54760f1938688b1324167fd228a1399c8422ba704695e6668e3e",
+          "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "native_proof_limit",
+              "message": "ProtocolError: CAR bytes exceed budget"
+            },
+            {
+              "stage": "rawStoreDefaultPersistence",
+              "code": "quota",
+              "message": "LocalStorageError: Local retained storage quota exceeded"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/native",
+                "current": 64,
+                "bytes": 49629164,
+                "rows": 64000
+              },
+              "rows": {
+                "count": 64000,
+                "logicalRowBytes": 49628565
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 60870656
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node24-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node24-compiled/result.json.gz",
+          "sha256": "acbb44b4a1f9fe5f224d953444cf78f7085eef746ca6eaa5c26f9304311c96c0",
+          "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "native_proof_limit",
+              "message": "ProtocolError: CAR bytes exceed budget"
+            },
+            {
+              "stage": "rawStoreDefaultPersistence",
+              "code": "quota",
+              "message": "LocalStorageError: Local retained storage quota exceeded"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/native",
+                "current": 64,
+                "bytes": 49629164,
+                "rows": 64000
+              },
+              "rows": {
+                "count": 64000,
+                "logicalRowBytes": 49628565
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 60870656
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-source",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node26-source/result.json.gz",
+          "sha256": "66bf0120aed7facdffeb871bf02792dca1d351d62fc42580b995fb19e2677b2c",
+          "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "native_proof_limit",
+              "message": "ProtocolError: CAR bytes exceed budget"
+            },
+            {
+              "stage": "rawStoreDefaultPersistence",
+              "code": "quota",
+              "message": "LocalStorageError: Local retained storage quota exceeded"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/native",
+                "current": 64,
+                "bytes": 49629164,
+                "rows": 64000
+              },
+              "rows": {
+                "count": 64000,
+                "logicalRowBytes": 49628565
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 60870656
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "node26-compiled",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-node26-compiled/result.json.gz",
+          "sha256": "2b7d5d5a0e684632abf67296112f97323869be951cf0365c1ac00fa8b2a7b1f1",
+          "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "native_proof_limit",
+              "message": "ProtocolError: CAR bytes exceed budget"
+            },
+            {
+              "stage": "rawStoreDefaultPersistence",
+              "code": "quota",
+              "message": "LocalStorageError: Local retained storage quota exceeded"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/native",
+                "current": 64,
+                "bytes": 49629164,
+                "rows": 64000
+              },
+              "rows": {
+                "count": 64000,
+                "logicalRowBytes": 49628565
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 500
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 60870656
+            },
+            "counter": {
+              "accounting": {
+                "id": 1,
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "rows": {
+                "count": 2,
+                "logicalRowBytes": 73
+              },
+              "generations": {
+                "count": 2,
+                "metadataBytes": 88
+              },
+              "pins": {
+                "count": 0,
+                "pinBytes": null
+              },
+              "sqliteFileBytes": 32768
+            }
+          }
+        },
+        {
+          "runtime": "chromium",
+          "path": "experiments/post-spike-evidence/r0-native-f1/runs/one-use-10000-chromium/result.json.gz",
+          "sha256": "cecb0b7b08c8bd1b1fdd25a54dfa3d20dc570fabed4a165488cd5435432e88ad",
+          "fixtureSha256": "e2607a63dae2b0f48f571ed88dc2a1fc9d1ce2fbae696edc6cbf97f70bf9a079",
+          "sourceHead": "812f6e3453e872be22759890c78928d7e7f185d2",
+          "failures": [
+            {
+              "stage": "genuineR1DefaultColdReconstruction",
+              "code": "native_proof_limit",
+              "message": "ProtocolError: CAR bytes exceed budget"
+            },
+            {
+              "stage": "rawStoreDefaultPersistence",
+              "code": "quota",
+              "message": "LocalStorageError: Local retained storage quota exceeded"
+            }
+          ],
+          "storage": {
+            "native": {
+              "accounting": {
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/native",
+                "current": 64,
+                "bytes": 49629164,
+                "rows": 64000
+              },
+              "physicalRowVersions": 64000,
+              "generations": 2,
+              "pins": 0,
+              "values": 64000,
+              "logicalRowBytes": 49628565
+            },
+            "counter": {
+              "accounting": {
+                "scope": "did:plc:vvofemxl7unpzsle56m5t777/bafyreibdnbfl65ais57npjg72esgvsenlxmnahfzutitmiakeaobbdsr7u/counter",
+                "current": 4,
+                "bytes": 261,
+                "rows": 2
+              },
+              "physicalRowVersions": 2,
+              "generations": 2,
+              "pins": 0,
+              "values": 2,
+              "logicalRowBytes": 73
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "actual canonical component hashes/counts, proof and receipt statuses, unsupported allocator outcomes; time/heap/backend storage overhead are not required to agree"
+}

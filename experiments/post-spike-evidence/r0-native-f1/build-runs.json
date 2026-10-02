@@ -1,0 +1,106 @@
+[
+  {
+    "name": "node22-normal-check",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+      "run",
+      "check"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:46:33.563Z",
+    "finished": "2026-10-02T12:46:38.903Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/node22-normal-check.log",
+    "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  {
+    "name": "node22-build",
+    "node": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+    "args": [
+      "scripts/build.mjs"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:46:38.903Z",
+    "finished": "2026-10-02T12:46:41.873Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/node22-build.log",
+    "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+  },
+  {
+    "name": "node24-normal-check",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+      "run",
+      "check"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:46:41.874Z",
+    "finished": "2026-10-02T12:46:46.609Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/node24-normal-check.log",
+    "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  {
+    "name": "node24-build",
+    "node": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+    "args": [
+      "scripts/build.mjs"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:46:46.609Z",
+    "finished": "2026-10-02T12:46:49.217Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/node24-build.log",
+    "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+  },
+  {
+    "name": "node26-normal-check",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "/opt/homebrew/lib/node_modules/npm/bin/npm-cli.js",
+      "run",
+      "check"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:46:49.217Z",
+    "finished": "2026-10-02T12:46:53.782Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/node26-normal-check.log",
+    "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+  },
+  {
+    "name": "node26-build",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "scripts/build.mjs"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:46:53.782Z",
+    "finished": "2026-10-02T12:46:56.714Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/node26-build.log",
+    "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+  },
+  {
+    "name": "compile-experiment",
+    "node": "/opt/homebrew/bin/node",
+    "args": [
+      "experiments/r0-native/compile.mjs"
+    ],
+    "head": "812f6e3453e872be22759890c78928d7e7f185d2",
+    "began": "2026-10-02T12:46:56.714Z",
+    "finished": "2026-10-02T12:46:56.966Z",
+    "exit": 0,
+    "signal": null,
+    "logfile": "experiments/post-spike-evidence/r0-native-f1/gates/compile-experiment.log",
+    "sha256": "1921c7d74edfda471af93717f0e0e9aa7871d8a479f6c66dc68c08c8e75cf243"
+  }
+]
