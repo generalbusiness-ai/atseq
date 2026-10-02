@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-r1-integration/verify-packet.py", line 63, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-r1-integration/verify-packet.py", line 42, in main
+    check=(packet/f'check-node{version}.log').read_text();require(all(x in check for x in ['All matched files use Prettier code style!','Layer boundaries checked.','Declared runtime dependency graph and installed runtime file closure match.']),'normal check phases')
+                                                          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-r1-integration/verify-packet.py", line 5, in require
+    if not x:raise ValueError(message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: normal check phases

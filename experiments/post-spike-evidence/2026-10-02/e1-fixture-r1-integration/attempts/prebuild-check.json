@@ -1,0 +1,16 @@
+{
+  "command": [
+    "npm",
+    "run",
+    "check"
+  ],
+  "node": "v26.10.0",
+  "sourceCommit": "c0f8c377b11e18c3f168076612978a309db54ae2",
+  "basis": "316439928e0c0d41965b086f2dace19a9249dba7",
+  "exitCode": 1,
+  "log": "check-initial-node26.log",
+  "attribution": "Seven unchanged E1 sources present; copied archival data uncommitted and compiler-excluded; new compiled helper not yet added. Fresh worktree has no dist.",
+  "diagnostics": 2,
+  "reason": "Package type imports require the existing build output; no source/configuration fix.",
+  "resolution": "Build at frozen684d3df8, then all3 normal checks passed."
+}

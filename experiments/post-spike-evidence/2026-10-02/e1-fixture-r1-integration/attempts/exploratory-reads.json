@@ -1,0 +1,17 @@
+{
+  "scope": "read-only inspection, no runtime tests attempted",
+  "failedReads": [
+    {
+      "cwd": "/private/tmp/atseq-e1-fixture-r1-integration-20261002",
+      "path": "experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/capture.json",
+      "error": "No such file or directory",
+      "reason": "Archive not yet copied; original packet uses manifest and separate captures rather than this guessed metadata file."
+    },
+    {
+      "cwd": "/private/tmp/atseq-e1-fixture-preparation-h4-20261002",
+      "path": "experiments/post-spike-evidence/2026-10-02/native-prefix/manifest.json",
+      "error": "No such file or directory",
+      "resolution": "Read the pinned R1 worktree and actual compiled-conformance helper."
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+[
+  {
+    "node": 22,
+    "name": "check",
+    "command": [
+      "npm",
+      "run",
+      "check"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 5.061176776885986,
+    "completedAtUtc": "2026-10-02T13:08:41.799428+00:00"
+  },
+  {
+    "node": 22,
+    "name": "source",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/e1-fixture.test.ts"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 6.0447869300842285,
+    "completedAtUtc": "2026-10-02T13:08:47.844750+00:00"
+  },
+  {
+    "node": 22,
+    "name": "compiled",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "experiments/e1-native/compiled-conformance.mjs"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/.atseq-local/e1-r1-integration/compiled-node22.json",
+    "exitCode": 0,
+    "elapsedSeconds": 5.259083986282349,
+    "completedAtUtc": "2026-10-02T13:08:53.104338+00:00"
+  },
+  {
+    "node": 22,
+    "name": "compiler-list",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--listFiles",
+      "--pretty",
+      "false"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.3851659297943115,
+    "completedAtUtc": "2026-10-02T13:08:53.490054+00:00"
+  },
+  {
+    "node": 24,
+    "name": "check",
+    "command": [
+      "npm",
+      "run",
+      "check"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 6.052203893661499,
+    "completedAtUtc": "2026-10-02T13:08:59.578728+00:00"
+  },
+  {
+    "node": 24,
+    "name": "source",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/e1-fixture.test.ts"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 6.07029390335083,
+    "completedAtUtc": "2026-10-02T13:09:05.649396+00:00"
+  },
+  {
+    "node": 24,
+    "name": "compiled",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "experiments/e1-native/compiled-conformance.mjs"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/.atseq-local/e1-r1-integration/compiled-node24.json",
+    "exitCode": 0,
+    "elapsedSeconds": 4.866728067398071,
+    "completedAtUtc": "2026-10-02T13:09:10.516582+00:00"
+  },
+  {
+    "node": 24,
+    "name": "compiler-list",
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--listFiles",
+      "--pretty",
+      "false"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.3566746711730957,
+    "completedAtUtc": "2026-10-02T13:09:10.873678+00:00"
+  },
+  {
+    "node": 26,
+    "name": "check",
+    "command": [
+      "npm",
+      "run",
+      "check"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 6.74602484703064,
+    "completedAtUtc": "2026-10-02T13:09:17.746441+00:00"
+  },
+  {
+    "node": 26,
+    "name": "source",
+    "command": [
+      "/opt/homebrew/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "tests/e1-fixture.test.ts"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 5.518801927566528,
+    "completedAtUtc": "2026-10-02T13:09:23.265644+00:00"
+  },
+  {
+    "node": 26,
+    "name": "compiled",
+    "command": [
+      "/opt/homebrew/bin/node",
+      "experiments/e1-native/compiled-conformance.mjs"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/.atseq-local/e1-r1-integration/compiled-node26.json",
+    "exitCode": 0,
+    "elapsedSeconds": 4.876780986785889,
+    "completedAtUtc": "2026-10-02T13:09:28.142876+00:00"
+  },
+  {
+    "node": 26,
+    "name": "compiler-list",
+    "command": [
+      "/opt/homebrew/bin/node",
+      "node_modules/typescript/bin/tsc",
+      "--noEmit",
+      "--listFiles",
+      "--pretty",
+      "false"
+    ],
+    "sourceProducer": "684d3df8ebaf283fd951bb2b7b2d614eccd88a6b",
+    "fixtureDirectory": "/private/tmp/atseq-e1-fixture-r1-integration-20261002/experiments/post-spike-evidence/2026-10-02/e1-fixture-preparation/final",
+    "compiledCapture": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.48523783683776855,
+    "completedAtUtc": "2026-10-02T13:09:28.628671+00:00"
+  }
+]
