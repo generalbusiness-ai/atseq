@@ -1,0 +1,29 @@
+{
+  "node": "v26.10.0",
+  "compiled": true,
+  "passed": [
+    "baseline",
+    "title edit",
+    "unused arbitrary-byte asset",
+    "retained file table reordered",
+    "unchanged fold moved",
+    "unrelated action added",
+    "successor initial state changed",
+    "state annotation changed",
+    "literal description constraint changed",
+    "fold byte whitespace changed",
+    "enforced role changed",
+    "complete oversized stream with smaller local retention"
+  ],
+  "contract": {
+    "native": "bafyreih6zlsu7zg5cv4kvmenwc6rlgzk2sy6dwdeh4vtrjtbh6bckmqrza",
+    "application": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny",
+    "evaluator": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm"
+  },
+  "maintainedPrimitive": {
+    "package": "node_modules/@noble/hashes",
+    "version": "1.8.0",
+    "resolved": "node_modules/@noble/hashes/esm/sha2.js",
+    "sha256": "e729088b82e5450bff54c3a0013582aa42e1fe8f58dd31f5967f6ebe34c52299"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "recursiveDocument": {
+    "lexicon": 1,
+    "id": "ai.generalbusiness.atseq.recursive",
+    "defs": {
+      "main": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "ref",
+            "ref": "#main"
+          },
+          "literal": {
+            "type": "string",
+            "const": "#unresolved_literal"
+          }
+        }
+      },
+      "act": {
+        "type": "object",
+        "properties": {
+          "one": {
+            "type": "ref",
+            "ref": "ai.generalbusiness.atseq.recursive"
+          },
+          "two": {
+            "type": "ref",
+            "ref": "#main"
+          }
+        }
+      },
+      "unreachable": {
+        "type": "string"
+      }
+    }
+  },
+  "expectedNormalizedProjection": {
+    "stateRoot": "ai.generalbusiness.atseq.recursive#main",
+    "actionRoot": "ai.generalbusiness.atseq.recursive#act",
+    "definitions": {
+      "ai.generalbusiness.atseq.recursive#main": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "ref",
+            "ref": "ai.generalbusiness.atseq.recursive#main"
+          },
+          "literal": {
+            "type": "string",
+            "const": "#unresolved_literal"
+          }
+        }
+      },
+      "ai.generalbusiness.atseq.recursive#act": {
+        "type": "object",
+        "properties": {
+          "one": {
+            "type": "ref",
+            "ref": "ai.generalbusiness.atseq.recursive#main"
+          },
+          "two": {
+            "type": "ref",
+            "ref": "ai.generalbusiness.atseq.recursive#main"
+          }
+        }
+      }
+    }
+  },
+  "canonicalProjectionBase64": "eyJhY3Rpb25Sb290IjoiYWkuZ2VuZXJhbGJ1c2luZXNzLmF0c2VxLnJlY3Vyc2l2ZSNhY3QiLCJkZWZpbml0aW9ucyI6eyJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEucmVjdXJzaXZlI2FjdCI6eyJwcm9wZXJ0aWVzIjp7Im9uZSI6eyJyZWYiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEucmVjdXJzaXZlI21haW4iLCJ0eXBlIjoicmVmIn0sInR3byI6eyJyZWYiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEucmVjdXJzaXZlI21haW4iLCJ0eXBlIjoicmVmIn19LCJ0eXBlIjoib2JqZWN0In0sImFpLmdlbmVyYWxidXNpbmVzcy5hdHNlcS5yZWN1cnNpdmUjbWFpbiI6eyJwcm9wZXJ0aWVzIjp7ImxpdGVyYWwiOnsiY29uc3QiOiIjdW5yZXNvbHZlZF9saXRlcmFsIiwidHlwZSI6InN0cmluZyJ9LCJuZXh0Ijp7InJlZiI6ImFpLmdlbmVyYWxidXNpbmVzcy5hdHNlcS5yZWN1cnNpdmUjbWFpbiIsInR5cGUiOiJyZWYifX0sInR5cGUiOiJvYmplY3QifX0sInN0YXRlUm9vdCI6ImFpLmdlbmVyYWxidXNpbmVzcy5hdHNlcS5yZWN1cnNpdmUjbWFpbiJ9",
+  "rawCid": "bafkreibjxk3apiuis7zk3icyrfnz6fg4oipxnpo3h3r2u2rwwtjhw4ycr4",
+  "unreachableExcluded": true,
+  "sharedOrRecursiveIdentityVisitedOnce": true,
+  "literalRefShapedStringPreserved": true
+}

@@ -1,0 +1,956 @@
+[
+  {
+    "name": "baseline",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreih2dgyg5mqrleol6vr5sqiesihncawflauh5i2rqjppbqz7he5spu",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "title edit",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Edited title",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreifco3qobte7rv3c4ykk56fjkmn4w3tstjsnnrxzgp57gpipqjrcwi",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "unused arbitrary-byte asset",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "asset.bin",
+          "cid": "bafkreifpttw5zhmlbcwatymzjp6sarm3ly3xijo7onkn7trvagmsqkffw4"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreiavatdp4mfrntcfxa33k4lgwtf5df46tkphxuoibgf6meamvllhqm",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "asset.bin",
+        "rawCid": "bafkreifpttw5zhmlbcwatymzjp6sarm3ly3xijo7onkn7trvagmsqkffw4",
+        "bytes": 3,
+        "base64": "/wD+"
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "retained file table reordered",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreietje5ql6ynnjz4wa72h32o6j6nis2gcbocs4p4bdjibutayy4yti",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "unchanged fold moved",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "moved/fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "moved/fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreid3tr54zkkje7szo5chxe2q2osby3rpsu55eueatea75rviijg4x4",
+    "files": [
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "moved/fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "unrelated action added",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreiaiz43edghrem42kbpk3o2q5aky3yi3k22lzljlkrcg3bw7lnadxe"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        },
+        {
+          "ref": "ai.generalbusiness.atseq.example#other",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreibot6rld2xidabbjzli2l5efyrjsr32xhlcpzzffw3cod7lh4logq",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreiaiz43edghrem42kbpk3o2q5aky3yi3k22lzljlkrcg3bw7lnadxe",
+        "bytes": 568,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwib3RoZXIiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgYWN0aW9uIHdvcmRpbmciLCJwcm9wZXJ0aWVzIjp7ImFtb3VudCI6eyJtYXhpbXVtIjoxMCwibWluaW11bSI6MSwidHlwZSI6ImludGVnZXIifX0sInJlcXVpcmVkIjpbImFtb3VudCJdLCJ0eXBlIjoib2JqZWN0In0sInN0YXRlIjp7ImRlc2NyaXB0aW9uIjoiRWRpdG9yaWFsIHN0YXRlIHdvcmRpbmciLCJwcm9wZXJ0aWVzIjp7ImNvdW50Ijp7Im1pbmltdW0iOjAsInR5cGUiOiJpbnRlZ2VyIn0sImRlc2NyaXB0aW9uIjp7Im1heExlbmd0aCI6MTYsInR5cGUiOiJzdHJpbmcifX0sInJlcXVpcmVkIjpbImRlc2NyaXB0aW9uIl0sInR5cGUiOiJvYmplY3QifX0sImlkIjoiYWkuZ2VuZXJhbGJ1c2luZXNzLmF0c2VxLmV4YW1wbGUiLCJsZXhpY29uIjoxfQ=="
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "successor initial state changed",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreiew7vtpjpcusx56frvz7tproqxk56zlz4e3f57gg6isnv22kxkvmm"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreieobp5p7sosc6zqux34dgcjwcpcgfwoy5hc5az2aug6zl6b7c7ggy",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreiew7vtpjpcusx56frvz7tproqxk56zlz4e3f57gg6isnv22kxkvmm",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MSwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "state annotation changed",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia2q7k4es2dtf2tmtn3z7wlrfslohxgpy3w5pm6nnedz2powijryu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreidi45jaatpd5spszw5xr5yrx35xbxp5yxd5jmzecirjvekyfak7ie",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia2q7k4es2dtf2tmtn3z7wlrfslohxgpy3w5pm6nnedz2powijryu",
+        "bytes": 408,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgY29ycmVjdGlvbiIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreidz2g2tzk4qzmmxwghggnqxrkj6ffxpwkqvkgnlzwu3gu5cn32zrq",
+    "unchangedAction": true,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "literal description constraint changed",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreiarq5j5lbxibe7p6g472t6gawmvul4ravzajwe7oj7fyzhzwvznkm"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreicqtsjqmcq2fbyk2ubmsohscahhh76oxdojwvwta4qnfizdmmmbse",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreiarq5j5lbxibe7p6g472t6gawmvul4ravzajwe7oj7fyzhzwvznkm",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNywidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreif5au7tgjnml4j2b3lmgoyebdzbvxnbwagl2wps4eq4mr5nmuyqgm",
+    "actionProjectionRawCid": "bafkreidrif36uouma7q6kfekbgfhkoazvkbsajynzcbogx7dzxumlh2qzi",
+    "executionCid": "bafyreieogaopdeljlfex24nz2daqpaqky3qj67ckd52iyj3cuz24ejwcvu",
+    "unchangedAction": false,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreidrif36uouma7q6kfekbgfhkoazvkbsajynzcbogx7dzxumlh2qzi"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "fold byte whitespace changed",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreie6s446t5jyxaovxtbhnupjjqzvdqhtzzodbw7mwzr75k5lpc4gde"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreigh6yenjglb56qmuamghkx5lb6eg37ohpfqlqadyapiupypwaaucq",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreie6s446t5jyxaovxtbhnupjjqzvdqhtzzodbw7mwzr75k5lpc4gde",
+        "bytes": 39,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0g"
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreiak7qcltn7354rromihtqrqbnnkf7iodtjbrgrzvyyv2bypi4wpea",
+    "unchangedAction": false,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreie6s446t5jyxaovxtbhnupjjqzvdqhtzzodbw7mwzr75k5lpc4gde",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#openParticipation"
+        }
+      }
+    }
+  },
+  {
+    "name": "enforced role changed",
+    "manifest": {
+      "$type": "ai.generalbusiness.atseq.definition",
+      "version": 2,
+      "profile": {
+        "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+      },
+      "title": "Example",
+      "files": [
+        {
+          "path": "fold.jsonata",
+          "cid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq"
+        },
+        {
+          "path": "initial.json",
+          "cid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa"
+        },
+        {
+          "path": "schemas.json",
+          "cid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+        }
+      ],
+      "lexicons": ["schemas.json"],
+      "state": {
+        "ref": "ai.generalbusiness.atseq.example#state",
+        "initial": "initial.json"
+      },
+      "actions": [
+        {
+          "ref": "ai.generalbusiness.atseq.example#act",
+          "fold": "fold.jsonata",
+          "authorization": {
+            "$type": "ai.generalbusiness.atseq.defs#requiredRole",
+            "role": "member"
+          }
+        }
+      ],
+      "queries": [],
+      "views": []
+    },
+    "definitionCid": "bafyreifx4ddqcf54kdbr5rapppkzrns4gt6cnhs5e477ibeezdvrhf6uka",
+    "files": [
+      {
+        "path": "fold.jsonata",
+        "rawCid": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "bytes": 38,
+        "base64": "eyJkZWNpc2lvbiI6ImVmZmVjdGl2ZSIsInN0YXRlIjpzdGF0ZX0="
+      },
+      {
+        "path": "initial.json",
+        "rawCid": "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+        "bytes": 32,
+        "base64": "eyJjb3VudCI6MCwiZGVzY3JpcHRpb24iOiJkZW1vIn0="
+      },
+      {
+        "path": "schemas.json",
+        "rawCid": "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu",
+        "bytes": 411,
+        "base64": "eyJkZWZzIjp7ImFjdCI6eyJkZXNjcmlwdGlvbiI6IkVkaXRvcmlhbCBhY3Rpb24gd29yZGluZyIsInByb3BlcnRpZXMiOnsiYW1vdW50Ijp7Im1heGltdW0iOjEwLCJtaW5pbXVtIjoxLCJ0eXBlIjoiaW50ZWdlciJ9fSwicmVxdWlyZWQiOlsiYW1vdW50Il0sInR5cGUiOiJvYmplY3QifSwic3RhdGUiOnsiZGVzY3JpcHRpb24iOiJFZGl0b3JpYWwgc3RhdGUgd29yZGluZyIsInByb3BlcnRpZXMiOnsiY291bnQiOnsibWluaW11bSI6MCwidHlwZSI6ImludGVnZXIifSwiZGVzY3JpcHRpb24iOnsibWF4TGVuZ3RoIjoxNiwidHlwZSI6InN0cmluZyJ9fSwicmVxdWlyZWQiOlsiZGVzY3JpcHRpb24iXSwidHlwZSI6Im9iamVjdCJ9fSwiaWQiOiJhaS5nZW5lcmFsYnVzaW5lc3MuYXRzZXEuZXhhbXBsZSIsImxleGljb24iOjF9"
+      }
+    ],
+    "stateProjectionRawCid": "bafkreibujwy6irxir77k3sjb7rb3sapriea2tpvshzdbahwbgtyi42ovky",
+    "actionProjectionRawCid": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe",
+    "executionCid": "bafyreifiyrpovnienufm3xkl6rov6b53cjyl6f6gjfhzw522klr7icgewy",
+    "unchangedAction": false,
+    "derivedContract": {
+      "$type": "ai.generalbusiness.atseq.content",
+      "version": 1,
+      "body": {
+        "$type": "ai.generalbusiness.atseq.defs#actionContract",
+        "semantics": {
+          "$link": "bafyreihvnufbqiqtfcqdnpr3ardmocn4i4j4uoh26f5lhk6rofi24sdtny"
+        },
+        "schemas": {
+          "stateRoot": "ai.generalbusiness.atseq.example#state",
+          "actionRoot": "ai.generalbusiness.atseq.example#act",
+          "closure": "bafkreigqt4x6epetxd7zwzghgvr67tikb6nqrtxptsbgfwtuwj5brrdgpe"
+        },
+        "fold": "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+        "authorization": {
+          "$type": "ai.generalbusiness.atseq.defs#requiredRole",
+          "role": "member"
+        }
+      }
+    }
+  }
+]

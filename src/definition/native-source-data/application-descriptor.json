@@ -1,0 +1,23 @@
+{
+  "$type": "ai.generalbusiness.atseq.content",
+  "version": 1,
+  "body": {
+    "$type": "ai.generalbusiness.atseq.defs#applicationContract",
+    "name": "atseq-app-native-v1",
+    "version": 1,
+    "native": {
+      "$link": "bafyreih6zlsu7zg5cv4kvmenwc6rlgzk2sy6dwdeh4vtrjtbh6bckmqrza"
+    },
+    "evaluator": {
+      "cid": {
+        "$link": "bafyreid5y7di742qa3u22dyoozcsuvsabsytc33jzz4gzlltodx3jpwxjm"
+      },
+      "bytes": {
+        "$link": "bafyreie3stynbxcyowedoe7qfkfy2swqcn7x6shobcc6exgcxqj3herohq"
+      }
+    },
+    "rules": {
+      "$link": "bafyreiakiydzcobsrmqecnx4qvl6aponp5eiaeyhv2hgnmw5dbprabbyhe"
+    }
+  }
+}
