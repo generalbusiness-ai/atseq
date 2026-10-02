@@ -1,0 +1,24 @@
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged resource consent and permits next request (250.501292ms)
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged info consent and permits next request (213.353334ms)
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged restore consent and permits next request (202.211083ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged resource consent and permits next request (216.157208ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged info consent and permits next request (248.52625ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged restore consent and permits next request (221.403125ms)
+{"custodyCase":"definitive-verification-mismatch","mismatch":"issuer","retired":true,"tokenDelta":0,"resourceDelta":0,"revokeDelta":0}
+✔ definitive fresh issuer mismatch retires unchanged credentials before resource dispatch (279.463584ms)
+{"custodyCase":"definitive-verification-mismatch","mismatch":"scope","retired":true,"tokenDelta":0,"resourceDelta":0,"revokeDelta":1}
+✔ definitive fresh scope mismatch retires unchanged credentials before resource dispatch (292.870459ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2217.566791

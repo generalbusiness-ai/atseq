@@ -1,0 +1,50 @@
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged resource consent and permits next request (268.380667ms)
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged info consent and permits next request (246.09025ms)
+{"custodyCase":"fresh-verification-reset","stage":"identity","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification identity reset preserves unchanged restore consent and permits next request (251.076459ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"resource","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged resource consent and permits next request (246.886208ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"info","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged info consent and permits next request (241.881417ms)
+{"custodyCase":"fresh-verification-reset","stage":"discovery","operation":"restore","nextSucceeded":true,"deltasBeforeRetry":{"token":0,"revoke":0,"resource":0},"accountPhases":["live"]}
+✔ fresh verification discovery reset preserves unchanged restore consent and permits next request (226.366792ms)
+✖ definitive fresh issuer mismatch retires unchanged credentials before resource dispatch (273.410541ms)
+✖ definitive fresh scope mismatch retires unchanged credentials before resource dispatch (221.766125ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2311.032
+
+✖ failing tests:
+
+test at tests/oauth-custody.test.ts:1:26801
+✖ definitive fresh issuer mismatch retires unchanged credentials before resource dispatch (273.410541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-custody-verification-20261002/tests/oauth-custody.test.ts:978:14)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/oauth-custody.test.ts:1:26801
+✖ definitive fresh scope mismatch retires unchanged credentials before resource dispatch (221.766125ms)
+  page.evaluate: TypeError: Cannot read properties of undefined (reading 'tokenSet')
+      at eval (eval at evaluate (:311:30), <anonymous>:1:100)
+      at async <anonymous>:337:30
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-custody-verification-20261002/tests/oauth-custody.test.ts:961:17) {
+    log: []
+  }

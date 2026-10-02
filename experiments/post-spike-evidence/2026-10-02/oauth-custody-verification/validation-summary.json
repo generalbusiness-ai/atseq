@@ -1,0 +1,43 @@
+{
+  "schema": "atseq-oauth-custody-verification-validation-v1",
+  "sourceProducer": "3c520cb0d7fcb926e5b213a51f140579ee8254d3",
+  "build": "pass",
+  "check": "pass",
+  "notices": "pass",
+  "node22": {
+    "version": "22.19.0",
+    "focused": 39,
+    "nodeSdkCases": 35
+  },
+  "node24": {
+    "version": "24.21.0",
+    "focused": 39,
+    "nodeSdkCases": 35
+  },
+  "node26": {
+    "version": "26.10.0",
+    "ordinary": 495,
+    "excluded": "^entry 20000 is accepted"
+  },
+  "compiledChromium": {
+    "custody": 29,
+    "lifecycle": 1,
+    "total": 30,
+    "actualPersistedBFCache": true,
+    "actualMinuteTimer": true
+  },
+  "packedConsumer": 219,
+  "freshVerificationOutageCases": 6,
+  "definitiveMismatchCases": 2,
+  "predecessorReproduction": {
+    "tokenDelta": 0,
+    "revokeDelta": 1,
+    "resourceDelta": 0,
+    "accounts": 0,
+    "nextRetrySucceeded": false
+  },
+  "originalClassificationBeforeCleanup": true,
+  "transientSignoutSkipRestrictedToOwnedBrowser": true,
+  "clockRollbackN1": "explicitly deferred",
+  "fullA1Closed": false
+}

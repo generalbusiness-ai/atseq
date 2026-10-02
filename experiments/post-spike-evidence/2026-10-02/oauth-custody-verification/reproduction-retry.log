@@ -1,0 +1,31 @@
+{"custodyCase":"fresh-verification-reset","nextSucceeded":false,"tokenDelta":0,"revokeDelta":1,"resourceDelta":0,"accountPhases":[]}
+✖ fresh verification identity reset preserves unchanged consent before resource dispatch and permits next request (254.373208ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 552.9365
+
+✖ failing tests:
+
+test at tests/oauth-custody.test.ts:1:25301
+✖ fresh verification identity reset preserves unchanged consent before resource dispatch and permits next request (254.373208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'live'
+  
+      at TestContext.<anonymous> (/private/tmp/atseq-oauth-custody-verification-20261002/tests/oauth-custody.test.ts:917:12)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'live',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
