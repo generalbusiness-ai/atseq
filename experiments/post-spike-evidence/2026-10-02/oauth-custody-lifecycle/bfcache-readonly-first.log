@@ -1,0 +1,34 @@
+{
+  "browser": "153.0.8010.12",
+  "initial": {
+    "instance": "c0a883f0-3b12-4065-b7ef-a07298ff4502",
+    "events": [
+      {
+        "event": "pageshow",
+        "persisted": false
+      }
+    ]
+  },
+  "restored": {
+    "instance": "f13f96dc-8a01-465c-bb8b-bdd738a6edc8",
+    "events": [
+      {
+        "event": "pageshow",
+        "persisted": false
+      }
+    ],
+    "notRestored": {
+      "src": null,
+      "id": null,
+      "url": "https://custody.atseq-probe.net/",
+      "name": null,
+      "reasons": [
+        {
+          "reason": "masked"
+        }
+      ],
+      "children": []
+    }
+  },
+  "bfcache": false
+}

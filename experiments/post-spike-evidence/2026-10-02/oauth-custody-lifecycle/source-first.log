@@ -1,0 +1,10 @@
+{"case":"actual-bfcache-housekeeping","chromium":"153.0.8010.12","compiled":false,"nativeTLS":true,"requestInterception":false,"restorations":3,"initial":{"instance":"f4e371e5-d269-4e85-80f7-74a7bc265dcd","events":[{"event":"pageshow","persisted":false}],"activeTimers":1,"fires":0},"final":{"instance":"f4e371e5-d269-4e85-80f7-74a7bc265dcd","events":[{"event":"pageshow","persisted":false},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true},{"event":"pagehide","persisted":true},{"event":"pageshow","persisted":true}],"activeTimers":1,"fires":1},"actualMinuteTimerFired":true,"idleReservedRowsPurged":true,"providerSuccess":false}
+✔ actual BFCache restores exactly one custody timer, which performs idle cleanup after repeated restores (60882.669166ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 61233.711792
