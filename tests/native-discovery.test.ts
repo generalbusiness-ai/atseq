@@ -1,16 +1,13 @@
 import test from 'node:test';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { nativeDiscoveryCorpus } from './support/native-discovery-corpus.ts';
 import { nativeDiscoveryFaultBundle } from './support/native-discovery-fault-bundle.ts';
+import { nativeDiscoveryFixtureFile } from './support/native-discovery-fixture-files.mjs';
 test('private native discovery uses genuine subjects and retained generations', async () => {
   const directory = process.env.ATSEQ_NATIVE_DISCOVERY_CAPTURE_DIR ?? '.atseq-local/c1-kernel/discovery';
-  const fixturePath =
-    process.env.ATSEQ_NATIVE_DISCOVERY_FIXTURE_PATH ?? '.atseq-local/c1-kernel/native-discovery-fixture-final2.json';
-  const raw = await readFile(fixturePath);
-  const originalPath =
-    process.env.ATSEQ_NATIVE_APPLICATION_FIXTURE_PATH ?? '/private/tmp/atseq-c1-f1-oracle-20261002.json';
-  const originalRaw = await readFile(originalPath);
+  const { path: fixturePath, raw } = await nativeDiscoveryFixtureFile('component');
+  const { raw: originalRaw } = await nativeDiscoveryFixtureFile('original');
   const cases = await nativeDiscoveryCorpus(JSON.parse(raw.toString()), JSON.parse(originalRaw.toString()));
   const code = await nativeDiscoveryFaultBundle();
   const probe = await import('data:text/javascript;base64,' + Buffer.from(code).toString('base64'));

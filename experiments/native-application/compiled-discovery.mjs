@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { ts } from 'ts-morph';
+import { nativeDiscoveryFixtureFile } from '../../tests/support/native-discovery-fixture-files.mjs';
 const mode = process.argv[2] ?? 'component';
 assert.ok(['component', 'workload'].includes(mode));
 const file = mode === 'component' ? 'native-discovery-corpus.ts' : 'native-discovery-workload-corpus.ts';
@@ -39,12 +40,8 @@ const provenance = {
   corpusSourceSha256: hash(await readFile(new URL('../../tests/support/' + file, import.meta.url))),
 };
 if (mode === 'component') {
-  const raw = await readFile(
-    process.env.ATSEQ_NATIVE_DISCOVERY_FIXTURE_PATH ?? '.atseq-local/c1-kernel/native-discovery-fixture-final2.json',
-  );
-  const original = await readFile(
-    process.env.ATSEQ_NATIVE_APPLICATION_FIXTURE_PATH ?? '/private/tmp/atseq-c1-f1-oracle-20261002.json',
-  );
+  const { raw } = await nativeDiscoveryFixtureFile('component');
+  const { raw: original } = await nativeDiscoveryFixtureFile('original');
   const cases = await corpus.nativeDiscoveryCorpus(JSON.parse(raw), JSON.parse(original));
   await writeFile(
     directory + '/component.json',
@@ -54,10 +51,7 @@ if (mode === 'component') {
   console.log(JSON.stringify({ ...provenance, cases: cases.map((c) => c.id) }));
 } else {
   for (const profile of ['few', 'many']) {
-    const raw = await readFile(
-      process.env['ATSEQ_NATIVE_DISCOVERY_WORKLOAD_' + profile.toUpperCase()] ??
-        '.atseq-local/c1-kernel/native-discovery-workload-' + profile + '-final.json',
-    );
+    const { raw } = await nativeDiscoveryFixtureFile(profile);
     const result = await corpus.nativeDiscoveryWorkloadCorpus(JSON.parse(raw));
     await writeFile(
       directory + '/' + profile + '.json',

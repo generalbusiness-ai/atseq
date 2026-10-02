@@ -1,37 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { once } from 'node:events';
 import { build } from 'vite';
 import { chromium } from '@playwright/test';
 import { nativeDiscoveryFaultBundle } from './support/native-discovery-fault-bundle.ts';
+import { nativeDiscoveryFixtureFile } from './support/native-discovery-fixture-files.mjs';
 test('actual Chrome executes genuine discovery, callsite races and full10k workloads', async () => {
   const directory = process.env.ATSEQ_NATIVE_DISCOVERY_BROWSER_CAPTURE_DIR ?? '.atseq-local/c1-kernel/chromium';
   await mkdir(directory, { recursive: true });
   const files = new Map<string, Buffer | string>();
-  for (const [url, path] of [
-    [
-      '/fixture.json',
-      process.env.ATSEQ_NATIVE_DISCOVERY_FIXTURE_PATH ?? '.atseq-local/c1-kernel/native-discovery-fixture-final2.json',
-    ],
-    [
-      '/original.json',
-      process.env.ATSEQ_NATIVE_APPLICATION_FIXTURE_PATH ?? '/private/tmp/atseq-c1-f1-oracle-20261002.json',
-    ],
-    [
-      '/few.json',
-      process.env.ATSEQ_NATIVE_DISCOVERY_WORKLOAD_FEW ??
-        '.atseq-local/c1-kernel/native-discovery-workload-few-final.json',
-    ],
-    [
-      '/many.json',
-      process.env.ATSEQ_NATIVE_DISCOVERY_WORKLOAD_MANY ??
-        '.atseq-local/c1-kernel/native-discovery-workload-many-final.json',
-    ],
-  ])
-    files.set(url!, await readFile(path!));
+  for (const kind of ['component', 'original', 'few', 'many'] as const) {
+    const { raw } = await nativeDiscoveryFixtureFile(kind);
+    files.set(kind === 'component' ? '/fixture.json' : '/' + kind + '.json', raw);
+  }
   for (const [url, entry] of [
     ['/corpus.js', 'native-discovery-corpus.ts'],
     ['/workload.js', 'native-discovery-workload-corpus.ts'],
