@@ -1,0 +1,6 @@
+
+> atseq@0.1.0 check
+> tsc --noEmit && npm run format:check && npm run check:layers && npm run check:dependencies
+
+src/core/dependencies.ts(1,45): error TS2307: Cannot find module '#atseq-integrity' or its corresponding type declarations.
+tests/support/profile-corpus.ts(1,38): error TS2307: Cannot find module '#atseq-integrity' or its corresponding type declarations.

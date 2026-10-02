@@ -1,0 +1,217 @@
+{
+  "name": "atseq-native-v1",
+  "version": 1,
+  "namespace": "ai.generalbusiness.atseq",
+  "wire": {
+    "model": "AT Protocol data model",
+    "encoding": "canonical DAG-CBOR",
+    "cid": "CIDv1 dag-cbor sha2-256 canonical lower-case base32",
+    "rawCid": "CIDv1 raw sha2-256 canonical lower-case base32",
+    "blockBytes": 65536,
+    "jsonBytes": 131072,
+    "depth": 32,
+    "numbers": "safe integers excluding negative zero",
+    "bytes": "canonical unpadded base64; exact trailing bits",
+    "closedObjects": true,
+    "reservedForms": ["$type", "$link", "$bytes"]
+  },
+  "versions": {
+    "genesis": 2,
+    "head": 2,
+    "entry": 2,
+    "intent": 2,
+    "definition": 2,
+    "content": 1,
+    "file": 1,
+    "epoch": 1,
+    "epochCurrent": 1,
+    "grant": 1,
+    "revoke": 1
+  },
+  "paths": {
+    "contentAddressed": ["genesis", "definition", "content"],
+    "genesisKey": "full canonical genesis CID",
+    "headKey": "full canonical genesis CID",
+    "entryKey": "full genesis CID followed by dot and exactly 16 decimal position digits",
+    "fileKey": "canonical raw CID",
+    "grantAndRevokeKey": "26-character lower-case base32 16-byte grant ID with exact trailing bits",
+    "epochKey": "canonical epoch record CID",
+    "epochCurrentKey": "self",
+    "entryPositions": "contiguous positive safe integers; predecessor of position one is genesis"
+  },
+  "signatures": {
+    "actorAlgorithm": "P-256 SHA-256",
+    "format": "64-byte compact low-S",
+    "actorKey": "canonical compressed P-256 did:key",
+    "subject": "exact complete unsigned intent canonical CBOR",
+    "repositoryKeyAlgorithms": ["P-256", "secp256k1"],
+    "repositoryKeys": "maintained controller extraction; require canonical normalized did:key; native commit signature and DID required",
+    "extraOrderingSignature": false
+  },
+  "retry": {
+    "lookupOrder": [
+      "exact unsigned request CID and original recorded result",
+      "app/genesis/canonical actorKey/16-byte nonce tuple conflict",
+      "new submission"
+    ],
+    "nonce": "16 cryptographically random bytes supplied before signing",
+    "unsignedIdentity": "complete canonical unsigned intent; first retained signature is original",
+    "orderedDuplicates": "duplicate request CID, actor retry tuple or consumed observation CID is invalid history",
+    "replacement": "no automatic resigning, nonce replacement, retargeting or re-observation of exact retries"
+  },
+  "publication": {
+    "anchor": ["externally accepted app DID", "externally accepted genesis CID"],
+    "root": "one authenticated selected native repository commit",
+    "required": "exact genesis/head/entry paths and CIDs under selected root; actor signatures and explicit app chain",
+    "absence": "proved absence of a claimed required record is invalid; a missing proof block is unavailable",
+    "mutation": "PDS can withhold, delete, fork and reorder valid signed work; no global non-equivocation or latestness",
+    "receipt": "native membership and retained key binding prove publication, not interpretation",
+    "appBinding": "retained outside containing root; cannot appoint its own initial trust",
+    "nativePreviousCommit": "not app predecessor"
+  },
+  "observation": {
+    "policy": "immutable genesis-appointed closed observation policy; supported algorithm atseq-account-observation-v1 and checkpoint native-publication-v1; configured PLC directory and allowWeb are explicit retained policy data",
+    "methods": ["plc-audit-v1", "hostname-only web-observation-v1"],
+    "plc": "verify canonical complete retained operation history, genesis derivation, authorized transitions and computed last tip; untrusted selected-tip hints do not select an older branch",
+    "web": "exact strict retained DID JSON and maintained hostname mapping; app publication does not prove domain control/currentness",
+    "binding": "before and after method observations must agree in tip/document, signing key and PDS; extracted key equals the selected commit key",
+    "subject": "exact omitted-observation operation projection bound to app/genesis/position/predecessor and operation; recovery omits its observation field and actor signature from this subject",
+    "records": "closed exact required subject path/CID set; no unrelated records",
+    "epochChain": "current pointer and required predecessor chain to accepted expected anchor; initial import/recovery needs selected current transition",
+    "consumption": "each authenticated descriptor is consumed once, including ineffective operations",
+    "availability": "missing retained bytes, operational evidence limits or unprocessable proof budgets stall; fully supplied contradictions are invalid history",
+    "assurance": "native publication asserts observation currentness; stale authentic PLC evidence and fabricated web principal evidence remain custody limitations"
+  },
+  "authority": {
+    "scope": ["app DID", "genesis CID", "principal DID"],
+    "initial": {
+      "controlTip": "genesis CID",
+      "roles": "enabled assignments use genesis CID; absent assignment revision is null",
+      "activeDefinition": "genesis definition CID",
+      "participantFloor": "none"
+    },
+    "grant": "one exact previously admitted immutable grant CID/body; no grant union; account grant deletion is not revocation",
+    "revocation": "terminal grant-ID tombstone even before admission",
+    "epoch": "accepted epoch CIDs and IDs remain retired forever; copied backups cannot restore grants",
+    "normalFloor": "reject lower revision or equal revision/different root; otherwise advance floor before delegated stale/no-op checks",
+    "recoveryFloor": "only prior appointed recovery plus exact expected floor/epoch may accept a never-accepted epoch/ID and replace floor; failed recovery consumes descriptor without changing floor/epoch",
+    "role": "one referenced live grant plus owner and grant assignRoles scope for assignRole; govern setRole needs no participant grant; only effective changes replace revision with unsigned request CID",
+    "controlContext": "check intended position/predecessor, control tip, prior appointment then required power",
+    "setControl": "govern; preserve every recover pair and its entire powers exactly; no new recover pair",
+    "setRecovery": "recover; nonempty selected pairs replace only recover bits, preserve all lower bits and drop empty pairs",
+    "recoverGovernance": "recover and immutable genesis flag; selected pairs replace only govern bits, preserve certify/recover",
+    "capacity": 16,
+    "capacityFailure": "resulting merged map above 16 is control_map_limit; no quorum or escape manufacture",
+    "singleRecoveryRisk": "one recovery signer can replace honest peers; recover-only pairs avoid some capacity traps",
+    "controlTip": "advance only on effective control operation; account operations and owner grant role changes do not advance it",
+    "commit": "authenticated valid ineffective entries still consume request/retry/descriptor identities and advance frontier; throws leave prior accepted authority unchanged",
+    "expectation": "expected epoch/observation are compared with complete prior row before normalFloor advances; stale normal operations may retain the new accepted observation floor"
+  },
+  "precedence": {
+    "global": [
+      "framework shape/target/signature",
+      "ordered context and duplicate identities",
+      "required evidence availability and authentication",
+      "operation-specific context/authority",
+      "application interpretation"
+    ],
+    "liveGrant": ["grant_unadmitted", "grant_conflict", "grant_revoked", "grant_epoch", "grant_signer"],
+    "normalAccount": [
+      "observation_rollback",
+      "observation_conflict",
+      "authority_stale",
+      "operation-specific grant or epoch checks"
+    ],
+    "admitGrant": [
+      "grant_scope",
+      "grant_revoked",
+      "grant_conflict",
+      "epoch_conflict",
+      "epoch_reused",
+      "authority_unchanged"
+    ],
+    "revokeGrant": ["grant_scope", "authority_unchanged"],
+    "advanceEpoch": ["epoch_reused", "epoch_conflict", "authority_unchanged"],
+    "assignRole": ["liveGrant", "role_owner", "role_scope", "role_stale", "role_unchanged"],
+    "recoverParticipant": ["control context/tip/appointment/power", "authority_stale", "recovery_epoch_reused"],
+    "controlPrefix": ["control_context_stale", "control_tip_stale", "control_unappointed", "control_power"],
+    "setControl": [
+      "controlPrefix",
+      "control_power for changed or new recover pair",
+      "control_map_limit",
+      "control_unchanged"
+    ],
+    "setRecovery": ["controlPrefix", "control_map_limit", "control_unchanged"],
+    "recoverGovernance": [
+      "controlPrefix",
+      "control_power if immutable recoverGovernance=false",
+      "control_map_limit",
+      "control_unchanged"
+    ],
+    "setOwner": ["controlPrefix", "control_unchanged"],
+    "setRole": ["controlPrefix", "role_stale", "role_unchanged"],
+    "activate": ["controlPrefix", "application activation precedence"]
+  },
+  "frameworkReasons": [
+    "authority_stale",
+    "authority_unchanged",
+    "control_context_stale",
+    "control_map_limit",
+    "control_power",
+    "control_tip_stale",
+    "control_unappointed",
+    "control_unchanged",
+    "epoch_conflict",
+    "epoch_reused",
+    "grant_conflict",
+    "grant_epoch",
+    "grant_revoked",
+    "grant_scope",
+    "grant_signer",
+    "grant_unadmitted",
+    "observation_conflict",
+    "observation_rollback",
+    "recovery_epoch_reused",
+    "role_owner",
+    "role_scope",
+    "role_stale",
+    "role_unchanged"
+  ],
+  "nonOutcomes": {
+    "invalidHistory": [
+      "noncanonical or malformed framework bytes",
+      "wrong app/genesis/path",
+      "broken chain or unsafe position",
+      "invalid actor/control/native signature or CID",
+      "duplicate ordered request/nonce/descriptor",
+      "operation context or observation subject substitution",
+      "proved absence of required record",
+      "retained fully supplied identity/proof contradiction"
+    ],
+    "unavailable": [
+      "missing/corrupt source or evidence bytes",
+      "missing native proof blocks",
+      "unsupported semantic or observation policy",
+      "local resource/deadline limit",
+      "runtime/dependency/integrity fault",
+      "persistence failure"
+    ]
+  },
+  "projection": "opaque accepted authority; owned sorted JSON snapshots are data, never accepted-state constructors; no caller trust flag, eligibility callback, checkpoint parser or archive JSON can mint authority",
+  "epochProgression": {
+    "normal": [
+      "if selected current CID equals prior accepted current CID, no epoch change",
+      "duplicate selected candidate IDs: epoch_reused",
+      "candidate CID or ID already accepted: epoch_reused",
+      "non-null prior current not equal final predecessor: epoch_conflict",
+      "retain every newly accepted CID/ID/predecessor and select current"
+    ],
+    "recovery": [
+      "any selected candidate CID/ID already accepted: recovery_epoch_reused",
+      "duplicate selected candidate IDs: recovery_epoch_reused",
+      "accept fresh current, retain old epoch history and terminal grant revocations; no prior predecessor requirement"
+    ],
+    "admitGrant": "after grant scope/revoke/immutable CID checks, mismatching grant epoch versus selected pointer is epoch_conflict before normal progression; existing same CID then authority_unchanged",
+    "advanceEpoch": "run normal progression then authority_unchanged if prior and next current epoch equal"
+  }
+}

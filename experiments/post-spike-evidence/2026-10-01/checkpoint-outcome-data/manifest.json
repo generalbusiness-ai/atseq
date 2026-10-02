@@ -1,0 +1,416 @@
+{
+  "format": "atseq-checkpoint-outcome-data-evidence",
+  "version": 1,
+  "request": "181f8aa03883dacd899b30f003ce4569c0ff3cf2",
+  "promise": "77863571a9ee1e1a53c6680383a538925e035dda",
+  "base": "db0c81747f17f180a034c67791ff1cd287c67a6a",
+  "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb",
+  "foundationApproval": "e96fd5110b4ab475c80b7c7125ec3dcefe149a32",
+  "outcomeDecisionSource": "80e39957b6cd0d1f113f0722f6d8ef782f42e96f",
+  "outcomeDecisionAssessment": "eda5273203fad1d3c3ecccd83faba6c398c3a55a",
+  "sourceFiles": [
+    {
+      "file": "experiments/checkpoint-outcome-data/compiled-probe.mjs",
+      "bytes": 2767,
+      "sha256": "a69717d27a406fa1ea20331586f4c4b482628ed05a4db1f1cc6a283c4ab235ad"
+    },
+    {
+      "file": "src/protocol/checkpoint-data.ts",
+      "bytes": 21478,
+      "sha256": "507ec3791952603562997712f8d00b804cbc020d04e9c7172784ea348c488a67"
+    },
+    {
+      "file": "src/protocol/native-outcome.ts",
+      "bytes": 3456,
+      "sha256": "8042f3db6cea238b05eaf9595fdce8ce21287fddc23bdaa1099bfa4e56ce2078"
+    },
+    {
+      "file": "tests/native-outcome-browser.test.ts",
+      "bytes": 3383,
+      "sha256": "209a48778506dcc95e52c9a2411550c6672257d8686ffbe8cf3145d9ae724e0e"
+    },
+    {
+      "file": "tests/native-outcome.test.ts",
+      "bytes": 1613,
+      "sha256": "27bf943b43716de40f4b038e09cd6de67eb15f747e5d60da91ec299203912714"
+    },
+    {
+      "file": "tests/support/checkpoint-data-corpus.ts",
+      "bytes": 18906,
+      "sha256": "1231d0bf8cdc9eb0e885b84344cee30049885fb1c604164cdb5b2cab7fa98e07"
+    },
+    {
+      "file": "tests/support/native-outcome-browser.ts",
+      "bytes": 66,
+      "sha256": "2963ec4ad1d2aab517a08857c30f3daee3e51504ec6b4993d190e2be42a5b6a8"
+    },
+    {
+      "file": "tests/support/native-outcome-corpus.ts",
+      "bytes": 12592,
+      "sha256": "682b0db986099216b38f1f5c5843d6affcd45287ee4d4f701617e29d0c8a6d70"
+    },
+    {
+      "file": "tests/vectors/native-outcome/outcome-vectors.json.gz",
+      "bytes": 665,
+      "sha256": "664b50769f74442ef2213bd1d68a91c38667c65b40b797728b6786af6e8f2f85"
+    },
+    {
+      "file": "tests/vectors/native-outcome/shared-outcome-tables.json.gz",
+      "bytes": 1120,
+      "sha256": "9138325b0d62da42f98afc483127fcab48b292a55cf89bba3005af46fb4326fd"
+    }
+  ],
+  "unchangedFiles": [
+    {
+      "file": "src/core/errors.ts",
+      "sha256": "e2aa383756ad38b9630216c5b892e38fb6fc446292b4c30b29ffbbddd4b7e250"
+    },
+    {
+      "file": "src/core/values.ts",
+      "sha256": "fca700527e6522eb234aaedd3dd87faf57f2722b6cd96c6d6dd54d6d8ce7499f"
+    },
+    {
+      "file": "src/protocol/identity-json.ts",
+      "sha256": "5af38024d0bfedbb3015f30ac76fcb77ea67a8f3347589d072abafbf691ad51b"
+    },
+    {
+      "file": "src/protocol/strict-json.ts",
+      "sha256": "434b65e3b390ef559f7a177a200a96f0880d6afa351fbbe4c51a316196ce117c"
+    },
+    {
+      "file": "src/protocol/native-wire.ts",
+      "sha256": "fc10b835e714ef6657735c338d1cdac4ed8e9ccbfd27e9f4f0e6c4b7a5240dee"
+    },
+    {
+      "file": "src/protocol/index.ts",
+      "sha256": "5f8910165f62eb6aff7122e58e6d8804c1a2afe45364135e5969389e18f424e6"
+    },
+    {
+      "file": "src/application/native-authority.ts",
+      "sha256": "c831283ba71382fe3e42c2e3e9e93e6035bea14399a0b1c2c9065c8fd7962455"
+    },
+    {
+      "file": "src/application/native-authority-evidence.ts",
+      "sha256": "634cf40108ffe9ec27c68c7a7265e835f4d555425254175530f25426acf9ec8e"
+    },
+    {
+      "file": "src/application/native-authority-snapshot.ts",
+      "sha256": "1a86946e28a49154d55db71f055bbe13184631bfa544bda55664b2752ca14dcb"
+    },
+    {
+      "file": "src/application/native-authority-data.ts",
+      "sha256": "63323985bdfee3ee5620405d83e6dc5fb31c1eba913aec115431777771fe412a"
+    },
+    {
+      "file": "src/application/checkpoint-authority-data.ts",
+      "sha256": "0f6b3154998163c391a7acecb7af81b8aac56013b77d3fe4a5427525b06a9a05"
+    },
+    {
+      "file": "src/application/index.ts",
+      "sha256": "06b6ffa5d4ffd3fcd344c3f7c467aaa6ecb3e43da970189a1692ff400db549d2"
+    },
+    {
+      "file": "src/api/index.ts",
+      "sha256": "f8187ac0fc7b8128e08bd267577873253b31543969d7ba3b454daa47b496e680"
+    },
+    {
+      "file": "package.json",
+      "sha256": "098d63e6fc6f504b799758f06071337e8401b0b7f5cb1e7b3530af4c3811f90a"
+    },
+    {
+      "file": "npm-shrinkwrap.json",
+      "sha256": "d3a1dcd1d6685df3710bc6efbae72b72af9707f69d0392f95562ce34db297468"
+    },
+    {
+      "file": "scripts/build.mjs",
+      "sha256": "7aa085a227eed0cc9d0d5bf564620026273ba084570b87c5c673c2632567a608"
+    },
+    {
+      "file": "tests/vectors/checkpoint-data.json.gz",
+      "sha256": "8ed3a7618dae045ba427ccbb4699157dd91460ebd5cee7d722131b88a2205714"
+    }
+  ],
+  "retainedLiterals": [
+    {
+      "file": "tests/vectors/native-outcome/shared-outcome-tables.json.gz",
+      "rawBytes": 4965,
+      "rawSha256": "787879fb8306b0fd13870bd5109dc9a1fa372172b664ae7dda074d15f7157b93",
+      "adoptedSource": "80e39957b6cd0d1f113f0722f6d8ef782f42e96f"
+    },
+    {
+      "file": "tests/vectors/native-outcome/outcome-vectors.json.gz",
+      "rawBytes": 17165,
+      "rawSha256": "7eb0c5075f437a94d62db5e08026c2ad816afb5b1380c7e8486504838f608cda",
+      "adoptedSource": "80e39957b6cd0d1f113f0722f6d8ef782f42e96f"
+    }
+  ],
+  "files": [
+    {
+      "file": "build-provenance.json",
+      "bytes": 58412,
+      "sha256": "0c88c66de5e28a6fcd58a3944858adc0e4c33b9c2e8e20efd90b0837547092ce"
+    },
+    {
+      "file": "build.log",
+      "bytes": 494,
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5"
+    },
+    {
+      "file": "check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "file": "chromium-checkpoint.json",
+      "bytes": 3526,
+      "sha256": "1a0423c796ea9eb6364e6baf3df94f7998e1b62d27fe3ee4f9cb7a3a0727e55b"
+    },
+    {
+      "file": "chromium-outcomes.json",
+      "bytes": 4472,
+      "sha256": "6344a433bb788f0b95c7fa82cfc3fc4bc91a2a6b06bc2b14bfcb4266eac0aa24"
+    },
+    {
+      "file": "chromium.log",
+      "bytes": 7242,
+      "sha256": "c799a64423ae16b2ab4528a9fa32ba8314988f6535ed295c24335986c58de5db"
+    },
+    {
+      "file": "first-8da97b0d/check.log",
+      "bytes": 689,
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551"
+    },
+    {
+      "file": "first-8da97b0d/chromium-checkpoint.json",
+      "bytes": 3526,
+      "sha256": "1a0423c796ea9eb6364e6baf3df94f7998e1b62d27fe3ee4f9cb7a3a0727e55b"
+    },
+    {
+      "file": "first-8da97b0d/chromium-outcomes.json",
+      "bytes": 4472,
+      "sha256": "6344a433bb788f0b95c7fa82cfc3fc4bc91a2a6b06bc2b14bfcb4266eac0aa24"
+    },
+    {
+      "file": "first-8da97b0d/chromium.log",
+      "bytes": 7242,
+      "sha256": "c833a97cd5fa792eb4685c600260beb15bca8ba6e05594af5537aa975d4348da"
+    },
+    {
+      "file": "first-8da97b0d/node22-checkpoint.json",
+      "bytes": 3351,
+      "sha256": "b4430a1fc02c7a02d59cf92d37c89cc52dd0e704f1d0ab7d760e7b78464c88db"
+    },
+    {
+      "file": "first-8da97b0d/node22-compiled-first.log",
+      "bytes": 461,
+      "sha256": "87d3d44321bf682dfa4ec3446ebdc38eeeabace99bad224e63995c4beea111db"
+    },
+    {
+      "file": "first-8da97b0d/node22-focused.log",
+      "bytes": 673,
+      "sha256": "9ce38d2cab2b3a805e86d08efdee06ac70095fd5932ce99ffc5827a56e7c7e77"
+    },
+    {
+      "file": "first-8da97b0d/node22-outcomes.json",
+      "bytes": 4183,
+      "sha256": "6ec1e2ad7d31b0b2dac765e5d66d25d1bbc9bb2acb3d2b81b886475a66c091a4"
+    },
+    {
+      "file": "first-8da97b0d/node26-checkpoint.json",
+      "bytes": 3351,
+      "sha256": "52b73cccbb2b8b5b0a093744d8f4b95ff8907f6eafb80306ebf7f39a47723fa9"
+    },
+    {
+      "file": "first-8da97b0d/node26-focused.log",
+      "bytes": 408,
+      "sha256": "ab7a97aff65421d3f9206b822e2c0c3d5f2d3bb930cfcd5f45380f9b36800106"
+    },
+    {
+      "file": "first-8da97b0d/node26-outcomes.json",
+      "bytes": 4183,
+      "sha256": "00bd151ed18a78b2a1829860f475c9f01f794956a0d4a893c615ba297fbb82ef"
+    },
+    {
+      "file": "install.log",
+      "bytes": 524,
+      "sha256": "665c9aeb1cba88261618372fad6d1549eab750a3867b6c81f8181d1368675fc3"
+    },
+    {
+      "file": "node22-checkpoint.json",
+      "bytes": 3351,
+      "sha256": "b4430a1fc02c7a02d59cf92d37c89cc52dd0e704f1d0ab7d760e7b78464c88db"
+    },
+    {
+      "file": "node22-compiled.json",
+      "bytes": 5107,
+      "sha256": "061d9b8d75381dde7688512c1d0f2a29c3a911a9024a34d0e2b9d26a2c8a316f"
+    },
+    {
+      "file": "node22-compiled.log",
+      "bytes": 4704,
+      "sha256": "fded28b1cf9e14fa50f859480aa23135b41150e5789ba7190d75291a5720af38"
+    },
+    {
+      "file": "node22-focused.log",
+      "bytes": 673,
+      "sha256": "d90c37e5bdc53d3d2115001141d1a517933076160b89f4a2eabb58887623a160"
+    },
+    {
+      "file": "node22-outcomes.json",
+      "bytes": 4183,
+      "sha256": "6ec1e2ad7d31b0b2dac765e5d66d25d1bbc9bb2acb3d2b81b886475a66c091a4"
+    },
+    {
+      "file": "node26-checkpoint.json",
+      "bytes": 3351,
+      "sha256": "52b73cccbb2b8b5b0a093744d8f4b95ff8907f6eafb80306ebf7f39a47723fa9"
+    },
+    {
+      "file": "node26-compiled.json",
+      "bytes": 5107,
+      "sha256": "7c7d25d6148b7f710edfd243d2a5a62aa22470d634096b08d2ff51f67108e530"
+    },
+    {
+      "file": "node26-compiled.log",
+      "bytes": 4704,
+      "sha256": "d69753afac4f92968eb7f442c5d6d28282eb8ac8772833e06045cf79393d9b1f"
+    },
+    {
+      "file": "node26-focused.log",
+      "bytes": 408,
+      "sha256": "97167162691364abb1c2388861e5e5dc7ccdd7a0f8db69acb8a33d599e6051e4"
+    },
+    {
+      "file": "node26-outcomes.json",
+      "bytes": 4183,
+      "sha256": "00bd151ed18a78b2a1829860f475c9f01f794956a0d4a893c615ba297fbb82ef"
+    },
+    {
+      "file": "setup.log",
+      "bytes": 2444,
+      "sha256": "e5980bf23db2865b4e87198db8ad7087ece41911bea5510983835d7ffbd14851"
+    },
+    {
+      "file": "validation-summary.json",
+      "bytes": 539,
+      "sha256": "d7a158817af753ce01669478afe1602a3a05ef9e2d8a40b4a3f00a45b751069b"
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm ci",
+      "capture": "install.log",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run setup",
+      "capture": "setup.log",
+      "exitCode": 0,
+      "sourceHead": "8da97b0dce0321070b7b8126b2040fc22161b308"
+    },
+    {
+      "command": "ATSEQ_OUTCOME_COMPILED_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node22-compiled.json /Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node experiments/checkpoint-outcome-data/compiled-probe.mjs",
+      "capture": "first-8da97b0d/node22-compiled-first.log",
+      "exitCode": 1,
+      "sourceHead": "8da97b0dce0321070b7b8126b2040fc22161b308",
+      "boundary": "driver failed before corpus; removed TS7 API"
+    },
+    {
+      "command": "ATSEQ_OUTCOME_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node22-outcomes.json ATSEQ_P4_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node22-checkpoint.json /Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node scripts/source-run.mjs --test tests/native-outcome.test.ts tests/checkpoint-data.test.ts",
+      "capture": "first-8da97b0d/node22-focused.log",
+      "exitCode": 0,
+      "sourceHead": "8da97b0dce0321070b7b8126b2040fc22161b308",
+      "note": "First capture paths were subsequently moved unchanged into first-8da97b0d"
+    },
+    {
+      "command": "ATSEQ_OUTCOME_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node26-outcomes.json ATSEQ_P4_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node26-checkpoint.json node scripts/source-run.mjs --test tests/native-outcome.test.ts tests/checkpoint-data.test.ts",
+      "capture": "first-8da97b0d/node26-focused.log",
+      "exitCode": 0,
+      "sourceHead": "8da97b0dce0321070b7b8126b2040fc22161b308",
+      "note": "First capture paths were subsequently moved unchanged into first-8da97b0d"
+    },
+    {
+      "command": "node scripts/source-run.mjs --test tests/native-outcome-browser.test.ts tests/checkpoint-data-browser.test.ts",
+      "capture": "first-8da97b0d/chromium.log",
+      "exitCode": 0,
+      "sourceHead": "8da97b0dce0321070b7b8126b2040fc22161b308"
+    },
+    {
+      "command": "npm run check",
+      "capture": "first-8da97b0d/check.log",
+      "exitCode": 0,
+      "sourceHead": "8da97b0dce0321070b7b8126b2040fc22161b308"
+    },
+    {
+      "command": "ATSEQ_OUTCOME_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node22-outcomes.json ATSEQ_P4_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node22-checkpoint.json /Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node scripts/source-run.mjs --test tests/native-outcome.test.ts tests/checkpoint-data.test.ts",
+      "capture": "node22-focused.log",
+      "exitCode": 0,
+      "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb",
+      "note": "Final capture"
+    },
+    {
+      "command": "ATSEQ_OUTCOME_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node26-outcomes.json ATSEQ_P4_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node26-checkpoint.json node scripts/source-run.mjs --test tests/native-outcome.test.ts tests/checkpoint-data.test.ts",
+      "capture": "node26-focused.log",
+      "exitCode": 0,
+      "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb",
+      "note": "Final capture"
+    },
+    {
+      "command": "node scripts/source-run.mjs --test tests/native-outcome-browser.test.ts tests/checkpoint-data-browser.test.ts",
+      "capture": "chromium.log",
+      "exitCode": 0,
+      "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb"
+    },
+    {
+      "command": "npm run check",
+      "capture": "check.log",
+      "exitCode": 0,
+      "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb"
+    },
+    {
+      "command": "ATSEQ_OUTCOME_COMPILED_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node22-compiled.json /Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node experiments/checkpoint-outcome-data/compiled-probe.mjs",
+      "capture": "node22-compiled.log",
+      "exitCode": 0,
+      "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb"
+    },
+    {
+      "command": "ATSEQ_OUTCOME_COMPILED_CAPTURE_PATH=experiments/post-spike-evidence/2026-10-01/checkpoint-outcome-data/node26-compiled.json node experiments/checkpoint-outcome-data/compiled-probe.mjs",
+      "capture": "node26-compiled.log",
+      "exitCode": 0,
+      "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb"
+    },
+    {
+      "command": "npm run build",
+      "capture": "build.log",
+      "exitCode": 0,
+      "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb"
+    }
+  ],
+  "report": {
+    "file": "notes/2026-10-01-atseq-checkpoint-outcome-data-results.md",
+    "sha256": "a911a8f0da4fefa05cf39ae30b60090f1bfc175bda0c3b0d317aa563c5b22b13"
+  },
+  "validationSummary": {
+    "sourceHead": "bdd21674af4e6ccbef1926073b90dd6383235bcb",
+    "outcomeCases": 103,
+    "checkpointCases": 91,
+    "exactOutcomeCaseListsAgree": true,
+    "exactCheckpointCaseListsAgree": true,
+    "compiledModuleBytesMatchFreshBuild": true,
+    "chromium": "153.0.8010.12",
+    "nodeVersions": [
+      "v22.19.0",
+      "v26.10.0"
+    ],
+    "outcomeCaseListSha256": "06daaba80d5e8216e8b5f724077f4a855a0ee73006ab4bdbe702f252f5310c03",
+    "checkpointCaseListSha256": "dd8275151c946a9301d651a7782706c73e7f3b02a9709ca36a8d1eb6a50e76ec",
+    "noAdmission": true
+  },
+  "boundaries": {
+    "dataOnly": true,
+    "noProducerClassification": true,
+    "noAdmissionOrAuthorityCapability": true,
+    "noPublicExportOrProfileChange": true,
+    "predecessorCapturesUnchanged": true
+  }
+}
