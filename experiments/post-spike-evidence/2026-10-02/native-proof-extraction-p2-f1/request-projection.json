@@ -1,0 +1,36 @@
+{
+  "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f91fcd5849700fd518ab2014782170526f4490ac",
+  "statement": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f91fcd5849700fd518ab2014782170526f4490ac",
+    "sequence": 12599,
+    "timestamp": 1790954863,
+    "actor": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "kind": "request",
+    "lifecycle": "request",
+    "satisfier": "none",
+    "text": "p1extraction complete reviewed implementation stage; separate file ownership permits parallel work. Root owns exact review and governed landing; full parent scope retained.",
+    "body": {
+      "conditions": "Implement independently accepted P2-D5 API1-API3 genuine internal sparse CAR extraction. Owner src/protocol/native-proof.ts and its same7runtime/4type explicit protocol barrel only; immutable supported AuthenticatedRepo shape. Preserve all existing checked lookup predicates, runtime error identity and corpus. One issuer registry WeakMap, original successful issuer registration only; no caller cache/reader/registrar/trustflag. Share checked walk once, capture owned rows beforeawait, all encountered checked raw nodes and found record bytes plus selected cache commit; commit eviction/missing unavailable/no partial output. Exact canonicalCID sort/dedup/CARframing and16MiB portable/issuer stricter limits, row/bytecount before allocation/duplicate rowscharged; overflow retains nooverlimit blocks and finishes only current bounded walk for faultprecedence. Execute allPX1-PX18 plusoriginalP2 applicable conditions and keep entirefullP2 obligations visible: fresh offline genuineP256/secp256k1 replay lookup includesabsence, mutation/forgery/eviction/retreat/limits/structuralmissing/runtime/cancel. ActualNode22/24/26source+emitted+actualChrome, preservedP1/R1 oracle, failedattempts/source/build/physicalpins, rootindependent exacthead code review before merge/push. Workload100/1k/10k anddelta0/1/100 extraction whengenuinelyavailable, actualwork/time/heap/limits no targets/fakezero. CAR intake separateowner; observerregistry/P4archive/PDS/restart/fullP2 completion remain fulltracked obligations, notclosedbychild. Include exact accepted source packet notes/evidence whereneeded and originalfullobligationinventory. Newdecisions workroomreview before dependentcode; routinepermissions notneeded.",
+      "target_head": "87eec6aa872ce7acc58dc641f8e84f47ca7bbbb1",
+      "target_ref": "refs/heads/main",
+      "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+      "to": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733"
+    }
+  },
+  "decision": {
+    "event": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f91fcd5849700fd518ab2014782170526f4490ac",
+    "sequence": 12599,
+    "verdict": "effective",
+    "reason": "statement recorded"
+  },
+  "commitment": {
+    "request": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:f91fcd5849700fd518ab2014782170526f4490ac",
+    "requester": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "performer": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "promise": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677#git:sha1:69f2a8c48594acb845944f9e00b420f43cc2fb4c",
+    "status": "promised",
+    "waiting_on": "aaa9b4ecf85fcbd55dcd14988bb99a03a223a61c8cbcea8dfdfd9b1ec6354733",
+    "target_repo": "git:sha1:fa8d62ed900d7697380a68652abb3e45d950a677",
+    "target_ref": "refs/heads/main"
+  }
+}

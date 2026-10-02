@@ -1,0 +1,468 @@
+{
+  "node": "v24.21.0",
+  "extraction": {
+    "cases": [
+      {
+        "id": "PX1",
+        "name": "Genuine issuer and unchanged supported shape; clone/DATA/prototype and caller collector refused"
+      },
+      {
+        "id": "PX2",
+        "name": "Fresh offline P256/secp256k1 membership/raw bytes and absence"
+      },
+      {
+        "id": "PX3",
+        "name": "Original root, exact commit, canonical lexical CID dedup and deterministic output"
+      },
+      {
+        "id": "PX4",
+        "name": "Real found/absence all-encountered closure; pinned1.1.1 has no natural retreat"
+      },
+      {
+        "id": "PX5",
+        "name": "Sparse evidence creates no complete-tree claim; original hostile corpus remains required"
+      },
+      {
+        "id": "PX6",
+        "name": "Request and output-byte ownership across first await"
+      },
+      {
+        "id": "PX7",
+        "name": "Evicted selected commit is unavailable while online absence survives"
+      },
+      {
+        "id": "PX8",
+        "name": "Missing record/node withholds complete output after earlier successful requested path"
+      },
+      {
+        "id": "PX9",
+        "name": "Closed rows, canonical expected CID, mismatch, signal and syntax-before-local-character policy"
+      },
+      {
+        "id": "PX10",
+        "name": "Duplicate row count before dedup; zero diagnostic; exact16MiB request tuple framing and one-byte refusal"
+      },
+      {
+        "id": "PX11",
+        "name": "Actual CAR header/CID/varint bytes at exact issuer cap and one-byte refusal"
+      },
+      {
+        "id": "PX12",
+        "name": "Collector overflow preserves actual hostile interval cleanup and valid-path resource refusal"
+      },
+      {
+        "id": "PX13",
+        "name": "Real missing descendant remains unavailable despite prior collector overflow"
+      },
+      {
+        "id": "PX14",
+        "name": "Cancellation withholds output and foreign walker error retains exact identity"
+      },
+      {
+        "id": "PX15",
+        "name": "Original genuine capability identity retained across verified same-cache fill"
+      },
+      {
+        "id": "PX16",
+        "name": "Genuine signed genesis/head/entry receipt paths offline; participant/source/full receipt closure remains unavailable"
+      },
+      {
+        "id": "PX18",
+        "name": "Actual maintained node loads/signatures/output bytes/time; uninstrumented work remains null"
+      }
+    ],
+    "metrics": [
+      {
+        "name": "four-request warm extraction",
+        "requestRows": 4,
+        "nodeStoreGets": 9,
+        "signatureVerifications": 0,
+        "carBytes": 1714,
+        "uniqueBlocks": 7,
+        "elapsedMs": 0.40741700000012315,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null,
+        "collectorCopiedBlockBytes": 1391
+      },
+      {
+        "name": "portable host-cache bound",
+        "cacheBudgetBytes": 134217728,
+        "passedRequestRows": 23,
+        "refusedRequestRows": 24,
+        "passedFramedCarBytes": 16104731,
+        "portableCapBytes": 16777216
+      }
+    ],
+    "executedPX": [
+      "PX1",
+      "PX10",
+      "PX11",
+      "PX12",
+      "PX13",
+      "PX14",
+      "PX15",
+      "PX16",
+      "PX18",
+      "PX2",
+      "PX3",
+      "PX4",
+      "PX5",
+      "PX6",
+      "PX7",
+      "PX8",
+      "PX9"
+    ],
+    "PX17": "caller must record actual source/emitted/runtime/browser gates",
+    "naturalRetreat": false,
+    "claimScopesNotEstablished": [
+      "complete application replay",
+      "participant/source/receipt closure",
+      "current identity",
+      "P4 asserted-origin upgrade",
+      "observer registry/cursor",
+      "real PDS",
+      "durable restart/restore"
+    ]
+  },
+  "workloads": {
+    "claim": "Generic genuinely signed MST record/path extraction; not native ordered action replay or shared observer delta integration",
+    "measurements": [
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 100,
+        "context": "all records",
+        "elapsedMs": 8.751667000000225,
+        "nodeStoreGets": 265,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 128,
+        "framedCarBytes": 16982,
+        "copiedCollectorBlockBytes": 12161,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 0,
+        "context": "warm delta request set",
+        "elapsedMs": 0.029541999999992186,
+        "nodeStoreGets": 0,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1,
+        "framedCarBytes": 285,
+        "copiedCollectorBlockBytes": 188,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 1,
+        "context": "warm delta request set",
+        "elapsedMs": 0.138541000000032,
+        "nodeStoreGets": 2,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 4,
+        "framedCarBytes": 1391,
+        "copiedCollectorBlockBytes": 1181,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 100,
+        "requestedPaths": 100,
+        "context": "warm delta request set",
+        "elapsedMs": 7.442791999999827,
+        "nodeStoreGets": 265,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 128,
+        "framedCarBytes": 16982,
+        "copiedCollectorBlockBytes": 12161,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 1000,
+        "context": "all records",
+        "elapsedMs": 114.63354099999992,
+        "nodeStoreGets": 4657,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1270,
+        "framedCarBytes": 168570,
+        "copiedCollectorBlockBytes": 121268,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 0,
+        "context": "warm delta request set",
+        "elapsedMs": 0.038291999999955806,
+        "nodeStoreGets": 0,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1,
+        "framedCarBytes": 285,
+        "copiedCollectorBlockBytes": 188,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 1,
+        "context": "warm delta request set",
+        "elapsedMs": 0.17566599999986465,
+        "nodeStoreGets": 4,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 6,
+        "framedCarBytes": 2273,
+        "copiedCollectorBlockBytes": 1988,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 1000,
+        "requestedPaths": 100,
+        "context": "warm delta request set",
+        "elapsedMs": 10.798332999999957,
+        "nodeStoreGets": 465,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 130,
+        "framedCarBytes": 18219,
+        "copiedCollectorBlockBytes": 13322,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 10000,
+        "context": "all records",
+        "elapsedMs": 1706.6453329999997,
+        "nodeStoreGets": 56658,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 12667,
+        "framedCarBytes": 1682256,
+        "copiedCollectorBlockBytes": 1211040,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 0,
+        "context": "warm delta request set",
+        "elapsedMs": 0.0365830000000642,
+        "nodeStoreGets": 0,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 1,
+        "framedCarBytes": 285,
+        "copiedCollectorBlockBytes": 188,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 1,
+        "context": "warm delta request set",
+        "elapsedMs": 0.2148749999996653,
+        "nodeStoreGets": 5,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 7,
+        "framedCarBytes": 4340,
+        "copiedCollectorBlockBytes": 4017,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 10000,
+        "requestedPaths": 100,
+        "context": "warm delta request set",
+        "elapsedMs": 16.816583000000264,
+        "nodeStoreGets": 565,
+        "signatureVerifications": 0,
+        "uniqueBlocks": 131,
+        "framedCarBytes": 20286,
+        "copiedCollectorBlockBytes": 15351,
+        "hashes": null,
+        "keyNormalization": null,
+        "peakHeap": null
+      },
+      {
+        "genericMstRecords": 40000,
+        "requestedPaths": 40000,
+        "context": "actual portable unique-block refusal",
+        "completeInputBlocks": 50742,
+        "completeInputCarBytes": 6740313,
+        "portableUniqueBlockCap": 50000,
+        "portableCarByteCap": 16777216,
+        "refusal": "native_proof_limit",
+        "elapsedMs": 14406.854667000001,
+        "partialOutput": false,
+        "retainedCacheInventoryUnchanged": true,
+        "peakHeap": null
+      }
+    ]
+  },
+  "originalP1Cases": [
+    "root fields, raw membership, absence and whole-tree checks",
+    "non-forgeable capability",
+    "wrong DID",
+    "wrong key",
+    "wrong root",
+    "truncated CAR",
+    "CAR byte budget: resource limit and sufficient-budget recovery",
+    "block count budget: resource limit and sufficient-budget recovery",
+    "block byte budget: resource limit and sufficient-budget recovery",
+    "header budget: resource limit and sufficient-budget recovery",
+    "native header depth budget: resource limit and sufficient-budget recovery",
+    "CAR type and truncated/zero header are input before local header policy",
+    "unknown and nonpositive/fractional/nonfinite/unsafe bounds remain caller input errors",
+    "corrupt block",
+    "wrong record CID",
+    "path protocol syntax/1024 maximum precede stricter local character policy",
+    "path node, full-tree node and walker-depth budgets are resource limits",
+    "node-entry policy yields resource limit and sufficient-budget recovery",
+    "native cached-node depth is local policy distinct from Atseq wire depth",
+    "cached native block bytes obey resource policy",
+    "caller CAR, options and returned-byte mutation isolation",
+    "sparse missing evidence distinct from absence",
+    "missing record bytes",
+    "full-export cache recovery",
+    "failed admission preserves prior evidence",
+    "single-CAR cache byte/count budgets are resource limits",
+    "LRU eviction yields missing evidence",
+    "optional expected root",
+    "exactly one selected CAR root",
+    "oversized authenticated admission is atomic",
+    "p256 legacy/compressed/off-curve keys and compact low-S signatures",
+    "secp256k1 legacy/compressed/off-curve keys and compact low-S signatures",
+    "wrong-layer signed MST node",
+    "unordered signed MST keys",
+    "wrong child layer",
+    "overlapping child interval",
+    "signed walked interval fault overrides withheld child for lookup and full tree",
+    "signed walked interval fault overrides node-load limit before withheld child for lookup and full tree",
+    "canonical MST fields",
+    "invalid node shape precedes local node-entry policy",
+    "canonical empty repository root",
+    "height-one signed empty non-root MST node",
+    "leaf signed empty non-root MST node",
+    "untrimmed keyless root is invalid input",
+    "noncanonical signed MST CBOR is invalid input",
+    "maintained MST deserialization errors are invalid input",
+    "noncanonical commit CBOR is invalid input",
+    "lookup/tree preserve observed runtime/resource/input/missing failures instead of cleanup depth error",
+    "genuine walker runtime faults retain identity",
+    "native depth limit does not claim validity; raised policy detects malformed commit",
+    "native membership cannot bypass strict Atseq record limits"
+  ],
+  "testModules": [
+    {
+      "path": "tests/support/native-proof-corpus.ts",
+      "sourceSha256": "30331b47450164f1053e70e3a0d4e899f96d8ddb85635a996a190fc625e9bd7c",
+      "transformedSha256": "d18dc3a65d2f651b06c16d85b590c58a4be7867f3ee30cc1babf69a4229f86b2"
+    },
+    {
+      "path": "tests/support/identity-corpus.ts",
+      "sourceSha256": "9d0e40b8b376ca827143250fbfb7a6eb1d8f4d6b0ee503845f494de8c1afc8c6",
+      "transformedSha256": "ee1cf492ef346616361ae61df6f4fc88a6ec87bf263f62885df3f2917431f67e"
+    },
+    {
+      "path": "tests/support/native-authority-fixture.ts",
+      "sourceSha256": "b7a927f36199d3797eebd807c51fd66cf34657176a813e4d89567d83ea2982c7",
+      "transformedSha256": "71e1e31a34f08408edb4bf6fd606bb36de1679d22e368da15628632f690978be"
+    },
+    {
+      "path": "tests/support/native-proof-extraction-fixture.ts",
+      "sourceSha256": "bb4884ba52b4b8f4d0ff4c8d8dce258d62f44fa6264340f7539e41056b118349",
+      "transformedSha256": "f97d8cd4d5d63c5d07a908301bd1743ab0fcedd9d6470a82c544ea6ac90276da"
+    },
+    {
+      "path": "tests/support/native-proof-extraction-corpus.ts",
+      "sourceSha256": "d5b78812a80f56665e1713e9bfec024e7403b4179e54212e16c6aae2b1c66272",
+      "transformedSha256": "1b370803590a4fb4882686f4d014294dee4b564f83a5eb24c6b64b3fa3f9366f"
+    },
+    {
+      "path": "tests/support/native-proof-extraction-workload.ts",
+      "sourceSha256": "fce28e6e6c355db8dca9315fbbafc85d5686a375cfe6805d6814d132decd279b",
+      "transformedSha256": "6d2dc9a16530cd2421041ca5353e5fe8aec708f989491a5184ed60f4fdccc32d"
+    }
+  ],
+  "actualProductionModules": [
+    {
+      "path": "dist/src/application/native-authority-evidence.js",
+      "sha256": "1cc510541b608334c1ed26e8044a67f9844b821f7111977a6ff1a5232c67e480"
+    },
+    {
+      "path": "dist/src/application/native-authority.js",
+      "sha256": "af0f96056c3593f47b03eab38bc20f6ef6f6d8a41bad9347bd57e5d341eb7730"
+    },
+    {
+      "path": "dist/src/application/native-prefix.js",
+      "sha256": "b71cfd6a6572d149df3c7abf5c8298ee5d48abbd764cadb35700ac36fe3017fc"
+    },
+    {
+      "path": "dist/src/core/errors.js",
+      "sha256": "f262303819c1ff725fd878fd3de0d0352f52657cb5dafe44f073ddf637e06eb0"
+    },
+    {
+      "path": "dist/src/definition/native-source-contract.js",
+      "sha256": "acd371663819af28066332707c07d8c7e81c0c858934df535861f5867fddd0c8"
+    },
+    {
+      "path": "dist/src/protocol/identity-binding.js",
+      "sha256": "0dade2000c19c638180f49428f16169938cfc5492be6517b73f3c6cbc0b59b5e"
+    },
+    {
+      "path": "dist/src/protocol/identity-json.js",
+      "sha256": "93c51773350178f047b8c85c39a2bd829e26410f3c4d52b04951ce6404fe9804"
+    },
+    {
+      "path": "dist/src/protocol/index.js",
+      "sha256": "86c0fe37de1c88305831e520d215d630370657d9295424abef1d476d70e8ef60"
+    },
+    {
+      "path": "dist/src/protocol/native-proof.js",
+      "sha256": "e64ad4b1eb628ab3f21b31b14fc78952ccb772a4c6200af2e5a9acae6c36ca9d"
+    },
+    {
+      "path": "dist/src/protocol/native-schema.js",
+      "sha256": "15f74c8893375352d77037d8d823fb13b2d24016fc45d1c56d72ea5663a98e3e"
+    },
+    {
+      "path": "dist/src/protocol/native-wire.js",
+      "sha256": "9222f8536d0431694bcb2ea56fcde27c04e78802c5f371fdd902af725803b2d5"
+    },
+    {
+      "path": "dist/src/protocol/wire.js",
+      "sha256": "ba879338de32398dfc2733ed11a75421872ffff2498c3a4b2a0792b2c6d6718b"
+    }
+  ],
+  "memory": {
+    "before": {
+      "rss": 342409216,
+      "heapTotal": 297959424,
+      "heapUsed": 212270016,
+      "external": 13614808,
+      "arrayBuffers": 9400498
+    },
+    "after": {
+      "rss": 904871936,
+      "heapTotal": 485638144,
+      "heapUsed": 375436504,
+      "external": 190219716,
+      "arrayBuffers": 187445251
+    },
+    "peakHeap": null,
+    "interpretation": "Process snapshots across corpus/workload; no per-operation allocation or peak attribution"
+  }
+}

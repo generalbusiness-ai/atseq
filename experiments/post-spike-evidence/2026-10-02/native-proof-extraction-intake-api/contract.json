@@ -1,0 +1,114 @@
+{
+  "schema": "atseq-p2-proof-extraction-intake-proposed-v1",
+  "status": "PROPOSED; independent source decision required before code",
+  "request": "261f4bd98074d54e269844ba21c478db73f824cc",
+  "promise": "edaec0d48bfda92f0514e0bd41d5d026edf052c2",
+  "parentRequest": "3a7f6bb3d6c1c763619b6082558d83056a0ef7b2",
+  "parentPromise": "9f591c28f9fb14e0dba2f0e1086aa2d65a54a406",
+  "decisions": [
+    {
+      "id": "API1",
+      "chosen": "module-only extractNativeRepoPaths; explicitly preserve existing protocol barrel names",
+      "alternative": "supported AuthenticatedRepo.extractPaths method would expand public runtime shape/type; not chosen",
+      "approval": "atseq-reviewer workroom source decision before implementation"
+    },
+    {
+      "id": "API2",
+      "chosen": "CAR-only owned output; caller retains requested path DATA and existing lookup/offline authentication derives results",
+      "reason": "no duplicate result-row profile or result-metadata owner; refinement of D4 bytes/path-results wording",
+      "approval": "reviewer must confirm separate output rows are not owed"
+    },
+    {
+      "id": "API3",
+      "chosen": "read selected commit from original capability shared cache; eviction makes extraction unavailable",
+      "reason": "no new uncharged retained commit per live capability; bounded host selected-commit DATA remains separate",
+      "approval": "reviewer checks cache/commit ownership and original capability identity"
+    },
+    {
+      "id": "API4",
+      "chosen": "existing selected CAR parser and exact-set checks shared by module-only selection/intake; P1 unchanged authentication rechecks supplied small CAR",
+      "reason": "no valid-subset admission or parser bypass; repeated new-block and constant-commit hashes/signature are explicit",
+      "approval": "reviewer checks fixed portable serialized caps and physical count before dedup"
+    }
+  ],
+  "publicApi": {
+    "runtime": [
+      "NATIVE_PROOF_LIMITS",
+      "NATIVE_CACHE_BROWSER",
+      "NATIVE_CACHE_HOST",
+      "normalizeRepoSigningKey",
+      "assertAuthenticatedRepo",
+      "VerifiedRepoBlocks",
+      "authenticateRepo"
+    ],
+    "types": [
+      "NativeLookup",
+      "NativeTree",
+      "AuthenticatedRepo",
+      "AuthenticateRepoOptions"
+    ],
+    "AuthenticatedRepoShapeChanged": false,
+    "supportedNamesAdded": [],
+    "proposedBarrelEdit": "replace only native-proof export-star with explicit same seven runtime and four type exports"
+  },
+  "extract": {
+    "module": "src/protocol/native-proof.ts",
+    "signature": "extractNativeRepoPaths(repo: AuthenticatedRepo, requests: readonly { path: string; expectedCid?: string }[], signal?: AbortSignal): Promise<Uint8Array>",
+    "registry": "existing authenticatedRoots WeakSet becomes ONE private WeakMap storing issuer-owned extraction operation; only successful authenticate registers; assertAuthenticatedRepo continues has check; no caller registrar or second brand",
+    "operation": "same issuer/cache/selected root and captured limits; existing checked walker factored once for lookup+extraction; sequential; raw exact visited-node and found-record copies; selected commit included; no schema/descriptor/reader/identity callback",
+    "output": "new owned standalone native CAR; header selects original root; sorted canonical CID order; dedup by CID; no new capability or result rows",
+    "zeroRequests": "allowed commit-only diagnostic; no membership/absence/whole-tree claim",
+    "failure": "required commit/node/record missing -> content_unavailable; same expected CID/input and structural/runtime precedence; no partial CAR",
+    "capture": "validate array count before allocation, then snapshot each bounded path/expected CID before awaits; unknown row fields refused; signal reference only, no trust callback",
+    "collectionOverflow": "retain no oversized copied blocks; mark overflow and complete only the current existing bounded checked walk; exposed structural faults retain precedence, missing stays unavailable, valid complete overflowing path -> native_proof_limit; stop before next path",
+    "claim": "exact requested visited path scope only; unvisited branches and replay/source/participant closure unclaimed"
+  },
+  "car": {
+    "module": "src/protocol/native-observer-car.ts",
+    "selectionSignature": "selectNativeObservationCommit(raw: Uint8Array): { root: string; bytes: Uint8Array }",
+    "selection": "Same existing selected-root constructor parser AND portable unique-block/byte budget; exactly one header root with present hash-verified commit bytes, owned DATA only; P1 still establishes signed DID/key/root authority.",
+    "intakeSignature": "exactAdmissionCar(raw: Uint8Array, requested: readonly string[], selectedCommit: { root: string; bytes: Uint8Array }): Promise<Uint8Array>",
+    "capture": "own incoming raw/requested list/selected root+bytes before first await; exact CID set and physical count validated before serialization/admission; selected commit CID hash checked as DATA, not identity authority",
+    "shared": "factor exact-set check from addExact once; share existing read; use maintained CAR writer with exact serialized-size preflight; no accumulated-map copy/recompose",
+    "output": "same selected commit plus checked new response blocks only, sorted canonical CID order, CID dedup, original selected header root; response header roots syntax only",
+    "admission": "Call authenticateRepo with blocks: the same retained VerifiedRepoBlocks, fixed expected root/DID/accepted key and captured proof bounds. Its original prototype implementation authenticates and atomically admits; do not dispatch an overridable subclass method. Check resulting fields, then retain original capability identity; no partial admission or prior eviction on failure.",
+    "constantCosts": "CAR intake hash plus P1 supplied-block hash, selected commit signature/key canonicality/low-S checks repeat; never zero-hash or cached-currentness claim"
+  },
+  "budgets": {
+    "requestRows": "0..min(captured issuer carBlocks, default carBlocks 100000); count duplicate rows before any output CID dedup",
+    "capturedRequestBytes": "at most existing portable 16MiB, measured incrementally as UTF-8 JSON tuple array [path,expectedCid|null] including framing; resource accounting only, no new wire profile",
+    "extractUniqueBlocks": "min(captured issuer carBlocks, portable50000); selected commit counts once",
+    "extractCarBytes": "min(captured issuer carBytes, portable16MiB), exact maintained header and entry framing included",
+    "blockBytes": "captured issuer blockBytes; default1MiB; selected commit included",
+    "path": "existing assertMstKey/1024 protocol maximum before stricter captured pathCharacters; defaultpathLoads64,nodeEntries4096,depth64; no whole-tree bypass",
+    "intakeRaw": "existing32MiB CAR/input and IdentityFetch cumulative bound; header16KiB/depth64; eachblock1MiB",
+    "requestedBlocks": "1..64 unique canonical CBOR CIDs; response physical block count<=64 BEFORE CID dedup; duplicates within cap retain existing set semantics",
+    "intakeCar": "portable16MiB actual serialized bytes and <=65 unique blocks including selected commit; P1 independently rechecks its captured limits",
+    "cache": "browser16MiB/50000, host128MiB/400000 remain separate existing limits; host cache never expands portable output",
+    "heap": "these are separate ownership/resource bounds, not a total heap/CPU deadline; transient parser, per-path NodeStore and writer buffers/copies must be measured",
+    "transport": "existing one IdentityFetch reservation30s/64requests/32MiB across full retries; local work signal checks between paths/chunks plus host assertActive before/after; cannot interrupt a synchronous decode or claim total CPU deadline",
+    "observerSubjectCap": "existing sixteen-account-subject-path limit unchanged; later app suffix route and registry/lifetime independently tracked",
+    "cryptoConcurrency": "sequential1; signature-result/key cache0; existing canonical compressed key/low-S rules unchanged",
+    "selectedInput": "Existing constructor policy: raw32MiB, physicalblocks100000, unique50000/rawuniquebytes16MiB, header16KiB, perblock1MiB; selection helper does not bypass it."
+  },
+  "boundaries": {
+    "PD1": "c015 satisfied source decision and frozen48a implementation candidate; current/floor/poison and future registry/cursor rechecks remain required",
+    "PD2": "genuine capture WeakMap deletion before owned publication handoff; no encoded DATA reconstruction; future observer integration remains separate",
+    "P4": "no asserted-origin complete-from-genesis upgrade; genuine private P4 construction and deferred coverage gates remain unavailable until implemented",
+    "fullP2": "original12obligations+36historicalUNEXECUTED vectors preserved; actual integrated matrix, multiple-app recovery, realPDS, restore/offline/runtime gates remain open"
+  },
+  "executed": {
+    "sourceCheckerOnly": true,
+    "productionOrApiChanges": false,
+    "runtimeExperiments": false,
+    "providerExperiments": false,
+    "originalVectorsExecutedHere": 0
+  },
+  "futureObserverRecoveryDecision": {
+    "status": "OPEN; separate future observer/recovery source decision before caller",
+    "baseline": "Current approved PD1 audit refuses contradiction or pendingFault; any poisoned registered lineage withholds the shared account cursor for all apps.",
+    "safety": "The lineage floor facts are unchanged; this is conservative availability coupling, not an identified safety gap.",
+    "alternative": "Floor-fact-only audit for contradicted owner requires a separately reviewed private seam and genuine recovery/concurrency/no-effects tests; not chosen or implemented here.",
+    "scope": "No changes to frozen48a audit semantics, API1\u2013API4, observer implementation or restored origin."
+  }
+}

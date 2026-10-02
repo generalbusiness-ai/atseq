@@ -1,0 +1,10 @@
+{
+  "references": [
+    {
+      "title": "atcute repository",
+      "url": "https://github.com/mary-ext/atcute",
+      "checked": "2026-10-02T15:00:18.244321+00:00",
+      "purpose": "Primary repository link for related CAR/MST libraries only; detailed behavior comes from pinned installed source, not mutable trunk."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+src/protocol/native-proof.ts 49ms (unchanged)
+src/protocol/index.ts 1ms (unchanged)
+tests/support/native-proof-extraction-fixture.ts 8ms
+tests/support/native-proof-extraction-corpus.ts 16ms
+tests/native-proof-extraction.test.ts 1ms

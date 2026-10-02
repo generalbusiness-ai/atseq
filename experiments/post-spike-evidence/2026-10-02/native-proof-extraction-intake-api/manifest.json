@@ -1,0 +1,82 @@
+{
+  "schema": "atseq-p2-native-extraction-intake-source-packet-v1",
+  "baseline": "5006a5c6489ce348944a85d158dfe89fd979099c",
+  "request": "261f4bd98074d54e269844ba21c478db73f824cc",
+  "promise": "edaec0d48bfda92f0514e0bd41d5d026edf052c2",
+  "productionChanged": false,
+  "supportedApiChanged": false,
+  "sourceStatus": "PROPOSED; independent decision before code",
+  "fullP2Closed": false,
+  "files": [
+    {
+      "path": "notes/2026-10-02-atseq-native-proof-extraction-intake.md",
+      "bytes": 17297,
+      "sha256": "fd16c0efe1f47d31c239d2600fef3caf006b6d4f921c207bfe2b100051530ef6"
+    },
+    {
+      "path": "notes/2026-10-02-atseq-native-proof-extraction-intake-results.md",
+      "bytes": 8511,
+      "sha256": "2a96b2d4540a78b0984cf3afd903269f6f7a368e816fb7d18daa8395636b4602"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/check-packet.py",
+      "bytes": 11773,
+      "sha256": "a09f972fb31b3a8f8b9f23d5d787f5aa0a623b0a2a6cec2bcf068caae919d888"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/contract.json",
+      "bytes": 9856,
+      "sha256": "2fb22601d1ccd60c20e0d825984ca61ec0a30320d2b2fbc073fa532a1812962b"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/decision-vectors.json",
+      "bytes": 9825,
+      "sha256": "6ec2de43eb5325c9b06fe905c8b09f160faaa8c851ada7556b9451389142f942"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/later-coordination.json",
+      "bytes": 6411,
+      "sha256": "07e34570076a33b25024cde51b964fb0d8caf9227f4de0ff809d590bb4f523f0"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/official-references.json",
+      "bytes": 330,
+      "sha256": "93c868445c3d2666e9daa9c82df53de56fcb563b80ef5b5b3a71dcd3b25ba571"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/original-p2-vectors.json",
+      "bytes": 19978,
+      "sha256": "39e627310e887d916fbb47f0201df7eb860d2bf5ec2c3a8044e2b94b5317c011"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/request-projection.json",
+      "bytes": 12981,
+      "sha256": "2ea93802e77a350eaa67e3d80bc88e2eb07b8d1fd90dd6fc6dcd00b1d54d0d77"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/source-inspection.json",
+      "bytes": 9915,
+      "sha256": "2f564a2238d1e6976d85a4081dad747594d2619f7afe08c6581bd1abdd39d173"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/upstream/car/writer.js",
+      "bytes": 2118,
+      "sha256": "2c70eb6735e93de5e176298e8d7d30592829f6c89306d864c77cda6993115151"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/upstream/mst/node-store.js",
+      "bytes": 2167,
+      "sha256": "f7bf35ad299ae75538893cafbab98460723f19812f0d2c8aa2727d3543791005"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/upstream/mst/node-walker.js",
+      "bytes": 9635,
+      "sha256": "8a3e121da8ec139473bd6c8a93819a19fc4545a6d42fb0c788aeb3550cf089ca"
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-proof-extraction-intake-api/upstream/mst/proof.js",
+      "bytes": 4003,
+      "sha256": "3cc485e953922044c9f7de78bb2a9928e9aae3a53445c7442d6053e97a5c13b1"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "stage": "read-only preparation",
+    "error": "git rev-parse18d5 shorthand ambiguous between commit and blob; resolved exact18d5d0d3, no mutation"
+  },
+  {
+    "stage": "early TypeScript draft",
+    "error": "CAR.serializeCarHeader runtime export omitted from published declaration; corrected to first maintained writer yield. #atseq-integrity declaration resolution needed initial actual build; no dependency/package edit"
+  },
+  {
+    "stage": "editing test refinement",
+    "error": "Python replacement raised ValueError substring not found after writing production and fixture changes; tool stdout retained in conversation, no full raw command log; subsequent corrected test edit and matrix passed"
+  },
+  {
+    "stage": "launch before browser-file creation",
+    "error": "exec_command rejected before process creation: Too many open files (os error24); no session created. Retried serialized operation successfully; no permission request."
+  },
+  {
+    "stage": "coverage projection generation",
+    "error": "Python syntax error in draft projection generator before any file write; raw tool stdout retained in conversation, not captured in an independent log. Corrected generator passed; production/runtime captures unchanged."
+  }
+]

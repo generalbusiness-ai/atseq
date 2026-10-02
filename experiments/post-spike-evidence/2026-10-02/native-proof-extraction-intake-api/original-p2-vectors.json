@@ -1,0 +1,432 @@
+{
+  "schema": "atseq-p2-d4-review-unexecuted-vectors-v1",
+  "status": "UNEXECUTED",
+  "request": "261f4bd98074d54e269844ba21c478db73f824cc",
+  "promise": "edaec0d48bfda92f0514e0bd41d5d026edf052c2",
+  "fullP2Request": "3a7f6bb3d6c1c763619b6082558d83056a0ef7b2",
+  "fullP2Promise": "9f591c28f9fb14e0dba2f0e1086aa2d65a54a406",
+  "originalP2Conditions": "Retain verified boundary and extend selected head with authenticated native membership and app chain without O(N) re-verification. Choose keyed/paged suffix or retained native tree based on actual native authority proof requirements. Keep repo root/revision, app head and interpreted frontier separate; bound validated key caches/concurrency without weakening canonical-key/low-S checks. Test gaps/forks/rollback, old mutations, source/key-only changes, stale/mixed-root replies, concurrent appends and disconnected recovery; full replay equivalence. Deliver code/tests plus a dated notes/ results report and raw evidence where appropriate. Report actual results, recommendation, trust/functional limits and unrun cases. Review any unsettled contract decision before implementing it; obtain atseq-reviewer exact-head architecture/security/simplification approval, then merge through gitseq and push main. No latency threshold or spike compatibility requirement.",
+  "obligations": [
+    {
+      "id": "boundary-suffix",
+      "text": "Retain genuine verified boundary; native membership and complete app suffix; no old actor re-verification on normal warm path.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "native-tree",
+      "text": "Prefer existing retained native MST and CID ecosystem; justify any alternate strategy against actual proof needs.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "separate-frontiers",
+      "text": "Account root/revision, advertised head, verified app head and interpreted frontier remain distinct.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "bounded-crypto",
+      "text": "Bound concurrency and any key cache; canonical-key and low-S rules unchanged.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "negative-history",
+      "text": "Gaps, forks, rollback, old mutations, duplicate positions/requests/nonces/descriptors and canonical/forged input failures.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "changed-context",
+      "text": "Source-only, key-only, PLC-tip-only and unrelated-app changes remain observable without old actor/fold work.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "recovery",
+      "text": "Stale/mixed-root, missing/evicted/pruned blocks, partial diffs and disconnected/corrupt restore recovery.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "concurrency",
+      "text": "Concurrent appends and stale in-flight reads cannot lower accepted or fully checked unpublished floors.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "replay-equivalence",
+      "text": "Cold/warm/resumed state, source, authority, identities, outcomes and frontiers equal full native replay.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "delivery",
+      "text": "Full implementation code/tests, dated results, raw attributable evidence, honest limits and unrun cases.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "independent-review",
+      "text": "Unsettled design decisions reviewed before code; exact-head atseq-reviewer architecture/security/simplification review before gitseq merge and push.",
+      "status": "OPEN_IMPLEMENTATION"
+    },
+    {
+      "id": "characterize",
+      "text": "No arbitrary latency target and no spike compatibility goal; characterize circumstances and explicit options.",
+      "status": "OPEN_IMPLEMENTATION"
+    }
+  ],
+  "vectors": [
+    {
+      "id": "warm-matrix",
+      "obligations": [
+        "boundary-suffix",
+        "replay-equivalence",
+        "characterize"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "N=0/100/1000/10000; delta=0/1/100, plus E1 delta1000. Cold/new-root/same-root reads.",
+      "requiredResult": "Exact cold equivalence; count actor/root verification, imports, node hashes/decodes, bytes/copies, PLC work, state/storage separately."
+    },
+    {
+      "id": "same-root-view",
+      "obligations": [
+        "boundary-suffix",
+        "separate-frontiers"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Head/path/completion replies straddle concurrent appends.",
+      "requiredResult": "One selected authenticated root; response header cannot replace it. Different-root recovery restarts the whole identity/root observation."
+    },
+    {
+      "id": "exact-set-intake",
+      "obligations": [
+        "native-tree",
+        "recovery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "getBlocks: extra, omitted, duplicate physical blocks, wrong hash, wrong root header, invalid framing; mutation while awaiting.",
+      "requiredResult": "Bound physical blocks at 64; exact unique CID set before atomic P1 admission. Invalid/oversize admission leaves prior cache unchanged; roots never select authority."
+    },
+    {
+      "id": "admission-abort",
+      "obligations": [
+        "native-tree",
+        "recovery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Bad commit/key/signature/oversize CAR; abort before and after staged hashes.",
+      "requiredResult": "No partially admitted batch or app update; no failed admission eviction; verified admitted bytes alone are not app acceptance."
+    },
+    {
+      "id": "gaps-chain",
+      "obligations": [
+        "negative-history"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Missing/consecutive positions, wrong predecessor, duplicated position, wrong final tip.",
+      "requiredResult": "No accepted head advancement, index insertion or replicated domain denial."
+    },
+    {
+      "id": "identity-duplicates",
+      "obligations": [
+        "negative-history"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Request CID, actor nonce and descriptor duplicates in old index and within suffix.",
+      "requiredResult": "Existing R1 owner checks them before publication; no second identity index."
+    },
+    {
+      "id": "wire-crypto",
+      "obligations": [
+        "negative-history",
+        "bounded-crypto"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Wrong DID/genesis, malformed/canonical key, high-S/forged actor or repo signatures, unsupported source identity.",
+      "requiredResult": "Existing native wire/P1/R1 checks remain; no error-text classification or signature-success cache."
+    },
+    {
+      "id": "interior-mutation",
+      "obligations": [
+        "negative-history"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Old interior path changed, boundary unchanged, descendant suffix valid.",
+      "requiredResult": "Prefix reuse names narrower historical assurance; requested current-prefix audit detects old mutation and is never downgraded."
+    },
+    {
+      "id": "boundary-rollback-fork",
+      "obligations": [
+        "negative-history",
+        "concurrency"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Head below floor, same-position different tip, changed boundary or higher fork through observed unpublished floor.",
+      "requiredResult": "R1 accepted and negative floors remain strict; discard does not erase a fully checked observed floor."
+    },
+    {
+      "id": "advisory-revision",
+      "obligations": [
+        "negative-history",
+        "recovery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Lower repo rev or equal rev/different root with preserved app prefix.",
+      "requiredResult": "Full recovery allowed only under accepted fresh binding and all known pair floors; native rev alone is not an app floor."
+    },
+    {
+      "id": "all-known-app-floors",
+      "obligations": [
+        "negative-history",
+        "concurrency"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Two apps and an older genesis share account; recovery omits or forks an unrequested registered app.",
+      "requiredResult": "Every known genuine R1 lineage stays checked; no skipping missing app or erasing old genesis floor. Registry membership cannot erase floors during await."
+    },
+    {
+      "id": "partial-diff",
+      "obligations": [
+        "native-tree",
+        "recovery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Diff omits old required node/record; retained cache has or lacks it.",
+      "requiredResult": "Same capability uses retained verified bytes; eviction is missing, never authenticated absence; exact-block completion or one full recovery."
+    },
+    {
+      "id": "changed-root-recovery",
+      "obligations": [
+        "recovery",
+        "separate-frontiers"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Full recovery picks another root, historical root unavailable, repeated changed roots.",
+      "requiredResult": "Bounded complete observation restart; no mixing proofs; attempts share existing cumulative I1 budget."
+    },
+    {
+      "id": "key-tip-only",
+      "obligations": [
+        "changed-context",
+        "bounded-crypto"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "New accepted repo key; identical key/PDS with changed canonical PLC tip; old key still verifies cached commit.",
+      "requiredResult": "Fresh before/after accepted binding used; old root retains old assurance, cannot imply current authority; delta0 remains no old actor work."
+    },
+    {
+      "id": "source-other-app",
+      "obligations": [
+        "changed-context",
+        "separate-frontiers"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Only source record or unrelated app changes; app head unchanged.",
+      "requiredResult": "New root proof and identity evidence; unchanged interpreted app state and delta0; source staging does not activate."
+    },
+    {
+      "id": "pending-resume",
+      "obligations": [
+        "replay-equivalence",
+        "separate-frontiers"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Required nested participant/source bytes unavailable, then exact bytes repaired.",
+      "requiredResult": "Verified ordering and consumed identities retained separately from stalled interpretation; resume exact entry, equal fresh replay."
+    },
+    {
+      "id": "definitive-source-fault",
+      "obligations": [
+        "negative-history",
+        "replay-equivalence"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Complete invalid activation closure or later complete participant contradiction.",
+      "requiredResult": "Existing C0/I2/N1 deterministic classification and R1 lineage block; no transport absence fabricated as contradiction."
+    },
+    {
+      "id": "stale-awaits",
+      "obligations": [
+        "concurrency"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Higher complete staging floor or confirmed append during fetch, path lookup or persistence.",
+      "requiredResult": "Exact R1 base/current/floor and coordinator generation rechecked; no stale result/receipt; uncertain commit poisons as existing R1."
+    },
+    {
+      "id": "path-export",
+      "obligations": [
+        "native-tree",
+        "recovery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Export current required path closure after diff; shared nodes; absent required record; evicted block during export.",
+      "requiredResult": "P1 issuing owner extracts own selected commit, traversed nodes and found record bytes only; no mutable map exposure; missing fails, required absence invalid; no global canonicality claim."
+    },
+    {
+      "id": "offline-proof",
+      "obligations": [
+        "recovery",
+        "delivery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Remove network and credentials; authenticate extracted CAR using separately accepted retained identity/anchor evidence.",
+      "requiredResult": "Same selected root/required membership and scope; currentness not claimed; raw online diff alone fails when old paths missing."
+    },
+    {
+      "id": "proof-size",
+      "obligations": [
+        "native-tree",
+        "characterize"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Requested suffix/closure exceeds portable16MiB/50k or traversal bounds.",
+      "requiredResult": "Explicit local resource unavailability before expensive allocation; no partial acceptance or silent audit/export weakening. Authorized larger bounds measured separately."
+    },
+    {
+      "id": "observed-fault-precedence",
+      "obligations": [
+        "negative-history",
+        "recovery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Available malformed sibling interval plus missing child or exhausted local limit.",
+      "requiredResult": "Existing P1 observed structural fault precedes missing/limit; unseen branches not guessed."
+    },
+    {
+      "id": "cold-recovery-audit",
+      "obligations": [
+        "characterize",
+        "native-tree"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Cold/full recovery/current-prefix audit/whole-MST audit over growing account and other apps.",
+      "requiredResult": "Report O(N) old paths, total-tree loads and full-CAR bytes separately; no suffix-only overall bound."
+    },
+    {
+      "id": "restart-restore",
+      "obligations": [
+        "recovery",
+        "concurrency"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Worker restart, rolled-back/partial local metadata, serialized prefix/capture/key and offline restore.",
+      "requiredResult": "No JSON brand or caller floor accepted; cold restart remains available; P3 installed-provenance reconciliation/restore required before warm restart claims."
+    },
+    {
+      "id": "bounded-crypto-work",
+      "obligations": [
+        "bounded-crypto",
+        "characterize"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Repeated canonical keys, import overhead, sequential queue and cancellation.",
+      "requiredResult": "Initial key-cache entries=0, concurrency=1; no new key owner. Any later import-only cache needs measurements/review and bounded exact validation rules."
+    },
+    {
+      "id": "compact-vs-persist",
+      "obligations": [
+        "separate-frontiers",
+        "characterize",
+        "delivery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Warm status/receipts versus explicit all-history export and existing whole-projection persistence.",
+      "requiredResult": "No routine entire-history transport copy; existing R1 coordinator O(N) outcome snapshot/clone remains named, belongs to P3 delta-persistence work."
+    },
+    {
+      "id": "real-runtime-matrix",
+      "obligations": [
+        "delivery",
+        "replay-equivalence"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Native-wire fixtures on Node22.19/24.21/26; actual compiled Chromium; disposable actual reference-PDS since/getBlocks/recovery.",
+      "requiredResult": "Attributable source/build/dependency/capture pins; no synthetic event/simulator substituted for runtime or PDS facts."
+    },
+    {
+      "id": "review-merge-gate",
+      "obligations": [
+        "independent-review",
+        "delivery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Source-only decision packet reviewed, then code/tests and full P2 obligations assessed.",
+      "requiredResult": "Independent exact-head atseq-reviewer decision and implementation reviews via gitseq before parent merges/pushes; D4 alone completes no runtime obligation."
+    },
+    {
+      "id": "other-suffix-descriptor-independent",
+      "obligations": [
+        "recovery",
+        "changed-context"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Requested app recovers after account revision rollback; other registered app has higher unrelated suffix with missing descriptor and delta above its budget, but every retained/floor path is present.",
+      "requiredResult": "Read-only floor check succeeds without suffix stage/signatures/descriptors/I1/reader; target suffix stages normally; cursor only after all normal checks."
+    },
+    {
+      "id": "other-floor-withhold",
+      "obligations": [
+        "recovery",
+        "negative-history"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Other registered app accepted head and higher observed floor: exact floor record is separately absent, changed or blocked by missing proof bytes.",
+      "requiredResult": "Absent/changed invalid; missing unavailable; every case withholds account cursor and preserves old cursor, accepted projection and all known floors."
+    },
+    {
+      "id": "readonly-no-effects",
+      "obligations": [
+        "concurrency",
+        "boundary-suffix"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Capture fixed old/current views, private observed floor and all inventories; preservation succeeds, refuses, and meets concurrent higher accepted/observed floor during an awaited lookup.",
+      "requiredResult": "No rows/views/extensions/indexes/coverage/head/floors/interpretation/contradiction change; old fixed views and original signed bytes unchanged. Concurrent advancement makes completion stale and withholds cursor, with no automatic restaging."
+    },
+    {
+      "id": "capture-one-use",
+      "obligations": [
+        "recovery",
+        "concurrency"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Genuine app capture publication called twice; clone, foreign observer, encoded readCapture reconstruction, and mutated original reader attempted.",
+      "requiredResult": "First valid call consumes existing WeakMap entry before return; second/clone/foreign/reconstructed refuse. Consumed long-lived capture retains no cache/reader registration; returned owned input stays fixed without acceptance."
+    },
+    {
+      "id": "native-publication-floor-preserved",
+      "obligations": [
+        "recovery",
+        "separate-frontiers"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Joined P4 native-publication-origin lineage has known assertion/accepted boundary and higher observed floor; account rollback preserves, omits or changes them.",
+      "requiredResult": "Same owner private floor/audit branch; no complete NativePrefix mint or derivation upgrade; missing/deferred unavailable, absent/changed invalid, withhold cursor; all retained assurance/floors unchanged."
+    },
+    {
+      "id": "unknown-work-counters",
+      "obligations": [
+        "characterize",
+        "delivery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Node/hash/import/copy instrumentation unavailable or partial, alongside measured zero and measured nonzero samples.",
+      "requiredResult": "Report unknown/null separately from measured zero; no invented counters or extrapolated measurements; retained signed fixture preparation outside reader timing."
+    },
+    {
+      "id": "foreign-error-identity",
+      "obligations": [
+        "recovery",
+        "delivery"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "A genuine foreign runtime error has misleading unavailable/invalid text during observer, extraction or preservation.",
+      "requiredResult": "Preserve exact foreign error identity; no message matching or replicated history/domain verdict; withhold cursor and no accepted projection mutation."
+    },
+    {
+      "id": "preservation-refusal-inventory",
+      "obligations": [
+        "negative-history",
+        "concurrency"
+      ],
+      "status": "UNEXECUTED",
+      "setup": "Wrong-DID fake/genuine capability, lower head, wrong pinned genesis, changed retained interior entry, and unavailable proof under shared audit, including poisoned owner.",
+      "requiredResult": "Genuine same-DID P1 and registered owner required; all refusals preserve state, consumed IDs, exact first signed receipt bytes and poison; no hidden second sets or caller trust flags."
+    }
+  ],
+  "predecessor": "682fe24d72cfa88f5d92ac386cc0be657b1e6181"
+}

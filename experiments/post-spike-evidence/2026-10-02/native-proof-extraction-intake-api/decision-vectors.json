@@ -1,0 +1,190 @@
+{
+  "schema": "atseq-p2-proof-extraction-intake-api-vectors-v1",
+  "status": "UNEXECUTED",
+  "runtimeOrProviderExecutionHere": false,
+  "request": "261f4bd98074d54e269844ba21c478db73f824cc",
+  "promise": "edaec0d48bfda92f0514e0bd41d5d026edf052c2",
+  "original36PreservedIn": "original-p2-vectors.json",
+  "vectors": [
+    {
+      "id": "PX1",
+      "name": "Genuine identity and supported API",
+      "status": "UNEXECUTED",
+      "acceptance": "Existing seven runtime/four type names and AuthenticatedRepo shape unchanged; genuine extraction registered only by existing issuer; clone/parsed/prototype/fake handle refuses; no public registrar."
+    },
+    {
+      "id": "PX2",
+      "name": "Standalone presence and absence",
+      "status": "UNEXECUTED",
+      "acceptance": "Use existing genuine P256/secp256k1 fixtures and same checked walker; fresh empty offline cache authenticates CAR and reproduces every requested found CID/raw bytes or absence."
+    },
+    {
+      "id": "PX3",
+      "name": "Exact root and output order",
+      "status": "UNEXECUTED",
+      "acceptance": "Header selects original issuer root only; selected commit included once; deduplicate actual visited nodes and found records by canonical CID; sort CID lexically, repeated call same evidence -> byte-identical CAR."
+    },
+    {
+      "id": "PX4",
+      "name": "Encountered versus final stack",
+      "status": "UNEXECUTED",
+      "acceptance": "Exercise retreat/absence branch traversal; include every encountered node used by P1 checks, not just final stack; maintained proof helper is an inclusion/exclusion test oracle, not another verifier."
+    },
+    {
+      "id": "PX5",
+      "name": "No global canonicality upgrade",
+      "status": "UNEXECUTED",
+      "acceptance": "Unseen malformed branch does not become validated; encountered faults still reject; no whole-tree/complete replay/current identity claim from sparse CAR."
+    },
+    {
+      "id": "PX6",
+      "name": "Owned snapshots",
+      "status": "UNEXECUTED",
+      "acceptance": "Mutate original request objects/list after first await and output CAR after return; original operation target is captured and cache/capability/repeated proof stay unchanged."
+    },
+    {
+      "id": "PX7",
+      "name": "Selected commit eviction",
+      "status": "UNEXECUTED",
+      "acceptance": "Evict original root from shared cache while lookup node/record survives; extraction unavailable, not authority re-created from metadata or an uncharged retained commit."
+    },
+    {
+      "id": "PX8",
+      "name": "Missing after prior success",
+      "status": "UNEXECUTED",
+      "acceptance": "Missing/evicted node or record after online success makes whole extraction unavailable; no partial proof or automatic root/key/intent retarget."
+    },
+    {
+      "id": "PX9",
+      "name": "Expected CID and input precedence",
+      "status": "UNEXECUTED",
+      "acceptance": "Same input error for expected CID mismatch; invalid path/canonical CID/row fields/signal shape before stricter local resource policy; preserve original compressed-key and low-S semantics."
+    },
+    {
+      "id": "PX10",
+      "name": "Exact row and input-byte bounds",
+      "status": "UNEXECUTED",
+      "acceptance": "Zero paths allowed only commit diagnostic; exactly bounded count/UTF8 tuple framing; duplicate rows charged before node dedup; over count/input16MiB refused before unbounded capture."
+    },
+    {
+      "id": "PX11",
+      "name": "Exact portable output bounds",
+      "status": "UNEXECUTED",
+      "acceptance": "Header+CID+entry varint framing counts in 16MiB serialized output; selected commit counts in <=50000 unique blocks; stricter issuer car/block bounds still win; host128MiB does not expand export."
+    },
+    {
+      "id": "PX12",
+      "name": "Structural versus collection overflow",
+      "status": "UNEXECUTED",
+      "acceptance": "Collector retains no overflow bytes; completes only current bounded checked walk so already exposed interval faults outrank missing/limit; valid complete overflow is native_proof_limit; no next path or partial CAR."
+    },
+    {
+      "id": "PX13",
+      "name": "Missing during overflowing walk",
+      "status": "UNEXECUTED",
+      "acceptance": "Missing proof stays content_unavailable after existing structural cleanup; overflow marker cannot downgrade known invalidity or produce partial CAR."
+    },
+    {
+      "id": "PX14",
+      "name": "Cancellation and runtime identity",
+      "status": "UNEXECUTED",
+      "acceptance": "Aborted signal between paths/writer chunks withholds output; no forced decode interruption claim; foreign failures retain exact error identity."
+    },
+    {
+      "id": "PX15",
+      "name": "Original capability and no new owner",
+      "status": "UNEXECUTED",
+      "acceptance": "Warm fill updates only existing shared cache; old genuine object remains identity used by prefix/observer and extractor; no caller-supplied map, nodes, closures, descriptor/reader callback or trust flag."
+    },
+    {
+      "id": "PX16",
+      "name": "Claim-complete scope",
+      "status": "UNEXECUTED",
+      "acceptance": "Required receipt paths all offline-verifiable; missing participant/source/content closure prevents complete-replay labels; oversized requested audit never silently becomes suffix-only evidence."
+    },
+    {
+      "id": "PX17",
+      "name": "Actual runtime/build gates",
+      "status": "UNEXECUTED",
+      "acceptance": "Node22/24/26 source and actual emitted production plus actual Chromium; unchanged P1 corpus and source/build/installed closure pins; new API not executed in this source packet."
+    },
+    {
+      "id": "PX18",
+      "name": "Budget instrumentation",
+      "status": "UNEXECUTED",
+      "acceptance": "Measure actual node/record/hash/key/signature/serialization work where observable; unavailable instrumentation is null/unknown, not zero; memory copies and collector overhead reported."
+    },
+    {
+      "id": "CI1",
+      "name": "Shared selected parser",
+      "status": "UNEXECUTED",
+      "acceptance": "Module-only selection and old constructor use existing read/selected-root validation; exactly one selected header root and hash-verified present commit DATA; P1 alone authenticates DID/key/root."
+    },
+    {
+      "id": "CI2",
+      "name": "Exact-set before admission",
+      "status": "UNEXECUTED",
+      "acceptance": "Shared exact-set predicate rejects extra/omitted/invalid hash/truncated response before any cache mutation; never admit a valid-looking subset."
+    },
+    {
+      "id": "CI3",
+      "name": "Physical duplicates",
+      "status": "UNEXECUTED",
+      "acceptance": "65 physical duplicate blocks exceed response cap before CID dedup; duplicates at or below64 preserve existing set semantics; all requested unique CIDs still present."
+    },
+    {
+      "id": "CI4",
+      "name": "Header roots are not authority",
+      "status": "UNEXECUTED",
+      "acceptance": "Zero/multiple/foreign response header roots stay bounded syntax only; helper output selects retained root; changed actual selected commit root restarts rather than mixes proofs."
+    },
+    {
+      "id": "CI5",
+      "name": "Owned selected commit and mutation",
+      "status": "UNEXECUTED",
+      "acceptance": "Capture selected root/bytes, request array and raw response before awaits; mutated input cannot change serializer; forged selected DATA must fail hash or subsequent fixed-binding P1 authentication."
+    },
+    {
+      "id": "CI6",
+      "name": "Bounded small output",
+      "status": "UNEXECUTED",
+      "acceptance": "At most64 response unique blocks plus retained commit, dedup if already included; exact framed16MiB output cap and each1MiB block, current input32MiB/header16KiB/depth64 caps."
+    },
+    {
+      "id": "CI7",
+      "name": "Atomic admission and prior cache",
+      "status": "UNEXECUTED",
+      "acceptance": "Use genuine authenticateRepo prototype dispatch with same cache/root/DID/key/limits; malformed/oversized/bad signature batch admits none and evicts no prior blocks."
+    },
+    {
+      "id": "CI8",
+      "name": "Identity retained",
+      "status": "UNEXECUTED",
+      "acceptance": "Ignore new same-root capability after checked fill and retain original genuine object; its new lookups see admitted bytes; root/key/DID change never retargets it."
+    },
+    {
+      "id": "CI9",
+      "name": "No retained-map work",
+      "status": "UNEXECUTED",
+      "acceptance": "Fill CAR contains only commit+new response blocks; record actual bounded parsing/hash/writer work, no entire retained map sort/copy/recompose/rehash on each fill."
+    },
+    {
+      "id": "CI10",
+      "name": "Repeated verification is explicit",
+      "status": "UNEXECUTED",
+      "acceptance": "Intake hashes and P1 supplied-block hashes repeat, commit/key/low-S signature checks repeat; no skip-verify API or cached key-currentness assertion."
+    },
+    {
+      "id": "CI11",
+      "name": "Observer gates still owed",
+      "status": "UNEXECUTED",
+      "acceptance": "One30s/64req/32MiB I1 reservation across retries, active checks around local units; existing16 subject-path cap unchanged; full shared registry/cursor and PD2 handoff remain separate."
+    },
+    {
+      "id": "CI12",
+      "name": "P4/PD1 separation",
+      "status": "UNEXECUTED",
+      "acceptance": "Fill/export creates no prefix/floor/receipt/cursor or P4 coverage; preserve current owner and unpublished floor checks, independent registry recheck, asserted-origin/deferred-coverage refusal and no encoded capability restore. Current approved PD1 poison/pendingFault refusal conservatively withholds the shared account cursor for all registered apps; any floor-fact-only recovery alternative needs a separate reviewed private seam/test decision before caller implementation."
+    }
+  ]
+}

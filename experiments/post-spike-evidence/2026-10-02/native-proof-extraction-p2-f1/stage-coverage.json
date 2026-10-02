@@ -1,0 +1,139 @@
+{
+  "request": "f91fcd5849700fd518ab2014782170526f4490ac",
+  "promise": "69f2a8c48594acb845944f9e00b420f43cc2fb4c",
+  "executableHead": "2ec1738accf60875a89d74a1da6476cc613a01b0",
+  "vectors": [
+    {
+      "id": "PX1",
+      "acceptedSourceAcceptance": "Existing seven runtime/four type names and AuthenticatedRepo shape unchanged; genuine extraction registered only by existing issuer; clone/parsed/prototype/fake handle refuses; no public registrar.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Genuine issuer and unchanged supported shape; clone/DATA/prototype and caller collector refused",
+      "limitations": null
+    },
+    {
+      "id": "PX2",
+      "acceptedSourceAcceptance": "Use existing genuine P256/secp256k1 fixtures and same checked walker; fresh empty offline cache authenticates CAR and reproduces every requested found CID/raw bytes or absence.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Fresh offline P256/secp256k1 membership/raw bytes and absence",
+      "limitations": null
+    },
+    {
+      "id": "PX3",
+      "acceptedSourceAcceptance": "Header selects original issuer root only; selected commit included once; deduplicate actual visited nodes and found records by canonical CID; sort CID lexically, repeated call same evidence -> byte-identical CAR.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Original root, exact commit, canonical lexical CID dedup and deterministic output",
+      "limitations": null
+    },
+    {
+      "id": "PX4",
+      "acceptedSourceAcceptance": "Exercise retreat/absence branch traversal; include every encountered node used by P1 checks, not just final stack; maintained proof helper is an inclusion/exclusion test oracle, not another verifier.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Real found/absence all-encountered closure; pinned1.1.1 has no natural retreat",
+      "limitations": "No natural retreat in pinned MST1.1.1; genuine found/absence exact encountered bytes verified"
+    },
+    {
+      "id": "PX5",
+      "acceptedSourceAcceptance": "Unseen malformed branch does not become validated; encountered faults still reject; no whole-tree/complete replay/current identity claim from sparse CAR.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Sparse evidence creates no complete-tree claim; original hostile corpus remains required",
+      "limitations": null
+    },
+    {
+      "id": "PX6",
+      "acceptedSourceAcceptance": "Mutate original request objects/list after first await and output CAR after return; original operation target is captured and cache/capability/repeated proof stay unchanged.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Request and output-byte ownership across first await",
+      "limitations": null
+    },
+    {
+      "id": "PX7",
+      "acceptedSourceAcceptance": "Evict original root from shared cache while lookup node/record survives; extraction unavailable, not authority re-created from metadata or an uncharged retained commit.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Evicted selected commit is unavailable while online absence survives",
+      "limitations": null
+    },
+    {
+      "id": "PX8",
+      "acceptedSourceAcceptance": "Missing/evicted node or record after online success makes whole extraction unavailable; no partial proof or automatic root/key/intent retarget.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Missing record/node withholds complete output after earlier successful requested path",
+      "limitations": null
+    },
+    {
+      "id": "PX9",
+      "acceptedSourceAcceptance": "Same input error for expected CID mismatch; invalid path/canonical CID/row fields/signal shape before stricter local resource policy; preserve original compressed-key and low-S semantics.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Closed rows, canonical expected CID, mismatch, signal and syntax-before-local-character policy",
+      "limitations": null
+    },
+    {
+      "id": "PX10",
+      "acceptedSourceAcceptance": "Zero paths allowed only commit diagnostic; exactly bounded count/UTF8 tuple framing; duplicate rows charged before node dedup; over count/input16MiB refused before unbounded capture.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Duplicate row count before dedup; zero diagnostic; exact16MiB request tuple framing and one-byte refusal",
+      "limitations": null
+    },
+    {
+      "id": "PX11",
+      "acceptedSourceAcceptance": "Header+CID+entry varint framing counts in 16MiB serialized output; selected commit counts in <=50000 unique blocks; stricter issuer car/block bounds still win; host128MiB does not expand export.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Actual CAR header/CID/varint bytes at exact issuer cap and one-byte refusal",
+      "limitations": null
+    },
+    {
+      "id": "PX12",
+      "acceptedSourceAcceptance": "Collector retains no overflow bytes; completes only current bounded checked walk so already exposed interval faults outrank missing/limit; valid complete overflow is native_proof_limit; no next path or partial CAR.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Collector overflow preserves actual hostile interval cleanup and valid-path resource refusal",
+      "limitations": null
+    },
+    {
+      "id": "PX13",
+      "acceptedSourceAcceptance": "Missing proof stays content_unavailable after existing structural cleanup; overflow marker cannot downgrade known invalidity or produce partial CAR.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Real missing descendant remains unavailable despite prior collector overflow",
+      "limitations": null
+    },
+    {
+      "id": "PX14",
+      "acceptedSourceAcceptance": "Aborted signal between paths/writer chunks withholds output; no forced decode interruption claim; foreign failures retain exact error identity.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Cancellation withholds output and foreign walker error retains exact identity",
+      "limitations": null
+    },
+    {
+      "id": "PX15",
+      "acceptedSourceAcceptance": "Warm fill updates only existing shared cache; old genuine object remains identity used by prefix/observer and extractor; no caller-supplied map, nodes, closures, descriptor/reader callback or trust flag.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Original genuine capability identity retained across verified same-cache fill",
+      "limitations": null
+    },
+    {
+      "id": "PX16",
+      "acceptedSourceAcceptance": "Required receipt paths all offline-verifiable; missing participant/source/content closure prevents complete-replay labels; oversized requested audit never silently becomes suffix-only evidence.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Genuine signed genesis/head/entry receipt paths offline; participant/source/full receipt closure remains unavailable",
+      "limitations": "Genuine genesis/head/entry path proof; complete participant/source/receipt export not established"
+    },
+    {
+      "id": "PX17",
+      "acceptedSourceAcceptance": "Node22/24/26 source and actual emitted production plus actual Chromium; unchanged P1 corpus and source/build/installed closure pins; new API not executed in this source packet.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "All ten actual source/emitted/browser invocations PASS",
+      "limitations": "Darwin arm64 Node22/24/26 and actual Chromium; full E1/OS matrix remains open"
+    },
+    {
+      "id": "PX18",
+      "acceptedSourceAcceptance": "Measure actual node/record/hash/key/signature/serialization work where observable; unavailable instrumentation is null/unknown, not zero; memory copies and collector overhead reported.",
+      "stageResult": "PASS within this stage; full original P2 claims remain open",
+      "evidence": "Actual maintained node loads/signatures/output bytes/time; uninstrumented work remains null",
+      "limitations": "Uninstrumented hashes/key normalization/peak heap are null; measured workloads are generic MST records, not ordered actions"
+    }
+  ],
+  "all18PXAddressed": true,
+  "broaderP2Closed": false,
+  "CI1toCI12": "separate CAR-intake owner; no execution claim here",
+  "original12ObligationsAnd36HistoricalLabels": "preserved byte-exact copied accepted source packet",
+  "receiptScope": "native genesis/head/entry proof only; no complete receipt or source/participant closure",
+  "observerRecoveryPolicy": "approved conservative all-lineage poison/pendingFault coupling unchanged; floor-only alternative OPEN separate reviewed seam"
+}

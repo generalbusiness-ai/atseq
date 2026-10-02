@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "scope": "SOURCE ONLY",
+  "gitPins": 26,
+  "upstreamExactSources": 4,
+  "supportedRuntimeNames": 7,
+  "supportedTypes": 4,
+  "proposedDecisions": 4,
+  "originalObligations": 12,
+  "originalHistoricalUNEXECUTEDVectors": 36,
+  "newUNEXECUTEDVectors": 30,
+  "links": 16,
+  "negativeControls": [
+    "changed-file-hash",
+    "changed-Git-pin",
+    "changed-upstream-attribution",
+    "premature-approval",
+    "supported-method-expansion",
+    "extra-supported-export",
+    "result-row-output",
+    "second-registrar",
+    "uncharged-per-capability-commit",
+    "post-dedup-physical-limit",
+    "overridable-dispatch",
+    "capture-condition-omitted",
+    "recovery-decision-prematurely-resolved",
+    "availability-coupling-omitted",
+    "runtime-claim",
+    "unexecuted-vector-promoted",
+    "original-vector-byte-edited"
+  ],
+  "proposedRuntimeOrProviderExecution": false
+}
