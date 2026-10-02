@@ -1,0 +1,35 @@
+{
+  "captured": "2026-10-02T13:02:29.416Z",
+  "platform": "darwin",
+  "arch": "arm64",
+  "release": "27.0.0",
+  "cpuModel": "Apple M5 Max",
+  "cpuCount": 18,
+  "totalMemoryBytes": 68719476736,
+  "driver": "v26.10.0",
+  "dependencies": [
+    {
+      "path": "src/core/dependencies-approved.json",
+      "sha256": "1355b4a37500bbb95cd58e0c8dafd593bb152ba38ad29e576c0771da6f0edbb6"
+    },
+    {
+      "path": "src/integrity/files-approved.json",
+      "sha256": "18a3dadff6cbf97aecb19a61e491a2138de273e85d287ebfec9f1c10760e6fe4"
+    },
+    {
+      "path": "package.json",
+      "sha256": "488c0b99515d427f4840a816bb3987f645efe292112472bf1277fb0570be8aca"
+    },
+    {
+      "path": "npm-shrinkwrap.json",
+      "sha256": "1ebdcec2b87c66b1f27e124c633d1bca34482516fa44b0bee750a821025bbc63"
+    }
+  ],
+  "measurementLimits": [
+    "one fresh process/context per runtime/cell; one cold capture, no statistical target",
+    "own probes serial; other authorized workspace agents may run concurrently on the same machine",
+    "fixture construction and package gates finished before probes",
+    "Node phase-boundary samples and kernel maxRSS are different observations; browser CDP samples are not a continuously measured peak",
+    "development fixture JSON transfer is not a standard ATproto checkpoint wire format or provider performance measurement"
+  ]
+}

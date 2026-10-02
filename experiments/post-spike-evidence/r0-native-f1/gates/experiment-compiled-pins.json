@@ -1,0 +1,8 @@
+{
+  "probe": "/private/tmp/atseq-r0-native-cost-f1-20261002/.atseq-local/r0-native/compiled/experiments/r0-native/probe.js",
+  "sourceHashes": {
+    "experiments/r0-native/probe.ts": "c9910b1e262cfba392db30fb516f45cb0af3dccc60d37c70e7f9a1c4e458116e",
+    "experiments/r0-native/unsupported-counters.ts": "ecef40c11ef1bf5cea21096dbf420602e4230666f30eb6216aacda9e0adf7d67"
+  },
+  "scope": "experiment transpilation; all production src imports use actual dist"
+}

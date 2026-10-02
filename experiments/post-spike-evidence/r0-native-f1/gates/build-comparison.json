@@ -1,0 +1,27 @@
+{
+  "baseline": "v22.19.0",
+  "comparisons": [
+    {
+      "node": "v24.21.0",
+      "sourceDifference": [],
+      "outputDifference": [
+        "dist/shell/build-provenance.json",
+        "dist/shell/shell-manifest.json"
+      ],
+      "contractsEqual": true
+    },
+    {
+      "node": "v26.10.0",
+      "sourceDifference": [],
+      "outputDifference": [
+        "dist/shell/build-provenance.json",
+        "dist/shell/shell-manifest.json"
+      ],
+      "contractsEqual": true
+    }
+  ],
+  "scope": "Measured equality/differences; no claim all output files are byte-identical",
+  "executedCodeAndContractHashesEqual": true,
+  "expectedMetadataDifference": "src/host/build.ts records process.version in shell provenance and embeds that provenance in shell manifest; full JSON bytes legitimately differ by runtime",
+  "failedExtraAssertion": "Overbroad full-output equality assumption reproduced in build-equality-failure-recapture.log; no normal check/build gate failed"
+}

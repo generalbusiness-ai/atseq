@@ -1,0 +1,79 @@
+{
+  "scope": "Retained draft and corrected preparation failures. These captures precede the frozen final matrix and do not prove its source SHA or acceptance.",
+  "inheritedFailure": "74 baseline diagnostics before reviewed H4 config; six additional draft experiment errors corrected independently",
+  "privateFixtureFailure": "Post-H4 tsc first failed because isolated PDS fixture node_modules was not copied; private physical copy restored it; no production dependency change",
+  "captures": [
+    {
+      "name": "atseq-r0-browser-first.log",
+      "sha256": "4f7357cb3de4c4b7118ef5cdd1e83720562e1f67c5ce42e4a791d426082a2393"
+    },
+    {
+      "name": "atseq-r0-browser-proof-draft.log",
+      "sha256": "9b815e53cab2783551b10c26898cd807396437eb2530337714280fab6a1ee7ba"
+    },
+    {
+      "name": "atseq-r0-draft-build.log",
+      "sha256": "4cc323aa4aa50b06313eb7faf3dfa8424e5796f7d0e0fbafdabc9514575ee023"
+    },
+    {
+      "name": "atseq-r0-draft-typecheck-second.log",
+      "sha256": "4e3ccf5ddf1f642c11bbc044ce3903a3762fe6374d7649061dccac312633ede4"
+    },
+    {
+      "name": "atseq-r0-draft-typecheck.log",
+      "sha256": "1248e76fc541a1bf48fe4227e3fd7f18c291e04d712842d3a58d406522d59fae"
+    },
+    {
+      "name": "atseq-r0-fixture-first.log",
+      "sha256": "abb32e3d93abc6d0fa068c52a058c617a5e702da2c81966face6b644e4b9effd"
+    },
+    {
+      "name": "atseq-r0-fixture-retired-draft.log",
+      "sha256": "ae50d42c8e19c2de2af5228f916a6d73523653039459f8351d36918d37256267"
+    },
+    {
+      "name": "atseq-r0-fixture-second.log",
+      "sha256": "e063c0d6a4147bfaf0935193c7168ccbdfd337633af2d7507ee0b7a196abd573"
+    },
+    {
+      "name": "atseq-r0-format.log",
+      "sha256": "90ae8634cc00a3c8856f15b248e1c3b6c634a7617de183f24dad4c1671deb12b"
+    },
+    {
+      "name": "atseq-r0-h4-typecheck-first.log",
+      "sha256": "9da4b051329454e8055b4bde72ccc60e3c9dbef7eca123f862306f17e28f1090"
+    },
+    {
+      "name": "atseq-r0-h4-typecheck-second.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "atseq-r0-h4-typecheck-third.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "atseq-r0-ledger-format.log",
+      "sha256": "9910d328dff01952ac7defbcaeefa3a1224ef4ebd3d8dc6f8acc5660a1a6ba28"
+    },
+    {
+      "name": "atseq-r0-ledger-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "atseq-r0-probe-first.log",
+      "sha256": "4c90b14124301070e9201c2b94e150f0ca8c825e843785619843427e7ce5b9ff"
+    },
+    {
+      "name": "atseq-r0-probe-proof-draft.log",
+      "sha256": "64b2668ceaf13dd9910ee40e3d6ba9f430282d585976af43fbd0582a5b7d8c3e"
+    },
+    {
+      "name": "atseq-r0-probe-retired-draft.log",
+      "sha256": "ede0d0a9d10a58169cf0801204935afae1ef670cc7555e78bf9480154f3810f4"
+    },
+    {
+      "name": "atseq-r0-source-formatcheck.log",
+      "sha256": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20"
+    }
+  ]
+}
