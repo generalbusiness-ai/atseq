@@ -1,0 +1,14 @@
+{
+  "root": "bafyreih2dgyg5mqrleol6vr5sqiesihncawflauh5i2rqjppbqz7he5spu",
+  "blocks": [
+    "bafyreih2dgyg5mqrleol6vr5sqiesihncawflauh5i2rqjppbqz7he5spu",
+    "bafkreiddmxg4j4ysujczjadr2mwqh5yuygzvzrbau3zluuefotf6hodkjq",
+    "bafkreibuzgos2p7pu3b3jozygy3p7oha367yerftusafkycnuqu527mtoa",
+    "bafkreia66hqrj34sakdtbik73h5hea7obdhib4thkzdfhdqpdjnua6bbfu"
+  ],
+  "carBytesIncludingFraming": 1316,
+  "decodedNamedOccurrenceBytes": 1107,
+  "sha256": "280403615c711cb72be2bc0f1a1fb2afe72ffe3d2361f503d22fac0abda96953",
+  "canonicalHeaderBase64": "omVyb290c4HYKlglAAFxEiD6GbBushFZHL9WPZQQSSDtECxVgofqNRgl7wwz85OyfWd2ZXJzaW9uAQ==",
+  "nativeSourceAdmissionExecuted": false
+}
