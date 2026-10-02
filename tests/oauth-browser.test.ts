@@ -26,6 +26,7 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
   const fixture = new OAuthFixture();
   fixture.challenge = true;
   let cookiesSent = 0;
+  let abortPath = '';
   await context.addCookies([
     {
       name: 'synthetic-cookie',
@@ -59,7 +60,7 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
       });
       return;
     }
-    if (url.pathname === fixture.refuse) {
+    if (url.pathname === abortPath) {
       fixture.calls.push(url.origin + url.pathname);
       await route.abort('failed');
       return;
@@ -186,6 +187,12 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
     for (const pending of [secondPending, firstPending])
       await winner.evaluate((params) => (globalThis as any).probe.complete(params), pending.toString());
     assert.equal(fixture.count('/token'), beforePending + 2);
+    abortPath = '/xrpc/ai.generalbusiness.atseq.synthetic';
+    await assert.rejects(
+      () => winner.evaluate(() => (globalThis as any).probe.resource()),
+      /OAuth operation is unavailable/,
+    );
+    abortPath = '';
     fixture.redirectResource = true;
     // Fetch redirect:error rejects at the native edge, indistinguishably from network failure.
     await assert.rejects(
@@ -266,6 +273,8 @@ test('Chromium exercises maintained OAuth, custody origin, reload, cross-documen
         providerSuccess: false,
         crossDocumentOneExchange: true,
         twoPendingStateSelection: true,
+        nativeTransportUnavailable: true,
+        deterministicHTTPRefusal: true,
         reloadRestored: true,
         keyProperties,
         cookiesSent,
