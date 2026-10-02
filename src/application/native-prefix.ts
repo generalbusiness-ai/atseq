@@ -126,6 +126,14 @@ export interface NativePrefixPublication {
   appIdentity: { before: IdentityEvidence; after: IdentityEvidence };
   maximumDelta?: number;
 }
+function capturePublication(input: NativePrefixPublication): NativePrefixPublication {
+  return {
+    ...input,
+    maximumDelta: input.maximumDelta,
+    appIdentity: structuredClone(input.appIdentity),
+    reader: { get: input.reader.get.bind(input.reader) },
+  };
+}
 async function publication(input: NativePrefixPublication, owner: Owner): Promise<View> {
   const repo = input.appRepo,
     identity = structuredClone(input.appIdentity);
@@ -301,10 +309,10 @@ function assertObservedFloor(target: View, rows: Row[], start: number): void {
 }
 /** Cold admission checks actual genesis and head; no synthetic zero-head proof. */
 export async function openNativePrefix(input: NativePrefixPublication): Promise<NativePrefix> {
-  const captured = { ...input, appIdentity: structuredClone(input.appIdentity) };
-  const anchor = await NativeAnchor.from(structuredClone(input.anchor.genesis), {
-    app: input.anchor.genesis.app,
-    genesis: input.anchor.cid,
+  const captured = capturePublication(input);
+  const anchor = await NativeAnchor.from(structuredClone(captured.anchor.genesis), {
+    app: captured.anchor.genesis.app,
+    genesis: captured.anchor.cid,
   });
   await assertNativeSourceContract();
   if (anchor.genesis.semantics.$link !== NATIVE_SOURCE_CONTRACT.native)
@@ -322,7 +330,7 @@ export async function openNativePrefix(input: NativePrefixPublication): Promise<
     pendingFault: null,
   };
   const target = await publication(captured, owner),
-    staged = await stageRows(target, null, input.maximumDelta);
+    staged = await stageRows(target, null, captured.maximumDelta);
   for (const row of staged.rows) insert(owner, row);
   retainProvenance(target);
   target.accepted = true;
@@ -348,14 +356,15 @@ export async function stageNativePrefix(
   base: NativePrefix,
   input: NativePrefixPublication,
 ): Promise<NativePrefixExtension> {
-  const prior = view(base),
+  const captured = capturePublication(input),
+    prior = view(base),
     owner = prior.owner;
   if (owner.current !== base) invalid('Stale native prefix base; stage from current accepted view');
-  if (input.anchor.cid !== owner.anchor.cid || input.anchor.genesis.app !== owner.anchor.genesis.app)
+  if (captured.anchor.cid !== owner.anchor.cid || captured.anchor.genesis.app !== owner.anchor.genesis.app)
     invalid('Native extension differs from base scope');
-  const target = await publication(input, owner);
+  const target = await publication(captured, owner);
   if (owner.current !== base) invalid('Native prefix base changed while checking publication');
-  const staged = await stageRows(target, prior, input.maximumDelta);
+  const staged = await stageRows(target, prior, captured.maximumDelta);
   staged.base = base;
   const handle = Object.freeze({}) as NativePrefixExtension;
   extensions.set(handle, staged);
@@ -419,7 +428,11 @@ export function nativePrefixStatus(prefix: NativePrefix) {
     root: data.repo.root,
     rev: data.repo.rev,
     coverage: 'complete-from-genesis' as const,
-    contradiction: data.contradiction ?? data.owner.contradiction,
+    contradiction:
+      data.contradiction ??
+      (data.owner.contradiction && data.owner.contradiction.position <= data.head.position
+        ? data.owner.contradiction
+        : null),
   });
 }
 export function nativePrefixHas(
@@ -477,6 +490,7 @@ export function contradictNativePrefix(prefix: NativePrefix, position: number, c
 export async function lookupNativeRetry(prefix: NativePrefix, request: unknown) {
   const data = view(prefix),
     anchor = data.owner.anchor;
+  if (!data.accepted) unavailable('Retry receipt requires an accepted publication view');
   let requestCid: string,
     retry: string | null = null;
   const copied = structuredClone(request) as NativeSignedRequest | NativeAccountOperation;

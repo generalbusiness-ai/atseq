@@ -9,6 +9,7 @@ import {
   stageNativePrefix,
   acceptNativePrefix,
   nativePrefixCandidate,
+  contradictNativePrefix,
   nativePrefixEntry,
   nativePrefixStatus,
   nativePrefixInventory,
@@ -139,6 +140,87 @@ export async function nativePrefixCorpus(fixture: PrefixFixture) {
     prefix = acceptNativePrefix(base, candidate);
     work.push({ delta: 1, ...nativePrefixWork(candidate) });
     assert(!nativePrefixHas(base, 'requests', nativePrefixEntry(prefix, 1).row.requestCid));
+  });
+  await check('cold and staged publication capture delta budget and reader before asynchronous work', async () => {
+    for (const cold of [true, false]) {
+      const base = await openNativePrefix(await publication(0));
+      const input = { ...(await publication(1)), maximumDelta: 0 };
+      let release!: () => void, entered!: () => void;
+      const held = new Promise<void>((resolve) => {
+        release = resolve;
+      });
+      const started = new Promise<void>((resolve) => {
+        entered = resolve;
+      });
+      const original = input.reader.get.bind(input.reader);
+      input.reader = {
+        get: async (cid: string) => {
+          entered();
+          await held;
+          return original(cid);
+        },
+      };
+      const pending = cold ? openNativePrefix(input) : stageNativePrefix(base, input);
+      await started;
+      input.maximumDelta = 1;
+      input.reader.get = async () => {
+        throw new Error('Mutated reader must not be selected');
+      };
+      release();
+      await refuses(() => pending, 'content_unavailable');
+      assert(nativePrefixStatus(base).head.position === 0);
+    }
+    // A lowered caller budget also cannot reject work that was captured as allowed.
+    const base = await openNativePrefix(await publication(0));
+    const input = { ...(await publication(1)), maximumDelta: 1 };
+    let release!: () => void, entered!: () => void;
+    const held = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    const started = new Promise<void>((resolve) => {
+      entered = resolve;
+    });
+    const original = input.reader.get.bind(input.reader);
+    input.reader = {
+      get: async (cid: string) => {
+        entered();
+        await held;
+        return original(cid);
+      },
+    };
+    const pending = stageNativePrefix(base, input);
+    await started;
+    input.maximumDelta = 0;
+    input.reader.get = async () => {
+      throw new Error('Mutated reader must not be selected');
+    };
+    release();
+    const accepted = acceptNativePrefix(base, await pending);
+    assert(nativePrefixStatus(accepted).head.position === 1);
+  });
+  await check('unpublished candidates cannot report missing retries or mint receipts before acceptance', async () => {
+    const base = await openNativePrefix(await publication(0));
+    const extension = await stageNativePrefix(base, await publication(1));
+    const staged = nativePrefixCandidate(extension);
+    assert(nativePrefixHas(staged, 'requests', nativePrefixEntry(staged, 1).row.requestCid));
+    await refuses(() => lookupNativeRetry(staged, fixture.alternate), 'content_unavailable');
+    await refuses(() => lookupNativeRetry(staged, fixture.tupleConflict), 'content_unavailable');
+    assert((await lookupNativeRetry(base, fixture.alternate)) === null);
+    const accepted = acceptNativePrefix(base, extension);
+    assert(accepted === staged);
+    assert((await lookupNativeRetry(accepted, fixture.alternate))?.position === 1);
+    await refuses(() => lookupNativeRetry(accepted, fixture.tupleConflict), 'retry_conflict');
+  });
+  await check('a fixed old view cannot acquire a contradiction beyond its authenticated head', async () => {
+    const base = await openNativePrefix(await publication(1));
+    const inventory = nativePrefixInventory(base);
+    const next = acceptNativePrefix(base, await stageNativePrefix(base, await publication(2)));
+    contradictNativePrefix(next, 2, 'envelope');
+    assert(nativePrefixStatus(next).contradiction?.position === 2);
+    assert(nativePrefixStatus(base).contradiction === null && nativePrefixStatus(base).head.position === 1);
+    equal(nativePrefixInventory(base), inventory);
+    const publication3 = await publication(3);
+    await refuses(() => stageNativePrefix(next, publication3), 'envelope');
   });
   await check('cloned staged extension and stale exact base cannot publish or insert rows', async () => {
     const base = prefix,
@@ -689,5 +771,53 @@ export async function nativePrefixCorpus(fixture: PrefixFixture) {
     await refuses(() => context.app.process(context.inputs[1]!), 'runtime_fault');
     assert(writes === before);
   });
+  await check(
+    'higher staging during successful pending-tail persistence poisons without inserting either suffix',
+    async () => {
+      let held = false,
+        missing: string | null = null,
+        writes = 0,
+        stored: any;
+      let release!: () => void, entered!: () => void;
+      const wait = new Promise<void>((resolve) => {
+        release = resolve;
+      });
+      const started = new Promise<void>((resolve) => {
+        entered = resolve;
+      });
+      const context = await applicationReplayContext(fixture.application, {
+        persist: async (projection) => {
+          writes++;
+          stored = projection;
+          if (held) {
+            entered();
+            await wait;
+          }
+        },
+        evidenceFault: (cid: string) => {
+          if (cid === missing) throw new AtseqError('content_unavailable', 'Nested missing');
+        },
+      });
+      await context.app.process(context.inputs[0]!);
+      const before = context.app.snapshot(),
+        old = context.app.prefix()!;
+      const selected = await stageNativePrefix(old, { anchor: context.anchor, ...context.inputs[1]! });
+      missing = nativePrefixEntry(nativePrefixCandidate(selected), 2).row.descriptor!.proofs[0]!.$link;
+      held = true;
+      const pending = context.app.process(context.inputs[1]!);
+      await started;
+      const high = await stageNativePrefix(old, { anchor: context.anchor, ...context.inputs[2]! });
+      assert(nativePrefixWork(high).indexWrites === 0);
+      release();
+      await refuses(() => pending, 'envelope');
+      assert(stored.publication.head.position === 2 && nativePrefixStatus(old).head.position === 1);
+      equal({ ...stored, publication: null }, { ...before, publication: null });
+      assert(nativePrefixInventory(old).requests.length === 1);
+      const priorWrites = writes;
+      await refuses(() => context.app.query('status', {}), 'runtime_fault');
+      await refuses(() => context.app.process(context.inputs[1]!), 'runtime_fault');
+      assert(writes === priorWrites);
+    },
+  );
   return { cases, work };
 }
