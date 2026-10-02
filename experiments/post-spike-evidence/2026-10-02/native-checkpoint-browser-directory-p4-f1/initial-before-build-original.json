@@ -1,0 +1,15 @@
+{
+  "startedUTC": "2026-10-02T18:29:26.468851+00:00",
+  "command": [
+    "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+    "scripts/source-run.mjs",
+    "--test",
+    "tests/native-checkpoint-producer-browser.test.ts"
+  ],
+  "exit": 1,
+  "seconds": 1.7587578296661377,
+  "nodeVersion": "v26.10.0",
+  "binarySha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+  "head": "5bf6ccda36e2d83a372fec4f2579d22adce466e0",
+  "defaultDirectoryInitiallyAbsent": true
+}

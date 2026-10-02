@@ -1,0 +1,162 @@
+[
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer-owned-input.test.ts",
+      "tests/native-checkpoint-producer.test.ts",
+      "tests/checkpoint-data.test.ts",
+      "tests/native-outcome.test.ts"
+    ],
+    "started": "2026-10-02T17:27:13.052472+00:00",
+    "seconds": 8.850032792019192,
+    "exit": 0,
+    "log": "node22-source.log",
+    "mode": "source",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "sha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "version": "v22.19.0"
+    },
+    "inputsSha256": "6c727f8040fc750c05f32012aa02e8e2c4e85032eccabf4acde2c84f485997ef",
+    "buildSha256": "80a88d65894e9d3ec2e6f161d9bc36ed1883c157da4509e251888cb8ac52a794",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+    "physicalToolsSha256": "d12f5ee56f7b6748bff9faab312cc774e1fe8de11238c21a00650e3127f00b90"
+  },
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "tests/support/native-checkpoint-producer-owned-input-emitted.mjs"
+    ],
+    "started": "2026-10-02T17:27:21.903551+00:00",
+    "seconds": 5.225725708995014,
+    "exit": 0,
+    "log": "node22-emitted.log",
+    "mode": "emitted",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/992a19d7d9bf36d4/node_modules/node/bin/node",
+      "sha256": "0d005c18e095027ca8f9fe1cc1126f767ee4ad7b004f4d6fb781ec4228a7c5d1",
+      "version": "v22.19.0"
+    },
+    "inputsSha256": "6c727f8040fc750c05f32012aa02e8e2c4e85032eccabf4acde2c84f485997ef",
+    "buildSha256": "80a88d65894e9d3ec2e6f161d9bc36ed1883c157da4509e251888cb8ac52a794",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+    "physicalToolsSha256": "d12f5ee56f7b6748bff9faab312cc774e1fe8de11238c21a00650e3127f00b90"
+  },
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer-owned-input.test.ts",
+      "tests/native-checkpoint-producer.test.ts",
+      "tests/checkpoint-data.test.ts",
+      "tests/native-outcome.test.ts"
+    ],
+    "started": "2026-10-02T17:27:27.208455+00:00",
+    "seconds": 8.522658207977656,
+    "exit": 0,
+    "log": "node24-source.log",
+    "mode": "source",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "sha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "version": "v24.21.0"
+    },
+    "inputsSha256": "6c727f8040fc750c05f32012aa02e8e2c4e85032eccabf4acde2c84f485997ef",
+    "buildSha256": "80a88d65894e9d3ec2e6f161d9bc36ed1883c157da4509e251888cb8ac52a794",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+    "physicalToolsSha256": "d12f5ee56f7b6748bff9faab312cc774e1fe8de11238c21a00650e3127f00b90"
+  },
+  {
+    "command": [
+      "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "tests/support/native-checkpoint-producer-owned-input-emitted.mjs"
+    ],
+    "started": "2026-10-02T17:27:35.732049+00:00",
+    "seconds": 4.14105199999176,
+    "exit": 0,
+    "log": "node24-emitted.log",
+    "mode": "emitted",
+    "runtime": {
+      "binary": "/Users/hughpyle/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "sha256": "e4b5a3af0e05c75de2eae013904145f40fe7fc2a6e6f17510128bf45cca4e79b",
+      "version": "v24.21.0"
+    },
+    "inputsSha256": "6c727f8040fc750c05f32012aa02e8e2c4e85032eccabf4acde2c84f485997ef",
+    "buildSha256": "80a88d65894e9d3ec2e6f161d9bc36ed1883c157da4509e251888cb8ac52a794",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+    "physicalToolsSha256": "d12f5ee56f7b6748bff9faab312cc774e1fe8de11238c21a00650e3127f00b90"
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer-owned-input.test.ts",
+      "tests/native-checkpoint-producer.test.ts",
+      "tests/checkpoint-data.test.ts",
+      "tests/native-outcome.test.ts"
+    ],
+    "started": "2026-10-02T17:27:39.948012+00:00",
+    "seconds": 8.283456375007518,
+    "exit": 0,
+    "log": "node26-source.log",
+    "mode": "source",
+    "runtime": {
+      "binary": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "sha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "version": "v26.10.0"
+    },
+    "inputsSha256": "6c727f8040fc750c05f32012aa02e8e2c4e85032eccabf4acde2c84f485997ef",
+    "buildSha256": "80a88d65894e9d3ec2e6f161d9bc36ed1883c157da4509e251888cb8ac52a794",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+    "physicalToolsSha256": "d12f5ee56f7b6748bff9faab312cc774e1fe8de11238c21a00650e3127f00b90"
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "tests/support/native-checkpoint-producer-owned-input-emitted.mjs"
+    ],
+    "started": "2026-10-02T17:27:48.232386+00:00",
+    "seconds": 4.309473000001162,
+    "exit": 0,
+    "log": "node26-emitted.log",
+    "mode": "emitted",
+    "runtime": {
+      "binary": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "sha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06",
+      "version": "v26.10.0"
+    },
+    "inputsSha256": "6c727f8040fc750c05f32012aa02e8e2c4e85032eccabf4acde2c84f485997ef",
+    "buildSha256": "80a88d65894e9d3ec2e6f161d9bc36ed1883c157da4509e251888cb8ac52a794",
+    "compilerInventorySha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+    "physicalToolsSha256": "d12f5ee56f7b6748bff9faab312cc774e1fe8de11238c21a00650e3127f00b90"
+  },
+  {
+    "command": [
+      "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "scripts/source-run.mjs",
+      "--test",
+      "--test-concurrency=1",
+      "tests/native-checkpoint-producer-owned-input-browser.test.ts",
+      "tests/native-checkpoint-producer-browser.test.ts",
+      "tests/checkpoint-data-browser.test.ts",
+      "tests/native-outcome-browser.test.ts"
+    ],
+    "started": "2026-10-02T17:27:52.552451+00:00",
+    "seconds": 14.606430750049185,
+    "exit": 0,
+    "log": "chromium.log",
+    "mode": "actual-chromium",
+    "runtime": {
+      "binary": "/opt/homebrew/Cellar/node/26.10.0_1/bin/node",
+      "sha256": "d4cd917f05a5730ffda8a203e32fb8f9b70f79213fff1fafb045e438db8a6c06"
+    },
+    "inputsSha256": "6c727f8040fc750c05f32012aa02e8e2c4e85032eccabf4acde2c84f485997ef"
+  }
+]

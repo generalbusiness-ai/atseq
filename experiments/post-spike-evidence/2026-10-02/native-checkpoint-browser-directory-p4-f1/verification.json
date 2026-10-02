@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "packetFiles": 49,
+  "originalGitPins": 205,
+  "originalCurrentFiles": 204,
+  "oldBrowserBytesPreserved": true,
+  "oldExecutionHead": "13e777b0482d374e1ae14dcd7be6711eb6464868",
+  "sourceInputs": 333,
+  "buildOutputs": 477,
+  "physicalFiles": {
+    "tools": 15406,
+    "pds-tools": 44867
+  },
+  "actualChromiumExecutions": 8,
+  "commands": 7,
+  "originalVectors": 106,
+  "productionChanged": false,
+  "emittedExecutionClaimed": false,
+  "fullP3P4Closed": false
+}

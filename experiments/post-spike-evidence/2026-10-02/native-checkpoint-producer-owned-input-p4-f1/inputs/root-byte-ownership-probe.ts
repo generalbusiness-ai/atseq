@@ -1,0 +1,16 @@
+import {readFile} from 'node:fs/promises';
+import {gunzipSync} from 'node:zlib';
+import {nativeCheckpointProducerFixture} from '../../tests/support/native-checkpoint-producer-corpus.ts';
+import {produceNativeCheckpoint} from '../../src/protocol/native-checkpoint-producer.ts';
+import {checkpointPayloadIdentity} from '../../src/protocol/checkpoint-data.ts';
+const fixture=JSON.parse(gunzipSync(await readFile('tests/vectors/checkpoint-data.json.gz')).toString());
+const input=await nativeCheckpointProducerFixture(fixture);
+const raw=new Uint8Array(new TextEncoder().encode('{"x":1}'));
+Object.defineProperty(raw,'slice',{value:()=>raw});
+const pending=produceNativeCheckpoint({...input,state:raw});
+raw.set(new TextEncoder().encode('{"x":2}'));
+const result=await pending;
+const assertion=JSON.parse(new TextDecoder().decode(result.assertion.bytes));
+const original=await checkpointPayloadIdentity(new TextEncoder().encode('{"x":1}'));
+const mutated=await checkpointPayloadIdentity(new TextEncoder().encode('{"x":2}'));
+console.log(JSON.stringify({assertedState:assertion.state,original,mutated,capturedOriginal:assertion.state===original,usedLaterMutation:assertion.state===mutated}));

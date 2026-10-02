@@ -1,0 +1,31 @@
+TAP version 13
+# {"node":"v22.19.0","cases":91,"noAdmission":true}
+# Subtest: exact retained checkpoint DATA and hostile corpus, without admission capabilities
+ok 1 - exact retained checkpoint DATA and hostile corpus, without admission capabilities
+  ---
+  duration_ms: 725.664959
+  type: 'test'
+  ...
+# {"node":"v22.19.0","cases":["independent-encoder-exact-all-records-and-counters","exact-assertion-table-authority-source-unused-order-roundtrip","selective-outcomes-export-null-and-empty-complete-zero","synchronous-owned-input-capture-before-await","chunk-boundary-0","chunk-boundary-32768","chunk-boundary-32769","chunk-boundary-33554432","chunk-1025-refused","noncanonical-original-row-refused","history-extra-field-refused","history-gap-refused","scope-transplant-refused","assertion-extra-field-refused","assertion-cross-app-refused","assertion-noncanonical-refused","page-substitution-refused","exact-128KiB-page-greedy-and-next-row-new-page","one-row-page-plus-one-refused","state-depth-32","state-depth-33"],"metrics":[{"kind":"genuine-projection-13","records":221,"recordBytes":656824,"chunks":114,"manifests":107,"pages":4,"payloadBytes":625732},{"kind":"chunk-0","records":25,"recordBytes":26019,"chunks":12,"manifests":13,"pages":4,"payloadBytes":22525},{"kind":"chunk-32768","records":26,"recordBytes":58942,"chunks":13,"manifests":13,"pages":4,"payloadBytes":55293},{"kind":"chunk-32769","records":27,"recordBytes":59094,"chunks":14,"manifests":13,"pages":4,"payloadBytes":55294},{"kind":"chunk-33554432","records":276,"recordBytes":8320889,"chunks":263,"manifests":13,"pages":4,"payloadBytes":33576957},{"kind":"exact-page","records":224,"recordBytes":787714,"chunks":117,"manifests":107,"pages":4,"payloadBytes":756161}],"noAdmission":true}
+# Subtest: pure native checkpoint DATA producer, independent literals and exact bounds
+ok 2 - pure native checkpoint DATA producer, independent literals and exact bounds
+  ---
+  duration_ms: 3798.5625
+  type: 'test'
+  ...
+# {"node":"v22.19.0","cases":103,"noAdmission":true}
+# Subtest: shared exact adopted native outcome and checkpoint outcome DATA corpus
+ok 3 - shared exact adopted native outcome and checkpoint outcome DATA corpus
+  ---
+  duration_ms: 517.989667
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6295.132041

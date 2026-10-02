@@ -1,0 +1,20 @@
+✖ pure native checkpoint DATA producer, independent literals and exact bounds (2611.9825ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3240.364458
+
+✖ failing tests:
+
+test at tests/native-checkpoint-producer.test.ts:1:209
+✖ pure native checkpoint DATA producer, independent literals and exact bounds (2611.9825ms)
+  Error: Expected condition
+      at ok (/private/tmp/atseq-native-checkpoint-producer-p4-f1-20261002/tests/support/native-checkpoint-producer-corpus.ts:24:21)
+      at nativeCheckpointProducerCorpus (/private/tmp/atseq-native-checkpoint-producer-p4-f1-20261002/tests/support/native-checkpoint-producer-corpus.ts:287:3)
+      at async TestContext.<anonymous> (/private/tmp/atseq-native-checkpoint-producer-p4-f1-20261002/tests/native-checkpoint-producer.test.ts:12:19)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)

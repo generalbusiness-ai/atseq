@@ -1,0 +1,866 @@
+{
+  "head": "5d7e3f1cf47de0ed8215f29c81abcd5512385e15",
+  "base": "1db5e12fbfe8ea2b478ccfacd132abc522284f08",
+  "files": [
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/browser-initial.log",
+      "gitBlob": "cdceee443e5d25f1a408d184239c4514ac182801",
+      "sha256": "9ae7f82c39b97f98cdee2db4f5ea626400611d7f7b832c886c9ad10fb4affec6",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/browser-second.log",
+      "gitBlob": "db3a7abde91186c17ebdfd468562c54043f078cb",
+      "sha256": "568f541211c8129a973e74a8ece4864d9420edd96cff1ee15b0c27f7c54884b1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/build-boundary-final.log",
+      "gitBlob": "dad7e1b48f3269b7acebeedfd1ff6ca68ce6d4d2",
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/build-draft.log",
+      "gitBlob": "dad7e1b48f3269b7acebeedfd1ff6ca68ce6d4d2",
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/build-final-draft.log",
+      "gitBlob": "dad7e1b48f3269b7acebeedfd1ff6ca68ce6d4d2",
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/build-final.log",
+      "gitBlob": "dad7e1b48f3269b7acebeedfd1ff6ca68ce6d4d2",
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/build-initial.log",
+      "gitBlob": "dad7e1b48f3269b7acebeedfd1ff6ca68ce6d4d2",
+      "sha256": "375e62541b6a304571bde7cddefdd8745195e43017db91906eea7f4c3cc438b5",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/check-boundary-final.log",
+      "gitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/check-complete.log",
+      "gitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/check-draft.log",
+      "gitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/check-final.log",
+      "gitBlob": "2e2144c55a0687bf68f24d524ddb0a56486e6be2",
+      "sha256": "14a4d732b2abee251c80cbb6ee283251e7a5d678376f1315b4ea19bcf0aed551",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/installed-runtime.log",
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/build-provenance.json",
+      "gitBlob": "46978dabe799f0a5cafe6bf8866f90554f041f7e",
+      "sha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/chromium-bundle.js.gz",
+      "gitBlob": "91d561428064b41a5cf23757f6e32a289cdbfc26",
+      "sha256": "a38b210f2f6f85d5f33e2c34a06b726dc6a22ad1e3e101db7bfd313b8bddfcb1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/chromium.json",
+      "gitBlob": "505fee0b51c3fcf4de404e424372a2fa6c64d75d",
+      "sha256": "1fb7b7213f20c48e45aa3956e2482609ba9d844e49f3b5f74121039dbefcddc2",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/chromium.log",
+      "gitBlob": "62b7602ed2f11b038027f991453c8934daea3fda",
+      "sha256": "e58edaff75a93c31fd2a3d3ea220cefbbcd022f400dd028718381dfa4109649a",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/compiler-tool-files.json",
+      "gitBlob": "b8c01f0700afc7b239f98b03e7e8d347ac1c7f26",
+      "sha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/execution-inputs.json",
+      "gitBlob": "ac29a68593412f72958bd92dacc650aec1fb184f",
+      "sha256": "ccdd1a957989890ae1f3c0e62a889b6edddd78ec53e1a9d2929b1f005b1f1db2",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/installed-runtime.json.gz",
+      "gitBlob": "184f881dce75ad625c197ef69fff348e0db02366",
+      "sha256": "d0e979205b5854f17bdb203293370c79c999fa43fda79d72d68c8117884d07a2",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node22-emitted.json",
+      "gitBlob": "a1579403abe697cfcf017ba2d3fa3adaf31984f4",
+      "sha256": "b08400a533aa4c51be6921d24d14d6ac66235d073d1457afb55ff6ec5ef9546f",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node22-emitted.log",
+      "gitBlob": "dbdc54d8e869674bd5bd9d9e365013217e3e1171",
+      "sha256": "e4203d3eaf95de5a6fc0e549aea5b7fa3ace917d82cbb67f615074cd965d5afa",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node22-original-data.json",
+      "gitBlob": "bfc1b0d8a99ba5cf10d0b8ac7c78833a21c023d5",
+      "sha256": "b4430a1fc02c7a02d59cf92d37c89cc52dd0e704f1d0ab7d760e7b78464c88db",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node22-original-outcome.json",
+      "gitBlob": "4abd597c7873f3bb9d0323065f60316e889e5c85",
+      "sha256": "6ec1e2ad7d31b0b2dac765e5d66d25d1bbc9bb2acb3d2b81b886475a66c091a4",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node22-source.json",
+      "gitBlob": "cb9a321be9918230a867b07aa2e8c6bdd0d826d1",
+      "sha256": "dea41fcacd8d2b1b3608720245d3c2a5b732cb3d8da94294389aea0212b6fe0e",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node22-source.log",
+      "gitBlob": "7f3702bcf34271c1aafe82f49950b82cf3d492f8",
+      "sha256": "ace74afdbd53a0f7df1f2f35e85f00e63b6a7adc80f18d25ae6c506a8f22c254",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node24-emitted.json",
+      "gitBlob": "41b872715b17424c78fac77e7c5141090de97291",
+      "sha256": "00a3aae2c46fa893d902cb56594ff5bed2e741c5c501892d8aef37a29ca842ed",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node24-emitted.log",
+      "gitBlob": "fe1b493049699e1240210b91564bd22d4a99f574",
+      "sha256": "630cce37ac04d83296f2bb9f2ff8e17f9ce1fd4f5fcd7a810b2e448cf3b7e40d",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node24-original-data.json",
+      "gitBlob": "ed74a5c478639177604850a2293f5da4bd079caa",
+      "sha256": "2ad768e179b25c82f65ddea75f29dcfdc2847eadd3e359646d5566c5dd85bee8",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node24-original-outcome.json",
+      "gitBlob": "610decb8571d866fab781b5b3a52a2320d0f336b",
+      "sha256": "d1f32620fdc93a5318a46e53f6e04b94d13a7974c404a28aa6c108bb9aa91af1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node24-source.json",
+      "gitBlob": "bda88ab71dd613ee2ef1d3b6d0644e6947223cf9",
+      "sha256": "be73c2bbae52e49e28c1e01e52fa86eb7e72fc7902e72756bb53a5cddd8892ef",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node24-source.log",
+      "gitBlob": "838458ffd15dee4e0025edc27648dec97f765f63",
+      "sha256": "7d4ce384042c04b95a7c9d58f62c1026e3affc500848e5b54408d67c6862ea78",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node26-emitted.json",
+      "gitBlob": "faa2cac56aec28125f7b9a5527f631b9fe368824",
+      "sha256": "cf2be67ed197e8d87d4143eaeae0d4dc63f234d7a7de1bf7f42df0b263ed27f0",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node26-emitted.log",
+      "gitBlob": "cc393a62aeafa78b9e31c08d73f8be84d695f37f",
+      "sha256": "a6e010f23b06708cc1b354b131d4e530f1fa028b8f3c5b0bb5da00b3365c4535",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node26-original-data.json",
+      "gitBlob": "de89024c1092d25856b84293871b0654b633684e",
+      "sha256": "52b73cccbb2b8b5b0a093744d8f4b95ff8907f6eafb80306ebf7f39a47723fa9",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node26-original-outcome.json",
+      "gitBlob": "a59ea780145ae5d16a1936db05195690ba0454fb",
+      "sha256": "00bd151ed18a78b2a1829860f475c9f01f794956a0d4a893c615ba297fbb82ef",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node26-source.json",
+      "gitBlob": "3f6fcfcb0c33e023f7f05fc6c28518bedc212d8c",
+      "sha256": "c9bde8f94af9bd1cc7dd93589bf3a9a6a4144dfc2f8c80cd8642a78c464e9d58",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/node26-source.log",
+      "gitBlob": "468fa5a591e25ca0ecf5c934707dc9a6fbb36af4",
+      "sha256": "ea587b97ca9b0496f0465d03479d11e8e93860eaa3a5e407bcf784d6a260d0e6",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/original-native-outcome-browser.json",
+      "gitBlob": "51dfc2d73c4e9e8a7c748b3bdce6585d929ac2ec",
+      "sha256": "30837abd794db9ae10dd1f1d68a577890fef5fa0fc31f86cdd405f7e3d38fd06",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/original-p4-data-browser.json",
+      "gitBlob": "37cd603f350a837da508d630f126400745b89903",
+      "sha256": "535a7a01100d7b4c238c8f6f665013e6863a1d58624ba6091b739a31c7ceda83",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/run.py",
+      "gitBlob": "d58cedf9efd079367a29299df86ead50e5096ae8",
+      "sha256": "0c13f3e0a6bb12877018006c063c7db70b921b0193fb42b8f2f40187a876df3d",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-21-cases/runs.json",
+      "gitBlob": "a9a6f00af12b948c429cc04a74f582f4bdedf91b",
+      "sha256": "c4237e4deb489f0625c6ce5967b68ee7d8ffae1328cc2fd767e383ce26be276e",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/attribution.json",
+      "gitBlob": "c0f5edad671c634841ed7d54353471e86a7d49c6",
+      "sha256": "7629a49dc5a701e90a601a59cce62583be9af207d9bcee455cc3cb31c361663a",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/build-provenance.json",
+      "gitBlob": "46978dabe799f0a5cafe6bf8866f90554f041f7e",
+      "sha256": "f6faafb380b272d2e2ffbd4082efc515207d205f53e472bff1dbd6105c7cb7b1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/check-packet.py",
+      "gitBlob": "11cf3bb26df4c37f3faee77c3a48a0da51692375",
+      "sha256": "772a9e3bf587a8fb6e991eac5c3ff81ddfd9f784fe500413ee4f061208404005",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/chromium-bundle.js.gz",
+      "gitBlob": "4b339e5fda1734f5fb7b50e375123d88eea7a680",
+      "sha256": "c9fd0742ee0b33be1e24ac10a374ba5ee7ed542495d29677a65574d764c21f8e",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/chromium.json",
+      "gitBlob": "f7b401fbf7329444c90bdf1a8f8f548a63b1601b",
+      "sha256": "28f40b13f76e9005f74f7f9e119b9252fa6d03ab1ed0df955fe4ea3b5ffe1d66",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/chromium.log",
+      "gitBlob": "a8b8e556015c0efa24aa8390257dd60c8fa3a49e",
+      "sha256": "2bdf905a4fe063cc3c4ee3a5e6a4fd3efbf47d2679ee5f04328574757c1acfcf",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/compiler-tool-files.json",
+      "gitBlob": "b8c01f0700afc7b239f98b03e7e8d347ac1c7f26",
+      "sha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/coverage.json",
+      "gitBlob": "3a43d805dc88ebd44ed57e29f115da5d9db05524",
+      "sha256": "8177adfc8d374cf5564fc5e701be11c989a64cb04aaade8b49f0414be5e68b0f",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/execution-inputs.json",
+      "gitBlob": "cc731767977fe18e341ad50f1e28bf643472e0db",
+      "sha256": "6ba1379d8d3991b2048a75a9289b3749f7f6ae5a49dd8d9ca679a948de1b1430",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/independent-input.json.gz",
+      "gitBlob": "4ab7104bdf2b9b68a7149b49c834083f9a3f65bb",
+      "sha256": "1035a750dd0b9aa4341fe736440f35dc59f55b07bafd620275e77f52b306fee9",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/installed-runtime.json.gz",
+      "gitBlob": "184f881dce75ad625c197ef69fff348e0db02366",
+      "sha256": "d0e979205b5854f17bdb203293370c79c999fa43fda79d72d68c8117884d07a2",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/manifest.json",
+      "gitBlob": "130c73d0c129a80d85b963790069990c8101da39",
+      "sha256": "a284a42df9b29ad7e50392ac8cee19d72cf3678363295ddc8de2bea2dd05df2e",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node22-emitted.json",
+      "gitBlob": "024bb23951969250bc0489b8bd553bbbc69c6d8c",
+      "sha256": "bb670f760b790d222444c73a531b60fcbaec573da4900b1c9d27122cf34a780d",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node22-emitted.log",
+      "gitBlob": "980fce708d5aa47ef516b01ae6ea3a9f9881957e",
+      "sha256": "ed0333b5e81f57bddad313f7843db842b1b37d4b118512b1ca3b403c03e42331",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node22-original-data.json",
+      "gitBlob": "bfc1b0d8a99ba5cf10d0b8ac7c78833a21c023d5",
+      "sha256": "b4430a1fc02c7a02d59cf92d37c89cc52dd0e704f1d0ab7d760e7b78464c88db",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node22-original-outcome.json",
+      "gitBlob": "4abd597c7873f3bb9d0323065f60316e889e5c85",
+      "sha256": "6ec1e2ad7d31b0b2dac765e5d66d25d1bbc9bb2acb3d2b81b886475a66c091a4",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node22-source.json",
+      "gitBlob": "e3faf8d87cea95f492b1c26e33b379af3cafee7a",
+      "sha256": "fb941e627ccd62ec066676b403b647268b3e617abfc6ab333f97dc7415875aec",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node22-source.log",
+      "gitBlob": "33dd26c2353f964524296de95a1b11cae5969382",
+      "sha256": "1788757aef8dd41386fe0fb66ef1e9cda959089255f5e0bd87ee55c12038009b",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node24-emitted.json",
+      "gitBlob": "ee6fa127c336fda13fc68107d3abd62d47fa686d",
+      "sha256": "262554acf99ad1eb7ff5cfa396ba6e412b39b9946b5f774ee4de30c8db2fd5a1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node24-emitted.log",
+      "gitBlob": "6fbaff7ffc1b2b18af05553a24d661ac909f25be",
+      "sha256": "851040a595eb137d8035ce1c80f09801fd797dbbe3b1033056b729dd9dda0756",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node24-original-data.json",
+      "gitBlob": "ed74a5c478639177604850a2293f5da4bd079caa",
+      "sha256": "2ad768e179b25c82f65ddea75f29dcfdc2847eadd3e359646d5566c5dd85bee8",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node24-original-outcome.json",
+      "gitBlob": "610decb8571d866fab781b5b3a52a2320d0f336b",
+      "sha256": "d1f32620fdc93a5318a46e53f6e04b94d13a7974c404a28aa6c108bb9aa91af1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node24-source.json",
+      "gitBlob": "8cd73e93742e22ef4abfb29b53c349ff0508c22c",
+      "sha256": "9aa9a735cc891f8bad2a419a016b7e4a109be415efda7b71108e4ca20776398c",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node24-source.log",
+      "gitBlob": "6dca32ba9a0ab914546ac46d337404465f920c30",
+      "sha256": "cc7056c131aebe8569974fed66a4e5f6dbdc896f250da39aecaadb16673b0c1f",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node26-emitted.json",
+      "gitBlob": "3af531a584face376ca2b1646a81aa304894e57a",
+      "sha256": "a5a85398a911139e262bd4ff1a92beea3063a8815688c8da9d5ee9a829c7c1e9",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node26-emitted.log",
+      "gitBlob": "6657d3b5ea40e07c33a88e1c53fb67c5c28070e9",
+      "sha256": "67d561620cb940602a3483c3d98b186f5b93a3a093cf2fb621c02d5f3dc17ddf",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node26-original-data.json",
+      "gitBlob": "de89024c1092d25856b84293871b0654b633684e",
+      "sha256": "52b73cccbb2b8b5b0a093744d8f4b95ff8907f6eafb80306ebf7f39a47723fa9",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node26-original-outcome.json",
+      "gitBlob": "a59ea780145ae5d16a1936db05195690ba0454fb",
+      "sha256": "00bd151ed18a78b2a1829860f475c9f01f794956a0d4a893c615ba297fbb82ef",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node26-source.json",
+      "gitBlob": "6feb3428d619969a63e3f1774aeff0724def8fdf",
+      "sha256": "25e00adeacb9b3725bc8928d4b23db188c3fa086c3df039a06ed0c0317a70178",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/node26-source.log",
+      "gitBlob": "3a508d1762f9d312463b05c4f6f08f23dae68eca",
+      "sha256": "d4dd9190b29571b32681b9ca777531c9047267bf6e710e2d6667cead6db099d1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/original-native-outcome-browser.json",
+      "gitBlob": "51dfc2d73c4e9e8a7c748b3bdce6585d929ac2ec",
+      "sha256": "30837abd794db9ae10dd1f1d68a577890fef5fa0fc31f86cdd405f7e3d38fd06",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/original-p4-data-browser.json",
+      "gitBlob": "37cd603f350a837da508d630f126400745b89903",
+      "sha256": "535a7a01100d7b4c238c8f6f665013e6863a1d58624ba6091b739a31c7ceda83",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/run.py",
+      "gitBlob": "d58cedf9efd079367a29299df86ead50e5096ae8",
+      "sha256": "0c13f3e0a6bb12877018006c063c7db70b921b0193fb42b8f2f40187a876df3d",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/runs.json",
+      "gitBlob": "0fe347a5b4864e9f10a3c56a80dc62a08e051d51",
+      "sha256": "37c003148c717e1e3d7bdb7c08a1745411bf79127157a9ef15045268957f4139",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/source-copies.json",
+      "gitBlob": "b9e24c04bc44b8dcfaa7f13954aa1797c32fe702",
+      "sha256": "2856403813a09d8b0338fbfa927f2913dd38efcedc5fb6d13eb3f25e24affe1c",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-27-cases/verification.json",
+      "gitBlob": "d845f944f70297a2e310e88a45e102815e5e352a",
+      "sha256": "eb62bada67c1207ccd89d59be2440d4e3b611355f1d3eaa3e74dd60bd6b05fa4",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-boundary-final.log",
+      "gitBlob": "0aefe503ab4886e2a61735ce710ec3de1b90cd99",
+      "sha256": "1d93c5acaae3a4a72e26d8a66fa572627289bf987c9117fea70e122702d31168",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix-complete.log",
+      "gitBlob": "0aefe503ab4886e2a61735ce710ec3de1b90cd99",
+      "sha256": "1d93c5acaae3a4a72e26d8a66fa572627289bf987c9117fea70e122702d31168",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/matrix.log",
+      "gitBlob": "0aefe503ab4886e2a61735ce710ec3de1b90cd99",
+      "sha256": "1d93c5acaae3a4a72e26d8a66fa572627289bf987c9117fea70e122702d31168",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/npm-ci-pds.log",
+      "gitBlob": "c6861dcf960794ceacf97e65e65899feaca8c59d",
+      "sha256": "142801080da4f5bc78e51be8e1dd2c39845e2a676c46d4fb12d1ccdd189a7bb1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/npm-ci.log",
+      "gitBlob": "1933b376278338c990a854516c40892905e44afd",
+      "sha256": "3d4eacfb0aebeca0a7343a4a2ddef6037f77ef0caf252133aae24f3eaea74c8e",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/oracle-reproduction.log",
+      "gitBlob": "e686d35c5c5bce6d4c61adc1f67ec3dca547fad0",
+      "sha256": "d2024dabb0526d596cc53cfefe8ccf57c59ede30133f4bf204c124f529889e54",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/oracle.log",
+      "gitBlob": "e686d35c5c5bce6d4c61adc1f67ec3dca547fad0",
+      "sha256": "d2024dabb0526d596cc53cfefe8ccf57c59ede30133f4bf204c124f529889e54",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/test-initial.log",
+      "gitBlob": "347f28a97f45c35b7b6d9c231910dff46bbd7fd5",
+      "sha256": "fffad7196181df03c23b5b42cbae98217c2f3e36cd24eaf0a1b841fbac332b0b",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attempts/test-second.log",
+      "gitBlob": "5b164e0c1d6e7f0ed568faaba2d06d728cbd8b16",
+      "sha256": "dcdcd5bce35614a3997e3dc39240bbc5291fd5e086be821182bf243b3a580127",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/attribution.json",
+      "gitBlob": "ad09f0c12e67172ea8b4cba6020ebe837ed538f4",
+      "sha256": "3be2be81543742b583b89680f2810c59551c167ead097d9322cf4fe1ec21f2e3",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/build-provenance.json",
+      "gitBlob": "958505dfe478dbcc39b57b59829d6cf8dc09ba3a",
+      "sha256": "777c8473b9c89e07e56365affa502425d3377773fb55a950b4163183ecd235fe",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/check-packet.py",
+      "gitBlob": "979bc648747c04a7477e5edd0ec885b576cfb7ea",
+      "sha256": "71ec505db50fc49974424cb03b78b695a21a785cf174f354ad4c8bad93f76881",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/chromium-bundle.js.gz",
+      "gitBlob": "76f1a2240683572d836a3b98e44ba6f7d73c8a54",
+      "sha256": "7de335093c1cd2809e39af8ca3d40204db8d5a8dfa794e20b91707d9a3957ba1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/chromium.json",
+      "gitBlob": "a8e6aff1409d2a4f18fc6901ce2a4936b66d9d3a",
+      "sha256": "b4806f2fc5f66d4410e6a20079f2586092ab0782682eccb20548f7140ed2b366",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/chromium.log",
+      "gitBlob": "946a89468ef6a1d54ea73b9c8e3b7cac7dba159c",
+      "sha256": "881f89988adbac8bff30712ac4bee76a968fa55151f0fac1c5c63d66969029c5",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/compiler-tool-files.json",
+      "gitBlob": "b8c01f0700afc7b239f98b03e7e8d347ac1c7f26",
+      "sha256": "31e6d1c3a3eab94cb41deed44d2d42b0037503449dab6c6ab2b059100518de25",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/coverage.json",
+      "gitBlob": "bd7f1cf412099530094a839940b30eaac735b883",
+      "sha256": "f661bd4f34361c6abcc0de442d8b78892788f1dbd5c8ea50e7e65f01d3cc07ac",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/execution-inputs.json",
+      "gitBlob": "db1dc082aa10f36c09a1acbd67c423b8f512fdd8",
+      "sha256": "d0af9cccf6e3322e90ea65621c0e0b2eb58d252f6210af6e437a13165ea42be4",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/independent-input.json.gz",
+      "gitBlob": "4ab7104bdf2b9b68a7149b49c834083f9a3f65bb",
+      "sha256": "1035a750dd0b9aa4341fe736440f35dc59f55b07bafd620275e77f52b306fee9",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/adopted-source-0.md",
+      "gitBlob": "05d3da7a5649d26361a8859051dbb20405dc8ade",
+      "sha256": "1b545a9b136f88c4cb7d58e49f689c94b5ca997bb4fab90335c82a85d4432969",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/adopted-source-1.json",
+      "gitBlob": "28d33bc8671f1c98fdd3a0680eb0fc08b2bd168c",
+      "sha256": "5092e82fae22d446304a74428e1ce779709903240bdfd99e0f3dae791b82915a",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/adopted-source-2.md",
+      "gitBlob": "5522d763b5e8adf8b0faf81b7befceaabbab9f39",
+      "sha256": "e6d31d963dccb84ce0b1de4cc4d05c486cefa794ad42698d8c268d42cccd7a9e",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/effective-request.json",
+      "gitBlob": "4e42dd7342ff100fc0df362c1a9d048dbba0ce9a",
+      "sha256": "1d3ebc6537e006ff805278bba438eefc46472986d7dccf501a377245c9d81361",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-decisions-and-gaps.json",
+      "gitBlob": "9a3d22006c18d79224953bd5c2cd0b81c680134e",
+      "sha256": "8b7c2fe8bae97faa003e78b0bff99bb64af80e33bf54a1a6377fa22f049efdeb",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-obligation-coverage.json",
+      "gitBlob": "fe397221de442eaec091ba9263bccc6d817f7821",
+      "sha256": "d1f1900c5f475acac8aa8d1f9cfbca0e6fe4873440908ceb9b4a4a0bb03d9984",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-original-requests.json",
+      "gitBlob": "8e37f506378fd868f3d7f43f24026a9c9ff561c5",
+      "sha256": "5494708287397aa9c67623a31ed5a300e47d35b778296818e5b775b149bc5795",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-source-pins.json",
+      "gitBlob": "86c5dc85b8b318f1de8c544909618e31f637ab55",
+      "sha256": "f2f34447706a204f4f85d8f0ea839aecd2c77b6f2e4a83fd057bf37efee3a710",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-vector-coverage.json",
+      "gitBlob": "91eada7e814d8ac9d5efdeb4e60e650273c1b426",
+      "sha256": "287139eb4377646a01d9741a6724e74306748a58c17c4755c7d181bc42aee994",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-vectors.json",
+      "gitBlob": "aa21f3795e4a2711a020ec440ae990a42322c110",
+      "sha256": "ad558ffe7cd5d211bce6357306aef417de8110a39ac3faafc6782e0e13a8a105",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/installed-runtime.json.gz",
+      "gitBlob": "184f881dce75ad625c197ef69fff348e0db02366",
+      "sha256": "d0e979205b5854f17bdb203293370c79c999fa43fda79d72d68c8117884d07a2",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/manifest.json",
+      "gitBlob": "3794a928d6dd8a62c56cdd42fda55b119d8706ff",
+      "sha256": "70a3e24c58faf06aa69978bdf11cdf19a5e68ff03a0751f68a786ab36da82748",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node22-emitted.json",
+      "gitBlob": "fa9067b753700e7d5a85f1daeef7fc9afb23f40d",
+      "sha256": "a85dfe679898985058841a90039f717dcb99ef61bfbb904642cc846d6411ee51",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node22-emitted.log",
+      "gitBlob": "823678d28b2abe7e5a94ecfc24b0f6f05eec3af0",
+      "sha256": "d7289894e60690742868e7fc18e15871b9e2842b2fc09ffe6cf63294230094fb",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node22-original-data.json",
+      "gitBlob": "bfc1b0d8a99ba5cf10d0b8ac7c78833a21c023d5",
+      "sha256": "b4430a1fc02c7a02d59cf92d37c89cc52dd0e704f1d0ab7d760e7b78464c88db",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node22-original-outcome.json",
+      "gitBlob": "4abd597c7873f3bb9d0323065f60316e889e5c85",
+      "sha256": "6ec1e2ad7d31b0b2dac765e5d66d25d1bbc9bb2acb3d2b81b886475a66c091a4",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node22-source.json",
+      "gitBlob": "b19f019c0ecbc9b3b4d346aec0d639e5c9fd2b95",
+      "sha256": "2af0a0f6bf03e232d729e5a4fcc859d6c882f6cdbfced1dc82fbe6acfc23be5f",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node22-source.log",
+      "gitBlob": "e04f46f8579d1abae07611ad1e6c36671cd863cf",
+      "sha256": "3570289e0308e56cfd9505f2192141e8f3c51d1ca9fc6c065c9a1cbc8d91ede0",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node24-emitted.json",
+      "gitBlob": "ac45bb2d6577971f4ad3786e634f2e5015961c10",
+      "sha256": "f2363e66e68e64acb1d78c36511bd142e58a056d075ccc0aee1992c744294242",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node24-emitted.log",
+      "gitBlob": "e95a76fa4888c92e101b34045ac78ec7cbd48e33",
+      "sha256": "00e9935122475a2c2c5291fa8339c7270ffd0c6f5b6dc338c739982233a003b6",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node24-original-data.json",
+      "gitBlob": "ed74a5c478639177604850a2293f5da4bd079caa",
+      "sha256": "2ad768e179b25c82f65ddea75f29dcfdc2847eadd3e359646d5566c5dd85bee8",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node24-original-outcome.json",
+      "gitBlob": "610decb8571d866fab781b5b3a52a2320d0f336b",
+      "sha256": "d1f32620fdc93a5318a46e53f6e04b94d13a7974c404a28aa6c108bb9aa91af1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node24-source.json",
+      "gitBlob": "bd7dc2f187f6385bf3b21bb2305998b181fbd348",
+      "sha256": "2f2073c6e1bee69da99d4dc460aaf729400e7c8dca3ce9bc02d9e3e2995b6bc7",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node24-source.log",
+      "gitBlob": "a3c35b60cc40d0ac06235296b863db45e2dbe5b5",
+      "sha256": "29731279d101c83dda5242f2a9c5863a54ced0cd781770c7bcf96dcdb07e90d8",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node26-emitted.json",
+      "gitBlob": "148d01f55f6d354ead216457a0e2fd0dfc057ca6",
+      "sha256": "1b268ba70f6b7b731703a814d5520b4424a326a4a14a54d20d6d92a08526b404",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node26-emitted.log",
+      "gitBlob": "553a5b5bddc1b779b1a285d56a8123ff47ae1789",
+      "sha256": "22cd5ac24d96b947fb0274041369ba69b48b084e28faf2112480c14aa1ca5ab3",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node26-original-data.json",
+      "gitBlob": "de89024c1092d25856b84293871b0654b633684e",
+      "sha256": "52b73cccbb2b8b5b0a093744d8f4b95ff8907f6eafb80306ebf7f39a47723fa9",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node26-original-outcome.json",
+      "gitBlob": "a59ea780145ae5d16a1936db05195690ba0454fb",
+      "sha256": "00bd151ed18a78b2a1829860f475c9f01f794956a0d4a893c615ba297fbb82ef",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node26-source.json",
+      "gitBlob": "ede9939500521e7cf18603bb311200ffea95b64b",
+      "sha256": "a2c454f55585d741fb5cd82587894859f3fa52cb36182d0b7e7aa1dd35bef943",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/node26-source.log",
+      "gitBlob": "a36e18248dbb85726ce11834d366ddd088968ac6",
+      "sha256": "c49b94bd33f8e47b8b337f0ac8ffda8190f6147a33f9f251213702629ed6a618",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/original-native-outcome-browser.json",
+      "gitBlob": "51dfc2d73c4e9e8a7c748b3bdce6585d929ac2ec",
+      "sha256": "30837abd794db9ae10dd1f1d68a577890fef5fa0fc31f86cdd405f7e3d38fd06",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/original-p4-data-browser.json",
+      "gitBlob": "37cd603f350a837da508d630f126400745b89903",
+      "sha256": "535a7a01100d7b4c238c8f6f665013e6863a1d58624ba6091b739a31c7ceda83",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/run.py",
+      "gitBlob": "d58cedf9efd079367a29299df86ead50e5096ae8",
+      "sha256": "0c13f3e0a6bb12877018006c063c7db70b921b0193fb42b8f2f40187a876df3d",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/runs.json",
+      "gitBlob": "6cd6fbaf035c57821fbb15df5a8f628196a03e9a",
+      "sha256": "00a6d13adaa01432d0919bccb8036a468bb8640d6fc7feb116c9f25097ee3ab1",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/source-copies.json",
+      "gitBlob": "b9e24c04bc44b8dcfaa7f13954aa1797c32fe702",
+      "sha256": "2856403813a09d8b0338fbfa927f2913dd38efcedc5fb6d13eb3f25e24affe1c",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/verification.json",
+      "gitBlob": "3dc7d2b7b38f8ca4b67e97eaf0e69402abe5dcd9",
+      "sha256": "2ba71a306eaf29f964e3020c1941ac2d66d54f5e5223f94dca2ed085037ed10a",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "notes/2026-10-02-atseq-native-checkpoint-producer-results.md",
+      "gitBlob": "0d21c43e810d40a45facef706ee00ad1b9bf2947",
+      "sha256": "a197d6561211e63ceb9bdd645008c5fee95d384f7731ddc44b91124672f3870a",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "src/protocol/checkpoint-data.ts",
+      "gitBlob": "ebddde21822f04f1bb292bff6627f7557304ffaf",
+      "sha256": "1ce5b2f7490d53d89ddc499b730ada9a73d1ffcfaab96d0bb66608b300b0388d",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "src/protocol/native-checkpoint-producer.ts",
+      "gitBlob": "8302b0117d79b2d76bd09c531173b41e8af3a560",
+      "sha256": "3c8fb6753fe471ddab2e7afe9b6b59ef355aac904353970cf358f611bcede4a4",
+      "unchangedInSuccessor": false
+    },
+    {
+      "path": "tests/native-checkpoint-producer-browser.test.ts",
+      "gitBlob": "3eb60a457c52197a77b2de2b9a4350fce70387c4",
+      "sha256": "bd92a5094f5e3ebda604bfb9ddea23bcc34bff3c604d7ae2fc48e9cae6537ecc",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "tests/native-checkpoint-producer.test.ts",
+      "gitBlob": "85c52a3d9345d7dd314af1ed5076baa06bff1e83",
+      "sha256": "775179c59750bcd4d271ca35493ea3fff5fb54223efb2eebe62cd0949b7f3e1a",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "tests/support/native-checkpoint-producer-browser.ts",
+      "gitBlob": "7a841a5d82b37f685ad3d08056c9425f02b9107f",
+      "sha256": "3f92fbf281f1fc7af429423cac0bb54e0306dafb3a9d89e404af7c614a5d1e40",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "tests/support/native-checkpoint-producer-corpus.ts",
+      "gitBlob": "7c2da443c64771775460673725532c792e8413b9",
+      "sha256": "593e761df5116b5094fe1a2c167e6ce3042273555c814f59caf7c124c4ba5bbf",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "tests/support/native-checkpoint-producer-emitted.mjs",
+      "gitBlob": "1e98f39ea296f435f6a324f37befb90c94ad5d55",
+      "sha256": "ac3a46006ea611f752aafc59a1971be58f806867bb09ef053b273e0173ae5b3a",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "tests/support/native-checkpoint-producer-input.ts",
+      "gitBlob": "c1ceb13f74c09a22773dfe049c97b82d2c14f552",
+      "sha256": "c3731b6e3baa9d2a3e474200b9929c27fb4b5634454e7e125465f2f02b9ee408",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "tests/support/native-checkpoint-producer-oracle.mjs",
+      "gitBlob": "0a6d3d9b77f4758b9ecbdf34f56ba934c41d95c5",
+      "sha256": "201f7695110136d430ffc8854afa3dfa238a5ae8a2c07e96a5a220decbbd3f57",
+      "unchangedInSuccessor": true
+    },
+    {
+      "path": "tests/vectors/native-checkpoint-producer.json",
+      "gitBlob": "2da2dc8e0a742d12d821cf414a5ac2d64b0200fc",
+      "sha256": "a7a90dd8e4c20bfd8b3b1206fb6c056b1cadbd8f6c0ef4c98f6f117fcca0ce23",
+      "unchangedInSuccessor": true
+    }
+  ],
+  "sourceCopy": "inputs/predecessor-producer.ts",
+  "originalFrozenWorktreeUntouched": true
+}

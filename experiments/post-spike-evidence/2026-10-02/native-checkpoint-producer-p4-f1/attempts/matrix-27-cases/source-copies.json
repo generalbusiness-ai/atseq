@@ -1,0 +1,55 @@
+[
+  {
+    "source": "/private/tmp/atseq-p3-p4-implementation-handoff-20261002/original-requests.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-original-requests.json",
+    "sha256": "5494708287397aa9c67623a31ed5a300e47d35b778296818e5b775b149bc5795"
+  },
+  {
+    "source": "/private/tmp/atseq-p3-p4-implementation-handoff-20261002/vectors.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-vectors.json",
+    "sha256": "ad558ffe7cd5d211bce6357306aef417de8110a39ac3faafc6782e0e13a8a105"
+  },
+  {
+    "source": "/private/tmp/atseq-p3-p4-implementation-handoff-20261002/vector-coverage.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-vector-coverage.json",
+    "sha256": "287139eb4377646a01d9741a6724e74306748a58c17c4755c7d181bc42aee994"
+  },
+  {
+    "source": "/private/tmp/atseq-p3-p4-implementation-handoff-20261002/obligation-coverage.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-obligation-coverage.json",
+    "sha256": "d1f1900c5f475acac8aa8d1f9cfbca0e6fe4873440908ceb9b4a4a0bb03d9984"
+  },
+  {
+    "source": "/private/tmp/atseq-p3-p4-implementation-handoff-20261002/decisions-and-gaps.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-decisions-and-gaps.json",
+    "sha256": "8b7c2fe8bae97faa003e78b0bff99bb64af80e33bf54a1a6377fa22f049efdeb"
+  },
+  {
+    "source": "/private/tmp/atseq-p3-p4-implementation-handoff-20261002/source-pins.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/handoff-source-pins.json",
+    "sha256": "f2f34447706a204f4f85d8f0ea839aecd2c77b6f2e4a83fd057bf37efee3a710"
+  },
+  {
+    "source": "/private/tmp/atseq-p3-p4-task-publication-20261002/P4-F1.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/effective-request.json",
+    "sha256": "1d3ebc6537e006ff805278bba438eefc46472986d7dccf501a377245c9d81361"
+  },
+  {
+    "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+    "sourcePath": "notes/2026-10-02-atseq-materialization-checkpoint-bridge-clarification.md",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/adopted-source-0.md",
+    "sha256": "1b545a9b136f88c4cb7d58e49f689c94b5ca997bb4fab90335c82a85d4432969"
+  },
+  {
+    "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+    "sourcePath": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p4/contract.json",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/adopted-source-1.json",
+    "sha256": "5092e82fae22d446304a74428e1ce779709903240bdfd99e0f3dae791b82915a"
+  },
+  {
+    "commit": "06881c532f81e23f23da9b91498ab8e559c17fa5",
+    "sourcePath": "experiments/post-spike-evidence/2026-10-02/materialization-checkpoint-j1/inputs/p4/2026-10-02-atseq-checkpoint-joined-design.md",
+    "path": "experiments/post-spike-evidence/2026-10-02/native-checkpoint-producer-p4-f1/inputs/adopted-source-2.md",
+    "sha256": "e6d31d963dccb84ce0b1de4cc4d05c486cefa794ad42698d8c268d42cccd7a9e"
+  }
+]

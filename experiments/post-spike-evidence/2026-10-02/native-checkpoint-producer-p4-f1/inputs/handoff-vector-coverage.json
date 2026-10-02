@@ -1,0 +1,663 @@
+{
+  "status": "SOURCE preparation only; runtime UNEXECUTED",
+  "total": 106,
+  "counts": {
+    "P3": 39,
+    "P4": 44,
+    "J1": 23
+  },
+  "mapping": [
+    {
+      "key": "P3/M1",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [
+        "P3-F2"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/M2",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/M3",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/M4",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/M5",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [
+        "P3-F2"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/M6",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [
+        "P4-F8"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/I1",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/I2",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/I3",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/I4",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/I5",
+      "primaryTask": "P3-F2",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/I6",
+      "primaryTask": "P3-F2",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/I7",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [
+        "P3-F2"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/E1",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/E2",
+      "primaryTask": "P3-D5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/E3",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R1",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R2",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R3",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R4",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R5",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R6",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R7",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R8",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/R9",
+      "primaryTask": "P3-F2",
+      "regressionTasks": [
+        "P4-F8"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D1",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D2",
+      "primaryTask": "P3-F2",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D3",
+      "primaryTask": "P3-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D4",
+      "primaryTask": "P3-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D5",
+      "primaryTask": "P3-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D6",
+      "primaryTask": "P3-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D7",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [
+        "P3-F2"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D8",
+      "primaryTask": "P3-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D9",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [
+        "P3-F2"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/D10",
+      "primaryTask": "P3-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/F1",
+      "primaryTask": "P4-F7",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/F2",
+      "primaryTask": "P4-F8",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/E4",
+      "primaryTask": "P3-D5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P3/E5",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-01",
+      "primaryTask": "P4-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-02",
+      "primaryTask": "P4-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-03",
+      "primaryTask": "P4-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-04",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-05",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-06",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-07",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-08",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-09",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-10",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-11",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-12",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-13",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-14",
+      "primaryTask": "P4-D5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-15",
+      "primaryTask": "P4-D5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-16",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-17",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-18",
+      "primaryTask": "P4-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-19",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-20",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-21",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-22",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-23",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-24",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-25",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-26",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-27",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-28",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-29",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-30",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-31",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-32",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-33",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-34",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-35",
+      "primaryTask": "P4-F7",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-36",
+      "primaryTask": "P4-F7",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-37",
+      "primaryTask": "P4-F5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-38",
+      "primaryTask": "P4-F7",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-39",
+      "primaryTask": "P4-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-40",
+      "primaryTask": "P4-F2",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-41",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-42",
+      "primaryTask": "P4-F7",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-43",
+      "primaryTask": "P4-F8",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "P4/P4D4-44",
+      "primaryTask": "P4-F7",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-01",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-02",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [
+        "P4-F8"
+      ],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-03",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-04",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-05",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-06",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-07",
+      "primaryTask": "P4-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-08",
+      "primaryTask": "P4-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-09",
+      "primaryTask": "P4-F3",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-10",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-11",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-12",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-13",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-14",
+      "primaryTask": "P4-D5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-15",
+      "primaryTask": "P4-F6",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-16",
+      "primaryTask": "P4-F5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-17",
+      "primaryTask": "P4-F5",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-18",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-19",
+      "primaryTask": "P4-F4",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-20",
+      "primaryTask": "P4-F2",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-21",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-22",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    },
+    {
+      "key": "J1/J1-23",
+      "primaryTask": "P3-F1",
+      "regressionTasks": [],
+      "execution": "UNEXECUTED"
+    }
+  ]
+}
